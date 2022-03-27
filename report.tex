@@ -1,0 +1,72 @@
+\documentclass[a4paper, 11pt, twoside, openright, italian]{memoir}
+
+\usepackage{preamble/mypreamble}
+% TO DO: environment o altro per indicare "è extra, non serve nulla"
+
+% SVN info for this file
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
+\includeonly{%
+  introduction/titlepage,
+  introduction/introduction,
+  introduction/toc,
+  chapters/chap1,
+  chapters/chap2,
+  chapters/chap3,
+  chapters/chap4,
+  chapters/chap5,
+  chapters/chap6,
+  chapters/chap7,
+  chapters/chap8,
+  chapters/chap9,
+  appendix/differentialcalculus,
+  appendix/settheory,
+  appendix/footnotes,
+  appendix/prop,
+  appendix/list,
+  appendix/ringraziaments,  
+  appendix/bibliography,
+}
+
+\makeindex
+\begin{document}
+
+\frontmatter
+\include{introduction/titlepage}
+\include{introduction/introduction}
+\include{introduction/toc}
+
+\mainmatter
+
+\part{Elettricità}
+\labelPart{first}
+\include{chapters/chap1}
+\include{chapters/chap2}
+\include{chapters/chap3}
+%\include{chapters/chap4}
+%\part{Elettrodinamica}
+%\labelPart{second}
+%\include{chapters/chap5}
+%\include{chapters/chap6}
+%\part{Magnetismo}
+%\labelPart{second}
+%\include{chapters/chap7}
+%\include{chapters/chap8}
+%\include{chapters/chap9}
+%\appendix
+\part{Postille al nome della rosa}
+\labelPart{appendix}
+\include{appendix/differentialcalculus}
+%\include{appendix/settheory}
+%\include{appendix/footnotes}
+%\include{appendix/prop}
+%\include{appendix/list}
+%\include{appendix/ringraziaments}
+%\backmatter
+%\include{appendix/bibliography}
+
+\end{document}

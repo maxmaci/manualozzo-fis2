@@ -1,0 +1,263 @@
+% SVN info for this file
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
+\chapter{Il flusso di un campo}
+\labelChapter{convergenzafunzioni}
+
+\begin{introduction}
+	‘‘La situazione si complica. Ora, ce ne sono due di loro!''
+	\begin{flushright}
+		\textsc{Nute Gunray,} scoprendo la convergenza puntuale dopo quella uniforme. % TO DO: quote
+	\end{flushright}
+\end{introduction}
+\lettrine[findent=1pt, nindent=0pt]{P}{er}  % TO DO: intro
+\section{Flusso di un campo vettoriale}
+% TO DO: concezione intuitiva di flusso
+\begin{define}[Flusso di un campo vettoriale]
+	Il \textbf{flusso di un campo vettoriale attraverso una superficie orientata} $\Sigma$, parametrizzata da una funzione $\vba{r}(u,v)$, è
+	\begin{equation}
+		\Phi_{\Sigma}\left(\vba{E}\right)=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma}\vba{E}\vdot\frac{\partial \vba{r}}{\partial u}\cross\frac{\partial \vba{r}}{\partial v}dudv
+	\end{equation}
+\end{define}
+\begin{intuit}
+	Se descriviamo la corrente di un fluido come l'acqua con un campo vettoriale $\vba{F}$, il flusso di $\vba{F}$ rappresenta \textit{quanto fluido} passa \textit{attraverso} una certa superficie per unità di tempo (anche se quest'ultima viene spesso sottointesa).\\
+	Con questa interpretazione euristica si può capire anche perché l'integrale presenta nella definizione un \textit{prodotto scalare}: se l'acqua scorre perpendicolarmente alla superficie, molta acqua passerà e il flusso sarà dunque grande; al contrario, se il fluido scorre parallelamente alla superficie l'acqua non l'attraverserà mai e quindi il flusso è nullo. In altre parole, ciò che influisce sul flusso è la componente del flusso perpendicolare alla superficie!
+\end{intuit}
+Matematicamente parlando, il flusso non è altro che un tipo di integrale superficiale di un campo vettoriale. % TO DO: link ai richiami.\\
+
+Come abbiamo detto, la superficie deve essere \textbf{orientabile}: detto in una maniera suggestiva, intuitiva ma non formale come farebbero i fisici, una superficie con due \textit{facce distinte} e due \textit{orientazioni} possibili che corrispondono alla scelta di un \textit{campo normale} che punta sempre dalla parte di una delle facce.\\ In particolare, la superficie deve essere effettivamente orientata, ossia si deve scegliere uno dei campi normali in modo da definire quando il flusso è positivo e quando è negativo. Generalmente, per convenzione si impone che il \textbf{flusso positivo esce dalla superficie} e che il flusso negativo entra nella superficie; in altre parole, è convenzione prendere il vettore normale orientato verso l'\textit{esterno}: il flusso positivo si avrà quando la componente perpendicolare del campo vettoriale $\vba{E}$ e il vettore normale saranno \textit{concordi} e quindi quando $\vba{E}$ è anch'esso uscente.
+\begin{observe} % TO DO: confrontare mazzoldi e note docente, riformulare che non è molto chiaro
+	Data una superficie chiusa $\Sigma$, tracciamo una curva chiusa $\gamma$ su di essa; possiamo scindere $\Sigma$ in due sottosuperfici $\Sigma_1$ e $\Sigma_2$ che hanno in comune una superficie $\Sigma_{1,2}$ delimitata da $\gamma$.
+	Il flusso per linearità di scinde in
+	\begin{equation*}
+		\Phi_{\Sigma}=\Phi_{\Sigma_1}+\Phi_{\Sigma_2}
+	\end{equation*}
+	In realtà, il flusso non è influenzato da quale sia la superficie  $\Sigma_{1,2}$: infatti, per uno dei sottoflussi il contribuito dato da $ \Sigma_{1,2}$ sarà negativo perché il campo è entrante, ma per l'altro sottoflusso sarà positivo perché il campo è uscente.
+	\begin{equation*}
+		\Phi_{\Sigma}=\Phi_{\Sigma_1}+\Phi_{\Sigma_2}=\Phi_{\Sigma_1-\Sigma_{1,2}}+\Phi_{\Sigma_{1,2}}+\Phi_{\Sigma_2-\Sigma_{1,2}}-\Phi_{\Sigma_{1,2}}=\Phi_{\Sigma_1-\Sigma_{1,2}}+\Phi_{\Sigma_2-\Sigma_{1,2}}
+	\end{equation*}
+\end{observe}
+\section{Legge di Gauss}
+% https://mathinsight.org/surface_integral_vector_field_introduction4
+% http://sites.science.oregonstate.edu/math/home/programs/undergrad/CalculusQuestStudyGuides/vcalc/flux/flux.html
+% https://mathinsight.org/vector_field_fluid_flow
+% https://tutorial.math.lamar.edu/classes/calciii/SurfIntVectorField.aspx
+\begin{theorema}
+	Il flusso del campo elettrostatico $\vba{E}$ attraverso un superficie \textit{chiusa} è eguale alla somma algebrica (\textrm{o nel caso di una distribuzione continua}, dell'integrale) delle cariche contenute all'\textbf{interno} della superficie, comunque siano distribuite, divisa per $\epsilon_0$.
+	\begin{itemize}
+		\item \textbf{Caso discreto:}
+		\begin{equation}
+			\Phi_\Sigma\left(\vba{E}\right)=\frac{\left(\sum_i q_i\right)_{int}}{\epsilon_0}\label{LeggeGaussDiscreta}
+		\end{equation}
+		\item \textbf{Caso continuo:}
+		\begin{equation}
+			\Phi_\Sigma\left(\vba{E}\right)=\frac{1}{\epsilon_0}\int_{V}\rho\left(x,y,z\right)dV\qquad\text{tale che}\ \partial V=\Sigma\label{LeggeGaussContinua}
+		\end{equation}
+	\end{itemize}
+\end{theorema}
+Lo dimostreremo per una \textit{singola} carica contenuta nella superficie - dato che il caso per molteplici cariche e per una distribuzione continua seguono praticamente immediatamente - ma prima di farlo in modo formale, vediamo una derivazione più ‘‘fisica''.
+\paragraph{Angolo solido}
+Per far ciò, ci servirà la nozione di \textit{angolo solido}.
+\begin{define}[Angolo solido]
+	L'\textbf{angolo solido} è una generalizzazione a tre dimensioni dell'angolo piano e dà una misura della parte di spazio compresa entro un fascio di semirette uscenti intorno ad un punto $P$. In termini matematici, esso è definito come l'area sulla sfera unitaria intorno a $P$ individuata dalla superficie (finita) $\Sigma$:
+	\begin{equation}
+		\Omega=\int d\Omega =\int \frac{d\Sigma_0}{r^2}=\int\frac{cos\theta d\Sigma}{r^2}
+	\end{equation}
+	dove
+	\begin{itemize}
+		\item $d\Omega$ è l'angolo solido infinitesimo.
+		\item $d\Sigma:0$ è la \textit{proiezione ortogonale} al raggio dell'elemento infinitesimo di superficie $d\Sigma$.
+		\item $\theta$ è l'\textit{angolo polare} delle coordinate sferiche.
+	\end{itemize}
+% https://tutorial.math.lamar.edu/classes/calciii/SurfIntVectorField.aspx
+% https://betterexplained.com/articles/flux/
+\end{define}
+Poiché $d\Sigma_0$ è un elemento infinitesimo della calotta sferica, data una parametrizzazione in coordinate sferiche vale
+\begin{equation*}
+	d\Sigma_0=r^2\sin\theta d\theta d\phi
+\end{equation*}
+da cui segue che
+\begin{equation}
+	d\Sigma=\sin\theta d\theta d\phi
+\end{equation}
+Integrando $\theta$ da $0$ a $\pi$ e $\phi$ da $0$ a $2\pi$, si ottiene l'angolo solido sotto cui dal centro $P$ è vista tutta la superficie:
+\begin{equation}
+	\Omega=\int d\Omega=\int_0^{2\pi}d\phi\int_0^\pi d\theta\sin\theta=4\pi
+\end{equation}
+Questo risultato è valido per una qualunque superficie \textit{chiusa} che racchiuda $P$ - e ne corrisponde al valore massimo dell'angolo solido.\\
+L'unità di misura dell'angolo solido è lo \textbf{steradiante}\index{steradiante} ($\ $).
+\paragraph{Derivazione fisica della legge di Gauss}
+Dato il campo di Coulomb $\vba{E}$ generato dalla carica $q$, vogliamo determinare l'elemento di flusso infinitesimo $d\Phi\left(\vba{E}\right)$, ossia il flusso tramite l'elemento d'area infinitesimo $d\Sigma$.
+
+Innanzitutto, si noti che l'angolo tra il versore radiale $\vbh{u}_r$ uscente dalla carica $q$ e il versore normale $\vbh{u}_n$ alla superficie coincide con un possibile angolo polare $\theta$ che parametrizza un punto della calotta sferica unitaria centrata in $q$.
+\begin{equation*}
+\vbh{u}_r\vdot\vbh{u}_n=\cos\theta
+\end{equation*}
+Il flusso infinitesimo diventa
+\begin{equation*}
+	d\Phi_{\Sigma}\left(\vba{E}\right)=\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{q}{4\pi\epsilon_0}\frac{\vbh{u}_r\vdot\vbh{u}_n}{r^2}d\Sigma=\frac{q}{4\pi\epsilon_0}\frac{\cos\theta}{r^2}d\Sigma=\frac{q}{4\pi\epsilon_0}\frac{d\Sigma_0}{r^2}=\frac{q}{4\pi\epsilon_0}d\Omega
+\end{equation*}
+\begin{observe}
+	Il flusso del campo $\vba{E}$ generato da una carica puntiforme dipende solo dall'angolo solido e \textit{non} dalla superficie o dalla distanza dalla carica: il flusso è lo stesso per qualunque superficie il cui bordo si appoggi sul cono individuato dall'angolo solido.\\
+	Questo è una \textit{diretta} conseguenza che il campo di Coulomb presenta un fattore $\nicefrac{1}{r^2}$; se la relazione fosse stata anche solo leggermente diversa non varrebbe tale dipendenza.
+\end{observe}
+Per una superficie (finita) e chiusa che racchiude la carica $q$ si ha
+ \begin{equation*}
+ 	\Phi_\Sigma\left(\vba{E}\right)=\frac{q}{4\pi\epsilon_0}\Omega=\frac{q}{\epsilon_0}
+ \end{equation*}
+\paragraph{Dimostrazione formale della legge di Gauss}
+\begin{demonstration}
+	Per semplicità, poniamo l'origine del nostro sistema di riferimento dove è situata la carica. Data la simmetria di carattere radiale fornita dal campo elettrostatico di Coulomb, ci conviene utilizzare le coordinate sferiche
+	\begin{equation*}
+		\begin{cases}
+			x=r\sin\theta\cos\phi\\
+			y=r\sin\theta\sin\phi\\
+			z=r\cos\theta
+		\end{cases}
+	\end{equation*}
+	Parametrizziamo la superficie $\Sigma$ con l'angolo \textit{polare} $\theta$ e l'angolo \textit{azimutale} $\phi$ delle coordinate sferiche:
+	\begin{align*}
+		\vba{r}(\theta,\phi)&=x(\theta,\phi)\vba{u}_x+y(\theta,\phi)\vba{u}_y+z(\theta,\phi)\vba{u}_z=\\
+		&=r(\theta,\phi)\sin\theta\cos\phi\vba{u}_x+r(\theta,\phi)\sin\theta\sin\phi\vba{u}_y+r(\theta,\phi)\cos\theta\vba{u}_z
+	\end{align*}
+	Osserviamo che per descrivere una superficie con le coordinate sferiche è necessario fornire la \textit{distanza} $r(\theta,\phi)$ dall'origine nella direzione indicata dagli angoli $\theta$ e $\phi$. Anzi, la parametrizzazione può essere espressa totalmente in termini \textit{radiali}! Infatti, il versore radiale è dato da
+	\begin{equation*}
+		\vbh{u}_r=\frac{\vbh{e}_r}{\abs{\vbh{e}_r}}=\frac{\pdv{x^i}{r}\vbh{u}_i}{1}=\sin\theta\cos\phi\vbh{u}_x+\sin\theta\sin\phi\vbh{u}_y+\cos\theta\vbh{u}_z
+	\end{equation*}
+	Raccogliendo $r(\theta,\phi)$ dalla parametrizzazione scritta prima si ottiene quindi
+	\begin{equation*}
+		\vba{r}(\theta,\phi)=r(\theta,\phi)\vbh{u}_r
+	\end{equation*}
+	Per definizione, il flusso è
+	\begin{equation*}
+		\Phi_{\Sigma}\left(\vba{E}\right)=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma}\vba{E}\vdot\vbh{u}_n\abs{\pdv{\vba{r}(\theta,\phi)}{\theta}\cross\pdv{\vba{r}(\theta,\phi)}{\phi}}d\theta d\phi\squarequal
+	\end{equation*}
+	Poiché il versore normale è
+	\begin{equation*}
+		\vbh{u}_n=\frac{\pdv{\vba{r}(\theta,\phi)}{\theta}\cross\pdv{\vba{r}(\theta,\phi)}{\phi}}{\abs{\pdv{\vba{r}(\theta,\phi)}{\theta}\cross\pdv{\vba{r}(\theta,\phi)}{\phi}}}
+	\end{equation*}
+	il flusso si può calcolare come
+	\begin{equation*}
+		\squarequal\int_{\Sigma}\vba{E}\vdot\pdv{\vba{r}(\theta,\phi)}{\theta}\cross\pdv{\vba{r}(\theta,\phi)}{\phi} d\theta d\phi=\frac{q}{4\pi\epsilon_0}\int_{\Sigma}\frac{1}{r(\theta,\phi)^2}\vbh{u}_r\vdot \pdv{\vba{r}(\theta,\phi)}{\theta}\cross\pdv{\vba{r}(\theta,\phi)}{\phi} d\theta d\phi
+	\end{equation*}
+	Per semplificare quel prodotto misto, dobbiamo prima analizzare i termini che partecipano al prodotto vettoriale.\\
+	In un generico punto\footnote{Qui indicato tramite le coordinate ad esso associate dalla parametrizzazione.} $\left(\theta,\phi\right)$ della superficie, i vettori della base del piano tangente alla superficie in tal punto sono
+	\begin{equation*}
+		\begin{cases}
+			\pdv{\vba{r}}{\theta}=\pdv{\theta}\left(r(\theta,\phi)\vba{u}_r\right)=\pdv{r(\theta,\phi)}{\theta}\vbh{u}_r+r(\theta,\phi)\pdv{\vbh{u}_r}{\theta}\\
+			\pdv{\vba{r}}{\phi}=\pdv{\phi}\left(r(\theta,\phi)\vba{u}_r\right)=\pdv{r(\theta,\phi)}{\phi}\vbh{u}_r+r(\theta,\phi)\pdv{\vbh{u}_r}{\phi}\\
+		\end{cases}
+	\end{equation*}
+	Si nota subito che  le componenti parallele a $\vba{u}_r$ \textit{non} influiscono al flusso. Al netto di costanti moltiplicative, il contribuito di tali componenti è un $\vba{u}_r$ nel prodotto vettoriale del prodotto misto, ma valendo
+\begin{equation*}
+	\begin{cases}
+		\vbh{u}_r\vdot\vbh{u}_r\cross\vba{a}=0\\
+		\vbh{u}_r\vdot\vba{a}\cross\vbh{u}_r=0
+	\end{cases},\quad\forall \vba{a}\text{ vettore}
+\end{equation*}
+tali componenti non cambieranno in alcun modo il flusso; ciò che invece lo cambia sono le derivate dei versori radiali. Sviluppando, l'espressione del flusso si ha
+\begin{align*}
+	\Phi_{\Sigma}(\vba{E})&=\frac{q}{4\pi\epsilon_0}\int_{\Sigma}\frac{1}{r(\theta,\phi)}\vbh{u}_r\vdot \pdv{\vba{r}(\theta,\phi)}{\theta}\cross\pdv{\vba{r}(\theta,\phi)}{\phi} d\theta d\phi=\\
+	&=\frac{q}{4\pi\epsilon_0}\int_{\Sigma}\frac{1}{\Ccancel[red]{r(\theta,\phi)^2}}\vbh{u}_r\vdot\left(\Ccancel[red]{r(\theta,\phi)}\pdv{\vbh{u}_r}{\theta}\cross \Ccancel[red]{r(\theta,\phi)}\pdv{\vbh{u}_r}{\phi}\right)d\theta d\phi=\\
+	&=\frac{q}{4\pi\epsilon_0}\int_{\Sigma}\vbh{u}_r\vdot\pdv{\vbh{u}_r}{\theta}\cross\pdv{\vbh{u}_r}{\phi}d\theta d\phi
+\end{align*}
+Poiché
+\begin{equation*}
+	\begin{cases}
+		\pdv{\vbh{u}_r}{\theta}=\cos\theta\cos\phi\vbh{u}_x+\cos\theta\sin\phi\vbh{u}_y-\sin\theta\vbh{u}_z\\
+		\pdv{\vbh{u}_r}{\phi}=-\sin\theta\sin\phi\vbh{u}_x+\sin\theta\cos\phi\vbh{u}_y\\
+\end{cases}
+\end{equation*}
+e
+\begin{equation*}
+	\vbh{u}_r\vdot\pdv{\vbh{u}_r}{\theta}\cross\pdv{\vbh{u}_r}{\phi}=\begin{vmatrix}
+		\sin\theta\cos\phi & \sin\theta\sin\phi & \cos\theta\\
+		\cos\theta\cos\phi & \cos\theta\sin\phi & -\sin\theta\\
+		-\sin\theta\sin\phi & \sin\theta\cos\phi & 0
+	\end{vmatrix}=\sin\theta
+\end{equation*}
+segue che
+\begin{equation}
+	\Phi_{\Sigma}(\vba{E})=\frac{q}{4\pi\epsilon_0}\int_{\Sigma}\sin\theta d\theta d\phi=\frac{q}{4\pi\epsilon_0}\Omega\label{LeggeGaussGeneralizzata}
+\end{equation}
+dove $\Sigma$ è l'angolo solido sull'intera superficie.\\
+Se la superficie (finita) è chiusa si ha $\Omega=4\pi$, ottenendo quindi il risultato desiderato.
+\end{demonstration}
+\begin{observe}
+	La \ref{LeggeGaussGeneralizzata} descrive il flusso del campo elettrostatico attraverso una superficie \textbf{qualunque}. La legge di Gauss si potrebbe vedere come un \textit{caso specifico} di questa relazione.
+\end{observe}
+Il caso per cariche multiple segue dal \textit{principio di sovrapposizione} dei campi elettrici:
+\begin{equation*}
+	\Phi_{\Sigma}\left(\vba{E}\right)=\int_{\Sigma} \vba{E}\vdot \vbh{u}_nd\Sigma=\int_{\Sigma}\left(\sum_i\vba{E}_i\right)\vdot\vbh{u}_nd\Sigma=\sum_i\int_{\Sigma}\vba{E}_i\vdot\vbh{u}_nd\Sigma=\sum_i\frac{q_i}{\epsilon_0}
+\end{equation*}
+Da questa si ottiene, passando al continuo, la relazione \ref{LeggeGaussContinua}.
+\paragraph{Flusso tramite una superficie chiusa per una carica esterna}
+La legge di Gauss descrive il flusso tramite una superficie chiusa tenendo conto delle cariche \textit{interne} ad essa... e si ci fossero delle cariche \textit{esterne}?
+
+Limitiamoci all'inizio al caso di una singola carica esterna: il campo di Coulomb entra nella superficie chiusa, attraversa lo spazio contenuto da essa e poi esce dall'altro lato. In termini di angolo solido, il cono elementare che sottende l'angolo solido infinitesimo $d\Sigma$ determina sulla superficie chiusa due elementi $d\Sigma_1$ e $d\Sigma_2$. Per la convenzione sul segno del flusso:
+\begin{itemize}
+	\item $\vba{E}$ \textit{entra} in $d\Sigma_1$: $\vba{E}\vdot \vbh{u}_n d\Sigma_1<0$.
+	\item $\vba{E}$ \textit{esce} da $d\Sigma_2$: $\vba{E}\vdot \vbh{u}_n d\Sigma_2>0$.
+\end{itemize}
+I flussi infinitesimi che otteniamo\footnote{Il procedimento è analogo a quello con cui si ottiene l'equazione \ref{LeggeGaussGeneralizzata}.} sono
+\begin{equation*}
+	\begin{cases}
+		d\Phi_{\Sigma_1}(\vba{E})=\vba{E}\vdot \vbh{u}_n d\Sigma_1=-\frac{q}{4\pi\epsilon_0}d\Omega\\
+		d\Phi_{\Sigma_2}(\vba{E})=\vba{E}\vdot \vbh{u}_n d\Sigma_2=\frac{q}{4\pi\epsilon_0}d\Omega
+	\end{cases}
+\end{equation*}
+Integrando sull'intera superficie chiusa otteniamo
+\begin{equation}
+	\Phi_\Sigma\left(\vba{E}\right)=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=0
+\end{equation}
+Il flusso tramite una superficie \textit{chiusa} dipende \textit{solo} dalle cariche interne ad essa.
+\begin{observe}
+	Cosa cambia dal caso della carica interna? Il campo elettrico in quella situazione risulta essere \textit{entrante} (se la carica è positiva) o \textit{uscente} (se la carica è negativa) da ogni elemento infinitesimo; il flusso avrà quindi sempre lo stesso segno oppure essere nullo, ma sulla superficie intera questo si ha solo se questa è parallela al campo.   
+\end{observe}
+\section{Applicazioni della legge di Gauss}
+La legge di Gauss, in linea di principio, ci descrive solo il flusso tramite una superficie chiusa. Tuttavia, in situazioni di \textit{evidenti simmetrie}, confrontando la definizione di flusso con quello ottenuto dalla legge di Gauss possiamo sorprendentemente calcolare in modo abbastanza facile il campo elettrostatico che genera il flusso.
+\paragraph{Filo carico rettilineo (infinito)}
+\paragraph{Superficie carica infinita}
+\paragraph{Sfera uniformemente carica}
+\section{Circuitazione di un campo vettoriale}
+% TO DO: concezione intuitiva di circuitazione
+\begin{define}[Circuitazione di un campo vettoriale]
+	Il \textbf{circuitazione di un campo vettoriale lungo la curva chiusa} $\gamma$, parametrizzata da una funzione $\funz[\vba{r}]{\left[a,b\right]}{\realset^3}$, è
+	\begin{equation}
+		\Gamma_{\gamma}\left(\vba{E}\right)=\oint_{\gamma}\vba{E}\vdot d\vba{s}=\int_{a}^b\vba{E}\vdot\frac{d\vba{r}}{dt}dt
+	\end{equation}
+\end{define}
+
+\section{Teorema della divergenza}
+\begin{theoremaqed}[Teorema della divergenza]
+	Si consideri un volume $V\subseteq\realset^3$ compatto con bordo liscio $\partial V$. Dato un campo vettoriale differenziabile $\vba{E}$ in un intorno di $V$, allora
+	\begin{equation}
+		\int_V\div{\vba{E}}=\int_{\partial V}\vba{E}\vdot \vbh{u}_nd\Sigma\label{TeoremaDivergenza}\qedhere
+	\end{equation}
+\end{theoremaqed}
+Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
+\begin{equation}
+	\int_V\div{\vba{E}}=\Phi_\Sigma\left(\vba{E}\right)
+\end{equation}
+\section{Teorema del rotore}
+\begin{theoremaqed}[Teorema del rotore]
+	Si consideri una curva $\funz[\gamma]{\left[a,b\right]}{\realset^3}$ semplice - ossia senza intersezioni con sé stessa, chiusa e liscia a tratti; si consideri inoltre una superficie $\Sigma$ liscia tale che $\partial \Sigma=\gamma$. Dato un campo vettoriale differenziabile $\vba{E}$ in un intorno di $V$, allora
+	\begin{equation}
+		\int_\Sigma\grad{\vba{E}}\vdot\vbh{u}_nd\Sigma=\oint_{\gamma}\vba{E}\vdot d\vba{s}\label{TeoremaRotore}\qedhere
+	\end{equation}
+\end{theoremaqed}
+Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
+\begin{equation}
+\int_V\div{\vba{E}}=\Phi_\Sigma\left(\vba{E}\right)
+\end{equation}
+Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
+\begin{equation}
+	\Phi_\Sigma\left(\grad{\vba{E}}\right)=\Gamma_\gamma\left(\vba{E}\right)
+\end{equation}
+\begin{observe}
+	Ci sono infinite superfici con bordo $\gamma$, ma il flusso del rotore è \textit{sempre} uguale.
+\end{observe}

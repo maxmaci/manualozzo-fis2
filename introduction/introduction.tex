@@ -1,0 +1,75 @@
+% SVN info for this file
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
+\chapter*{Introduzione al Manualozzo\texttrademark\ }
+\labelChapter{introduzione}
+
+\begin{introduction}
+‘‘Sai, per essere un matematico non aveva abbastanza immaginazione; ma ora è diventato un poeta e se la cava davvero bene.''
+\begin{flushright}
+	\textsc{David Hilbert,} riferendosi \Ccancel[red]{a Marino Badiale} all'autore del Manualozzo\texttrademark\ .
+\end{flushright}
+\end{introduction}
+
+\noindent Guardando la copertina di questo testo, dei potenziali lettori - sì, parlo con voi - si potrebbero chiedere: ‘‘Ma che diamine è un \textit{Manualozzo\texttrademark\ }?''
+\vspace{3mm}
+\lettrine[findent=1pt, nindent=0pt]{\textbf{M}}{\textbf{anualozzo\texttrademark\ }} s. m. [der. di \textit{manuale}, col suff. \textit{-ozzo}]. - Appunti di lezioni universitarie scritti da studenti, senza troppe pretese di formalità e potenzialmente non totalmente corretti, ma sono comunque meglio che niente.\footnote{Nota per l'ufficio legale: il \texttrademark\ in Manualozzo\texttrademark\ non è legalmente vincolante.}
+\vspace{3mm}\\
+Dunque, quello che state leggendo è il \textbf{Manualozzo\texttrademark\  di Analisi Matematica 3}, basato sull'omonimo corso tenuto dai docenti Walter Dambrosio e Davide Zucco nell'a.a. 2021-2022 presso il Dipartimento di Matematica dell'Università degli Studi di Torino.\\
+L'insegnamento - e di conseguenza questo testo - si articola in due macro-temi strettamente correlati tra di loro: lo studio delle \textbf{successioni} e delle \textbf{serie di funzioni} e la trattazione della \textbf{teoria della misura} e dell'\textbf{integrazione (secondo Lebesgue)}. I prerequisiti necessari sono gli argomenti trattati nel corso di \textsc{Analisi Matematica Uno} - ma non fa male avere anche qualche nozione da \textsc{Calcolo delle Probabilità}.\\
+Ma il \textit{Manualozzo\texttrademark\ } non è una mera sbobinatura delle lezioni: in aggiunta agli argomenti trattati nella teoria, potrete trovare a fine libro delle utili \textit{postille} con alcune digressioni interessanti, nonché tabelle ed elenchi riepilogativi dei teoremi, delle definizioni e delle proprietà affrontate - il tutto, ovviamente, in Technicolor\texttrademark. {\small Se vi steste chiedendo dove ho trovato il tempo per fare tutto, non lo so neanch'io.}\\
+Purtroppo, per quanto gli piacerebbe esserlo, l'autore non è un \textit{essere infallibile}: gli saranno sicuramente sfuggiti degli errori (o degli \textit{orrori}, la cui causa è solamente dell'autore che non ha studiato bene e non dei professori, chiaramente), per cui ogni segnalazione - direttamente all'autore se ancora in vita oppure su \textcolor{redill}{\url{https://maxmaci.github.io}} - è ben gradita, in modo da migliorare le future edizioni del \textit{Manualozzo\texttrademark\ }.
+
+\vfill
+\begin{center}
+	Prima edizione, compilato il \today.\\
+			\includegraphics[trim=0cm 0cm 0cm 0cm,clip,scale=0.5]{images/Cc-by-nc-sa_icon.pdf}\\
+	{\footnotesize This work is licensed under a \href{https://creativecommons.org/licenses/by-sa/4.0/}{Attribution-NonCommercial-ShareAlike 4.0 International.}}
+\end{center}
+\newpage
+\section*{Note per gli environment}
+Se alcuni professori sono noti per abusare le notazioni, i Manualozzi sono noti per abusare di \textit{environment} - gli ambienti colorati che vedrete in queste pagine; di seguito ci sono alcune informazioni su di essi.
+
+\noindent\textit{Teoremi}, \textit{proposizioni}, \textit{lemmi} e \textit{corollari} possono essere seguiti da una \textit{dimostrazione}, come nell'esempio di seguito...
+\begin{theoremanote}[Cardinalità dei razionali]
+	Ci sono più numeri razionali che interi.
+\end{theoremanote}
+\begin{demonstration}
+	La dimostrazione si basa sulla congettura che tutti gli interi siano razionali; mostriamo il teorema per $0$, gli altri $\aleph_0$ casi sono analoghi.\\
+	Dato $0$, basta prendere $\nicefrac{1}{2}$: questo è banalmente un razionale - convincetevi che questo sia vero! In questo modo, abbiamo trovato due razionali di cui uno non intero.
+\end{demonstration}
+... oppure essere forniti \textit{senza} dimostrazione e quindi nell'enunciato troverete alla fine il simbolo $\square$:
+\begin{corollarynote}[Ultimo teorema di Fermat]
+	Sulla base del teorema precedente vale immediatamente per confronto l'ultimo teorema di Fermat.
+\end{corollarynote}
+Nelle sezioni ‘‘Eserciziamoci!'' potrete invece trovare esercizi con corrispettive soluzioni: sono simili talvolta a dei risultati teorici, ma tendono ad essere più applicativi.
+
+\noindent Alcuni degli \textit{environment} più comuni dopo questi sono le \textit{osservazioni} e gli \textit{esempi}, che sono autoesplicativi. Ci sono anche altri \textit{environment}, meno comuni, fra cui...
+\begin{digression}
+	Sono argomenti \textit{non prettamente trattati} in questo corso che, tuttavia, hanno un legame con esso: possono \textit{aggiungere informazioni} e punti di vista a qualcosa visto nei corsi precedenti oppure fornire delle \textit{anticipazioni} per dei corsi futuri.
+\end{digression}
+\begin{attention}
+	Sono delle osservazioni mirate e rivolte spesso a segnalare \textit{errori} frequenti, dovuti principalmente a proprietà che \textit{non} si verificano in quel dato tangente. 
+\end{attention}
+\begin{intuit}
+	Sono delle interpretazioni \textit{euristiche} di una definizione difficile o di un risultato ostico che possono aiutare a capire il perché di tale cosa - per quanto non siano sempre valide a livello formale. 
+\end{intuit}
+\section*{Note per gli elenchi delle definizioni e dei teoremi}
+In fondo al Manualozzo si possono trovare degli elenchi con tutte le definizioni, assiomi e risultati teorici visti: ognuno di essi è indicato nel formato \textbf{\textsc{X\#.\#.\#. TITOLO}}, dove \textbf{\textsc{X}} è una \textit{sigla} per indicare il tipo di definizione/risultato, mentre \textbf{\textsc{\#.\#.\#.}} individua il \textit{capitolo}, la \textit{sezione} e il \textit{numero} per quell'oggetto nella sezione. I significati delle sigle sono elencati di seguito:
+\begin{multicols}{2}
+	\begin{itemize}
+		\item \textbf{\textsc{A}}: Assioma.
+		\item \textbf{\textsc{D}}: Definizione.
+		\item \textbf{\textsc{T}}: Teorema.
+		\item \textbf{\textsc{PR}}: Proposizione.
+		\item \textbf{\textsc{L}}: Lemma.
+		\item \textbf{\textsc{C}}: Corollario.
+		\item \textbf{\textsc{PT}}: Proprietà.
+	\end{itemize}
+\end{multicols}
+
+

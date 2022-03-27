@@ -1,0 +1,796 @@
+% SVN info for this file
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
+\chapter{Richiami di geometria differenziale e calcolo differenziale}
+\labelAppendix{differentialcalculus}
+ % TO DO: nome sezione
+\addtocontents{define}{\noindent\textls{\textsc{\textcolor{reddo}{Appendice A:}
+			\nowtitle}}
+}{}
+\addtocontents{theorema}{\noindent\textls{\textsc{\textcolor{reddo}{Appendice A:}
+			\nowtitle}}
+}{}
+\begin{introduction}
+	‘‘Non c'è niente nel mondo il cui significato non sia quello di un qualche massimo o minimo.''
+	\begin{flushright}
+		\textsc{Leonhard Euler,} dimenticandosi del concetto di estremo inferiore e superiore. % TO DO: quote
+	\end{flushright}
+\end{introduction}
+\lettrine[findent=1pt, nindent=0pt]{N}{on} % TO DO: intro
+
+\section{Varietà differenziabile}
+\begin{define}[Carta, coordinate lagrangiane, parametrizzazione locale]
+	Dato un insieme di punti $M$ non vuoto, una \textbf{carta}\index{carta} è una coppia $\left(U,\phi\right)$ dove
+	\begin{itemize}
+		\item $U$ è un insieme\footnote{A seconda delle definizioni, $U$ si impone per definizione essere aperto per una topologia innata su $M$ oppure risulta aperto per una topologia indotta dall'atlante e nella definizione non è richiesto specificarlo. Le due definizioni sono equivalenti.} contenuto in $M$ detto \textbf{dominio della carta}.
+		\item $\funz[\phi]{U}{\phi(U)\subseteq \realset^n}$ è una funzione \textit{iniettiva}\footnote{A seconda delle definizioni, $\phi$ si impone per definizione essere un omeomorfismo - i.e. mappa continua con inversa continua - oppure risulta un omeomorfismo in seguito alla topologia indotta dall'atlante stesso. Le due definizioni sono equivalenti.}, con $\phi(U)$ aperto di $\realset^n$.
+	\end{itemize}
+	La funzione $\phi$ associa ad ogni punto $p\in U\subseteq M$ un $m$-upla $\left(q^{\lambda}\right)$ (con $\lambda=1,\ \ldots,\ m$) dette \textbf{coordinate} di $p$ rispetto alla carta $\left(U,\phi\right)$.
+	\begin{equation}
+		\phi\left(p\right)=\left(q^1\left(p\right),\ldots,q^n\left(p\right)\right)
+	\end{equation}
+	La funzione $\phi$ è suriettiva è quindi invertibile: l'inversa $\phi^{-1}$, detta  \textbf{parametrizzazione locale}, associa alle coordinate $q^{\lambda}$ il punto $p\in U\subseteq M$ con quelle coordinate.
+\end{define}
+\begin{define}[Funzione di transizione]
+	Date due carte $\left(U_1,\phi_1\right)$, $\left(U_2,\phi_2\right)$ su $M$ con $U_1\cap U_2\neq \emptyset$, la \textbf{funzione di transizione} dalla carta $\left(U_1,\phi_1\right)$ alla carta $\left(U_2,\phi_2\right)$ è la funzione
+	\begin{equation}
+		\funz[\psi=\phi_2\circ\phi_2^{-1}]{\phi_1(U_1)\subseteq\realset^{n}}{\phi_2(U_2)\subseteq\realset^{n}}
+	\end{equation}
+	Essendo definita tra aperti di $\realset^n$ si possono definire le sue \textit{derivate}.\\
+	Se due carte hanno una funzione di transizione \textit{differenziabile}, di solito $\mathcal{C}^{\infty}$ o più raramente $\mathcal{C}^{k}$, le carte sono dette \textbf{compatibili}.
+\end{define}
+\begin{define}[Atlante]
+	Un \textbf{atlante} è una collezione di carte $\left\{\left(U_\alpha,\phi_\alpha\right)\right\}_{\alpha\in I}$ che copre tutto l'insieme $M$, cioè per qualunque punto $p\in M$ esiste almeno una carta $\left(U_\alpha,\phi_\alpha\right)$, per un certo $\alpha\in I$, tale che $p\in U$.\\
+	Se le funzioni di transizione dell'atlante sono $\mathcal{C}^k$, allora l'atlante si chiama \textbf{atlante} $\mathcal{C}^k$.
+\end{define}
+Se l'\textbf{atlante} è $\mathcal{C}^\infty$, la funzione di transizione è un \textbf{diffeomorfismo}, in quanto è una funzione $\mathcal{C}^{\infty}$ con inversa $\mathcal{C}^{\infty}$.
+\begin{define}[Atlante massimale]
+	Dato un \textit{atlante} $\mathcal{A}$, l'\textbf{atlante massimale} è l'atlante contenente tutte le carte compatibili con l'atlante originale $\mathcal{A}$.
+\end{define}
+\begin{define}[Topologia indotta dall'atlante]
+	Un atlante definisce sempre una topologia sull'insieme $M$, detta
+	\begin{center}
+		$A\subseteq M$ aperto se $\forall \left(U_\alpha, \phi_\alpha\right)\ \phi\left(A\cap U_\alpha\right)$ è aperto in $\realset^n$ con la topologia Euclidea.
+	\end{center}
+\end{define}
+Secondo questa topologia:
+\begin{enumerate}
+	\item $U_\alpha$ è aperto in $M$.
+	\item $\phi_\alpha$ manda aperti in aperti, quindi è aperta ed, essendo biettiva, è un omeomorfismo tra $U_\alpha$ e $\phi_\alpha\left(U_\alpha\right)$.
+\end{enumerate}
+\begin{define}[Varietà differenziabile]
+	Una \textbf{varietà differenziabile} (altresì detta \textbf{varietà differenziale}) di classe $\mathcal{C}^{k}$ e \textbf{dimensione} $n$ è un insieme di punti $M$ non vuoto che può essere coperto da un \textbf{atlante} $\mathcal{C}^{k}$ $\left\{\left(U_\alpha,\phi_\alpha\right)\right\}_{\alpha\in I}$, che di solito supponiamo massimale, dove $\phi_\alpha\left(U_\alpha\right)\subseteq \realset^n,\ \forall \alpha\in I$. Inoltre, lo spazio topologico\footnote{Con la topologia su $M$ con cui si sono definite le carte o con la topologia indotta dall'atlante.} $M$ si suppone spesso essere Hausdorff e a base numerabile.
+\end{define}
+In sintesi, una \textbf{varietà differenziabile} è una varietà topologica con una struttura differenziabile globale: l'esistenza dell'atlante soddisfa le condizioni di varietà topologica, mentre la struttura differenziabile è indotta dalle condizioni di compatibilità delle carte dell'atlante.\\
+Per semplicità considereremo, se non specificato, le varietà differenziabili di classe $\mathcal{C}^{\infty}$ e quindi tralasciamo il termine ‘‘di classe $\mathcal{C}^k$''.
+\begin{examples}~
+	\begin{itemize}
+		\item Gli spazi affini $\realset^n$ di dimensione $n$ con coordinate cartesiane, polari, sferiche, cilindriche...
+		\item Le sfere $S^n$ di dimensione $n$.
+		\item Le superfici regolari in $\realset^3$ parametrizzate da
+		\begin{equation*}
+			\funztot[\vba{r}]{U\subseteq\realset^2}{\realset^3}{(u,v)}{\vba{r}(u,v)=(x(u,v),y(u,v),z(u,v))}
+		\end{equation*}
+	\end{itemize}
+\end{examples}
+\section{Metrica}
+\begin{define}[Metrica]
+	Una \textbf{metrica} (o anche detto \textbf{tensore metrico}) su una varietà differenziabile $M$ è una mappa bilineare simmetrica - ossia un campo tensoriale simmetrico doppiamente contravariante - non degenere
+	\begin{equation}
+		\funztot[g]{\mathcal{X}(M)\times \mathcal{X}(M)}{\mathcal{F}(M)}{\left(X,Y\right)}{X\cdot Y=\left<X,Y\right>=g(X,Y)}
+	\end{equation}
+	che ad una coppia di campi vettoriali sopra $M$ associa un campo scalare su $M$. Essa soddisfa le proprietà di un \textbf{prodotto interno}:
+	\begin{itemize}
+		\item \textbf{Bilinearità}, ossia lineare separatamente in entrambi gli argomenti:
+		\begin{gather}
+			g(f\vba{X}+h\vba{Y},\vba{Z})=fg(\vba{X},\vba{Z})+hg(\vba{Y},\vba{Z}),\ \forall f,h\in \mathcal{F}(M),\ \forall \vba{X},\vba{Y},\vba{Z}\in\mathcal{X}(M)\\
+			g(\vba{X},f\vba{Y}+h\vba{Z})=fg(\vba{X},\vba{Y})+hg(\vba{X},\vba{Z}),\ \forall f,h\in \mathcal{F}(M),\ \forall \vba{X},\vba{Y},\vba{Z}\in\mathcal{X}(M)
+		\end{gather}
+		\item \textbf{Simmetria:}
+		\begin{equation}
+			g(\vba{X},\vba{Y})=g(\vba{Y},\vba{X}),\ \forall \vba{X},\vba{Y}\in\mathcal{X}(M)
+		\end{equation}
+		\item  \textbf{Non degenere:} per ogni campo vettoriale $\vba{X}\neq 0$
+		\begin{equation}
+			\exists \vba{Y}\colon g(\vba{X},\vba{Y})\neq 0
+		\end{equation}
+	\end{itemize}
+\end{define}
+La metrica generalizza molte delle proprietà del \textit{prodotto scalare} di vettori negli spazio Euclidei.\\
+Scelte delle coordinate $(q^\lambda)$ su $M$ e dati i campi $\vba{X}=X^{\lambda}\vba{e}_{\lambda},\ \vba{Y}=Y^{\lambda}\vba{e}_{\lambda}\in\mathcal{X}(M)$ si ha
+\begin{equation*}
+	g(\vba{X},\vba{Y})=g\left(X^\lambda\vba{e}_\lambda,Y^\mu\vba{e}_\mu\right)=X^\lambda Y^\mu g\left(\vba{e}_\lambda,\vba{e}_\mu\right)=X^\lambda Y^\mu g_{\lambda \mu}
+\end{equation*}
+dove
+\begin{equation}
+	g_{\lambda \mu}=g\left(\vba{e}_\lambda,\vba{e}_\mu\right)
+\end{equation}
+sono le componenti di $g$ nelle coordinate scelte.
+\begin{define}[Coordinate ortogonali]
+	Data $M$ varietà differenziabile e $\left(q^\lambda\right)$ coordinate su $M$, le coordinate sono \textbf{ortogonali} rispetto ad una metrica $g$ se $g_{\mu\nu}=0,\ \forall \mu\neq\nu$.
+\end{define}
+\begin{define}[Varietà Riemanniane]
+	Una varietà \textbf{Riemanniana} $\left(M,g\right)$ è una varietà differenziabile $M$ a cui è associata una metrica $g$.
+\end{define}
+\paragraph{Metrica e 1-forme}
+La metrica  si può descrivere da una matrice invertibile. Invertendola, otteniamo la matrice associata ad un campo tensoriale simmetrico doppiamente covariante, ossia una mappa bilineare che a due 1-forme sulla varietà differenziabile $M$ associa un campo scalare.
+\begin{equation}
+	\funztot[g]{\Omega(M)\times \Omega(M)}{\mathcal{F}(M)}{\left(\alpha,\beta\right)}{\left<\alpha,\beta\right>=\left[g^{-1}\right](\alpha,\beta)}
+\end{equation}
+Pertanto, $g^{-1}$ definisce un prodotto interno sulle 1-forme. 
+\begin{observe}% https://unapologetic.wordpress.com/2011/10/01/inner-products-on-1-forms/
+	Vale anche il ragionamento contrario: da un campo tensoriale $(2,0)$ simmetrico che definisce un prodotto interno sulla varietà si può considerare il campo tensoriale $(0,2)$ associato alla matrice inversa, il quale è una metrica sulla stessa varietà e un prodotto interno per le 1-forme.
+\end{observe}
+Scelte delle coordinate $(q^\lambda)$ su $M$ e dati le 1-forme $\fb{\alpha}=\alpha_{\lambda}\fb{\epsilon}^\lambda,\ \fb{\beta}=\beta_{\lambda}\fb{\epsilon}^\lambda\in\Omega^1(M)$ si ha
+\begin{equation*}
+	g(\vba{X},\vba{Y})=g\left(\alpha_{\lambda}\fb{\epsilon}^\lambda,\beta_{\lambda}\fb{\epsilon}^\lambda\right)=\alpha_{\lambda} \beta_{\lambda} g\left(\fb{\epsilon}^\lambda,\fb{\epsilon}^\lambda\right)=\alpha_{\lambda} \beta_{\lambda} g^{\lambda \mu}
+\end{equation*}
+dove
+\begin{equation}
+	g^{\lambda \mu}=g\left(\fb{\epsilon}^\lambda,\fb{\epsilon}^\mu\right)
+\end{equation}
+\paragraph{Isomorfismi musicali}
+Scelte delle coordinate $\left(q^\lambda\right)$ su una varietà Riemanniana $(M,g)$, possiamo considerare due isomorfismi mutualmente inversi tra fibrati vettoriali:
+\begin{itemize}
+	\item \textbf{Bemolle}: dato un campo vettoriale $X=X^\lambda\vba{e}_\lambda$ su $M$, il \textbf{bemolle}\index{bemolle} $X^\flat$ è una 1-forma su $M$ ottenuta \textbf{abbassando un indice}:
+	\begin{equation}
+		\funztot[\flat]{TM}{T^\ast M}{X}{X^{\flat}=g_{\mu\lambda}X^{\mu}\fb{\epsilon}^\lambda=X_{\lambda}\fb{\epsilon}^\lambda}
+	\end{equation}
+	Utilizzando il prodotto interno definito da $g$, si ha per qualunque campo vettoriale $Y\in\mathcal{X}(M)$
+	\begin{equation*}
+		X^\flat(Y)=g(X,Y)=\left<X,Y\right>
+	\end{equation*}
+\item \textbf{Diesis}: dato una 1-forma $\phi=\phi_\lambda\fb{\epsilon}^\lambda$ su $M$, il \textbf{diesis}\index{diesis} $\phi^\sharp$ è un campo vettoriale su $M$ ottenuto \textbf{alzando un indice}:
+\begin{equation}
+	\funztot[\flat]{T^\ast M}{TM}{\phi}{\phi^{\sharp}=g^{\mu\lambda}\phi_{\mu}\vba{e}_\lambda=\phi^{\lambda}\vba{e}_\lambda}
+\end{equation}
+dove $g^{\mu\lambda}$ sono componenti della matrice inversa associata alla metrica $g$.\\
+Utilizzando il prodotto interno definito da $g$, si ha per qualunque campo vettoriale $Y\in\mathcal{X}(M)$
+\begin{equation*}
+	\left<\phi^\sharp,Y\right>=g(\phi^\sharp,Y)=\phi(Y)
+\end{equation*}
+\end{itemize}
+\section{Elemento di linea}
+\begin{define}[Spostamento infinitesimo]
+	Il vettore \textbf{spostamento infinitesimo}\index{spostamento infinitesimo} è la variazione infinitesima del vettore posizione $\vba{r}$. Scelte delle coordinate $(q^\lambda)$ su $M$, % TO DO: controllare se va bene per le varietà differenziabili o solo le affini qui
+	\begin{equation}
+		d\vba{s}=\pdv{\vba{r}}{q^\lambda}dq^\lambda=\abs{\pdv{\vba{r}}{q^\lambda}}\frac{\pdv{\vba{r}}{q^\lambda}}{\abs{\pdv{\vba{r}}{q^\lambda}}}dq^\lambda=\abs{\pdv{\vba{r}}{q^\lambda}}dq^\lambda\vbh{u}_\lambda
+	\end{equation}
+\end{define}
+Lo spostamento infinitesimo si calcola ricavando, per ogni direzione $\vbh{u}_\lambda$, la variazione della corrispondente coordinata \textit{tenendo costanti} le altre.
+\begin{define}[Elemento di linea]
+	L'\textbf{elemento di linea}\index{elemento di linea} è il quadrato della lunghezza di uno spostamento infinitesimo. Se $g$ è il tensore metrico della varietà $n$-dimensionale, allora
+	\begin{equation}
+		ds^2=g(d\vba{s},d\vba{s})
+	\end{equation}
+\end{define}
+\begin{notate}
+	Talvolta si indica lo spostamento infinitesimo e l'elemento di linea, in maniera alternativa a $d\vba{s}$ e $ds$, come $d\vba{\mathcal{l}}$ e $d\mathcal{l}$
+\end{notate}
+Poiché lo spostamento infinitesimo è arbitrario, $ds^2$ definisce completamente la metrica; in notazione suggestiva ma non corretta dal punto di vista tensoriale
+\begin{equation}
+	ds^2=g
+\end{equation}
+Scelte delle coordinate $(q^\lambda)$ su $M$, si ha
+\begin{equation}
+	ds^2=g_{\mu\nu}dq^{\mu}dq^{\nu}
+\end{equation}
+Se la metrica è ortogonale, l'elemento di linea è della forma
+\begin{equation}
+	ds^2=g_{11}\left(dq^1\right)^2+\ldots+g_{nn}\left(dq^n\right)^2
+\end{equation}
+% INSERIRE ESEMPIO ELEMENTO DI LINEA SUPERFICIE IN R^2
+\paragraph{Applicazioni}
+Preso un vettore $\vba{r}$ parametrizzante una curva, il vettore spostamento $d\vba{s}$ rappresenta una sua parte infinitesima tale da sembrare lineare. Per questo motivo il parente stretto del vettore spostamente, l'elemento di linea permette il calcolo dell'arcolunghezza e degli integrali curvilinei, oltre che definire la metrica.
+\begin{define}[Arcolunghezza]
+	L'\textbf{arcolunghezza}\index{arcolunghezza} è la distanza tra due punti lungo una sezione di una curva $\vba{r}(\tau)$
+	\begin{equation}
+		s=\int_{\tau_1}^{\tau_2}d\tau\sqrt{\abs{ds^2}}=\int_{\tau_1}^{\tau_2}d\tau\sqrt{g_{\mu\nu}\frac{dr^{\mu}}{dt}\frac{dr^{\nu}}{dt}}
+	\end{equation}
+\end{define}
+\begin{define}[Integrale curvilineo di prima specie]
+Un \textbf{integrale curvilineo di prima specie}\index{integrale!curvilineo!di prima specie} è un integrale dove un campo scalare
+\begin{equation*}
+	\funz[f]{U\subseteq\realset^n}{\realset}
+\end{equation*}
+viene valutato lungo una curva $\gamma$ di parametrizzazione $\funz[\vba{r}]{\left[a,b\right]}{U}$:
+\begin{equation}
+	\int_\gamma f\left(\vba{r}\right)ds=\int_a^b f(\vba{r}(\tau))\abs{\vba{r}'(\tau)}d\tau
+\end{equation}
+\end{define}
+In particolare, la lunghezza della curva $\gamma$ è
+\begin{equation}
+	\int_\gamma ds=\int_a^b \abs{\vba{r}'(\tau)}d\tau
+\end{equation}
+\begin{define}[Integrale curvilineo di seconda specie]
+	Un \textbf{integrale curvilineo di seconda specie}\index{integrale!curvilineo!di seconda specie} è un integrale dove un campo vettoriale $\funz[\vba{F}]{U\subseteq\realset^n}{\realset^n}$ viene valutato lungo una curva $\gamma$ di parametrizzazione $\funz[\vba{r}]{\left[a,b\right]}{U}$:
+	\begin{equation}
+		\int_\gamma \vba{F}\vdot d\vba{s}=\int_a^b \vba{F}(\vba{r}(\tau))\vdot\abs{\vba{r}'(\tau)}d\tau
+	\end{equation}
+\end{define}
+Gli integrali curvilineo di seconda specie sono indipendenti dalla parametrizzazione, ma dipendono invece dall'\textit{orientazione}: nella fattispecie, invertire l'orientazione della parametrizzazione cambia il segno dell'integrale curvilineo. % TO DO: controllare se vale lo stesso per quello di prima specie
+\section{Elemento di area}
+\begin{define}
+Data una superficie	$\Sigma$ a due dimensioni immersa in $\realset^3$, l'\textbf{elemento di superficie}\index{elemento di superficie} è una sua porzione infinitesima. In termini matematici, scelte una parametrizzazione $\vba{r}(u,v)$ di $\Sigma$ e dunque una scelta di coordinate $(u,v)$, allora l'elemento di superficie è una 2-forma data da
+\begin{equation}
+	d\Sigma=\sqrt{\det g}dudv=\norm{\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}}dudv
+\end{equation}
+dove $g$ è la metrica associata alla superficie con la parametrizzazione scelta.
+\end{define}
+\begin{comment}
+% TO DO: cercare come si fa sugli appunti di Analisi 2
+\paragraph{Cambio di coordinate}
+Data una parametrizzazione che mantiene l'\textit{orientazione} $\vba{r}\left(u,v\right)=\left(x(u,v),y(u,v),z(u,v)\right)$, la forma di superficie è
+\begin{equation*}
+	d\Sigma=\norm\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}dudv
+\end{equation*}
+Cambiando le coordinate da $(u,v)$ a $(s,t)$, la forma di superficie cambia con il determinante della Jacobiana:
+\begin{equation*}
+	d\Sigma=\abs{\pdv{\left(x,y,z\right)}{\left(u,v,s\right)}}dudvds
+\end{equation*}
+\end{comment}
+\paragraph{Applicazioni}
+Come si può facilmente immaginare, l'elemento di superficie permette il calcolo degli integrali superficiali.
+\begin{define}[Integrale superficiale per campi scalari]
+	Un \textbf{integrale superficiali per campi scalari}\index{integrale!superficiali!per campi scalari} è un integrale dove un campo scalare $\funz[f]{U\subseteq\realset^2}{\realset}$ viene valutato su una superficie di parametrizzazione $\funz[\vba{r}]{T}{U}$:
+	\begin{equation}
+		\int_\Sigma fd\Sigma=\int_T f(\vba{r}\left(u,v\right))\sqrt{\det g}dudv=\int_T f(\vba{r}\left(u,v\right))\norm{\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}}dudv
+	\end{equation}
+\end{define}
+In particolare, l'area di $\Sigma$ è
+\begin{equation}
+	A=\int_{\Sigma}1d\Sigma=\int_T\norm{\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}}dudv
+\end{equation}
+Un integrale superficiale per campi vettoriali può essere definito in due modi differenti:
+\begin{itemize}
+	\item Integrando il campo \textit{componente per componente} utilizzando l'integrale superficiale per campi scalari; il risultato in tal caso è un vettore.
+	\item Integrando la \textit{componente normale} del campo tramite la superficie con l'integrale superficiale per campi scalari; il risultato in tal caso è uno scalare ed è il \textbf{flusso} del campo vettoriale tramite la superficie considerata.
+\end{itemize}
+\section{Elemento di volume}
+\begin{define}[Elemento di volume]
+Fissate delle coordinate $\left(x^i\right)$, un \textbf{elemento di volume}\index{elemento!di volume} su una varietà Riemanniana \textit{orientabile} di dimensione $n$ è una $n$-forma data da
+\begin{equation}
+	dV=\sqrt{\abs{\det g}}dx^1\wedge \ldots\wedge dx^n
+\end{equation}
+dove $g$ è la metrica associata alla varietà.
+\end{define}
+Nel caso specifico di $\realset^3$, si può fisicamente vedere come una porzione infinitesima di volume - anche se in termini matematici rimane una 3-forma su $\realset^3$. Date le coordinate $(u,v,s)$ su $\realset^3$ e la metrica $g$ ad esse associata, si esprime per convenzione come
+\begin{equation}
+	dV=\sqrt{\det g}dudvds
+\end{equation}
+\paragraph{Cambio di coordinate}
+Nelle coordinate cartesiane $\left(x,y,z\right)$ la forma di volume è
+\begin{equation*}
+	dV=dxdydz
+\end{equation*}
+Operando un cambio di coordinate
+\begin{equation*}
+	\begin{cases}
+		x=x(u,v,s)\\
+		y=y(u,v,s)\\
+		z=z(u,v,s)
+	\end{cases}
+\end{equation*}
+la forma di volume cambia con il determinante della Jacobiana del cambiamento:
+\begin{equation*}
+	dV=\abs{\pdv{\left(x,y,z\right)}{\left(u,v,s\right)}}dudvds
+\end{equation*}
+\paragraph{Applicazioni}
+L'elemento di volume permette di definire l'integrale (di Lebesgue) di una funzione su una varietà differenziabile. Nel caso specifico di $\realset^3$, la forma di volume permette il calcolo degli \textbf{integrali tripli}.\\
+In particolare, il volume di un dominio $V$ è dato da
+\begin{equation*}
+	V=\int_{V}1dV=\int_VdV
+\end{equation*}
+\section{Operatore star di Hodge}
+\begin{define}[Simbolo di Levi-Civita]
+	Il \textbf{simbolo di Levi-Civita}\index{simbolo di Levi-Civita} è definito come
+	\begin{equation}
+		\epsilon_{i_1i_2\ldots i_n}=\begin{cases}
+			+1&\text{se }\left(i_1,i_2\ldots,i_n\right)\ \text{è una permutazione pari di}\ (1,2,\ldots, n)\\
+			-1&\text{se }\left(i_1,i_2\ldots,i_n\right)\ \text{è una permutazione dispari di}\ (1,2,\ldots, n)\\
+			0&\text{altrimenti}
+		\end{cases}
+	\end{equation}
+\end{define}
+\begin{define}[Operatore star di Hodge]% https://ncatlab.org/nlab/show/Hodge+star+operator
+	Data una varietà Riemanniana \textit{orientata} $M$ di dimensione $n$, lo \textbf{star di Hodge}\index{star di Hodge} è una funzione lineare
+	\begin{equation*}
+		\funz[\ast]{\Omega^k(M)}{\Omega^{n-k}(M)}
+	\end{equation*}
+	che associa alla $k$-forma $\beta$ un unica $(n-k)$-forma $\ast\beta$, detta \textbf{duale di Hodge}\index{duale di Hodge} definita dall'identità
+	\begin{equation}% TO DO: mettere index to star di Hodge invece che duale separato?
+		\alpha\wedge\ast\beta=\left<\alpha,\beta\right>dV
+	\end{equation}
+	dove $dV\in\omega^n(X)$ è la forma di volume indotta da $g$.
+\end{define}
+Fissate delle componenti $\left(q^\lambda\right)$, una $k$-forma ha una scrittura canonica data da
+\begin{equation}
+	\alpha=\frac{1}{k!}\alpha_{i_1\ldots i_k}\fb{\epsilon}^{i_1}\wedge\ldots\wedge\fb{\epsilon}^{i_k}
+\end{equation}
+dove $\alpha_{i_1\ldots i_k}$ sono funzioni $\mathcal{C}^{\infty}$ sulla varietà. Allora, il duale di Hodge è definito come
+\begin{equation*}
+\ast\alpha=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha_{j_1\ldots j_k}g^{j_1i_1}\ldots g^{j_ki_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha^{i_1\ldots i_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}
+\end{equation*}
+dove $g$ è la metrica su $M$ e
+\begin{equation*}
+\alpha^{i_1\ldots i_k}=\alpha_{j_1\ldots j_k}g^{j_1i_1}\ldots g^{j_ki_k}
+\end{equation*}
+\begin{properties}
+	Data una varietà Riemanniana $(M,g)$ di dimensione $n$ e sia $\alpha\in\Omega^k(M)$. Allora valgono le seguenti:
+	\begin{itemize}
+		\item Il duale di Hodge della funzione/$0$-forma identicamente unitaria $1$ è
+		\begin{equation}
+			\ast 1=dV
+		\end{equation}
+		\item Il duale del duale di Hodge di una $k$-forma è
+		\begin{equation}
+			\ast\left(\ast\alpha\right)=\left(-1\right)^{k\left(n+1\right)}\alpha=\left(-1\right)^{k\left(n-k\right)}\alpha
+		\end{equation}
+		\end{itemize}
+\end{properties}
+\section{Operatori differenziali}
+In questa sezione ci limitiamo a considerare lo spazio affine $\realset^3$ - dotato delle proprietà di varietà differenziale - ove non specificato diversamente.
+\begin{define}[Operatore nabla]
+	L'operatore \textbf{nabla}\index{nabla}	è una notazione matematica che semplifica la scrittura di diverse equazioni. In coordinate cartesiane su $\realset^3$, si può immaginare un vettore puramente formale che contiene gli operatori delle derivate parziali nelle tre direzioni spaziali (cartesiane):
+	\begin{equation}
+		\grad = \pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z
+	\end{equation}
+\end{define}
+\begin{attention}
+	L'operatore nabla assume significato soltanto quando viene \textit{applicato}, come ad un campo scalare o ad un campo vettoriale. Ad esempio, una scrittura del tipo $\grad + \vba{v}$ non ha alcun senso né fisico, né matematico.
+\end{attention}
+L'operatore nabla ha tre possibili applicazioni, a seconda se viene moltiplicato per un campo scalare, oppure se moltiplicato con un campo vettoriale per mezzo del prodotto scalare o quello vettoriale.
+\paragraph{Cambio di coordinate} %https://math.stackexchange.com/questions/618031/del-operator-nabla-in-spherical-co-ordinate-system 
+Anche se lo scriviamo come vettore formale, $\grad$ si può anche vedere come \textit{covettore} - un nome carino per dire le \textit{forme lineari}. In particolare, le componenti di $\grad$ cambiano come i covettori, cioé dobbiamo operare in modo covariante e utilizzare la \textit{matrice} del cambiamento di base:
+\begin{equation}
+	\pdv{q_\lambda}=\pdv{x^i}{q^\lambda}\pdv{x^i}
+\end{equation}
+\paragraph{Gradiente}
+\begin{define}[Campo scalare]
+	Un \textbf{campo scalare}\index{campo!scalare} $\phi$ è una funzione
+	\begin{equation}
+		\funztot[\phi]{\realset^3}{\realset}{(x,y,z)}{\phi(x,y,z)}
+	\end{equation}
+	dove $(x,y,z)$ sono eventualmente funzioni del tempo.
+\end{define}
+Un campo scalare è quindi una mappa che a punti di $\realset^3$ associa valori scalari.
+\begin{define}[Gradiente]\label{gradiente}
+	Dato un campo scalare $\funz[\phi]{\realset^3}{\realset}$, il \textbf{gradiente}\index{gradiente} è il campo vettoriale dato dall'applicazione della nabla tramite moltiplicazione per uno scalare a $\phi$:
+	\begin{equation}
+		\grad{\phi}=\left(\partial_x\phi,\partial_y\phi,\partial_z\phi\right)
+	\end{equation}
+\end{define}
+\begin{examples}~
+	\begin{itemize}
+		\item Se $\phi$ rappresenta l'\textit{altitudine}, $\grad{\phi}$ è la discesa.
+		\item Se$\phi$ rappresenta la \textit{pressione} o la \textit{temperatura}, $\grad{\phi}$ è la direzione in cui essa varia più rapidamente.
+	\end{itemize}
+\end{examples}
+\begin{define}[Campo conservativo e potenziale]
+	Dato un campo vettoriale $\vba{E}$, se esiste un campo scalare $\phi$ tale che $\vba{E}=\grad{\phi}$, allora $\vba{E}$ viene detto \textbf{conservativo}\index{campo!conservativo} e la funzione $\phi$ è detta \textbf{potenziale}\index{potenziale}.
+\end{define}
+\begin{observe}
+	Dato un campo scalare, esistono delle \textbf{superfici equipotenziali} tali per cui $\phi=\text{costante}$ sulla superficie. Il gradiente di $\phi$ è, punto per punto, ortogonale alla superficie equipotenziale.
+\end{observe}
+\subparagraph{Spostamento infinitesimo e gradiente}
+Diamo una definizione alternativa del gradiente che ci tornerà più utile avanti. Si noti che il modulo, direzione e verso del gradiente è indipendente dal sistema di coordinate, in virtù della sua natura vettoriale. Fissati due punti infinitamente vicini, possiamo considerare il gradiente del campo scalare $\phi$ come il vettore tale che il prodotto scalare per il vettore spostamente infinitesimo $d\vba{s}$ dà la variazione di $\phi$ per tale spostamento.
+\begin{equation}
+	d\phi=\grad{\phi}\vdot d\vba{s}\label{gradienteintrinseco}
+\end{equation}
+dove $d\phi$ è matematicamente una $1$-forma e si calcola tramite la derivata esterna, in coordinate:
+\begin{equation}
+	d\phi=\frac{d\phi}{dx^i}dx^i
+\end{equation}
+Questa definizione è \textit{intrinseca} e \textit{non} richiede alcun sistema di coordinate, e può essere utilizzato per ricavare anche l'espressione dell'operatore nabla in altre coordinate.\\
+Per questioni operative conviene comunque servirsi di un sistema di coordinate e calcolare le componenti del gradiente in tale sistema.
+\paragraph{Divergenza}
+\begin{define}[Divergenza]
+	Dato un campo vettoriale $\funz[\vba{E}]{\realset^3}{\realset^3}$, la \textbf{divergenza}\index{divergenza} è il campo scalare dato dall'applicazione della nabla tramite prodotto scalare ad $\vba{E}$:
+	\begin{equation}
+		\div{\vba{E}}=\partial_xE_x+\partial_yE_y+\partial_zE_z
+	\end{equation}
+\end{define}
+\begin{example}
+	Se $\vba{E}$ rappresenta la velocità dell'aria in una certa regione di spazio, $\div{ \vba{E}}$ rappresenta quanta più aria sta ‘‘uscendo'' da quella regione rispetto a quanta ne sta ‘‘entrando''. Se scaldiamo l'aria, essa si espande, i vettori puntano verso l'esterno della regione e la divergenza è positiva; se raffreddiamo l'aria, l'aria si contrae e la divergenza ha un valore negativo.
+\end{example}
+\paragraph{Rotore}
+\begin{define}[Rotore]
+	Dato un campo vettoriale $\funz[\vba{E}]{\realset^3}{\realset^3}$, il \textbf{rotore}\index{rotore} è il campo vettoriale dato dall'applicazione della nabla tramite prodotto vettoriale ad $\vba{E}$:
+	\begin{equation}
+		\curl{\vba{E}}=(\partial_yE_zx-\partial_xE_y,\partial_zE_x-\partial_xE_z,\partial_xE_y-\partial_yE_x)
+	\end{equation}
+	Si definisce anche come il determinante formale
+	\begin{equation}
+		\curl{\vba{E}}=\begin{vmatrix}
+			\partial_x & \partial_y & \partial_z\\
+			E_x & E_y & E_z\\
+			\vbh{u}_x & \vbh{u}_y & \vbh{u}_z
+		\end{vmatrix}
+	\end{equation}
+\end{define}
+\begin{example}
+	Supponiamo che $\vba{E}$ rappresenta la velocità di un flusso d'acqua in una certa regione di spazio e di porre una pallina ruvida nel fluido, in modo che non si può spostare da tale punto. Anche se non si sposta da lì, il fluido fa comunque ruotare la pallina: l'asse di rotazione è nella direzione di $\grad \vdot \vba{E}$ applicato al centro della palla, mentre la velocità angolare dipende dal modulo del rotore in tale punto.\\
+	In altre parole, è una misura di come un fluido potrebbe ruotare (o meglio, far ruotare qualcosa a livello microscopico)
+\end{example}
+\begin{define}[Campo irrotazionale]
+	Un campo vettoriale $\vba{E}$ viene detto \textbf{irrotazionale}\index{campo!irrotazionale} se $\curl{\vba{E}}=0$.
+\end{define}
+\subsection{Derivate seconde}
+Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettoriali, possiamo riapplicare l'operatore nabla come in precedenza per ottenere delle derivate seconde; alcune hanno particolare rilevanza perché sono importanti dal punto di vista matematico oppure perché sono costantemente nulle.
+\begin{enumerate}[label=\roman*)]
+	\item  $\div{\grad\phi}=\laplacian{\phi}=\partial^2_x\phi+\partial^2_y\phi+\partial^2_z\phi$, noto come \textbf{laplaciano}\index{laplaciano}.
+	\item $\curl{\curl{\phi}}=0$
+	\item $\grad{\div{\vba{E}}}$
+	\item $\curl{\curl{\phi}}=0$
+	\item $\div{\curl{\vba{E}}}=0$
+	\item $\curl{\curl{\vba{E}}}=\grad{\div{\vba{E}}}+\laplacian{\vba{E}}$, dove $\laplacian{\vba{E}}=\left(\laplacian{\partial_xE},\laplacian{\partial_yE},\laplacian{\partial_zE}\right)$ è il \textbf{laplaciano vettoriale}\index{laplaciano!vettoriale}
+\end{enumerate}
+
+\begin{demonstration}
+	Dimostriamo ii) e iv).
+	\begin{itemize}
+		\item[ii)]
+		\begin{equation*}
+			\begin{vmatrix}
+				\partial_x & \partial_y & \partial_z\\
+				E_x & E_y & E_z\\
+				\vbh{u}_x & \vbh{u}_y & \vbh{u}_z
+			\end{vmatrix}=\left(\partial_y\partial_z\phi-\partial_z\partial_y\phi\right)\vbh{u}_x+\left(\partial_z\partial_x\phi-\partial_x\partial_z\phi\right)\vbh{u}_y+\left(\partial_x\partial_y\phi-\partial_y\partial_x\phi\right)\vbh{u}_z=0
+		\end{equation*}
+		\item[iv)]
+		\begin{align*}
+			\left(\partial_x,\partial_y,\partial_z\right)\vdot(\partial_yE_x-\partial_xE_y,\partial_zE_x-\partial_xE_z,\partial_xE_y-\partial_yE_x)=&\\
+			\\=\partial_x\partial_yE_z-\partial_x\partial_zE_y+\partial_y\partial_zE_x-\partial_y\partial_xE_z+\partial_z\partial_xE_y-\partial_z\partial_yE_x=&0
+		\end{align*}\qedhere
+	\end{itemize}
+\end{demonstration}
+Definite le nostre derivate seconde, otteniamo una conseguenza quasi immediata.
+\begin{proposition}[Ogni campo conservativo è irrotazionale]
+	Ogni campo conservativo $\vba{E}$ è irrotazionale.
+\end{proposition}
+\begin{demonstration}
+	Poiché $\vba{E}=\grad{\phi}$ per un opportuno potenziale $\phi$ definito a meno di costanti, allora si ha che
+	\begin{equation*}
+		\curl{\vba{E}}=\curl{\grad{\phi}}=0\qedhere
+	\end{equation*}
+\end{demonstration}
+Concludiamo la discussione con alcuni teoremi non banali (e forniti senza dimostrazione) che seguono dalle derivate seconde qui definite
+\begin{theoremaqed}[Ogni campo irrotazionale è conservativo]
+	Ogni campo irrotazionale $\vba{E}$ è (localmente) conservativo.
+	\begin{equation*}
+		\curl{\vba{E}}=0\implies \exists \phi\colon \vba{E}=\grad{\phi}\qedhere
+	\end{equation*}
+\end{theoremaqed}
+\begin{theoremaqed}[Ogni campo con divergenza nulla è rotore]
+	Ogni campo $\vba{E}$ con divergenza nulla è pari al rotore di un opportuno campo vettoriale $\vba{A}$.
+	\begin{equation*}
+		\div{\vba{E}}=0\implies \exists \vba{A}\colon \vba{E}=\curl{\vba{A}}\qedhere
+	\end{equation*}
+\end{theoremaqed}
+\section{Operatori differenziali e forme differenziali}
+Consideriamo $\realset^n$ in coordinate cartesiane: questa è una varietà Riemanniana di dimensione $n$ con metrica l'identità, ossia $g=\mathbb{1}$.\\
+\paragraph{Gradiente}
+Dato un campo scalare $\phi\in\mathcal{F}(\realset^n)$, il \textbf{gradiente} di $\phi$ è definito come il campo vettoriale $\grad{\phi}$ associato tramite l'isomorfismo musicale del diesis alla 1-forma $d\phi$,
+\begin{equation}
+	\grad{\phi}=\left(d\phi\right)^{\sharp}\in\Omega^1(M),
+\end{equation}
+dove $d\phi$ è il differenziale (o derivata esterna) della funzione $\phi$.
+\paragraph{Paragraph}
+Il \textbf{rotore} di un campo vettoriale $\vba{E}$ su $\realset^n$ è definito come la $(n-2)$-forma $\mathrm{rot}\vba{E}$ seguente:
+\begin{equation*}
+	\mathrm{rot}\vba{E}=\ast\left(d\vba[E]^\flat\right)=\ast\left(d\fb{E}\right)
+\end{equation*}
+Questa è una generalizzazione del concetto del rotore ad $n$ dimensioni. Nel caso specifico di $\realset^3$, il rotore è una 1-forma; pertanto il rotore vettoriale a noi noto è semplicemente il campo vettoriale che otteniamo applicando l'isomorfismo musicale del diesis a $\mathrm{rot}\vba{E}$.
+\begin{equation}
+	\curl{\vba{E}}=\left(\mathrm{rot}\vba{E}\right)^\sharp
+\end{equation}
+\paragraph{Divergenza}
+La \textbf{divergenza} di $\vba{E}$ è definito come il campo scalare
+\begin{equation}
+	\div{\vba{E}}=\tr{d\vba{E}}
+\end{equation}
+dove $d\vba{E}$ è il differenziale della funzione.\\
+Possiamo definire la divergenza in termini di operatore \textit{star di Hodge}. Dato un campo vettoriale $\vba{E}=E^i(\vba{r})\vbh{u}_i$ su $\realset^3$, l'isomorfismo musicale del bemolle definisce la sua 1-forma associata
+\begin{equation*}
+	\fb{E}=\left(\vba{E}\right)^\flat=E_i(\vba{r})dx^i
+\end{equation*}
+Il suo duale di Hodge è la 2-forma
+\begin{equation*}
+	\ast\fb{E}=\frac{1}{2}\epsilon_{ijk}E^idx^j\wedge dx^k
+\end{equation*}
+dove $\epsilon_{ijk}$ è un simbolo di Levi-Civita.\\
+La derivata esterna di $\ast\fb{E}$ è la 3-forma
+\begin{equation*}
+	d\ast\fb{E}=\frac{1}{2}\epsilon_{ijk}\partial_lE^idx^{l}\wedge dx^i\wedge x^k
+\end{equation*}
+Il suo duale di Hodge è un campo scalare e coincide con la divergenza di $\vba{E}$  
+\begin{equation}
+	\div{\vba{E}}=\ast d\ast\fb{E}=\partial_i E^i
+\end{equation}
+\subsection{Teorema di Stokes per forme differenziali}
+\begin{theoremaqed}[Teorema di Stokes per forme differenziali]
+	Se $\omega$ è una $n$-forma liscia con supporto compatto sulla varietà differenziabile e orientabile $M$ di dimensione $n+1$, dotata - sulla base dell'orientazione indotta da $M$ - di un bordo pari ad una varietà differenziabile $\partial M$ di dimensione $n$, allora
+	\begin{equation*}
+		\int_{M}d\omega=\int_{\partial M}\omega
+	\end{equation*}
+dove nel secondo integrale si intende, con un abuso di notazione, la restrizione sul bordo $\partial M$ di $\omega$ (o equivalentemente, è pari al pullback $i^{\ast}\omega$ dove $\incl{u}{\partial M}{M}$ è l'inclusione del bordo nella varietà).
+\end{theoremaqed}
+Da questo importante teorema si possono ricavare diversi risultati già noti, applicati tuttavia al mondo delle forme differenziali.
+\paragraph{Teorema del rotore per forme differenziali}
+Si può osservare che $\curl{\vba{E}}\vdot \vbh{u}_n dA$ è una 2-forma che è pari a
+\begin{equation*}
+	\curl{\vba{E}}\vdot \vbh{u}_n dA=\ast\left(\curl{\vba{E}}\right)^\flat=d\vba{E}^\flat
+\end{equation*}% TO DO: citazione alle note di Albano, pag. 279, 284
+Allora, il teorema del rotore per le forme differenziali diventa
+\begin{equation}
+	\int_\Sigma d\fb{E}=\int_{\partial \Sigma}\fb{E}
+\end{equation}
+\paragraph{Teorema della divergenza per forme differenziali}
+Si può osservare che $\div{\vba{E}}dV$ è una 3-forma che è pari a
+\begin{equation*}
+	\div{\vba{E}}dV=d\ast\fb{E}
+\end{equation*}% TO DO: citazione alle note di Albano, pag. 252, 279, 283
+Allora, il teorema del rotore per le forme differenziali diventa
+\begin{equation}
+	\int_V \ast d\ast\fb{E}=\int_{\partial V}ast d\fb{E}
+\end{equation}
+\section{Coordinate polari e cilindriche}
+In molti casi dove sono presenti evidenti simmetrie, le coordinate cartesiane possono complicare la trattazione del fenomeno fisico. A questo scopo introduciamo due sistemi di coordinate di frequente utilizzo: le \textbf{coordinate sferiche} e le \textbf{coordinate cilindriche}.
+\subsection{Coordinate sferiche}
+\begin{define}[Coordinate sferiche]
+	Le \textbf{coordinate sferiche}\index{coordinate!sferiche} sono un sistema di coordinate per $\realset^3$ dove la posizione $\vba{r}$ di un punto è specificato da tre numeri:
+	\begin{itemize}
+		\item La \textbf{distanza radiale} $r$ dall'origine.
+		\item L'\textbf{angolo polare} (latitudine) $\theta$ tra la direzione verticale dello \textit{zenith} - l'asse $z$ positivo - e il vettore radiale.
+		\item L'\textbf{angolo azimutale} (longitudine) $\phi$ - definito tra l'asse $x$ positivo e la proiezione del vettore radiale sul piano $xy$, in senso antiorario.
+	\end{itemize}
+	Utilizzando i radianti, si pone $r\in\left(0,+\infty\right)$, $\theta\in\left[0,\pi\right)$ e $\phi\in\left[0,2\pi\right]$
+\end{define}
+La legge di trasformazione dalle coordinate sferiche alle coordinate cartesiane è
+\begin{equation}
+	\begin{cases}
+		x=r\sin\theta\cos\phi\\
+		y=r\sin\theta\sin\phi\\
+		z=r\cos\theta
+	\end{cases}
+\end{equation}
+Viceversa, si ha
+\begin{equation}
+	\begin{cases}
+		r=\sqrt{x^2+y^2+z^2}\\
+		\theta=\arctan\left(\frac{\sqrt{x^2+y^2}}{z}\right)\\
+		\phi=\arctan{\left(\frac{y}{x}\right)}
+	\end{cases}
+\end{equation}
+\paragraph{Basi e componenti vettoriali}
+\begin{remember}
+	Dato un cambiamento di coordinate $q^\lambda=q^\lambda(x^i)$, la matrice del cambiamento di base è la matrice che ha sulle colonne i vettori della nuova base espressi in funzione della seconda.
+	In \textit{notazione di Einstein} essa è della forma
+	\begin{equation}
+		M=\left(\pdv{x^i}{q^\lambda}\right)
+	\end{equation}
+	dove $i$ è l'indice di riga e $\lambda$ quello di colonna.\\
+	Per passare dalla base riferita alle $x^i$ alla nuova base riferita alle $q^\lambda$ la formula è quindi
+	\begin{equation}
+		\vba{e}_\lambda=\pdv{x^i}{q^\lambda}\vba{E}_i
+	\end{equation}
+	Invece, per cambiare le componenti dei vettori dobbiamo operare in modo controvariante e utilizzare la \textit{matrice inversa} del cambiamento di base:
+	\begin{equation}
+		v^\lambda=\pdv{q^\lambda}{x^i}V_i
+	\end{equation}
+\end{remember}
+\noindent Poniamo qui $x^1=x,\ x^2=y,\ x^3=z,\ q^1=r,\ q^2=\theta,\ q^3=\phi$.
+Il vettore posizione in cartesiane è
+\begin{equation*}
+	\vba{r}=x^i\vbh{u}_i=x\vbh{u}_x+y\vbh{u}_y+z\vbh{u}_z
+\end{equation*}
+Allora, il cambiamento dalla base cartesiana $\left(\vbh{u}_x,\vbh{u}_y,\vbh{u}_z\right)$ alla base sferica $\left(\vbh{e}_r,\vbh{e}_\theta,\vbh{e}_\phi\right)$ è
+\begin{equation}
+	\begin{cases}
+		\vbh{e}_r=\pdv{x^i}{r}\vbh{u}_i=\pdv{\vba{r}}{r}=\sin\theta\cos\phi\vbh{u}_x+\sin\theta\sin\phi\vbh{u}_y+\cos\theta\vbh{u}_z\\
+		\vbh{e}_\theta=\pdv{x^i}{\theta}\vbh{u}_i=\pdv{\vba{r}}{\theta}=r\cos\theta\cos\phi\vbh{u}_x+r\cos\theta\sin\phi\vbh{u}_y-r\sin\theta\vbh{u}_z\\
+		\vbh{e}_\phi=\pdv{x^i}{\phi}\vbh{u}_i=\pdv{\vba{r}}{\partial \phi}=-r\sin\theta\sin\phi\vbh{u}_x+r\sin\theta\cos\phi\vbh{u}_y
+	\end{cases}
+\end{equation}
+Poiché
+\begin{equation}
+	\abs{\vbh{e}_r}=\abs{\pdv{\vba{r}}{r}}=1\qquad\abs{\vbh{e}_\theta}=\abs{\pdv{\vba{r}}{\theta}}=r\qquad\abs{\vbh{e}_\phi}=\abs{\pdv{\vba{r}}{\phi}}=r\sin\theta,
+\end{equation}
+il cambiamento dalla base cartesiana $\left(\vbh{u}_x,\vbh{u}_y,\vbh{u}_z\right)$ alla base \textit{ortonormale} sferica $\left(\vbh{u}_r,\vbh{u}_\theta,\vbh{u}_\phi\right)$ è
+\begin{equation}
+	\begin{cases}
+		\vbh{u}_r=\frac{\vbh{e}_r}{\abs{\vbh{e}_r}}=\sin\theta\cos\phi\vbh{u}_x+\sin\theta\sin\phi\vbh{u}_y+\cos\theta\vbh{u}_z\\
+		\vbh{u}_\theta=\frac{\vbh{e}_\theta}{\abs{\vbh{e}_\theta}}=\cos\theta\cos\phi\vbh{u}_x+\cos\theta\sin\phi\vbh{u}_y-\sin\theta\vbh{u}_z\\
+		\vbh{u}_\phi=\frac{\vbh{e}_\phi}{\abs{\vbh{e}_\phi}}=-\sin\phi\vbh{u}_x+\cos\phi\vbh{u}_y
+	\end{cases}
+\end{equation}
+La matrice del cambiamento di base ortonormale $M$ è una rotazione nelle tre dimensioni attorno all'origine, e la relazione di cui sopra si può scrivere matricialmente come
+\begin{equation}
+	\begin{pmatrix}
+		\vbh{u}_r\\
+		\vbh{u}_\theta\\
+		\vbh{u}_\phi
+	\end{pmatrix}=M\begin{pmatrix}
+		\vbh{u}_x\\
+		\vbh{u}_y\\
+		\vbh{u}_z
+	\end{pmatrix}=
+	\begin{pmatrix}
+		\sin\theta\cos\phi & \cos\theta\cos\phi & -\sin\phi\\
+		\sin\theta\sin\phi & \cos\theta\sin\phi & \cos\phi\\
+		\cos\theta & \sin\theta & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+		\vbh{u}_x\\
+		\vbh{u}_y\\
+		\vbh{u}_z
+	\end{pmatrix}
+\end{equation}
+Si osservi in particolare che $M$ è \textit{ortogonale}, quindi $M^{-1}=M^{T}$.
+Pertanto, il cambiamento delle componenti di un campo vettoriale $\vba{E}$ dalle cartesiane alle sferiche è
+\begin{equation}
+	\begin{pmatrix}
+		E_r & E_\theta & E_\phi
+	\end{pmatrix}=
+	\begin{pmatrix}
+		E_x & E_y & E_z
+	\end{pmatrix}M^{-1}=
+	\begin{pmatrix}
+		E_x & E_y & E_z
+	\end{pmatrix}M^T
+\end{equation}
+\paragraph{Elemento di linea}
+Lo spostamento infinitesimo da $\vba{r}=(r,\ \theta, \phi)$ a $\vba{r}+d\vba{r}=(r + dr, \theta + d\theta, \phi + d\phi)$ è
+\begin{equation}
+	d\vba{s}=\abs*{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs*{\pdv{\vba{r}}{r}}dr\vbh{u}_r+\abs*{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs*{\pdv{\vba{r}}{\phi}}d\phi\vbh{u}_\phi=dr\vbh{u}_r+rd\theta\vbh{u}_r\theta+r\sin\theta d\phi\vbh{u}_\phi\label{spinfinitesimosferiche}
+\end{equation}
+Essendo la metrica associata alle coordinate sferiche ortogonale, l'elemento di linea diventa
+\begin{equation}
+	ds^2=dr^2+r^2d\theta^2+r^2\sin^2\theta d\phi^2
+\end{equation}
+% TO DO: add elemento d'area
+% TO DO: add elemento di volume
+\paragraph{Operatore nabla}
+L'operatore nabla, scritto in notazione versoriale cartesiana, è
+\begin{equation}
+	\grad =\grad_x\vbh{u}_x+\grad_y\vbh{u}_y+\grad_z\vbh{u}_z=\pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z\label{nablacartesiano}
+\end{equation}
+% https://www.cpp.edu/~ajm/materials/delsph.pdf
+% https://www.therightgate.com/spherical-del-operator/
+Le componenti dell'operatore dalle sferiche alle cartesiane sono:
+\begin{equation}
+	\begin{cases}
+		\grad_x=\pdv{r}{x}\pdv{r}+\pdv{\theta}{x}\pdv{\theta}+\pdv{\phi}{x}\pdv{\phi}=\sin\theta\cos\phi\pdv{r}+\cos\theta\cos\phi\pdv{\theta}-\frac{\sin\phi}{r\sin\theta}\pdv{\phi}\\
+		\grad_y=\pdv{r}{y}\pdv{r}+\pdv{\theta}{y}\pdv{\theta}+\pdv{\phi}{y}\pdv{\phi}=\sin\theta\sin\phi\pdv{r}+\cos\theta\sin\phi\pdv{\theta}+\frac{\cos\phi}{r\sin\theta}\pdv{\phi}\\
+		\grad_z=\pdv{r}{z}\pdv{r}+\pdv{\theta}{z}\pdv{\theta}+\pdv{\phi}{z}\pdv{\phi}=\cos\theta\pdv{r}-\frac{1}{r\sin\theta}\pdv{\theta}\end{cases}
+\end{equation}
+Sostituendo in \ref{nablacartesiano} i versori e le componenti dell'operatore nabla in coordinate sferiche, si ricava, dopo raccoglimenti e calcoli noiosi,
+\begin{equation}
+	\grad=\pdv{r}\vbh{u}_r+\frac{1}{r}\pdv{\theta}\vbh{u}_\theta+\frac{1}{r\sin\theta}\pdv{\phi}\vbh{u}_\phi\label{nablasferiche}
+\end{equation}
+In modo alternativo, possiamo ricavare l'espressione \ref{nablasferiche} dalla definizione intrinseca di gradiente. Presa una funzione $V$ arbitraria, inserendo lo spostamento infinitesimo \ref{spinfinitesimosferiche} nella \ref{gradienteintrinseco} si ricava
+\begin{equation*}
+	dV=\pdv{V}{r}dr+\pdv{V}{\theta}d\theta+\pdv{V}{\phi}d\phi=\grad_r{V}dr+\grad_\theta{V}rd\theta+\grad_\phi{V}r\sin\theta d\phi,
+\end{equation*}
+da cui
+\begin{equation}
+	\grad{V}=\pdv{V}{r}\vbh{u}_r+\frac{1}{r}\pdv{V}{\theta}\vbh{u}_\theta+\frac{1}{r\sin\theta}\pdv{V}{\phi}\vbh{u}_\phi
+\end{equation}
+e quindi l'espressione dell'operatore nabla è quanto scritto nella \ref{nablasferiche}.
+
+\subsection{Coordinate cilindriche}
+\begin{define}[Coordinate cilindriche]
+	Le \textbf{coordinate cilindriche}\index{coordinate!cilindriche} sono un sistema di coordinate per $\realset^3$ dove la posizione $\vba{r}$ di un punto è specificato da tre numeri:
+	\begin{itemize}
+		\item La \textbf{distanza assiale} $R$ tra l'asse verticale - asse $z$ - e il punto $\vba{r}$
+		\item L'\textbf{angolo azimutale} (longitudine) $\phi$ - definito tra l'asse $x$ positivo e la linea sul piano $xy$ dall'origine alla proiezione del punto $\vba{r}$, in senso antiorario.
+		\item L'\textbf{altezza} $z$ in segno tra il piano $xy$ e il punto $\vba{r}$:
+	\end{itemize}
+	Utilizzando i radianti, si pone $R\in\left(0,+\infty\right)$, $\theta\in\left[0,2\pi\right)$ e $z\in\realset$
+\end{define}
+La legge di trasformazione dalle coordinate sferiche alle coordinate cartesiane è
+\begin{equation}
+	\begin{cases}
+		x=R\sin\theta\\
+		y=R\cos\theta\\
+		z=z
+	\end{cases}
+\end{equation}
+Viceversa, si ha
+\begin{equation}
+	\begin{cases}
+		R=\sqrt{x^2+y^2}\\
+		\theta=\arctan\left(\frac{y}{x}\right)\\
+		z=z
+	\end{cases}	
+\end{equation}
+\paragraph{Basi e componenti vettoriali}
+Poniamo qui $x^1=x,\ x^2=y,\ x^3=z,\ q^1=R,\ q^2=\theta,\ q^3=z$.
+Il vettore posizione in cartesiane è
+\begin{equation*}
+	\vba{r}=x^i\vbh{u}_i=x\vbh{u}_x+y\vbh{u}_y+z\vbh{u}_z
+\end{equation*}
+Allora, il cambiamento dalla base cartesiana $\left(\vbh{u}_x,\vbh{u}_y,\vbh{u}_z\right)$ alla base cilindrica $\left(\vbh{e}_R,\vbh{e}_\theta,\vbh{e}_z\right)$ è
+\begin{equation}
+	\begin{cases}
+		\vbh{e}_R=\pdv{x^i}{R}\vbh{u}_i=\pdv{\vba{r}}{R}=\cos\theta\vbh{u}_x+\sin\theta\vbh{u}_y\\
+		\vbh{e}_\theta=\pdv{x^i}{\theta}\vbh{u}_i=\pdv{\vba{r}}{\theta}=-R\sin\theta\vbh{u}_x+R\cos\theta\vbh{u}_y\\
+		\vbh{e}_z=\pdv{x^i}{z}\vbh{u}_i=\pdv{\vba{r}}{z}=\vbh{u}_z
+	\end{cases}
+\end{equation}
+Poiché
+\begin{equation}
+	\abs{\vbh{e}_R}=\abs*{\pdv{\vba{r}}{R}}=1\qquad\abs{\vbh{e}_\theta}=\abs*{\pdv{\vba{r}}{\theta}}=R\qquad\abs{\vbh{e}_z}=\abs{\pdv{\vba{r}}{z}}=1,
+\end{equation}
+il cambiamento dalla base cartesiana $\left(\vbh{u}_x,\vbh{u}_y,\vbh{u}_z\right)$ alla base \textit{ortonormale} cilindrica $\left(\vbh{u}_R,\vbh{u}_\theta,\vbh{u}_z\right)$ è
+\begin{equation}
+	\begin{cases}
+		\vbh{u}_R=\frac{\vbh{e}_R}{\abs{\vbh{e}_R}}=\cos\theta\vbh{u}_x+\sin\theta\vbh{u}_y\\
+		\vbh{u}_\theta=\frac{\vbh{e}_\theta}{\abs{\vbh{e}_\theta}}=-\sin\theta\vbh{u}_x+\cos\theta\vbh{u}_y\\
+		\vbh{u}_\phi=\frac{\vbh{e}_\phi}{\abs{\vbh{e}_\phi}}=\vbh{u}_z
+	\end{cases}
+\end{equation}
+La matrice del cambiamento di base ortonormale $M$ è una rotazione assiale attorno all'asse $z$ in senso antiorario, e la relazione di cui sopra si può scrivere matricialmente come
+\begin{equation}
+	\begin{pmatrix}
+		\vbh{u}_R\\
+		\vbh{u}_\theta\\
+		\vbh{u}_z
+	\end{pmatrix}=M\begin{pmatrix}
+		\vbh{u}_x\\
+		\vbh{u}_y\\
+		\vbh{u}_z
+	\end{pmatrix}=
+	\begin{pmatrix}
+		\cos\theta & -\sin\theta & 0\\
+		\sin\theta & \cos\theta & 0\\
+		0 & 0 & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+		\vbh{u}_x\\
+		\vbh{u}_y\\
+		\vbh{u}_z
+	\end{pmatrix}
+\end{equation}
+Si osservi in particolare che $M$ è \textit{ortogonale}, quindi $M^{-1}=M^{T}$.
+Pertanto, il cambiamento delle componenti di un campo vettoriale $\vba{E}$ dalle cartesiane alle cilindriche è
+\begin{equation}
+	\begin{pmatrix}
+		E_r & E_\theta & E_\phi
+	\end{pmatrix}=
+	\begin{pmatrix}
+		E_x & E_y & E_z
+	\end{pmatrix}M^{-1}=
+	\begin{pmatrix}
+		E_x & E_y & E_z
+	\end{pmatrix}M^T
+\end{equation}
+\paragraph{Elemento di linea}
+Lo spostamento infinitesimo da $\vba{r}=(r,\ \theta, z)$ a $\vba{r}+d\vba{r}=(r + dr, \theta + d\theta, z + dz)$ è
+\begin{equation}
+	d\vba{s}=\abs*{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs*{\pdv{\vba{r}}{\partial R}}dR\vbh{u}_R+\abs*{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs*{\pdv{\vba{r}}{z}}dz\vbh{u}_z=dR\vbh{u}_R+Rd\theta\vbh{u}_\theta+dz\vbh{u}_z\label{spinfinitesimocilindriche}
+\end{equation}
+Essendo la metrica associata alle coordinate cilindriche ortogonale, l'elemento di linea diventa
+\begin{equation}
+	ds^2=dR^2+R^2d\theta^2+dz^2
+\end{equation}
+% TO DO: add elemento d'area
+% TO DO: add elemento di volume
+\paragraph{Operatore nabla}
+Ricaviamo, per semplicità, l'espressione dell'operatore nabla dalla definizione intrinseca di gradiente. Presa una funzione $V$ arbitraria, inserendo lo spostamento infinitesimo \ref{spinfinitesimocilindriche} nella \ref{gradienteintrinseco} si ricava
+\begin{equation*}
+	dV=\pdv{V}{R}dR+\pdv{V}{\theta}d\theta+\pdv{V}{z}dz=\grad_R{V}dr+\grad_\theta{V}Rd\theta+\grad_z{V}dz,
+\end{equation*}
+da cui
+\begin{equation}
+	\grad{V}=\pdv{V}{R}\vbh{u}_R+\frac{1}{R}\pdv{V}{\theta}\vbh{u}_\theta+\pdv{V}{z}\vbh{u}_z
+\end{equation}
+e quindi l'espressione dell'operatore nabla è
+\begin{equation}
+	\grad =\pdv{R}\vbh{u}_R+\frac{1}{R}\pdv{\theta}{u}_\theta+\pdv{z}\vbh{u}_z
+\end{equation}
+
