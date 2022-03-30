@@ -316,6 +316,244 @@ Cosa possiamo cambiare nel tempo?
 Vedremo che la seconda e la terza causa sono effetti della forza di Lorentz. Quindi solo la variazione di $\vba B$ nel temopo  non è prevista dalle leggi usate finora
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 17 30/03/2022
+%Legge di Faraday
+%esiste una forza elettromotrice $\mathcal{E}$ indotta da una variazione del flusso magnetico, ad esso proporzionale attraverso un circuito
+%esisterebbe anche senza un circuito, ma per vederla serve mettere un circuito
+%
+%Motivi che potrebbero portare alla generazione della fem
+%	\item variazione forma circuito, che cabia la superficie \Sigma
+%	\item variazione dell'angolo tra $\vba B$ e $\Sigma$
+%	\item variazione di $\vba B$ nel tempo
+%	\item spostamento rigido del circuito
+%	
+%Andremo a vedere che nell'ultimo caso la fem non è un effetto nuovo: è una conseguenza della forza di Lorentz: la sua esistenza dice che la fem deve essere prodotto
+%unico effetto veramente nuovo è la variazione di $\vba B$ nel tempo, unico effetto non previsto dalle leggi che già conosciamo
+%
+%ci permetterà di derivare forma differenziale legge di Faraday
+%
+%
+%IMMagine:
+%immaginaamo di avere un circuito in un campo magnetico non uniforme. Immaginiamo che si sposti leggermente: all'istante $t+dt$ è in una posizione diversa da quella precedente con velocità $\vba v$. Il piccolo intervallo su cui si è spostato $d\vba r=\vba vdt$
+%sul filo ci sono delle cariche libere che suvbiscono una forza per il fatto di essere immerse in un campo magnetico $\vba B$. Ogni singola carica libera subisce la forza di Lorentz: $\vba F=e   $ il campo elettrico idotto per ogni particella che sta lì sopra $\vba E_i =...$    simile ad effetto Haul(?), è un esmpio di campo elettrico indotto da forza di Lorentz
+%Se le cariche si stanno muovendo con velocità ortogonale al circuito	punto per punto guardo come sono diretti campo magnetico e velocità spira	il campo elettrico generato fa girare intorno le cariche
+%fem indotta è pari alla circuitazione del campo elettrico $\mathcal{E}_i=\oint \vba v\cross\vba V$, ma non sarà conservativo (come abbiamo detto la scorsa lezione)
+%
+%Calcoliamo la circuitazione  $=\oint \vba v\cross\vba B d\vba s=\oint d\vba s\cross\vba v\vba B=\oint$
+%stiamo assumendo $\vba$ non uniforme ma costante nel tempo (dipende dalla posizione, le derivate sulla posizione non sono nulle)
+%la derivata rispetto al tempo può uscire dall'integrale $d\vba s$ è parallelo e rimane uguale
+%ho derivata rispetto al tempo dell'integrale
+%ds è il vettore tangente, spostamento lungo la spira, pt per pt tangente al circuito
+%dr ortogonale alla spira e indica lo spostamento che sta facendo il circuito nello spazio  (si vede poco dal disegno)
+%
+%adesso immaginiamo la superficie laterale, abbiamo una sorta di cilindro sbilenco dallo spostamento nel tempo del circuito
+%dr=vdt	d\Sigma\vdot un
+%punta in direzione ortogonale alla sup laterale
+%se integro il vettore ds\crossdr lungo tutta la spira ottengo tutta la superficie laterale
+%dsdr ha modulo l'elemtno infinitesimo di superficie
+%
+%tornando all'integrale d/dt\oint_\gammad\vba s\cross d\vba r\vdot \vba B=d/dt
+%ricordiamo che l'area laterale del cilindro con base curva qualunque è data dall'integrale lungo la coordinata su cui costruisco il cilindro di ds vettoriale vettore spostamento lungo la direzione verticale in cui sto costruendo il cilindro e di modulo l'altezza del cilindro
+%nel nostro caso dr è piccolo, quindi abbiamo d\Sigma_l
+%
+%
+%la fem indotta è il flusso del campo magnetico attraverso la superficie laterale infinitesima
+%$\mathcal{E}_i=d/dt\Phi_{\Sigma_i}(\vba B)$ flusso tagliato
+%Recap: tutte le cariche subiscono un campo elettrico. per fem devo integrare sul circuito. riesco a portare avanti derivata rispetto al tempo. è lungo sup ds\crossdr che è la sup laterale infintesima del cilindretto
+%non è ancora quello che vogliamo, dobbiamo far vedere che la differenza di flusso fra la spira nella posizione 1 e 2, con $\Sigma_1$ sup del circuito che finisce sul circuito prima dello spostamento, 2 è dopo lo spostamento: sono le superfici di base prima e dopo lo spostamento
+%$\Delta\Phi=\Phi_{\Sigma_2}(\vba B) - \Phi_{\Sigma_1}(\vba B)$
+%so che il flusso attraverso una superficie chiusa del campo magnetico è nullo $\Phi_\Sigma=0$
+%	siccome u_n punta fuori dalla superficie chiusa /lo abbiamo già visto altre volte
+%$....$
+%la forza di Lorentz per uno spostamento rigido in un campo magnetico uniforme ma non costante produce un \textit{flusso tagliato}
+%cosa simile a spira immersa in campo magnetico non uniforme
+%siccome deve essere nullo allora
+%flusso tagliato $..=-d/dt\Phi_{\Sigma}(\vba B)$ con $\Sigma$ superficie che finisce sul circuito
+%quando calcolo la differenza
+%aggiungo limite		abbiamo calcolato che è il flusso attraverso la sup laterale e sostituisco
+%
+%ed è quello a cui volevamo arrivare
+%
+%Recap: abbiamo dimosrato che per uno spostamento rigido la forza elettrmotrice indotta $\mathcal{E}$ è una conseguenza della forza di Lorentz. La stessa cosa vale per variazioni della forma o dell'angolo
+%per spiegare la fem indotta quando la spira si muove o cambia angolo o cambia forma non servono leggi nuove perché sono effetti della forza di Lorentz
+%quello che non è previsto è la fem per effetto di variazione del campo magnetico $\vba B$, cioé $\partial\vba B/\partial t\to \vba E_i$
+%per spiegarlo vanno modificate le nostre leggi
+%
+%
+%riscriviamo la forza elettromotrice indotta
+%$\mathcal{E}= -d/dt\Phi_\Sigma(\vba B)=\int\vba E_id\vba s=-d/dt\int$
+%con curva \gamma su cui il campo elettrico ha circuitazione non nulla, \Sigma che finisce sulla curva \gamma e abbiamo certo campo magnetico che attraversa \Sigma e produce flusso
+%campo magnetico che cambia nel tempo, la derivata che ci interessa è quella che agisce sul campo magnetico, non forma: consideriamo circuito fisso e non deformato
+%$=\int_\Sigma \partial\vba B/$
+%usiamo teo rotore su membro sinistra
+%$\int_\Sigma\cur\vba E\vdot\vbh{u}_n d\Siagm=-$
+%deve valere per ogni \Sigma, quindi per campo non conservativo è $\curl\vba E=-\partial/\partial$	modifica quando il campo magnetico dipendente dal tempo: produce campo elettrico non conservativo, fem indotta
+%Questa è la 2/3 legge di Maxwell o forma differenziale della legge di Faraday
+%%CIT: è la seconda o terza, dipende come contate
+%è \textit{la} legge fondamentale
+%tutti i fenomeni sperimentali che abbiamo visto derivano da questa, che è più specifica di quella integrale che contiene cose che derivano dalla legge di Lorentz
+%Faraday combina Lorentz e Maxwell: tiene conto di fem da Lorentz e campo magnetico variabile rispetto al tempo
+%
+%La legge fondamentale è quella di Maxwell
+%
+%
+%
+%riscriviamo la legge anche per i potenziali
+%una legge che non subisce variazioni è che $\div\vba B=0$, cioé $\vba B$ può essere scritto come il rotore di un campo $\vba A$   e campo elettrico -grad potenziale V
+%Ora non è più vero, infatti $\curl\vba E=-\partial (\curl\vba A)=$
+%scambio le derivate
+%$\grad(\vba E+\partial \vba A)=0$
+%è questo che si può scrivere come $-\grad V$
+%quindi $\vba E=-\partial \vba A -\grad V$
+%nel caso non statico ho un termine in più: derviata di $\vba A$ rispetto al tempo
+%riottengo i campi dai potenziali con $\vba E=...$ e $\vba B=...$
+%resta che li posso determinare univocamente ma per $\vba E$ devo coinvolgere anche la derivata
+%vedremo che sarà più elegante con la relatività ristretta
+%
+%
+%questa è l'elettrodinamica, che mischia elettricità e magnetismo, che si influenzano a vicenda, un quadro generale si vedrà nella relatività ristretta invariante per trasformazioni di Lorentz	tutto contenuto in  potenziali vettore $\vba $ e potenziale scalare $V$
+%
+%
+%
+%Applicativo
+%\section{induttanza}
+%Autoflusso
+%Sappiamo un circuito, spira in cui circola corrente produce campo magnetico di dipolo
+%%IMMAGINE
+%il capo magneitco prodotto dalla spira produce un flusso non nullo attraverso la spira stessa
+%è detto autoflusso
+%$\Phi_\Sigma(\vba B)=\int\vba B\vdot$
+%ma B è il campo magnetico stesso generato dalla spira, dato dalla 1 legge elementare di Laplace: $\vba B=\frac{}{}\ointd\vba s\cross\vbh{u}_r\r^2$
+%$=\frac{}{}\int_\Sigma\oint_\gamma\frac{}{}$
+%mi interessa che questi integrali dipendono esclusivamente dalla geometria, l'unica cosa che non dipende dalla geometria è l'intensità di corrente $i$ che posso regolare
+%la quantità $L=\frac{}{}\int\oint$ dipende solo dalla forma del circuito perché il campo magnetico è autogenerato dalla spira stessa
+%$L$ può dipendere eventualmente dal materiale contenuto nella spira /magnetismo nella materia
+%l'autoflusso sarà quindi $\Phi_\Sigma(\vba B)=Li$ con $L$ detta \textit{induttanza}
+%
+%l'autolusso di un qualsiasi circuito è proporzionale all'intensità di corrente con costate di proporzionalità dipendente solo dalla geometria
+%è molto simile alla situazione del condensatore: differenza di potenziale, capacità dipendente solo da forma
+%
+%\begin{examplewt}[Solenoide (non) infinto]
+%	si usano i solenoidi per creare l'induttanza
+%	sappiamo che il campo magnetico in un solenoide infinto è $B=\mu_0 in$ con $n$ dentià lineare di spire
+%	prendo il solenoide di una lunghezza $d$ molto maggiore del diametro $R$ ($d>>R$) per avere l'approssimazione che sia infinto trascurando gli effetti di bordo
+%	siccome il campo magnetico è costante il flusso attraverso \Sigma che taglia il solenoide è dato dal flusso sulla singola spira di superficie \Sigma sup della spira per il numero totale di spire N
+%	\Phi(B)=\Sigma BN=
+%	per un solenoide circolare \Sigma=\pi R^2
+%	=\mu_0i
+%	quindi L=\mu_0 n^2\Sigma d	
+%	posso farla per unità di lunghezza dividendo per (?)
+%	
+%	un po' come il caso delle piastre del condensatore: per produrre campo elettrico costante usavamo due piastre e trascuravamo gli effetti di bordo, ma qui abbiamo il solenoide
+%		
+%\end{examplewt}
+%
+%Unità di misura dell'induttanza
+%lo leggo dalla definizione 
+%%TODO: mettere unità di misura, environment?
+%H di Henry
+%%CIT: come al solito l'ordine di grandezza di Henry è cannato
+%\begin{example}[Ordine di grandezza dell'Henry]
+%	Solenoide rettilineo $n=10^3$ spire al metro, superficie $\Sigma=100$ cm^2
+%	induttanza per unità di lunghezza $L=4\pi 10^{-2}$
+%	
+%	in laboratorio riempiamo di materiale ferromagnetico, come il ferro che aumenta notevolemnte il campo magnetico, poi il flusso e di conseguenza l'induttanza
+%	
+%\end{example}
+%
+%L'induttanza è importante per l'autoinduzione
+%
+%Autoinduzione
+%ogni volta che c'è una variazione di flusso del campo magnetico attraverso sup \Sigma ho fem $\mathca{E}_i=$
+%posso anche avere variazione dell'auoflusso, ed è detta autoinduzione
+%siccome $\Phi_\Sigma(|vba B)=Li$
+%sostituisco sopra
+%$=d/dt=$
+%$\mathcal{E}_i=-L$
+%ogni corrente che varia nel tempo ha fem che fa cambiare la corrente stessa
+%%CIT c'era un mio prof che diceva un loopo che si morde la coda
+%
+%
+%
+%
+%applicazione induttanza in laboratori
+%Circuito RL
+%$\mathcal{E}_i=-L\dd$
+%avevamo visto i cricuiti RC, che avrann delle similitudini
+%Fisicamente prendiamo il circuito aperto e chiuderlo, generatore che produce fem, cariche cominciano a girare, circolano nel solenoide, che produce B che produce variazione di flusso, che tende ad opportsi a quello che l'ha generato, ho fem nella dierzione opposta /effetto legge di Lentz/
+%L si oppone alla circolazione di corrente, quindi ci impiega un po' ad arrivare a regime
+%è l'opposto di quello che succedeva nei condensatori: la corrente tende a partire più lentamente a causa dell'induttanza, che agisce come una sorta di inerzia
+%%CIT l'induttanza tende a non far cambiare le cose, come il Gattopardo
+%$\mathcal{E}+\mathcal{E}_i=Ri$
+%$\mathca{E}-L\dd=RI$
+%ritroviamo equazione differnziale come nel caso del condensatore
+%risolviamola
+%$\mathca{E}-Ri=L\dd\\
+%di/\mathca{E}-Ri=dt/L$\\
+%integriamo da t=0 e fino al tempo t
+%$\int_0^{i(t)}=\int_0^t\\
+%-1/R\log=\\
+%=\mathcal{E}e^{\frac{}{L}}\\
+%\implies i(t)=\frac{\mathcal{E}}{R}\left( 1-e^{} \right)$
+%
+%in termini di dimensioni L/R=s
+%R/L=\tau
+%%grafici
+%all'inizio l'intensità di corrente è forte, la fem che ho è grande all'inizio
+%man mano che la corrente cresce tende ad arrivare a valore costante, derivata tende a 0 e fem tende a 0
+%la fem indotta $\mathcal{E}_i=L+\frac{R}{LR}$\mathcal{E}e^{-\frac{}{}}$
+%
+%nei circuiti RC faceva l'opposto,sia per intensità di corrente sia per differenza di potenziale
+%RL \tau=RC	si oppone subito
+%RC \tau=R/L	 si oppone asintoticamente
+%
+%i(t)=\frac{}{}()
+%è etta \textit{extracorrente di chiusura}
+%
+%sarà più interessante nel caso della corrente alternata, circuiti RLC
+%
+%
+%Considerazioni energetiche del circuito RL
+%per i condensatori c'è il bilancio energetico: il generatore ha certa potenza, energia dissipata nella resisteza, nel condensatore parte dell'energia era immagazzinata come diff en potenziale fra le due piastre $V_C=\frac{1}{2}\frac{q^2}{C}$ e da qui avevamo dedotto una densità di energia di campo elettrico, immagazzinata fra le due piastre $u_E=\frac{}{}\epsiloon$
+%in un volume $V$ è $U_C=\int_V  dV$
+%dal caso specififoc del condensatore avevamo dedotto energia associata a campo elettrico, vale in gerneale la def di densità di energia
+%
+%equivalente per il caso degli "inuttori"
+%la potenza generata dal generatoe $P=Vi$,qunidi $P_\mathcal{E}=\mathcal{E}i$ è la potenza erogata dal generatore
+%potenza dissipata dalla resistenza $P_R=i^2R$
+%potenza associata all'induttanza $V$ fem indotta
+%$P_L=\mathcal{E}_ii=-Lidi/dt$ si accumula in modo proporzionale alla derivata dell'intensità di corrente
+%$\mathcal{E}_i=Ri^2+Lidi/dt$
+%da $\mathal{E}=Ri...$
+%ottengo P_=P_+P_
+%per energia immagazzinata nel'induttanza devo fare l'integrale ra 0 è \infty perché ho comportamento asintotico
+%U_L=\int^{+\infty}_0P_Ldt=
+%ma i_\infty=\frac{\mathcal}{R} corrente che circola a regime
+%l'energia immagazzinata dall'induttore è $U_L=\frac{}{}Li_{\infty}^2$
+%analogo ai condensatori
+%
+%per completare parallelismo con condensatore
+%l'energia è accumulata nell'induttore, in cui c'è campo magnetico che si porta l'energia
+%l'energia è associata l fatto che prima non c'era un campo magnetico e adesso c'è
+%com'è immagazzinata? prendo solenoide infinito
+%	L=\mu_0\Sigma n^2d
+%inserisco nella formula di U_L
+%U_L=\frac{1}{2}
+%	ma B in un solenoide è \mu_0in
+%	\Sigma d è voleume del solenoide
+%=B^2/
+%
+%quindi per induttori 
+%U_L=\frac{}{}Li^2
+%densità di energia del campo magnetico $u_B=\frac{}{}\frac{B^2}{\mu_0}$
+%U_B=\int_V
+%
+%è una cosa valida in generale: ogni volta che ho E eB si crea densità di energia u_E e u_B
+%se ci sono entrambi allora si sommano
+%energia del campo elettromagnetico U=\frac{}{2}\left( \epsilon_0 E^2 + \frac{B^2}{\mu_0} \right)
+%vera per qualsiasi capo elettrico e magnetico
+%si può anche derivare da formalismo hamiltoniano
 
 
 
