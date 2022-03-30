@@ -5,178 +5,320 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-
-\subsection{Digressione sulla serviazione della legge generale di Ampére}
-riprendiamo la legge di Ampere: la circuitazione del campo magnetico nel caso stazionario è data da:
+%LEZ 16 28/03/2022
+\subsection{Digressione sulla derivazione della legge generale di Ampère}
+Riprendiamo la legge di Ampere, per cui la circuitazione del campo magnetico nel caso stazionario è data da:
 \begin{equation*}
-	
-	
-	\end{equation*}
-
-riscrivendo 
-ottengo relaziona vettoriale in forma differenziale\\
-ERa nel caso di un filo rettilineo infinito e calcoliamo la circuitazione e $\gamma$ curva qualsiasi\\
-Perché abbiamo lavorato un filo rettilineo \textit{infinito}?\\
-Prendo un circuito qualsiasi , ci sarà un certo campo magnetico. Data un'altra curva $\gamma$ potrei calcolarmi la circuitazione attraverso la curva $\gamma$ qualunque del campo magnetico
-\begin
-	
-\end
-ds sarà lungo $\gamma$. Se le curve chiuse si intersecano la circuitazione dovrà essere $\mu_0 i$ per Ampere.
-Parametrizzo $\gamma$ come $\r(\phi_1)$ e parametrizzo il circuito con un'ltra curva $\gamm_2$ . $ds_1$ è 
-Uso la legge di Laplace
+	\oint_\gamma \vba B\vdot d\vba s = \mu_0 i	
+\end{equation*}
+Riscrivendola opportunamente
+%TODO: capire che stregoneria ha fatto, temo sia un'integrazione
+si ottiene una relaziona vettoriale in forma differenziale quale
 \begin{equation*}
-	B=\frac{\mu_0 i}{4\pi}\int_{\gamma_2}
+	\grad\cross\vba B= \mu_0 \vba j
 \end{equation*}
-è il campo magnetico B calcolato nel vettoer posizione $r$
+%TODO: inserie disegno del filo infinito: 16.1
 
-Quindi il campo magnetico B è valutato sull'altra curva $B(r(\phi_1))$. 
-poso cambiare l'ordine perché è un determinante: prodotto vettoriale per scalare
-Riconosciamo lintegrale ...
-Dalla legge di Ampere dovrebbe essere $\mu_0 i$, quindi dovrebbe essere 1. Riconosciamo il \textit{Gauss linking number} \index{Gauss!linking number} che è un invariante topologico rilevante con teoria dei nodi: conta il numero di volte che le curve si intersecano con segno %lezioni di topologia yt
-Il linking number che conta le intersezioni è $\pm 1$, gazie all'orientamento delle curve h oil segno\\
-Si ha che il linkingnumber è 
-\begin{equatino*}
-	n=\frac{}{}
+Questo era nel caso di un filo rettilineo infinito con la circuitazione calcolata su una curva qualsiasi $\gamma$. Ma perché abbiamo lavorato un filo \textit{rettilineo infinito}?\\
+Consideriamo ora un circuito qualsiasi $\gamma_2$, attraversato da un certo campo magnetico.
+%TODO: inserie immagine 16.2
+Data un'altra curva $\gamma_1$ potrei calcolarmi la circuitazione del campo magnetico attraverso quest'ultimo.
+\begin{equation*}
+	\oint_\gamma \vba B\vdot d\vba s
 \end{equation*}
-La mappa di Gauss è una mappa $G$ che mappa una qualsiasi sup in R^3 sulla sfera di raggio1, ma in questo caso mappa un toro sulla sfera prendendo la differenza delle parametrizazioni
-$\funztot{S^1\times S^}{S^2}{(\phi_1, \phi_2)}{\frac{r(\phi_1)}{} }$, che è sicuramente sulla fera di raggio 1 perché ha norma 1. La mappa ricopre la sfera più volte: non è univoca la funzione! Questo integrale $n$ è l'area dell'immagine della mappa di Gauss. Mappo il toro in una sfera e l'immagine della mappa non è biunivoca: se le due curve si intersecano una volta la mappa ricopre al sfera due volte: conta l'area delle immagini della mappa di Gauss divisa per $4\pi$, cioé quante volte la mappa ricopre la sfera in base a quante volte si intersecano. è un fatoo di teoria dei nodi. La legge di Ampere emerge in questo modo dal caso generale.
-Si nota che $n$ è sempre intero, se le curve sono "separate" l'integrale sarà $0$\\
+con $d\vba s$ lungo $\gamma_1$. Se le curve chiuse si intersecano, la circuitazione dovrà essere $\mu_0 i$ per la legge di Ampère.\\
+Parametrizzo $\gamma_1$ come $\gamma_1 \colon \vba r(\phi_1)$ e parametrizzo il circuito con un'altra curva $\gamma_2 \colon \vba r(\phi_2)$ Inoltre $d\vba s= \dv{\vba r (\phi_1)}{\phi_1} d\phi_1$.\\
+Usando la prima legge di Laplace il campo magnetico generato dal circuito calcolato nel vettore posizione $\vba r$ è
+\begin{equation*}
+	\vba B (\vba r)=\frac{\mu_0 i}{4\pi}\int_{\gamma_2} d\vba{s}_2 \cross \frac{\vba r - \vba r (\phi_2)}{\abs{\vba r_ - \vba r (\phi_2)}^3}
+\end{equation*}
+
+Valutando invece il campo magnetico sull'altra curva $B(r(\phi_1))$ si ha:
+\begin{gather*}
+	\Gamma_{\gamma_1}(\vba B)= \oint_{\gamma_1}\frac{\mu_0i}{4\pi} \oint_{\gamma_2} d\vba s \cross \frac{\vba r - \vba (\phi_2)}{\abs{\vba r - \vba (\phi_2)}^3} \vdot d\vba{s}_1=\\
+	=\frac{\mu_0i}{4\pi}\oint_{\gamma_1} \oint_{\gamma_2} d\vba{s}_1\cross d\vba{s}_2 \vdot \frac{\vba r_1(\phi_1) - \vba r_2 (\phi_2)}{\abs{\vba r_1 - \vba r_2}^3}	
+\end{gather*}
+Notiamo che possiamo cambiare l'ordine fra prodotto vettoriale e scalare perché si tratta di un determinante.\\
+Dalla legge di Ampere dovremmo ottenere $\mu_0 i$, quindi l'integrale dovrebbe essere $1$. Per riottenere effettivamente questo risultato riconosciamo il \textit{Gauss linking number} \index{Gauss!linking number} \index{linking number} che è un invariante topologico rilevante con teoria dei nodi: esso conta il numero di volte che le curve si intersecano con segno. %lezioni di topologia yt
+Il linking number che conta le intersezioni è $\pm 1$, con il segno deciso grazie all'orientamento delle curve.\\
+%TODO: inserire immgini 16.3 e 16.4
+Si ha che il linking number è 
+\begin{equation*}
+	n=\frac{1}{4\pi} \frac{\vba r_1 - \vba r_2 }{\abs{\vba r_1 - \vba r_2}^3}	
+\end{equation*}
+Inoltre esso è collegato anche alla \textit{mappa di Gauss} \index{Gauss!mappa di}, una mappa $G$ che mappa una qualsiasi superficie in $\realset^3$ sulla sfera di raggio $1$, ma in questo caso mappa un toro sulla sfera prendendo la differenza delle parametrizzazioni e normalizzandola:
+$\funztot[G] {S^1\times S^1} {S^2} {(\phi_1, \phi_2)}{ \frac{\vba r_1(\phi_1) - \vba r_2 (\phi_2)}{\abs{\vba r_1(\phi_1) - \vba r_2(\phi_2)}^3}	}$, che è sicuramente sulla sfera di raggio $1$ perché ha norma $1$. \\
+Questo integrale $n$ è l'area dell'immagine della mappa di Gauss. Notiamo che la mappa non è biunivoca: se le due curve si intersecano una volta la mappa ricopre la sfera due volte: essa conta l'area delle immagini della mappa di Gauss divisa per $4\pi$, cioé quante volte la mappa ricopre la sfera in base a quante volte si intersecano. Inoltre $n$ è sempre un \textit{numero intero} e se le curve non si intersecano è nullo. Le considerazioni appena fatte provengono dalla teoria dei nodi. \\
+Abbiamo così dedotto la legge di Ampère dal caso generale.
+
 
 %CIT: ci sono domande a cui io sappia rispondere su questo?
 
-Uso della legge di Ampére per ricavare il campo magnetico, esattamente come abbiamo ricavato il potenziale di Coulomb con la legge di Gauss.
-\begin{example}[Filo rettilineo infinito]
-	Per simmetria il campo magnetico dipende solo dal raggio, lungo $u_\phi$ che indica lo spostamento angolare.\\
-	La circuitazione è $\mu_0 i$. Prendo una superficie $\gamma$   per portare fuori il campo magnetico dall'integrale, come per la legge di Gauss per non fare il flusso. Scelgo una superficie per cui l'integrale è costante: circonferenza di raggio $R$. Siccome l'integrale è in d\phi ma B dipende solo da $R$, ottengo
+Adesso useremo la legge di Ampére per ricavare il campo magnetico, esattamente come abbiamo ricavato il potenziale di Coulomb con la legge di Gauss.
+\begin{examplewt}[Filo rettilineo infinito]
+%TODO: inserire immagine 16.5
+	Per simmetria cilindrica il campo magnetico dipende solo dal raggio $R$ ed è diretto lungo $\vbh{u}_\phi$ che indica lo spostamento angolare, quindi $\vba B=B(R)\vbh{u}_\phi$.\\
+	La circuitazione è $\mu_0 i$. Prendo una superficie $\gamma$ per portare fuori il campo magnetico dall'integrale, come per la legge di Gauss per non calcolare il flusso. Scelgo una superficie per cui l'integrale è costante: una circonferenza di raggio $R$, in questo caso $d\vba s=Rd\phi$. Siccome l'integrale è in $d\phi$ ma $\vba B$ dipende solo da $R$, ottengo
 	\begin{gather*}
-		
-		
+		\oint\vba B\vdot d\vba s= \mu_0 i \implies \vba B(R)R\int^{2\pi}_0 d\phi=\mu_0 i \implies B=\frac{\mu_0 i}{2\pi R}
 	\end{gather*}
-	Abbiamo così derivato la legge di Biot- Savart (?). è così emplice perché ho una simmetria particolare dietro, in generale non è vero. Cooscere la circuitazione o il rotore di solito non è sufficiente per trovare il campo vettoriale
-\end{example}
+	Abbiamo così derivato la legge di Biot- Savart. 
+\end{examplewt}
+In questo caso è stato così semplice perché ho una simmetria particolare dietro, in generale però non è vero. Infatti conoscere la circuitazione o il rotore di solito non è sufficiente per trovare il campo vettoriale. Vediamo un altro esempio.
 
-\begin{example}[Solenoide infinito]
-	Per simmetria so che il solenoide infinito produce un campo magnetico all'interno del solenoide e nessun campo magnetico all'esterno del solenoide stesso.\\
-	Prendo una curva $\gamma$ rettangolare e calcolo la circuitazione lungo quella curva. Il campo magnetico potrebbe dipendere dal raggio ed è diretto lungo u_z, asse z diretto verso l'alto.\\
-	La circuitazione lungo la cruva $\gamma$
+\begin{examplewt}[Solenoide infinito]
+	Per simmetria sappiamo che il solenoide infinito produce un campo magnetico all'interno del solenoide e nessun campo magnetico all'esterno del solenoide stesso. Proviamo a ricavarlo di nuovo usando una particolare curva.\\
+%TODO: inserire immagine 16.6
+	Prendo una curva $\gamma$ rettangolare e calcolo la circuitazione lungo essa. Il campo magnetico potrebbe dipendere dal raggio ed è diretto lungo $\vbh{u}_z$, con l'asse z diretto verso l'alto, quindi $\vba B=B(R)\vbh{u}_z$.\\
+	La circuitazione lungo la curva $\gamma$ sarà
 		\begin{gather*}
-			
-			
+			\oint_\gamma \vba B\vdot d\vba s=\left( \int^B_A + \int_B^C + \int^D_C + \int^A_D  \right) \vba B\vdot d\vba s= \int^B_A \vba B\vdot s=\\
+			=\int^{z_2}_{z_1} B(R)dz=B(R)(z_2-z_1)
 		\end{gather*}
-	L'unico tratto che contribuisce è l'integrale fra A e B, BC ds è ortogonale a B(idem AD), CD invece fa 0 al campo magnetico perché è esterno al solenoide. Sto integrando lungo la verticale, quindi  u_z\dot ds=z
-	DEvo uguaglierlo a \mu_0i totale. i è la corrente che attraversa la spira. i_\gamma è la corrente che attraversa al curva $\gamma$: è data dal numero di spire contenute nella curva. Avevamo definito il numero di spire come l'integrale della densità lineare di spire. La corrente che interseca $\gamma$ è data dall'intensità di corrente nella spire per il numero di spire lì dentro.\\
-	Ma quante spire ci sono dentro $\gamma$? FAccio l'integrale fra z_1 e z_2 della densità di spire in dz. Assumo che la densità di spire del solenoide sia costane.
-	La $i$ è la densità di corrente che sta girando nel solenoide, quindi di ogni singola spira. Ricavo che B non dipende neanche da $R$ ed è solo $B=\mu_0 i n$. \\
-	Recap: Il rettangolo è scelto in modo accurato: solo un lato parallelo al campo magnetico contribuisce all'integrale. Lungo z $B$ è costante. Densità di corrente da numero di spire, ogni spira ha intensità di corrente $i$. Uguaglio alla circuitazione e ritrovo il campo magnetico
-	
-\end{example}
+	Questo perché l'unico tratto che contribuisce è l'integrale fra $A$ e $B$, infatti i tratti $\overline{BC}$ e $\overline{AD}$ sono ortogonali al campo magnetico, invece lungo il tratto $\overline{CD}$ è nullo perché il campo magnetico è esterno al solenoide. Inoltre siccome stiamo integrando lungo la verticale si ha $\vbh{u}_z\vdot ds=dz$.\\
+	Per la legge di Ampère $B(R)(z_2-z_1)=\mu_0 i_\gamma$, dove $i$ è la corrente che attraversa la spira, mentre $i_\gamma$ è la corrente che attraversa al curva $\gamma$ ed è data dal numero di spire contenute nella curva. Avevamo definito il numero di spire $N$ come l'integrale della densità lineare di spire $n$ (supposta costante), mentre la corrente che interseca $\gamma$ è data dall'intensità di corrente nella spire per il numero di spire lì dentro:
+		\begin{gather*}
+			N=\int^{z_2}_{z_1}ndz = n(z_2-z_1) \implies i_\gamma=Ni=n(z_2-z_1)i
+		\end{gather*}
+	La $i$ è la densità di corrente che sta girando nel solenoide, quindi di ogni singola spira. Ricavo quindi che $\vba B$ non dipende neanche da $R$, infatti:
+		\begin{gather*}
+			B(R)\cancel{(z_2-z_1)}=\mu_0 i_\gamma= \mu_0n\cancel{(z_2-z_1)}i \implies B=\mu_0 i n
+		\end{gather*}
+%DOUBT: mettiamo il recap o no? è molto sintetico ma potrebbe confondere
+	Ricapitolando, il rettangolo è stato scelto in modo accurato, infatti solo un lato parallelo al campo magnetico contribuisce all'integrale e lungo $z$ si ha $\vba B$ costante. Consideriamo poi la densità di corrente data dal numero di spire, ed ogni spira ha intensità di corrente $i$. Infine uguagliamo alla circuitazione e ritroviamo il campo magnetico.	
+\end{examplewt}
 
-è l'equivalente dell'elettrostatica del trovare il campo elettrico in condizioni di simmetria grazie alla legge di Gauss.
-campo magnetico in caso di simmetrie semplici /elttrostatica: caso della sfera con densità ci carica uniforme e le due piastre che hanno corrente (?) costante
-
+\begin{observe}
+Gli esempi appena visti sono l'equivalente in elettrostatica del trovare il campo elettrico in condizioni di simmetria grazie alla legge di Gauss: 
+	\begin{align*}
+		\text{sfera con densità di carica uniforme} & \leftrightsquigarrow  \text{filo percorso da corrente}\\
+		\text{solenoide infinito} & \leftrightsquigarrow  \text{piastre}
+	\end{align*}
+\end{observe}
+%TODO: verificare esempi elettrostatica, sia per denominazione sia per reference
 
 \subsection{Elettrostatica e magnetostatica a confronto}
 L'elettrostatica e la magnetostatica si riassumono in 4 equazioni.
 %DOUBT: mettiamo un array? alla lavagna è una tabella
-
-Le equazioni sono ancora indipendenti, non sono influenzate una dall'altra: è solo nel caso statico e stazionario in cui non dipendono dal tempo i campi
-
-
-Siccome il gradiente del campo elettrico è nullo sostituendo nella prima equazione ottengo l'equazione di Poisson \index{Poisson!equaione} \index{equazione! di Poisson}
-
-
-Siccome la divergenza di B è nulla, B si esprime il rotore di un potenziale vettore $A$. Prendo l'equazione e la inserisco nella seconda.
-
-Nella prima lezione %MANCA REFERENCE
-abbiamo visto che il rotore del rotore è ...
-
-
-Dobbiamo fare vedere che il potenziale $A$. Con $V$ era definito a meno di potenziale, per cui conta solo la differenza di potenziale: la sua classe di equivalenza sarà $V\tilde V+a$. Nel caso del potenziale vettore $A$ c'è qualcosa in più: se definisco $A=A+\nabla\varphi$ allora questo non cambia il campo magnetco, $B=\nabl\times A)=..$ ma il rotore del gradiente è nullo. Qunidi il potenziale vettore $A$ è definito a meno di una costante e a meno di un gradiente. è nota come invarianza di Keich (?). Tale invarianza ci permette di Fissando V all'infinto pari a 0 posso fissare la costante. Posso fissare l'invarianza (scelta rappresentante nella classe di equivalenza) in modo che la divergena di A sia nulla. Se prendo un campo vettoriale A la cui divergenza non è nulla, lo mappo sotto la trasformazione $A\tile Aè\nabla\varphi$. Uso $A'$ con $\nablaA'=0$.... SClego lo scalare $\varphi$ in modo tale che il suo laplaciano sia...
-$\varphi$ sarà determinato da un 'equazione differenziale del secondo ordine, faccio la trasformazione A' per avere
-è detta scelta di Cage (?).
-
-con questa scelta mando a zero $\nabal(\nabla A)$.
-
-Quindi sia l'elettrostatica sia la magnetostatica sono soluzioni dell'equazione di Poisson, infatti componente per componente i laplaciani di $A$ sono 
-
-Si risuce tutto a 4 eq di Poisson per i potenziali: una per il potenziale scalare che determinano
-
-Data una certa configurazione di $\rho$ e $j$, cioé intensità di carica e corrente.. Determino così i potenziali e da essi i campi.\\
-
-Possiamo far vedere che la soluzione più genreale, date condizioni al contorno fisiche, cioé $V,A$ vanno a $0$ ad infinito, allora la soluzione di equazioni differenziali è data da
 \begin{gather*}
-	A\\
-	V(r)=\frac{}{}\\
-	\text{con } dV
-	
+	\begin{array}{c|c}
+		\div{\vba E}=\frac{\rho}{\epsilon_0} & \div{\vba B}=0\\
+		\\
+		\hline
+		\\
+		\curl{\vba E}=0 & \curl{\vba B}=\mu_0\vba j
+	\end{array}
 \end{gather*}
-La soluzione che trovo sono 
-Controllo con il laplaciano di V(r) e dovrei trovare $\frac{\rho}{\epsilon_0}$.
+%TODO: bisogna migliorare la spaziatura, senza spazi \\ è tutto appiccicato
+%	possibile alternativa: multicol
+Notiamo che le equazioni sono ancora indipendenti, questo perché siamo nel caso statico e stazionario in cui i campi non dipendono dal tempo.
 
-\\
 
-Esempio pratico di come si usa questa soluzione: esempio ritrito visto in modo diverso. 
-\begin{example}[Sfera carica uniformemente]
-	Rideriviamo il campo magnetico di una sfera di raggio $R$ carica uniformemente con $\rho(r)..$. Da quella soluzione deriviamo il campo sia interno sia esterno.\\
-	Ci mettiamo in coordinate sferiche $x= y= z=$ e facciamo l'integrale $V(r)$. Calcoliamo in anticipo $dV'$. Se scelgo punto in maniera furba ho $|r-r'|=\sqrt{}$. L'integrale sarebbe fra o e $\infty$, am $\rho$ è definito solo all'interno della sfera, qunidi mi limito a r_0. Siccome \rho è costante lo porto via dall'integrale. L'integrale in d\phi'=2\pi perché non dipende da \phi'. Siccome y=\cos\theta'  cambio segni di integrazione, sposto da -1 a 1, lo mangia e va in y. Attenzione alla derivata dell'argomentFacendo la derivata della radice ho 1/2rad per derivata dell'argomento rispetto a y, semplifico il 2, r esce dall'integrale, r' si semplifica e viene $\frac{\rho}{2\epsilon r}$. Valuto in 1, valuto in -1 r+r'  (ho moduli di numeri, r è senza vettore)\\
-	Il modulo di numeri positivi (raggi r+r') è positivo, tolgo il modulo. è qui che distinguo il caso dentro la sfera e fuori dalla sfera,	\\
-	Fuori dalla sfera:  cioé r>r_0. siccome rì è integrato fra r e r_0, allora sto fuori dal range di integrazione di r': r>r'
-	Siccome $\rho$ è la carica sul volume della sfera, sostituisco in $V$ e trovo il potenziale di Coulomb solito. \\
-	Il campo elettrico invece
-	\\
-	Dentro la sfera: r<r_0 facendo l'integrale devo spezzarlo fra 0 ed r e poi da r a r', esco con segno positivo o negativo in base al posizionamento dei punti e quale modulo è più grande (maggiore  o minore di r su sui sto integrando)		$V=\frac{\rho}{2\epsilon_0}\left( r_0^2 - \frac{r^2}{3} \right)$
-	Notiamo che il potenziale è continuo per r=r_0, inoltre coincide anche la loro derivata rispetto a r 		campo che cresce linearmente e decade come 1/r^2
+Siccome il gradiente del campo elettrico è nullo, esiste un campo scalare $V$ tale che $\vba E=-\grad V$: sostituendo nella prima equazione ottengo la legge di Poisson \index{Poisson!equazione} \index{equazione! di Poisson} 
+\begin{equation*}
+	\laplacian V=-\frac{\rho}{\epsilon_0}
+\end{equation*}
+
+
+Siccome la divergenza di B è nulla, esiste un potenziale vettore $\vba A$ tale che $\vba B=\curl{\vba A}$. Sostituendo questa equazione nella prima e sviluppando otteniamo
+\begin{gather*}
+	\curl\left(\curl\vba A\right)=\mu_0\vba j\\
+	\grad \left( \div{\vba A}\right) - \laplacian{\vba A}=\mu_0 \vba j
+\end{gather*}
+
+%OLD
+%Nella prima lezione %MANCA REFERENCE
+%abbiamo visto che il rotore del rotore è ...
+%Dobbiamo fare vedere che il potenziale $A$. Con $V$ era definito a meno di potenziale, per cui conta solo la differenza di potenziale: 
+IL potenziale $V$ è sempre definito a meno di costanti, infatti quello che conta è la differenza di potenziale: in termini più rigorosi, la sua classe di equivalenza sarà $V\sim V+a$. \\
+Nel caso del potenziale vettore $A$ c'è qualcosa in più: se definisco $\vba A=\vba A+\grad\oldphi$ allora questo non cambia il campo magnetico:
+\begin{gather*}
+	\vba B=\curl\vba A=\curl \left( \vba A+\grad\oldphi\right)= \curl \vba A + \cancel{\curl\grad\oldphi}=\curl\vba A		
+\end{gather*} 
+perché il rotore del gradiente è nullo. Quindi il potenziale vettore $A$ è definito a meno di una costante e a meno di un gradiente. Questo è un caso dell'\textit{invarianza di Gauge} \index{Gauge!invarianza di} \index{invarianza!di Gauge}.\\
+%Tale invarianza ci permette di 
+Analogamente al caso dell'elettrostatica, in cui fissando $V=0$ all'infinto possiamo determinare una costante, fissiamo l'invarianza di Gauge in modo tale che la divergenza di $\vba A$ sia nulla, cioé $\div \vba A=0$. 
+%OLD 
+%Posso fissare l'invarianza (scelta rappresentante nella classe di equivalenza) in modo che la divergenza di $\vba A$ sia nulla, cioé $\div \vba A=0$. 
+Se consideriamo un campo vettoriale $\vba A$ la cui divergenza non è nulla, lo mappiamo sotto la trasformazione $\vba A\sim \vba A+\grad\varphi$. Usiamo $\vba A'$ con $\div \vba A'=0$ e lo scriviamo come
+\begin{gather*}
+	\div\vba A+\div\grad\oldphi=0 \implies \laplacian\oldphi= -\div\vba A
+\end{gather*}
+Ovvero scegliamo lo scalare $\oldphi$ in modo tale che il suo laplaciano sia come sopra. In questo modo$\oldphi$ sarà determinato da un'equazione differenziale del secondo ordine ed è detta \textit{scelta di Gauge} \index{Gauge!scelta di}.\\
+%OLD
+%faccio la trasformazione $\vba A'$ per avere
+%è detta scelta di Cage (?).
+%
+%con questa scelta mando a zero $\grad(\div A)$.
+
+Abbiamo così ottenuto che sia l'elettrostatica sia la magnetostatica sono soluzioni dell'equazione di Poisson, infatti componente per componente i laplaciani di $\vba A$ sono 
+\begin{gather*}
+	\laplacian\vba A=-\mu_0\vba j\\
+	\laplacian A_x=\mu_0 j_x\\
+	\laplacian A_y=\mu_0 j_y\\
+	\laplacian A_z=\mu_0 j_z\\
+	\hline
+	\laplacian V=-\frac{\rho}{\epsilon_0}
+\end{gather*}
+
+Così si riduce tutto a 4 equazioni di Poisson per i potenziali: una con il potenziale scalare per l'elettrostatica, e tre per la magnetostatica. Data una certa configurazione di $\rho$ e $\vba j$, cioé intensità di carica e corrente posso determinare i potenziali e da essi i campi elettrici e magnetici.\\
+
+Possiamo far vedere che la soluzione più generale, date condizioni al contorno fisiche, cioé $V$ e $\vba A$ vanno a $0$ ad infinito, allora la soluzione di equazioni differenziali è data da
+\begin{gather*}
+	\vba A(\vba r)=\frac{\mu_0}{4\pi}\int\frac{\vba j(\vba r)}{\abs{\vba r-\vba r'}} dV' \text{ dove } dV'=dx'dy'dz'\\
+	V(\vba r)=\frac{1}{4\pi\epsilon_0}\int \frac{\rho(\vba r')}{\abs{\vba r-\vba r'}}dV'
+\end{gather*}
+%OLD
+%La soluzione che trovo sono 
+%Controllo con il laplaciano di V(r) e dovrei trovare $\frac{\rho}{\epsilon_0}$.
+%TODO: va aggiustata la formattazione delle formule, oltre agli environment
+
+Vediamo ora nella pratica come usare queste soluzioni con delle situazioni che abbiamo già incontrato
+\begin{examplewt}[Sfera carica uniformemente]
+	Ritroviamo il campo elettrico sia interno sia esterno di una sfera di raggio $R$ carica uniformemente con $\vba\rho(\vba r)=\begin{cases}
+		\rho & r<r_0\\
+		0 & r>r_0
+	\end{cases}$. 
+	Ci mettiamo in coordinate sferiche$\begin{cases}
+		x=r\cos\phi\sin\theta\\
+		y=r\sin\phi\sin\theta\\
+		z=r\cos\theta
+	\end{cases}$
+	e dopo qualche considerazione calcoliamo l'integrale $V(r)$ dato dall'equazione di Poisson:
+	\begin{itemize}
+		\item Calcoliamo in anticipo $dV'=(r')^2\sin\theta 'dr'd\theta 'd\phi '$
+		\item Se scegliamo il punto in maniera furba abbiamo $|\vba r-\vba r'|=\sqrt{r^2+(r')^2-2rr'\cos\theta '}$.
+		\item L'integrale sarebbe definito fra $0$ e $+\infty$, ma siccome $\rho$ è definito solo all'interno della sfera ci limitiamo a $r_0$
+		\item $\rho$ è costante quindi lo portiamo via dall'integrale
+	\end{itemize}
+%NOTA: l'itemize è una mia idea per riassumere tutte le varie considerazioni, in un testo unico sarebbe stato un po' dispersivo e sembrava un essay in cui si cercano 100 sinonimi di since
+	Otteniamo così:
+	\begin{gather*}
+		V(r)=\frac{\rho}{4\pi\epsilon_0}\int^{r_0}_0dr' \int^\pi_0 d\theta' \int^{2\pi}_0 d\phi' \frac{(r')^2 \sin\theta '}{\sqrt{r^2+(r')^2 -2rr'\cos\theta '}}=		
+	\end{gather*}
+	Per i passaggi successivi invece
+	\begin{enumerate}
+		\item operiamo un cambio di variabile $\begin{cases}
+		u=\cos\theta'\\
+		du=-\sin\theta'
+	\end{cases}$
+		\item l'integrale $\int^{2\pi}_0 d\phi'=2\pi$ perché $V$ non dipende da $\phi'$.
+		\item siccome $y=\cos\theta'$ cambiamo i segni di integrazione spostando l'intervallo di integrazione su $[-1,1]$%OLD lo mangia e va in $y$. 
+		\item prestiamo attenzione alla derivata dell'argomento: %OLD facendo la derivata della radice abbiamo 1/2rad per derivata dell'argomento rispetto a y, 
+		semplifichiamo il 2, $r$ esce dall'integrale, $r'$ si semplifica ed otteniamo $\frac{\rho}{2\epsilon_0 r}$. %OLD Valutiamo $r+r'$ in $1$ e in $-1$ 
+		\item il modulo di numeri positivi (i raggi $r+r'$) è positivo, quindi togliamo il modulo. 
+	\end{enumerate}	
+%TODO: serve l'uuale rettangolato
+	\begin{gather*}
+		\stackrel{(1,2,3)}{=}\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr'\int^1_{-1}\negthickspace du \frac{-(r')^2}{\sqrt{r^2+(r')^2-2rr'u}} \stackrel{(4)}{=}
+		\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr' \eval{\frac{-(r')^2}{rr'} \sqrt{r^2+(r')^2-2rr'u}}^1_{-1}=\\
+		=\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr' (-r')\left( \abs{r-r'}-\abs{r+r'} \right)
+		\stackrel{(5)}{=}\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr' r'\left( r+r' + \abs{r-r'} \right)		
+	\end{gather*}
+%NOTA: soluzione artigianale del \negthickspace perché usciva fuori l'ultimo =
+Ed è qui che distinguiamo il caso dentro la sfera e fuori dalla sfera:
+	\begin{itemize}
+		\item Fuori dalla sfera:  $r>r_0$.\\
+		Siccome $r'$ è integrato fra $r$ e $r_0$, allora siamo fuori dal range di integrazione di $r'$, quindi consideriamo $r>r'$.\\
+		Siccome $\rho$ è la carica sul volume della sfera, cioé $\rho=\frac{q}{V_S}=\frac{q}{\frac{4}{3} \pi r_0^2}$, sostituisco in $V$ e trovo il potenziale di Coulomb solito:
+		\begin{gather*}
+			V(r)=\frac{\rho}{\cancel 2\epsilon_0 r}\int^{r_0}_0 \cancel 2 (r')^2 dr'= \frac{q r_0^3}{3\epsilon_0 r}=\frac{qr_0^3}{\frac{4}{3}\pi r_0^3 r}=\frac{q}{4\pi \epsilon_0 r}
+		\end{gather*}
+		Il campo elettrico allora è:
+		\begin{gather*}
+			\vba E=-\grad V=\pdv{V}{r}\vbh{u}_r =\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r		
+		\end{gather*}
+		\item Dentro la sfera: $r<r_0$.\\
+		Facendo l'integrale dobbiamo spezzarlo fra $0$ ed $r$ e poi da $r$ a $r_0$, per poi uscire con segno positivo o negativo in base al modulo più grande: %OLD (maggiore  o minore di r su sui sto integrando)		
+		\begin{gather*}
+			V=\frac{\rho}{2\epsilon_0}\left( \int^r_0 dr'(2r')^2 + \int^{r_0}_r dr' 2rr' \right)= \frac{\rho}{2\epsilon_0 \cancel r} \left( \frac{2}{3} r^3 + \cancel r (r_0^2 -r^2) \right)=\frac{\rho}{2\epsilon_0}\left( r_0^2 -\frac{r^2}{3} \right)\\
+			\vba E=-\grad V= -\pdv{V}{r}\vbh{u}_r =\frac{\rho r}{3\epsilon_0}\vbh{u}_r
+		\end{gather*}
+	\end{itemize}
+	Notiamo che il potenziale è continuo per $r=r_0$, inoltre coincide anche la loro derivata rispetto a $r$
+%NOTA: forse l'itemize non è la scelta migliore, per ora ho lasciato questa per distinguere meglio i casi
+	%GRAFICI 16.8 e 16.9
 	
-	%GRAFICI
-	
-	Potenziale:	In R è continua ed è continua anche la derivata prima: non ho cuspidi. 
-	Il campo elettrico invece è lineare fino ad R e poi scende come 1/r^2
-	
-	Siamo riusciti a fare l'integrale perché la configurazione è simmetrica.
-	L'ho visto però partendo dall'equazione di Poisson
-\end{example}
+	Potenziale:	In $R$ è continua ed è continua anche la derivata prima: non ho cuspidi. 
+	$V(r)=\begin{cases}
+		\frac{\rho}{2\epsilon_0}(r_0^2 -\frac{r^2}{3}) & r<r_0\\
+		\frac{q}{4\pi\epsilon_0 r} &r>r_0
+	\end{cases}$\\
+	Il campo elettrico invece è lineare fino ad $R$ e poi decade come $1/r^2$
+	$\vba E(r)=\begin{cases}
+		\frac{\rho r}{3\epsilon_0} & r<r_0\\
+		\frac{q}{4\pi\epsilon_0 r^2} & r>r_0
+	\end{cases}$
+	Siamo riusciti a fare l'integrale perché la configurazione è simmetrica. Abbiamo così ricavato un risultato già noto partendo dall'equazione di Poisson.
+\end{examplewt}
+%NOTA: non avendo i grafici ho lasciato questa non impaginazione, poi andranno fatti i riquadri
+
+
 
 \section{Campi elettrici e magnetici variabili nel tempo}
-Parte da sperimentazioni di Faraday ed Henry sul fenomerno dell'induzione elettromagnetica. Maxwell a livello teorico per consistenza delle equazioni, ha scoperto che un campo elettricoe variabile nel tempo produce campo magnetico.
-
-
-Esperimenti da cui possimao dedurre l'induzione elettromagnetica:
+Lo studio dei campi elettrici e magnetici variabili nel tempo parte da sperimentazioni di Faraday ed Henry sul fenomeno dell'induzione elettromagnetica. Maxwell lavorando a livello teorico sulla consistenza delle equazioni ha scoperto che un campo elettrico e variabile nel tempo produce un campo magnetico.\\
+Esperimenti da cui possiamo dedurre l'induzione elettromagnetica:
 
 \begin{itemize}
-	\item spira con struento che misura la crrente che sta passando nel circuito. Prendo un magnete qualunque che produca un campo magnetico di dipolo (come sempre). Avvicino il magnete alla spira con una certa velocità $v$. Lo faccio entrare nella spira circolare. Lo strumento a sinistra misura la corrente diretta in una data direzione. Nel circuito gira corrente in assenza di generatori.\\
-	Stesso esperimento ma allontanando il magnete (cambio il verso della velocità, ma il campo magnetico è lo stesso). La corrente che circola è diretta nel verso opposto
-	Ho produzione di differenza di potenziale (o forza elettromotrice)che produce un campo elettrico.
-	\item spira circolare a cui collego un generatore. La avvicino ad una spira che è collegata a uno strumento che misura corrente. La spira con generatore in movimento si comporta esattamente come un campo magnetico, quindi avvicinandola con una certa velocità v all'altras pira, lo strumento attaccato ad essa misura una corrente. Se la allontano la corrente va in senso opposto
-	
-	\item Esperimento di Faraday: dato un cilindretto di ferro su cui avvolgo tantissime spire (solenoide con l'anima in ferro), metto interruttore e generatore. Con l'interruttore aperto non ho campo magnetico. Metto una spira circolare di fianco a cui attacco circuito con il solito circuito. A interruttore aperto non c'è campo magneitco né corrente generata. Alla chiusura dell'interruttore si crea un campo magnetico che genera corrente segnalata dallo strumento in una certa direzione, che dura per qualche istante, e poi si ferma. Appena chiudo l'interruttore osservo una corrente. Quando il cmapo magnetico si stabilizza e non vria più nel tempo allora non osservo più corrente.\\
-	Riaprendo l'interruttore non ho più campo magnetico, ma èer un istante ossero una corrente diretta nella direzione opposta. Siccome il campo magnetico va dal massimo a 0, quindi avendo una variazione dello stesso nel tempo ho corrente
+	\item Consideriamo una spira con strumento che misura la corrente che sta passando nel circuito. Prendiamo un magnete qualunque che produca un campo magnetico di dipolo (come sempre). Avviciniamo il magnete alla spira con una certa velocità $\vba v$. Lo facciamo entrare nella spira circolare. Lo strumento a sinistra misura la corrente diretta in una data direzione. Nel circuito gira corrente in assenza di generatori.\\
+%TODO: immagine 16.10
+	Riproduciamo lo stesso esperimento ma allontanando il magnete (cambiamo il verso della velocità, ma il campo magnetico è lo stesso). Notiamo che la corrente che circola è diretta nel verso opposto.\\
+	Abbiamo così una produzione di differenza di potenziale (o forza elettromotrice )che produce un campo elettrico.
+%TODO: immagine 16.11
+	\item Consideriamo una spira circolare a cui colleghiamo un generatore. La avviciniamo ad una spira che è collegata a uno strumento che misura la corrente. La spira con generatore in movimento si comporta esattamente come un campo magnetico, quindi avvicinandola con una certa velocità $\vba v$ all'altra spira, lo strumento attaccato ad essa misura una corrente. Se la allontaniamo la corrente gira in senso opposto.
+%TODO: immagine 16.12
+	\item Esperimento di Faraday: dato un cilindretto di ferro su cui avvolgiamo tantissime spire (solenoide con l'anima in ferro), mettiamo un interruttore ed un generatore. Con l'interruttore aperto non abbiamo campo magnetico. Mettiamo una spira circolare di fianco a cui attacchiamo un circuito con il solito rilevatore. Ad interruttore aperto non c'è campo magnetico né corrente generata. Alla chiusura dell'interruttore si crea un campo magnetico che genera corrente segnalata dallo strumento in una certa direzione, che dura per qualche istante, e poi si ferma. Appena chiudiamo l'interruttore osserviamo una corrente. Quando il campo magnetico si stabilizza e non varia più nel tempo allora non osserviamo più corrente.\\
+	Riaprendo l'interruttore non abbiam più campo magnetico, ma per un istante osserviamo una corrente diretta nella direzione opposta. Siccome il campo magnetico va dal massimo a $0$, abbiamo una variazione dello stesso nel tempo e quindi abbiamo generato corrente.
+%TODO: immagine 16.13
 \end{itemize}
 
-Da queste osservazioni sperimentali si deuce la legge di Fraday
+Da queste osservazioni sperimentali si deduce la \textit{legge di Faraday}. \index{Faraday!legge di} \index{legge!di Faraday}
+\begin{define}[Legge di Faraday]
+	La forza elettromotrice generata (detta \textit{indotta}, perché è indotta dal campo magnetico) è 
+	\begin{equation*}
+		\mathcal{E}_i=-\dv{\Phi_\Sigma (\vba B)}{t}
+	\end{equation*}
+	Cioé la forza elettromotrice è prodotta da un campo (anzi di più flusso) magnetico variabile nel tempo. Avvicinando la spira invece del campo magnetico cambia il flusso e si produce corrente. Quello che misuro negli esperimenti è l'intensità di corrente, non la forza elettromotrice. Ma grazie alle leggi di Ohm ricavo la $\mathcal{E}$ per un circuito con resistenza $R$:
+	\begin{equation*}
+		i=-\frac{1}{R}\dv{\Phi_\Sigma(\vba B)}{t}
+	\end{equation*}
+\end{define}
 
-La forza elettromotrice generata (detta indotta, perché è indotta dal campo magnetico) è $\mathcal{E}=$ non conta il campo magnetico uniforme costante nel tempo, la fem è prodotto da campo (anzi di più flusso) magnetico variabile nel tempo. Avvicinando la spira invece del campo magnetico cambia il flusso e si produce corrente. Quello che misuro negli esperimenti è l'intensità di corrente, non la fem. Ma grazie alle leggi di Ohm ricavo la fem per un circuito con resistenza $R$  $i=\frac{  \frac{}{} }{}$.\\
+\begin{observe}
+	Una forza elettromotrice è prodotta da un campo elettrico \textit{non} conservativo, in particolare è proprio la definizione di $\mathcal{E}$ come circuitazione del campo elettrico, possiamo così riscrivere la legge di Faraday come
+	\begin{equation*}
+		\mathcal{E}=\oint\vba E\vdot d\vba s \implies \oint \vba E_i\vdot d\vba s =-\dv{\Phi(\vba B)}{t}		
+	\end{equation*}
+	Quella del campo elettrostatico però è nulla: infatti sono i contributi non conservativi a produrre la forza elettromotrice.\\
+	Ad esempio la pila di Volta mantiene separazione di carica costante perché l'energia chimica (esterna che entra nel sistema) è convertita in elettrica. %OLD Effetto Haul (?)
+\end{observe}
 
-Una fem è un campo elettrico non conservativo. Una fem è prodotta da un campo elettrico non conservativo, in particolare è proprio la def di fem è circuitazione del campo elettrico. Quella del campo elettrostatico è nulla. I contributi non conservativi sono quelli che producono fem. Pila di volta mantiene separazione di carica costante perché energia chimica (esterna che entra nel sistema) è convertita in elettrica. Effetto Haul (?)
+\begin{define}[Legge di Lenz]
+	La forza elettromotrice indotta è tale da opporsi alla causa che l'ha generata. 
+\end{define}
+\begin{observe}
+	Pensando all'esperimento delle spire, se una si avvicina all'altra con velocità $\vba v$, il flusso del campo magnetico aumenta perché più linee di forza entrano nell'altra spira. La forza elettromotrice quindi si oppone alla variazione del flusso del campo magnetico ed è questo il motivo del segno $-$ nella legge di Faraday.
+\end{observe}
+%TODO: inserire immagine 16.14
 
-Possiamo risrivere la lagge di Faraday come 
-
-Legge di Lenz:
-La corrente che viene prodotta si oppone sempre alla causa che l'ha generata.\\
-La fem indotta è tale da opporsi alla causa che l'ha generata. 
-Pensando all'esperimento delle spire, se una si avvicina all'alta con velocità $v$, il campo magnetico prodotto è fatto , quindi il flusso del campo magnetico avvicinando la spire aumenta (avvicinando le spire iù linee di forza entrano nell'altra spira). La fem produce campo magnetico nella direzione opposta, campo magnetico che si opppone a quell che l'ha generata, cerca di diminuirlo, ed è questo il motivo del segno -
-il fem si oppone alla variazione del flusso del campo magnetico
-
-
-La legge è formulata in modo tale che è la variazione del \textit{flusso} del campo magnetico a dare fem. Come faccio a generare una forza elettromotrice indotta?
-La derivata del flusso. Cosa contribuisce al flusso?
-
-Cosa posso cambiare nel tempo? 
+Notiamo che la legge è formulata in modo tale che sia la variazione del \textit{flusso} del campo magnetico a generare $\mathcal{E}$. Come facciamo a generare una forza elettromotrice indotta? Ricordiamo che il flusso è dato da:
+\begin{equation*}
+	\Phi_\Sigma(\vba B)=\int_\Sigma \vba B\vdot \vbh{u}_n d\Sigma	
+\end{equation*}
+Cosa possiamo cambiare nel tempo? 
 \begin{itemize}
-	\item $B$
-	\item lìangolo della spira rispetto al campo magnetico, questo perché ho un prodotto scalare: muovere una spira all'interno di un campo magnetico non uniforme
+	\item $\vba B$ nel tempo
+	\item l'angolo della spira rispetto al campo magnetico, questo perché abbiamo un prodotto scalare: muovere una spira all'interno di un campo magnetico non uniforme
 	\item la superficie: cambia l'area
-	
 \end{itemize}
 
 
-Vedremo che la seconda e la terza causa sono effetti della forza di Lorentz. Quindi solo la variazione di B nel temopo  non è previsto dalle leggi usate finore
+Vedremo che la seconda e la terza causa sono effetti della forza di Lorentz. Quindi solo la variazione di $\vba B$ nel temopo  non è prevista dalle leggi usate finora
+
+
+
+
+
+
+
+
