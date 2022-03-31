@@ -194,7 +194,7 @@ Vediamo ora nella pratica come usare queste soluzioni con delle situazioni che a
 %NOTA: l'itemize è una mia idea per riassumere tutte le varie considerazioni, in un testo unico sarebbe stato un po' dispersivo e sembrava un essay in cui si cercano 100 sinonimi di since
 	Otteniamo così:
 	\begin{gather*}
-		V(r)=\frac{\rho}{4\pi\epsilon_0}\int^{r_0}_0dr' \int^\pi_0 d\theta' \int^{2\pi}_0 d\phi' \frac{(r')^2 \sin\theta '}{\sqrt{r^2+(r')^2 -2rr'\cos\theta '}}=		
+		V(r)=\frac{\rho}{4\pi\epsilon_0}\int^{r_0}_0dr' \int^\pi_0 d\theta' \int^{2\pi}_0 d\phi' \frac{(r')^2 \sin\theta '}{\sqrt{r^2+(r')^2 -2rr'\cos\theta '}}\squarequal	
 	\end{gather*}
 	Per i passaggi successivi invece
 	\begin{enumerate}
@@ -208,9 +208,8 @@ Vediamo ora nella pratica come usare queste soluzioni con delle situazioni che a
 		semplifichiamo il 2, $r$ esce dall'integrale, $r'$ si semplifica ed otteniamo $\frac{\rho}{2\epsilon_0 r}$. %OLD Valutiamo $r+r'$ in $1$ e in $-1$ 
 		\item il modulo di numeri positivi (i raggi $r+r'$) è positivo, quindi togliamo il modulo. 
 	\end{enumerate}	
-%TODO: serve l'uuale rettangolato
 	\begin{gather*}
-		\stackrel{(1,2,3)}{=}\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr'\int^1_{-1}\negthickspace du \frac{-(r')^2}{\sqrt{r^2+(r')^2-2rr'u}} \stackrel{(4)}{=}
+		\stackrel{(1,2,3)}{\squarequal}\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr'\int^1_{-1}\negthickspace du \frac{-(r')^2}{\sqrt{r^2+(r')^2-2rr'u}} \stackrel{(4)}{=}
 		\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr' \eval{\frac{-(r')^2}{rr'} \sqrt{r^2+(r')^2-2rr'u}}^1_{-1}=\\
 		=\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr' (-r')\left( \abs{r-r'}-\abs{r+r'} \right)
 		\stackrel{(5)}{=}\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr' r'\left( r+r' + \abs{r-r'} \right)		
@@ -313,63 +312,63 @@ Cosa possiamo cambiare nel tempo?
 \end{itemize}
 
 
-Vedremo che la seconda e la terza causa sono effetti della forza di Lorentz. Quindi solo la variazione di $\vba B$ nel temopo  non è prevista dalle leggi usate finora
+Vedremo che la seconda e la terza causa sono effetti della forza di Lorentz. Quindi solo la variazione di $\vba B$ nel tempo  non è prevista dalle leggi usate finora.\\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %LEZ 17 30/03/2022
-%Legge di Faraday
-%esiste una forza elettromotrice $\mathcal{E}$ indotta da una variazione del flusso magnetico, ad esso proporzionale attraverso un circuito
-%esisterebbe anche senza un circuito, ma per vederla serve mettere un circuito
-%
-%Motivi che potrebbero portare alla generazione della fem
-%	\item variazione forma circuito, che cabia la superficie \Sigma
-%	\item variazione dell'angolo tra $\vba B$ e $\Sigma$
-%	\item variazione di $\vba B$ nel tempo
-%	\item spostamento rigido del circuito
-%	
-%Andremo a vedere che nell'ultimo caso la fem non è un effetto nuovo: è una conseguenza della forza di Lorentz: la sua esistenza dice che la fem deve essere prodotto
-%unico effetto veramente nuovo è la variazione di $\vba B$ nel tempo, unico effetto non previsto dalle leggi che già conosciamo
-%
-%ci permetterà di derivare forma differenziale legge di Faraday
-%
-%
-%IMMagine:
-%immaginaamo di avere un circuito in un campo magnetico non uniforme. Immaginiamo che si sposti leggermente: all'istante $t+dt$ è in una posizione diversa da quella precedente con velocità $\vba v$. Il piccolo intervallo su cui si è spostato $d\vba r=\vba vdt$
-%sul filo ci sono delle cariche libere che suvbiscono una forza per il fatto di essere immerse in un campo magnetico $\vba B$. Ogni singola carica libera subisce la forza di Lorentz: $\vba F=e   $ il campo elettrico idotto per ogni particella che sta lì sopra $\vba E_i =...$    simile ad effetto Haul(?), è un esmpio di campo elettrico indotto da forza di Lorentz
-%Se le cariche si stanno muovendo con velocità ortogonale al circuito	punto per punto guardo come sono diretti campo magnetico e velocità spira	il campo elettrico generato fa girare intorno le cariche
-%fem indotta è pari alla circuitazione del campo elettrico $\mathcal{E}_i=\oint \vba v\cross\vba V$, ma non sarà conservativo (come abbiamo detto la scorsa lezione)
-%
-%Calcoliamo la circuitazione  $=\oint \vba v\cross\vba B d\vba s=\oint d\vba s\cross\vba v\vba B=\oint$
-%stiamo assumendo $\vba$ non uniforme ma costante nel tempo (dipende dalla posizione, le derivate sulla posizione non sono nulle)
-%la derivata rispetto al tempo può uscire dall'integrale $d\vba s$ è parallelo e rimane uguale
-%ho derivata rispetto al tempo dell'integrale
-%ds è il vettore tangente, spostamento lungo la spira, pt per pt tangente al circuito
-%dr ortogonale alla spira e indica lo spostamento che sta facendo il circuito nello spazio  (si vede poco dal disegno)
-%
-%adesso immaginiamo la superficie laterale, abbiamo una sorta di cilindro sbilenco dallo spostamento nel tempo del circuito
-%dr=vdt	d\Sigma\vdot un
-%punta in direzione ortogonale alla sup laterale
-%se integro il vettore ds\crossdr lungo tutta la spira ottengo tutta la superficie laterale
-%dsdr ha modulo l'elemtno infinitesimo di superficie
-%
-%tornando all'integrale d/dt\oint_\gammad\vba s\cross d\vba r\vdot \vba B=d/dt
+%NOTA: sta riprendendo quanto fatto nella lezione precedente, lascio entrambe le formulazioni per poi scegliere la migliore
+Ricordiamo la legge di Faraday: esiste una forza elettromotrice $\mathcal{E}$ indotta da una variazione del flusso magnetico, ad esso proporzionale attraverso un circuito. Essa esisterebbe anche senza un circuito, ma per vederla serve metterne uno.\\
+
+%DOUBT: adottiamo fem o f.e.m. come notazione invece di scrivere 100 volte forza elettromotrice?
+Motivi che potrebbero portare alla generazione della f.e.m. $\mathcal{E}$ sono:
+\begin{itemize}
+	\item variazione forma circuito, che cambia la superficie $\Sigma$
+	\item variazione dell'angolo tra $\vba B$ e $\Sigma$
+	\item variazione di $\vba B$ nel tempo
+	\item spostamento rigido del circuito
+\end{itemize}
+Andremo a vedere che nell'ultimo caso la f.e.m. non è un effetto nuovo: è una conseguenza della forza di Lorentz,%OLD: la sua esistenza dice che la fem deve essere prodotto
+l'unico effetto veramente nuovo è la variazione di $\vba B$ nel tempo perché non è previsto dalle leggi che già conosciamo.\\
+Questa dimostrazione ci permetterà di derivare in forma differenziale legge di Faraday.
+\begin{demonstration}
+%TODO: inserire immagine 17.1
+	Immaginiamo di avere un circuito in un campo magnetico non uniforme. Immaginiamo che si sposti leggermente: all'istante $t+dt$ è in una posizione diversa da quella precedente con velocità $\vba v$. Il piccolo intervallo su cui si è spostato è $d\vba r=\vba vdt$.\\
+	Sul filo ci sono delle cariche libere che subiscono una forza per il fatto di essere immerse in un campo magnetico $\vba B$. Ogni singola carica libera subisce la forza di Lorentz: $\vba F=e\vba v\cross\vba B $ e il campo elettrico indotto per ogni particella che sta lì sopra è $\vba E_i =\frac{\vba F}{e}=\vba v\cross\vba B$ e tende a far girare le cariche.\\
+	Questo è simile all'effetto Haul(?),perché è un esempio di campo elettrico indotto da forza di Lorentz.\\
+%TODO: da aggiustare motivazione seguente sui vari prodotti usati
+	Se le cariche si stanno muovendo con velocità ortogonale al circuito	punto per punto guardiamo come sono diretti il campo magnetico e la velocità della spira	il campo elettrico generato fa girare intorno le cariche.\\
+	La f.e.m. indotta è pari alla circuitazione del campo elettrico, ma non sarà conservativo, poi siccome stiamo assumendo $\vba B$ non uniforme ma costante nel tempo (esso dipende dalla posizione, le derivate sulla posizione non sono nulle).\\
+	la derivata rispetto al tempo può uscire dall'integrale, ma $d\vba s$ è parallelo e rimane uguale, infatti è il vettore spostamento lungo la spira punto per punto tangente al circuito, invece	$d\vba r $ è ortogonale alla spira e indica lo spostamento che sta facendo il circuito nello spazio	
+	\begin{gather*}
+		\mathcal{E}_i=\Gamma_\gamma(\vba E_i)=\oint\vba E_i\vdot d\vba s=\oint \vba v\cross\vba B d\vba s=\\
+		=\oint d\vba s\cross\vba v\vba B=\oint d\vba s\cross\dv{\vba r}{t}\vdot\vba B= \dv{t}\oint_\gamma d\vba s\cross d\vba r\vdot\vba B\squarequal
+	\end{gather*}
+%DOUBT: mettiamo un itemize come nella leione precedente visto che è una lista di considerazioni da fare prima/durante il gather?
+	Adesso immaginiamo la superficie laterale: abbiamo una sorta di cilindro sbilenco dallo spostamento nel tempo del circuito.
+%OLD dr=vdt	d\Sigma\vdot un
+	Se consideriamo $d\vba s\cross d\vba r$, esso punta in direzione ortogonale alla superficie laterale ed integrandolo lungo tutta la spira otteniamo tutta la superficie laterale, possiamo infatti considerarlo come l'elemento infinitesimo di superficie $d\Sigma_l\vdot\vbh u_n=d\vba s\cross d\vba r$. Quindi data $\gamma$ curva bordo di una base.\\
+	Tornando all'integrale 
+	\begin{gather*}
+		\dv{t}\oint_\gamma d\vba s\cross d\vba r\vdot \vba B=\dv{t}
+	\end{gather*}
+\end{demonstration}
 %ricordiamo che l'area laterale del cilindro con base curva qualunque è data dall'integrale lungo la coordinata su cui costruisco il cilindro di ds vettoriale vettore spostamento lungo la direzione verticale in cui sto costruendo il cilindro e di modulo l'altezza del cilindro
 %nel nostro caso dr è piccolo, quindi abbiamo d\Sigma_l
 %
 %
 %la fem indotta è il flusso del campo magnetico attraverso la superficie laterale infinitesima
-%$\mathcal{E}_i=d/dt\Phi_{\Sigma_i}(\vba B)$ flusso tagliato
+%$\mathcal{E}_i=\dv{t}\Phi_{\Sigma_i}(\vba B)$ flusso tagliato
 %Recap: tutte le cariche subiscono un campo elettrico. per fem devo integrare sul circuito. riesco a portare avanti derivata rispetto al tempo. è lungo sup ds\crossdr che è la sup laterale infintesima del cilindretto
 %non è ancora quello che vogliamo, dobbiamo far vedere che la differenza di flusso fra la spira nella posizione 1 e 2, con $\Sigma_1$ sup del circuito che finisce sul circuito prima dello spostamento, 2 è dopo lo spostamento: sono le superfici di base prima e dopo lo spostamento
 %$\Delta\Phi=\Phi_{\Sigma_2}(\vba B) - \Phi_{\Sigma_1}(\vba B)$
 %so che il flusso attraverso una superficie chiusa del campo magnetico è nullo $\Phi_\Sigma=0$
-%	siccome u_n punta fuori dalla superficie chiusa /lo abbiamo già visto altre volte
+%	siccome $\vbh{u}_n punta fuori dalla superficie chiusa /lo abbiamo già visto altre volte
 %$....$
 %la forza di Lorentz per uno spostamento rigido in un campo magnetico uniforme ma non costante produce un \textit{flusso tagliato}
 %cosa simile a spira immersa in campo magnetico non uniforme
 %siccome deve essere nullo allora
-%flusso tagliato $..=-d/dt\Phi_{\Sigma}(\vba B)$ con $\Sigma$ superficie che finisce sul circuito
+%flusso tagliato $..=-\dv{t}\Phi_{\Sigma}(\vba B)$ con $\Sigma$ superficie che finisce sul circuito
 %quando calcolo la differenza
 %aggiungo limite		abbiamo calcolato che è il flusso attraverso la sup laterale e sostituisco
 %
@@ -377,17 +376,17 @@ Vedremo che la seconda e la terza causa sono effetti della forza di Lorentz. Qui
 %
 %Recap: abbiamo dimosrato che per uno spostamento rigido la forza elettrmotrice indotta $\mathcal{E}$ è una conseguenza della forza di Lorentz. La stessa cosa vale per variazioni della forma o dell'angolo
 %per spiegare la fem indotta quando la spira si muove o cambia angolo o cambia forma non servono leggi nuove perché sono effetti della forza di Lorentz
-%quello che non è previsto è la fem per effetto di variazione del campo magnetico $\vba B$, cioé $\partial\vba B/\partial t\to \vba E_i$
+%quello che non è previsto è la fem per effetto di variazione del campo magnetico $\vba B$, cioé $\dvp{\vba B}{t}\rightarrow \vba E_i$
 %per spiegarlo vanno modificate le nostre leggi
 %
 %
 %riscriviamo la forza elettromotrice indotta
-%$\mathcal{E}= -d/dt\Phi_\Sigma(\vba B)=\int\vba E_id\vba s=-d/dt\int$
+%$\mathcal{E}= -\dv{t}\Phi_\Sigma(\vba B)=\int\vba E_id\vba s=-\dv\int$
 %con curva \gamma su cui il campo elettrico ha circuitazione non nulla, \Sigma che finisce sulla curva \gamma e abbiamo certo campo magnetico che attraversa \Sigma e produce flusso
 %campo magnetico che cambia nel tempo, la derivata che ci interessa è quella che agisce sul campo magnetico, non forma: consideriamo circuito fisso e non deformato
 %$=\int_\Sigma \partial\vba B/$
-%usiamo teo rotore su membro sinistra
-%$\int_\Sigma\cur\vba E\vdot\vbh{u}_n d\Siagm=-$
+%usiamo teorema del rotore sul membro di sinistra
+%$\int_\Sigma\curl\vba E\vdot\vbh{u}_n d\Sigma=-$
 %deve valere per ogni \Sigma, quindi per campo non conservativo è $\curl\vba E=-\partial/\partial$	modifica quando il campo magnetico dipendente dal tempo: produce campo elettrico non conservativo, fem indotta
 %Questa è la 2/3 legge di Maxwell o forma differenziale della legge di Faraday
 %%CIT: è la seconda o terza, dipende come contate
@@ -556,7 +555,247 @@ Vedremo che la seconda e la terza causa sono effetti della forza di Lorentz. Qui
 %si può anche derivare da formalismo hamiltoniano
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 18 31/03/2022
+abbiamo visto che campi varabili nel tempo producono altri campi: abbiamo visto che tramite l'analisi della legge di Faraday un campo magn variabile nel tempo produce fem e quidi campo el indotto
+Maxwell si è accorto (per unire interazione elettrica e magnetica in una sola ) 
+se n'è accorto con la \textit{corrente di spostamento}
+come nome è misleading, ma il modo di accorgersene è semplice
+partiamo dalla legge di Ampère, che abbiamo derivato nel caso statico 
+andremo a derivare legge di Ampère-Maxwell
+\oint\vba Bd\vba s=\mu_0 i
+\curl\vba B=\mu_0\vba j
+non è compatibile con la conservazione della carica: prendiamo la divergenza della seconda equazione: \grad\curl\vba B=\mu_0\grad\vba j
+a sx è immediatamente 0, quindi è compatibile con densità di corrente elettrica solenoidale \div\vba j=0
+Quindi la legge di Ampère è consistente solo se la corrente \vba j è solenoidale, cioé ha divergenza nulla
+in realtà vorremmo l'equazione di continuità: \div\vba j+\pdv{\rho}{t}=0	cioé se in un certo volume di spazio c'è carica, tutt quella che passa nella superficie esce e produce carica
+non si crea nè si distrugge: se non è zero ho corrente elettrica, quindi flusso di corrente elettrica
+se ho un volume con carica el, se esce allora la corrente j ha un flusso non nullo nella sup che determina il volume: modo locale di formulare la conservazione della carica
+
+tale equazione ci suggerisce come correggere la legge di Ampère
+sappiamo che \div\vba E=\frac{}{}\epsilon_0
+se questa è vera allora possiamo scrivere \rho=\epsilon_0\div\vba E
+\pdv{\rho}{t}=\epsilon_0
+vorremmo quindi aggiungere al termine \div\vba j \pdv{\rho}{t}, ma abbimo appena vist che è pari a \epsilon_0\div\pdv{\vba E}{t}
+Quindi aggiungo un pezzo tale che dopo la divergenza ho \pdv{\rho}{t}
+\begin{equation}
+	\curl\vba B=\mu_0 \vba j+\mu_0\epsilo_0\pdv{\vba E}{t}
+\end{equation}
+arriviamo quindi alla legge di Ampère Maxwell appena scritta
+\grad\curl\vba B=\mu_0\div\vba j+\mu_0\epsilon_0\pdv{\div\vba E}{t}
+per ottenere la forma integrale della legge dobbiamo scrivere i flussi attraverso una superficie \Sigma
+ricordiamo che \mu_0\epsilon_0=\frac{}{c^2}
+\int_\Sigma\curl\vba B\vdot\vbh{u}_nd\Sigma=\mu_0\int_\Sigma\vba j\vdot\vbh u_n d\Sigma +\frac{1}{c^2}\pdv{t}\int_\Sigma \vba E\vdot\vbh u_n d\Sigma
+uso il teo rotore sul membro a sinistra
+\oint_\Sigma \vbaB\vdot d\vba s= \mu_0 i +
+è l'analoo della legge di Faraday: un cambiamento del fuusso del campo elettrico genera un contributo addizionale alla circuitazione
+quindi il termine i_S=\epsilon_0\pdv{\Phi_\Sigma}{t} è detta \textit{corrente di spostamento}
+allo stesso modo la densità di corrente j_S=\epsilon	è detta \textit{densità di corrente di spostamento}
+è detta corrente di spostamento perché è un contributo pari a j, potrei combinarli e definire una j totale
+\vba j_{TOT}=\vba j+\vba j_S
+quindi \curl\vba B=\mu_0\vba j_{TOT}
+combinando gli effetti è un campo solenoidale: 0=\div\vba j_{TOT}=\div\vba j+\div\vba j_S(=\pdv{\rho}{t})=
+vediamo perché deve essere necessaria questa corrente: prendiamo un circuito RC: per la consistenza della legge di Ampere, qualsiasi corrente metta a destra deve essere la stessa (?)
+Maxwell ha risolto i lproblema considerando due superfici aperte: \Sigma_1 bolla che entra fra le due piastre del condensatore e finisce sulla stessa curva \gamma
+\Sigma_2 anche finisce su \gamma ma va solo sul filo. si ha \partial\Sigma_1=\partial\Sigma_2
+accendo la corrente e circola, il flusso di j attraverso \Sigma_2=i: \int_{\Sigma_2}\vba j\vdot =i
+ma fra le piastre del condenstaore non circola carica! \int=0
+però sono 
+se fosse solenoidale questi due contributi dovrebbero essere uguali: è un altro modo per accorgersi che la corrente \vba j da sola non è solenoidale
+sembra che fra le piastre ci sia un'interruzione
+in realtà ho il contributo addizionale. è stato detto che nelle piastre ho campo elettrico che sta variando, diventa più intenso man mano che si carica, se varia ho contributo non nulla dalla corrente di spostamento, quindi il flusso in \Sigma_1 non è 0 ma è pari alla corrente di spostamento
+è ripristinato che la corrente totale: corrente+ corrente di spostamento sia solenoidale
+il nome è dovuto a questo fatto: c'è un condensatore ma gira lo stesso corrente
+il fenomeno vero è che la variazione del campo el produce campo mag
+l'equazione fisica è quella di continuità: \div\vba j=\pdv{\rho}{t}
+la corrente j deve compensare variazione di carica
+
+perché non ci si era mai accorti di sta cosa: sperimentalmente il contributo aggiuntivo è molto difficile da derivare: \mu_0\epsilon_0=\frac{1}{c^2}, quindi il contributo è molto piccolo
+è stato un grande successo della fisica teorica per avere consistenza interna delle equazioni
 
 
+EPILOGO
+siamo arrivati a formulare l'ultima legge mancante
+ora possimao scrivere le equazioni di Maxwell
+\section{Equazioni di Maxwell}
+Le equazioni di Maxwell sono
+\begin{itemize}
+	\item LEgge di Gauss
+	\item
+	\item \div\vba B=0 /\vba B campo solenoidale per qualsiasi dipendenza dal tempo
+	\item legge di Ampèere Maxwell \curl\vba B=\mu_0\vba j+ \frac{}{c^2}\pdv{\vba E}{t}
+\end{itemize}
+l'elettrodinamica classica nel vuoto è data da queste 4 eq
+
+abbiamo come _conseguenza_ l'equazione di continuità:\div\vba j+\pdv{\rho}{t}
+risolvendo possiamo trovare campo elettrico e magnetico, per trovare dinamica serve come agiscono i campi su una carica: serve forza di Lorentz: \vba F=q(\vba E+\vba v\cross\vba B)
+densità di energia dei campi: U=\frac{}{2}(\epsilon_0 e^2+\frac{B^2}{\mu_0})
+
+queste sono le eq fondamentali dell'elettrodinamica classica nel vuoto
+
+abbiamo già visto molte proprietà
+dobbiamo ancora vedere le proprietà delle eq. di Maxwell nel vuoto
+la prima cosa che ci chiediamo è: coinvolgono dei campi e le sorgenti \rho e j (sono dat, esterne, sono gli input: date \rho e \vba j determino campo el e magn) se spegnessi le sorgenti quale sarebbe la soluzione nel vuoto?
+per vuot intendiamo senza sorgenti
+\div\vba E=0
+\div\vba B=0
+\curl\vba E=-\pdv{\vba B}{t}
+\curl\vba B= \frac{1}{c^2}\pdv{\vba E}{t}
+hanno una certa simmetria: abbiamo già studiato della soluzioni statiche: carica che si comporta come sfera carica
+posso avere soluzioni meno statiche: uno dei due può dipendere dal tempo e si scambiano fra loro
+sarà una conferma cruciale delle eq di Maxwell è che ci vediamo: una soluzione delle equazioni è che sono sol anche la luce, che è onda elettromagnetica
+
+la sol generale è onda elettromagnetica che si propaga alla velocità della luce
+abbiamo così capito che la luce è in realtà un'oscillazione di campi elettrici e magnetici: onda elmagn con data frequenza che siamo in grado di rilevare
+lo vedremo dalla prossima settimana
+
+\subsection{Potenziali}
+guardando queste eq possiamo riscriverl con dei potenziali
+per camp magn è semplice \vba=\curl\vba A
+nel caso dinamico il rotore el non è nullo: dobbiamo aggiungere termine \vba E=-\pdv{\vba A}{t}-\grad V	prendo il rot ed è nullo: ritrovo 2 eq M
+sono compatibili coneq
+abbiamo detto che il potenziale vettore \vba A è definito solo a meno di gradiente: \vba A\sim\vba A+\grad\oldphi
+posso traslaral di qun qualsiasi potenziale gradiente ed è lo stesso
+ma se \oldphi dipende dal tempo non è più una simmetria del campo elettrico: \vba E\rightarrow -\pdv{\vba A}{t}-\grad\pdv{\oldphi}{t}-\grad V
+non è più da sola una simmetria, ma abbiamo anche un suggerimento perché sia simmetrico: basta definire V'=\grad\pdv{\oldphi}{t}-\grad V
+quindi definiamo la classe d'eq come V\simV-\pdv{\oldphi}{t}
+coinvolgiamo 2 trasformazioni contermporanee per la classe d'equivalenza (vedi i \sim)
+son dette invarianza di Gauge
+vorrei usare le equ di M per ricavare i potenziali: esattamente come nel caso statico con le eq di Poisson
+ora lo facciamo nel caso dinamico
+
+possiamo usare l'invarianza per fissare \div\vba A +\frac{}{c^2}\pdv{V}{t}=0 è anche detta scelta di Gauge (modo fisico di dire scelta di un rappresentante in una classe di equivalenza)	(caso statico \div\vba A=0)
+possiamo farlo grazie all'invarianza: se \div\vba A +\frac \pdv \neq 0
+allora definaimo \vba A'=\vba A+\grad\oldphi
+V'=V-\pdv{\oldphi}{t}
+sostituiamo ed otteniamo
+\div \vba A'-\laplacian\oldphi +\frac{}{c^2}\pdv[2]{\oldphi}{t}=D
+fisso il valore del campo \oldphi in modo che \div \vba A'+\frac{}{c^2}\pdv{V'}{t}=0
+\laplacian\oldphi-\frac{}{c^2}\pdv[2]{\oldphi}{t}=-D
+definiamo operatore box, operatore dalambertiano (da D'Alambert)
+\qed=\laplacian -\frac{}{}\pdv[2]{t}
+quindi \qed\oldphi=-D
+
+?
+partiamo dal \curl\vba B=\grad(\curl\vba A)=
+ma rotore del rotore è grad della divergenza - laplaciano
+=\grad(\div\vba A)-\laplacian \vba A
+ma \vba B=\curl\vba A e \vba E=-\pdv{\vba A}{t}-\grad V
+quindi  scritta in termini di potenziali è
+\curl\vba B-\frac{1}{c^2}\pdv{\vba E}{t}=\mu_0\vba j \implies \grad(\div\vba A)-\laplacian\vba A +\frac{}{} \pdv[2]{A}{t} +\frac{}{}\grad\pdv{V}{t}=\mu_0\vba j
+
+racoclgo il gradiente (gradiente della somma) e vediamo che all'interno è nullo
+\cancel{\grad(\div\vba A +\frac{1}{c^2}\pdv{V}{t})}-(\laplacian -\frac{}{}\pdv[2]{t})(\vba A)=\mu_0\vba j
+(\vba A) significa che applico (?) in A
+otteniamo così \qed\vba A=-\mu_0\vba j
+generalizzazione al caso dipendente dal tempo delle eq di Poisson: sono delle eq di D'Alambert
+rimpiazziamo laplaciano con dalambertiano
+spoiler: dalambertiano generalizzazione lacplaciano allo spazio tempo
+
+
+ricaviamo eq di V partendo dalla \div \vba E
+\div\vba E=-\pdv{t}\div\vba A-\laplacian V=\frac{\rho}{\epsilon_0}
+usiamo che \vba E=-\pdv{A}{t} -\grad V e \div\vba A+\frac{}{}\pdv{V}{t}=0
+abbiamo così \frac{}{}\pdv[2]{V}{t} -\lplacian V=\frac{\rho}{\epsilon_0}
+quindi \qed V=-\frac{\rho}{\epsilon_0}
+equazioni del moto dell'elettrodinamica classica
+eq diff di \vba A e V che date certe distribuzioni di carica \rho e di corrente \vba j posso riacavare poteziali e dalì campi
+
+
+\subsection{Circuiti RLC}
+
+studio dei circuiti RLC
+una loro caratteristica: possiamo studiarli addirittura senza inserire un generatore
+%IMMAGINE
+ci si aspetta che non ci sia corrente
+immaginiamo che al tempo t=0 il condensatore sia carico, quindi ho differenza di potenziale
+chiudo l'interruttore le cariche si muovono per compensare diff pot, avrò corrente in una certa direzione: all'interno dell'induttanza ho variazione di corrente: vuole creare corrente opposta e rispedisce indietro le cariche
+questo sistema dà origine ad un'oscillazione, simile a quella di una molla, la resistena smora le oscillazioni, quindi si perde l'intensità di corrente
+vediamo le eq del circuito
+diff po ai capi del condesatore V_C=\frac{q}{C}
+indotta V_L=-L\dv{i}{t}
+legge di Ohm V_C+V_L=Ri
+quindi \frac{q}{C}-L\dv{i}{t}=Ri
+ricordiamo che i=-\dv{q}{t}
+prendimo una derivata rispetta al tempo dell'eq
+-\frac{i}{C} -L\dv[2]{i}{t}=R\dv{i}{t}
+\dv[2]{i}{t}+\frac{R}{L}\dv{i}{t} +\frac{i}{LC}=0
+è un'equazione differenziale 2 grado che corrisponde ad oscillatore armonico smorzato
+cominciamo dal caso R==, quindi circuito LC (realisticamente difficile da realizzare, dovrei avere superconduttori per resistenze molto piccole)
+\dv[2]{i}{t} +\omega_0^2 i=0
+con \omega_0=\frac{1}{\sqrt{LC}} detta \textit{frequenza caratteristica} del circuito LC
+la soluzione dell'eq di 2 grado è una funzione sinusoidale i(t)=A\sin(\omega_0 t+\oldphi)
+fase iniziale \oldphi da determinare, anche A
+A e \oldphi sono costanti di integrazione da determinare
+quindi l'intensità di corrente oscilla
+sappiamo che V_C=L\dv{i}{t}
+quindi V_C(t)=AL\omega_0\cos(\omega_0 t+\oldphi)
+posso fissare delle condizioni iniziali:
+se a t=0, allora V_C=V_0 e i(0)=0 e \dv{i}{t}(0)=\frac{V_0}{L}
+imponendo queste condizioni iniziali viene \oldphi=0
+i(0)=A\sin\oldphi
+V_C(0)=AL\omega_0 \cos\oldphi=V_0
+possiamo così fissare \oldphi=0
+quindi A=\frac{V_0}{L\omega_0}
+sostituendo
+i(t)=\frac{V_0}{L\omega_0}\sin\omega_0 t
+V_C(t)=V_0\cos\omega_0 t
+quindi sono in quadratura di fase
+%IMMAGINE
+parto che la diff pot ai condensatore è massima e corrente è minima, poi si scambiano come quando sono alla pos di eq della molla ma ho una velocità
+t/4 e t/2
+tutto questo è dovut alla presenza dell'induttanza
+il bilancio energetico è fra campo elettrico e magnetico (energia intrappolata nel campo magn nell'induttanza)
+oscillazione di energia fra campo elettrico e magnetico E\rightarrow B\rightarrow E\rightarrow B
+il moto così non è smorzato e andrebbe avanti all'infinto, esattamente come una molla in assenza di attrito
+scriviamo il bilancio energetico
+E_{TOT}=\frac{1}{2}CV_C^2 +\frac{1}{2}Li^2=\frac{1}{2}CV_0^2=\frac{1}{2}L\frac{V_0^2}{L^2\omega_0^2}
+energie accumulate all'interno del condensatore e dell'induttanza
+questa eq vale a qualsiasi istante di tempo
+nell'istante iniziale t=0 ho solo l'energia del condensatore, che poi passa fra induttanza e condensatore
+quello che succede in caso di presenza di una resistenza: essa fa sì che l'energia si disperda: le oscillazioni invece di andare avanti all'infinito smorzano
+\dv[2]{i}{t}+\frac{R}{L}\dv{i}{t}+\frac{1}{LC}i=0
+rispetto all'eq del moto armonico abbiamo un termine in più di smorzamento proporzionale alla velocità, di solito da liquido viscoso o aria
+\dv[2]{x}{t}+2\gamma\dv{x}{t} +\omega^2x=0
+ricordiamo che abbiamo ricavato l'eq della molla come m\dv[2]{x}{t}=-kx -\color{\mu\dv{x}{t}}
+\dv[2]{x}{t}+\frac{k}{m}x= +\color{\frac{u}{m}\dv{x}{t}}=0
+\color{2\gamma=\frac{\mu}{m}}
+\gamma=\frac{R}{2L}
+\omega_0^2=\rfac{1}{LC}
+abbiamo quindi \dv[2]{i}{}+2\gamma\dv{i}{t}+\omega_0^2i=0
+risolviamo l'eq con
+sfrutto eq caratteristica dell'eq diff 2 ordine
+i(t)=Ae^{i\alpha_1 t}+Be^{i\alpha_2t}
+\alpha^2 +2\gamma\alpha +\omega_0^2=0
+\alha_1=-\gamma+\sqrt{\gamma^2-\omega_0^2}
+\alpha_2=-\gamma+\sqrt{\gamma^2+\omega_0^2}
+distinguiamo i casi
+\begin{enumerate}
+	\item smorzamento forte \gamma^2>\omega_0^2, in termini di RLC si traduce come R^2>\frac{4L}{C}, quindi imponiamo come \textit{resistenza critica} R_C=2\sqrt{\frac{L}{C}}
+	i(t)=Ae^{\gamma t+t\sqrt{\gamma^2-\omega_0^2}} + Be^{-\gamma t -t\sqrt{}}
+	nella radice ho termine positiv, quniid minore di \gamma, contributo smorzante è quello che domina
+	=e^{-\gamma t}\left( Ae^{-t\sqrt{\gamma^2-\omega_0^2}} + Be^{-t\sqrt{\gamma^2-\omega_0^2}}\right)
+	A e B vanno fissate a seconda delle condizioni iniziali
+	%IMMAGINE
+	\item smorzamento critico R=R_C, \gamma^2=\omega_0^2
+	le sol sono lin dip, quindi \alpha_1=\alpha_2=-\gamma
+	i(t)=e^{-\gamma t}(A+Bt)
+	se i(0)=0 allora i(t)=Bte^{-\gamma t}
+	non ho ancora oscillazione perché non c'è fase
+	\item smorzamento debole \gamma^2<\omega^2	essendo negativo ottengo fase + fase di segno opposto
+	la sol si riscrive i(t)=De^{-\gamma t} \sin(\omega t+\oldphi)
+	con \omega=\sqrt{\omega_0^2+\gamma^2} e D non termine di fase
+	riscrivendo come sin e cos ottengo questa eq, è sol equivalente ma scritta in un altro modo
+	ottengo così delle oscillazioni che poi si smorzano
+	smorzamento con profilo di e^{-\gamma t} che è il fattore smorzante
+	più è piccola a resistenza più riesce ad oscillare
+	
+
+
+
+\end{enumerate}
+
+
+vedremo che se aggiungo generatore che dà onde sinusoidali posso compensare lo smorzamento ed ottenerne uno no smorzato
 
 
