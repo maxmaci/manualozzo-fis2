@@ -1,0 +1,401 @@
+% SVN info for this file
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
+%LEZ 21, 07/04/2022
+%
+%ONDE
+%esempio tipico: onda che si propaga in una corda tesa: la perturbazione della tensione della corda si propaga e torna indietro
+%	onde sonore: compressione , variazione di pressinoe dell'aria, a sì che si trasmetta onda sonora
+%perturbazione di una condizione di equilibrio che si propaga nel tempo conuna certa velocità
+%esattmete come la luce
+%esempio: onde sulla superficie di un fluido, mare	/sono i più dfficili da studiare
+%	onde di lancio pietra in uno stagno: da quel punto in cui cade si formano onde che si propagano lungo cerchio
+%	
+%in tutti i fenomeni ondualatori c'è trasporto ma non trasorto a materia
+%	esempio lago: basta inserire una foglia, che osciella ma non si sposta
+%i fenomeni ondulatori si diffondono in un mezzo ma non trasportano materia
+%		suono: si decopmrime e non ma non si spostano oggetti
+%	trasporto anche di impulso ed energia, quantità di moto, NON di materia
+%	
+%esempio: onde elettromagnetiche: luce
+%		onde gravitazionali	ora da 7 anni c'è la prova da buchi neri che orbitano uno nell'altro e poi si uniscono, adesso da esperimenti laigo e virgo (Toscana) se ne osservano molti di più
+%		gravitazionali ed elmgn: vel luce e senza bisogno di un mezzo, sono molto simili fra loro
+%		risolto da Einstein etere: nella teoria relatività ristretta
+%		sol di eq Maxwell e rel generale Einstein, previste teoricamente	eq delle onde è sol delle eq di Maxwell: è previsto che campi B e E producano fenomeno ondulatorio a certa vleocità, che è quella dellla luce
+%		
+%
+%Le onde rappresentano qualsiasi fenomeno in cui una perturbazione si propaga conv elocità $\vba v$
+%possiamo pensare di avere dei campi scalari	
+%	dipendenti da tempo, 
+%	pressione (onde sonore), 
+%	densità materiale (onde elastiche)
+%	temperatura T
+%e dei campi vettoriali:
+%	campo elettrico e magnetico
+%Andremo a considerare perturbazioni di questi campi
+%	pressione: perturbazione Deltap(x,y,z,t)
+%		da stato di equilibrio si formano compressoini e dilatazioni che fanno sì che la pressione del gas nella stanza vicinio al pparlante varii: piccole perturbazioni che si propagano con una certa velocità
+%vederemo che per piccole perturbazioni una grande quantità di fenomeni è descritta dall'equazione
+%\begin{equation*}
+%	\square\xi=0
+%\end{equation*}
+%dove ricordiamo che
+%	\square=\laplacian-\frac{1}{v^2}\pdv[2]{t}
+%con \xi qualsiasi perturbazione del campo
+%
+%che tipo di eq diff stiamo considerando? eq diff alle derivate parziali per un campo \xi del 2° ordine omogenea e lineare in \xi
+%	perché è llneare? le onde che vediamo non sono lineari, come quelle del mare o di una corda
+%	se vediamo eq tipica navier-stokes della fluidodinamica non è lineare
+%	ma nel caso in cui le perturbazioni siano piccole possiamo approssimare le nostre eq in una di questo tipo
+%	in altri casi invece (Mxw o Eins ) non c'è bisogno di un'approssimazione,è conseguenza delle q di Maxwell
+%	basta prendere le eq di Maxwell nel vuoto e vedere che le soddisfano
+%	
+%	
+%	
+%proprietà generali dell'equazione
+%se ho perturbazione a piccoli angoli allora è descritta in modo accurato da tale equazione
+%
+%non è un'equazione non fissa completamente la funzione (non è constraining)
+%la soluzione più generale è una qualsiasi funzione di una certa combinazione di variabili
+%
+%																	caso unidimensionale
+%	\suare=\pdv[2]{x}-\frac{1}{v^2}\pdv[2]{t}
+%	\pdv[2]{\xi(x,t)}{t}-\frac{1}{v^2}\pdv[2]{\xi(x,t)}{t}
+%	considero \xi(x,t)=\xi(x\pm vt)
+%		x_{\p}=x\pm vt
+%	quindi \pdv{\xi}{x}=\pdv{x_\pm}{x}=\pdv{\xi}{x_\pm}
+%	calcolo derivata seconda \pdv[2]{\xi}{x}=\pdv[2]{\xi}{x_\pm}\pdv{x_pm}{x}=\pdv[2]{\xi}{x_\pm}
+%	
+%	derivata di x_\pm rispetto al tempo \pdv{\xi}{t}=   =\pm\pdv{\xi}{x_\pm}v
+%	\pdv[2]{\xi}{t}=\pm\pdv[2]{\xi}{x_\pm}\pdv{x_\pm}{t}v=v^2\pdv[2]{\xi}{x_\pm}
+%	confrontando vediamo chechiarmanete è soluzione
+%		\pdv[2]{\xi}{x_\pm}-\frac{1}{v^2}\pdv[2]{\xi}{t}-\pdv[2]{\xi}{x_\pm}-\frac{1}{v^2}v^2 \pdv[2]{\xi}{x_\pm}=0
+%		
+%la soluzione più generale di questo tipo di equazioni, da corso eeq diff anche l'unica, è una qualsiasi funzione \xi che rispetti
+%\begin{equation*}
+%	\xi(x,t)=\xi_1(x-vt) +\xi_2(x+vt)
+%\end{equation*}
+% perché è funzione delle velocità?
+%ad un certo tempo t_0
+%
+%ad un altro tempo
+%siccome è funzione di x-vt posso prevedere come sarà al tempo t quadno lo so da t_0
+%	x-vt=x_0-vt_0
+%	x=x_0+v(t-t_0)
+%posizione x traslata di moto rettilineo uniforme
+%la forma della funzione resta inalterata, è solo traslata rigidamente ad un punto x diverso da quello precedente
+%lo eguaglio: vario il tempo per cercare di capire come varia x
+%	passare da t_0 a t basta traslarlo
+%	punto x_0 è mappato ad x traslato di quel valore lì
+%
+%
+%quindi la prima parte descrive un qualsiasi funzione dice che qualsiasi sia la forma della funzione al tempo t_0 solo per il fatto di esser funzione di x-vt se a t_0 ha una forma al tempo t ha esattamente la stessa forma per traslazione di quantità v\Delta t
+%se considero evoluzione temporale dell'eq è traslazione rigida nel tempo
+%la dipendenza del tempo dell'eq, nel tempo si muove lungo il verso positivo dell'asse x
+%
+%la seconda parte della sol ha v con segno opposto, descrive una funzione che si muove con velocità negativa lungo l'asse x
+%
+%descrive la propagazione di una certa funzione lungo asse x come traslazione rigida di moto rettilineo uniforme nella direzione dell'asse $x$
+%
+%													consideriamo la soluzione in 3 dimensioni	
+%
+%l'eq è
+%	\laplacian\xi\frac{1}{v^2}\pdv[2]{\xi}{t}=0
+%
+%definiamo per comodità un variabile u_\pm=\vbh h\vbh r\mp\omega t
+%	\xi(u_\pm) è soluzione per \frac{\omega}{\abs{\vbh h}}=v
+%
+%facciamoil gradiente
+%	\grad\xi=\pdv{\xi}{u_\pm}\grad\u_\pm=\pdv{\xi}{u_\pm}\vbh h
+%		infatii \grad\vbh h\vdot\vbh r=\vbh h
+%			\partial_x()=h_x
+%
+%facciamoil laplaciano
+%	\laplacian\xi=\grad\left( \pdv{\xi}{u_\pm}\right)\vdot\vbh h= pdv[2]{\xi}{u_\pm}\grad u_\pm \vdot \vbh h= \pdv[2]{xi}{u_\pm}\abs{\vbh h}^2
+%	
+%	\pdv{\xi}{t}=\pm\pdv{\xi}{u_\pm}\omega
+%	\pdv[2]{\xi}{t}=\pdv[2]{\xi}{u_\pm}\omega \pdv{u_\pm}{t}=\omega^2 \pdv[2]{\xi}{u_\pm}
+%	
+%quindi
+%	\laplacian\xi-\frac{1}{v^2}\pdv[2]{\xi{t= \pdv[2]{\xi}{u_\pm}\abs{\vbh h}^2-\frac{1}{v^2}\omega^2 \pdv[2]{\xi}{u_\pm}= \pdv[2]{\xi}{u_\pm}\left( \abs{\vbh h}^2 -\frac{\omega^2}{v^2} \right)
+%			che è vero solo se v=\frac{\omega}{\abs{\vbh h}^2}
+%			
+%	u_\pm=(\vba h\vdot\vba r)=\vba k\left( \vba r-\frac{\vba k \omega}{\abs{\vba k}^2}t \right)...............
+%	
+%%NOTA h è k, \vbh è \vba
+%%		
+%produce vettore di propagazione e
+%sarei potuta partire da u_\pm=\vba k\vdot
+%v vettore con modulo v e direzione e verso \frac{\vba k}{\abs{\vba k}}
+%l'onda è tridimensionale, direzione di propagazione indicata da \vba k (versore direzione di propagazione dell'onda)
+%dato campo scalare pressione, subisce perturbazione che si propaga in direzione \vba k con velocità v che compare nell'eq che si esprime come v=\frac{\omega}{\abs{\vba k}}
+%se h una foto del campo scalare a t_0, a t è traslazione del campo scalare in cui un punto è mappato in traslato di vt nella direzione \vba k
+%
+%
+%una direzinoe sola è specifica
+%se scelgo \vba k=(k_x, 0, 0) ottengo che
+%	\u_\pm=k_xx\pm \omegat=k_x\left( \frac{\omega}{k_x}t \right)= k_x(x\pm vt)
+%	che è il caso 1-dim
+%è come se fosse caso unidimensionale se si sposta in una sola dierzione: pinai ortoganli su cui si muove l'onda ed è tutta uguale
+%il fronte d'onda sono dei piani ortogonali a v
+%	esempio: zone di compressione dell'aria
+%il fronet d'onda è un pinao perché non si propaga in quelle due coordinate
+%lungo tutto un pinao l'onda è la stessama in direzione x ho variazioni
+%
+%onda piana: si propaga in una sola direzione e fronti d'onda piani nella direzione di propagazione
+%in particolare il campo \xi che descrive la propagazione non dipende da y e z, dipende solo da x
+%	k mi seleziona x nel prodotto scalare
+%
+%il caso 1-dim ci serve per:
+%	due dimensioni trascuarbili: corda sottile che tratto come 1-dim, eq dlambert 1-dim
+%	fronte d'onda piano: propagazinoe che non coinvolge 2 dimensioni
+%		onda piana descritta da eq dalabert 1-dim
+%		
+%esempio onda piana: terremoto (ma la terra non è piana)
+%					onde d'urto molto lontane dalla sorgente
+%	
+%	
+%una conseguenza della scrittura 1-dim è il \textit{principio di sovrapposizione}
+%punto per punto la soluzione è la somma, perché è lineare!
+%proprietà fondamentale delle onde lineari: si sommano e si sorpassano continuando a propagarsi
+%%IMMAGINI magari con due colori per distinguere le due onde?
+%effetto di sommarsi, conseguenza della linearità della soluzione e soprattutto dell'equazione
+%per le onde lineari descritte da D'Alamabert vale il principio di sovrapposizione
+%
+%\section{onde piane armoniche}
+%dipendono da una sola variabile, ho una certa mpiezza \xi_0
+%	\xi(x,t)=\xi_0\sin(kx-\omega t)
+%	k è numero d'onda
+%	\omega è pulsazione, lo chiameremo spesso frequenza anche se son diversi
+%è solo solo se è funz di x-vt
+%	kx-\omega t=k\left( x-\frac{\omega}{k}t \right)
+%		\frac{\omega}{k}=v
+%avremmo potuto usare il \cos o inserire una fase
+%
+%stiamo osservando una funzione periodica, sia nella direzione x a tempo fissato t=cost
+%	l'immagine è una fotografia	esempio corda che oscilla nello spazio
+%la lunghezza d'onda \lambda è il periodo di \sin a tempo fissato
+%	k\lambda=2\pi \implies \lambda=\frac{2\pi}{k}
+%	
+%però è anche un \ins a x costante!
+%	la distanza sarà il periodo T=\frac{2\pi}{\omega}
+%	relazione vista nel moto armonico, moto di una molla
+%	esempio: mi focalizzo su un punto della molla e vedo come va nel tempo: va su e giù, nel tempo fa un \sin
+%	ogni punto fissato nel tempo si muove di moto armonico
+%	legge orara del singolo punto della corda
+%onda armonica: si propaga come una funzione armonica nello spazio ed ogni punto dell'onda si muove di mto armonico: ha lunghezza d'onda \lambda e periodo T
+%
+%per completezza: esiste una branca detta analisi di Fourier: una qualsiasi ffunzine periodica può essere decomposta come sommma indfinita di funzioni armoniche diquesto tipo: sonon base infinito dimensionale di funzioni periodiche
+%inoltre per funz non periodicche si introduce trasformata di Fourier: decomposizione funz no periodca con sovrapposizione continua di funzioni periodiche
+%una qualsiasi altra onda si scrive come sovrapposizione infinita (continua o discreta)
+%questo decomporre in onde armoniche è olto utilizzato in fisica per isolare i contributi alle varie frequenze
+%
+%
+%alla luce delle def del periodo e lunghezza d'onda
+%	v=\frac{\lambda}{T}
+%	spaio percorso in un periodo fratto il tempo
+%	
+%\section{Polarizzazione}
+%finora siamo stati generici su cosa intendiamo per $\xi$
+%Polarizzazione trasversale
+%	corda: spostamento dalla posizione di equilibrio
+%
+%Polarizzazione longitudinale
+%	molla: data una molla in cui do una molla verso la direzione in cui è stesa: onde di compressione e rarefazione
+%		in questo caso \xi non è uno spostamento in una direzione ortogonale a quella di propagazione, ma è parallelo
+%		compressione si sposta lungo la molla, \xi dice quanto è più compressa o più allargata rispetto alla posizione di equilibrio
+%		in questo caso \xi=\Delta x spostamento dall'equilibrio
+%		
+%In generale un'onda, possiamo pensare a \xi come un vettore \vba \xi
+%se consideriamo un'onda piana, \vba \xi=\vba \xi_0 \sin(kx-\omega t)
+%\xi può essere un'oscillazione in qualsiasi direzione
+%\xi_0 vettore di polarizzazione ci dice in quale direzione sta oscillando
+%	se \vba \xi=(\xi_0,0,0) è longitudinale: parallela alla direzione di propagazione
+%	se \vba\xi_0=(0,\xi_{0y},\xi_{0z}) è polarizzazione trasversa: nel piano trasversale rispetto a quello su cui si sta propagando, cioé piano yz. onda piana che si muove e l'oscillazione avviene sul piano ortogonale alla direzione di propagazione 	corda oscillazione lungo asse y ma si muove su asse x
+%	
+%possiamo pensare al fronte d'onda come ad una superficie associata ad un punto distante un certo periodo dal fronte d'onda precedente, come rappresentazione onda d'urto: seguo spostamento di superfici ortogonali alla direzione di propagazione
+%
+%non è detto che un'onda generica sia in una delle due situazioni sopra descritte
+%
+%\begin{examplewt}[Polarizzazione trasversale]
+%	rilevante per onde elettromagnetiche: sonon poche intuitive perché è difficlie pensare ai campi perturbati el emgn
+%	ma sono esempi di fisica fondamentale: non abbiamo bisogno di approssimazioni, le eq di Mxwl sono esatte, non abbiamo una scelta
+%	emerge che l'uncia polarizzazione rievante per le elm è quella trasversale, da eq mxwl
+%	
+%	\xi_y=\xi_{0y}\sin(kx-\omega t)
+%	\xi_z=\xi_{0z}\sin(kx-\omega t+\delta)
+%	potrebbe essere funzione di y e z \delta, non è dett che sia costante
+%	possiamo considerare casi in cui \delta=costante
+%		\delta=0
+%			\xi_y=\xi_{0y}\sin(k-\omega t)
+%			\xi_z=\xi_{0z}\sin(kx-\omega t)
+%			sono uguali ed in fase: c'è un certo pianoche forma un angolo \theta con l'asse z e l'onda si propaga come \sin su questao piano: l'effetto unico di onde in fase, \tan\theta=\frac{\xi_{0y}}{\xi_{0z}}
+%			l'onda si propaga lungo x ma vive sul piano
+%			2-dim: si propaga dentro e fuori il foglio su x
+%			
+%			se avesismo scelto diversamente gli assi avremmo avuto tutto normale
+%			
+%		\delta=\frac{\pi}{2}
+%			\xi_y=\xi_{0y}\sin(kx-\omega t)
+%			\xi_z=\xi_{0z}\cos(kx-\omega t)
+%			situazione in cui \frac{xi_y^2}{xi_z^2}+\frac{\xi_z^2}{\xi_y^2}=1 da \ins^+\cos^2=1
+%			viene equazione di un'ellisse, e viene qunidi detta \texit{polarizzazione ellittica}
+%			al tempo t=0 l'onda punterà in una qualsiasi direzione nell'ellisse
+%			se ci muoviamo quando si propaga lungo asse x ad un tempo successivo sarà leggermente ruotato finendo sempre nel cilindro a base ellittica finché dopo un periodo non ritorna al punto di partenza
+%			la direzione di oscillazione ruota
+%			piano yz
+%			direzione di oscilaione che mentre l'onda si propaga ruota
+%			lungo x e t ha lo stesso andamento, sono interscambiabili
+%				caso particolare
+%				\xi_{0y}=\xi_{0z} è \textit{polarizzazione circolare} perché l'ellissi diventa un cerchio
+%\end{examplewt}
+%
+%
+%\section{Onde sferiche}
+%l'oda piana è particolare situazione in cui fronti d'onda sono piani
+%ma la situazione più comune è quella di una piccola sorgente che emette delle onde che non partono come dei piani ma come delle sfere
+%i fronti d'onda sono sferici
+%%IMMAGINE
+%sinusoidi, quelli sono i picchi di ogni sinusoide
+%dobbiamo cercare una sol delle eq di D'Alambert con simmetria sferica
+%	\laplacian=\frac{1}{r^2}\pdv{r\left( r^2\pdv{r} \right)}
+%laplaciano con simmetria sferica: cerco \xi(r,t) che non dipenda dagli angoli ma solo dal raggio
+%vediamo a vedere cosa fa
+%	\frac{1}{r^2}\pdv{r}\left( r^2\pdv{\xi}{r} \right)= \frac{2}{r}\pdv{\xi}{r}+\pdv[2]{\xi}{r}= \frac{1}{r}\left( 2\pdv{xi}{r}+r\pdv[2]{\xi}{r} \right)
+%vogliamo far vedere che quello fra parentesi è \pdv[2]{(r\xi)}{r}
+%facciamo le derivate
+%	\pdv[2]{(r\xi)}{r}=\pdv{r}\left( \xi+r\pdv{\xi}{r} \right)=\pdv{\xi}{r+\pdv{\xi}{r}+r\pdv[2]{\xi}{r}= 2\pdv{\xi}{r}+r\pdv{\xi}{r}
+%
+%porto dall'alra parte e riscrivo
+%		\frac{1}{r}\pdv[2]{(r\xi)}{r}=\frac{1}{v^2}\pdv[2]{\xi}{t}
+%			\pdv[2]{r\xi}{r}=\frac{1}{v^2}\pdv[2]{(r\xi)}{t}
+%
+%vale per r\xi e non per \xi
+%la sol dell'eq è r\xi
+%	r\xi=\xi_1(r-vt)+\xi_2(r+vt)
+%	
+%avremo
+%	\xi=\frac{\xi_0}{r}\sin(kr-\omega t)
+%	
+%l'ampiezza dell'onda diminuisce con il raggio: l'onda nello stagno all'inizioè alta e poi diminuisce
+%l'energia generata in un punto deve distribuirsi su tutta la superficie e quindi l'ampiezza deve ridursi
+%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
