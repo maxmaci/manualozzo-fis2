@@ -5,1181 +5,596 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Serie di potenze}
+\chapter{Conduttori}
 \labelChapter{seriedipotenze}
 
 \begin{introduction}
 	‘‘Se si trascurano i casi assolutamente più semplici, allora in tutta la matematica non c'è una singola serie infinita la cui somma è stata rigorosamente determinata. In altre parole, una delle parti più importanti della matematica sta in piedi senza alcun fondamento.''
 	\begin{flushright}
-		\textsc{Niels Henrik Abel,} deluso dal non poter trovare la somma delle sue serie preferite.
+		\textsc{Niels Henrik Abel,} deluso dal non poter trovare la somma delle sue serie preferite. % TO DO: citazione
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{N}{el} \refChapterOnly{seriefunzioni} abbiamo iniziato definito cos'è una serie di funzioni; ora entriamo nel dettaglio studiando le \textbf{serie di potenze}. Come già accennato nel capitolo introduttivo e in quello precedente, lo scopo è quello di capire quando una funzione si può scrivere come la sua serie di Taylor.\\
-Dopo averne dato la definizione di serie di potenze in campo complesso, affronteremo dei criteri per determinare il dominio di convergenza di esse, analizzeremo il comportamento al bordo del dominio e parleremo della continuità/derivabilità delle serie. La seconda parte del capitolo sarà invece dedicato alla trattazione delle \textbf{funzioni analitiche} - cioè proprio le funzioni che si possono scrivere come \textit{serie di Taylor} - e di come dimostrare l'analiticità di una funzione; concluderemo con un approfondimento sull'\textbf{esponenziale} e il \textbf{logaritmo} complesso.\\
-Prima di avventurarsi in questo capitolo è particolarmente consigliato leggere nell'Appendice il \refChapter{maxminlimite}, dedicato al \textbf{massimo e minimo limite}, argomento che è fondamentale per comprendere questo capitolo.
-\section{Serie di potenze}\label{seriedipotenze}
-\begin{define}[Serie di potenze]
-	Una \textbf{serie di potenze}\index{serie!di potenze} è una serie di funzioni della forma
-	\begin{equation}
-		\sum_{n=0}^{+\infty}a_n	\left(z-z_0\right)^n
-	\end{equation}
-	con $a_n$ numeri complessi (eventualmente dipendenti da $n$), $z_0\in\complexset$ dato e $z$ che varia in un insieme $A$ detto \textbf{insieme di convergenza}\index{insieme!di convergenza}, costituito da tutti i punti $z$ in cui la serie converge.
+\lettrine[findent=1pt, nindent=0pt]{N}{el} % TO DO: intro
+
+\section{Equilibrio in un campo elettrostatico}
+% TO DO: spostare con legge di Gauss, non credo potenziale
+% https://physics.stackexchange.com/questions/190066/why-cant-charge-be-in-a-stable-equilibrium-in-electrostatic-field#:~:text=There%20are%20no%20points%20of,the%20field%20must%20be%20zero.
+% https://diego.assencio.com/?index=bc04395b103021d338b4e30a061bfc74
+\begin{define}[Equilibrio stabile]
+	Un punto $P$ è di \textbf{equilibrio stabile}\index{equilibrio!stabile} per un corpo puntiforme se per un qualsiasi spostamento, piccolo a piacere, da tale posizione esistono forze che riportano l'oggetto nella posizione originale.
 \end{define}
-Cambiando le variabili possiamo \textit{centrare} la serie in $z_0=0$ e dunque studiare la serie
-\begin{equation}
-	\sum_{n=0}^{+\infty}a_nz^n=a_0+a_1z+a_2z^2+a_3z^3\ldots
-\end{equation}
-Chiaramente la serie così scritta converge in $z=0$ (o, se prendiamo la serie \textit{non} centrata nell'origine, in $z=z_0$), dato che la serie lì valutata ha termini \textit{costantemente nulli} e quindi è banalmente convergente.\\
-Ci interessa ora studiare qual è l'insieme in $\complexset$ in cui tali serie convergono. 
-\begin{theorema}[Insieme di convergenza]\label{insiemediconvergenza}
-Se una serie di potenze converge in $z_0\in\complexset$, allora essa converge (assolutamente) in ogni punto $z$ con $\abs{z}<\abs{z_0}$.
-\end{theorema}
-\begin{demonstration}
-	Sappiamo dalle ipotesi che la serie
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nz_0^n
-	\end{equation*}
-	è convergente, quindi per la condizione necessaria di convergenza il termine $a_nz_0^n$ tende a zero. Per definizione di limite significa che
-	\begin{equation*}
-		\forall \epsilon >0,\ \exists N=N\left(\epsilon\right)\in\naturalset\colon\forall n\geq N,\ \abs{a_nz_0^n}<\epsilon
-	\end{equation*}
-	Scegliamo arbitrariamente $\epsilon = 1$, cioè $\exists N_1=N\left(1\right)\colon \forall n\geq N$ vale $\abs{a_nz_0^n}<1$.
-	Allora definitivamente vale
-	\begin{equation*}
-		\abs{a_nz^n}=\abs{a_nz_0^n}\abs{\frac{z}{z_0}}^n\leq\abs{\frac{z}{z_0}}^n
-	\end{equation*}
-	Poiché per ipotesi $\abs{z}<\abs{z_0}$, si ha $\abs{\frac{z}{z_0}}<1$ e quindi la serie geometrica
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}\abs{\frac{z}{z_0}}
-	\end{equation*}
-	converge. Per il criterio del confronto di serie segue che anche la serie
-	\begin{equation*}
-		\displaystyle\sum_{n=0}^{+\infty}\abs{a_nz^n}
-	\end{equation*}
-	è convergente e quindi
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nz^n
-	\end{equation*}
-	converge (assolutamente).
-\end{demonstration}
-Con questo non solo abbiamo dimostrato che se la serie di potenze converge in $z_0$ allora la serie converge in tutti i punti $z$ con $\abs{z}<\abs{z_0}$, ma implicitamente sappiamo anche che se la serie \textit{non} converge in $z_0$ allora \textit{non} converge per $\abs{z}>\abs{z_0}$.\\
-Infatti, se la serie non converge in $z_0$ supponiamo \textit{per assurdo} che esista $z^\ast$, con $\abs{z^\ast}>\abs{z_0}$, in cui la serie converge. Per il teorema appena dimostrato, in tutti i punti $z$ con $\abs{z}<\abs{z^\ast}$ la serie di potenze converge, ma fra questi è compreso anche $z_0$ dove essa \textit{non} converge.
-\subsection{Il raggio di convergenza}
-Per queste osservazioni l'insieme di convergenza della serie è un \textit{cerchio} centrato nell'origine di un certo \textit{raggio} $R$. Diamo una definizione formale di questo raggio.
-\begin{define}[Cerchio e raggio di convergenza]
-	Prendiamo l'insieme di convergenza della serie di potenze centrata in $z_0=0$
-	\begin{equation*}
-		A=\left\{z \ \middle\vert \ \sum_{n=0}^{+\infty} a_n z^n \ \mbox{converge} \right\}\subseteq \complexset
-	\end{equation*}
-	 e consideriamo l'insieme
-	 \begin{equation*}
-	 	E=\left\{\abs{z}\mid z\in A\right\}\subseteq\realset
-	 \end{equation*}
- 	dato da tutti i moduli dei punti di convergenza della serie. Il \textbf{raggio di convergenza}\index{raggio di convergenza} è definito come
-	\begin{equation*}
-		r\coloneqq\sup E=\sup\left\{\abs{z}\ \middle| \ \sum_{n=0}^{+\infty} a_n z^n \ \mbox{converge} \right\}
-	\end{equation*}
-	Esso può essere:
-	\begin{itemize}
-		\item $R=0$; in tal caso la serie converge \textit{solo} per $z=0$.
-		\item $R=+\infty$; in tal caso la serie converge \textit{per ogni} $z\in\complexset$.
-		\item $0<R<+\infty$; in base al teorema \ref{insiemediconvergenza} la serie converge (assolutamente) per $\abs{z}<r$, \textit{non} converge per $\abs{z}>r$ e a priori non abbiamo \textit{alcuna informazione} per i punti $z$ sul \textit{bordo}, cioè tali che $\abs{z}=r$. L'\textit{insieme di convergenza} risulta essere un \textbf{cerchio aperto}\index{cerchio di convergenza} centrato nell'origine di raggio $R$, a cui si aggiungono eventualmente altri punti di convergenza sul \textit{bordo} (tutti, nessuno o solo alcuni).
-	\end{itemize}
-	\begin{center}
-		\includegraphics[trim=2.5cm 0.5cm 2.5cm 0cm, clip, scale=1]{images/discoconvergenza.pdf}
-	\end{center}
+\begin{define}[Equilibrio instabile]
+	Un punto $P$ è di \textbf{equilibrio instabile}\index{equilibrio!instabile} per un corpo puntiforme se esistono spostamenti, piccolo a piacere, da tale posizione esistono forze che riportano l'oggetto nella posizione originale.
 \end{define}
-Poiché sappiamo che la serie converge assolutamente per $\abs{z}<r$, lo studio del raggio di convergenza passa attraverso lo studio della serie assoluta associata
-\begin{equation*}
-	\sum_{n=0}^{+\infty}\abs{a_nz^n}
-\end{equation*}
-Per determinare il raggio di convergenza, possiamo ad esempio usare il \textbf{criterio di D’Alembert}\index{criterio!di D’Alembert} o detto anche \textit{criterio del rapporto}\index{criterio!del rapporto}, che ci fornisce una condizione \textit{sufficiente} su come determinare il raggio di convergenza.
-\begin{propositionqed}[Criterio di D’Alembert o del rapporto]
-	Data la serie 
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nz^n
-	\end{equation*}
-	se $a_n\neq 0$ definitivamente ed esiste il limite
-	\begin{equation*}
-		\lim_{n\to+\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}=L
-	\end{equation*}
-	allora
-	\begin{enumerate}
-		\item $L=0\implies R=+\infty$
-		\item $L=+\infty\implies R=0$
-		\item $0<L<+\infty\implies R=\nicefrac{1}{L}$\qedhere
-	\end{enumerate}
-\end{propositionqed}
-Questa proposizione ha il vantaggio di essere operativamente utile, ma ovviamente solo se valgono le ipotesi: non è scontato che il limite del rapporto sia ben definito!\\
-Un teorema più generale che vale \textit{per ogni serie} è il \textit{criterio della radice}\index{criterio!della radice} o altresì noto come \textbf{teorema di Cauchy-Hadamard}\seeonlyindex{criterio!del rapporto}{teorema!di Cauchy-Hadamard}.
-\begin{theorema}[Teorema di Cauchy-Hadamard]
-	Sia data la serie di potenze
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nz^n
-	\end{equation*}
-	e sia
-	\begin{equation}
-		\lambda=\limsup_{n\to+\infty}\sqrt[n]{\abs{n}}
-	\end{equation}
-	Allora
-	\begin{enumerate}
-		\item Se $\lambda = 0$, la serie converge $\forall z\in\complexset$.
-		\item Se $0<\lambda<+\infty$, la serie converge $R=\nicefrac{1}{\lambda}$.
-		\item Se $\lambda = +\infty$, la serie converge solo in $z=0$.
-	\end{enumerate}
+Consideriamo delle \textit{sorgenti} fisse (continue o discrete che siano, \textit{non} cambia) nel vuoto e sia $\vba{E}(\vba{r})$ il campo elettrico generato da queste cariche. Esistono dei punti tali per cui, se poniamo una carica $q$ lì, essa rimarrà in equilibrio stabile?
+
+La risposta è data dal \textit{teorema di Earnshaw} e la risposta è \textbf{no}.
+\begin{theorema}[Teorema di Earnshaw]
+	Una collezione di cariche puntuali non possono essere mantenute in una configurazione di equilibrio stabile soltanto dall'interazione elettrostatica delle cariche con un campo elettrico.
 \end{theorema}
+In questa dimostrazione assumiamo che la carica sia positiva ($q>0$), ma la dimostrazione è \textit{mutatis mutandis} la stessa per $q<0$.
 \begin{observe}
-	I tre casi scritti esauriscono \textit{tutti} i casi possibili. Infatti, per la permanenza del segno del $\limsup$\footnote{Nell'approfondimento ‘‘Massimo e minimo limite'', a pagina \pageref{limsuppermanenzadelsegno} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al $\limsup$ e $\liminf$.} vale
-	\begin{equation*}
-		\sqrt[n]{\abs{a_n}}\geq 0,\ \forall n\geq 0\implies\limsup_{n\to+\infty}\sqrt[n]{\abs{a_n}}\geq 0
-	\end{equation*}
+	La carica nella dimostrazione si suppone essere una \textbf{carica di prova}, e quindi il campo generato dalla carica $q$ è trascurabile.
 \end{observe}
-\begin{demonstrationcaputwt}[del teorema di Cauchy-Hadamard]~
-	\begin{enumerate}[label=\Roman*]
-		\item[II] 	Partiamo dal dimostrare il punto $2)$: dobbiamo provare che $R=\frac{1}{\lambda}$, ossia
-		\begin{itemize}
-			\item[a.] Se $\abs{z}<\nicefrac{1}{\lambda}$, allora $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge.
-			\item[b.] Se $\abs{z}>\nicefrac{1}{\lambda}$, allora $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ \textit{non} converge.
-		\end{itemize}
-		Infatti, la condizione a. non basta per dimostrare che la convergenza è solo all'interno del cerchio. Proviamo ora le due tesi.
-		\begin{itemize}
-			\item[a.]	 Sia $z$ tale che $\abs{z}<\nicefrac{1}{\lambda}$. Se $z=0$ la serie banalmente converge perché ogni serie converge nel suo centro.\\
-			Se $z\neq 0$, vale $\lambda<\nicefrac{1}{\abs{z}}$; consideriamo allora $\lambda'$ tale che $\lambda<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>\lambda$, per la caratterizzazione del massimo limite si ha
-			\begin{equation*}
-				\circled[red]{\vardiamond}\quad\exists N\colon\forall n\geq N,\ \sqrt[n]{\abs{a_n}}<\lambda'
-			\end{equation*}
-			Proviamo che $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge assolutamente usando il criterio del confronto.
-			\begin{equation*}
-				\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\underset{\circled[red]{\vardiamond}}{<} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
-			\end{equation*}
-			Questo è il termine $n$-esimo della serie geometrica
-			\begin{equation*}
-				\sum_{n=0}^{+\infty}\left(\lambda'\abs{z}\right)^n
-			\end{equation*}
-			di ragione $\lambda'\abs{z}$. Poiché $0<\lambda'\abs{z}<1$ per la scelta di $\lambda'$, la serie geometrica converge e quindi per il criterio del confronto converge anche la serie
-			\begin{equation*}
-				\sum_{n=0}^{+\infty}\abs{a_nz^n}
-			\end{equation*}
-			e dunque converge anche
-			\begin{equation*}
-				\sum_{n=0}^{+\infty}a_nz^n
-			\end{equation*}.
-			\item[b.] Sia $z$ tale che $\abs{z}>\nicefrac{1}{\lambda}$. Per mostrare la non convergenza della serie proviamo che la condizione necessaria di convergenza non è soddisfatta, ovvero
-			\begin{equation*}
-				\lim_{n\to+\infty}a_nz^n\neq 0,\ \forall z\colon \abs{z}>\frac{1}{\lambda}
-			\end{equation*}
-			Per questo è sufficiente mostrare che
-			\begin{equation*}
-				\lim_{n\to+\infty}\abs{a_nz^n}\neq 0,\ \forall z\colon \abs{z}>\frac{1}{\lambda}
-			\end{equation*}
-			Anche se $\complexset$ è uno spazio metrico con la distanza indotta dal modulo, siamo passati da $\complexset$ a $\realset$ col modulo in modo da utilizzare l'ipotesi del $\limsup$, la quale richiede uno spazio metrico ordinato (come è $\realset$).\\
-			Poiché $z\neq 0$, vale $\lambda>\nicefrac{1}{\abs{z}}$.	Consideriamo allora $\lambda''$ tale che $\nicefrac{1}{\abs{z}}<\lambda''<\lambda$: poiché $\lambda''<\lambda$, per la caratterizzazione del massimo limite si ha
-			\begin{equation*}
-				\circled[blue]{\spadesuit}\quad\exists n_k\to+\infty\colon\sqrt[n_k]{\abs{a_{n_k}}}>\lambda''
-			\end{equation*}
-			Si ha, lungo la sottosuccessione:
-			\begin{equation*}
-				\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\underset{\circled[blue]{\spadesuit}}{>} \left(\lambda''\right)^{n_k}\abs{z}^{n_k}\underset{\substack{\text{per la}\\\text{scelta}\\\text{di }\lambda''}}{=}\left(\lambda''\abs{z}>1\right)^{n_k}>1,\ \forall n_k
-			\end{equation*}
-			Poiché esiste una sottosuccessione che è sempre maggiore di $1$, deve esistere un valore limite della successione $\abs{a_nz^n}$ maggiore o uguale a $1$. Ma allora
-			\begin{equation*}
-				\limsup_{n\to+\infty}\abs{a_nz^n}\geq 1\implies\lim_{n\to+\infty}\abs{a_nz^n}\neq 0
-			\end{equation*}
-		\end{itemize}
-	\item[I] La dimostrazione del punto $1)$ è analoga alla prima parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge $\forall z\in\complexset$.\\ Se $z=0$, la serie banalmente converge, mentre se $z\neq 0$, si ha chiaramente che $0=\lambda<\nicefrac{1}{\abs{z}},\ \forall z\in\complexset\setminus\{0\}$. Consideriamo allora $\lambda'$ tale che $0<\lambda'<\nicefrac{1}{\abs{z}}$: poiché $\lambda'>0$, per la caratterizzazione del massimo limite si ha
-	\begin{equation*}
-		\circled[red]{\vardiamond}\quad\exists N\colon\forall n\geq N\ \sqrt[n]{\abs{a_n}}<\lambda'
-	\end{equation*}
-	Proviamo che $\displaystyle\sum_{n=0}^{+\infty}a_nz^n$ converge assolutamente usando il criterio del confronto.
-	\begin{equation*}
-		\abs{a_nz^n}=\abs{a_n}\abs{z^n}=\abs{a_n}\abs{z}^n\underset{\circled[red]{\vardiamond}}{<} \left(\lambda'\right)^n\abs{z}^n=\left(\lambda'\abs{z}\right)^n,\ \forall n\geq N
-	\end{equation*}
-	Questo è il termine $n$-esimo della serie geometrica
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}\left(\lambda'\abs{z}\right)^n
-	\end{equation*}
-	di ragione $\lambda'\abs{z}$. Poiché $0<\lambda'\abs{z}<1$ per la scelta di $\lambda'$, la serie geometrica converge e quindi per il criterio del confronto converge anche la serie
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}\abs{a_nz^n}
-	\end{equation*}
-	e dunque converge anche 
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nz^n
-	\end{equation*}
-	Poiché la scelta di $z$ è stata \textit{arbitraria}, vale la tesi.
-	\item[III]
-	La dimostrazione del punto $3)$ è analoga alla seconda parte della dimostrazione del punto $2)$. In questo caso, dobbiamo mostrare che la serie converge solo nel punto $z=0$.\\ Se $z=0$, la serie banalmente converge. Per mostrare la \textit{non} convergenza della serie proviamo che la condizione necessaria di convergenza non è soddisfatta, ovvero
-	\begin{equation*}
-		\lim_{n\to+\infty}a_nz^n\neq 0,\ \forall z\neq 0
-	\end{equation*}
-	Questo è equivalente\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{equivalenzalimiteemodulolimite} è possibile trovare la dimostrazione di questo risultato.} a mostrare che
-	\begin{equation*}
-		\lim_{n\to+\infty}\abs{a_nz^n}\neq 0,\ \forall z\neq 0
-	\end{equation*}
-	Dato $z\neq 0$, consideriamo allora $\lambda''$ tale che $\nicefrac{1}{\abs{z}}<\lambda''<+\infty$: poiché $\lambda''<+\infty$, per la caratterizzazione del massimo limite si ha
-	\begin{equation*}
-		\circled[blue]{\spadesuit}\quad\exists n_k\to+\infty\colon\sqrt[n_k]{\abs{a_{n_k}}}>\lambda''
-	\end{equation*}
-	Si ha, lungo la sottosuccessione:
-	\begin{equation*}
-		\abs{a_{n_k}z^{n_k}}=\abs{a_n}{z}^{n_k}\underset{\circled[blue]{\spadesuit}}{>}\left(\lambda''\right)^{n_k}\abs{z}^{n_k}\underset{\substack{\text{per la}\\\text{scelta}\\\text{di }\lambda''}}{=}\left(\lambda''\abs{z}>1\right)^{n_k}>1,\ \forall n_k
-	\end{equation*}
-	Poiché esiste una sottosuccessione che è sempre maggiore di $1$, deve esistere un valore limite della successione $\abs{a_nz^n}$ maggiore o uguale a $1$. Ma allora
-	\begin{equation*}
-		\limsup_{n\to+\infty}\abs{a_nz^n}\geq 1\implies\lim_{n\to+\infty}\abs{a_nz^n}\neq 0
-	\end{equation*}
-	La scelta di $z$ è arbitraria, purché $z$ sia diverso da zero; per questo motivo vale la tesi.\qedhere
+\begin{demonstration}
+	Supponiamo che la carica, immersa nel campo elettrico e non soggetta ad altre forze, è in equilibrio stabile in $P=\vba{r}$; ciò significa che:
+	\begin{enumerate}
+		\item La carica di per sé è ferma; la forza totale agenti sulla carica è dunque nulla, e dato che le uniche forze sulla carica in $\vba{r}$ è la forza di Coulomb/forza associata al campo elettrico si ha
+		\begin{equation*}
+			\vba{F}(\vba{r})=q\vba{E}(\vba{r})=0\underset{q\neq 0}{\implies}\vba{E}(\vba{r})=0
+		\end{equation*}
+		\item Per un (piccolo) spostamento $\delta \vba{r}$ attorno a $\vba{r}$, la forza riporta la carica verso il punto $\vba{r}$, cioè la forza
+		\begin{equation*}
+			\vba{F}(\vba{r}+\delta\vba{r})=q\vba{E}(\vba{r}+\delta\vba{r})
+		\end{equation*}
+		deve puntare verso $\vba{r}$.
+		Consideriamo una superficie chiusa (arbitrariamente piccola) attorno alla carica. Per quanto abbiamo detto, in un qualunque suo punto la forza di Coulomb in tal punto deve essere diretta verso $\vba{r}$. Pertanto, se il campo è entrante la superficie, il flusso tramite la superficie è negativo...
+		\begin{equation}
+			\Phi{\Sigma}(\vba{E})<0
+		\end{equation}
+		... ma possiamo applicare la legge di Gauss per ricavare il valore del flusso tramite tale superficie, tuttavia si avrebbe
+		\begin{equation*}
+			\Phi{\Sigma}(\vba{E})=\frac{q}{\epsilon_0}<0\implies q<0
+		\end{equation*}
+		il che è un assurdo! Segue che non ci può essere equilibrio elettrostatico stabile. 
 	\end{enumerate}
-\end{demonstrationcaputwt}
-\section{Comportamento sul bordo}
-Consideriamo la serie di potenze
+\end{demonstration}
+L'unica possibilità di avere una carica in equilibrio stabile è se si trovasse esattamente nello stesso punto di un'altra carica $Q$ di segno opposto e quantità di carica maggiore. Infatti, in tal caso qualunque superficie, piccolo a piacere, scegliamo attorno al punto di equilibrio si avrà sempre flusso pari a
 \begin{equation*}
-	\sum_{n=0}^{+\infty}a_nz^n,\quad a_n,\ z\in\complexset
+	\Phi_{\Sigma}(\vba{E})=\frac{q+Q}{\epsilon_0}
 \end{equation*}
-con raggio di convergenza finito e non nullo.
-I possibili comportamenti sul \textit{bordo} del cerchio di convergenza sono i seguenti:
-\begin{enumerate}
-	\item Convergenza in \textit{tutti i punti} del bordo del cerchio di convergenza
-	\item \textit{Non} convergenza in \textit{nessun punto} del bordo del cerchio di convergenza
-	\item Convergenza solo in \textit{alcuni punti} del bordo del cerchio di convergenza
-\end{enumerate}
-Mostriamo per ciascuno di essi un esempio.
-\begin{examplewt}[Caso 1]
-	Consideriamo la serie
+per la legge di Gauss; questa volta non si ha alcun assurdo, dato che il campo elettrico è entrante e quindi il flusso è negativo e, se $\abs{Q}>\abs{q}$, allora anche il flusso secondo Gauss è negativo.
+\begin{digression}
+	Da quanto detto, un sistema di cariche libere \textit{dello stesso segno} non potrà ai restare in equilibrio stabile spontaneamente, ma necessariamente occorrono altre forze per vincolare le cariche.
+	
+	Una conseguenza di ciò è che il modello classico dell'atomo non è stabile, esso basato su una distribuzione fissata di cariche: nel \textit{nucleo atomico} non ci potrebbe essere più di un protone senza compromettere la stabilità del nucleo! È grazie all'interazione \textit{nucleare forte} che, essendo particolarmente forte a distanze microscopiche, i protoni superano la repulsione elettrostatica tra di loro e permettono la stabilità dell'atomo.
+\end{digression}
+% TO DO: aggiungere
+\section{Conduttori}
+\begin{define}[Conduttore]
+	Un \textbf{conduttore}\index{conduttore} è un materiale in cui alcune delle cariche elettriche che li costituiscono sono libere di muoversi.
+\end{define}
+Per caricare un conduttore possiamo utilizzare diversi metodi, ad esempio con dell'induzione elettrostatica, ma per mantenerlo carico abbiamo bisogno di tenerlo \textit{isolato} da qualunque altro conduttore.
+
+In presenza di un campo elettrico $\vba{E}$, le cariche libere all'interno possono muoversi in modo ordinato e dare vita ad una \textit{corrente elettrica}, ma di questo ci occuperemo nel capitolo XXX. Dato che stiamo studiando i fenomeni elettrostatici, le cariche sono in equilibrio se non abbiamo un \textit{moto di cariche}. Ciò si ha, in termini di condizione media macroscopica, se all'interno del materiale si ha
+\begin{equation}
+	\vba{E}=0
+\end{equation}
+Ci sono alcune conseguenze di questa condizione.
+\begin{itemize}
+	\item Poiché il campo elettrico è nullo, qualunque superficie si consideri \textit{all'interno} del conduttore avrà flusso nullo; per la legge di Gauss, questo significa che all'interno ‘‘stretto'' del conduttore \textit{non ci sono cariche}!\\
+	Con ciò non intendiamo che il corpo \textit{non} è carico --- sennò che stiamo a studiarlo? --- bensì che non c'è un eccesso di carica di un segno o dell'altro, ma questo eccesso può stare \textit{solo} sulla superficie del conduttore, con distribuzione di carica superficiale
 	\begin{equation*}
-		\sum_{n=1}^{+\infty}\frac{z^n}{n^\alpha},\quad\alpha>1
+		\sigma=\pv{q}{\Sigma}
 	\end{equation*}
-	Con la formula di D'Alembert vediamo che il raggio di convergenza è $R=1$. Infatti
-	\begin{align*}
-		&\lim_{n\to+\infty}\frac{\abs{a_{n+1}}}{\abs{a_{n}}}=\lim_{n\to+\infty}\frac{\left(n+1\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\frac{n^\alpha\left(1+\frac{1}{n}\right)^\alpha}{n^\alpha}=\lim_{n\to+\infty}\left(1+\frac{1}{n}\right)^\alpha=1=L\\
-		&\implies r=\frac{1}{L}=1
-	\end{align*}
-	Per ogni $z\in\complexset$ tale che $\abs{z}=1$ la serie converge (assolutamente):
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}\abs{\frac{z^n}{n^\alpha}}=\sum_{n=1}^{+\infty}\frac{n}{n^\alpha}
-	\end{equation*}
-	La serie in modulo è la \textit{serie armonica generalizzata} che, per $\alpha>1$, converge; la serie semplice converge su tutti i punti del bordo.
-\end{examplewt}
-\begin{examplewt}[Caso 2]
-	Consideriamo la \textit{serie geometrica}
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}z^n
-	\end{equation*}
-	Poichè $a_n\equiv 1,\ \forall n$, il criterio del rapporto ci fornisce come raggio di convergenza $R=1$.\\
-	Per ogni $z\in\complexset$ tale che $\abs{z}=1$ la serie \textit{non} converge: ricordiamo che, presa la successione $c_n\in\complexset$, vale
-	\begin{equation*}
-		\lim_{n\to+\infty}\abs{c_n}\neq 0\iff\lim_{n\to+\infty}c_n\neq 0
-	\end{equation*}
-	In questo caso:
-	\begin{equation*}
-		\lim_{n\to+\infty}\abs{z^n}=\lim_{n\to+\infty}1=1\neq 0\implies\lim_{n\to+\infty}z^n\neq 0
-	\end{equation*}
-	È evidente che la \textit{condizione necessaria} di convergenza \textit{non} è soddisfatta: la serie \textit{non} converge in nessun punto del bordo.
-\end{examplewt}
-\begin{examplewt}[Caso 3]
-	Consideriamo la serie
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}\frac{z^n}{n^\alpha},\quad0<\alpha<1
-	\end{equation*}
-	L'applicazione del criterio del confronto è esattamente analogo a quello visto nel caso 1 e il raggio di convergenza è pertanto $R=1$.\\
-	Se $z=1$ la serie \textit{non} converge, dato che essa diventa una serie armonica generalizzata con $\alpha\leq1$:
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}\frac{1}{n^\alpha}
-	\end{equation*}
-	Invece, per ogni $z\in\complexset$ tale che $\abs{z}=1$ e $z\neq 1$ la serie converge: infatti, possiamo applicare il \textit{criterio di Abel-Dirichlet}.
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}\frac{z^n}{n^\alpha}=\sum_{n=1}^{+\infty}z^n\frac{1}{n^\alpha}=\sum_{n=1}^{+\infty}\alpha_n\beta_n
-	\end{equation*}
-	con $\alpha_n=z^n$ e $\beta_n=\nicefrac{1}{n^\alpha},\ n\geq 1$.
-	\begin{enumerate}
-		\item $\beta_n=\nicefrac{1}{n^\alpha}$ è una successione di elementi strettamente positivi, decrescenti e infinitesima per $n\to+\infty$.
-		\item La successione delle \textit{somme parziali} di $\alpha_n=z^n$ è \textit{limitata}. Consideriamo
-		\begin{equation*}
-			\abs{\sum_{n=1}^{k}z^n}=\abs{\sum_{n=0}^{k}z^n-1}\squarequal
-		\end{equation*}
-		Poiché
-		\begin{equation*}
-			\sum_{n=0}^{k}z^n
-		\end{equation*}
-		è un serie geometrica parziale, sappiamo la sua somma parziale. Applicando poi una \textit{disuguaglianza triangolare}, troviamo una \textit{maggiorazione} della somma parziale di $\alpha_n$.
-		\begin{equation*}
-			\squarequal\abs{\frac{1-z^{k+1}}{1-z}-1}=\abs{\frac{z-z^{k+1}}{1-z}}\leq\frac{\abs{z}+\abs{-z^{k+1}}}{\abs{1-z}}\leq\frac{1+1}{\abs{1-z}}=\frac{2}{\abs{1-z}},\ \forall k\geq 1
-		\end{equation*}
-	\end{enumerate}
-	Osserviamo che, nonostante la serie converga, essa non converge assolutamente: la serie in modulo è la serie armonica generalizzata con $\alpha\leq 1$, nota per essere divergente.
-\end{examplewt}
-Anche se in generale non possiamo affermare a priori come converge sul bordo si può osservare che, in alcuni casi particolari, dalla convergenza in un punto del bordo si ottiene la convergenza sull'intero bordo. Vediamo alcuni risultati.
-\begin{proposition}[Convergenza assoluta sul bordo se la serie di potenze converge assolutamente in un punto]
-	Sia data la serie di potenze
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}a_nz^n
-	\end{equation*}
-	Se la serie converge assolutamente in un punto della frontiera del cerchio di convergenza, allora converge assolutamente su tutta questa frontiera.
-\end{proposition}
-\begin{demonstration}
-	Supponiamo che la serie converga assolutamente in $z_0$, dove $\abs{z_0}=R$ e prendiamo un qualunque $z$ tale che $\abs{z}=R$.
-	Osserviamo che, presa la serie in modulo, si ha
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}\abs{a_nz^n}=\sum_{n=1}^{+\infty}\abs{a_n}\abs{z^n}=\sum_{n=1}^{+\infty}\abs{a_n}\abs{z}^n=\sum_{n=1}^{+\infty}\abs{a_n}R^n=\sum_{n=1}^{+\infty}\abs{a_n}ì\abs{z_0}^n=\sum_{n=1}^{+\infty}\abs{a_nz_0^n}
-	\end{equation*}
-	che converge per ipotesi. Allora la serie di potenze converge assolutamente.
-\end{demonstration}
-\begin{corollary}[Convergenza sul bordo se la serie di potenze a coefficienti reali positivi converge in $z=R$]
-	Sia data la serie di potenze
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}a_nz^n
-	\end{equation*}
-	Se la serie ha coefficienti reali positivi e converge nel punto $z=R$, dove $R\in\left(0,+\infty\right)$ è il raggio di convergenza, allora converge in ogni punto della frontiera del cerchio di convergenza.
-\end{corollary}
-\begin{demonstration}
-	Poiché $a_n$ e $R$ sono reali positivi, $a_n=\abs{a_n}$ e $R=\abs{R}$. Allora si ha
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}a_nR^n=\sum_{n=1}^{+\infty}\abs{a_nR^n}
-	\end{equation*}
-	Quindi in questo caso la convergenza semplice della serie implica la convergenza assoluta. Poiché la serie converge assolutamente in un punto del bordo, segue dalla proposizione precedente la convergenza (assoluta) in tutti i punti del bordo.
-\end{demonstration}
-\section{Serie di potenze e convergenza uniforme}
-\begin{theorema}[Converge uniforme delle serie di potenze]\label{convergenzasottoinsiemeH}
-	Sia
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nz^n
-	\end{equation*}
-una serie di potenze con raggio di convergenza $R\in\left(0,+\infty\right)$. Allora
-	\begin{enumerate}
-		\item La serie converge uniformemente su ogni insieme $H\subseteq\complexset$ tale che $\overline{H}\subsetneqq B_R\left(0\right)$, con $B_R\left(0\right)$ il disco aperto di convergenza, ovvero su qualsiasi insieme contenuto nel disco aperto tale che la sua chiusura non tocchi il bordo.
-		\item Se la serie converge assolutamente in ogni $z\in\partial B_R\left(0\right)$ (il bordo del disco), allora converge uniformemente sul disco chiuso $\overline{B_R\left(0\right)}$.
-	\end{enumerate}
-\end{theorema}
-\begin{demonstration}
-Per questa dimostrazione useremo il \textit{criterio di Weierstrass}\footnote{Si veda \refChapterOnly{seriefunzioni}, sezione \ref{criteriodiweierstrass}, pag. \pageref{criteriodiweierstrass}.}.
-	\begin{enumerate}
-		\item Sia $H$ tale che $\overline{H}\subsetneqq B_R\left(0\right)$. Per il criterio di Weierstrass, per provare la convergenza uniforme su $H$ è sufficiente provare che esiste una successione $c_n$ tale che
-		\begin{enumerate}
-			\item $\abs{a_nz^n}\leq c_n,\ \forall z\in H$
-			\item $\displaystyle\sum_{n=0}^{+\infty}c_n$ converge.
-		\end{enumerate}
-		Poiché $H$ è solo \textit{strettamente contenuto} nel disco aperto di convergenza, $\exists R'<R$ tale che si abbia $\overline{H}\subseteq B_{R'}\left(0\right)$, ossia $\abs{z}\leq R',\ \forall z\in H$.
-	\begin{center}
-		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1]{images/discoconvergenzainsiemeH.pdf}
-	\end{center}
-			Allora si ha, $\forall n\geq 0$ e $\forall z\in H$
-\begin{equation*}
-	\abs{a_nz^n}=\abs{a_n}\abs{z}^n\leq \underbrace{\abs{a_n}\left(R'\right)^n}_{\substack{\text{$c_n$ non}\\\text{dipende da }z}}
-\end{equation*}
-		Inoltre, la serie
-		\begin{equation*}
-			\sum_{n=0}^{+\infty}c_n=\sum_{n=0}^{+\infty}\abs{a_n}\left(R'\right)^n
-		\end{equation*}
-		converge in quanto è la convergenza della serie di potenze per il punto $z=R'$, che è \textit{interno} al disco di convergenza $B_R\left(0\right)$. Applicando il criterio di Weierstrass otteniamo la tesi.
-		\item Si ripete la dimostrazione sull'insieme $\overline{B_R\left(0\right)}$ con $R'=R$, considerando che la serie
-		\begin{equation*}
-			\sum_{n=0}^{+\infty}\abs{a_n}R^n
-		\end{equation*}
-		converge per ipotesi sulla convergenza sul bordo.\qedhere
-	\end{enumerate}
-\end{demonstration}
-\begin{examplewt}[Serie geometrica]
-	Sulla \textbf{serie geometrica}
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}z^n
-	\end{equation*}
-	abbiamo già ricavato diverse informazioni: ha raggio di convergenza $R=1$ e \textit{non} c'è convergenza (assoluta) sul bordo, inoltre ne conosciamo la somma. Studiamo ora la convergenza uniforme.
-	\begin{itemize}
-		\item Converge uniformemente su ogni insieme $H$ tale che $\overline{H}\subsetneqq B_1\left(0\right)$ per il teorema precedente.
-		\item Non avendo alcuna convergenza sul bordo, a priori \textit{non} possiamo dare risultati generali sulla convergenza uniforme sulla base del teorema visto. Tuttavia, possiamo mostrare direttamente - grazie al fatto che la somma parziale e limite della serie geometrica è nota\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{seriegeometricafootnote} è possibile trovare maggiori dettagli sulla somma (parziale) della serie geometrica e come ricavarla.} -  che la serie non converge uniformemente sul disco aperto $B_1\left(0\right)$. Infatti
+	Per di più, questa distribuzione di carica \textit{non} è generalmente uniforme, bensì si concentrano maggiormente dove il \textbf{raggio di curvatura} è \textit{minore}.
+	\item Poiché il campo elettrico è nullo, il potenziale deve essere una costante in ogni punto del conduttore; in particolare ciò è vero sui punti della superficie: pertanto, la superficie di un conduttore è sempre una \textit{superficie equipotenziale}.
+	\item Dato che la superficie del conduttore è equipotenziale, in un punto esterno vicino al conduttore il campo elettrico è \textit{ortogonale} alla superficie del conduttore, indipendente da quale sia la sua forma. Vale pertanto il cosiddetto \textbf{teorema di Coulomb}\index{teorema!di Coulomb}.
+	\begin{theoremaqed}[Teorema di Coulomb]
+		Il campo elettrico all'esterno di un conduttore con densità superficiale $\sigma$ è
+		\begin{equation}
+			\vba{E}=\frac{\sigma}{\epsilon_0}\vbh{u}_n\qedhere
+		\end{equation}
+	\end{theoremaqed}
+	Il verso è \textit{uscente} il conduttore se la densità è positiva, \textit{entrante} se è negativa.
+	\item Ponendo a contatto due o più conduttori tramite un filo conduttore (trascurabile), si ottiene un unico corpo conduttore: all'equilibrio deve valere la condizione $\vba{E}=0$ e $V=\text{const}$, ossia il potenziale --- che inizialmente poteva essere differenze su ciascun conduttore --- deve diventare uguale su tutti i corpi.
+	
+	\begin{example}
+		Consideriamo due sfere di carica $q_i$, densità di carica $\sigma_1$ costante e raggio $R_i$, per $i = 1, 2$. Dato che il campo elettrico esterno è $\vba{E}=\frac{\sigma}{\epsilon_0}\vbh{u}_n$, per continuità del potenziale esse hanno potenziali pari a
 		\begin{align*}
-			\sup_{z\in B_1\left(0\right)}\abs{S_n\left(z\right)-S\left(z\right)}&=\sup_{z\in B_1\left(0\right)}\abs{\frac{1-z^{n+1}}{1-z}-\frac{1}{1-z}}=\sup_{z\in B_1\left(0\right)}\abs{\frac{-z^{n+1}}{1-z}}=\\
-			&=\sup_{z\in B_1\left(0\right)}\frac{\abs{z}^{n+1}}{\abs{1-z}}=+\infty,\ \forall n\geq 0
+			V_1&=\frac{\sigma_1 R_1}{\epsilon_0} & V_2&=\frac{\sigma_2 R_2}{\epsilon_0}
 		\end{align*}
-		da cui
+		Se le colleghiamo con un filo conduttore trascurabile, all'equilibrio il potenziale diventa unico e pari a $V'_1=V'_2=V$ costante, con $V_i'$ il potenziale su ciascuna sfera dopo averle collegate. Da questa relazione si ottiene come si distribuisce la carica totale
 		\begin{equation*}
-			\lim_{n\to+\infty}\left(\sup_{z\in B_1\left(0\right)}\abs{S_n\left(z\right)-S\left(z\right)}\right)=+\infty\neq 0
+			q_{tot}=q_1+q_2=q'_1+q'_2
 		\end{equation*}
-	\end{itemize}
-\end{examplewt}
-\section{Proprietà di regolarità della somma di una serie di potenze}
-Sia 
-\begin{equation*}
-	\sum_{n=0}^{+\infty}a_nz^n
-\end{equation*}
-una serie di potenze con $R>0$ il raggio di convergenza. Studiamo le proprietà di continuità e derivabilità della \textbf{funzione somma}\index{funzione!somma}
+		sulle sfere. Infatti, se $\sigma'_i$ sono le densità di corrente sulle sfere \textit{dopo} averle collegate, si ha
+		\begin{gather*}
+			V'_1=V'_2\\
+			\frac{\sigma'_1R_1}{\Ccancel[red]{\epsilon_0}}=\frac{\sigma'2_2R_2}{\Ccancel[red]{\epsilon_0}}\\
+			\frac{q'_1\Ccancel[red]{R_1}}{\Ccancel[red]{4\pi} R_1^{\Ccancel[red]{2}}}=\frac{q'_2\Ccancel[red]{R_2}}{\Ccancel[red]{4\pi} R_2^{\Ccancel[red]{2}}}\\
+			\frac{q'_1}{R_1}=\frac{q'_2}{R_2}
+		\end{gather*}
+		Questa relazione trovata è una riconferma di quanto affermato in precedenza sui raggi di curvatura: più piccolo è il raggio di curvatura, maggiore sarà la carica in quei punti (e quindi anche maggiore sarà la densità di carica). Esplicitamente, come si distribuisce la carica tra le due sfere si ricava così:
+		\begin{align*}
+			q_{tot}&=q'_1+q'_2=q'_1+\frac{R_2}{R_1}q'_1=\frac{R_1+R_2}{R_1}q'_1&\implies q'_1=\frac{R_1}{R_1+R_2}q_{tot}\\
+			q_{tot}&=q'_1+q'_2=\frac{R_1}{R_1+R_2}q_{tot}+q'_2 &\implies q'_2=\frac{R_2}{R_1+R_2}q_{tot}
+		\end{align*}
+	\end{example}
+\end{itemize}
+\subsection{Campo elettrico indotto}
+Per quanto osservato, si può notare come in un conduttore in equilibrio elettrostatico la carica debba avere lo \textit{stesso segno dappertutto} per mantenere $\vba{E}=0$. Questo, tuttavia, non è più vero nel momento in cui il conduttore è \textit{immerso} in un campo elettrico esterno.
+
+Ad esempio, consideriamo due \textit{piastre} cariche di segno opposto in modo che tra di esse si forma un campo elettrico \textit{uniforme} $\vba{E}$, diretto dall'armatura positiva a quella negativa.
+Ponendo un conduttore carico in mezzo alle due piastre, le cariche sono soggette ad una forza di Coulomb dovuta alle due piastre e si spostano nel conduttore: le cariche negative si spostano verso la piastra positiva, mentre le positive verso la piastra negativa, come in figura.
+% TO DO: add figura
+La differenza tra le cariche interne al conduttore crea un \textbf{campo elettrico indotto} $\vba{E}_i$; se lo consideriamo all'equilibrio, esso ha stessa direzione e intensità di $\vba{E}$, ma ha verso opposto in modo da avere all'interno del conduttore la condizione di equilibrio elettrico.
 \begin{equation}
-	\funztot{f}{B_R\left(0\right)\subseteq\complexset}{\complexset}{z}{\displaystyle\sum_{n=0}^{+\infty}a_nz^n}
+	\vba{E}_i=-\vba{E}
 \end{equation}
-\subsection{Continuità}
-\begin{proposition}[Proprietà di continuità per la somma di una serie di potenze, caso generale]
-	La funzione $f$ è continua su $B_R\left(0\right)$.
-\end{proposition}
-\begin{attention}
-	La convergenza della serie di potenze su $B_R\left(0\right)$ \textit{non} è in generale uniforme, ma sappiamo al più che converge uniformemente su $H$ tale che $\overline{H}\subsetneqq B_R\left(0\right)$, quindi dobbiamo tenere conto di questo fattore nelle dimostrazioni che faremo.
-\end{attention}
-\begin{demonstration}
-	Dobbiamo provare che $f\in\mathcal{C}\left(B_R\left(0\right)\right)$, cioè $f$ continua in $z_0,\ \forall z_0\in B_R\left(0\right)$. Sfrutto il fatto che la continuità è una proprietà locale, quindi fisso un punto e studio la continuità nel punto.\\	\vspace{3mm}
-	\begin{minipage}{0.44\textwidth}
-		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1.1]{images/discoconvergenzacontinuitaf.pdf}
-	\end{minipage}\hspace{-9mm}
-	\begin{minipage}{0.60\textwidth}
-		Sia $z_0\in B_R\left(0\right)$ fissato. Per proprietà della metrica, allora $\exists R_0 < R$ tale che $z_0\in B_{R_0}\left(0\right)$. Su $B_{R_0}\left(0\right)$ si ha continuità uniforme e dunque, posto
-		\begin{equation*}
-			S_n\left(z\right)=\sum_{k=0}^{n}a_kz^k
-		\end{equation*}
-		si ha
-		\begin{enumerate}
-			\item $S_n$ continua su $B_{R_0}\left(0\right)$ perché è un polinomio.
-			\item $S_n$ converge uniformemente a $f$ su $B_R\left(0\right)$.
-		\end{enumerate}
-	\end{minipage}\\
-	Per il teorema di continuità della funzione limite, $f$ è continua in $B_{R_0}\left(0\right)$ e dunque in $z_0$. 
-\end{demonstration}
-Questo risultato ci permette di parlare della convergenza sul disco aperto, ma se c'è qualche tipo di convergenza sul bordo, e quindi $f$ è definita anche su di esso, si può estendere la continuità di $f$ fino a tale frontiera? Studiamo due casi.
-\begin{corollary}[Proprietà di continuità per la somma di una serie di potenze, caso sul bordo con convergenza assoluta]
-	Sia data la serie di potenze
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nz^n
-	\end{equation*}
-	con raggio di convergenza $R>0$. Se la serie converge (assolutamente) su $\partial B_R\left(0\right)$ allora la serie è continua su $\overline{B_R\left(0\right)}$.
-\end{corollary}
-\begin{demonstration}
-	Segue immediatamente ricordando che, dalle ipotesi di convergenza assoluta sul bordo, vale la convergenza uniforme su $\overline{B_R\left(0\right)}$ sulla base del teorema \ref{convergenzasottoinsiemeH}.
-\end{demonstration}
-Se invece supponiamo che la serie converga in un punto\footnote{Nel caso di più punti di convergenza $z_0,\ z_1,\ \ldots$, la funzione somma $f$ sarà definita su $B_R\left(0\right)\cup\left\{z_0\right\}\cup\left\{z_1\right\}\cup\ldots$. Qui riportiamo per semplicità il caso di un solo punto, ma i risultati successivi sono opportunamente generalizzabili con più punti di convergenza sul bordo.} $z_0$, cioè
-\begin{equation*}
-	\sum_{n=0}^{+\infty}a_nz_0^n
-\end{equation*}
-converge, possiamo definire la \textbf{funzione somma}\index{funzione!somma} come
-\begin{equation}
-	\funztot{f}{B_R\left(0\right)\cup\left\{z_0\right\}\subseteq\complexset}{\complexset}{z}{\displaystyle\sum_{n=0}^{+\infty}a_nz^n}
-\end{equation}
-La convergenza uniforme di $f$ anche sui punti di convergenza $z_0$ sul bordo ci viene garantita dal \textbf{teorema di Abel}\index{teorema!di Abel}.
-\begin{theoremaqed}[Teorema di Abel]
-	Sia data la serie di potenze 
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nz^n
-	\end{equation*}
-	con raggio di convergenza $R>0$. Se $\exists z_0=Re^{i\theta_0}$ (ovvero $z_0$ sta nel bordo del raggio di convergenza) tale che
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nz_0^n
-	\end{equation*}
-	converge, allora\\
-	\begin{minipage}{0.39\textwidth}
-		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1]{images/discoconvergenzaabel.pdf}
-	\end{minipage}\hspace{-12mm}
-	\begin{minipage}{0.65\textwidth}
-		\begin{enumerate}
-			\item la serie converge uniformemente sul \textit{segmento}
-			\begin{equation}
-				\Sigma_0=\left\{z\in\complexset\mid z=re^{i\theta_0},\ r\in\left[0,R\right]\right\}
-			\end{equation}
-			\item La restrizione di $f$ a $\Sigma_0$ è \textit{continua} su $z_0$, ossia
-			\begin{equation}
-				\lim_{r\to R}f\left(re^{i\theta_0}\right)=f\left(z_0\right)=\sum_{n=0}^{+\infty}a_nz_0^n\qedhere
-			\end{equation}
-		\end{enumerate}
-	\end{minipage}
-\end{theoremaqed}
-\subsection{Derivabilità}
-Abbiamo definito la funzione somma dal disco aperto $B_R\left(0\right)$ in campo complesso a $\complexset$, ma al momento non conosciamo cosa vuol dire derivabilità di una funzione $\funz{f}{\complexset}{\complexset}$. Per il momento, limitiamoci al caso reale, cioè consideriamo una serie di potenze
-\begin{equation*}
-	\sum_{n=0}^{+\infty}a_nx^n,\ x\in\realset,\ a_n\in\realset
-\end{equation*}
-con raggio di convergenza $R>0$. In questo caso il cerchio di convergenza è un intervallo $\left(-R,R\right)$, con estremi eventualmente inclusi. La funzione somma risulta allora la funzione
-\begin{equation}
-	\funztot{f}{\left(-R,R\right)}{\realset}{x}{\displaystyle\sum_{n=0}^{+\infty}a_nx^n}
-\end{equation}
-\begin{theorema}[Derivabilità della somma di una serie di potenze]
-	Sia data
-	\begin{equation*}
-		f(x)=\sum_{n=0}^{+\infty}a_nx^n,\ \forall x\in\left(-R,R\right),\ a_n\in\realset
-	\end{equation*}
-con $R>0$ il raggio di convergenza. Allora
-\begin{enumerate}
-	\item $f$ è derivabile su $\left(-R,R\right)$
-	\item La derivata di $f$ è
-	\begin{equation}
-		f'(x)=\sum_{n=1}^{+\infty}na_nx^{n-1}, \ \forall x\in\left(-R,R\right)
-	\end{equation}
-\end{enumerate}
-\end{theorema}
+Questo accade in generale anche se il conduttore è immerso in un generico campo elettrico, non necessariamente uniforme o generato da delle armature cariche: per avere l'equilibrio nel conduttore le cariche si devono disporre in modo che la differenza di carica all'interno di esso generi un campo elettrico indotto uguale e opposto a quello del campo elettrico in cui il conduttore è immerso.
+\section{Capacità di un conduttore}
+Come abbiamo ribadito più volte, parte delle cariche in un conduttore sono libere di muoversi. Se carichiamo un conduttore e poi lo \textit{isoliamo}, possiamo \textit{conservare} della carica elettrica al suo interno --- e quindi dell'energia elettrica --- che potrà eventualmente essere utilizzata successivamente per altri scopi. % TO DO: sono sicuro dell'energia elettrica?
+Ci interessa dunque \textit{caratterizzare} i conduttori in base alla loro capacità di caricarsi.
 \begin{observe}
-	Nell'equazione della derivata di $f$ la sommatoria parte da $n=1$ in quanto il termine per $n=0$ è identicamente uguale a zero; inoltre, se così non fosse, il primo termine sarebbe $a_0\frac{1}{x}$, che non è definito in $x=0$, contraddicendo la prima delle due tesi.
-\end{observe}
-Per dimostrare questo teorema useremo il \textit{teorema di derivabilità} per serie di funzioni \footnote{Si veda \refChapterOnly{seriefunzioni}, teorema \ref{derivabilitatermineatermine}, pag. \pageref{derivabilitatermineatermine}.}: poiché le ipotesi di tale teorema $1)$ e $2)$ sono banalmente verificate, dobbiamo contrarci sull'ipotesi $3)$, ovvero abbiamo bisogno di informazioni sulla convergenza uniforme della serie delle derivate
-\begin{equation*}
-	\sum_{n=1}^{+\infty}na_nx^{n-1}
-\end{equation*}
-Poiché la serie delle derivate è ancora una serie di potenze, allora ci basta studiare il raggio di convergenza.
-\begin{lemming}[Convergenza della serie di derivate della serie di potenze]
-	Sia data la serie di potenze 
+	Per studiare un conduttore carico all'equilibrio, dalle osservazioni precedenti ci basta considerarlo come fosse una superficie carica $\Sigma$ con densità di carica $\sigma$. La carica nel conduttore è
 	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nx^n
+		q=\int_{\Sigma}\sigma\left(x',y',z'\right)d\Sigma
 	\end{equation*}
-	e sia $R>0$ il suo raggio di convergenza. Allora la serie di potenze 
+	mentre il potenziale in un qualunque punto del conduttore è
 	\begin{equation*}
-		\sum_{n=1}^{+\infty}na_nx^{n-1}
+		V=\frac{1}{4\pi\epsilon_0}\int_{\Sigma}\frac{\sigma(x',y',z')}{\abs{\vba{r}'}}\Sigma
 	\end{equation*}
-	ha lo stesso raggio di convergenza $R$.
-\end{lemming}
-\begin{demonstration}
-	Riscriviamo la serie delle derivate, operando un cambio di indici ponendo $n=k+1$
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}na_nx^{n-1}=\sum_{k=0}^{+\infty}\underbrace{\left(k+1\right)a_{k+1}}_{\coloneqq b_k}x^k=\sum_{k=0}^{+\infty}b_ka_k
-	\end{equation*}
-	Sia $R'$ il suo raggio di convergenza. Per il teorema di Cauchy-Hadamard si ha
-	\begin{equation*}
-		\frac{1}{R'}=\limsup_{n\to+\infty}\abs{b_n}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\abs{\left(n+1\right)a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\underbrace{\left(n+1\right)^{\nicefrac{1}{n}}}_{\coloneqq\alpha_n}\underbrace{\abs{a_{n+1}}^{\nicefrac{1}{n}}}_{\coloneqq\beta_n}=\limsup_{n\to+\infty}\alpha_n\beta_n\squarequal
-	\end{equation*}
-Otteniamo così il prodotto di due successioni. Osserviamo che
-\begin{equation*}
-	\lim_{n\to+\infty}\alpha_n=\lim_{n\to+\infty}\left(n+1\right)^{\nicefrac{1}{n}}=\lim_{n\to+\infty}e^{\frac{1}{n}\log\left(n+1\right)}=\lim_{n\to+\infty}e^{\frac{\log\left(n+1\right)}{n}}.
-\end{equation*}
-Poichè $\frac{\log\left(n+1\right)}{n}\to 0$ per $n\to+\infty$ per \textit{confronto della crescita degli infiniti}, si ha che $\displaystyle\lim_{n\to+\infty}\alpha_n=e^0=1$, dunque $\alpha_n$ ammette limite e coincide col suo $\limsup$. Allora, per proprietà del $\limsup$ del prodotto\footnote{Nell'approfondimento ‘‘Massimo e minimo limite'', a pagina \pageref{prodottolimsup} è possibile trovare la dimostrazione di questo risultato insieme ad altri relativi al $\limsup$ e $\liminf$.}
-\begin{equation*}
-	\squarequal\lim_{n\to+\infty}\alpha_n\limsup_{n\to+\infty}\beta_n=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}
-\end{equation*}
-Ora applichiamo Cauchy-Hadamard alla serie di potenze
-\begin{equation*}
-	\sum_{n=0}^{+\infty}a_nx^n
-\end{equation*}
-con raggio di convergenza $R>0$:
-\begin{equation*}
-	\frac{1}{R}=\limsup_{n\to+\infty}\abs{a_n}^{\nicefrac{1}{n}}=\limsup_{n\to+\infty}\abs{a_{n+1}}^{\frac{1}{n+1}}.
-\end{equation*}
-Dato che $\dfrac{n+1}{n}\to 1$ per $n\to+\infty$, allora abbiamo mostrato che
-\begin{equation*}
-	\frac{1}{R'}=\limsup_{n\to+\infty}\left(\abs{a_{n+1}}^{\frac{1}{n+1}}\right)^{\frac{n+1}{n}}=\frac{1}{R}
-\end{equation*}
-cioè $R'=R$.
-\end{demonstration}
-Grazie a questo lemma, possiamo finalmente dimostrare il teorema lasciato in sospeso all'inizio della sezione.
-\begin{demonstration}[del Teorema di derivabilità della somma di una serie di potenze]
-	Fissiamo $\overline{x}\in\left(-R,R\right)$ arbitrario e sia $\left(a,b\right)$ tale che
-	\begin{itemize}
-		\item $\overline{x}\in\left(a,b\right)$.
-		\item $\left[a,b\right]\subsetneqq\left(-R,R\right)$
-	\end{itemize}
-Applichiamo ora il teorema di derivabilità termine a termine della serie di funzioni su $\left(a,b\right)$ sulla serie di potenze
-\begin{equation*}
-	\sum_{n=0}^{+\infty}a_nx^n
-\end{equation*}
-Vediamo che le ipotesi sono verificate:
-\begin{itemize}
-	\item $f_n(x)=a_nx^n$ derivabile in $\left(a,b\right),\ \forall n\geq 1$.
-	\item $\displaystyle\sum_{n=0}^{+\infty}f_n(x)$ converge $\forall x\in\left(a,b\right)$
-	\item $\displaystyle\sum_{n=1}^{+\infty}f'_n(x)=\sum_{n=1}^{+\infty}na_nx^{n-1}$ converge uniformemente su $\left(a,b\right)$ per la scelta di $\left(a,b\right)$, sulla base del lemma precedentemente dimostrato.
-\end{itemize}
-Per il teorema di derivabilità termine a termine $f$ è derivabile in $\left(a,b\right)$ e dunque anche in $\overline{x}$, con derivata in tal punto
-\begin{equation*}
-	f'\left(\overline{x}\right)=\sum_{n=1}^{+\infty}na_nx^{n-1}
-\end{equation*}
-Per l'arbitrarietà di $\overline{x}$, questi risultati valgono $\forall x\in\left(-R,R\right)$ e dunque segue la tesi.
-\end{demonstration}
-\section{Funzioni analitiche e serie di Taylor}
-La tesi $2)$ appena dimostrata ci dice che la derivata $f'$ è una somma di serie di potenze con stesso raggio di convergenza $R$ di $f$. Possiamo riapplicare il teorema alla funzione $f'$, notando però che la serie inizia da $n=2$:
-\begin{itemize}
-	\item $f'$ è derivabile in $\left(-R,R\right)$.
-	\item $\displaystyle f''(x)=\sum_{n=2}^{+\infty}n\left(n-1\right)a_nx^{n-2},\ \forall x\in\left(-R,R\right)$.
-\end{itemize}
-Ma anche $f''$ è una serie di potenze con raggio $R$: possiamo riapplicare il teorema su $f''$ e ammettere l'esistenza di $f'''$ come serie di potenze. Iterando il ragionamento, si trova che esiste $f^{\left(k\right)}(x),\ \forall x\in\left(-R,R\right),\ \forall k\geq 0$ e vale
-\begin{equation}
-	f^{\left(k\right)}(x)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\sum_{n=k}^{+\infty}\frac{n!}{\left(n-k\right)!}a_nx^{n-k},\ \forall x\in\left(-R,R\right)
-\end{equation}
-Esplicitiamo il primo termine di $f^{\left(k\right)}(x)$:
-\begin{align*}
-	f^{\left(k\right)}(x)&=k\left(k-1\right)\ldots\left(k-k+1\right)a_kx^0+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\\
-	&=k!a_k+\sum_{n=k+1}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}
-\end{align*}
-Valutando in $x=0$ otteniamo
-\begin{equation*}
-	f^{\left(k\right)}\left(0\right)=k!a_k+0=k!a_k
-\end{equation*}
-Da cui otteniamo una espressione del termine $a_k$ in funzione della derivata $k$-esima, supponendo che esiste tale derivata:
-\begin{equation}
-	a_k=\frac{f^{\left(k\right)}}{k!},\ \forall k\geq 0
-\end{equation}
-Riscriviamo questi risultati in un unico teorema.
-\begin{theorema}[Analiticità della somma di una serie di potenze]
-	Sia data la serie di potenze
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}a_nx^n,\ a_n\in\realset, x\in\realset
-	\end{equation*}
-con raggio di convergenza $R>0$ e sia $f$ la sua somma. Allora
-\begin{enumerate}
-	\item $f\in\mathcal{C}^{\infty}\left(\left(-R,R\right)\right)$.
-	\item La derivata $k$-esima è nella forma
+	dove supponiamo, sempre per le osservazioni precedenti, di considerare l'\textit{origine} del sistema di riferimento scelto all'interno del conduttore e di misurare il potenziale in tale punto --- dopotutto, il potenziale è \textit{costante} in tutto il conduttore.
+\end{observe}% TO DO: controllare denominatore: io ho segnato solo r, ma che fine fa il termine di integrazione? dove lo misura, in zero? credo di sì, e ho messo questa spiegazione.
+Ora, osserviamo che se aumentassimo la carica sul conduttore da $q$ a $mq$, si avrebbe un aumento sia della densità di carica di un fattore $m$, sia del potenziale sempre di un fattore $m$. Il loro rapporto, pertanto, rimane costante ed è indipendente da come aumenta la carica e il potenziale: pertanto, esso rappresenta quanto aumenta il potenziale del conduttore all'aumentare della carica. 
+\begin{define}[Capacità di un conduttore]
+	La \textbf{capacità}\index{capacità} di un conduttore è la misura di quanta carica elettrica bisogna fornire ad un conduttore isolato per aumentare il suo potenziale di un'unità.
 	\begin{equation}
-		f^{\left(k\right)}(x)=\sum_{n=k}^{+\infty}n\left(n-1\right)\ldots\left(n-k+1\right)a_nx^{n-k}=\sum_{n=k}^{+\infty}\frac{n!}{\left(n-k\right)!}a_nx^{n-k},\ \forall x\in\left(-R,R\right)
+		C=\frac{q}{V}
 	\end{equation}
-	\item Il coefficiente $a_k$ si può scrivere come
-	\begin{equation}
-		a_k=\frac{f^{\left(k\right)}}{k!},\ \forall k\geq 0
-	\end{equation}
-	\item $f$ è \textit{analitica} in $0$, ossia si può scrivere come una \textbf{serie di Taylor di }$f$\textbf{centrata in }$x=0$\index{serie!di Taylor}
-	\begin{equation}
-		f(x)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}}{k!}x^k,\ \forall x\in\left(-R,R\right)
-	\end{equation}
-\end{enumerate}
-\end{theorema}
-Diamo una definizione formale del termine ‘‘funzione analitica'' che abbiamo appena usato nel teorema, notando che l'analiticità è un concetto locale, cioé vale nell'intorno di un punto.
-\begin{define}[Funzione analitica]
-	Sia $\funz{f}{U\subseteq \realset}{\realset}$ tale che $f\in\mathcal{C}^{\infty}\left(U\right)$.
-	\begin{enumerate}
-		\item Dato $x_0\in\ U$, $f$ si dice \textbf{analitica}\index{analitica} in $x_0$ se $\exists r_0>0$ tale che
-		\begin{equation*}
-			f(x)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k,\ \forall x\in\left(x_0-r_0,x_0+r_0\right)\subseteq U
-		\end{equation*}
-		\item f si dice \textbf{analitica in }$U$ se è analitica in ogni punto $x_0\in U$. In questo caso si scrive $f\in\mathcal{A}\left(U\right)$.
-	\end{enumerate}
 \end{define}
-Il problema della \textit{ricostruzione} di una funzione come somma della sua serie di Taylor, introdotto nello studio della lunghezza dell'ellisse nel \refChapterOnly{ellipseintroduction}, si può anche formulare come
-\begin{center}
-	‘‘Ogni funzione $f\in\mathcal{C}^{\infty}\left(U\right)$ è anche analitica su $U$?''
-\end{center}
-ossia
-\begin{equation*}
-	f\in\mathcal{C}^{\infty}\left(U\right)\stackrel{?}{\implies}f\in\mathcal{A}\left(U\right)
-\end{equation*}
-In generale la risposta è \textbf{no}, come possiamo vedere nell'esempio successivo.
-\begin{examplewt}[Controesempio di una funzione $\mathcal{C}^{\infty}$ non analitica]
-Consideriamo la funzione
+Il potenziale in questa definizione è misurato rispetto ad un sistema di riferimento dove lo zero è posto sulla \textit{terra}, considerato un conduttore di dimensioni \textit{infinite} rispetto all'altro e tale per cui se collegassimo il conduttore carico alla terra la carica si disperdesse e il potenziale complessivo è nullo.
+\begin{examplewt}[Sfera conduttrice di raggio $R$]
+	In una sfera conduttrice di raggio $R$, all'equilibrio la carica è distribuita uniformemente sulla superficie con densità $\sigma$. Si ha
+	\begin{align*}
+		q&=\int_{\Sigma}\sigma d\Sigma=\sigma\int_{\Sigma}d\Sigma=\sigma A_{sfera}=4\pi R^2 \sigma\\
+		V&=\frac{1}{4\pi\epsilon_0}\int_{\Sigma}\frac{\sigma}{\abs{\vba{r}'}}d\Sigma=\frac{1}{4\pi\epsilon_0}\frac{\sigma}{R}\int_{\Sigma}d\Sigma=\frac{1}{\Ccancel[red]{4\pi}\epsilon_0}\frac{\Ccancel[red]{4\pi} R^{\Ccancel[red]{2}} \sigma}{\Ccancel[red]{R}}=\frac{\sigma R}{\epsilon_0}
+	\end{align*}
+La capacità del conduttore è
+\begin{equation}
+	C=\frac{q}{V}=4\pi \epsilon_0 R
+\end{equation}
+Osserviamo che la capacità della sfera non dipende dal materiale, ma solo dal raggio. Questo non è un caso: la capacità è solamente una funzione della \textit{geometria} del conduttore, ma non del materiale con cui è fatto, dalla carica che c'è sopra o dal potenziale in esso (o meglio, differenza di potenziale).
+\end{examplewt}
+\begin{example}
+	Riprendendo il caso delle due sfere conduttrici collegate da un filo trascurabile, come cambia la capacità? La carica complessiva $q_{tot}$ è data dalla somma delle cariche $q_1$ e $q_2$  sulle due sfere, mentre il nuovo potenziale $V$ del sistema è costante e uguale su entrambe le sfere. Segue allora
+	\begin{equation}
+		C=\frac{q_1+q_2}{V}=\frac{q_1}{V}+\frac{q_2}{V}=4\pi\epsilon_0\left(R_1+R_2\right)=C_1+C_2
+	\end{equation} 
+	ossia la capacità del sistema di due conduttori collegati da un filo è dato dalla somma delle due capacità dei singoli condensatori.
+\end{example}
+\paragraph{Unità di misura}
+\begin{units}~\\
+	\textbf{\textsc{Carica elettrica:}} farad  ($\unit{\farad}$) o coulomb su volt $\left(\unit[per-mode = fraction]{\coulomb\per\volt}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[C]=\dfrac{[q]}{[V]}=\mathsf{M}^{-1}\mathsf{L}^{-2}\mathsf{T}^4\mathsf{I}^2$.
+\end{units}
+Come per la maggior parte delle unità di misura che si affrontano nell'elettromagnetismo, le capacità utilizzate in ambito pratico sono generalmente di molti ordini di magnitudine minori del farad, cioè siamo praticamente obbligati ad utilizzare sempre dei \textit{sottomultipli} del farad, ad esempio:
+\begin{itemize}
+	\item \textit{millifarad}: $\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{1}{\milli\farad}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{e-3}{\farad}$.
+	\item \textit{microfarad}: $\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{1}{\micro\farad}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{e-6}{\farad}$.
+	\item \textit{nanofarad}: $\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{1}{\nano\farad}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{e-9}{\farad}$.
+	\item \textit{picofarad}: $\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{1}{\pico\farad}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{e-12}{\farad}$.
+\end{itemize}
+\begin{observe}
+		Si osservi che
 	\begin{equation*}
-		f(x)=
+		\epsilon_0=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{8,854e-12}{\square\coulomb\per\newton\square\metre}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{8,854e-12}{\farad\per\metre}
+	\end{equation*}
+\end{observe}
+\begin{example}
+	Una sfera di rame di raggio
+	\begin{itemize}
+		\item $R=\SI{0,1}{\metre}$ ha capacità $C=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{11}{\pico\farad}$.
+		\item $R=\SI[exponent-product=\ensuremath{\cdot}]{6,7e6}{\metre}$, cioè una sfera con raggio quello terrestre, ha capacità $C=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{0,74}{\milli\farad}$.
+	\end{itemize}
+\end{example}
+\section{Conduttore cavo}
+Consideriamo un conduttore volumico che non sia pieno, ma che presenta al suo interno una \textit{cavità} senza cariche al suo interno: tale conduttore presenta ora due superfici, una \textit{esterna} e una \textit{interna}. Nel caso del conduttore pieno sappiamo che, all'equilibrio, le cariche si distribuiscono sulla superficie esterna.\\
+Sorprendentemente, ciò succede anche nel caso del conduttore cavo: non ci sono cariche nella superficie interna e si distribuiscono \textit{esattamente} come nel caso senza cavità.
+\begin{proposition}[Un conduttore cavo ha campo elettrico nullo al suo interno]
+	Un conduttore cavo che non presenta cariche all'interno delle cavità si comporta come un conduttore pieno con la stessa geometria. In particolare, le cariche elettriche all'equilibrio si distribuiscono solamente sulla superficie esterna,
+\end{proposition}
+\begin{demonstration}
+	Ricordiamo che, quando consideriamo l'equilibrio elettrostatico, il campo interno al conduttore deve essere nullo. Se consideriamo una superficie $\Sigma$ che circonda completamente la cavità, ma giace interamente all'interno del materiale conduttore, il flusso tramite tale superficie è nullo in quanto il campo elettrico nei punti della superficie è nullo.
+	\begin{equation*}
+		\Phi_{\Sigma}\left(\vba{E}\right)=0
+	\end{equation*}
+Applicando la \textit{legge di Gauss}, segue che la carica \textit{complessiva} interna a $\Sigma$ deve essere nulla.
+\begin{equation}
+	q_{tot,\Sigma\ interna}=0
+\end{equation}
+Ciò nonostante, questo non preclude ancora la possibilità che ci sia una quantità uguale di cariche positive e negative nella superficie interna del conduttore in modo che	$q_{tot,\Sigma\ interna}$ sia nulla. Per escludere tale possibilità, consideriamo un circuito chiuso $\gamma$ arbitrario che interseca la superficie interna; sappiamo che la \textit{circuitazione} lungo $\gamma$ del campo elettrico è nulla, tuttavia:
+\begin{itemize}
+	\item l'integrale di linea lungo la parte di $\gamma$ contenuta nella cavità \textsc{non} sarebbe nullo se, per assurdo, ci fossero cariche sulla superficie, dato che ci sarebbe un campo elettrico \textit{non} nullo.
+	\item l'integrale di linea lungo la parte di $\gamma$ contenuta nel conduttore sarebbe, invece, nullo perché $\vba{E}=0$ dentro il conduttore.
+\end{itemize}
+Pertanto \textit{non} ci possono essere cariche sulla superficie interna e pertanto anche \textit{dentro} la cavità il campo elettrico deve essere nullo.
+% TO DO: inserire immagine di https://farside.ph.utexas.edu/teaching/em/lectures/node58.html
+\end{demonstration}
+
+% https://physics.stackexchange.com/questions/579941/conductor-with-hollow-cavity-under-external-electric-field
+
+Questo è vero anche in presenza di un \textit{campo elettrico esterno} $\vba{E}$. In tal caso, come succede nel conduttore, all'interno della cavità si viene a formare un campo indotto $\vba{E}_i$ dalla separazione delle cariche  che controbilancia quello esterno in modo che il campo complessivo all'interno sia nullo.
+\begin{equation*}
+	\vba{E}_{tot}=\vba{E}+\vba{E}_i=0
+\end{equation*}
+\subsection{Conduttore cavo con carica}
+Consideriamo, all'equilibrio, una sfera conduttrice cava (inizialmente non carica) di raggio $R_3$ e raggio della cavità $R_2$; al suo interno prendiamo un'ulteriore sfera conduttrice di raggio $R_1<R_2$, e supponiamo che quest'ultima abbia una carica $Q$ positiva.
+% TO DO: inserire immagine
+Sappiamo che nella sfera interna il campo elettrico è nullo; la stessa cosa succede sulla \textit{sfera esterna}, ma è meno ovvio.
+
+La sfera carica genera un campo elettrico radiale che, all'esterno di essa, \textit{non} è nullo e attraversa la sfera esterna. Le cariche nel conduttore esterno si dispongono come se fosse attraversati da un \textit{campo elettrico esterno}; in particolare le cariche \textit{negative} si posizionano lungo la superficie \textit{interna}, mentre quelle \textit{positive} sono respinte sulla superficie esterna in modo chele cariche sulla superficie interna $q_{int}$ controbilancino quelle sulla superficie esterna $q_{ext}$. Diremo che questo tipo di campo elettrico è un caso di \textbf{induzione totale}.
+\begin{define}[Induzione completa]
+	Diciamo che si ha \textbf{induzione completa}\index{induzione!completa} se le linee di campo elettrico generato da un conduttore terminano completamente in un altro conduttore e, pertanto, il conduttore induce totalmente la sua carica al secondo. 
+\end{define}
+
+Ora, consideriamo una superficie ipotetica $\Sigma$ che è contenuta nella sfera esterna e che contiene la cavità. Perché siamo all'equilibrio si ha $\vba{E}=0$, il flusso è
+\begin{equation*}
+	\Phi_{\Sigma}\left(\vba{E}\right)=0
+\end{equation*}
+Ma per la legge di Gauss la carica complessiva è $q_{tot}=0$. Necessariamente, sulla superficie interna deve affacciarsi una carica $q_{int}=-Q$, da cui si ha che $q_{ext}=Q$.
+
+Il campo elettrico indotto dovuto dalla disposizione di cariche \textit{controbilancia} quello della sfera interna quindi all'interno del conduttore esterno non c'è campo elettrico. Invece, al di fuori del conduttore esterno si verifica nuovamente il campo elettrico dovuto alla sfera carica interna. 
+
+La situazione è quindi la seguente, al variare della distanza radiale $r$:
+\begin{itemize}
+	\item Punti nella sfera interna ($S_1$): $r<R_1$ e
+	\begin{equation*}
 		\begin{cases}
-			\begin{array}{ll}
-				e^{-\frac{1}{x^2}}&\text{se }x\neq 0\\
-				0&\text{se }x=0
-			\end{array}
+			E_{r}(r)=0\\
+			V(r)=k_1\in\realset
 		\end{cases}
 	\end{equation*}
-Innanzitutto, mostriamo che $f$ è di classe  $\mathcal{C}^{\infty}$:
-\begin{itemize}
-	\item $f$ è certamente di classe $\mathcal{C}^{\infty}\left(\realset\setminus\left\{0\right\}\right)$.
-	\item Dimostriamo che esiste $f^{\left(k\right)}\left(0\right),\ \forall k\geq 0$, che essa sia uguale a $0$ per ogni $k$ e che $f^{\left(k\right)}\in\mathcal{C}\left(\realset\right),\ \forall k\geq 0$.\\
-	Per far ciò, innanzitutto mostriamo per \textit{induzione} su $k$ che per ogni $k\geq 0$ esiste un polinomio $P_{3k}$ di grado $3k$ tale per cui
-	\begin{equation*}
-		f^{(k)}(x)=P_{3k}\left(x^{-1}\right)e^{-\frac{1}{x^2}},\ \forall x\neq 0
-	\end{equation*}
-La relazione è banalmente vera per $k=0$. quindi proviamo ora il passo induttivo: supponiamo che sia vera la relazione per ogni intero minore o uguale a $k$ e dimostriamo che è vera per $k+1$. A tal fine deriviamo la relazione corrispondente all'interno $k$, ottenendo
+\item Punti nella cavità: $R_1<r<R_2$ e
 \begin{equation*}
-	f^{(k+1)}(x)=-P'_{3k}(x^{-1})x^{-2}\, e^{-1/x^2}+2x^{-3} P_{3k}(x^{-1})\, e^{-1/x^2},\quad \forall \ x\neq 0
+\begin{cases}
+	E_{r}(r)=\frac{q}{4\pi\epsilon_0r^2}\\
+	V(r)=\frac{q}{4\pi\epsilon_0r^2}+k_2, \ k_2\in\realset
+\end{cases}
 \end{equation*}
-e dunque
+\item Punti nella sfera esterna ($S_2$): $R_2<r<R_3$ e
 \begin{equation*}
-	f^{(k+1)}(x)=Q(x^{-1})\, e^{-1/x^2},\quad \forall \ x\neq 0,
+\begin{cases}
+	E_{r}(r)=0\\
+	V(r)=k_3, \ k_3\in\realset
+\end{cases}
 \end{equation*}
-dove
-\begin{equation*}
-	Q(u)=- u^2 P'_{3k}(u) +2u^3 P_{3k}(u),\quad \forall \ u\neq 0
-\end{equation*}
-Osserviamo che $P'_{3k}$ è un polinomio di grado $3k-1$; si ricava quindi che $u^2P'_{3k}\left(u\right)$ è un polinomio di grado $3k+1$, mentre $2u^3P_{3k}\left(u\right)$ è un polinomio di grado $3k+3$. Concludiamo che $Q$ è un polinomio di grado $3k+3=3\left(k+1\right)$, come richiesto.
-Utilizzando i \textit{confronti di crescita}, dalla relazione appena mostrata si vede che
-\begin{equation*}
-\lim_{x\to 0} f^{(k)}(x)=\lim_{x\to 0} P_{3k}(x^{-1})\, e^{-1/x^2}=0,\quad \forall \ k\geq 0
-\end{equation*}
-e dunque esiste $f^{(k)}(0)$, per ogni $k\geq 0$, e si ha $f^{(k)}(0)=0$. Inoltre, la funzione $f^{(k)}$ è continua in $x=0$, per costruzione; concludiamo quindi che $f\in \mathcal{C}^{\infty}\left(\realset\right)$.
-\end{itemize}
-Tuttavia, $f\notin\mathcal{A}\left(\realset\right)$. Infatti, la serie di Taylor centrata in $x_0=0$ è
-\begin{equation*}
-	\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k=\sum_{k=0}^{+\infty}\frac{0}{k!}x^k\equiv 0
-\end{equation*}
-che sì converge, ma \textit{non} a $f$, ossia $\displaystyle f(x)\neq \sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(0\right)}{k!}x^k,\ \forall x\neq 0$.
-\end{examplewt}
-Bisogna quindi capire sotto quali ipotesi ulteriori una funzione di classe $\mathcal{C}^{\infty}$ è anche analitica, ovvero si può scrivere come somma della sua serie di Taylor: in particolare dobbiamo verificare che la seria innanzi tutto converga e che converga alla $f$ voluta (il che non è successo nell'esempio precedente). Cerchiamo a tal scopo una condizione \textit{sufficiente}.\\
-Riprendiamo il problema come era stato posto originalmente; approssimiamo $f$ con il \textit{polinomio} di Taylor, tenendo conto del \textit{resto} $R_n(x)$:
-\begin{equation*}
-	f(x)=\sum_{k=0}^{n}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k+R_n(x)
-\end{equation*}
-Per passare da questa approssimazione alla riscrittura di $f$ come \textit{serie} di Taylor è necessario ridurre il resto dell'approssimazione a zero al crescere dei termini del polinomio, ossia
-\begin{equation*}
-	\lim_{n\to+\infty}R_n(x)=0
-\end{equation*}
-Ricordiamo l'espressione del resto in \textit{forma di Lagrange}, che è di tipo quantitativo:
-\begin{equation*}
-	\exists \xi=\xi_{x,n} \ \colon \ R_n(x)=\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}
-\end{equation*}
-La condizione sufficiente che andremo ora a definire necessita di avere una informazione sulle derivate $f^{\left(n\right)}$ per $n$ \textit{sufficientemente grande}.
-\begin{theorema}[Condizione sufficiente di analiticità]
-	Sia $\funz{f}{U\subseteq\realset}{\realset}$, $f\in\mathcal{C}^{\infty}\left(U\right)$ e sia $x_0\in U$. Se $\exists r_0>0,\ \exists M>0,\ \exists n_0>0$ tale che
-	\begin{equation}\label{condizionesufficienteanaliticita}
-		\abs{f^{\left(n\right)}(x)}\leq\frac{Mn!}{r_0^n},\ \forall x\in\left(x_0-r_0, \ x_0+r_0\right)\subseteq U,\ \forall n\geq n_0
-	\end{equation}
-	allora $f$ è \textit{analitica} in $x_0$ e vale
-	\begin{equation*}
-		f(x)=\sum_{k=0}^{+\infty}\frac{f^{\left(k\right)}\left(x_0\right)}{k!}\left(x-x_0\right)^k,\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right)\subseteq U
-	\end{equation*}
-	nello stesso intervallo della stima considerato sopra.
-\end{theorema}
-\begin{demonstration}
-	Sia $x\in\left(x_0-r_0,\ x_0+r_0\right)$ fissato. Dobbiamo provare che
-	\begin{equation*}
-		\lim_{n\to+\infty}R_n(x)=\lim_{n\to+\infty}\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}=0
-	\end{equation*}
-dove $\xi$ è ottenuto applicando la formula di Taylor con il resto in \textit{formula di Lagrange}. Poiché $\xi\in\left(x_0-r_0,\ x_0+r_0\right)$, per l'ipotesi di partenza si può stimare $f^{\left(n+1\right)}\left(\xi\right)$:
-\begin{gather*}
-	0\leq \abs{\frac{f^{\left(n+1\right)}\left(\xi\right)}{\left(n+1\right)!}\left(x-x_0\right)^{n+1}} =\frac{\abs{f^{\left(n+1\right)}\left(\xi\right)}}{\left(n+1\right)!}\abs{x-x_0}^{n+1} \underset{\forall n\geq n_0}{\leq} \\ \leq \frac{\frac{M\Ccancel[red]{\left(n+1\right)!}}{r_0^{n+1}}}{\Ccancel[red]{\left(n+1\right)!}}\abs{x-x_0}^{n+1}
-	=M\frac{\abs{x-x_0}^{n+1}}{r_0^{n+1}}=M\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}
-\end{gather*}
-Abbiamo quindi ottenuto
-\begin{equation*}
-	0\leq \abs{R_n(x)}\leq M\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1},\ \forall n\geq n_0
-\end{equation*}
-Poiché
-\begin{equation*}
-	\left(\frac{\abs{x-x_0}}{r_0}\right)^{n+1}
-\end{equation*}
-è una successione geometrica di ragione $\nicefrac{\abs{x-x_0}}{r_0}\in\left(0,1\right)$, essa tende a $0$ per $n\to+\infty$: per il \textit{teorema del confronto} abbiamo $\displaystyle\lim_{n\to+\infty}R_n(x)=0$.
-\end{demonstration}
-\begin{observe}
-	Questa condizione sufficiente si verifica anche se $\exists M>0,\ \exists r_0>0$ tale per cui
-	\begin{equation}\label{condizionesufficientederivatelimitate}
-		\abs{f^{\left(n\right)}(x)}\leq M,\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right),\ \forall n\geq 0
-	\end{equation}
-Infatti, $\forall r_0>0$, per confronto di crescita si ha
-\begin{equation*}
-	\lim_{n\to+\infty}\frac{n!}{r_0^n}=+\infty
-\end{equation*}
-Dunque esiste sempre $n_0$ tale che $\forall n\geq n_0$ si ha $\frac{n!}{r_0^n}>1$. Segue allora
-\begin{equation*}
-	\abs{f^{\left(n\right)}(x)}\leq M<M\frac{n!}{r_0^n},\ \forall x\in\left(x_0-r_0,\ x_0+r_0\right),\ \forall n\geq n_0
-\end{equation*}
-\end{observe}
-\subsection{Eserciziamoci! Funzioni analitiche e serie di Taylor}
-\begin{exercise}
-Sia data la serie di potenze
-\begin{equation*}
-	\sum_{n=0}^{+\infty} a_n x^n, \quad a_n\in \realset
-\end{equation*}
-Sia $R>0$ il suo raggio di convergenza e sia
-\begin{equation*}
-	f(x)=\sum_{n=0}^{+\infty} a_n x^n, \quad \forall \ x\in (-R,R)
-\end{equation*}	
-Provare che $f\in \mathcal{A}((-R,R))$.
-\end{exercise}
-\begin{solution}
-	La tesi da dimostrare è
-	\begin{equation*}
-		\forall \ x_0\in (-R,R) \quad \exists \ r_0>0\quad \exists \{b_n\}_{n\in \naturalset}: \quad f(x)=\sum_{n=0}^{+\infty} b_n (x-x_0)^n,\quad \forall \ x\in (x_0-r_0,x_0+r_0).
-	\end{equation*}
-Fissiamo $x_0\in\left(-R,R\right)$ e consideriamo
-\begin{equation*}
-	r_0\coloneqq R-\abs{x_0}>0.
-\end{equation*}
-Applicando la formula del binomio di Newton per ogni $x\in \left(x_0-r_0,x_0+r_0\right)$ si ricava
-\begin{equation*}
-	f(x)=\sum_{n=0}^{+\infty} a_n x^n=\sum_{n=0}^{+\infty} a_n (x-x_0+x_0)^n = \sum_{n=0}^{+\infty} a_n \sum_{k=0}^{n} \binom{n}{k} x_0^{n-k} (x-x_0)^k.
-\end{equation*}
-Possiamo scambiare l'ordine delle sommatorie in quanto la serie doppia
-\begin{equation*}
-	\sum_{n=0}^{+\infty} \sum_{k=0}^{n} \abs{a_n} \binom{n}{k} \abs{x_0}^{n-k} \abs{x-x_0}^k=\sum_{n=0}^{+\infty} \abs{a_n} (\abs{x-x_0}+\abs{x_0})^n
-\end{equation*}
-converge, infatti $\abs{x-x_0}+\abs{x_0}<r_0+\abs{x_0}=R$.\\
-Scambiamo allora l'ordine e cambiamo nome agli indici, ottenendo
-\begin{equation*}
-	f(x)=f(x)=\sum_{m=0}^{+\infty} \sum_{n=0}^{+\infty} a_{n+m} \binom{n+m}{n} x_0^{n} (x-x_0)^m=\sum_{m=0}^{+\infty} b_m (x-x_0)^m
-\end{equation*}
-con
-\begin{equation*}
-	b_m=\sum_{n=0}^{+\infty} a_{n+m} \binom{n+m}{n} x_0^{n}.
-\end{equation*}
-\end{solution}
-\subsection{Esempi di funzioni analitiche}
-\begin{theorema}[Analiticità di {$e^x$}, {$\cos x$}, {$\sin x$}, {$\left(1+x\right)^\alpha$}]\label{funzionianaliticheeserie}
-	Le funzioni $e^x$, $\cos x$, $\sin x$, $\left(1+x\right)^\alpha$ con $\alpha\in\realset$ sono analitiche in $x_0=0$ e vale
-	\begin{flalign}
-		e^x&=\sum_{k=0}^{+\infty}\frac{1}{k!}x^k,\ \ \forall x\in\realset\\
-		\cos x&=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k\right)!}x^{2k},\ \ \forall x\in\realset\\
-		\sin x&=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k+1\right)!}x^{2k+1},\ \ \forall x\in\realset\\
-		\left(1+x\right)^\alpha&=\sum_{k=0}^{+\infty}\binom{\alpha}{k}x^k,\ \ \forall x\in\left(-1,1\right),\ \forall \alpha\in\realset
-	\end{flalign}
-\end{theorema}
-\begin{attention}
-	L'ultima formula vale solo per $x\in\left(-1,1\right)$, indipendentemente dal dominio di $\left(1+x\right)^\alpha$. Ad esempio, se $\alpha=\frac{1}{3}$, $\left(1+x\right)^\alpha=\sqrt[3]{1+x}$ è definita su tutto $\realset$, però si può scrivere somma della sua serie di Taylor solo in $\left(-1,1\right)$; in altre parole, l'analiticità è una proprietà \textit{locale}.
-\end{attention}
-Le prime tre formule si dimostrano usando la condizione sufficiente precedentemente dimostrata. Per quanto riguarda la quarta formula, \textit{non} si riesce a verificare la validità di tale condizione, ma con un altro ragionamento si trova comunque l'analiticità. Questo mostra che la condizione scritta sopra è \textit{solo} sufficiente, ma \textit{non} necessaria per l'analiticità.
-\begin{demonstration}~{}
-	\begin{itemize}
-		\item $e^x$, $\cos x$, $\sin x$. È noto che
-		\begin{equation*}
-			\sum_{k=0}^{n}\frac{1}{k!}x^k\quad\sum_{k=0}^{n}\frac{\left(-1\right)^k}{\left(2k\right)!}x^{2k}\quad\sum_{k=0}^{n}\frac{\left(-1\right)^k}{\left(2k+1\right)!}x^{2k+1}
-		\end{equation*}
-		sono i polinomi di Taylor di $e^x,\ \sin x$ e $\cos x$ centrati in $x_0=0$. Per $n\to+\infty$ si ottengono le serie di Taylor
-		\begin{equation*}
-			\sum_{k=0}^{+\infty}\frac{1}{k!}x^k\quad\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k\right)!}x^{2k}\quad\sum_{k=0}^{+\infty}\frac{\left(-1\right)^k}{\left(2k+1\right)!}x^{2k+1}
-		\end{equation*}
-	Proviamo ora che valgono le uguaglianze scritte. Per dimostrare che valgono su tutto $\realset$ è sufficiente dimostrate che valgono su un intervallo del tipo $\left(-r_0, r_0\right)$ con $r_0>0$ arbitrario.\\
-	Sia allora $r_0>0$ fissato arbitrariamente e sia $x\in\left(-r_0, r_0\right)$. Proviamo che è vera la condizione \ref{condizionesufficientederivatelimitate}, dato che essa implica la condizione sufficiente \ref{condizionesufficienteanaliticita}. Vediamo i tre casi:
-	\begin{itemize}
-		\item $e^x$. La derivata di $f(x)=e^x$ è $f^{\left(n\right)}(x)=e^x$, quindi si ha
-		\begin{equation*}
-			\abs{f^{\left(n\right)}(x)}=e^x\leq e^{r_0}= M,\ \forall x\in\left(-r_0,r_0\right),\ \forall n\geq 0
-		\end{equation*}
-		\item $\cos x$, $\sin x$. Poiché le derivate di seno e coseno sono ciclicamente seno e coseno con opportuni segni, la derivata $n$-esima di $\cos x$ e $\sin x$ in modulo è sempre limitata da 1.
-		\begin{equation*}
-			\abs{f^{\left(n\right)}(x)}\leq 1 = M,\ \forall x\in\left(-r_0,r_0\right),\ \forall n\geq 0
-		\end{equation*}
-	\end{itemize}
-	Poiché la condizione è verificata su $\left(-r_0,r_0\right)$ e vale l'analiticità su tale intervallo, per l'arbitrarietà di $r_0$ l'analiticità si verifica su tutto $\realset$.
-	\item $\left(1+x\right)^\alpha$. Mostriamo innanzitutto che la serie di potenze \label{funzionianaliticheesempiopotenza}
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}\binom{\alpha}{k}x^k
-	\end{equation*} converge $\forall x\in\left(-1,1\right)$, usando il criterio del rapporto:
-	\begin{align*}
-		R&=\lim_{n\to+\infty}\frac{\abs{a_n}}{\abs{a_{n+1}}}=\lim_{n\to+\infty}\frac{\abs{\alpha\left(\alpha-1\right)\ldots\left(\alpha-n+1\right)}}{n!}\frac{\left(n+1\right)!}{|\alpha\left(\alpha-1\right)\underbrace{\left(\alpha-\left(n+1\right)+1\right)}_{=\alpha-n}|}=\\
-		&=\lim_{n\to+\infty}\frac{\abs{n+1}}{\abs{\alpha-n}}=\lim_{n\to+\infty}\frac{n+1}{n-\alpha}=1
-	\end{align*}
-	Adesso definiamo la funzione somma
-	\begin{equation*}
-		g_\alpha(x)=\sum_{n=0}^{+\infty}\binom{\alpha}{n}x^n,\ \forall x\in\left(-1,1\right)
-	\end{equation*}
-	Dobbiamo dimostrare che $g_\alpha(x)=\left(1+x\right)^{\alpha},\ \forall x\in\left(-1,1\right)$. Per la derivazione termine a termine abbiamo
-	\begin{align*}
-		g'_\alpha(x)&=\sum_{n=1}^{+\infty}n\binom{\alpha}{n}x^{n-1}=\sum_{n=1}^{+\infty}\frac{\alpha\left(\alpha-1\right)\ldots\left(\alpha-n+1\right)}{n!}nx^{n-1}=\\
-		&=\alpha\sum_{n=1}^{+\infty}\frac{\left(\alpha-1\right)\ldots\left(\alpha-1\left(n-1\right)+1\right)}{\left(n+1\right)!}x^{n-1}=\alpha\sum_{n=1}^{+\infty}\binom{\alpha-1}{n-1}x^{n-1}=\\
-		&\underrel[c]{n-1=m}{=}\alpha\sum_{m=0}^{+\infty}\binom{\alpha-1}{m}x^m=\alpha g_{\alpha-1}(x),\ \forall x\in\left(-1,1\right)
-	\end{align*}
-	Quindi $g'_{\alpha}(x)=\alpha g_{\alpha-1}(x),\ \forall x\in\left(-1,1\right)$. Osserviamo che
-	\begin{align*}
-		\left(1+x\right)g_{\alpha-1}(x)&=\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^n+\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^{n+1}=\\
-		&\underrel{n+1=m}{=}\sum_{n=0}^{+\infty}\binom{\alpha-1}{n}x^n+\sum_{m=1}^{+\infty}\binom{\alpha-1}{m-1}x^{m}=\\
-		&=1+\sum_{m=1}^{+\infty}\left[\binom{\alpha-1}{m}+\binom{\alpha-1}{m-1}\right]x^m=1+\sum_{m=1}^{+\infty}\binom{\alpha}{m}x^m
-	\end{align*}
-	Infatti, si ha
-	\begin{align*}
-		\binom{\alpha-1}{m}+\binom{\alpha-1}{m-1}&=\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-m+1\right)}{m!}+\\
-		&+\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-\left(m-1\right)+1\right)}{\left(m-1\right)!}=\\
-		&=\frac{\left(\alpha-1\right)\left(\alpha-2\right)\ldots\left(\alpha-1-\left(m-1\right)+1\right)}{\left(m-1\right)!}\cdot\\
-		&\cdot\frac{\left(\alpha\Ccancel[red]{-1-m+1+m}\right)}{m}=\frac{\alpha\left(\alpha-1\right)}{m}=\\
-		&=\frac{\alpha\left(\alpha-1\right)\ldots\left(\alpha-m+1\right)}{m!}=\binom{\alpha}{m}
-	\end{align*}
-Riassumendo, abbiamo ottenuto che
-\begin{equation*}
-	\left(1+x\right)g_{\alpha-1}(x)=g_\alpha(x)
-\end{equation*}
-Si ha
+\item Punti esterni: $r>R_3$ e
 \begin{equation*}
 	\begin{cases}
-		g'_{\alpha}(x)=\frac{\alpha}{\left(1+x\right)}g_{\alpha}(x)\\
-		g_{\alpha}\left(0\right)=1
+		E_{r}(r)=\frac{q}{4\pi\epsilon_0 r^2}\\
+		V(r)=\frac{q}{4\pi\epsilon_0r^2}+k_4, \ k_4\in\realset
 	\end{cases}
 \end{equation*}
-che è un \textit{problema di Cauchy} o altresì noto come un'\textit{equazione differenziale lineare} omogenea del I grado con dato iniziale, la cui soluzione è
-\begin{equation*}
-	g_{\alpha}(x)=e^{\alpha\int_{0}^{x}\frac{1}{1+t}dt}=e^{\alpha\log\left(1+x\right)}=\left(1+x\right)^{\alpha},\ \forall x\in\left(-1,1\right)\qedhere
-\end{equation*}
 \end{itemize}
-\end{demonstration}
-\begin{digressionwt}[Uno sguardo al futuro: il caso complesso]
-	In \textsc{Analisi Matematica 4} si riprenderà la questione della \textit{derivabilità} in campo complesso, definendola e proseguendo con il problema di studiare l'\textit{analiticità} delle funzioni in campo complesso.\\
-	In campo reale le funzioni \textit{analitiche} sono solo un piccolo sottoinsieme delle funzioni $\mathcal{C}^{\infty}\left(U\right)$, che a loro volta un sottoinsieme stretto delle funzioni $\mathcal{C}^1\left(U\right),\ \mathcal{C}^2\left(U\right),\ \ldots$, a loro volta contenute nelle funzioni \textit{derivabili} $D\left(U\right)$, che sono sottoinsieme delle funzioni \textit{continue} $\mathcal{C}\left(U\right)$.
-\begin{center}
-		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.45]{images/eulerovenn1.pdf}
-\end{center}
-	In campo complesso abbiamo una sorpresa. Infatti, se la funzione è \textit{derivabile} una volta, lo è \textit{infinitamente} con continuità e sono anche \textit{analitiche}!
-	\begin{equation*}
-		D\left(U\right)=\mathcal{C}^1\left(U\right)=\ldots=\mathcal{C}^{\infty}\left(U\right)=\mathcal{A}(U)
-	\end{equation*}
-\begin{center}
-	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=0.45]{images/eulerovenn2.pdf}
-\end{center}
-	Si vedrà che questo è dovuto al fatto che $\complexset$ ha la struttura di campo come $\realset$, ma allo stesso tempo è uno spazio vettoriale di dimensione $2$ su $\realset$ stesso.
-\end{digressionwt}
-\section{Il calcolo della lunghezza dell'ellisse}\label{lunghezzaellisse}
-In questa sezione riprendiamo la dimostrazione abbozzata nel \refChapterOnly{ellipseintroduction} alla luce degli strumenti e teoremi dimostrati fino a questo punto.
-Consideriamo un'ellisse di semiassi $a\geq b>0$ di equazione cartesiana
-\begin{equation*}
-	\frac{x^2}{a^2}+\frac{y^2}{b^2}=1
-\end{equation*}
-Consideriamo la parametrizzazione
-\begin{equation*}
-	\vec{r}\left(t\right)=\left(a\sin t,b\cos t\right)\quad t\in\left[0, 2\pi\right]
-\end{equation*}
-e ne calcoliamo la lunghezza con la derivata:
-\begin{align*}
-L&=\int_{0}^{2\pi}\norm{\vec{r}'\left(t\right)}dt=\int_{0}^{2\pi}\norm{\left(a\cos t,\ -b\sin t\right)}dt=\int_{0}^{2\pi}\sqrt{a^2\cos^2t+b^2\sin^2t}dt=\\
-&=\int_{0}^{2\pi}\sqrt{a^2-\left(a^2+b^2\right)\sin^2t}dt=a\int_{0}^{2\pi}\sqrt{1-e^2\sin^2t}dt\\
-&=4a\int_{0}^{\frac{\pi}{2}}\sqrt{1-e^2\sin^2t}dt,
-\end{align*} 
-dove $e=\frac{\sqrt{a^2-b^2}}{a}\in\left[0,1\right)$; l'ultimo passaggio segue dalla simmetria dell'ellisse.\\
-Posto $x=-e^2\sin^2t$, da $\sqrt{1-e^2\sin^2t}$ ci riconduciamo alla funzione $\left(1+x\right)^{\frac{1}{2}}$ che abbiamo recentemente dimostrato\footnote{Si veda pag. \pageref{funzionianaliticheesempiopotenza}.} essere una funzione analitica per ogni $x\in\left(-1,1\right)$. Poichè
-\begin{equation*}
-	\abs{x}=\abs{-e^2\sin^2t}\leq e^2<1,\ \forall t\in\left[0,\frac{\pi}{2}\right],
-\end{equation*}
-allora si ha l'uguaglianza tra funzione e serie di Taylor corrispondente per ogni $t$ in $\left[0,\frac{\pi}{2}\right]$:
-\begin{equation*}
-	\left(1+x\right)^{\nicefrac{1}{2}}=\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}x^k\implies\left(1-e^2\sin^2t\right)^{\nicefrac{1}{2}}=\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}\left(-e^2\sin^2t\right)^k
-\end{equation*}
-Inoltre, per proprietà delle serie di potenze,
-\begin{equation*}
-	\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}x^k
-\end{equation*}
-converge uniformemente su tutti gli insiemi la cui chiusura è contenuta strettamente in $\left(-1,1\right)$, in particolare converge uniformemente su $\left[-A,A\right]$ per ogni $A\in\left(0,1\right)$, dunque vale il teorema di scambio serie e integrale perché si ha convergenza uniforme su $\left[-e^2,e^2\right]\subsetneqq\left(-1,1\right)$.\\
-Tornando al calcolo della lunghezza dell'ellisse:
-\begin{align*}
-	L&=4a\int_{0}^{\frac{\pi}{2}}\sqrt{1-e^2\sin^2t}dt=\\
-	&=4a\int_{0}^{\frac{\pi}{2}}\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}\left(-e^2\sin^2t\right)^kdt=\\
-	&=4a\sum_{k=0}^{+\infty}\binom{\nicefrac{1}{2}}{k}\left(-1\right)^ke^{2k}\int_{0}^{\frac{\pi}{2}}\sin^{2k}tdt=\\
-	&=4a\left(\frac{\pi}{2}+\sum_{k=1}^{+\infty}\binom{\nicefrac{1}{2}}{k}\left(-1\right)^ke^{2k}\int_{0}^{\frac{\pi}{2}}\sin^{2k}tdt\right)\squarequal
-\end{align*}
-Dimostriamo ora le seguenti espressioni:
-\begin{align*}
-	\circled{1}&\qquad\binom{\nicefrac{1}{2}}{k}=\left(-1\right)^{k-1}\frac{\left(2k-3\right)!!}{\left(2k\right)!!}\\
-	\circled{2}&\qquad\int_{0}^{\frac{\pi}{2}}\sin^{2k}tdt=\frac{\left(2k-1\right)!!}{\left(2k\right)!!}\frac{\pi}{2}
-\end{align*}
-\begin{demonstration}~
-	\begin{enumerate}[label=\Roman*]
-		\item Per induzione. Il passo base $k=1$ è banalmente verificato:
-		\begin{equation*}
-			\binom{\nicefrac{1}{2}}{1}=\frac{\frac{1}{2}}{1!}=\frac{1}{2}=\left(-1\right)^0\frac{\left(-1\right)!!}{2!!}
-		\end{equation*}
-	Supponendo sia vero per $k$, mostriamo che valga per il passo $k+1$:
-	\begin{align*}
-		\binom{\nicefrac{1}{2}}{k+1}&=\binom{\nicefrac{1}{2}}{k}\frac{\frac{1}{2}-k}{k+1}\underset{\substack{\text{hp.}\\\text{ ind.}}}{=}\left(-1\right)^{k-1}\frac{\left(2k-3\right)!!}{\left(2k\right)!!}\frac{\frac{1}{2}-k}{k+1}=\\
-		&=\left(-1\right)^{k-1}\frac{\left(2k-3\right)!!}{\left(2k\right)!!}\left(-\frac{2k-1}{2k+2}\right)=\left(-1\right)^{k}\frac{\left(2k-1\right)!!}{\left(2k+2\right)!!}=\\
-		&=\left(-1\right)^{\left(k+1\right)-1}\frac{\left(2\left(k+1\right)-3\right)!!}{\left(2\left(k+1\right)\right)!!}
-	\end{align*}
-	\item Sia
-	\begin{equation*}
-		I_n=\int_{0}^{\frac{\pi}{2}}\sin^ntdt
-	\end{equation*}
-	Integriamo per parti: posto $f=\sin^{n-1}t$ e $dg=\sin tdt$, allora $df=\left(n-1\right)\sin^{n-2}t\cos tdt$. e $g=-\cos t$; calcoliamo
-	\begin{equation*}
-		\int_{0}^{\frac{\pi}{2}}fdg=\left.fg\right\vert_{0}^{\frac{\pi}{2}}-\int_{0}^{\frac{\pi}{2}}gdf,
-	\end{equation*}
-	ossia:
-	\begin{equation*}
-		I_n=\left.-\sin^{n-1}t\cos t\right\vert_{0}^{\frac{\pi}{2}}+\int_{0}^{\frac{\pi}{2}}\left(n-1\right)\sin^{n-2}t\cos^2 tdt=\int_{0}^{\frac{\pi}{2}}\left(n-1\right)\sin^{n-2}t\cos^2 tdt
-	\end{equation*}
-	Poiché $\cos^2t=1-\sin^2t$, allora
-	\begin{equation*}
-		I-n=\left(n-1\right)\left(\int_{0}^{\frac{\pi}{2}}\left(n-1\right)\sin^{n-2}tdt-\int_{0}^{\frac{\pi}{2}}\sin^{n}tdt\right)=\left(n-2\right)I_{n-2}-\left(n-1\right)I_n
-	\end{equation*}
-	Riordinando, otteniamo
-	\begin{equation*}
-		I_n=\frac{n-1}{n}I_{n-2}
-	\end{equation*}
-	Allora, usando questa ricorsione
-	\begin{equation*}
-		I_{2k}=\frac{2k-1}{2k}\frac{2k-3}{2k-2}\cdots\frac{1}{2}I_0=\frac{\left(2k-1\right)!!}{\left(2k\right)!!}\frac{\pi}{2}\qedhere
-	\end{equation*}
-	\end{enumerate}
-\end{demonstration}
-Allora, sostituendo, otteniamo la lunghezza dell'ellisse:
-\begin{align*}
-	\squarequal&4a\left(\frac{\pi}{2}+\sum_{k=1}^{+\infty}\left(-1\right)^{2k-1}e^{2k}\frac{\left(2k-3\right)!!\left(2k-1\right)!!}{\left(\left(2k\right)!!\right)^2}\frac{\pi}{2}e^{2k}\right)\\
-	=&2\pi a\left[1-\sum_{k=1}^{+\infty}\frac{1}{2k-1}\left(\frac{\left(2k-1\right)!!}{\left(2k\right)!!}e^k\right)^2\right]
-\end{align*}
-ossia
-\begin{equation}
-	L=2\pi a\sum_{k=0}^{+\infty}\frac{1}{1-2k}\left(\frac{\left(2k-1\right)!!}{\left(2k\right)!!}e^k\right)^2
-\end{equation}
-\section{Funzioni esponenziale e logaritmo in campo complesso}
-\subsection{Funzione esponenziale in campo complesso}
-\begin{define}[Esponenziale in campo complesso]
-	L'\textbf{esponenziale in campo complesso}\index{esponenziale!in campo complesso} è la funzione definita $\forall z\in\complexset$ come
-	\begin{equation}
-		e^z\coloneqq\sum_{n=0}^{+\infty}\frac{z^n}{n!}
-	\end{equation}
-\end{define}
-\begin{demonstration}
-	Questa funzione è ben definita. Applichiamo alla serie di potenze
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}\frac{z^n}{n!}
-	\end{equation*}
-	il criterio di d'Alembert:
-	\begin{equation*}
-		\lim_{n\to+\infty}\frac{\frac{1}{\left(n+1\right)!}}{\frac{1}{n!}}=\lim_{n\to+\infty}\frac{n!}{\left(n+1\right)!}=\lim_{n\to+\infty}\frac{1}{n+1}=0
-	\end{equation*}
-Segue che converge per ogni $z\in\complexset$.
-\end{demonstration}
-\begin{observe}
-	Ricordando che in campo reale vale la relazione
-	\begin{equation*}
-		e^x=\sum_{n=0}^{+\infty}\frac{x^n}{n!},\ \forall x\in\realset
-	\end{equation*}
-	si ricava che la funzione esponenziale definita in campo complesso coincide con la nota funzione esponenziale nel caso di $z=x\in\realset$, ottenendo così una naturale estensione dell'esponenziale reale a quello complesso.
-\end{observe}
-\begin{proposition}[Proprietà dell'esponenziale complesso.]~{}
-	\begin{enumerate}
-		\item $e^{z_1+z_2}=e^{z_1}e^{z_2},\ \forall z_1,\ z_2\in\complexset$
-		\item $e^z\neq 0,\ \forall z\in\complexset$.
-		\item $e^{-z}=\frac{1}{e^z},\ \forall z\in\complexset$.
-		\item Vale la \textbf{formula di Eulero}\index{formula!di Eulero}:
-		\begin{equation}
-			e^{iy}=\cos y+i\sin y,\ \forall y\in\realset
-		\end{equation}
-		\item $e^{x+iy}=e^{x}\left(\cos y+i\sin y\right),\ \forall x,y\in\realset$.
-		\item $\abs{e^z}=e^{\Re z},\ \arg\left(e^z\right)=\Im z+2k\pi,\ k\in\integerset,\ \forall z\in\complexset$.
-		\item $e^{z+2k\pi i}=e^z,\ \forall z\in\complexset,\ k\in\integerset$.
-	\end{enumerate}
-\end{proposition}
-\begin{demonstration}~{}
-\begin{enumerate}[label=\Roman*]
-\item Siano $z_1,\ z_2\in\complexset$. Dobbiamo provare che
-\begin{equation*}
-	\sum_{n=0}^{+\infty} \frac{(z_1+z_2)^n}{n!} =\sum_{n=0}^{+\infty} \frac{z_1^n}{n!} \cdot \sum_{n=0}^{+\infty} \frac{z_2^n}{n!}
-\end{equation*}
-Ricordiamo\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{prodottosecondocauchy} è possibile trovare alcune informazioni sulla proprietà di prodotto (secondo Cauchy).} che, date due serie
-\begin{equation*}
-	\sum_{n=0}^{+\infty} \alpha_n,\quad \sum_{n=0}^{+\infty} \beta_n,\quad \alpha_n, \ \beta_n \in \complexset
-\end{equation*}
-il loro prodotto è la serie
-\begin{equation*}
-	\sum_{n=0}^{+\infty} \gamma_n,\ \text{dove }\gamma_n= \sum_{k=0}^{n} \alpha_k\ \beta_{n-k},\quad \forall \ n\geq 0
-\end{equation*}
-Nel caso in questione $\alpha_n=\frac{z_1^n}{n!},\quad \beta_n = \frac{z_2^n}{n!},\quad \forall \ n\geq 0$, dunque
-\begin{equation*}
-	\gamma_n= \sum_{k=0}^{n} \frac{z_1^k}{k!}\ \frac{z_2^{(n-k)}}{(n-k)!}=\sum_{k=0}^{n} \frac{z_1^k\, z_2^{(n-k)}}{k!(n-k)!},\quad \forall \ n\geq 0.
-\end{equation*}
-Osserviamo che vale
-\begin{equation*}
-	\frac{1}{k!(n-k)!}= \frac{1}{n!}\binom{n}{k},\quad \forall \ n\geq 0,\ 0\leq k\leq n.
-\end{equation*}
-Dalla formula del binomio di Newton, ricaviamo allora
-\begin{equation*}
-	\gamma_n= \sum_{k=0}^{n} \frac{z_1^k}{k!}\ \frac{z_2^{(n-k)}}{(n-k)!}=\frac{1}{n!}\, \sum_{k=0}^{n} \binom{n}{k}\, z_1^k\, z_2^{(n-k)} =\frac{(z_1+z_2)^n}{n!},\quad \forall \ n\geq 0
-\end{equation*}
-Abbiamo quindi ottenuto la tesi:
-\begin{equation*}
-	\sum_{n=0}^{+\infty} \frac{z_1^n}{n!} \cdot \sum_{n=0}^{+\infty} \frac{z_2^n}{n!}= \sum_{n=0}^{+\infty} \frac{(z_1+z_2)^n}{n!}
-\end{equation*}
-\item[II--III] Sia $z\in\complexset$ fissato. Applichiamo la formula dimostrata al punto I con $z_1=z$ e $z_2=-z$; otteniamo
-\begin{equation*}
-	e^{z-z}  = e^{z}e^{-z}\implies 1 = e^{z}e^{-z}
-\end{equation*}
-Da questo segue che $e^{-z} = \nicefrac{1}{e^z}$.
-\item[IV] Fissato $y\in\realset$, dalla definizione dell'esponenziale complesso segue che
-\begin{equation*}
-	e^{iy}=\sum_{n=0}^{+\infty}\frac{\left(iy\right)^n}{n!}=\sum_{n=0}^{+\infty}\frac{i^ny^n}{n!}
-\end{equation*}
-Riordiniamo i termini della serie separando i termini di posto pari e quelli di posto dispari\footnote{Per riordinare la serie come due ‘‘sottoserie'' senza che la somma venga modificata è necessaria la convergenza assoluta. Poiché ogni serie di potenze converge assolutamente all'interno del suo cerchio di convergenza, in questo caso non abbiamo problemi di riorganizzazione della serie e . Nelle ‘‘Note aggiuntive'', a pagina \pageref{riordinamentoserie} è possibile trovare alcune informazioni sul problema di riorganizzazione della serie.}, ottenendo
-\begin{equation*}
-	e^{iy}=\sum_{n=0}^{+\infty}\frac{i^{2k}y^{2k}}{\left(2k\right)!}+\sum_{n=0}^{+\infty}\frac{i^{2k+1}y^{2k+1}}{\left(2k+1\right)!}
-\end{equation*}
-Calcoliamo ora $i^{2k}$ e $i^{2k+1}$:
+Fissiamo le costanti imponendo le condizioni di passaggio:
 \begin{itemize}
-	\item $i^{2k}=\left(i^2\right)^k=\left(-1\right)^k$.
-	\item $i^{2k+1}=i\left(i^2\right)^k=i\left(-1\right)^k$.
+	\item $V(\infty)=\lim_{r\to+\infty}V(r)=0\implies k_4=0$.
+	\item $V_{esterno}(R_3)=V_{S_2}(R_3)\implies k_3=\dfrac{q}{4\pi\epsilon_0R_3}$.
+	\item $V_{S_2}(R_2)=V_{cavità}(R_2)\implies k_2=\dfrac{q}{4\pi\epsilon_0}\left(\dfrac{1}{R_3}-\dfrac{1}{R_2}\right)$.
+	\item $V_{cavità}(R_1)=V_{S_1}(R_1)\implies k_1=\frac{1}{4\pi\epsilon_0}\left(\dfrac{1}{R_1}-\dfrac{1}{R_2}+\dfrac{1}{R_3}\right)$
 \end{itemize}
-Allora
+Ricapitolando:
+\begin{itemize}
+	\item Punti nella sfera interna ($S_1$): $r<R_1$ e
+	\begin{equation*}
+		\begin{cases}
+			E_{r}(r)=0\\
+			V(r)=\frac{1}{4\pi\epsilon_0}\left(\dfrac{1}{R_1}-\dfrac{1}{R_2}+\dfrac{1}{R_3}\right)
+		\end{cases}
+	\end{equation*}
+	\item Punti nella cavità: $R_1<r<R_2$ e
+	\begin{equation*}
+		\begin{cases}
+			E_{r}(r)=\frac{q}{4\pi\epsilon_0r^2}\\
+			V(r)=\frac{q}{4\pi\epsilon_0r^2}+\frac{q}{4\pi\epsilon_0}\left(\frac{1}{R_3}-\frac{1}{R_2}\right)
+		\end{cases}
+	\end{equation*}
+	\item Punti nella sfera esterna ($S_2$): $R_2<r<R_3$ e
+	\begin{equation*}
+		\begin{cases}
+			E_{r}(r)=0\\
+			V(r)=\frac{q}{4\pi\epsilon_0R_3}
+		\end{cases}
+	\end{equation*}
+	\item Punti esterni: $r>R_3$ e
+	\begin{equation*}
+		\begin{cases}
+			E_{r}(r)=\frac{q}{4\pi\epsilon_0 r^2}\\
+			V(r)=\frac{q}{4\pi\epsilon_0r^2}
+		\end{cases}
+	\end{equation*}
+\end{itemize}
+In presenza di un campo elettrico \textit{esterno} si può trovare che, sebbene all'esterno della sfera conduttrice il campo esterno è modificato da quello generato dalla sfera interna, all'interno della cavità è presente \textit{al più} quello dato dalla carica interna.
+
+Prima di vedere qualche altro caso analogo, per motivi che saranno chiari tra un poco ci interessa calcolare la differenza di potenziale tra la sfera interna e la sfera esterna.
 \begin{equation*}
-	e^{iy}=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^ky^{2k}}{\left(2k\right)!}+i\sum_{k=0}^{+\infty}\frac{\left(-1\right)^ky^{2k+1}}{\left(2k+1\right)!}
+	\Delta V=\frac{q}{4\pi\epsilon_0}\left(\frac{1}{R_1}-\frac{1}{R_2}\right)
 \end{equation*}
-Ricordando che
-\begin{equation*}
-	\cos y=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^ky^{2k}}{\left(2k\right)!}\quad
-	\sin y=\sum_{k=0}^{+\infty}\frac{\left(-1\right)^ky^{2k+1}}{\left(2k+1\right)!}
-\end{equation*}
-segue la tesi.
-\item[V] Sia $z=x+iy$, con $x,y\in\realset$. Dalla relazione provata in I segue che $e^{x+iy}=e^xe^{iy}$. Applicando la \textit{formula di Eulero}, si ha la tesi.
-\item[VI] Sia $z=x+iy$, con $x,y\in \realset$, ossia $x=\Re z$ e $y=\Im z$. 
-La formula provata al punto V esprime il numero complesso $e^z$ in forma trigonometrica; da essa si ricava quindi immediatamente il risultato.
-\item[VII]  Siano $z\in \complexset$ e $k\in \integerset$. Dalla relazione provata al punto I segue che 
-\begin{equation*}
-	e^{z+2k\pi i}=e^{z}\, e^{2k\pi i}
-\end{equation*}
-Applicando la \textbf{formula di Eulero} si ricava immediatamente che 
-\begin{equation*}
-	e^{2k\pi i}=\cos 2k\pi +i\sin 2k\pi =1
-\end{equation*}
-e questo consente di concludere la tesi.\qedhere
-\end{enumerate}
-\end{demonstration}
+
+\paragraph{Conduttore cavo collegato alla carica interna}
+Colleghiamo le due sfere con un filo conduttore trascurabile. I due conduttori sono ora allo stesso potenziale, le cariche su $S_2$s si dispongono sulla superficie della sfera esterna: funzionalmente otteniamo in tutto e per tutto un conduttore cavo senza alcun oggetto carico nell'ambiente interno.\\
+Ricapitolando:
+\begin{itemize}
+	\item Punti interni: $r<R_3$ e
+	\begin{equation*}
+		\begin{cases}
+			E_{r}(r)=0\\
+			V(r)=\frac{q}{4\pi\epsilon_0R_3^2}
+		\end{cases}
+	\end{equation*}
+	\item Punti esterni: $r>R_3$ e
+	\begin{equation*}
+		\begin{cases}
+			E_{r}(r)=\frac{q}{4\pi\epsilon_0 r^2}\\
+			V(r)=\frac{q}{4\pi\epsilon_0r}
+		\end{cases}
+	\end{equation*}
+\end{itemize}
+% TO DO grafico qui
+
+\paragraph{Conduttore cavo collegato alla terra}
+Supponiamo invece di prendere il sistema originale e di collegare il conduttore esterno alla \textit{terra}: in questo modo, le cariche esterne si disperdono nella Terra, dato che la sfera esterna collegata alla terra è come se fosse un unico conduttore di dimensioni \textit{infinite}. Il campo elettrico anche \textit{all'esterno} è \textit{nullo} e, necessariamente, anche il potenziale è \textit{nullo}, dato che il conduttore è allo stesso potenziale della terra, che per convenzione si fissa a 0.\\
+Le \textit{uniche} cariche presenti sulla superficie esterna sono le \textit{cariche negative} che si dispongono sulla superficie interna per contrastare il campo elettrico generato dalla carica nella cavità.\\
+
+Ricapitolando:
+\begin{itemize}
+	\item Punti nella sfera interna ($S_1$): $r<R_1$ e
+	\begin{equation*}
+		\begin{cases}
+			E_{r}(r)=0\\
+			V(r)=\frac{q}{4\pi\epsilon_0R_1}-\frac{q}{4\pi\epsilon_0R_2}
+		\end{cases}
+	\end{equation*}
+	\item Punti nella cavità: $R_1<r<R_2$ e
+	\begin{equation*}
+		\begin{cases}
+			E_{r}(r)=\frac{q}{4\pi\epsilon_0 r^2}\\
+			V(r)=\begin{cases}
+				\frac{q}{4\pi\epsilon_0r}-\frac{q}{4\pi\epsilon_0R_2}
+			\end{cases}
+		\end{cases}
+	\end{equation*}
+	\item Punti non nella cavità: $r>R_2$ e
+	\begin{equation*}
+		\begin{cases}
+			E_{r}(r)=0\\
+			V(r)=0
+		\end{cases}
+	\end{equation*}
+\end{itemize}
+% TO DO grafico qui
+
+\paragraph{Schermo elettrostatico}
+Tutti questi esempi ricadono nel fenomeno dello \textbf{schermo elettrostatico}, detto anche \textbf{schermo di Faraday}.
+\begin{define}[lol]
+	Uno \textbf{schermo elettrostatico}\index{schermo elettrostatico}, detto anche \textbf{schermo di Faraday}, è un sistema costituito da un contenitore - non necessariamente continuo - di materiale conduttore in modo da isolare l'ambiente interno da un campo elettrostatico esterno.
+\end{define}
+\begin{digressionwt}[Gabbia di Faraday]
+	Una \textbf{gabbia di Faraday}\index{gabbia di Faraday} è uno schermo di Faraday che presenta delle aperture e, di conseguenza, sono più complesse da analizzare.\\
+	Anticipando che i campi elettromagnetici si propagano come onde, uno schermo continuo come il \textit{conduttore cavo} attenua essenzialmente tutte le lunghezze d'onda più corte dello spessore della pelle, i buchi nella gabbia possono permettere alle lunghezze d'onda più corte di attraversarli. Più corta è la lunghezza d'onda, più facilmente passa attraverso una maglia di determinate dimensioni. Così, per lavorare bene con lunghezze d'onda brevi, cioè ad alte frequenze, i fori nella gabbia devono essere \textit{più piccoli} della lunghezza d'onda dell'onda incidente.
+\end{digressionwt}
+\section{Condensatori}
+\begin{define}[Condensatore]
+	Un \textbf{condensatore}\index{condensatore} è un sistema di conduttori, i quali sono separati da una differenza di potenziale $\Delta V$ e tra i quali c'è induzione completa.
+\end{define}
+\begin{notate}
+	Spesso abbrevieremo la differenza di potenziale con $\mathrm{d.d.p.}$
+\end{notate}
+La maggior parte dei condensatori sono costituite da due o più conduttori elettrici nella forma di piastre metalliche o superfici separate dal vuoto o da un materiale dielettrico\footnote{Vedremo nel capitolo XXX la definizione di materiale dielettrico.}, dette \textbf{armature}\index{armatura}.
+
+Dalla legge di Coulomb una carica su un'armatura eserciterà una \textit{forza} sulle cariche dell'altro conduttore, attraendo cariche del segno opposto e respingendo cariche uguali. Per quanto visto con i conduttori cavi, la carica totale $q$ su un'armatura deve essere uguale ma opposte a quella sull'armatura che le sta di fronte, creando un campo elettrico tra i due conduttori.
+
+Lo scopo principale dei condensatori non è solo quello di \textit{deposito} di cariche elettriche nelle armature, ma anche di immagazzinare \textbf{energia elettrica} nel campo elettrico; possiamo crearlo se applichiamo una $\textrm{d.d.p.}$ tra le armature. Per misurare questa proprietà di immagazzinare carica, ci interessa definire, in modo analogo a come abbiamo fatto per i conduttori, una \textbf{capacità} dei condensatori.
+\begin{define}[Capacità di un condensatore]
+	La \textbf{capacità}\index{capacità} di un condensatore è la misura di quanta carica elettrica bisogna fornire ad un'armatura del condensatore per aumentare di un'unità la $\mathrm{d.d.p.}$ tra le armature.
+	\begin{equation}
+		C=\frac{q}{\Delta V}
+	\end{equation}
+\end{define}
+Come era per i conduttori, anche la capacità dei condensatori è dipendente esclusivamente dalla \textit{geometria} del conduttore, ma non del materiale con cui è fatto, dalla carica che c'è sopra o dal potenziale in esso (o meglio, differenza di potenziale).
 \begin{observe}
-	Dalla relazione
-	\begin{equation*}
-		e^{z+2k\pi i}=e^z,\ \forall z\in\complexset,\ \forall k\in\integerset
-	\end{equation*}
-	segue che in campo complesso la funzione esponenziale è \textbf{periodica} di periodo $2\pi i$.
-	Di conseguenza, in campo complesso la funzione esponenziale \textit{non} è invertibile. Tuttavia, l'\textit{invertibilità} è garantita se si consente come inversa una \textit{funzione multivoca}.\\
+	Generalmente, si presuppone di costruire dei condensatori la cui distanza tra le armature sia \textit{molto più piccola} dello spessore delle armature - in modo che sostanzialmente i condensatori considerati siano praticamente uguali anche in termini di dimensioni - e di studiare la differenza di potenziale a debita distanza dal \textit{bordo} in modo da evitare eventuali effetti non graditi.
 \end{observe}
-\begin{define}[Funzione multivoca]
-	Una \textbf{funzione multivoca}\index{funzione!multivoca} è una \textit{relazione binaria seriale} che associa ad ogni valore $x$ nel dominio $X$ uno o più valori $y$ nel codominio $Y$.
-\end{define}
-\begin{example}
-		Nella seguente figura sono rappresentati dei numeri complessi $z$ aventi lo \textit{stesso esponenziale}; si può vedere come essi abbiano la stessa parte \textit{reale}, ma ciascun numero differisce da quelli vicini a lui di $2\pi$ nella parte \textit{immaginaria}.
-	\begin{center}
-		\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1]{images/esponenziale1.pdf}
-	\end{center}
-\end{example}
-\subsubsection{Eserciziamoci! Funzione esponenziale in campo complesso}
-\begin{exercise}
-	\textit{Scegli la risposta corretta.} Il modulo del numero complesso $e^{iz}$, con $z\in\complexset$, è:
-	\begin{enumerate}[label=\alph*]
-		\item $e^{\Re z}$
-		\item $e^{-\Im z}$
-		\item $e^{\abs{z}}$
-		\item $e^{\Re z}$
-	\end{enumerate}
-\end{exercise}
-\begin{solution}
-	Per la proprietà $6$, dato $w\in\complexset$ $\abs{e^w}=e^{\Re w}$. Posto
-	\begin{equation*}
-		w=iz=i\left(\Re z + i \Im z\right)=-\Im z + i \Re z
-	\end{equation*}
-segue immediatamente che $\Re w=-\Im z$ e quindi $\abs{e^{iz}}=e^{-\Im z}$. La risposta corretta è \textbf{b}.
-\end{solution}
-\subsection{Funzione logaritmo in campo complesso}
-\begin{define}[Logaritmo in campo complesso]
-	Dato un numero complesso $z$, si chiamano \textbf{logaritmi complessi} di $z$, se esistono, i numeri complessi $w$ tali che
-	\begin{equation}
-		e^w=z
-	\end{equation}
-	L'insieme di tali numeri si indica con
-	\begin{equation}
-		\log z
-	\end{equation}
-o, per distinguerlo dal logaritmo reale, con
+\paragraph{Condensatore piano}
+Consideriamo due armature piane, distanti $d=x_2-x_1$; supponiamo che tale distanza sia molto più piccola della larghezza e altezza media delle armature; per dare un confronto dimensionalmente sensato, potremmo dire
 \begin{equation}
-	\log_{\complexset} z
+	d^2\ll \Sigma
 \end{equation}
+dove $\Sigma$ è l'area della superficie.\\
+Il campo elettrico tra due armature piane, lontano dai bordi, è% TO DO: add riferimento
+\begin{equation*}
+	E(x)=\frac{\sigma}{\epsilon_0}=\frac{q}{\Sigma \epsilon_0}
+\end{equation*}
+La differenza di potenziale tra le armature è quindi
+\begin{equation*}
+	\Delta V=\int_{x_1}^{x_2}\frac{q}{\Sigma \epsilon_0}dx=\frac{qd}{\Sigma \epsilon_0}
+\end{equation*}
+e quindi la capacità del condensatore piano è
+\begin{equation}
+	C=\frac{\epsilon_0\Sigma}{d}
+\end{equation}
+\paragraph{Condensatore cilindrico}
+Consideriamo un conduttore cilindrico con armatura interna di raggi $R_1$, armatura esterna di raggi $R_2$ e $R_3$.
+In modo analogo a come abbiamo trovato che il campo elettrico di un cilindro uniformemente carico, % TO DO: inserire chapt3 rrefer-
+il campo elettrico nella cavità è
+\begin{equation*}
+	E(R)=\frac{\sigma R_0}{\epsilon_0r}=\frac{q}{2\pi\epsilon_0Lr},\quad R_1<R<R_2
+\end{equation*}
+Allora la $\textrm{d.d.p.}$ è
+\begin{equation*}
+	\Delta V=V(R_2)-V(R_1)=\int_{R_1}^{R_2}E_R(R)dR=\frac{q}{2\pi\epsilon_0L}\log\frac{R_2}{R_1}
+\end{equation*}
+Se consideriamo la distanza tra le armature molto più piccola dei raggi, possiamo considerare le armature come se fossero due cilindri di raggio molto vicino ad $R$:
+\begin{equation*}
+	d=R_2-R_1\ll R_1,\ R_2\implies R\sim R_2\sim R_1
+\end{equation*}
+Supponiamo, inoltre, di studiare il campo elettrico (e quindi il potenziale) lontano dai bordi, onde evitare effetti di bordo non desiderati e difficili da descrivere.
+\begin{equation*}
+	d\ll L
+\end{equation*}
+Fissato ciò, si può sviluppare il logaritmo con Taylor per ottenere
+\begin{equation*}
+	\log\frac{R_2}{R_1}=\log\left(1+\frac{R_2-R_1}{R_1}\right)\simeq\frac{d}{R_1}\simeq\frac{d}{R}
+\end{equation*}
+da cui
+\begin{equation*}
+	\Delta V=\frac{q}{2\pi\epsilon_0L}\frac{d}{R}
+\end{equation*}
+e quindi la capacità del condensatore cilindrico è
+\begin{equation}
+	C=\frac{2\pi\epsilon_0RL}{d}=\frac{\epsilon_0\Sigma}{d}
+\end{equation}
+dove $\Sigma=2\pi RL$ è la superficie dell'armatura cilindrica.
+\paragraph{Condensatore sferico}
+Dallo studio del condensatore sferico % TO DO: inserire pagina?
+abbiamo visto che la differenza di potenziale tra le 
+\begin{equation*}
+	\Delta V=\frac{q}{4\pi\epsilon_0}\left(\frac{1}{R_1}-\frac{1}{R_2}\right)=\frac{q}{4\pi\epsilon_0}\left(\frac{R_1-R_2}{R_1R_2}\right)
+\end{equation*}
+Se consideriamo la distanza tra le armature molto più piccola dei raggi, possiamo considerare le armature come se fossero due sfere di raggio molto vicino ad $R$:
+\begin{equation*}
+	d=R_2-R_1\ll R_1,\ R_2\implies R\sim R_2\sim R_1
+\end{equation*}
+Fissato ciò, si ha
+\begin{equation*}
+	\Delta V\simeq\frac{q}{4\pi\epsilon_0}\left(\frac{d}{R^2}\right)
+\end{equation*}
+e quindi la capacità del condensatore sferico è
+\begin{equation}
+	C\simeq 4\pi\epsilon_0\left(\frac{R^2}{d}\right)=\frac{\epsilon_0\Sigma}{d}
+\end{equation}
+dove $\Sigma=4\pi R^2$ è la superficie dell'armatura sferica.
+\subsection{Condensatori in parallelo e in serie}
+Per caricare dei condensatori e immagazzinarci dell'energia possiamo fornire cariche ad una delle armature tramite un collegamento conduttivo esterni, come dei \textit{fili metallici}, e poi scaricare le cariche dall'altra armatura con un altro filo. La quantità di carica che si va a depositare sulle armature è \textit{proporzionale} alla $\mathrm{d.d.p.}$ tra le armature - che possiamo controllare collegando ai capi delle armature una batteria o un generatore con dei fili. Quello che abbiamo descritto è un semplice tipo di \textbf{circuito elettrico}.
+
+In questo capitolo non daremo una definizione più precisa di circuito o andremo nel dettaglio del loro funzionamento, ma lo faremo quando parleremo di \textit{corrente elettrica} nel capitolo XXX; nel frattempo anticipiamo ora due concetti importanti nel loro studio:
+\begin{define}[Collegamento in serie e in parallelo]~
+	\begin{itemize}
+		\item Due o più componenti sono collegate \textbf{in serie}\index{collegamento!in serie} se tutte sono collegate lungo un unico ‘‘percorso elettrico'', in cui ogni componente è collegata direttamente ad una sola altra componente.
+		\item Due o più componenti sono collegate \textbf{in parallelo}\index{collegamento!in parallelo} se le componenti sono connesse su \textit{rami} separati del ‘‘percorso elettrico''.
+	\end{itemize}
 \end{define}
-Proviamo ora che l'insieme dei logaritmi di $z$ è \textit{non vuoto} ed \textit{infinito} se $z\neq 0$.
-\begin{theorema}[Caratterizzazione dei logaritmi in campo complesso]
-	L'insieme dei logaritmi di un numero complesso $z$ è \textit{non vuoto} se e solo se $z\neq 0$. In questo caso esso è \textit{infinito} ed è costituito dai numeri complessi
-	\begin{equation}
-		\log_{\complexset} z = \log_{\realset} \abs{z} + i (\arg z+2k\pi ),\quad k\in \integerset
-	\end{equation}
-\end{theorema}
-\begin{demonstration}
-Ricordiamo che, per definizione, i logaritmi di un numero complesso $z$ sono le soluzioni dell'equazione $e^w=z$. Dalle proprietà dell'esponenziale è noto che $e^w\neq 0$, per ogni numero complesso $w$; di conseguenza, l'equazione non ha soluzioni se $z=0$.\\
-Sia ora $z\neq 0$; posto $w=u+iv$, con $u,v\in \realset$, ricordiamo che
+Si possono già fare alcune osservazioni:
+\begin{itemize}
+	\item In un collegamento \textit{in serie}, la \textit{carica totale} $q$ rimane costante lungo il percorso e ogni oggetto riceve la \textit{stessa}\footnote{Non necessariamente sono le stesse identiche cariche: ad esempio, nel caso dei condensatori le cariche che partono dall'altra piastra collegata \textit{non} sono le stesse che sono arrivate sull'altra, bensì sono cariche respinte da quelle presenti nell'altra armatura. In ogni caso, ciò che non cambia è la \textit{quantità} di carica totale.}; di conseguenza, vedremo che anche la \textit{corrente} risulta essere sempre la \textit{stessa} in ogni componente.
+	\item In un collegamento \textit{in parallelo}, la carica si \textit{distribuisce} nei vari rami in modo proporzionale alle caratteristiche delle componenti, e lo stesso fa la corrente elettrica. La carica e la corrente complessiva in un collegamento in parallelo è quindi la somma di quella nei vari fili.
+	\item In un collegamento \textit{in serie}, la differenza di potenziale diminuisce per ogni componente che è presente nel filo. Pertanto, la $\mathrm{d.d.p.}$ in un collegamento in serie è la somma di quella tra tutte i capi delle componenti.
+	\item In un collegamento \textit{in parallelo}, la differenza di potenziale è la stessa ai capi di ogni componente, perché metà delle estremità sono attaccate allo stesso filo e l'altra metà ad un altro filo.
+\end{itemize}
+L'idea cardine dello studio dei circuiti elettrici è di \textit{semplificarli} il più possibile, quanto meno ipoteticamente: se abbiamo diversi oggetti elettrici collegati nel circuito caratterizzati da delle quantità particolari $Z_i$, ci immaginiamo di sostituire diversi elementi dello stesso tipo (collegati in serie e in parallelo) con un'unica componente \textbf{equivalente} caratterizzata da una quantità $Z_{eq}$ che deriva da quelle delle componenti singole.
+\paragraph{Condensatori in parallelo}
+Consideriamo due condensatori $C_1$ e $C_2$, le cui piastre superiori sono collegate ad uno stesso filo, e si ha una cosa simile con le piastre inferiori.
+% TO DO: inserire grafico
+Per quanto osservato, la carica complessiva si distribuirà nei due fili
 \begin{equation*}
-	e^w=e^u\, (\cos v+i\sin v)
+	q_{tot}=q_1+q_2
 \end{equation*}
-affinché questo numero sia uguale a $z$ si dovrà quindi avere
+Poiché le piastre superiori sono collegate dallo stesso filo, essendo questo un unico conduttore equipotenziale, si ha in entrambe le armature in alto lo stesso potenziale $V_1$. Lo stesso vale per le armature inferiori, che sono collegate da uno stesso filo e quindi hanno potenziale $V_2$. Segue che la $\mathrm{d.d.p.}$ $\Delta V_1$ tra le piastre del primo condensatore di capacità $C_1$ e la $\mathrm{d.d.p.}$ $\Delta V_2$ tra le piastre del secondo condensatore di capacità $C_2$ è la stessa:
 \begin{equation*}
-	\abs{e^w}=e^u=\abs{z}\quad\text{e}\quad\arg(e^w)=v=\arg(z)+2k\pi
+	\Delta V_1=\Delta V_2=\Delta V
 \end{equation*}
-per qualche $k\in\integerset$. Otteniamo quindi
+Allora, se
+\begin{align*}
+	C_1&=\frac{q_1}{\Delta V_1}=\frac{q_1}{\Delta V} & C_2=\frac{q_2}{\Delta V_2}=\frac{q_2}{\Delta V}
+\end{align*}
+si ha che, complessivamente, il sistema corrisponde ad un condensatore di capacità
 \begin{equation*}
-	u=\log_{\realset} \abs{z}\in\realset
+	C_{eq}=\frac{q_{tot}}{\Delta V}=\frac{q_1+q_2}{\Delta V}=\frac{q_1}{\Delta V}+\frac{q_2}{\Delta V}=C_1+C_2
 \end{equation*}
-e dunque
+\begin{equation}
+	C_{eq}=C_1+C_2
+\end{equation}
+Nel caso generale di $n$ condensatori in parallelo:
+\begin{equation}
+	C_{eq}=\sum_{i=1}^{n}C_i
+\end{equation}
+\paragraph{Condensatori in parallelo}
+Consideriamo due condensatori $C_1$ e $C_2$: la piastra inferiore del primo è collegata alla superiore della seconda, in serie.
+% TO DO: inserire grafico
+Per quanto osservato, la carica complessiva è la stessa in ogni componente:
 \begin{equation*}
-	w=\log_{\realset}\abs{z}+i(\arg(z)+2k\pi),\quad k\in \integerset\qedhere
+	q_1=q_2=q_{tot}
 \end{equation*}
-\end{demonstration}
-\begin{attention}
-Si presti attenzione al diverso significato del simbolo $\log$ nella formula caratterizzante il \textit{logaritmo complesso}: a \textit{primo membro} esso indica i \textit{logaritmi complessi} del numero $z$; a secondo membro, l'unico logaritmo reale del numero reale positivo $\abs{z}$. Per evitare confusioni, qui è stato indicato in pedice a quale logaritmo ci riferiamo.
-\end{attention}
-In figura sono rappresentati alcuni dei logaritmi complessi di un numero complesso \textit{non nullo} $z$.
-\begin{center}
-	\includegraphics[trim=0cm 0cm 0cm 0cm, clip, scale=1]{images/esponenziale2.pdf}
-\end{center}
-Come si osserva dalla formula essi hanno tutti la \textit{stessa parte reale} e parti immaginarie che \textit{differiscono} per multipli di $2\pi$.
-\subsubsection{Eserciziamoci! Funzione logaritmo in campo complesso}
-\begin{exercise}
-	\textit{Scegli la risposta corretta.} I logaritmi del numero complesso $-2i$ sono:
-	\begin{enumerate}[label=\alph*]
-		\item $\log_{\realset} 2 + i\left(-\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
-		\item $-\log_{\realset} 2 + i\left(\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
-		\item $\log_{\realset} 2 + i\left(\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
-		\item $-\log_{\realset} 2 + i\left(-\dfrac{\pi}{2}+2k\pi\right),\ k\in\integerset$
-	\end{enumerate}
-\end{exercise}
-\begin{solution}
-Applicando la formula caratterizzante il logaritmo complesso:
+Al contrario, la differenza di potenziale diminuisce ad ogni nuovo condensatore che si incontra lungo il filo, quindi la $\mathrm{d.d.p}$ ai capi dell'intero sistema è la somma delle $\mathrm{d.d.p.}$ ai capi delle singole componenti.
 \begin{equation*}
-	\log_{\complexset}\left(-2i\right)=\log_{\realset}\abs{-2i}+i\left(\arg\left(-2i\right)+2k\pi\right)=\log_{\realset} 2+i\left(-\frac{\pi}{2}+2k\pi\right),\ k\in\integerset
+	\Delta V=\Delta V_1+\Delta V_2
 \end{equation*}
-La risposta corretta è pertanto \textbf{a}.
-\end{solution}
+Allora, se
+\begin{align*}
+	C_1&=\frac{q_1}{\Delta V_1}=\frac{q_{tot}}{\Delta V_1} & C_2=\frac{q_2}{\Delta V_2}=\frac{q_{tot}}{\Delta V_2}
+\end{align*}
+si ha che, complessivamente, il sistema corrisponde ad un condensatore di capacità
+\begin{equation*}
+	C_{eq}=\frac{q_{tot}}{\Delta V}=\frac{q_{tot}}{\Delta V_1+\Delta V_2}\implies \frac{1}{C_{eq}}=\frac{\Delta V_1}{q_{tot}}+\frac{\Delta V_2}{q_{tot}}=\frac{1}{C_1}+\frac{1}{C_2}
+\end{equation*}
+\begin{equation}
+	\frac{1}{C_{eq}}=\frac{1}{C_1}+\frac{1}{C_2}
+\end{equation}
+Nel caso generale di $n$ condensatori in serie:
+\begin{equation}
+	\frac{1}{C_{eq}}=\sum_{i=1}^{n}\frac{1}{C_i}
+\end{equation}
+\section{Lavoro di carica di un condensatore ed energia immagazzinata nel condensatore} % TO DO: riguardare con il Mazzoldi
+Per creare una separazione di carica $q$ nel condensatore, ossia portare la carica $Q$ dalla piastra negativa alla piastra positiva (dal potenziale minore a quello maggiore), una fonte di energia esterna deve compiere un certo \textbf{lavoro} per oppore tale spostamento alla forza del campo elettrico, che la riporterebbe alla piastra originale. L'\textit{energia} $U$ che viene fornita sotto forma di lavoro $W$ incrementa il potenziale da $0$ fino ad avere una differenza di potenziale $\Delta V$, cioè corrisponde all'energia necessaria per creare partendo da armature scariche il \textit{campo elettrico}.
+
+Posto $\Delta V=V(q)-V(0)=V$ e dunque $V=\frac{q}{C}$, si ha
+\begin{equation*}
+	W=U=\int_{0}^{q}dU=\int_{0}^{q}dV=\int_0^{q}V(Q)dQ=\int_{0}^{q}\frac{Q}{C}dQ=\eval{\frac{1}{2}\frac{Q^2}{C}}_{0}^{q}\frac{q^2}{2C}
+\end{equation*}
+\begin{equation}
+	W=U=\frac{q^2}{2C}=\frac{1}{2}CV^2=\frac{1}{2}qV
+\end{equation}
+Questa energia è immagazzinata fondamentalmente nel campo elettrico. Ad esempio, consideriamo un condensatore ad armature piane cdi superficie $\Sigma$ a distanza $d$; il suo campo elettrico tra le armature è
+\begin{equation*}
+	E=\frac{\sigma}{\epsilon_0}=\frac{q}{\Sigma \epsilon_0}
+\end{equation*}
+e la sua capacità è
+\begin{equation*}
+	C=\frac{\epsilon_0\Sigma}{d}
+\end{equation*}
+L'energia immagazzinata nel condensatore è
+\begin{equation*}
+	U=\frac{q^2}{2C}=\frac{E^2\Sigma^{\Ccancel[red]{2}}\epsilon_0^{\Ccancel[red]{2}} d}{2\Ccancel[red]{\epsilon_0}\Ccancel[red]{\Sigma}}=\frac{1}{2}\epsilon_0E^2\Sigma d
+\end{equation*}
+Osserviamo come $\Sigma d$ corrisponde al volume ${Vol}$ occupato dal campo elettrico tra le facce del condensatore: l'ultima formula è uguale alla \textbf{densità di energia per unità di volume}\index{densità!di energia elettrostatica}
+\begin{equation}\label{DensitàEnergiaElettrostatica}
+	\mu_{E}==\frac{1}{2}\epsilon_0E^2
+\end{equation}
+moltiplicata per il volume ${Vol}$ di campo elettrico, confermando che l'energia del condensatore non è conservata nelle piastre, ma nel \textit{campo elettrico}
+% \footnote{Grazie Maccio di esistere - Fra} - lo metterò nelle dediche, do not eliminare
+\section{Energia del campo elettrostatico}
+In generale, il campo elettrico immagazzina \textit{sempre} dell'energia nel campo stesso, dato che è l'energia necessaria a separare le cariche richieste per generare il campo elettrico. Tale energia, in un certo volume $V$, è pari a
+\begin{equation}
+	U=\int_V\mu_EdV=\frac{1}{2}\epsilon_0\int_V\abs{\vba{E}(r)}^2dV
+\end{equation}
+dove $\mu_E$ è la densità di energia elettrostatica, definita come nell'equazione \eqref{DensitàEnergiaElettrostatica}.
+\section{Pressione elettrostatica}
+In un condensatore le piastre sono caricate con segno opposto: questo comporta l'esistenza di una forza che tende a farle \textit{attrarle}. Questa forza è
+\begin{equation}
+	\vba{F}=-\grad{\vba{U}}
+\end{equation}
+dove $U$, nel caso di un condensatore ad armature piane, è
+\begin{equation*}
+	U=\frac{q^2}{2C}=\frac{q^2d}{2\epsilon_0\Sigma}
+\end{equation*}
+In modulo, tale forza è
+\begin{equation}
+	F=\abs{\pdv{U}{d}}=\frac{q^2}{2\epsilon_0\Sigma}
+\end{equation}
+La \textbf{pressione elettrostatica}\index{pressione!elettrostatica} percepita dalle piastre è
+\begin{equation}
+	P=\frac{F}{\Sigma}=\frac{q^2}{2\epsilon_0\Sigma^2}=\frac{\sigma^2}{2\epsilon_0}
+\end{equation}
+% TO DO: espandere?

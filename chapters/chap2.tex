@@ -5,7 +5,7 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Il flusso di un campo}
+\chapter{Il flusso del campo elettrico e la legge di Gauss}
 \labelChapter{convergenzafunzioni}
 
 \begin{introduction}
@@ -18,7 +18,7 @@
 \section{Flusso di un campo vettoriale}
 % TO DO: concezione intuitiva di flusso
 \begin{define}[Flusso di un campo vettoriale]
-	Il \textbf{flusso di un campo vettoriale attraverso una superficie orientata} $\Sigma$, parametrizzata da una funzione $\vba{r}(u,v)$, è
+	Il \textbf{flusso di un campo vettoriale attraverso una superficie orientata}\index{flusso di un campo vettoriale} $\Sigma$, parametrizzata da una funzione $\vba{r}(u,v)$, è
 	\begin{equation}
 		\Phi_{\Sigma}\left(\vba{E}\right)=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma}\vba{E}\vdot\frac{\partial \vba{r}}{\partial u}\cross\frac{\partial \vba{r}}{\partial v}dudv
 	\end{equation}
@@ -29,7 +29,8 @@
 \end{intuit}
 Matematicamente parlando, il flusso non è altro che un tipo di integrale superficiale di un campo vettoriale. % TO DO: link ai richiami.\\
 
-Come abbiamo detto, la superficie deve essere \textbf{orientabile}: detto in una maniera suggestiva, intuitiva ma non formale come farebbero i fisici, una superficie con due \textit{facce distinte} e due \textit{orientazioni} possibili che corrispondono alla scelta di un \textit{campo normale} che punta sempre dalla parte di una delle facce.\\ In particolare, la superficie deve essere effettivamente orientata, ossia si deve scegliere uno dei campi normali in modo da definire quando il flusso è positivo e quando è negativo. Generalmente, per convenzione si impone che il \textbf{flusso positivo esce dalla superficie} e che il flusso negativo entra nella superficie; in altre parole, è convenzione prendere il vettore normale orientato verso l'\textit{esterno}: il flusso positivo si avrà quando la componente perpendicolare del campo vettoriale $\vba{E}$ e il vettore normale saranno \textit{concordi} e quindi quando $\vba{E}$ è anch'esso uscente.
+Come abbiamo detto, la superficie deve essere \textbf{orientabile}: detto in una maniera suggestiva, intuitiva ma non formale come farebbero i fisici, una superficie con due \textit{facce distinte} e due \textit{orientazioni} possibili che corrispondono alla scelta di un \textit{campo normale} che punta sempre dalla parte di una delle facce.\\
+In particolare, la superficie deve essere effettivamente orientata, ossia si deve scegliere uno dei campi normali in modo da definire quando il flusso è positivo e quando è negativo. Generalmente, per convenzione si impone che il vettore normale alla superficie è orientato verso l'\textit{esterno}: quando la componente perpendicolare del campo vettoriale $\vba{E}$ e il vettore normale saranno \textit{concordi}, cioè quando $\vba{E}$ è \textit{uscente} dalla superficie, si ha un flusso \textit{positivo}; se il campo $\vba{E}$ è \textit{entrante} la superficie, allora si ha un flusso \textit{negativo}.
 \begin{observe} % TO DO: confrontare mazzoldi e note docente, riformulare che non è molto chiaro
 	Data una superficie chiusa $\Sigma$, tracciamo una curva chiusa $\gamma$ su di essa; possiamo scindere $\Sigma$ in due sottosuperfici $\Sigma_1$ e $\Sigma_2$ che hanno in comune una superficie $\Sigma_{1,2}$ delimitata da $\gamma$.
 	Il flusso per linearità di scinde in
@@ -46,8 +47,8 @@ Come abbiamo detto, la superficie deve essere \textbf{orientabile}: detto in una
 % http://sites.science.oregonstate.edu/math/home/programs/undergrad/CalculusQuestStudyGuides/vcalc/flux/flux.html
 % https://mathinsight.org/vector_field_fluid_flow
 % https://tutorial.math.lamar.edu/classes/calciii/SurfIntVectorField.aspx
-\begin{theorema}
-	Il flusso del campo elettrostatico $\vba{E}$ attraverso un superficie \textit{chiusa} è eguale alla somma algebrica (\textrm{o nel caso di una distribuzione continua}, dell'integrale) delle cariche contenute all'\textbf{interno} della superficie, comunque siano distribuite, divisa per $\epsilon_0$.
+\begin{theorema}[Legge di Gauss]\index{legge!di Gauss}
+	Il flusso del campo elettrostatico $\vba{E}$ attraverso un superficie \textbf{chiusa} è uguale alla somma algebrica (\textrm{o nel caso di una distribuzione continua}, dell'integrale) delle cariche contenute all'\textbf{interno} della superficie, comunque siano distribuite, divisa per $\epsilon_0$.
 	\begin{itemize}
 		\item \textbf{Caso discreto:}
 		\begin{equation}
@@ -63,7 +64,7 @@ Lo dimostreremo per una \textit{singola} carica contenuta nella superficie - dat
 \paragraph{Angolo solido}
 Per far ciò, ci servirà la nozione di \textit{angolo solido}.
 \begin{define}[Angolo solido]
-	L'\textbf{angolo solido} è una generalizzazione a tre dimensioni dell'angolo piano e dà una misura della parte di spazio compresa entro un fascio di semirette uscenti intorno ad un punto $P$. In termini matematici, esso è definito come l'area sulla sfera unitaria intorno a $P$ individuata dalla superficie (finita) $\Sigma$:
+	L'\textbf{angolo solido}\index{angolo solido} è una generalizzazione a tre dimensioni dell'angolo piano e dà una misura della parte di spazio compresa entro un fascio di semirette uscenti intorno ad un punto $P$. In termini matematici, esso è definito come l'area sulla sfera unitaria intorno a $P$ individuata dalla superficie (finita) $\Sigma$:
 	\begin{equation}
 		\Omega=\int d\Omega =\int \frac{d\Sigma_0}{r^2}=\int\frac{cos\theta d\Sigma}{r^2}
 	\end{equation}
@@ -89,7 +90,10 @@ Integrando $\theta$ da $0$ a $\pi$ e $\phi$ da $0$ a $2\pi$, si ottiene l'angolo
 	\Omega=\int d\Omega=\int_0^{2\pi}d\phi\int_0^\pi d\theta\sin\theta=4\pi
 \end{equation}
 Questo risultato è valido per una qualunque superficie \textit{chiusa} che racchiuda $P$ - e ne corrisponde al valore massimo dell'angolo solido.\\
-L'unità di misura dell'angolo solido è lo \textbf{steradiante}\index{steradiante} ($\ $).
+\begin{units}~\\
+	\textbf{\textsc{Angolo solido:}} Steradiante  ($\unit{\steradian}$).\\
+	\textit{Dimensioni:} $[\Omega]=\mathsf{1}$.
+\end{units}
 \paragraph{Derivazione fisica della legge di Gauss}
 Dato il campo di Coulomb $\vba{E}$ generato dalla carica $q$, vogliamo determinare l'elemento di flusso infinitesimo $d\Phi\left(\vba{E}\right)$, ossia il flusso tramite l'elemento d'area infinitesimo $d\Sigma$.
 
@@ -220,44 +224,122 @@ Il flusso tramite una superficie \textit{chiusa} dipende \textit{solo} dalle car
 \end{observe}
 \section{Applicazioni della legge di Gauss}
 La legge di Gauss, in linea di principio, ci descrive solo il flusso tramite una superficie chiusa. Tuttavia, in situazioni di \textit{evidenti simmetrie}, confrontando la definizione di flusso con quello ottenuto dalla legge di Gauss possiamo sorprendentemente calcolare in modo abbastanza facile il campo elettrostatico che genera il flusso.
+\begin{attention} % TO DO: dove cazzo lo metto
+	Bisogna fare attenzione ad utilizzare la legge di Gauss in assenza di simmetrie. Ad esempio, consideriamo una situazione come in figura.
+	
+	Qui il flusso è nullo perché ciò che entra esce, ma il campo elettrico non è nullo.
+\end{attention}
 \paragraph{Filo carico rettilineo (infinito)}
-\paragraph{Superficie carica infinita}
-\paragraph{Sfera uniformemente carica}
-\section{Circuitazione di un campo vettoriale}
-% TO DO: concezione intuitiva di circuitazione
-\begin{define}[Circuitazione di un campo vettoriale]
-	Il \textbf{circuitazione di un campo vettoriale lungo la curva chiusa} $\gamma$, parametrizzata da una funzione $\funz[\vba{r}]{\left[a,b\right]}{\realset^3}$, è
-	\begin{equation}
-		\Gamma_{\gamma}\left(\vba{E}\right)=\oint_{\gamma}\vba{E}\vdot d\vba{s}=\int_{a}^b\vba{E}\vdot\frac{d\vba{r}}{dt}dt
-	\end{equation}
-\end{define}
+	Si consideri un filo rettilineo infinito con densità lineare costante $\lambda$. Per semplicità, poniamo il sistema di riferimento in modo che il filo carico sia lungo l'asse $z$. Poniamo un cilindro attorno al filo in modo che il filo passi per l'asse del cilindro. Data l'evidente simmetria cilindrica del sistema usiamo, per motivi che dovrebbero essere oramai chiari, le coordinate cilindriche:
+\begin{equation*}
+	\begin{cases}
+		x=R\cos\theta\\
+		y=R\sin\theta\\
+		z=z
+	\end{cases}
+\end{equation*}
+Oltre ad essere un sistema di riferimento, fissato $R$ abbiamo una parametrizzazione del cilindro di raggio $R$.
 
-\section{Teorema della divergenza}
-\begin{theoremaqed}[Teorema della divergenza]
-	Si consideri un volume $V\subseteq\realset^3$ compatto con bordo liscio $\partial V$. Dato un campo vettoriale differenziabile $\vba{E}$ in un intorno di $V$, allora
-	\begin{equation}
-		\int_V\div{\vba{E}}=\int_{\partial V}\vba{E}\vdot \vbh{u}_nd\Sigma\label{TeoremaDivergenza}\qedhere
-	\end{equation}
-\end{theoremaqed}
-Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
+Ora, ci è già noto che in questo sistema di riferimento il campo elettrostatico dipende esclusivamente dalla coordinata radiale e ha direzione radiale, ossia $\vba{E}=E(R)\vbh{u}_R$. Per come abbiamo posto il cilindro $\Sigma$, il versore normale alla superficie laterale coincide con quello radiale delle coordinate cilindriche, pertanto
+\begin{equation*}
+	\Phi_{\Sigma}\left(\vba{E}\right)=\int\vba{E}\cdot\vbh{u}_nd\Sigma=\int\vba{E}\cdot\vbh{u}_Rd\Sigma=\int E(R)\vbh{u}_R\vdot\vbh{u}_Rd\Sigma=E(R)\int d\Sigma\squarequal
+\end{equation*}
+dove l'ultimo passaggio è lecito in quanto sulla superficie del cilindro il raggio è fissato e quindi anche $E(R)$ è costante.\\
+Dato che l'elemento di area è dato da $d\Sigma=d\Phi dz$, si ha
+\begin{equation*}
+	\squarequal\lim_{L\to+\infty}2\pi R L E(R)
+\end{equation*}
+Per la legge di Gauss,
+\begin{equation*}
+	\Phi_{\Sigma}\left(\vba{E}\right)=\frac{q}{\epsilon_0}=\frac{\lambda L}{\epsilon_0}
+\end{equation*}
+dove $\lambda$ è la densità lineare di carica; per ottenere il flusso per il filo infinito ci basterebbe mandare $L$ all'infinito. Eguagliando i due flussi ottenuti si ricava che
+\begin{equation*}
+	2\pi R\Ccancel[red]{L}E(R)=\frac{\lambda \Ccancel[red]{L}}{\epsilon_0}
+\end{equation*}
+e quandi
 \begin{equation}
-	\int_V\div{\vba{E}}=\Phi_\Sigma\left(\vba{E}\right)
+	\vba{E}(R)=\frac{\lambda}{2\pi\epsilon_0 R}
 \end{equation}
-\section{Teorema del rotore}
-\begin{theoremaqed}[Teorema del rotore]
-	Si consideri una curva $\funz[\gamma]{\left[a,b\right]}{\realset^3}$ semplice - ossia senza intersezioni con sé stessa, chiusa e liscia a tratti; si consideri inoltre una superficie $\Sigma$ liscia tale che $\partial \Sigma=\gamma$. Dato un campo vettoriale differenziabile $\vba{E}$ in un intorno di $V$, allora
-	\begin{equation}
-		\int_\Sigma\grad{\vba{E}}\vdot\vbh{u}_nd\Sigma=\oint_{\gamma}\vba{E}\vdot d\vba{s}\label{TeoremaRotore}\qedhere
-	\end{equation}
-\end{theoremaqed}
-Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
+\paragraph{Superficie carica infinita}
+Si consideri una superficie piana $\Sigma$ con densità superficiale costante $\sigma$. Per semplicità, poniamo il sistema di riferimento in modo che la superficie coincida con il piano $x=0$. Come per il caso del filo carico rettilineo, consideriamo un cilindro, questa volta che interseca la superficie ortogonalmente e posto in maniera che le basi siano alla stessa distanza dal piano.
+
+Ci è già noto che il campo elettrostatico dipende esclusivamente dalla coordinata perpendicolare al piano, cioè $x$, e ha direzione $\vbh{u}_x$. In particolare, si osservi che da facce opposte del piano il versore normale $u_n=u_x$ cambia verso e quindi cambia verso anche il campo elettrostatico:
+\begin{equation*}
+	\vba{E}=
+	\begin{cases}
+		E(\abs{x})\vbh{u}_x&\text{se}\ x>0\\
+		-E(\abs{x})\vbh{u}_x&\text{se}\ x<0
+	\end{cases}
+\end{equation*}
+Il flusso tramite il cilindro $\Sigma$ si può scindere in tre componenti: i due flussi $\Phi_{A_1}$ e $\Phi_{A_2}$ attraverso le basi e il flusso $\Phi_{SL}$ attraverso la superficie laterale; tuttavia, poiché la superficie laterale è sempre ortogonale al campo, quest'ultima componente è nulla. Inoltre, si ha che il campi èsce sempre dalle basi, pertanto i flussi saranno positivi e, per questioni di simmetria, coincidono:
 \begin{equation}
-\int_V\div{\vba{E}}=\Phi_\Sigma\left(\vba{E}\right)
+	\Phi_{A_1}=\Phi_{A_2}
 \end{equation}
-Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
+Pertanto,
+\begin{equation*}
+	\Phi_{\Sigma}\left(\vba{E}\right)=2\int_A E(\abs{x})d\Sigma=2 E(\abs{x})\int_{A_1}d\Sigma=2E(\abs{x})A_1
+\end{equation*}
+Ricordando che la densità di carica superficiale $\sigma$ è costante, la carica interna al cilindro è data da
+\begin{equation*}
+	q=\sigma A_1
+\end{equation*}
+Per la legge di Gauss si ha
+\begin{equation*}
+	\Phi_{\Sigma}=\frac{\sigma A_1}{\epsilon_0}
+\end{equation*}
+Eguagliando i due flussi ottenuti si ricava che
+\begin{equation*}
+	2\Ccancel[red]{A_1}E(\abs{x})=\frac{\sigma \Ccancel[red]{A_1}}{\epsilon_0}
+\end{equation*}
+e quindi
 \begin{equation}
-	\Phi_\Sigma\left(\grad{\vba{E}}\right)=\Gamma_\gamma\left(\vba{E}\right)
+	\vba{E}(\abs{x})=\frac{\sigma}{2\epsilon_0}\vbh{u}_x
+\end{equation}
+\paragraph{Sfera uniformemente carica}
+Si consideri una palla sferica di raggio $R$ con densità volumica costante $\rho$. Per semplicità, poniamo il sistema di riferimento in modo che l'origine coincida con il centro della sfera. Come superficie $\Sigma$ per calcolare il flusso scelgo una sfera di raggio $r$ centrata anch'essa nell'origine.
+
+Ci è già noto che il campo elettrostatico dipende esclusivamente dalla coordinata radiale e ha direzione radiale, ossia $\vba{E}=E(r)\vbh{u}_r$. Il versore normale alla superficie $\Sigma$ è $\vbh{u}_n=\vbh{u}_r$.
+A questo punto distinguiamo il calcolo quando la superficie sferica ha raggio maggiore della palla ($r>R$) o quando ha raggio minore ($r<R$).
+\subparagraph{Il caso esterno: $r>R$}
+In questo caso la superficie sferica \textit{contiene} la sfera uniformemente carica. Il flusso dunque è
+\begin{equation*}
+	\Phi_{\Sigma}\left(\vba{E}\right)=\int E(r)d\Sigma=E(r)4\pi r^2
+\end{equation*}
+dato che $E(r)$ è costante sulla sfera di raggio $r$.
+La superficie sferica contiene \textit{tutta} la carica della palla al suo interno, quindi per la legge di Gauss
+\begin{equation*}
+	\Phi_{\Sigma}(\vba{E})=\frac{q}{\epsilon_0}=\frac{4 \pi R^3\rho}{3\epsilon_0}
+\end{equation*}
+e quindi
+\begin{equation}
+	\vba{E}(r)=\frac{\rho R^3}{3\epsilon_0r^2}\vbh{u}_r=\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r
 \end{equation}
 \begin{observe}
-	Ci sono infinite superfici con bordo $\gamma$, ma il flusso del rotore è \textit{sempre} uguale.
+	Una qualunque distribuzione di carica a simmetria \textit{sferica} dipendente dalla distanza radiale, ossia $\rho(x,y,z)=\rho(r)$, genera al suo esterno un campo uguale a quello di una carica puntiforme.
 \end{observe}
+\subparagraph{Il caso interno: $r<R$}
+In questo caso la superficie sferica contiene al suo interno solo una parte della carica complessiva:
+\begin{equation*}
+	q_{interna}=\frac{4}{3}\pi r^3\rho
+\end{equation*}
+Se il flusso, calcolato secondo la definizione, non cambia espressione (ma valore sì!)...
+\begin{equation*}
+	\Phi_{\Sigma}\left(\vba{E}\right)=E(r)4\pi r^2
+\end{equation*}
+... quello per la legge di Gauss diventa
+\begin{equation*}
+	\Phi_{\Sigma}(\vba{E})=\frac{q_{interna}}{\epsilon_0}=\frac{4 \pi r^3\rho}{3\epsilon_0}
+\end{equation*}
+e quindi
+\begin{equation}
+\vba{E}(r)=\frac{q_{interna}}{4\pi\epsilon_0 r^2}\vbh{u}_r=\frac{\rho r}{3\epsilon_0}\vbh{u}_r
+\end{equation}
+
+Riassumendo, il campo elettrico generato da una sfera uniformemente carica di raggio $R$ a distanza $r$ dall'origine è
+\begin{equation}
+	\vba{E}(r)=\begin{cases}
+		\frac{\rho r}{3\epsilon_0}\vbh{u}_r&\text{se}\ r\leq R\\
+		\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r &\text{se}\ r\geq R
+	\end{cases}
+\end{equation}

@@ -337,7 +337,7 @@ In questa sezione ci limitiamo a considerare lo spazio affine $\realset^3$ - dot
 \begin{define}[Operatore nabla]
 	L'operatore \textbf{nabla}\index{nabla}	è una notazione matematica che semplifica la scrittura di diverse equazioni. In coordinate cartesiane su $\realset^3$, si può immaginare un vettore puramente formale che contiene gli operatori delle derivate parziali nelle tre direzioni spaziali (cartesiane):
 	\begin{equation}
-		\grad = \pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z
+		\grad = \pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z\label{nablacartesiano}
 	\end{equation}
 \end{define}
 \begin{attention}
@@ -371,7 +371,7 @@ Un campo scalare è quindi una mappa che a punti di $\realset^3$ associa valori 
 	\end{itemize}
 \end{examples}
 \begin{define}[Campo conservativo e potenziale]
-	Dato un campo vettoriale $\vba{E}$, se esiste un campo scalare $\phi$ tale che $\vba{E}=\grad{\phi}$, allora $\vba{E}$ viene detto \textbf{conservativo}\index{campo!conservativo} e la funzione $\phi$ è detta \textbf{potenziale}\index{potenziale}.
+	Dato un campo vettoriale $\vba{G}$, se esiste un campo scalare $\phi$ tale che $\vba{G}=\grad{\phi}$, allora $\vba{G}$ viene detto \textbf{conservativo}\index{campo!conservativo} e il campo scalare $\phi$ è detto \textbf{potenziale}\index{potenziale}.
 \end{define}
 \begin{observe}
 	Dato un campo scalare, esistono delle \textbf{superfici equipotenziali} tali per cui $\phi=\text{costante}$ sulla superficie. Il gradiente di $\phi$ è, punto per punto, ortogonale alla superficie equipotenziale.
@@ -389,45 +389,53 @@ Questa definizione è \textit{intrinseca} e \textit{non} richiede alcun sistema 
 Per questioni operative conviene comunque servirsi di un sistema di coordinate e calcolare le componenti del gradiente in tale sistema.
 \paragraph{Divergenza}
 \begin{define}[Divergenza]
-	Dato un campo vettoriale $\funz[\vba{E}]{\realset^3}{\realset^3}$, la \textbf{divergenza}\index{divergenza} è il campo scalare dato dall'applicazione della nabla tramite prodotto scalare ad $\vba{E}$:
+	Dato un campo vettoriale $\funz[\vba{G}]{\realset^3}{\realset^3}$, la \textbf{divergenza}\index{divergenza} è il campo scalare dato dall'applicazione della nabla tramite prodotto scalare ad $\vba{G}$:
 	\begin{equation}
-		\div{\vba{E}}=\partial_xE_x+\partial_yE_y+\partial_zE_z
+		\div{\vba{G}}=\partial_xG_x+\partial_yG_y+\partial_zG_z
 	\end{equation}
 \end{define}
 \begin{example}
-	Se $\vba{E}$ rappresenta la velocità dell'aria in una certa regione di spazio, $\div{ \vba{E}}$ rappresenta quanta più aria sta ‘‘uscendo'' da quella regione rispetto a quanta ne sta ‘‘entrando''. Se scaldiamo l'aria, essa si espande, i vettori puntano verso l'esterno della regione e la divergenza è positiva; se raffreddiamo l'aria, l'aria si contrae e la divergenza ha un valore negativo.
+	Se $\vba{G}$ rappresenta la velocità dell'aria in una certa regione di spazio, $\div{ \vba{G}}$ rappresenta quanta più aria sta ‘‘uscendo'' da quella regione rispetto a quanta ne sta ‘‘entrando''. Se scaldiamo l'aria, essa si espande, i vettori puntano verso l'esterno della regione e la divergenza è positiva; se raffreddiamo l'aria, l'aria si contrae e la divergenza ha un valore negativo.
 \end{example}
 \paragraph{Rotore}
 \begin{define}[Rotore]
-	Dato un campo vettoriale $\funz[\vba{E}]{\realset^3}{\realset^3}$, il \textbf{rotore}\index{rotore} è il campo vettoriale dato dall'applicazione della nabla tramite prodotto vettoriale ad $\vba{E}$:
+	Dato un campo vettoriale $\funz[\vba{G}]{\realset^3}{\realset^3}$, il \textbf{rotore}\index{rotore} è il campo vettoriale dato dall'applicazione della nabla tramite prodotto vettoriale ad $\vba{G}$:
 	\begin{equation}
-		\curl{\vba{E}}=(\partial_yE_zx-\partial_xE_y,\partial_zE_x-\partial_xE_z,\partial_xE_y-\partial_yE_x)
+		\curl{\vba{G}}=(\partial_yG_z-\partial_xG_y,\partial_zG_x-\partial_xG_z,\partial_xG_y-\partial_yG_x)
 	\end{equation}
 	Si definisce anche come il determinante formale
 	\begin{equation}
-		\curl{\vba{E}}=\begin{vmatrix}
+		\curl{\vba{G}}=\begin{vmatrix}
 			\partial_x & \partial_y & \partial_z\\
-			E_x & E_y & E_z\\
+			G_x & G_y & G_z\\
 			\vbh{u}_x & \vbh{u}_y & \vbh{u}_z
 		\end{vmatrix}
 	\end{equation}
 \end{define}
 \begin{example}
-	Supponiamo che $\vba{E}$ rappresenta la velocità di un flusso d'acqua in una certa regione di spazio e di porre una pallina ruvida nel fluido, in modo che non si può spostare da tale punto. Anche se non si sposta da lì, il fluido fa comunque ruotare la pallina: l'asse di rotazione è nella direzione di $\grad \vdot \vba{E}$ applicato al centro della palla, mentre la velocità angolare dipende dal modulo del rotore in tale punto.\\
+	Supponiamo che $\vba{G}$ rappresenta la velocità di un flusso d'acqua in una certa regione di spazio e di porre una pallina ruvida nel fluido, in modo che non si può spostare da tale punto. Anche se non si sposta da lì, il fluido fa comunque ruotare la pallina: l'asse di rotazione è nella direzione di $\grad \vdot \vba{G}$ applicato al centro della palla, mentre la velocità angolare dipende dal modulo del rotore in tale punto.\\
 	In altre parole, è una misura di come un fluido potrebbe ruotare (o meglio, far ruotare qualcosa a livello microscopico)
 \end{example}
 \begin{define}[Campo irrotazionale]
-	Un campo vettoriale $\vba{E}$ viene detto \textbf{irrotazionale}\index{campo!irrotazionale} se $\curl{\vba{E}}=0$.
+	Un campo vettoriale $\vba{G}$ viene detto \textbf{irrotazionale}\index{campo!irrotazionale} se $\curl{\vba{G}}=0$.
+\end{define}
+\begin{define}[Campo solenoidale e vettore potenziale]
+	Dato un campo vettoriale $\vba{G}$, se esiste un campo vettoriale $\vba{A}$ tale che $\vba{G}=\curl{\vba{A}}$, allora $\vba{G}$ viene detto \textbf{solenoidale}\index{campo!solenoidale} e il campo vettoriale $\vba{A}$ è detto \textbf{vettore potenziale}\index{vettore potenziale}.
 \end{define}
 \subsection{Derivate seconde}
 Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettoriali, possiamo riapplicare l'operatore nabla come in precedenza per ottenere delle derivate seconde; alcune hanno particolare rilevanza perché sono importanti dal punto di vista matematico oppure perché sono costantemente nulle.
 \begin{enumerate}[label=\roman*)]
-	\item  $\div{\grad\phi}=\laplacian{\phi}=\partial^2_x\phi+\partial^2_y\phi+\partial^2_z\phi$, noto come \textbf{laplaciano}\index{laplaciano}.
-	\item $\curl{\curl{\phi}}=0$
-	\item $\grad{\div{\vba{E}}}$
-	\item $\curl{\curl{\phi}}=0$
-	\item $\div{\curl{\vba{E}}}=0$
-	\item $\curl{\curl{\vba{E}}}=\grad{\div{\vba{E}}}+\laplacian{\vba{E}}$, dove $\laplacian{\vba{E}}=\left(\laplacian{\partial_xE},\laplacian{\partial_yE},\laplacian{\partial_zE}\right)$ è il \textbf{laplaciano vettoriale}\index{laplaciano!vettoriale}
+	\item  $\div{\left(\grad\phi\right)}=\laplacian{\phi}$, dove $\laplacian{\phi}$ è il \textbf{laplaciano}\index{laplaciano}:
+	\begin{equation}
+		\laplacian{\phi}=\partial^2_x\phi+\partial^2_y\phi+\partial^2_z\phi\label{laplacianocartesiano}
+	\end{equation}
+	\item $\curl{\grad{\phi}}=0$
+	\item $\grad{\left(\div{\vba{G}}\right)}$
+	\item $\div{\left(\curl{\vba{G}}\right)}=0$
+	\item $\curl{\left(\curl{\vba{G}}\right)}=\grad{\left(\div{\vba{G}}\right)}+\laplacian{\vba{G}}$, dove $\laplacian{\vba{G}}$ è il \textbf{laplaciano vettoriale}\index{laplaciano!vettoriale}:
+	\begin{equation}
+		\laplacian{\vba{G}}=\left(\laplacian{\partial_xE},\laplacian{\partial_yE},\laplacian{\partial_zE}\right)
+	\end{equation}
 \end{enumerate}
 
 \begin{demonstration}
@@ -437,40 +445,66 @@ Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettori
 		\begin{equation*}
 			\begin{vmatrix}
 				\partial_x & \partial_y & \partial_z\\
-				E_x & E_y & E_z\\
+				G_x & G_y & G_z\\
 				\vbh{u}_x & \vbh{u}_y & \vbh{u}_z
 			\end{vmatrix}=\left(\partial_y\partial_z\phi-\partial_z\partial_y\phi\right)\vbh{u}_x+\left(\partial_z\partial_x\phi-\partial_x\partial_z\phi\right)\vbh{u}_y+\left(\partial_x\partial_y\phi-\partial_y\partial_x\phi\right)\vbh{u}_z=0
 		\end{equation*}
 		\item[iv)]
 		\begin{align*}
-			\left(\partial_x,\partial_y,\partial_z\right)\vdot(\partial_yE_x-\partial_xE_y,\partial_zE_x-\partial_xE_z,\partial_xE_y-\partial_yE_x)=&\\
-			\\=\partial_x\partial_yE_z-\partial_x\partial_zE_y+\partial_y\partial_zE_x-\partial_y\partial_xE_z+\partial_z\partial_xE_y-\partial_z\partial_yE_x=&0
-		\end{align*}\qedhere
+			\left(\partial_x,\partial_y,\partial_z\right)\vdot(\partial_yG_x-\partial_xG_y,\partial_zG_x-\partial_xG_z,\partial_xG_y-\partial_yG_x)=&\\
+			\\=\partial_x\partial_yG_z-\partial_x\partial_zG_y+\partial_y\partial_zG_x-\partial_y\partial_xG_z+\partial_z\partial_xG_y-\partial_z\partial_yG_x=&0\qedhere
+		\end{align*}
 	\end{itemize}
 \end{demonstration}
 Definite le nostre derivate seconde, otteniamo una conseguenza quasi immediata.
 \begin{proposition}[Ogni campo conservativo è irrotazionale]
-	Ogni campo conservativo $\vba{E}$ è irrotazionale.
+	Ogni campo conservativo $\vba{G}$ è irrotazionale.
 \end{proposition}
 \begin{demonstration}
-	Poiché $\vba{E}=\grad{\phi}$ per un opportuno potenziale $\phi$ definito a meno di costanti, allora si ha che
+	Poiché $\vba{G}=\grad{\phi}$ per un opportuno potenziale $\phi$ definito a meno di costanti, allora si ha che
 	\begin{equation*}
-		\curl{\vba{E}}=\curl{\grad{\phi}}=0\qedhere
+		\curl{\vba{G}}=\curl{\grad{\phi}}=0\qedhere
 	\end{equation*}
 \end{demonstration}
 Concludiamo la discussione con alcuni teoremi non banali (e forniti senza dimostrazione) che seguono dalle derivate seconde qui definite
 \begin{theoremaqed}[Ogni campo irrotazionale è conservativo]
-	Ogni campo irrotazionale $\vba{E}$ è (localmente) conservativo.
+	Ogni campo irrotazionale $\vba{G}$ è (localmente) conservativo, ossia è il gradiente di un opportuno campo scalare $\phi$.
 	\begin{equation*}
-		\curl{\vba{E}}=0\implies \exists \phi\colon \vba{E}=\grad{\phi}\qedhere
+		\curl{\vba{G}}=0\implies \exists \phi\colon \vba{G}=\grad{\phi}\qedhere
 	\end{equation*}
 \end{theoremaqed}
-\begin{theoremaqed}[Ogni campo con divergenza nulla è rotore]
-	Ogni campo $\vba{E}$ con divergenza nulla è pari al rotore di un opportuno campo vettoriale $\vba{A}$.
+\begin{theoremaqed}[Ogni campo con divergenza nulla è solenoidale]
+	Ogni campo $\vba{G}$ con divergenza nulla è (localmente) soleinoidale, ossia è il rotore di un opportuno campo vettoriale $\vba{A}$.
 	\begin{equation*}
-		\div{\vba{E}}=0\implies \exists \vba{A}\colon \vba{E}=\curl{\vba{A}}\qedhere
+		\div{\vba{G}}=0\implies \exists \vba{A}\colon \vba{G}=\curl{\vba{A}}\qedhere
 	\end{equation*}
 \end{theoremaqed}
+\section{Teorema della divergenza e del rotore}
+\paragraph{Teorema della divergenza}
+\begin{theoremaqed}[Teorema della divergenza]
+	Si consideri un volume $V\subseteq\realset^3$ compatto con bordo liscio $\partial V$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
+	\begin{equation}
+		\int_V\div{\vba{G}}=\int_{\partial V}\vba{G}\vdot \vbh{u}_nd\Sigma\label{TeoremaDivergenza}\qedhere
+	\end{equation}
+\end{theoremaqed}
+Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
+\begin{equation}
+	\int_V\div{\vba{G}}=\Phi_\Sigma\left(\vba{G}\right)
+\end{equation}
+\paragraph{Teorema del rotore}
+\begin{theoremaqed}[Teorema del rotore]
+	Si consideri una curva $\funz[\gamma]{\left[a,b\right]}{\realset^3}$ semplice - ossia senza intersezioni con sé stessa, chiusa e liscia a tratti; si consideri inoltre una superficie $\Sigma$ liscia tale che $\partial \Sigma=\gamma$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
+	\begin{equation}
+		\int_\Sigma\grad{\vba{G}}\vdot\vbh{u}_nd\Sigma=\oint_{\gamma}\vba{G}\vdot d\vba{s}\label{TeoremaRotore}\qedhere
+	\end{equation}
+\end{theoremaqed}
+Utilizzando la notazione fisica, la \ref{TeoremaRotore} si scrive come
+\begin{equation}
+	\Phi_\Sigma\left(\grad{\vba{G}}\right)=\Gamma_\gamma\left(\vba{G}\right)
+\end{equation}
+\begin{observe}
+	Ci sono infinite superfici con bordo $\gamma$, ma il flusso del rotore rimane \textit{sempre} invariato.
+\end{observe}
 \section{Operatori differenziali e forme differenziali}
 Consideriamo $\realset^n$ in coordinate cartesiane: questa è una varietà Riemanniana di dimensione $n$ con metrica l'identità, ossia $g=\mathbb{1}$.\\
 \paragraph{Gradiente}
@@ -479,24 +513,24 @@ Dato un campo scalare $\phi\in\mathcal{F}(\realset^n)$, il \textbf{gradiente} di
 	\grad{\phi}=\left(d\phi\right)^{\sharp}\in\Omega^1(M),
 \end{equation}
 dove $d\phi$ è il differenziale (o derivata esterna) della funzione $\phi$.
-\paragraph{Paragraph}
-Il \textbf{rotore} di un campo vettoriale $\vba{E}$ su $\realset^n$ è definito come la $(n-2)$-forma $\mathrm{rot}\vba{E}$ seguente:
+\paragraph{Rotore}
+Il \textbf{rotore} di un campo vettoriale $\vba{G}$ su $\realset^n$ è definito come la $(n-2)$-forma $\mathrm{rot}\vba{G}$ seguente:
 \begin{equation*}
-	\mathrm{rot}\vba{E}=\ast\left(d\vba[E]^\flat\right)=\ast\left(d\fb{E}\right)
+	\mathrm{rot}\vba{G}=\ast\left(d\vba[E]^\flat\right)=\ast\left(d\fb{E}\right)
 \end{equation*}
-Questa è una generalizzazione del concetto del rotore ad $n$ dimensioni. Nel caso specifico di $\realset^3$, il rotore è una 1-forma; pertanto il rotore vettoriale a noi noto è semplicemente il campo vettoriale che otteniamo applicando l'isomorfismo musicale del diesis a $\mathrm{rot}\vba{E}$.
+Questa è una generalizzazione del concetto del rotore ad $n$ dimensioni. Nel caso specifico di $\realset^3$, il rotore è una 1-forma; pertanto il rotore vettoriale a noi noto è semplicemente il campo vettoriale che otteniamo applicando l'isomorfismo musicale del diesis a $\mathrm{rot}\vba{G}$.
 \begin{equation}
-	\curl{\vba{E}}=\left(\mathrm{rot}\vba{E}\right)^\sharp
+	\curl{\vba{G}}=\left(\mathrm{rot}\vba{G}\right)^\sharp
 \end{equation}
 \paragraph{Divergenza}
-La \textbf{divergenza} di $\vba{E}$ è definito come il campo scalare
+La \textbf{divergenza} di $\vba{G}$ è definito come il campo scalare
 \begin{equation}
-	\div{\vba{E}}=\tr{d\vba{E}}
+	\div{\vba{G}}=\tr{d\vba{G}}
 \end{equation}
-dove $d\vba{E}$ è il differenziale della funzione.\\
-Possiamo definire la divergenza in termini di operatore \textit{star di Hodge}. Dato un campo vettoriale $\vba{E}=E^i(\vba{r})\vbh{u}_i$ su $\realset^3$, l'isomorfismo musicale del bemolle definisce la sua 1-forma associata
+dove $d\vba{G}$ è il differenziale della funzione.\\
+Possiamo definire la divergenza in termini di operatore \textit{star di Hodge}. Dato un campo vettoriale $\vba{G}=E^i(\vba{r})\vbh{u}_i$ su $\realset^3$, l'isomorfismo musicale del bemolle definisce la sua 1-forma associata
 \begin{equation*}
-	\fb{E}=\left(\vba{E}\right)^\flat=E_i(\vba{r})dx^i
+	\fb{E}=\left(\vba{G}\right)^\flat=G_i(\vba{r})dx^i
 \end{equation*}
 Il suo duale di Hodge è la 2-forma
 \begin{equation*}
@@ -507,9 +541,9 @@ La derivata esterna di $\ast\fb{E}$ è la 3-forma
 \begin{equation*}
 	d\ast\fb{E}=\frac{1}{2}\epsilon_{ijk}\partial_lE^idx^{l}\wedge dx^i\wedge x^k
 \end{equation*}
-Il suo duale di Hodge è un campo scalare e coincide con la divergenza di $\vba{E}$  
+Il suo duale di Hodge è un campo scalare e coincide con la divergenza di $\vba{G}$  
 \begin{equation}
-	\div{\vba{E}}=\ast d\ast\fb{E}=\partial_i E^i
+	\div{\vba{G}}=\ast d\ast\fb{E}=\partial_i E^i
 \end{equation}
 \subsection{Teorema di Stokes per forme differenziali}
 \begin{theoremaqed}[Teorema di Stokes per forme differenziali]
@@ -521,24 +555,24 @@ dove nel secondo integrale si intende, con un abuso di notazione, la restrizione
 \end{theoremaqed}
 Da questo importante teorema si possono ricavare diversi risultati già noti, applicati tuttavia al mondo delle forme differenziali.
 \paragraph{Teorema del rotore per forme differenziali}
-Si può osservare che $\curl{\vba{E}}\vdot \vbh{u}_n dA$ è una 2-forma che è pari a
+Si può osservare che $\curl{\vba{G}}\vdot \vbh{u}_n dA$ è una 2-forma che è pari a
 \begin{equation*}
-	\curl{\vba{E}}\vdot \vbh{u}_n dA=\ast\left(\curl{\vba{E}}\right)^\flat=d\vba{E}^\flat
+	\curl{\vba{G}}\vdot \vbh{u}_n dA=\ast\left(\curl{\vba{G}}\right)^\flat=d\vba{G}^\flat
 \end{equation*}% TO DO: citazione alle note di Albano, pag. 279, 284
 Allora, il teorema del rotore per le forme differenziali diventa
 \begin{equation}
 	\int_\Sigma d\fb{E}=\int_{\partial \Sigma}\fb{E}
 \end{equation}
 \paragraph{Teorema della divergenza per forme differenziali}
-Si può osservare che $\div{\vba{E}}dV$ è una 3-forma che è pari a
+Si può osservare che $\div{\vba{G}}dV$ è una 3-forma che è pari a
 \begin{equation*}
-	\div{\vba{E}}dV=d\ast\fb{E}
+	\div{\vba{G}}dV=d\ast\fb{E}
 \end{equation*}% TO DO: citazione alle note di Albano, pag. 252, 279, 283
 Allora, il teorema del rotore per le forme differenziali diventa
 \begin{equation}
 	\int_V \ast d\ast\fb{E}=\int_{\partial V}ast d\fb{E}
 \end{equation}
-\section{Coordinate polari e cilindriche}
+\section{Coordinate sferiche e cilindriche}
 In molti casi dove sono presenti evidenti simmetrie, le coordinate cartesiane possono complicare la trattazione del fenomeno fisico. A questo scopo introduciamo due sistemi di coordinate di frequente utilizzo: le \textbf{coordinate sferiche} e le \textbf{coordinate cilindriche}.
 \subsection{Coordinate sferiche}
 \begin{define}[Coordinate sferiche]
@@ -576,7 +610,7 @@ Viceversa, si ha
 	dove $i$ è l'indice di riga e $\lambda$ quello di colonna.\\
 	Per passare dalla base riferita alle $x^i$ alla nuova base riferita alle $q^\lambda$ la formula è quindi
 	\begin{equation}
-		\vba{e}_\lambda=\pdv{x^i}{q^\lambda}\vba{E}_i
+		\vba{e}_\lambda=\pdv{x^i}{q^\lambda}\vba{G}_i
 	\end{equation}
 	Invece, per cambiare le componenti dei vettori dobbiamo operare in modo controvariante e utilizzare la \textit{matrice inversa} del cambiamento di base:
 	\begin{equation}
@@ -631,22 +665,22 @@ La matrice del cambiamento di base ortonormale $M$ è una rotazione nelle tre di
 	\end{pmatrix}
 \end{equation}
 Si osservi in particolare che $M$ è \textit{ortogonale}, quindi $M^{-1}=M^{T}$.
-Pertanto, il cambiamento delle componenti di un campo vettoriale $\vba{E}$ dalle cartesiane alle sferiche è
+Pertanto, il cambiamento delle componenti di un campo vettoriale $\vba{G}$ dalle cartesiane alle sferiche è
 \begin{equation}
 	\begin{pmatrix}
-		E_r & E_\theta & E_\phi
+		G_r & G_\theta & G_\phi
 	\end{pmatrix}=
 	\begin{pmatrix}
-		E_x & E_y & E_z
+		G_x & G_y & G_z
 	\end{pmatrix}M^{-1}=
 	\begin{pmatrix}
-		E_x & E_y & E_z
+		G_x & G_y & G_z
 	\end{pmatrix}M^T
 \end{equation}
 \paragraph{Elemento di linea}
 Lo spostamento infinitesimo da $\vba{r}=(r,\ \theta, \phi)$ a $\vba{r}+d\vba{r}=(r + dr, \theta + d\theta, \phi + d\phi)$ è
 \begin{equation}
-	d\vba{s}=\abs*{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs*{\pdv{\vba{r}}{r}}dr\vbh{u}_r+\abs*{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs*{\pdv{\vba{r}}{\phi}}d\phi\vbh{u}_\phi=dr\vbh{u}_r+rd\theta\vbh{u}_r\theta+r\sin\theta d\phi\vbh{u}_\phi\label{spinfinitesimosferiche}
+	d\vba{s}=\abs{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs{\pdv{\vba{r}}{r}}dr\vbh{u}_r+\abs{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs{\pdv{\vba{r}}{\phi}}d\phi\vbh{u}_\phi=dr\vbh{u}_r+rd\theta\vbh{u}_r\theta+r\sin\theta d\phi\vbh{u}_\phi\label{spinfinitesimosferiche}
 \end{equation}
 Essendo la metrica associata alle coordinate sferiche ortogonale, l'elemento di linea diventa
 \begin{equation}
@@ -655,10 +689,12 @@ Essendo la metrica associata alle coordinate sferiche ortogonale, l'elemento di 
 % TO DO: add elemento d'area
 % TO DO: add elemento di volume
 \paragraph{Operatore nabla}
-L'operatore nabla, scritto in notazione versoriale cartesiana, è
-\begin{equation}
-	\grad =\grad_x\vbh{u}_x+\grad_y\vbh{u}_y+\grad_z\vbh{u}_z=\pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z\label{nablacartesiano}
-\end{equation}
+\begin{remember}
+	L'operatore nabla, scritto in notazione versoriale cartesiana, è
+	\begin{equation*}
+		\grad =\grad_x\vbh{u}_x+\grad_y\vbh{u}_y+\grad_z\vbh{u}_z=\pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z
+	\end{equation*}
+\end{remember}
 % https://www.cpp.edu/~ajm/materials/delsph.pdf
 % https://www.therightgate.com/spherical-del-operator/
 Le componenti dell'operatore dalle sferiche alle cartesiane sono:
@@ -681,13 +717,41 @@ da cui
 	\grad{V}=\pdv{V}{r}\vbh{u}_r+\frac{1}{r}\pdv{V}{\theta}\vbh{u}_\theta+\frac{1}{r\sin\theta}\pdv{V}{\phi}\vbh{u}_\phi
 \end{equation}
 e quindi l'espressione dell'operatore nabla è quanto scritto nella \ref{nablasferiche}.
-
+\paragraph{Divergenza}\label{DivergenzaSferiche}
+Calcoliamo il divergenza in coordinate sferiche applicando l'operatore nabla in coordinate sferiche al campo vettoriale come fosse un prodotto scalare, tenendo conto che i versori stessi sono funzioni delle coordinate e che le derivate devono essere applicate \textit{prima} del prodotto:
+\begin{align*}
+	\div{\vba{G}}&=\left(\pdv{r}\vbh{u}_r+\frac{1}{r}\pdv{\theta}\vbh{u}_\theta+\frac{1}{r\sin\theta}\pdv{\phi}\vbh{u}_\phi\right)\vdot\left(G_r\vba{u}_r+G_\theta\vba{u}_\theta+G_\phi\vba{u}_\phi\right)=\\
+	&=\vba{u}_r\left[\pdv{r}\left(G_r\vbh{u}_r\right)+\pdv{r}\left(G_\theta\vbh{u}_\theta\right)+\pdv{r}\left(G_\phi\vbh{u}_{\phi}\right)\right]+\\
+	&\qquad+\frac{\vba{u}_\theta}{r}\left[\pdv{\theta}\left(G_r\vbh{u}_r\right)+\pdv{\theta}\left(G_\theta\vbh{u}_\theta\right)+\pdv{\theta}\left(G_\phi\vbh{u}_{\phi}\right)\right]+\\
+	&\qquad+\frac{\vba{u}_\phi}{r\sin\theta}\left[\pdv{\phi}\left(G_r\vbh{u}_r\right)+\pdv{\phi}\left(G_\theta\vbh{u}_\theta\right)+\pdv{\phi}\left(G_\phi\vbh{u}_{\phi}\right)\right]
+\end{align*}
+Sviluppando i prodotti con la \textit{regola di Leibniz} otteniamo, in ogni parentesi, sei termini di cui 3 che sono derivate dei versori. Facendo solo calcoli noiosi ci calcoliamo queste derivate...
+\begin{equation*}
+	\begin{array}{lll}
+		\pdv{r}\vbh{u}_r=0&
+		\pdv{r}\vbh{u}_\theta=0&
+		\pdv{r}\vbh{u}_\phi=0\\
+		\pdv{\theta}\vbh{u}_r=\vbh{u}_\theta&
+		\pdv{\theta}\vbh{u}_\theta=-\vbh{u}_r &
+		\pdv{\theta}\vbh{u}_\phi=0\\
+		\pdv{\phi}\vbh{u}_r=\sin\theta\vbh{u}_\phi & \pdv{\phi}\vbh{u}_\theta=\cos\theta\vbh{u}_\phi & \pdv{\phi}\vbh{u}_\phi=\sin\theta\vbh{u}_r-\cos\theta\vbh{u}_\theta
+	\end{array}
+\end{equation*}
+...e sostituendo nell'espressione della divergenza otteniamo
+\begin{equation}
+	\div{\vba{G}}=\frac{1}{r^2}\pdv{r}\left(r^2G_r\right)+\frac{1}{r\sin\theta}\pdv{\theta}\left(G_\theta\sin\theta\right)+\frac{1}{r\sin\theta}\pdv{G_\phi}{\phi}
+\end{equation}
+\paragraph{Laplaciano}
+Essendo il laplaciano la divergenza del gradiente, per ottenerlo applichiamo con un prodotto scalare l'operatore nabla in coordinate sferiche alle componenti del gradiente:
+\begin{equation}
+	\laplacian=\frac{1}{r^2}\pdv{r}\left(r^2\pdv{r}\right)+\frac{1}{r^2\sin\theta}\pdv{\theta}\left(\sin\theta\pdv{\theta}\right)+\frac{1}{r^2\sin^2\theta}\pdv[2]{\phi}
+\end{equation}
 \subsection{Coordinate cilindriche}
 \begin{define}[Coordinate cilindriche]
 	Le \textbf{coordinate cilindriche}\index{coordinate!cilindriche} sono un sistema di coordinate per $\realset^3$ dove la posizione $\vba{r}$ di un punto è specificato da tre numeri:
 	\begin{itemize}
 		\item La \textbf{distanza assiale} $R$ tra l'asse verticale - asse $z$ - e il punto $\vba{r}$
-		\item L'\textbf{angolo azimutale} (longitudine) $\phi$ - definito tra l'asse $x$ positivo e la linea sul piano $xy$ dall'origine alla proiezione del punto $\vba{r}$, in senso antiorario.
+		\item L'\textbf{angolo azimutale} (longitudine) $\theta$ - definito tra l'asse $x$ positivo e la linea sul piano $xy$ dall'origine alla proiezione del punto $\vba{r}$, in senso antiorario.
 		\item L'\textbf{altezza} $z$ in segno tra il piano $xy$ e il punto $\vba{r}$:
 	\end{itemize}
 	Utilizzando i radianti, si pone $R\in\left(0,+\infty\right)$, $\theta\in\left[0,2\pi\right)$ e $z\in\realset$
@@ -724,7 +788,7 @@ Allora, il cambiamento dalla base cartesiana $\left(\vbh{u}_x,\vbh{u}_y,\vbh{u}_
 \end{equation}
 Poiché
 \begin{equation}
-	\abs{\vbh{e}_R}=\abs*{\pdv{\vba{r}}{R}}=1\qquad\abs{\vbh{e}_\theta}=\abs*{\pdv{\vba{r}}{\theta}}=R\qquad\abs{\vbh{e}_z}=\abs{\pdv{\vba{r}}{z}}=1,
+	\abs{\vbh{e}_R}=\abs{\pdv{\vba{r}}{R}}=1\qquad\abs{\vbh{e}_\theta}=\abs{\pdv{\vba{r}}{\theta}}=R\qquad\abs{\vbh{e}_z}=\abs{\pdv{\vba{r}}{z}}=1,
 \end{equation}
 il cambiamento dalla base cartesiana $\left(\vbh{u}_x,\vbh{u}_y,\vbh{u}_z\right)$ alla base \textit{ortonormale} cilindrica $\left(\vbh{u}_R,\vbh{u}_\theta,\vbh{u}_z\right)$ è
 \begin{equation}
@@ -757,22 +821,22 @@ La matrice del cambiamento di base ortonormale $M$ è una rotazione assiale atto
 	\end{pmatrix}
 \end{equation}
 Si osservi in particolare che $M$ è \textit{ortogonale}, quindi $M^{-1}=M^{T}$.
-Pertanto, il cambiamento delle componenti di un campo vettoriale $\vba{E}$ dalle cartesiane alle cilindriche è
+Pertanto, il cambiamento delle componenti di un campo vettoriale $\vba{G}$ dalle cartesiane alle cilindriche è
 \begin{equation}
 	\begin{pmatrix}
-		E_r & E_\theta & E_\phi
+		G_r & G_\theta & G_\phi
 	\end{pmatrix}=
 	\begin{pmatrix}
-		E_x & E_y & E_z
+		G_x & G_y & G_z
 	\end{pmatrix}M^{-1}=
 	\begin{pmatrix}
-		E_x & E_y & E_z
+		G_x & G_y & G_z
 	\end{pmatrix}M^T
 \end{equation}
 \paragraph{Elemento di linea}
 Lo spostamento infinitesimo da $\vba{r}=(r,\ \theta, z)$ a $\vba{r}+d\vba{r}=(r + dr, \theta + d\theta, z + dz)$ è
 \begin{equation}
-	d\vba{s}=\abs*{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs*{\pdv{\vba{r}}{\partial R}}dR\vbh{u}_R+\abs*{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs*{\pdv{\vba{r}}{z}}dz\vbh{u}_z=dR\vbh{u}_R+Rd\theta\vbh{u}_\theta+dz\vbh{u}_z\label{spinfinitesimocilindriche}
+	d\vba{s}=\abs{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs{\pdv{\vba{r}}{\partial R}}dR\vbh{u}_R+\abs{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs{\pdv{\vba{r}}{z}}dz\vbh{u}_z=dR\vbh{u}_R+Rd\theta\vbh{u}_\theta+dz\vbh{u}_z\label{spinfinitesimocilindriche}
 \end{equation}
 Essendo la metrica associata alle coordinate cilindriche ortogonale, l'elemento di linea diventa
 \begin{equation}
@@ -793,4 +857,34 @@ e quindi l'espressione dell'operatore nabla è
 \begin{equation}
 	\grad =\pdv{R}\vbh{u}_R+\frac{1}{R}\pdv{\theta}{u}_\theta+\pdv{z}\vbh{u}_z
 \end{equation}
-
+\paragraph{Divergenza}
+Calcoliamo il divergenza in coordinate cilindriche applicando l'operatore nabla in coordinate sferiche al campo vettoriale come fosse un prodotto scalare, tenendo conto che i versori stessi sono funzioni delle coordinate e che le derivate devono essere applicate \textit{prima} del prodotto:
+\begin{align*}
+	\div{\vba{G}}&=\left(\pdv{R}\vbh{u}_R+\frac{1}{R}\pdv{\theta}{u}_\theta+\pdv{z}\vbh{u}_z\right)\vdot\left(G_R\vba{u}_R+G_\theta\vba{u}_\theta+G_z\vba{u}_z\right)=\\
+	&=\vba{u}_R\left[\pdv{R}\left(G_R\vbh{u}_R\right)+\pdv{R}\left(G_\theta\vbh{u}_\theta\right)+\pdv{R}\left(G_z\vbh{u}_{z}\right)\right]+\\
+	&\qquad+\frac{\vba{u}_\theta}{R}\left[\pdv{\theta}\left(G_R\vbh{u}_R\right)+\pdv{\theta}\left(G_\theta\vbh{u}_\theta\right)+\pdv{\theta}\left(G_z\vbh{u}_{z}\right)\right]+\\
+	&\qquad+\vba{u}_z\left[\pdv{z}\left(G_R\vbh{u}_R\right)+\pdv{z}\left(G_\theta\vbh{u}_\theta\right)+\pdv{z}\left(G_z\vbh{u}_{z}\right)\right]
+\end{align*}
+Sviluppando i prodotti con la \textit{regola di Leibniz} otteniamo, in ogni parentesi, sei termini di cui 3 che sono derivate dei versori. Facendo solo calcoli noiosi ci calcoliamo queste derivate...
+\begin{equation*}
+	\begin{array}{*3{>{\displaystyle}l}}
+	\pdv{R}\vbh{u}_R=0&
+	\pdv{R}\vbh{u}_\theta=0&
+	\pdv{R}\vbh{u}_z=0\\
+	\pdv{\theta}\vbh{u}_R=\vbh{u}_\theta&
+	\pdv{\theta}\vbh{u}_\theta=-\vbh{u}_r&
+	\pdv{\theta}\vbh{u}_\phi=0\\
+	\pdv{z}\vbh{u}_R=0&
+	\pdv{z}\vbh{u}_\theta=0&
+	\pdv{z}\vbh{u}_z=0
+	\end{array}
+\end{equation*}
+...e sostituendo nell'espressione della divergenza otteniamo
+\begin{equation}
+	\div{\vba{G}}=\frac{1}{R}\pdv{R}\left(G_R R\right)+\frac{1}{R}\pdv{G_\theta}{\theta}+\pdv{G_z}{z}
+\end{equation}
+\paragraph{Laplaciano}
+Essendo il laplaciano la divergenza del gradiente, per ottenerlo applichiamo con un prodotto scalare l'operatore nabla in coordinate cilindriche alle componenti del gradiente:
+\begin{equation}
+	\laplacian=\frac{1}{R}\pdv{R}\left(R\pdv{R}\right)+\frac{1}{R^2}\pdv[2]{\theta}+\pdv[2]{z}
+\end{equation}

@@ -1,433 +1,641 @@
 % SVN info for this file
+% SVN info for this file
 \svnidlong
 {$HeadURL$}
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Serie di funzioni}
-\labelChapter{seriefunzioni}
-
+\chapter{Il potenziale elettrico} % TO DO: Il lavoro elettrico?
+\labelChapter{PotenzialeElettrico}
+% TO DO: quando parlo del potenziale e del campo elettrico a tratti, sostituire il geq o leq con < e > 
 \begin{introduction}
-	‘‘«Sai fare le Addizioni?» chiese la Regina Bianca. «Che cosa fa uno più uno più uno	più uno più uno più uno più uno più uno più uno più uno?»\\
-	«Non lo so» rispose Alice. «Ho perso il conto»''
-\begin{flushright}
-	\textsc{Attraverso lo specchio e quel che Alice vi trovò.}
-\end{flushright}
+	‘‘La situazione si complica. Ora, ce ne sono due di loro!''
+	\begin{flushright}
+		\textsc{Nute Gunray,} scoprendo la convergenza puntuale dopo quella uniforme. % TO DO: quote
+	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{L}{'idea} delle \textbf{serie di funzioni} sorge naturalmente quando lavoriamo con i polinomi di Taylor. Per funzioni ‘‘classiche'' - diciamo quanto meno non patologiche - incrementare il grado del polinomio aumenta la qualità dell'approssimazione, quindi sembra che se potessimo creare un polinomio di Taylor \textit{infinito}, otterremmo precisamente la funzione originale... ma un polinomio infinito non è altro che una serie di potenze!\\
-Come vedremo, questa idea può effettivamente funzionare, ma richiede un po' di accorgimenti, in particolare per vedere come si trasmettono le proprietà della successione alla somma della serie. In questo capitolo introduciamo la trattazione del tema per generiche funzioni, con lo scopo di studiare proprio le proprietà di regolarità delle serie di funzioni.
-\section{Serie in uno spazio normato}
-Prima di far ciò, ricordiamo le definizioni di serie a valori reali e di convergenza (assoluta) di una serie a valore reali.
-\begin{define}[Serie a valori reali e convergenza di una serie]
-	Data una successione $x_n\in\realset$, $n\geq 0$, la \textbf{serie}\index{serie}
+\lettrine[findent=1pt, nindent=0pt]{P}{er}  % TO DO: intro
+\section{Circuitazione di un campo vettoriale}
+% TO DO: concezione intuitiva di circuitazione
+\begin{define}[Circuitazione di un campo vettoriale]
+	Il \textbf{circuitazione di un campo vettoriale lungo una curva chiusa}\index{circuitazione di un campo vettoriale} $\gamma$, parametrizzata da una funzione $\funz[\vba{r}]{\left[a,b\right]}{\realset^3}$, è
 	\begin{equation}
-		\sum_{k=0}^{+\infty}x_k
+		\Gamma_{\gamma}\left(\vba{E}\right)=\oint_{\gamma}\vba{E}\vdot d\vba{s}=\int_{a}^b\vba{E}\vdot\frac{d\vba{r}}{dt}dt
 	\end{equation}
-	è la somma di tutti gli elementi della successione.\\
-	Considerata la \textit{somma parziale}, o altresì detta \textbf{ridotta}\index{ridotta},
-	\begin{equation}
-		s_n=\sum_{k=0}^{n}x_k,\quad\forall n\geq 0
-	\end{equation}
-si dice che la serie
-\begin{equation*}
-	\sum_{k=0}^{+\infty}x_k
-\end{equation*}
-\textbf{converge}\index{convergenza!di una serie}\index{convergenza!semplice} se converge la successione $s_n$; si pone in tal caso
-\begin{equation}
-	\sum_{k=0}^{+\infty}x_k=\lim_{n\to+\infty}s_n
-\end{equation}
 \end{define}
-\begin{define}[Convergenza assoluta]
-	Sia $x_n$ una successione a valori reali. La serie
+\section{Forze conservative e campi vettoriali conservativi}
+\paragraph{Dalle forze conservative...}
+La circuitazione ha particolare rilevanza in ambito fisico; la sua prima applicazione che vedremo è in una caratterizzazione dei\textit{campi vettoriali conservativi}. Prima però, riguardiamo rapidamente il concetto di lavoro e del suo ruolo per quelle forze dette forze conservatrici, trattato nel corso di \textsc{Fisica I}.
+\begin{define}[Lavoro]
+	Dati due punti $\vba{r}_A$ e $\vba{r}_B$, il \textbf{lavoro}\index{lavoro} di una forza $\vba{F}$ lungo una curva $\gamma$ tra i due punti è definito come
+	\begin{equation}
+		W_{\gamma_1}=\int_{\gamma_1}\vba{F}\vdot d\vba{s}
+	\end{equation}
+\end{define}
+In generale, il lavoro dipende dal \textit{percorso effettuato}: il lavoro compiuto da una stessa forza lungo due curve $\gamma_1$ e $\gamma_2$  è differente. Per un caso particolare di forze, tuttavia, il lavoro dipende esclusivamente dagli estremi e non dal percorso effettuato.
+\begin{define}[Forza conservativa]
+	Una forza $\vba{F}$ è detta \textbf{conservativa}\index{forza!conservativa} se per qualunque curva $\gamma_1,\ \gamma_2$ tra due punti $\vba{r}_A$ e $\vba{r}_B$ il lavoro è
+	\begin{equation}
+		W_{\gamma_1}=W_{\gamma_2}
+	\end{equation}
+	In altre parole, $\vba{F}$ è conservativa se il lavoro dipende \textit{solo} dai punti iniziali e finali e non quale sia la curva lungo la quale si calcola.
+\end{define}
+\begin{proposition}[Caratterizzazione delle forze conservative]\label{forzaconservativaproposizione} % TO DO: controllare che non sia il teorema del gradiente?
+	Se una forza $\vba{F}$ è conservativa, allora esiste una funzione $\funz[U]{\realset^3}{\realset}$ detta \textbf{energia potenziale}\index{energia!potenziale} tale che\footnote{Il meno è presente per motivi storici.}
+	\begin{equation}
+		\vba{F}=-\grad{U}
+	\end{equation}
+	e tale per cui
+	\begin{equation}
+		W=U(\vba{r}_A)-U(\vba{r}_B)=-\Delta U
+	\end{equation}
+	In altri termini:
+	\begin{gather}
+		\vba{F}=-\grad{U}\\
+		W=\int_A^{B}\vba{F}\vdot d\vba{s}=-\int_A^B\grad{U}\vdot d\vba{s}
+	\end{gather}
+\end{proposition}
+\begin{demonstration}
+	Consideriamo una curva $\gamma$ parametrizzata da
 	\begin{equation*}
-		\sum_{k=0}^{+\infty}x_k
+		\vba{r}(t)=\left(x(t),y(t),z(t)\right),\ \quad t\in\left[t_1,t_2\right]
 	\end{equation*}
-	\textbf{converge assolutamente}\index{convergenza!assoluta} in $\realset$ se converge la serie
+	Posto
+	\begin{equation*}
+		\begin{cases}
+			\vba{r}(t_A)=\vba{r}_A\\
+			\vba{r}(t_B)=\vba{r}_B
+		\end{cases}
+	\end{equation*}
+si ha
+\begin{align*}
+	W\\=\int_{t_A}^{t_B}\vba{F}\vdot\dv{\vba{r}}{t}dt=-\int_{t_A}^{t_B}\grad{U}\vdot\dv{\vba{r}}{t}dt=-\int_{t_A}^{t_B}\dv{t}U\left(\vba{r}(t)\right)dt=\\
+	&=-\left(U(\vba{r}(t_B))-U(\vba{r}(t_A))\right)=U(\vba{r}_A)-U(\vba{r}_B)
+\end{align*}
+Infatti,
+\begin{equation*}
+	\dv{t}U(\vba{r}(t))=\pdv{U}{x^i}\pdv{x^i}{t}=\grad{U}\vdot\pdv{r}{t}.\qedhere
+\end{equation*}
+\end{demonstration}
+\begin{observe}
+	Il potenziale è sempre definito a meno di costante additiva. Infatti, se considero due potenziali $U$ e $U'=U+U_0$ dove $U_0$ è una costante reale, si ha che
+	\begin{equation*}
+		\vba{F}=-\grad{U'}=-\grad{(U+U_0)}=-\grad{U}-\underbrace{\grad{U_0}}_{=0}=-\grad{U}
+	\end{equation*}
+\end{observe}
+\paragraph{...ai campi vettoriali conservativi}
+In modo analogo a come abbiamo fatto per le forze conservative, possiamo facilmente definire un \textit{campo vettoriale conservativo}.
+\begin{define}[Campo vettoriale conservativo]
+	Una campo vettoriale $\vba{G}$ è detto \textbf{conservativo}\index{campo!conservativo} se per qualunque curva $\gamma_1,\ \gamma_2$ tra due punti $\vba{r}_A$ e $\vba{r}_B$ si ha
 	\begin{equation}
-		\sum_{k=0}^{+\infty}\abs{x_k}
+		\int_{\gamma_1}\vba{G}\vdot d\vba{s}=\int_{\gamma_1}\vba{G}\vdot d\vba{s}
 	\end{equation}
 \end{define}
-\begin{theorema}[Convergenza assoluta implica convergenza semplice]\label{teoremaassimplicasemplice}
-	Ogni serie di numeri reali assolutamente convergente è anche semplicemente convergente. Inoltre, vale
+\begin{proposition}[Caratterizzazione dei campi vettoriali conservativi]\label{campivettorialiconservativiproposizione} % TO DO: controllare che non sia il teorema del gradiente?
+	Se un campo vettoriale$\vba{G}$ è conservativo, allora esiste un campo scalare $\funz[\oldphi]{\realset^3}{\realset}$ detto \textbf{potenziale} tale per cui\footnote{Il meno è presente per motivi storici.}
 	\begin{equation}
-		\abs{\sum_{k=0}^{+\infty}x_k}\leq\sum_{k=0}^{+\infty}\abs{x_k}
+		\begin{cases}
+			\vba{G}=-\grad{\oldphi}\\
+			\Gamma_{\gamma}(\vba{G})=0
+		\end{cases}
+	\end{equation}
+per ogni curva chiusa $\gamma$.
+\end{proposition}
+\begin{demonstration}
+	La dimostrazione è analoga a quella della proposizione \ref{forzaconservativaproposizione}. Per ottenere il risultato come enunciato nella tesi - ossia come circuitazione - si noti che, avendo
+	\begin{equation*}
+		\int_{\gamma}\vba{G}\vdot d\vba{s}=\oldphi(\vba{r}_B)-\oldphi(\vba{r}_A),
+	\end{equation*}
+	allora, poiché si ha $\vba{r}_a=\vba{r}_B$, vale
+	\begin{equation*}
+		\Gamma_{\gamma}(\vba{G})=\oint_{\gamma}\vba{G}\vdot d\vba{s}=0\qedhere
+	\end{equation*}
+\end{demonstration}
+\begin{observe}
+	Il potenziale è sempre definito a meno di costante additiva. Infatti, se considero due potenziale $\oldphi$ e $\oldphi'=\oldphi+\oldphi_0$ dove $\oldphi_0$ è una costante reale, si ha che
+	\begin{equation*}
+		\vba{G}=-\grad{\oldphi'}=-\grad{(\oldphi+\oldphi_0)}=-\grad{\oldphi}-\underbrace{\grad{\oldphi_0}}_{=0}=-\grad{\oldphi}
+	\end{equation*}
+\end{observe}
+\section{Potenziale elettrico}
+Nei diversi esempi di campi elettrostatici visti nel \autoref{leggediCoulomb} abbiamo sempre trovato un potenziale che ci permetteva di semplificare notevolmente la trattazione del problema. Come preannunciato, questo non è un caso: infatti, il \textit{campo elettrostatico} è sempre conservativo.
+\begin{theorema}[Il campo elettrostatico è conservativo]
+	Il campo elettrostatico $\vba{E}$ è conservativo, ossia è il gradiente (cambiato di segno) di un opportuno campo scalare $V$.
+	\begin{equation}
+		\vba{E}=-\grad{V}
 	\end{equation}
 \end{theorema}
 \begin{demonstration}
-	Per dimostrare che la serie
-	\begin{equation*}
-		\sum_{k=0}^{+\infty}x_k
-	\end{equation*}
-	converge, per il \textit{Criterio di Cauchy per le serie}\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{criteriodicauchy} è possibile trovare maggiori dettagli sui criteri di Cauchy.} è sufficiente provare che
-	\begin{equation*}
-		\forall \epsilon>0,\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset,\ \abs{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\epsilon
-	\end{equation*}
-	Per ipotesi la serie
-	\begin{equation*}
-		\sum_{k=0}^{+\infty}\abs{x_k}
-	\end{equation*}
-	converge: per il Criterio di Cauchy, si ha
-	\begin{gather*}
-		\forall \epsilon>0,\ \exists N\in\naturalset\colon\forall n\geq N,\ \forall p\in\naturalset,\\ \abs{\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}}=\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}<\epsilon
-	\end{gather*}
-	D’altra parte, dalla disuguaglianza triangolare segue che
-	\begin{equation*}
-		\abs{x_{n+1}+x_{n+2}+\ldots+x_{n+p}}<\abs{x_{n+1}}+\abs{x_{n+2}}+\ldots+\abs{x_{n+p}}<\epsilon,\ \forall n\in\naturalset,\ \forall p\in\naturalset
-	\end{equation*}
-Dalle ultime due relazioni si deduce immediatamente la prima relazione e dunque la prima tesi. La disuguaglianza segue dal fatto che essa è vera per ogni somma parziale.
+	Dimostriamolo inizialmente per il campo elettrostatico generato da una carica puntiforme.
+	Il campo di Coulomb è 
+\begin{equation*}
+	\vba{E}=\frac{q}{4\pi\epsilon_0r^2}\vbh{u}_r
+\end{equation*}
+Ricordiamo che l'operatore nabla in coordinate sferiche diventa
+\begin{equation*}
+	\grad =\pdv{r}\vbh{u}_r+\frac{1}{r}\pdv{\theta}\vbh{u}_\theta+\frac{1}{r\sin\theta}\pdv{\phi}\vbh{u}_\phi
+\end{equation*}
+Si verifica facilmente che
+\begin{equation}
+	V=\frac{q}{4\pi\epsilon_0r}
+\end{equation}
+è il potenziale del campo di Coulomb:
+\begin{equation*}
+	-\grad{V}=-\pdv{r}\left(\frac{q}{4\pi\epsilon_0r}\right)\vbh{u}_r=\frac{q}{4\pi\epsilon_0r^2}\vbh{u}_r=\vba{E}\qedhere
+\end{equation*}
+Si osservi che per i campi elettrostatici generati da un sistema di cariche $q_i$ vale il principio di sovrapposizione; noto che ciascuno di questi campi sono conservativi e
+\begin{equation*}
+	\vba{E}_i=-\grad{V}_i
+\end{equation*}
+allora anche il campo complessivo generato dal sistema di cariche è conservativo e il potenziale è la somma dei potenziali:
+\begin{equation}
+	\vba{E}=\sum_i\vba{E}_i=-\grad{V}
+\end{equation}
+dove
+\begin{equation}
+	V=\sum_iV_i
+\end{equation}
+Il caso di una distribuzione continua di carica segue da queste relazioni, passando al continuo.
 \end{demonstration}
-\begin{observe}\label{convergenzaassolutadipendedacauchy}
-	Il teorema appena dimostrato è una conseguenza della \textbf{completezza} di $\realset$. Infatti, abbiamo usato il \textit{criterio di Cauchy}, che si basa sul fatto che le successioni di Cauchy convergono sempre in $\realset$ e quindi proprio per la completezza dei reali.\\
-	Se lo spazio \textit{non} è completo si ottiene solo che la successione delle ridotte è di Cauchy, e senza la completezza dello spazio non possiamo affermare che convergono.
+Ricapitolando:
+\begin{itemize}
+	\item Per una singola carica $q$, centrata nell'origine, il potenziale in $\vba{r}$ è:
+	\begin{equation}
+		V(x,y,z)=\frac{q}{4\pi\epsilon_0r}
+	\end{equation}
+	\item Per un sistema di cariche $q_i$, ciascuna posta in $\vba{r}_i$, il potenziale in $\vba{r}$ è
+	\begin{equation}
+		V(x,y,z)=\sum_i\frac{q_i}{4\pi\epsilon_0\abs{\vba{r}-\vba{r}_i}}
+	\end{equation}
+	\item Per una distribuzione continua di cariche in un volume $V$ è
+	\begin{equation}
+		V(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_{V}\frac{\rho(x',y',z')}{\abs{\vba{r}-\vba{r}'}}dx'dy'dz'
+	\end{equation}
+	\item Per una distribuzione continua di cariche su una superficie $\Sigma$ è
+	\begin{equation}
+		V(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_{\Sigma}\frac{\sigma(x',y',z')}{\abs{\vba{r}-\vba{r}'}}d\Sigma
+	\end{equation}
+	\item Per una distribuzione continua di cariche su una superficie $\Sigma$ è
+	\begin{equation}
+		V(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_\mathcal{l}\frac{\lambda(x',y',z')}{\abs{\vba{r}-\vba{r}'}}d\mathcal{l}
+	\end{equation}
+\end{itemize}
+\begin{observe}
+	il potenziale si considera a tutti gli effetti un campo scalare \textit{continuo}: se così non fosse, le derivate spaziali sarebbero infinite nelle discontinuità e quindi avremmo in certi punti del dominio di definizione del potenziale un campo elettrostatico infinito, che nella pratica non è possibile avere.
 \end{observe}
-Il viceversa del teorema appena dimostrato non è valido, come segue dal seguente controesempio.
-\begin{examplewt}[Convergenza semplice non implica convergenza assoluta]
-	Consideriamo la serie
+\begin{attention}
+	Come potremo vedere più avanti, in generale il campo \textit{elettrico} può dipendere dal tempo; tuttavia, in tal caso il campo \textbf{non} è conservativo e dunque non esiste un potenziale. Solo il campo elettrostatico, cioè un campo elettrico che \textit{non} varia nel tempo, ammette un potenziale.
+\end{attention}
+Una conseguenza immediata del fatto che il campo elettrostatico è conservativo è il seguente.
+\begin{corollary}[La circuitazione del campo elettrostatico è nulla]
+	Su ogni curva chiusa $\gamma$ nello spazio, la circuitazione del campo elettrostatico è nulla.
+	\begin{equation}
+		\Gamma_{\gamma}(\vba{E})=0
+	\end{equation}
+\end{corollary}
+\begin{demonstration}
+	Il campo elettrostatico è conservativo, dunque per la caratterizzazione dei campi vettoriali conservativi\footnote{Si veda la proposizione \ref{campivettorialiconservativiproposizione} a pag. \pageref{campivettorialiconservativiproposizione}.} segue la tesi. 
+\end{demonstration}% TO DO: aggiungere esempio del capitolo 2 sul campo elettrico di una sfera?
+\paragraph{Energia potenziale e potenziale elettrico}
+La forza di Coulomb è conservativa e ammette un potenziale, o per meglio dire un'\textbf{energia potenziale}\index{energia!potenziale}, $U$ tale che $vba{F}=-\grad{U}$, mentre abbiamo dimostrato poc'anzi che $\vba{E}=-\grad{V}$. Dalla legge $\vba{F}=q\vba{E}$ che lega campo elettrostatico e forza di Coulomb si ha immediatamente una relazione tra l'energia potenziale e il potenziale elettrico:
+\begin{equation}
+	U=qV\label{EnergiaPotenziale}
+\end{equation}
+\begin{example}
+	Per un carica puntiforme $Q$ si ha potenziale
+	\begin{equation}
+		V=\frac{Q}{4\pi\epsilon_0r}
+	\end{equation}
+	e l'energia potenziale che un'altra carica $q$ ha, se soggetta al campo elettrostatico generato da $Q$ è
+	\begin{equation}
+		U=\frac{qQ}{4\pi\epsilon_0r}
+	\end{equation}
+\end{example}
+\paragraph{Unità di misura}
+Dalla relazione \ref{EnergiaPotenziale} si definisce l'unità di misura del potenziale, il \textbf{volt}\index{volt}.
+\begin{equation*}
+	\left[V\right]=\frac{[U]}{[q]}=\unit[per-mode = fraction]{\joule\per\coulomb}
+\end{equation*}
+\begin{units}~\\
+	\textbf{\textsc{Potenziale:}} volt ($\unit{\volt}$) o joule su coulomb $\left(\unit[per-mode = fraction]{\joule\per\coulomb}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[V]=\dfrac{[J]}{[C]}=\mathsf{M} \mathsf{L}^2  \mathsf{T}^{-3}\mathsf{I}^{-1}$
+\end{units}
+\noindent Abbiamo già visto che il campo elettrico, dalla formula $\vba{F}=q\vba{E}$, ha unità di misura il newton su coulomb $\left(\unit[per-mode = fraction]{\newton\per\coulomb}\right)$. Tuttavia, grazie al fatto che $\vba{E}$ è conservativo ed è quindi un \textit{gradiente} rispetto ad una variabile che ha dimensioni di una lunghezza, può essere definito anche come \textbf{volt su metro} $\left(\unit[per-mode = fraction]{\volt\per\metre}\right)$.
+\begin{units}~\\
+	\textbf{\textsc{Campo elettrico:}} volt su metro $\left(\unit[per-mode = fraction]{\volt\per\metre}\right)$ o newton su coulomb $\left(\unit[per-mode = fraction]{\newton\per\coulomb}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[E]=\dfrac{[F]}{[q]}=\mathsf{L}\mathsf{M}\mathsf{T}^{-3}\mathsf{I}^{-1}$.
+\end{units}
+\begin{observe}
+	Come già detto, il potenziale è definito a meno di una costante additiva. Generalmente si pone il sistema di riferimento in modo che il potenziale all'infinito (o ai bordi del dominio di definizione) sia una costante, generalmente zero per $V\to\infty$.\\
+	Poiché non si può considerare un sistema di questo genere, l'unica condizione misurabile realmente (ed operativamente) è la \textbf{differenza di potenziale}\index{differenza di potenziale}.
+\end{observe}
+\paragraph{Potenziale e attrattività delle cariche}
+\begin{examplewt}[Armature elettriche]
+	Consideriamo due piastre elettrostatiche di segno opposto, come in figura.
+	% TO DO: immagine
+	Il funzionamento di tale sistema non è dissimile, a livello puramente qualitativo, da un dipolo elettrico: tra le due piastre il campo è sostanzialmente analogo a quello sull'asse verticale congiungente i dipoli e quindi è diretto dalla piastra positiva a quella negativa.\\
+	Poiché $\vba{F}=q\vba{E}$, le cariche positive saranno attratte verso la parte negativa, quelle negative verso la piastra positiva.
+	
+	Si osserva che, essendo $\grad{V}=-\vba{E}$, il gradiente del potenziale è un campo vettoriale diretto - quando lo consideriamo dentro l'armatura - diretto dalla piastra negativa a quella positiva, cioè dal potenziale minore a quello maggiore.
+	
+	% TO DO: spiegare perché funziona, che non mi è chiaro, MAZZOOLLLDI?
+	Si ha che
 	\begin{equation*}
-		\sum_{n=1}^{+\infty}\left(-1\right)^n\frac{1}{n}
+		V_1<V_2
 	\end{equation*}
-	Essa non converge assolutamente in quanto la serie dei moduli diventa
-	\begin{equation*}
-		\sum_{n=1}^{+\infty}\abs{\left(-1\right)^n\frac{1}{n}}=\sum_{n=1}^{+\infty}\frac{1}{n}
-	\end{equation*}
-	che, essendo la \textbf{serie armonica}\footnote{Nelle ‘‘Note aggiuntive'', a pagina \pageref{serieavalorirealinotevoli} è possibile trovare maggiori dettagli sulle serie notevoli.}, non converge. Tuttavia, la serie semplice è una serie a segni \textit{alterni} e poiché
-	\begin{itemize}
-		\item $\dfrac{1}{n}$ è decrescente $\forall n\geq 1$.
-		\item $\displaystyle\lim_{n\to+\infty}\frac{1}{n}=0$.
-	\end{itemize} 
-	per il \textit{criterio di Leibniz} la serie semplice converge. Pertanto, la convergenza semplice \textit{non} implica la convergenza assoluta.
 \end{examplewt}
-Prendiamo ora $x_n\in X$, con $X$ un insieme \textit{generico}. Per generalizzare la definizione di serie convergente abbiamo bisogno che su $X$ si possano compiere i seguenti passaggi:
+Questo ragionamento si può anche generalizzare in altri contesti, osservando dunque che il campo elettrico è diretto dal \textbf{potenziale maggiore al potenziale minore}, e quindi
 \begin{itemize}
-	\item Poter definire $s_n$, cioè è necessario \textit{sommare} elementi di $X$.
-	\item Poter definire la \textit{convergenza} in $X$.
+	\item cariche \textbf{positive} si muovono verso la zona di \textbf{minor} potenziale.
+	\item cariche \textbf{negative} si muovono verso la zona di \textbf{maggior} potenziale.
 \end{itemize}
-Se dotiamo l'insieme $X$ di una struttura di \textbf{spazio normato} possiamo generalizzare ad una serie generale le definizioni precedentemente enunciate per le serie a valori reali: infatti, se $X$ è spazio normato gode sia dell'essere uno \textit{spazio metrico} (e quindi è spazio topologico di Hausdorff, il che permette di definire univocamente la convergenza della successione) sia dell'essere \textit{spazio vettoriale} (che permette la somma di elementi).\\
-\begin{define}[Serie e convergenza di una serie]
-	Data una successione $x_n\in X$ in uno spazio \textit{normato}, $n\geq 0$, la \textbf{serie}\index{serie}
-	\begin{equation*}
-		\sum_{k=0}^{+\infty}x_k
-	\end{equation*}
-	è la somma di tutti gli elementi della successione.\\
-	Considerata la \textit{somma parziale}, o altresì detta \textbf{ridotta}\index{ridotta},
+\paragraph{Superfici equipotenziali}
+\begin{define}[Superfici equipotenziali]
+	Data un sistema in cui si ha una certa funzione di potenziale $V$, le \textbf{superfici equipotenziali}\index{superfici equipotenziali} sono gli insiemi descritti dall'equazione
 	\begin{equation}
-		s_n=\sum_{k=0}^{n}x_k\quad\forall n\geq 0
+		V(\vba{r})=\textrm{const}
 	\end{equation}
-	si dice che la serie
-	\begin{equation*}
-		\sum_{k=0}^{+\infty}x_k
-	\end{equation*}
-	\textbf{converge}\index{convergenza!di una serie}\seeonlyindex{convergenza!di una serie}{convergenza!semplice} se converge la successione $s_n$; si pone in tal caso
-	\begin{equation}
-		\sum_{k=0}^{+\infty}x_k=\lim_{n\to+\infty}s_n
-	\end{equation}
+	Le superfici equipotenziali sono sempre ortogonali, punto per punto, a $\grad{V}$ e quindi anche al campo vettoriale elettrostatico $\vba{E}$.
 \end{define}
-\begin{define}[Convergenza totale o assoluta]
-	Sia $\left(X,\norm{\cdot}\right)$ spazio normato e $x_n$ una successione in $X$. La serie
-	\begin{equation*}
-		\sum_{k=0}^{+\infty}x_k
-	\end{equation*}
-	\textbf{converge totalmente}\index{convergenza!totale} o \textbf{assolutamente}\index{convergenza!assoluta} in $X$ se converge la serie
-	\begin{equation*}
-		\sum_{k=0}^{+\infty}\norm{x_k}
-	\end{equation*}
-\end{define}
-Dall'osservazione a pag. \pageref{convergenzaassolutadipendedacauchy} il teorema \ref{teoremaassimplicasemplice} necessita della \textit{completezza} dei reali. Per generalizzarlo ci basta lavorare in \textit{spazi normati completi}.
-\begin{theorema}[Convergenza totale o assoluta implica convergenza semplice]
-	Ogni serie in $X$ spazio normato completo totalmente convergente è anche semplicemente convergente. Inoltre, vale
-	\begin{equation}
-		\norm{\sum_{k=0}^{+\infty}x_k}\leq\sum_{k=0}^{+\infty}\norm{x_k}
-	\end{equation}
-\end{theorema}
-\begin{demonstration}
-	La dimostrazione è analoga a quella affrontata nel teorema  \ref{teoremaassimplicasemplice}: è sufficiente sostituire al valore assoluto $\abs{\cdot}$ la norma $\norm{\cdot}$.
-\end{demonstration}
-In generale, il problema della convergenza in spazi normati è \textit{inesplorato}, ma se lo spazio è \textit{completo} possiamo passare per la \textit{convergenza totale} e studiare una serie a valori reali tramite i \textit{criteri di convergenza}\footnote{Nelle ‘‘Note aggiuntive'', a pag. \pageref{criteridiconvergenzaserie} è possibile trovare maggiori dettagli sui criteri di convergenza delle serie a valori reali.} noti dall'\textsc{Analisi Matematica Uno}.\\
-\section{Serie di funzioni}
-Consideriamo lo spazio  $X=\mathcal{C}\left(\left[a,b\right];\ \realset\right)=\mathcal{C}\left(\left[a,b\right]\right)$ delle funzioni continue su un intervallo compatto con la \textit{metrica lagrangiana}:
-\begin{equation*}
-	\mvf{d}{f}{g}=\max_{x\in\left[a,b\right]}\abs{f(x)-g(x)}
-\end{equation*}
-In questo spazio, una serie convergente
-\begin{equation*}
-	\sum_{k=0}^{+\infty}f_kent
-\end{equation*}
-si può scrivere, per definizione, come
-\begin{equation*}
-	\sum_{k=0}^{+\infty}f_k=\lim_{n\to+\infty}\sum_{k=0}^{n}f_k=\lim_{n\to+\infty}S_n
-\end{equation*}
-dove $S_n$ è una successione di funzioni. Allora la condizione di convergenza di serie in $X$ si può formulare come
-\begin{equation*}
-	\sum_{k=0}^{+\infty}f_k\text{ converge in }\mathcal{C}\left(\left[a,b\right]\right)\iff S_n\text{ converge con metrica lagrangiana in}\mathcal{C}\left(\left[a,b\right]\right)
-\end{equation*}
-ossia
-\begin{equation*}
-	\sum_{k=0}^{+\infty}f_k\text{ converge in }\mathcal{C}\left(\left[a,b\right]\right)\iff S_n\text{ converge uniformemente in}\mathcal{C}\left(\left[a,b\right]\right)
-\end{equation*}
-Per la stessa osservazione fatte a pag. \pageref{convergenzalagrangianaeuniforme}, per parlare di convergenza uniforme non sono necessarie né la \textit{compattezza} di $\left[a,b\right]$, né la \textit{continuità} delle funzioni.\\
-Possiamo \textit{estendere} la definizione di convergenza di una serie di funzioni per
-\begin{equation*}
-	\funz{f_n}{A\subseteq \realset}{\realset}
-\end{equation*}
-con $A$ insieme contenuto nei reali o, ancora più in generale, per funzioni del tipo
-\begin{equation*}
-	\funz{f_n}{X}{Y}
-\end{equation*}
-dove $X$ è un \textit{insieme qualunque} e $Y$ è uno \textbf{spazio normato completo}.\\
-Studieremo quindi in questo capitolo le \textbf{serie di funzioni}\index{serie!di funzioni}
-\begin{equation*}
-	\sum_{k=0}^{+\infty}f_k(x)
-\end{equation*}
-per studiare la \textit{convergenza} di tali serie applicheremo le convergenze viste in precedenza alla \textit{successione delle ridotte}
-\begin{equation*}
-	S_n(x)=\sum_{k=0}^{n}f_k(x)
-\end{equation*}
-\begin{define}[Convergenza di una serie di funzioni]
-In queste definizioni la convergenza delle ridotte si trasferisce sulla convergenza della serie:
+\begin{examples}~{}
 	\begin{itemize}
-		\item \textbf{(CP)} La serie $\displaystyle\sum_{k=0}^{+\infty}f_k(x)$ \textbf{converge puntualmente} in $x\in A$ se $S_n(x)$ converge puntualmente in $x\in A$.
-		\item \textbf{(CU)} La serie $\displaystyle\sum_{k=0}^{+\infty}f_k(x)$ \textbf{converge uniformemente} in $x\in A$ se $S_n(x)$ converge uniformemente su $A$.
+		\item Per il potenziale della carica puntiforme, $V=\frac{q}{4\pi\epsilon_0r}=\mathrm{const}$ implica $r=\mathrm{const}$:le superfici equipotenziali sono circonferenze concentriche di raggio $r$, al variare di $r$.
+		% TO DO: inserire immagini
+		\item Per il dipolo elettrico $+/-$:
+		% TO DO: inserire immagini
+		\item Per il dipolo elettrico $+/+$:
 	\end{itemize}
-\end{define}
-\subsection{Il criterio di Weierstrass}
-Per motivi che saranno chiari nel \refChapterOnly{seriedipotenze} dedicato alle \textit{serie di potenze}, in questa sottosezione lavoreremo nel \textit{campo dei complessi} $\complexset$.\\
-Abbiamo dato la definizione di convergenza uniforme di una serie di funzione, ma essa non è di facile applicazione operativa. Infatti, la serie
-\begin{equation*}
-	\sum_{n=0}^{+\infty}f_n\left(z\right)
-\end{equation*}
-converge uniformemente su $A\subseteq\complexset$ se e solo se, definita $S\left(z\right)$ la funzione limite delle ridotte
-\begin{equation*}
-	S_n\left(z\right)=\sum_{k=0}^{n}f_k\left(z\right)
-\end{equation*}
-essa vale
-\begin{equation*}
-	\lim_{n\to+\infty}\left(\sup_{z\in A}\abs{S_n\left(z\right)-S\left(z\right)}\right)=0
-\end{equation*}
-Tuttavia, questa funzione richiede la conoscenza della \textit{somma} $S\left(z\right)$, cosa che in generale \textit{non} avviene. Usare direttamente il criterio di Cauchy per la convergenza uniforme è sicuramente più conveniente, ma non è sempre semplice da verificare. Esiste tuttavia una condizione \textit{sufficiente} che consente di provare la convergenza uniforme senza la conoscenza della somma limite.
-\begin{propositionqed}[Criterio di Weierstrass]\label{criteriodiweierstrass}
-	Siano $\funz{f_n}{A\subseteq \complexset}{\complexset}$ tale che
-	\begin{enumerate}[label=\alph*.]
-		\item $\forall n\in \naturalset,\ \exists c_n\in\realset\colon\ \abs{f_n\left(z\right)}\leq c_n,\ \forall z\in A$.
-		\item $\displaystyle\sum_{n=1}^{+\infty}c_n$ converge (come serie \textit{numerica}).
-	\end{enumerate}
-Allora
-\begin{equation*}
-	\sum_{n=1}^{+\infty}f_n\left(z\right)
-\end{equation*}
-converge \textit{uniformemente} in $A$.
-\end{propositionqed}
-\begin{observe}
-	La dimostrazione utilizza il criterio di Cauchy per la convergenza uniforme.
-\end{observe}
-\begin{observewt}[Significato del criterio]
-Le ipotesi $1)$ e $2)$ implicano immediatamente la convergenza puntuale (assoluta) della serie di potenze in ogni $z\in A$. Infatti, fissato $z$ ho la relazione $\abs{f_n\left(z\right)}\leq c_n$; da questo vale
-	\begin{equation*}
-		\sum_{n=0}^{+\infty}\abs{f_n\left(z\right)}\leq \sum_{n=0}^{+\infty}c_n
-	\end{equation*}
-e, poiché la serie
-\begin{equation*}
-	\sum_{n=0}^{+\infty}c_n
-\end{equation*}
-converge, allora
-\begin{equation*}
-	\sum_{n=0}^{+\infty}\abs{f_n\left(z\right)}
-\end{equation*}
-converge per criterio del confronto e quindi la serie di funzioni converge puntualmente.\\
-Quello che osserviamo nello specifico è che l'ipotesi $1)$ funge da \textit{maggiorazione uniforme} della serie di funzioni su $A$, da cui possiamo ricavare, anche a partire dalla convergenza puntuale della serie, la convergenza uniforme su $A$.
-\end{observewt}
-\section{Proprietà di regolarità di una serie di funzioni}
-Ci poniamo ora il problema di studiare come si modificano i teoremi di \textit{limitatezza}, \textit{continuità}, \textit{integrabilità}, \textit{integrabilità} e \textit{derivabilità} visti nel \refChapterOnly{convergenzafunzioni} nel caso delle \textit{serie di funzioni}.
-\subsection{Limitatezza}
-\begin{theorema}[Teorema di limitatezza per serie]
-	Siano $\displaystyle \funz{f_n}{A\subseteq\realset}{\realset},\ n\geq 1$ tali che
-	\begin{enumerate}[label=\alph*.]
-		\item $f_n$ limitata su $A,\ \forall n\geq 1$.
-		\item $\displaystyle\sum_{n=0}^{+\infty}f_n$ converge \textit{uniformemente} a $f$ su $A$.
-	\end{enumerate}
-	Allora, posto 
-	\begin{equation*}
-		S(x)=\sum_{n=0}^{+\infty}f_n(x),\ \forall x\in A,
-	\end{equation*}
-$S(x)$ è limitata su $A$.
-\end{theorema}
-\begin{demonstration}
-	La strategia è passare per la successione delle ridotte. Posto 
-	\begin{equation*}
-		S_n(x)=\sum_{k=0}^{n}f_k(x),\ \forall x\in A,
-	\end{equation*}
-	si ha:
-	\begin{itemize}
-		\item $S_n$ limitata su $A$, poiché le $f_k$ lo sono.
-		\item $S_n$ convergente uniformemente a $S$ su $A$.
-	\end{itemize}
-	Per il teorema di limitatezza per le successioni, $S$ è limitata su $A$.
-\end{demonstration}
-\subsection{Continuità}
-Notiamo immediatamente che il \textit{teorema di continuità per le serie} è del tutto analogo al \textit{teorema di limitatezza} appena dimostrato.
-\begin{theorema}[Teorema di continuità per serie]
-	Siano $\funz{f_n}{A\subseteq\realset}{\realset},\ n\geq 1$ tali che
-	\begin{enumerate}[label=\alph*.]
-		\item $f_n$ continua su $A,\ \forall n\geq 1$.
-		\item $\displaystyle\sum_{n=0}^{+\infty}f_n$ converge \textit{uniformemente} a $f$ su $A$.
-	\end{enumerate}
-	Allora, posto
-	\begin{equation*}
-		S(x)=\sum_{n=0}^{+\infty}f_n(x),\ \forall x\in A,
-	\end{equation*}
-	$S(x)$ è continua su $A$.
-\end{theorema}
-\begin{demonstration}
-	La strategia è passare per la successione delle ridotte.
-	Posto
-	\begin{equation*}
-		S_n(x)=\sum_{k=0}^{n}f_k(x),\ \forall x\in A,
-	\end{equation*}
-	si ha:
-	\begin{itemize}
-		\item $S_n$ continua su $A$, poiché le $f_k$ lo sono.
-		\item $S_n$ convergente uniformemente a $S$ su $A$.
-	\end{itemize}
-	Per il teorema di continuità per le successioni, $S$ è continua su $A$.
-\end{demonstration}
-\subsection{Integrabilità e scambio tra integrale e serie}
-\begin{theorema}[Teorema di integrabilità per serie, scambio tra integrale e serie]
-	Siano $\funz{f_n,f}{\left[a,b\right]}{\realset},\ n\geq 1$ tali che
-	\begin{enumerate}[label=\alph*.]
-		\item $f_n\in\mathcal{R}\left(\left[a,b\right]\right),\ \forall n\geq 1$.
-		\item $\displaystyle\sum_{n=0}^{+\infty}f_n$ converge \textit{uniformemente} a $f$ su $\left[a,b\right]$.
-	\end{enumerate}
-	Allora, posto
-	\begin{equation*}
-		 S(x)=\sum_{n=0}^{+\infty}f_n(x),\ \forall x\in \left[a,b\right],
-	\end{equation*}
-si ha:
-	\begin{enumerate}
-		\item $S\in\mathcal{R}\left(\left[a,b\right]\right)$.
-		\item Vale lo \textbf{scambio tra integrale e serie}\index{scambio tra integrale e serie}:
-		\begin{equation}
-			\int_{a}^{b}\sum_{k=0}^{+\infty}f_k(x)dx=\sum_{k=0}^{+\infty}\int_{a}^{b}f_k(x)dx
-		\end{equation}
-	\end{enumerate}
-\end{theorema}
-\begin{demonstration}
-	Posto
-	\begin{equation*}
-		S_n(x)=\sum_{k=0}^{n}f_k(x),\ \forall x\in \left[a,b\right],
-	\end{equation*}
-si ha:
-	\begin{itemize}
-		\item $S_n\in\mathcal{R}\left(\left[a,b\right]\right)$, poiché le $f_k$ lo sono.
-		\item $S_n$ convergente \textit{uniformemente} a $S$ su $\left[a,b\right]$.
-	\end{itemize}
-	Per il teorema di integrabilità per le successioni:
-	\begin{itemize}
-		\item $S\in\mathcal{R}\left(\left[a,b\right]\right)$ perché somma di funzioni integrabili.
-		\item Vale il \textit{passaggio al limite sotto segno di integrale} per la successione delle ridotte, ossia
-		\begin{equation*}
-			\lim_{n\to+\infty}\int_{a}^{b}S_n(x)dx=\int_{a}^{b}S(x)dx
-		\end{equation*}
-		Poiché l'\textit{integrale di una somma finita} è uguale ad una \textit{somma finita di integrali}, il primo membro dell'equazione può essere riscritto come
-		\begin{equation*}
-			\lim_{n\to+\infty}\int_{a}^{b}\sum_{k=0}^{n}f_k(x)dx=\lim_{n\to+\infty}\sum_{k=0}^{n}\int_{a}^{b}f_k(x)dx=\sum_{k=0}^{+\infty}\int_{a}^{b}f_k(x)dx
-		\end{equation*}
-		e poiché
-		\begin{equation*}
-			\int_{a}^{b}S(x)dx=\int_{a}^{b}\sum_{k=0}^{+\infty}f_k(x)dx
-		\end{equation*}
-		otteniamo la tesi:
-		\begin{equation*}
-			\int_{a}^{b}\sum_{k=0}^{+\infty}f_k(x)dx=\sum_{k=0}^{+\infty}\int_{a}^{b}f_k(x)dx
-		\end{equation*}
-	\end{itemize}
-\end{demonstration}
-\subsection{Derivabilità}
-\begin{theorema}[Derivabilità termine a termine]\label{derivabilitatermineatermine}
-	Siano $\funz{f_n}{\left(a,b\right)}{\realset}$ tale che
-	\begin{enumerate}[label=\alph*.]
-		\item $f_n$ derivabile su $\left(a,b\right),\ \forall n\geq 1$.
-		\item $\exists c\in\left(a,b\right)$ tale che $\displaystyle\sum_{n=1}^{+\infty}f_n\left(c\right)$ converge
-		\item $\displaystyle\sum_{n=1}^{+\infty}f'_n(x)$ converge uniformemente su $\left(a,b\right)$.
-	\end{enumerate}
-Allora:
-\begin{enumerate}
-	\item $\displaystyle\sum_{n=1}^{+\infty}f_n(x)$ converge uniformemente su $\left(a,b\right)$
-\end{enumerate}
-Inoltre, detta $f$ la funzione somma:
-\begin{enumerate}
-		\setcounter{enumi}{1}
-\item $f$ è derivabile su $\left(a,b\right)$
-\item Vale la \textbf{derivazione termine a termine}\index{derivazione termine a termine}:
+\end{examples}
+\section{Discontinuità di campo elettrico tra superfici}
+Precedentemente abbiamo ricavato il campo elettrostatico e il potenziale di volumi uniformemente carichi, come una sfera. Ci chiediamo ora quale sia il campo elettrostatico e di conseguenza il potenziale di una \textbf{superficie cava} uniformemente carica, come ad esempio una superficie sferica o un cilindro.
+\paragraph{Superficie sferica uniformemente carica}
+Si consideri una superficie sferica di raggio $R$ con densità superficiale costante $\sigma$. Per semplicità, poniamo il sistema di riferimento in modo che l'origine coincida con il centro della sfera.
+La carica totale sulla superficie è
 \begin{equation}
-	f'(x)=D\left(\sum_{n=1}^{+\infty}f_n(x)\right)=\sum_{n=1}^{+\infty}f_n'(x),\ \forall x\in\left(a,b\right)
+	q=4\pi R^2 \sigma
 \end{equation}
-\end{enumerate}
+Distinguiamo, come al solito, due casi: il campo elettrico interno ($r<R$) e quello esterno ($r>R$) alla sfera.
+\begin{itemize}
+	\item[$\mathbf{r<R}$] Utilizziamo la legge di Gauss su una superficie $\Sigma$ di raggio $r<R$ centrata nell'origine. Dalla definizione di flusso abbiamo che
+	\begin{equation*}
+		\Phi_{\Sigma}\left(\vba{E}\right)=\int E(r)d\Sigma=4\pi r^2 E_r(r)
+	\end{equation*}
+dato che $E(r)$ è costante su $\Sigma$.
+Tuttavia, poiché la carica è concentrata tutta sulla sfera di raggio $R$, la superficie $\Sigma$ \textit{non} contiene alcuna carica; pertanto, per la legge di Gauss
+\begin{equation*}
+	4\pi r^2 E_r(r)=\Phi_{\Sigma}\left(\vba{E}\right)=\frac{q_{interna}}{\epsilon_0}=0
+\end{equation*}
+da cui segue che
+\begin{equation}
+	\vba{E}(r)=0
+\end{equation}
+\item[$\mathbf{r>R}$] Sulla base di osservazioni precedenti, il comportamento esterno è analogo a quello di una carica puntiforme nell'origine.
+\begin{equation}
+	\vba{E}(r)=\frac{\sigma R^2}{\epsilon_0r^2}\vbh{u}_r=\frac{q}{4\pi\epsilon_0r^2}\vbh{u}_r
+\end{equation}
+\end{itemize}
+Il campo elettrico, pertanto, è discontinuo e vale
+\begin{equation}
+	\vba{E}(r)=\begin{cases}
+		0&\text{se}\ r\leq R\\
+		\frac{\sigma R^2}{\epsilon_0r^2}\vbh{u}_r=\frac{q}{4\pi\epsilon_0r^2}\vbh{u}_r &\text{se}\ r\geq R
+	\end{cases}
+\end{equation}
+mentre invece il potenziale è continuo e vale
+\begin{equation}
+	V(r)=
+	\begin{cases}
+	\frac{\sigma R}{\epsilon_0}=\frac{q}{4\pi\epsilon_0 R}&\text{se}\ r\leq R\\
+	\frac{\sigma R^2}{\epsilon_0 r}=\frac{q}{4\pi\epsilon_0 r}&\text{se}\ r\geq R
+	\end{cases}
+\end{equation}
+Si osserva una discontinuità pari a $\frac{\sigma}{\epsilon_0}$ tra il campo elettrico interno ed esterno alla superficie.
+\paragraph{Cilindro uniformemente carico}
+Si consideri una superficie cilindrica di raggio $R_0$ e lunghezza $L$ con densità superficiale costante $\sigma$, dove le cariche sono disposte sulla faccia laterale. Per semplicità, poniamo il sistema di riferimento in modo che l'asse $z$ passi per l'asse del cilindro.
+La carica totale sulla superficie è
+\begin{equation}
+	q=A_{laterale} \sigma=2\pi R_0 L \sigma
+\end{equation}
+Distinguiamo due casi: il campo elettrico interno ($R<R_0$) e quello esterno ($R>R_0$) al cilindro.
+\begin{itemize}
+	\item[$\mathbf{R<R_0}$] Utilizziamo la legge di Gauss su un cilindro $\Sigma$ di raggio $R<R_0$ con asse sull'asse $z$. Dalla definizione di flusso abbiamo che
+	\begin{equation*}
+		\Phi_{\Sigma}\left(\vba{E}\right)=\int E(R)d\Sigma=2\pi R L E_R(R)
+	\end{equation*}
+	dato che $E(R)$ è costante su $\Sigma$.
+	Tuttavia, poiché la carica è concentrata tutta sul cilindro di raggio $R_0$, la superficie $\Sigma$ \textit{non} contiene alcuna carica; pertanto, per la legge di Gauss
+	\begin{equation*}
+		2\pi R L E_R(R)=\Phi_{\Sigma}\left(\vba{E}\right)=\frac{q_{interna}}{\epsilon_0}=0
+	\end{equation*}
+	da cui segue che
+	\begin{equation}
+		\vba{E}(R)=0
+	\end{equation}
+	\item[$\mathbf{R>R_0}$] In modo simile al caso della sfera, il comportamento esterno è analogo a quello di un filo carico. % TO DO: check mazzoldi?
+	\begin{equation}
+		\vba{E}(r)=\frac{\sigma R_0}{\epsilon_0r}\vbh{u}_R=\frac{q}{2\pi\epsilon_0Lr}\vbh{u}_R
+	\end{equation}
+\end{itemize}
+Il campo elettrico, pertanto, è discontinuo e vale
+\begin{equation}
+	\vba{E}(r)=\begin{cases}
+		0&\text{se}\ r\leq R\\
+		\frac{\sigma R_0}{\epsilon_0r}\vbh{u}_R=\frac{q}{2\pi\epsilon_0Lr}\vbh{u}_R &\text{se}\ r\geq R
+	\end{cases}
+\end{equation}
+mentre invece il potenziale è continuo e vale
+\begin{equation}
+	V(r)=
+	\begin{cases}
+		-\frac{\sigma R_0}{\epsilon_0}\log R=-\frac{q}{2\pi\epsilon_0L}\log R&\text{se}\ r\leq R\\
+		-\frac{\sigma R_0}{\epsilon_0}\log r=-\frac{q}{2\pi\epsilon_0L}\log r&\text{se}\ r\geq R
+	\end{cases}
+\end{equation}
+Si osserva una discontinuità pari a $\frac{\sigma}{\epsilon_0}$ tra il campo elettrico interno ed esterno alla superficie.
+\paragraph{Discontinuità di campo elettrico tra superfici}
+Sebbene l'andamento del campo elettrico nei due esempi precedenti è leggermente diverso, per entrambi i casi la discontinuità tra campo elettrico interno ed esterno in uno stesso punto è pari al valore $\frac{\sigma}{\epsilon_0}$. Non è una coincidenza fortuita, bensì possiamo mostrare che questo è \textit{sempre} così.
+\begin{proposition}[Discontinuità di campo elettrico tra superfici]
+	La differenza di campo elettrico tra due lati di una superficie carica è, punto per punto, pari a 
+	\begin{equation*}
+		\Delta \vba{E}(\vba{r})=\frac{\sigma}{\epsilon_0}\vbh{u}_n
+	\end{equation*}
+\end{proposition}
+\begin{demonstration}
+	Dimostriamo tale proprietà per un foglio carico (supponiamo positivamente), dato che la superficie si può considerare almeno localmente come un foglio 
+	carico.
+	
+	Posta una carica positiva su una faccia del foglio, ci aspettiamo che si allontani da esso ‘‘dallo stesso lato del foglio'' a causa di un campo elettrico $\vba{E}_1$; viceversa, mettendo una particella positiva dall'altra faccia è prevedibile che la particella sarà respinta dalla superficie da quello stesso lato dalla forza generata dal campo elettrico $\vba{E}_2$, ossia dal verso opposto di $\vba{E}_1$: ci dovrà essere necessariamente una discontinuità di campo elettrico per avere questo cambio drastico di verso.
+	
+	% TO DO: inserire immagine
+	Disegniamo un circuito rettangolare $\gamma=[ABCD]$ che interseca il campo e che sia sufficientemente piccolo in modo da considerare $\vba{E}$ costante sul circuito. Dato che la circuitazione circuitazione lungo $\gamma$ è influenzata solo dalle componenti tangenziali $E_{i,t}$ e non dalle componenti perpendicolari $E_{i,n}$ al circuito, si ha
+	\begin{equation*}
+		0=\Gamma_{\gamma}\left(\vba{E}\right)=E_{1,t}d_{AB}-E_{2,t}d_{CD}=\left(E_{2,t}-E_{1,t}\right)d_{AB}
+	\end{equation*}
+Da cui segue che
+\begin{equation*}
+	E_{2,t}=E_{1,t},
+\end{equation*}
+ossia che le componenti tangenziali devono essere uguali.
+
+%TO DO: inserire immagini
+Consideriamo lo stesso foglio, questa volta intersecandolo con una superficie cilindrica con altezza sufficientemente piccola in modo che  il campo elettrico è considerabile costante lungo la superficie di base. Calcolando il flusso e confrontandolo con quello ottenuto dalle legge di Gauss, ricordiamo che lungo la superficie laterale esso è nullo:
+\begin{equation*}
+	\frac{q_{A_{base}}}{\epsilon_0}=\Phi_{\Sigma}\left(\vba{E}\right)=E_{1,n}A_{base}-E_{2,n}A_{base}
+\end{equation*}
+Da cui segue invece
+\begin{equation*}
+	E_{1,n}-E_{2,n}=\frac{\sigma}{\epsilon_0}
+\end{equation*}
+Allora, facendo la differenza punto per punto, si ha
+\begin{equation*}
+	\Delta\vba{E}=\underbrace{\left(E_{1,t}-E_{2,t}\right)}_{=0}\vbh{u}_t+\underbrace{\left(E_{1,n}-E_{2,n}\right)}_{=\frac{\sigma}{\epsilon_0}}\vbh{u}_n=\frac{\sigma}{\epsilon_0}\vbh{u}_n\qedhere
+\end{equation*}
+\end{demonstration}
+\section{Leggi di Maxwell per l'elettrostatica}
+A questo punto siamo arrivati ad avere tutti gli strumenti e i risultati necessari per enunciare le \textbf{leggi di Maxwell relative all'elettrostatica}.\\
+Tuttavia, prima di far ciò è importante riprendere in mano alcuni risultati matematici e fisici che ci serviranno a tal scopo.
+\begin{remember}~\\
+		\begin{tabular}{p{0.47\textwidth}p{0.47\textwidth}}
+			\begin{itemize}
+				\item[1a] \textbf{Teorema della divergenza:} si consideri un volume $V\subseteq\realset^3$ compatto con bordo liscio $\partial V$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
+				\begin{equation*}
+					\int_V\div{\vba{G}}=\int_{\partial V}\vba{G}\vdot \vbh{u}_nd\Sigma
+				\end{equation*}
+				o, equivalentemente,
+				\begin{equation*}
+					\int_V\div{\vba{G}}=\Phi_\Sigma\left(\vba{G}\right)
+				\end{equation*}
+			\end{itemize} &
+			\begin{itemize}
+			\item[1b] \textbf{Teorema del rotore:} si consideri una curva $\funz[\gamma]{\left[a,b\right]}{\realset^3}$ semplice - ossia senza intersezioni con sé stessa, chiusa e liscia a tratti; si consideri inoltre una superficie $\Sigma$ liscia tale che $\partial \Sigma=\gamma$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
+			\begin{equation*}
+				\int_\Sigma\grad{\vba{G}}\vdot\vbh{u}_nd\Sigma=\oint_{\gamma}\vba{G}\vdot d\vba{s}
+			\end{equation*}
+			o, equivalentemente,
+			\begin{equation*}
+				\Phi_\Sigma\left(\grad{\vba{G}}\right)=\Gamma_\gamma\left(\vba{G}\right)
+			\end{equation*}
+		\end{itemize}\\
+			\begin{itemize}
+				\item[2a] \textbf{Legge di Gauss:} il flusso del campo elettrostatico $\vba{E}$ attraverso un superficie \textit{chiusa} è eguale alla quantità di carica contenuta all'\textbf{interno} della superficie, comunque siano distribuite, divisa per $\epsilon_0$.
+				\begin{equation*}
+					\Phi_\Sigma\left(\vba{E}\right)=\frac{1}{\epsilon_0}\int_{V}\rho\left(\vba{r}\right)dV
+				\end{equation*}
+				dove $V$ è uno spazio delimitato da $\Sigma$, ossia tale che $\partial V=\Sigma$.
+			\end{itemize} &
+			\begin{itemize}
+				\item[2b] \textbf{Circuitazione del campo elettrico nulla:} su ogni curva chiusa $\gamma$ nello spazio, la circuitazione del campo elettrostatico è nulla.
+				\begin{equation*}
+					\Gamma_{\gamma}(\vba{E})=0
+				\end{equation*}
+			\end{itemize}
+		\end{tabular}
+\end{remember}
+\begin{theorema}[Equazioni di Maxwell per l'elettrostatica]
+	Dato il campo elettrostatico $\vba{E}$ e una densità di carica $\rho$, valgono le seguenti relazioni:
+		\begin{align}
+			\div{\vba{E}}&= \frac{\rho}{\epsilon_0} &
+			\curl{E}&= 0
+		\end{align}
 \end{theorema}
 \begin{demonstration}
-	Si applica il teorema di derivazione alla successione delle ridotte
+	Per ottenere la prima legge, partiamo dalla legge di Gauss
+	\begin{equation}
+		\Phi_\Sigma\left(\vba{E}\right)=\frac{q}{\epsilon_0}
+	\end{equation}
+scritta nella sua formulazione integrale:
 	\begin{equation*}
-		S_n(x)=\sum_{k=1}^{n}f_k(x),\ \forall x\in\left(a,b\right),\ \forall n\geq 1
+		\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{1}{\epsilon_0}\int_{V}\rho\left(\vba{r}\right)dV
 	\end{equation*}
-Verifichiamo le ipotesi:
-\begin{enumerate}
-	\item $S_n$ è derivabile su $\left(a,b\right),\ \forall n\geq 1$, perché lo sono le $f_k$ su $\left(a,b\right),\ \forall k\geq 1$.
-	\item $S_n\left(c\right)$ converge perché $\displaystyle\sum_{n=1}^{+\infty}f_n\left(c\right)$ converge per ipotesi.
-	\item $S'_n(x)=\displaystyle\sum_{k=1}^{n}f'_k(x)$ converge uniformemente su $\left(a,b\right)$ per ipotesi.
-\end{enumerate}
-Allora per il teorema di derivazione per le successioni si ha che
-\begin{center}
-	$S_n(x)$ converge uniformemente su $\left(a,b\right)$
-\end{center}
-ossia, per definizione, che
-\begin{center}
-	$\displaystyle\sum_{n=1}^{+\infty}f(x)$ converge uniformemente su $\left(a,b\right)$
-\end{center}
-Inoltre, definita la somma
+Applichiamo il teorema della divergenza al primo membro:
 \begin{equation*}
-	f(x)=\sum_{n=1}^{+\infty}f_n(x)=\lim_{n\to+\infty}S_n(x),\ \forall x\in\left(a,b\right),
+	\int_V\div{E}dV=\int_V\frac{\rho}{\epsilon_0}dV
 \end{equation*}
-si ha che $f$ è derivabile su $\left(a,b\right)$ e per il teorema di derivazione
+Poiché questa relazione è vera per un qualunque volume $V$ arbitrario, si deve necessariamente avere uguaglianza degli integrandi, ottenendo
 \begin{equation*}
-	f'(x)=\lim_{n\to+\infty}S'_n(x)=\lim_{n\to+\infty}\sum_{k=1}^{+\infty}f'_k(x)=\sum_{k=1}^{+\infty}f'_k(x),\ \forall x\in\left(a,b\right)\qedhere
+	\div{E}=\frac{\rho}{\epsilon_0}
+\end{equation*}
+Per ottenere la seconda legge, partiamo dalla circuitazione nulla del campo elettrostatico
+\begin{equation*}
+	\Gamma_{\gamma}\left(\vba{E}\right)=0
+\end{equation*}
+scritta nella sua formulazione integrale:
+\begin{equation*}
+	\oint_{\gamma}\vba{E}\vdot d\vba{s}=0
+\end{equation*}
+Applicando il teorema del rotore al membro non nullo:
+\begin{equation*}
+	\int_{\Sigma}\grad{\vba{E}}\vdot \vbh{u}_nd\Sigma=0
+\end{equation*}
+Poiché questa relazione è vera per una qualunque superficie $\Sigma$ arbitraria, si deve necessariamente avere che l'unico termine non dipendente dalla superficie sia sempre nullo.
+\begin{equation*}
+	\grad{\vba{E}}=0\qedhere
 \end{equation*}
 \end{demonstration}
 \begin{observe}
-	La derivazione termine a termine si può interpretare anche come ‘‘la derivata della serie è la serie delle derivate'', estendendo così la regola delle somma \textit{finita} delle derivate.
+	Mentre la prima equazione vale in generale, la seconda vale solo in elettrostatica, considerando un campo elettrico statico e in assenza di campo magnetico.\\
+	Nel caso generale, vedremo che il rotore del campo elettrico dipende dalla variazione temporale del campo magnetico.
 \end{observe}
-\section{The Fulfilling World of the Space-Filling Curves}
-in questa sezione, il cui nome è in inglese per il puro scopo di fare un pessimo gioco di parole, è un piccolo approfondimento sulle cosiddette curve \textbf{space-filling} (traducibile in italiano come \textit{curve riempi-spazio}).\\
-Intuitivamente, quando pensiamo ad un curva, ci immaginiamo la traiettoria di un punto in movimento, o comunque un qualcosa \textit{unidimensionale} nello spazio che sia estremamente \textit{sottile}, senza \textit{spessore}. Dato che questo concetto è un po' troppo vago per poterci lavorare matematicamente, Camille \textbf{Jordan} (1838-1992) nel 1887 la definì nel seguente modo:
-\begin{define}[Curva]
-	Una \textbf{curva}\index{curva} è una funzione continua il cui dominio è l'intervallo unitario $\left[0,1\right]$.
-\end{define}
-Questa definizione, per quanto innocua essa sia, comporta una conseguenze importante: dato che non ci sono condizioni sul \textit{codominio} di tale funzione, esso di fatto può essere uno spazio topologico \textit{arbitrario}!\\
-E infatti, nel 1890, il matematico torinese Giuseppe \textbf{Peano} (1858-1932) scoprì il primo caso di una curva continua che passa in \textit{tutti} i punti del quadrato unitario $\left[0,1\right]^2$. Questa curva, che ora viene chiamata in suo onore \textbf{curva di Peano}, è altamente controintuitiva, essendo un'oggetto che non ha spessore ma che può comunque \textit{riempire} il quadrato - da qui il nome \textbf{curva space-filling}.
-\begin{define}[Curva space-filling]
-	Una \textbf{curva space-filling}\index{curva!space-filling} è una curva il cui codominio contenga il quadrato unitario o, più genericamente, il plurintervallo $n$-dimensionale unitario $\left[0,1\right]^n$.
-\end{define}
-L'anno successivo a Peano, David \textbf{Hilbert} (1862-1943) semplificò notevolmente l'idea di Peano e fornì la prima costruzione geometrica (e induttiva) di una curva space-filling; noi descriveremo quest'ultima. Costruiamo una sequenza $\gamma_n$ di curve piane, che fungeranno da iterazioni della curva di Hilbert.
-\begin{itemize}
-	\item \textbf{La curva $\gamma_1$:} consiste dei tre segmenti che connettono i \textit{vertici} $\left(\frac{1}{4},\frac{1}{4}\right)$, $\left(\frac{1}{4},\frac{3}{4}\right)$, $\left(\frac{3}{4},\frac{1}{4}\right)$ e $\left(\frac{3}{4},\frac{1}{4}\right)$
-	\begin{center}
-		\includegraphics[trim=1.8cm 1.8cm 1.8cm 1.8cm, clip, scale=0.25]{images/hilbert1.pdf}
-	\end{center}
-	\item \textbf{La curva $\gamma_2$:} dividiamo il quadrato $\left[0,1\right]^2$ in quattro quadrati identici:
+\begin{examplewt}[Sfera uniformemente carica]
+	Verifichiamo che vale la prima equazione dell'elettrostatica nel caso del campo generato da una sfera carica uniformemente:
 	\begin{equation*}
-		Q_1=\left[0,\frac{1}{2}\right]\times\left[0,\frac{1}{2}\right]\  Q_2=\left[0,\frac{1}{2}\right]\times\left[\frac{1}{2},1\right]\ 
-		Q_3=\left[\frac{1}{2},1\right]\times\left[\frac{1}{2},1\right]\ 
-		Q_4=\left[\frac{1}{2},1\right]\times\left[0,\frac{1}{2}\right]
+		\vba{E}(r)=\begin{cases}
+			\frac{\rho R}{3\epsilon_0}\vbh{u}_r&\text{se}\ r\leq R\\
+			\frac{q}{4\pi\epsilon_0 R^2}\vbh{u}_r &\text{se}\ r\geq R
+		\end{cases}
 	\end{equation*}
-	In ogni quadrato mettiamo la prima curva $\gamma_1$ ridimensionata di un fattore $\nicefrac{1}{2}$ e la ruotiamo come in figura.
-	\begin{center}
-		\includegraphics[trim=1.8cm 1.8cm 1.8cm 1.8cm, clip, scale=0.25]{images/hilbert2.pdf}
-	\end{center}
-	Nel primo quadrato è ruotata di $90^\circ$ in senso orario, nel secondo e terzo quadrante rimane nella posizione originale, mentre nel quarto quadrato è ruotata $90^\circ$ in senso antiorario. Per concludere, colleghiamo l'estremo finale della curva in $Q_1$ con quello iniziale della curva $Q_2$; ripetiamo il processo per le curve in $Q_2$ e $Q_3$ e per le curve in $Q_3$ e $Q_4$.\\
-	I vertici della curva sono diventati $16=4^2$ e si possono scrivere come $\left(\frac{n}{2^3},\frac{m}{2^3}\right)$, dove $n,m=1,3,5,7$.
-	\item \textbf{La curva $\gamma_3$:} si ripete la stessa costruzione vista al passo 2.
-	\begin{center}
-		\includegraphics[trim=1.8cm 1.8cm 1.8cm 1.8cm, clip, scale=0.25]{images/hilbert3.pdf}
-	\end{center}
-	I vertici della curva sono diventati $64=4^3$ e si possono scrivere come $\left(\frac{n}{2^4},\frac{m}{2^4}\right)$, dove $n$ e  $m$ sono i numeri dispari da $1$ a $2^4-1$.
-\end{itemize}
-Questa successione di curve si può mostrare essere uniformemente convergente ad una curva limite $\gamma$ - la vera e propria curva di Hilbert; per mostrare che $\gamma$ è space-filling si può osservare che l'immagine della curva è un compatto chiuso in $\left[0,1\right]^2$ e che l'insieme dei punti $\left(\frac{n}{2^k},\frac{m}{2^k}\right)$ - dove $k\in\naturalset$, $n$ e $m$ numeri dispari da $1$ a $2^k-1$ - è denso in $\left[0,1\right]^2$. Per costruzione della sequenza $\gamma_n$ lo stesso si può dire dell'immagine di $\gamma$; essa, essendo un sottoinsieme chiuso e denso nel quadrato, allora deve riempirlo.\\
-Pur non avendo scritto esplicitamente l'espressione di $\gamma_n$ e $\gamma$, preferendo mostrare l'approccio \textit{geometrico} alla questione, è immediato capire che essere possono essere scritte come \textit{somma} e \textit{serie} di opportune funzioni: più in generale, un gran numero di curve space-filling sono esprimibili come serie di funzioni!
+	Data la divergenza di un campo in coordinate sferiche\footnote{Nelle ‘‘XXX'', a pagina \pageref{DivergenzaSferiche} è possibile trovare a grandi linee il procedimento per ricavare la divergenza in coordinate sferiche.}, che ricordiamo essere
+	\begin{equation*}
+		\div{\vba{G}}=\frac{1}{r^2}\pdv{r}\left(r^2G_r\right)+\frac{1}{r\sin\theta}\pdv{\theta}\left(G_\theta\sin\theta\right)+\frac{1}{r\sin\theta}\pdv{G_\phi}{\phi}
+	\end{equation*}
+	allora si ha, per un punto \textit{esterno} alla sfera (in cui \textit{non} c'è alcuna densità di corrente) vale
+	\begin{equation}
+		\div{\vba{E}}=\div{\frac{q}{4\pi\epsilon_0 R^2}\vbh{u}_r}=\frac{1}{r^2}\pdv{r}\left(r^2\frac{q}{4\pi\epsilon_0 R^2}\right)=0
+	\end{equation}
+	mentre per un punto \textit{interno} alla sfera (in cui si ha una densità di corrente $\rho$) vale
+	\begin{equation*}
+		\div{\vba{E}}=\div{\left(\frac{\rho R}{3\epsilon_0R^2}\vbh{u}_r\right)}=\frac{1}{r^2}\pdv{r}\left(r^2\frac{\rho R}{3\epsilon_0R^2}\right)=\frac{1}{\Ccancel[red]{r^2}}\frac{\Ccancel[red]{3}\Ccancel[red]{r^2}}{\Ccancel[red]{3}\epsilon_0}=\frac{\rho}{\epsilon_0}
+	\end{equation*}
+\end{examplewt}
+\begin{comment}
+	\begin{digression} % TO DO: spostare alla fine delle equazioni
+		Non dobbiamo pensare che le equazioni di Maxwell sono una conseguenza di tutti i risultati e gli esperimenti visti fin'ora, ma semmai il \textit{contrario}: sono le equazioni di Maxwell che sono così \textit{fondamentali} da descrivere l'intera teoria elettromagnetica.\\ Volendo, si poteva trattare l'elettromagnetismo enunciando le equazioni di Maxwell e solo successivamente \textit{declinare} i risultati particolari da quelle; la scelta di fare l'esatto opposto è stata fatta per seguire grossomodo l'\textit{approccio storico} alla faccenda. % TO DO: completare in modo più interessante.
+	\end{digression}
+\end{comment}
+\section{Equazione di Poisson e di Laplace}
+L'irrotazionalità del campo elettrostatico garantita dalla seconda equazione di Maxwell ci dice che, almeno localmente, è anche conservativo:
+\begin{equation*}
+	\curl{\vba{E}}=0\iff \exists V\colon \vba{E}=-\grad{V}
+\end{equation*}
+Sostituendo nella prima legge di Maxwell, ossia la legge di Gauss, otteniamo
+\begin{equation*}
+	\grad{E}=\frac{\rho}{\epsilon}\implies\div{\grad{V}}=-\frac{\rho}{\epsilon_0}
+\end{equation*}
+che è un'equazione alle derivate parziali detta \textbf{equazione di Poisson}\index{equazione!di Poisson}.
+\begin{equation}
+	\laplacian{V}=-\frac{\rho}{\epsilon_0}
+\end{equation}
+Questa equazione differenziale ci descrive il potenziale in una regione dove è presente una sorgente di densità di carica $\rho$.
+
+In una regione priva di cariche si ha $\rho\equiv0$; l'\textbf{equazione di Laplace}\index{equazione!di Laplace} descrive il potenziale in tale regione.
+\begin{equation}
+	\laplacian{V}=0
+\end{equation}
+
+Imponendo delle opportune \textit{condizioni di contorno}, che siano di natura \textit{fisica} o imposte come tali per \textit{convenzione}, potremmo idealmente ricavare le soluzioni di queste equazioni e determinare in modo prettamente matematico il potenziale - e di conseguenza anche il campo elettrostatico. Il problema principale è che \textit{non sempre} è possibile trovare facilmente una soluzione; tuttavia, per alcuni specifici casi, ad esempio campi che presentano delle \textit{simmetrie} interessanti, possiamo calcolare senza troppi problemi il potenziale.
+\paragraph{Equazioni di Poisson e di Laplace con simmetria sferica}
+Consideriamo un campo a simmetria sferica, ossia dipendente esclusivamente dalla distanza radiale:
+\begin{equation*}
+	V(\vba{r})=V(r)\vbh{u}_r
+\end{equation*}
+Dato che il laplaciano in coordinate sferiche è
+	\begin{equation*}
+		\laplacian=\frac{1}{r^2}\pdv{r}\left(r^2\pdv{r}\right)+\frac{1}{r^2\sin\theta}\pdv{\theta}\left(\sin\theta\pdv{\theta}\right)+\frac{1}{r^2\sin^2\theta}\pdv[2]{\phi}
+	\end{equation*}
+allora in un punto dello spazio dove \textit{non} c'è densità di carica si ha potenziale dato dalla soluzione dell'\textit{equazione di Laplace}
+\begin{equation*}
+	\frac{1}{r^2}\pdv{r}\left(r^2\pdv{r}V(r)\right)=0
+\end{equation*}
+Facendo gli opportuni calcoli...
+\begin{gather*}
+	\pdv{r}\left(r^2\pdv{r}V(r)\right)=0\\
+	r^2\pdv{r}V(r)=A\\
+	\pdv{r}V(r)=\frac{A}{r^2}\\
+\end{gather*}
+... otteniamo il potenziale
+\begin{equation}
+	V(r)=-\frac{A}{r}+B
+\end{equation}
+dove $A$ e $B$ sono costanti date dalle condizioni al contorno.
+
+In un punto dello spazio dove c'è densità di carica $\rho$ si ha potenziale dato dalla soluzione dell'\textit{equazione di Poisson}
+\begin{equation*}
+	\frac{1}{r^2}\pdv{r}\left(r^2\pdv{r}V(r)\right)=-\frac{\rho}{\epsilon_0}
+\end{equation*}
+Consideriamo il caso di $\rho$ costante, per semplicità. Facendo gli opportuni calcoli...
+\begin{gather*}
+	\pdv{r}\left(r^2\pdv{r}V(r)\right)=-\frac{\rho}{\epsilon_0}r^2\\
+	r^2\pdv{r}V(r)=-\frac{\rho}{3\epsilon_0}r^3+C\\
+	\pdv{r}V(r)=-\frac{\rho}{3\epsilon_0}r+\frac{C}{r^2}\
+\end{gather*}
+... otteniamo il potenziale
+\begin{equation}
+	V(r)=-\frac{\rho}{6\epsilon_0}r^2-\frac{C}{r}+D
+\end{equation}
+dove $A$ e $B$ sono costanti date dalle condizioni al contorno.
+\begin{examplewt}[Sfera uniformemente carica]
+	Il campo elettrostatico della sferica uniformemente carica di raggio $R$ è un campo a simmetria radiale, pertanto il potenziale soddisfa, all'interno e all'esterno della sfera, le equazioni di Poisson e Laplace trovate prima.
+	\begin{equation}
+		V(r)=
+		\begin{cases}
+			-\frac{\rho}{6\epsilon_0}r^2-\frac{C}{r}+D&\text{se}\ r\leq R\\
+			-\frac{A}{r}+B&\text{se}\ r\geq R
+		\end{cases}
+	\end{equation}
+	Ci basta ora imporre le condizioni al contorno.
+	\begin{itemize}
+		\item Per \textit{convenzione}, si suppone che il potenziale per $r\to\infty$ tenda a $0$, dato che il campo elettrico si considera trascurabili a enormi distanze.\footnote{Questo è lecito farlo perché lo \textbf{zero del potenziale} è arbitrario, grazie al fatto che il potenziale stesso è definito a meno di costanti: sostanzialmente, come decido di misurare il potenziale è una scelta di chi studia il sistema, anche se generalmente ci sono motivi fisici (come in questo caso) o geometrici per fare una certa scelta. Ciò non significa, tuttavia, che tale scelta è \textit{insignificante}, dato che \textit{ogni} valore del potenziale deve essere misurato tenendo conto di tale zero.}
+		\begin{equation*}
+			\lim_{r\to+\infty}V(r)=0
+		\end{equation*}
+		Imponendo ciò, si trova
+		\begin{equation*}
+			B=0
+		\end{equation*}
+		\item Quando siamo a grandi distanze, la sfera carica uniformemente è assimilabile ad una carica puntiforme, pertanto l'altra condizione al limite è che il campo elettrico della sfera all'esterno sia quello della sfera; da ciò è necessario imporre 
+		\begin{equation*}
+			A=-\frac{q}{4\pi\epsilon_0}
+		\end{equation*}
+	\end{itemize}
+	\begin{itemize}% TO DO: controllare questa prima condizione: ad esempio in simmetria cilindrica per r=0 crolla il campo.
+		\item Sulla base della continuità del potenziale, sul dominio del campo elettrico il potenziale si considera \textit{finito}, pertanto poniamo
+		\begin{equation*}
+			C=0
+		\end{equation*}
+		in modo da togliere il termine $\frac{1}{r}$, che renderebbe il potenziale infinito in $r=0$.
+		\item Per garantire la continuità del potenziale si deve imporre
+		\begin{equation*}
+			V_{interno}(R)=V_{esterno}(R)
+		\end{equation*}
+			Risolvendo l'equazione
+		\begin{equation*}
+			-\frac{\rho}{6\epsilon_0}R^2+D=\frac{q}{4\pi\epsilon_0R}\implies D=\frac{q}{4\pi\epsilon_0R}+\frac{\rho}{6\epsilon_0}R^2
+		\end{equation*}
+	\end{itemize}
+Il potenziale complessivo è unico ed è
+\begin{equation}
+	V(r)=
+	\begin{cases}
+		\frac{\rho}{6\epsilon_0}\left[R^2-r^2\right]+\frac{q}{4\pi\epsilon_0R}=\frac{\rho}{6\epsilon_0}\left[R^2-r^2\right]+\frac{\rho R^2}{3\epsilon_0}&\text{se}\ r\leq R\\
+		\frac{q}{4\pi\epsilon_0r}=\frac{\rho R^3}{3\epsilon_0r}&\text{se}\ r\geq R
+	\end{cases}
+\end{equation}
+\end{examplewt}
+\paragraph{Equazione di Laplace con simmetria cilindrica}
+Consideriamo un campo a simmetria cilindrica, ossia dipendente esclusivamente dalla distanza assiale:
+\begin{equation*}
+	V(\vba{r})=V(R)\vbh{u}_R
+\end{equation*}
+Dato che il laplaciano in coordinate cilindriche è
+\begin{equation*}
+	\laplacian=\frac{1}{R}\pdv{R}\left(R\pdv{R}\right)+\frac{1}{R^2}\pdv[2]{\theta}+\pdv[2]{z}
+\end{equation*}
+allora in un punto dello spazio dove non c'è densità di carica si ha potenziale dato dalla soluzione dell'\textit{equazione di Laplace}
+\begin{equation*}
+	\frac{1}{r}\pdv{r}\left(r\pdv{r}V(r)\right)=0
+\end{equation*}
+Facendo gli opportuni calcoli...
+\begin{gather*}
+	\pdv{r}\left(r\pdv{r}V(r)\right)=0\\
+	r\pdv{r}V(r)=A\\
+	\pdv{r}V(r)=\frac{A}{r}\\
+\end{gather*}
+... otteniamo il potenziale
+\begin{equation}
+	V(r)=A\log{r}+B
+\end{equation}
+dove $A$ e $B$ sono costanti date dalle condizioni al contorno.
+
+% TO DO: add soluzione poisson?
+

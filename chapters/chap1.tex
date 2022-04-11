@@ -6,7 +6,7 @@
 {$LastChangedBy$}
 
 \chapter{Dalla legge di Coulomb al formalismo dei campi vettoriali}
-\labelChapter{ellipseintroduction}
+\labelChapter{leggediCoulomb}
 
 \begin{introduction}
 ‘‘Per ogni problema c'è una soluzione che è semplice, chiara... e sbagliata.''
@@ -69,9 +69,9 @@ Il buon vecchio Gilbert si accorse anche che, seppur esistevano materiali (ambra
 \paragraph{La struttura della materia e i fenomeni elettrostatici}
 Gilbert scrisse per bene tutte queste osservazioni nel suo trattato \textit{De Magnete}, scritto nel 1600: all'epoca non poteva spiegare \textit{perché} succedeva ciò che aveva descritto, ma noi grazie alla conoscenza della \textit{struttura microscopica della materia} possiamo farlo. Senza perderci in tanti dettagli, la materia è fatta di \textbf{atomi}\index{atomo}, tutti costituiti da tre particelle: \textbf{protoni} $p$, \textbf{neutroni} $n$ ed \textbf{elettroni} $e$, rispettivamente di massa
 \begin{itemize} % TO DO: simboli SI
-	\item $m_p = 1,6725 \cdot 10^{-27}\ $ 
-	\item $m_n = 1,6748\cdot 10^{-27}\ $
-	\item $m_e = \frac{1}{1840}m_p=9,1091\cdot 10^{-31}\ $
+	\item $m_p = \SI[exponent-product=\ensuremath{\cdot}]{1.6725d-27}{\kilogram}$ 
+	\item $m_n = \SI[exponent-product=\ensuremath{\cdot}]{1.6748d-27}{\kilogram}$
+	\item $m_e = \dfrac{1}{1840}m_p=\SI[exponent-product=\ensuremath{\cdot}]{9,1091d-31}{\kilogram}$
 \end{itemize}
 Riprendendo la convenzione precedente, si vede che il protone ha carica \textit{positiva}, mentre l'elettrone ha carica \textit{negativa} e il neutrone non ha carica elettrica; ad oggi non è osservata alcuna carica elettrica più piccola di quella del protone o dell'elettrone - in altre parole, la carica elettrica è una grandezza \textbf{quantizzata}\footnote{La quantizzazione della carica è evidente a livello atomico e subatomico, ma diventa inapprezzabile se la non riescono a misurare variazioni dell'ordine della carica elementare - sperimentalmente si è visto intorno per carica sopra i $200 e$. Negli esperimenti normali di elettrostatica la carica è di fatto una quantità continua.}. Indicheremo con $-e$ la carica dell'elettrone e, in virtù della quantizzazione della carica elettrica, la chiameremo \textbf{carica elementare}\index{carica!elementare}, mentre con $+e$ indicheremo la carica del protone.
 
@@ -119,19 +119,28 @@ Nel 1785, il fisico francese \textbf{Charles Augustin de Coulomb} pubblicò la s
 		\item $q_1q_2$ è il prodotto delle due cariche: se hanno lo stesso segno, la forza è repulsiva perché $\vba{F}$ ha lo stesso verso di $\vbh{u}_r$, altrimenti se hanno segno opposto è attrattiva perché hanno versi discordi.
 	\end{itemize}
 \end{observes}
+\paragraph{Unità di misura della carica elettrica}
 Non abbiamo ancora dato per bene un'unità di misura della carica elettrica. Potremmo basarci proprio sulla legge di Coulomb e definirla in modo che $k=1$ e che la carica unitaria è tale che, se posta a distanza unitaria da un'altra carica unitaria, essa subisce una forza unitaria (come accade nel \textit{sistema centimetro-grammo-secondo o c.g.s}).  
 
-Nonostante alcuni evidenti vantaggi teorici nell'utilizzare il sistema c.g.s., noi utilizzeremo per ragioni anche soprattutto storiche, l'unità di misura della carica elettrica prevista dal \textbf{SI}, il \textbf{coulomb}\index{coulomb} ($\ $). % TO DO: add unit box
-Non è un'unità fondamentale, bensì è definito come $\ \cdot \ $, ossia come la carica che attraversa in un secondo un conduttore percorso dalla corrente di un ampere. Non sapendo ancora che cosa sia la corrente elettrica, né tanto meno un'ampere, non approfondiremo qui la definizione.
+Nonostante alcuni evidenti vantaggi teorici nell'utilizzare il sistema c.g.s., noi utilizzeremo per ragioni anche soprattutto storiche, l'unità di misura della carica elettrica prevista dal \textbf{SI}, il \textbf{coulomb}\index{coulomb} ($\unit{\coulomb}$). % TO DO: add unit box
 
-Sta di fatto che è una misura estremamente ‘‘sbagliata'', quanto meno per i problemi che trattiamo. Ad esempio, la tipica carica da strofinamento è dell'ordine di $10^{-7}\ $ - dobbiamo impegnarci molto per fare un Coulomb! Generalmente utilizziamo i microcoulomb ($\ $) o, al più, i millicoulomb ($\ $).\\
+Non è un'unità fondamentale, bensì è definito come $\unit{\ampere\second}$, ossia come la carica che attraversa in un secondo un conduttore percorso dalla corrente di un ampere. Non sapendo ancora che cosa sia la corrente elettrica, né tanto meno un'ampere, non approfondiremo qui la definizione.
+\begin{units}~\\
+	\textbf{\textsc{Carica elettrica:}} coulomb  ($\unit{\coulomb}$) o ampere per secondi ($\unit{\ampere\second}$).\\
+	\textit{\textbf{Dimensioni:}} $[q]=[I][s]=\mathsf{I}\mathsf{T}$.
+\end{units}
+Sta di fatto che è una misura estremamente ‘‘sbagliata'', quanto meno per i problemi che trattiamo. Ad esempio, la tipica carica da strofinamento è dell'ordine di $\SI{10e-7}{\coulomb}$ - dobbiamo impegnarci molto per fare un Coulomb! Generalmente utilizziamo dei suoi \textit{sottomultipli}, ad esempio:
+\begin{itemize}
+	\item \textit{millicoulomb}: $\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{1}{\milli\coulomb}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{e-3}{\coulomb}$.
+	\item \textit{microfarad}: $\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{1}{\micro\coulomb}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{e-6}{\coulomb}$.
+\end{itemize}
 Nel \textbf{SI}, la costante $k$ della legge di Coulomb viene posta a
 \begin{equation}
-	k=\frac{1}{4\pi\epsilon_0}=8,9875\cdot 10^9\ \frac{\ }{\ \cdot \ }
+	k=\frac{1}{4\pi\epsilon_0}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{8,9875e9}{\newton\square\metre\per\square\coulomb}
 \end{equation}
 dove $\epsilon_0$ è detta \textbf{costante dielettrica del vuoto}\index{costante!dielettrica del vuoto} e assume il valore
 \begin{equation}
-	\epsilon_0=8,854\cdot 10^{-12}\ \frac{\ }{\ \cdot \ }
+	\epsilon_0=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{8,854e-12}{\square\coulomb\per\newton\square\metre}
 \end{equation}
 La legge di Coulomb \ref{leggeCoulomb} assume la forma
 \begin{equation}
@@ -144,17 +153,17 @@ Come si vede immediatamente, la legge di Coulomb è analoga - a livello di formu
 \end{equation}
 dove $G_N$ è la \textbf{costante di gravitazione universale}\index{costante!di gravitazione universale}.
 \begin{equation}
-	G_N=6,7\cdot 10^{-11}\ \frac{\ }{\ \cdot \ }
+	G_N=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{6,7e-11}{\newton\square\meter\per\square\kilogram}
 \end{equation}
 Tuttavia, a livello di forze sono profondamente differente, come il seguente esempio mette in evidenza.
 \begin{example}
-	La forza di Coulomb tra due cariche uguali per strofinio, poste a distanza di $r=1\ =10^{-2}\ $ è, in modulo
+	La forza di Coulomb tra due cariche uguali per strofinio, poste a distanza di $r=\SI{1}{\centi\metre}=\SI{e-2}{\metre}$ è, in modulo
 	\begin{equation*}
-		F=k\frac{q^2}{r^2}\simeq9\cdot 10^9\cdot 10^4\cdot 10^{-14}\ \simeq 0,9\ 
+		F=k\frac{q^2}{r^2}\simeq\numproduct[product-symbol = \ensuremath{\cdot}]{9 x e9 x e4 x e-14}\unit{\newton}\simeq \SI[exponent-product=\ensuremath{\cdot}]{0,9}{\newton} 
 	\end{equation*}
-	La forza gravitazionale in condizioni simili, prese due masse $m=1\ =10^{-1}\ $ alla stessa distanza $r$ di prima, è
+	La forza gravitazionale in condizioni simili, prese due masse $m=\SI{1}{\hecto\gram}=\SI{e-1}{\kilogram}$ alla stessa distanza $r$ di prima, è
 	\begin{equation*}
-		F=G_n\frac{m^2}{r^2}\simeq 7\cdot 10^{-17}\cdot 10^4\cdot 10^{-2}\simeq 7\cdot 10^{-9}\ 
+		F=G_n\frac{m^2}{r^2}\simeq \numproduct[product-symbol = \ensuremath{\cdot}]{7 x e-17 x e4 x e-2}\unit{\newton}\simeq \SI[exponent-product=\ensuremath{\cdot}]{7e-9}{\newton}
 	\end{equation*}
 La forza di attrazione gravitazionale è molto più debole della forza attrattiva elettrostatica!
 \end{example}
@@ -169,39 +178,39 @@ La trattazione di un problema simile con le sole forze, come si farebbe in un qu
 
 È necessario un cambio di punto di vista, dove le forze ci sono ancora, ma non consideriamo \textit{soltanto} loro. La soluzione classica ottocentesca assume la forma di una \textbf{teoria di campo}. In estrema sintesi, lo spazio attorno ad una carica elettrica è permeata da campi elettrici e magnetici: una seconda carica, in presenza di questi campi, subisce una forza; i campi, in altre parole, trasmettono l'influenza di una carica sull'altra e sono i portatori dell'interazione elettromagnetica. I fenomeni elettromagnetici si modificano in base all'interazione tra i campi, le particelle in movimento e altro.
 \begin{define}[Campo vettoriale]
-	Un \textbf{campo vettoriale}\index{campo!vettoriale} $\vba{E}$ è una funzione
+	Un \textbf{campo vettoriale}\index{campo!vettoriale} $\vba{G}$ è una funzione
 	\begin{equation}
-		\funztot[\vba{E}]{\realset^3}{\realset^3}{(x,y,z)}{(E_x(x,y,z),E_y(x,y,z),E_z(x,y,z))}
+		\funztot[\vba{G}]{\realset^3}{\realset^3}{(x,y,z)}{(G_x(x,y,z),G_y(x,y,z),G_z(x,y,z))}
 	\end{equation}
 dove $(x,y,z)$ sono eventualmente funzioni del tempo.
 \end{define}
 \begin{notate}
 	In notazione versoriale, un campo vettoriale è
 	\begin{equation}
-		\vba{E}(x,y,z)=E_x\vbh{u}_x+E_y\vbh{u}_y+E_z\vbh{u}_z
+		\vba{G}(x,y,z)=G_x\vbh{u}_x+G_y\vbh{u}_y+G_z\vbh{u}_z
 	\end{equation}
 \end{notate}
 \begin{observe}
 	Con $\vba{E}$ indichiamo il \textbf{campo elettrico}, mentre indichiamo con $\vba{B}$ il \textbf{campo magnetico}.
 \end{observe}
 \paragraph{Linee di campo}
-Potremmo rappresentare il campo disegnando ad ogni punto di $\realset^3$ il vettore ad esso associato da $\vba{E}$.\\
+Potremmo rappresentare il campo disegnando ad ogni punto di $\realset^3$ il vettore ad esso associato da $\vba{G}$.\\
 In alternativa, possiamo disegnare delle curve dette \textbf{linee di campo}\index{linee di campo}.
 \begin{define}[Linea di campo]
-	Una linea di campo di $\vba{E}$ è una curva 
+	Una linea di campo di $\vba{G}$ è una curva 
 \begin{equation}
 	\funztot[\gamma]{\realset}{\realset^3}{t}{\vba{r}(t)}
 \end{equation}
-tale per cui in ogni sup punto il vettore tangente alla curva è il vettore dato da $\vba{E}$:
+tale per cui in ogni sup punto il vettore tangente alla curva è il vettore dato da $\vba{G}$:
 \begin{equation}
-	\dot{\gamma}(t)=\vba{E}\left(\gamma\left(t\right)\right),\ \forall t\in\realset
+	\dot{\gamma}(t)=\vba{G}\left(\gamma\left(t\right)\right),\ \forall t\in\realset
 \end{equation}
 \end{define}
 In generale, le linee di campo sono soluzioni $\vba{r}=\left(x,y(x),z(x)\right)$ del sistema di equazioni differenziali
 \begin{equation}
 	\begin{cases}
-		\frac{dy}{dx}=\frac{E_y}{E_x}\\
-		\frac{dz}{dx}=\frac{E_z}{E_x}
+		\frac{dy}{dx}=\frac{G_y}{G_x}\\
+		\frac{dz}{dx}=\frac{G_z}{G_x}
 	\end{cases}
 \end{equation}
 \section{Campo elettrostatico}
@@ -212,9 +221,15 @@ In questo formalismo, la forza di Coulomb si può vedere come il vettore in un c
 	\begin{equation}\label{campoelettrostatico}
 		\vba{E}(x,y,z)=\frac{\vba{F}}{q_0}=\frac{1}{4\pi\epsilon_0}\sum_i \frac{q_i}{\abs{\vba{r}-\vba{r_i}}^2}\vbh{u}_{r_i}=\frac{1}{4\pi\epsilon_0}\sum_i q_i\frac{\vba{r}-\vba{r_i}}{\abs{\vba{r}-\vba{r_i}}^3}
 	\end{equation}
-	dove $\vba{r}_i=(x_i,y_i,z_i),\ \vba{r}=(x,y,z)$ e $\vbh{u}_i=\frac{\vba{r}-\vba{r_i}}{\abs{\vba{r}-\vba{r_i}}}$.
+	dove $\vba{r}_i=(x_i,y_i,z_i),\ \vba{r}=(x,y,z)$ e $\vbh{u}_i=\dfrac{\vba{r}-\vba{r_i}}{\abs{\vba{r}-\vba{r_i}}}$.
 \end{define}
-Nel SI l'unitò di misura del campo elettrico, essendo il rapporto tra una forza e una carica, è il newton su coulomb ($\ / \ $). Più avanti vedremo un'altra unità di misura usata maggiormente nelle applicazioni pratiche.\\
+\paragraph{Unità di misura}
+Nel SI l'unità di misura del campo elettrico, essendo il rapporto tra una forza e una carica, è il \textbf{newton su coulomb} $\left(\unit[per-mode = fraction]{\newton\per\coulomb}\right)$. Più avanti vedremo un'altra unità di misura usata maggiormente nelle applicazioni pratiche.
+\begin{units}~\\
+	\textbf{\textsc{Campo elettrico:}} newton su Coulomb $\left(\unit[per-mode = fraction]{\newton\per\coulomb}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[E]=\dfrac{[F]}{[q]}=\mathsf{L}\mathsf{M}\mathsf{T}^{-3}\mathsf{I}^{-1}$.
+\end{units}
+\paragraph{Campo elettrostatico e forza di Coulomb}
 Si noti che dalla definizione segue ovviamente che la forza che $q_0$ subisce si può esprimere in funzione del campo elettrostatico da
 \begin{equation}
 	\vba{F}=q_0\vba{E}
@@ -391,7 +406,7 @@ Calcoliamo ora il campo elettrostatico usando il gradiente espresso in coordinat
 	La distanza di $\vba{r}$ si può
 % TO DO: completare
 \section{Distribuzione continua di carica}
-Nella pratica difficilmente avremo a che fare con una, due o qualche carica, bensì di un numero \textit{enorme} di cariche puntiformi. Chiaramente, trattare tutte le cariche una per una e vedere le interazioni con le altre non è benché minimamente consigliato: per fare un esempio, un $\ mm^3$ di rame contiene circa $2,5\cdot 10^21$ elettroni.
+Nella pratica difficilmente avremo a che fare con una, due o qualche carica, bensì di un numero \textit{enorme} di cariche puntiformi. Chiaramente, trattare tutte le cariche una per una e vedere le interazioni con le altre non è benché minimamente consigliato: per fare un esempio, un $\unit{\cubic\milli\metre}$ di rame contiene circa $\num[exponent-product = \ensuremath{\cdot}]{2,5e21}$ elettroni.
 
 Per ovviare a questa difficoltà si assume che le cariche siano così tante che si abbia un \textit{cootinuum} di cariche; introduciamo dunque il concetto di \textbf{distribuzione continua di carica}\index{distribuzione!continua!di carica}, caratterizzata da una \textbf{densità di carica}.
 \begin{define}[Densità di carica volumica]
@@ -400,11 +415,11 @@ Per ovviare a questa difficoltà si assume che le cariche siano così tante che 
 		dq=\rho(x,y,z)dV
 	\end{equation}
 \end{define}
-L'unità di misura è il Coulomb su metro cubo:
-\begin{equation}
-	\left[\rho\right]=\frac{\ }{\ }
-\end{equation}
-Essa funzione in modo analogo alla densità di massa volumica; la carica totale sull'oggetto si otterrà integrando sul volume la relazione precedente:
+\begin{units}~\\
+	\textbf{\textsc{Densità di carica volumica:}} coulomb su metro cubo $\left(\unit[per-mode = fraction]{\coulomb\per\cubic\meter}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[\rho]=\dfrac{[Q]}{[V]}=\mathsf{I}\mathsf{T}\mathsf{L}^{-3}$.
+\end{units}
+Essa funziona in modo analogo alla densità di massa volumica; la carica totale sull'oggetto si otterrà integrando sul volume la relazione precedente:
 \begin{equation}
 	q_{tot}=\int_V\rho(x,y,z)dV
 \end{equation}
@@ -420,10 +435,11 @@ Capita spesso che cariche sorgenti, anziché essere poste in una regione spazial
  		dq=\sigma(x,y,z)d\Sigma
  	\end{equation}
  \end{define}
-L'unità di misura è il Coulomb su metro quadro:
-\begin{equation}
-	\left[\sigma\right]=\frac{\ }{\ }
-\end{equation}
+
+\begin{units}~\\
+	\textbf{\textsc{Densità di carica superficiale:}} coulomb su metro quadro $\left(\unit[per-mode = fraction]{\coulomb\per\square\meter}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[\sigma]=\dfrac{[Q]}{[A]}=\mathsf{I}\mathsf{T}\mathsf{L}^{-2}$.
+\end{units}
 La carica totale e il campo elettrico sono, rispettivamente,
 \begin{gather}
 		q_{tot}=\int_\Sigma\sigma(x,y,z)d\Sigma\\
@@ -436,10 +452,11 @@ Analogamente, si può fare anche per il caso di una linea, introducendo la \text
 		dq=\lambda(x,y,z)d\mathcal{l}
 	\end{equation}
 \end{define}
-L'unità di misura è il Coulomb su metro:
-\begin{equation}
-	\left[\lambda\right]=\frac{\ }{\ }
-\end{equation}
+
+\begin{units}~\\
+	\textbf{\textsc{Densità di carica lineare:}} coulomb su metro $\left(\unit[per-mode = fraction]{\coulomb\per\meter}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[\lambda]=\dfrac{[Q]}{[\mathcal{l}]}=\mathsf{I}\mathsf{T}\mathsf{L}^{-1}$.
+\end{units}
 La carica totale e il campo elettrico sono, rispettivamente,
 \begin{gather}
 	q_{tot}=\int_\mathcal{l}\lambda(x,y,z)d\mathcal{l}\\
@@ -449,7 +466,7 @@ La carica totale e il campo elettrico sono, rispettivamente,
 	Può capire di avere una densità di carica \textit{non} nulla, ma carica totale nulla.
 \end{observe}
 \paragraph{Filo carico rettilineo (infinito)}
-	Si consideri un filo rettilineo di lunghezza $L$ con densità lineare costante $\lambda$. Per semplicità, poniamo il sistema di riferimento in modo che il filo carico sia lungo l'asse $x$ Si ha
+	Si consideri un filo rettilineo di lunghezza $L$ con densità lineare costante $\lambda$. Per semplicità, poniamo il sistema di riferimento in modo che il filo carico sia lungo l'asse $x$. Si ha
 	\begin{equation*}
 		q=\int_{\mathcal{l}}\lambda(x',y',z')d\mathcal{l}=\lambda\int_{-L/2}^{L/2}dx'=\lambda L\implies \lambda=\frac{q}{L}
 	\end{equation*}
@@ -534,7 +551,7 @@ Il campo in coordinate cilindriche risulta
 \begin{observe}
 	Avremmo potuto vedere che il campo dipendeva soltanto dalla componente radiale direttamente facendo un'analisi dimensionale. Infatti, poiché
 	\begin{equation*}
-		\lambda=\frac{q}{ç}\implies\left[\lambda\right]=\frac{\left[C\right]}{\left[L\right]}=\frac{C}{m},
+		\lambda=\frac{q}{L}\implies\left[\lambda\right]=\frac{\left[C\right]}{\left[L\right]}=\frac{C}{m},
 	\end{equation*}
 	il campo elettrico ha dimensioni
 	\begin{equation*}
@@ -604,11 +621,11 @@ In sintesi, il campo elettrico generato da una superficie piana infinita è
 \begin{observe}
 	In realtà avremmo dovuto aspettarci che il campo non dipendesse dalla distanza $x$. Dalla formula del campo elettrico di Coulomb sappiamo che
 	\begin{equation*}
-		\left[\epsilon E\right]=\frac{\ }{\ }
+		\left[\epsilon E\right]=\unit[per-mode = fraction]{\newton\per\coulomb}
 	\end{equation*}
 	Siccome $\sigma$ è una densità superficiale, la sua unità di misura è già
 	\begin{equation*}
-		\left[\sigma\right]=\frac{\ }{\ }
+		\left[\sigma\right]=\unit[per-mode = fraction]{\coulomb\per\square\meter}
 	\end{equation*}
 	si deve avere
 	\begin{equation*}
@@ -617,7 +634,7 @@ In sintesi, il campo elettrico generato da una superficie piana infinita è
 con $A$ adimensionale... e in effetti nel nostro caso $A=\frac{1}{2}$.
 \end{observe}
 \paragraph{Sfera uniformemente carica}
-Si consideri una sfera di raggio $R$ con densità volumica costante $\rho$. Per semplicità, poniamo il sistema di riferimento in modo che l'origine coincida con il centro della sfera. Si ha
+Si consideri una palla sferica di raggio $R$ con densità volumica costante $\rho$. Per semplicità, poniamo il sistema di riferimento in modo che l'origine coincida con il centro della sfera. Si ha
 \begin{equation*}
 	q=\int_{V}\rho(x',y',z')dV=\rho\int_{V}dV=\rho V_s=\rho \cdot \frac{4}{3}\pi R^3
 \end{equation*}

@@ -60,8 +60,15 @@
 % Provides extra tools for typesetting page headers and footers
 \RequirePackage{fancyhdr}
 
-
 \RequirePackage[absolute]{textpos}
+
+
+
+% allows the to user select any font size; it might be Useful to resolve some font size issues.
+\RequirePackage{anyfontsize}
+
+% Set the font size relative to the current font size
+\RequirePackage{relsize}
 
 %%% Quote packages %%%
 % Provides advanced functions for inline and display quotations
@@ -72,14 +79,13 @@
 \RequirePackage{xspace}
 \RequirePackage{graphicx}
 \RequirePackage{ifthen}
-\RequirePackage{wasysym}
+%\RequirePackage{wasysym}
 \RequirePackage{pifont} % aggiunge dingbat per itemize
 \RequirePackage{array}
 \RequirePackage{afterpage}
 \RequirePackage{varioref}
 \RequirePackage{lettrine}
-\RequirePackage{relsize}
-\RequirePackage{svn-multi}
+
 \RequirePackage[bottom]{footmisc}
 \RequirePackage{xstring}
 \RequirePackage{multirow}
@@ -96,12 +102,20 @@
 \usetikzlibrary{calc,angles,positioning,intersections,quotes,arrows,decorations.pathreplacing,graphs,decorations.pathmorphing,decorations.markings,fit,matrix,bending}
 \RequirePackage{xparse}
 
-%%% Physics stuff
-% provides bold vector with arrow above
-\RequirePackage[arrowdel]{physics}
+%%% Physics stuff %%%
+\RequirePackage{letltxmacro}
+\RequirePackage{siunitx}
+\LetLtxMacro{\svqty}{\qty}
+\RequirePackage[arrowdel]{physics} %diffcoef instead?
+\LetLtxMacro{\qty}{\svqty}
+
+\sisetup{output-decimal-marker = {,}}
+\usepackage{animate}
+
 
 % provides SI units
-%\RequirePackage{siunitx}
+
+% provides bold vector with arrow above
 
 % Provides a "cancel" command to create an handwritten diagonal strikethrough text.
 \RequirePackage[thicklines]{cancel}
@@ -112,13 +126,15 @@
 % Needed for theorem-like environments.
 \RequirePackage[framemethod=default]{mdframed}
 
-\RequirePackage{makeidx}
-
 % Provides extra tools for typesetting theorem environments
 \RequirePackage{thmtools}
+
+\RequirePackage{makeidx}
+
+
 \RequirePackage{environ}
 \RequirePackage{xkeyval}
-\RequirePackage{alphalph}
+%\RequirePackage{alphalph}
 \RequirePackage{tikz-cd}
 
 % Provides expressions to perform arithmetic on the arguments of the LaTeX commands \setcounter, \addtocounter, \setlength, and \addtolength
@@ -126,8 +142,10 @@
 
 \RequirePackage{pdfpages}
 
-% allows the to user select any font size; it might be Useful to resolve some font size issues.
-\RequirePackage{anyfontsize}
+%%% OTHERS %%%
+
+% This package lets you typeset keywords of the version control system Subversion inside your LATEX files anywhere you like. Unlike the otherwise similar package svn the use of multiple files for one LATEX document is well supported.
+\RequirePackage{svn-multi}
 
 % provides some neat stuff for commutative diagrams (contains several packages inside); to be used with https://q.uiver.app "Export to LaTeX".
 \RequirePackage{preamble/quiver}
@@ -138,6 +156,9 @@
 %
 \RequirePackage{preamble/nexus}
 
+% solves a manualozzo breaking bug, i dunno why
+\RequirePackage{zref}
+\zref@require@unique
 % Load hyperref package last
 \RequirePackage{hyperref}
 
@@ -2192,6 +2213,26 @@ headformat={\color{violetryb!55!black}{\NAME}}
 \newenvironment{tips}
 {\begin{tipsT}\begin{violetrybBox}}
 {\end{violetrybBox}\end{tipsT}}
+
+%%% unità di misura
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{violetryb!55!black},
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{violetryb!55!black},
+postheadspace=0.50em,
+headformat={\color{violetryb!55!black}{\NAME}}
+]{unitssty}
+
+\declaretheorem[style=unitssty,numberwithin=section,name=\textsc{Unità di misura.}]{unitsT}
+
+\newenvironment{units}
+{\begin{unitsT}\begin{violetrybBox}}
+		{\end{violetrybBox}\end{unitsT}}
 
 %%% ricordiamo %%%
 
