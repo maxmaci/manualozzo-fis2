@@ -5,6 +5,15 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
+\chapter{Onde}
+\labelChapter{onde}
+\begin{introduction}
+	‘‘onde ondine ondette''
+	\begin{flushright}
+		\textsc{Ondine} mentre ondeggiava sulle onde% TO DO: quote 
+	\end{flushright}
+\end{introduction}
+\lettrine[findent=1pt, nindent=0pt]{C}{ome iniziano le onde?} 
 %LEZ 21, 07/04/2022
 %
 %ONDE
@@ -286,22 +295,258 @@
 %
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 22, 11/04/2022
+%\section{onde elettromagnetiche}
+%Partiamo scrivendo le equazioni di Maxwell
+%	\div\vba E=\frac{\rho}{\epsilon_0}
+%	\curld\vba E=-\pdv{\vba B}{t}
+%	
+%	
+%siamo interessati a capire se esistono soluzioni delle equazioni di Maxwell dinamiche nel vuoto
+%La domanda quindi è: esistono soluzioni dell'elettrodinamica (in altri termini delle eq di mxwl) cioè dipendenti dal tempo nel vuoto? Con vuoto inteso in asenza di cariche, non di materiali, dunque \rho=0
+%
+%scriviamo le eq di mxwl nel vuoto
+%	il campo elettiroc diventa solenoidale \div\vba E=0
+%	\curl\vba E
+%	\div\vba B=0
+%	\curl\vba B=\mu_0\epsilon_0\pdv{\vba E}{t}
+%	\curl\vba E=-\pdv{\vba B}{t}
+%sappiamo già che esistono soluzioni statiche, ma ora le cerchiamo dinamiche, che dipendono dal tempo
+%mxwl ha fatto vedere che il legame fra \vba E e \vba B ha soluzinoi non banali, le onde elettromagnetiche
+%Consideriamo il rotore del rotore di \vba E
+%	\curl(\curl\vba E)=\grad(\div\vba E)-\laplacian\vba E	per def di rotore del rotore
+%	usiamo la 1^a eq di mxwl ed eliminiamo la div
+%	\curl(\curl\vba E)=-\curl\pdv{\vba B}{t}
+%	-\laplacian\vba E=-\pdv{t}\left(\mu_0\epsilon_0\pdv{\vba E}{t}\right)			ho scambiato l'ordine delle derivate
+%	\laplacian\vba E -\mu_0\epsilon_0\pdv[2]{\vba E}{t}
+%	\square\vba E=0		con \square =\laplacian -\frac{1}{v^2} \pdv[2]{t}
+%	v^22=\frac{1}{\mu_0\epsilon_0}
+%	ma c=\frac{1}{\sqrt{\mu_0\epsilon_0}
+%il campo el nel vuoto rispetta un'eq di dalambert con velocità dlella luce
+%qualsiasi campo elm che si propaga alla vel della luce soddisfa eeq maxwl
+%
+%Al di là di un sgeno -le sol sono simmetriche
+%Analogamente per \vba B
+%	\curl(\curl\vba B)=\grad\left(\div\vba B\right)- \laplacian\vba B
+%	-\laplacian\vba B=\mu_0\epsilon_0\pdv{t}(\curl\vba E)=-\mu_0\epsilon_0\pdv[2]{\vba B}{t} usando eq mxwl
+%	porto dalla stessa parte		\laplacian\vba B-\mu_0\epsilon_0\pdv[2]{\vba B}{t}=0
+%	\square\vba B=0
+%	
+%sia il campo el sia mgn si possono riscrivere come onde 
+%non sono indipendenti, vederemo come
+%si propagano entrambi con la stessa equazione \square=0
+%e si propagan con velocità della luce se si propagano nel vuoto
+%
+%quindi soluzione non banale ondulatoria delle eq di mxwl
+%%CIT se le eq di mxwl si osservano onde elm, in realtà le stavano osservando già da molto tempo
+%
+%\subsection{Nei materiali}
+%come nei dielettrici lineari, diamagneti o paramagneti lineari
+%dobbiamo sostituire \epsilon_0\rightarrow \epsilon k_\epsilon
+%					\mu_0\rightarrow\mu= k_m
+%	v=\frac{1}{\sqrt{\mu\epsilon}=\frac{c}{\sqrt{k_e k_m} <c
+%il valore di v sono sempre minori diq quelle nel vuoto
+%i valori di k_m sono molto minori di quelli di k_e >>1
+%qunidi il valore al denominatore è sempre nettamente maggiore di 1
+%
+%e eq di mxwl nel vuoto ammettono soluzione ondulatoria per campo elettrico e per campo magnetico
+%entrambi si propagano, l'impulso si propaga alla velocità della luce in tutte le direzioni
+%cerchiamo di capire quali sono le proprietà di queste onde
+%abbiamo visto che la soluzioni più generale di quelle equazioni è un campo elettrico
+%	\vba E(\vba r\pm\vba v t)	
+%vale anche nei materiali a patto di fare la sostituzione di cui sopra
+%	\vba B(\vba r\pm\vba vt)
+%dipendono solo da \vba r\pm\vba vt
+%Ci focalizzeremo su \vba r-\vba vt
+%definiamo il vettore \vba u=\vba r-\vba vt=(x-v_x t,y-v_yt,z-v_zt)
+%il modo di sabilire una connessione fra cmp el e cmp mgn è ramite le eq di mxwll
+%	\curl\vba E=-\pdv{\vba B}{t}
+%	\curl\vba B=\mu_0\epsilon_0\pdv{\vba E}{t}
+%non posso avere camp el che oscilla senza campo mgn!
+%c'è una connessione fra loro: l'oscillazione di uno permette quella dell'altro
+%dopo che sappiamo che rispettano dipendenza
+%e rimetto nelle q di mxwl per vedere come sono fatti \vba E e \vba B
+%	\pdv{\vba B}{t}	la dipendenza dal tempo sarà attraverso le componenti di \vba u, uso la chain rule
+%		=\pdv{\vba B}{u_x}\pdv{u_x}{t}+\pdv{\vba B}{u_y}\pdv{u_y}{t}+\pdv{\vba B}{u_z}\pdv{u_z}{t}+
+%	riscrivo con dipendenza di u_x etc
+%	=-\pdv{\vba B}{x}v_x-\pdv{\vba B}{y}v_y-\pdv{\vba B}{z}v_z
+%	abbiamo ottenuto uno scalare
+%	=-\left(v\vdot\grad\right)\vba B
+%	vera solo per onde elettromagnetiche, perché E e B dipendono solo dalla combinazione \vba u
+%abbiamo solo legato derivate rispetto al tempo rispetto a quelle delle coordinate
+%ora usaimo 1 eq mxwl per avere un \curl invece di \grad nella eq finale
+%usiamo un'identità di calcolo vettoriale
+%	\left(\vba v\vdot\grad \right)\vba B=\vba v \left(\grad\vba B\right) -\curl(\vba v\cross\vba B)
+%	\pdv{\vba B}{t}=-\curl\vba E=-(\vba v\vdot\grad)\vba B
+%	per l'altra eq di mxwell si cancella \div\vba B, riscrivo \vba v\vdot\grad come
+%	=\curl(\vba v\cross\vba B)
+%	
+%	quindi \vba E=-vba v\cross\vba B=\vba B\cross\vba v
+%quindi \vba E è il prodotto vettoriale, quindi è sempre ortogonale sia  \vba v sia a \vba B, cioè l'onda si sta propagando in direzione \vba v, \vba E è sempre trasverale alla direzione di propagazione dell'onda
+%dobbiamo ancora far vedere che \vba E e \vba B sono ortogonali fra loro
+%Ripetiamo il calcolo
+%	\pdv{\vba E}{t}=-\left(\vba v\vdot\grad\right)\vba E	per la proprietà di qualsiasi campo che dipenda solo da \vba u
+%	vogliamo usare l'altra eq di mxwll
+%	\curl\vba B=\mu_0\epsilon_0\pdv{\vba E}{t}=-\frac{1}{v^2} (\vba v\vdot\grad)\vba E=-\frac{1}{v^2}\left( \vba v\div\vba E-\curl(\vba v\cross\vba E) \right)
+%	ma \div\vba E=0 nel vuoto
+%	=\frac{1}{v^2}\grad(\vba v\cross\vba E)
+%		\vba B=\frac{1}{v^2}\vba v\cross\vba E
+%		
+%abbiamo così ottenuto un'altra equazione che dice che \vba B è ortogonale sia a $\vba v$ sia a $\vba E$
+%data direzione di propagazione dell'onda quale \vba v in ogni istante
+%il vettore \vba E è ortogonale a \vba v e \vba B è ortogonale ad entrambi
+%senza fare nessun tipo di assunzione otteniamo con soluzioni delle equazioni di Maxwell otteniamo che le onde elettromagnetiche sono trasversali
+%oscillano sempre nel piano trasverso alla direzione di propagazione
+%
+%\subsection{identità generale}
+%\curl(\curl\vba B)=\begin{array}{\matrix|}
+%	\partial_x & \partial_y & \partial_z\\
+%	v_yB_z-v_xB_y & v_z B_x -v_x B_z & v_xB_y -v_yB_x\\
+%	\vbh u_x & \vbh u_y & \vbh u_z
+%\end{array}
+%guaridamo solo la componente x visto che le altre sono analoghe
+%v_x\partial_yB_y -		v_x\partial_zB_x=v_x\left( \partial_yB_y+\partial_zB_z \right) - \left( ?????? \right)= v_x(\div\vba B)=(v\vdot\grad )B_x
+%
+%si ricava più facilmente con i simboli di Levi-Civita
+%	v_1\cross v_2=\epsilon_{ijk}v_1^k\cross v_2^?
+%
+%in pratica abbiamo tre vettori sempre ortogonali fra di loro, \vba E e \vba B trasversi alla direzione propagazione
+%è immediato ricavare che
+%	\abs{\vba E}=\vba Bv
+%siccome sono sempre ortogonali fra loro non formano angoli e possiamo ricordarceli con solo i loro moduli, sapendo che sono sempre ortogonali fra loro
+%possiamo sempre calcolarci quanto valgono i prodotti di questi operatori
+%	\vba E\vdot\vba B=\vba v\vdot\vba B=0
+%	\vba E\cross\vba B= B^2 \vba v=\frac{E^2}{v^2} \vba v=EB\frac{\vba v}{\abs{v}}	punta sempre nella direzione di propagazione \vba v
+%	
+%\begin{examplewt}[Onde piane]
+%	onde piane: \vba E(x-vt), \vba B(x-vt)
+%	\vba v=(v,0,0), una sola componente lungo x
+%	otteniamo quindi in questo caso 
+%		\vba E=(0, E_y, E_z) oscilla nel piano yz
+%	una volta avuto E possiamo ricavare B, che è completamente determinato
+%		\vba B=\frac{1}{v}(0,-E_z, E_y)
+%		\vba B=\frac{1}{v^2}\begin{array}{cols}
+%			v & 0 & 0\\
+%			0 & E_y & E_z\\
+%			\vbh u_x & \vbh u_y & \vbh u_z
+%		\end{array}	= \frac{1}{v^2}(-vE_z\vbh u_y + vE_y\vbh u_z)=\frac{1}{v}(E_z\vbh u_y +E_y\vbh u_z)
+%	conoscendo un campo determino completamente l'altro, si influenzano a vicenda: solo l'interazione fra i due permette l'esistenza delle onde elm	
+%	nel disegno sono onde piane armoniche
+%%TODO: immagine
+%	campo elettrico: su piano xy cambio verso periodicamente, oscilla seguendo una sinusoide
+%	il campo magnetico lo è sul pino xz
+%	oscilla vuol dire che diventa più intenso e poi cambia direzione
+%	il legame fra i moduli di E e B è dato dalla velocità
+%	E=Bv
+%		E_y=E_z\cos(kx-\omega t)
+%		B_z=\frac{E_z{v}\cos(kx -\omega t)
+%			
+%	in genrale sono trasverse, oscillano su piano ortonale alla direzione di propagazione
+%	se non è piana oscillando lungo il fronte d'onda
+%	istante per istante sono ortogonali a quella velocità
+%\end{examplewt}
+%	
+%
+%\section{Polarizzazione}
+%abbiamo già visto quella lineare e circolare
+%vediamo tutti i casi per onde trasversali, che è il caso delle elm
+%Onde piane: 
+%	\vba E=(0, E_y, E_z)	 di conseguenza è determinato \vba B=\left(0, -\frac{e_z}{v}, \frac{E_y}{v}\right)
+%	E_y=E_{0y}\cos(kx-\omega t)
+%	E_z=E_{0z}\cos(kx-\omga t+\delta)		con fase
+%
+%	\item \textit{Polarizzazione rettilinea} \delta=0, \pi
+%		sono in fase: \vba E= oscilla lungo un piano inclinato lungo angolo \theta e non cambia
+%		\tan\theta=\frac{E_{0z}}{E_{0y}}
+%		è come se avessimo scelto male il sistea di riferimento
+%	\item \textit{Polarizzazione ellittica} \delta=\frac{\pi}{2}, \frac{3\pi}{2}
+%		avremo un'ellissi sul piano yz, mentre c'è propagazione ungo asse x, $\vba E$ parte in una certa posizione, $\vba B$ ortogonale a $\vba E$, il campo elettrico gira e dinconseguenza B per rimanere sempre ortogonale, fino a che dopo un periodo non si ritorna alla situazione iniziale
+%		disegnandolo sul piano yz troviamo un'ellissi su cui vive il campo elettrico
+%		E_y=E_{0y}\cos(kx-\omega t)
+%		E_z=E_{0z}\sin(kx-\omega t)
+%		quindi \frac{E_y^2}{E_{0y}^2}+ \frac{E_z^2}{E_{0z}^2}=1
+%	\item \textit{Polarizzazione circolare}
+%		caso in cui E_{0y}=E_{0z}=E_0
+%		ho cerchio invee che ellisse di raggio E_0
+%		man mano che avanza nel tempo varia intensità, ma la posizione varia man mano che ci muoviamo
+%		
+%Sono casi molto specifici che dipendono dalla sorgente: se polarizzata anche le onde elettromagnetiche lo saranno
+%di solito non sono polarizzate: $\delta$ non è costante ma varia nel tempo, rapidamente ed in maniera casuale. Vengono dette \texit{onde incoerenti}
+%else le sorgenti sono \textit{coerenti}
+%dispositivi che selezionano una certa polarizzazione
+%esempio: occhiali da sole possono esserlo, occhiali per film 3D
+%
+%
+%\section{Energia delle onde elettromagnetiche}
+%Abbiamo imparato che il campo elettrico e magnetico possiedeon una densità di energia
+%	u_e=\frac{1}{2}\epsilon_0 E^2
+%	u_m=\frac{1}{2}\frac{B^2}{\mu_0}
+%	quindi u=\frac{1}{2}\epsilon_0 E^2 +\frac{B^2}{2\mu_0}
+%	
+%ne caso delle onde elm sappiamo che E=vB=B\frac{1}{\sqrt{\mu_0\epsilon_0}}
+%	u=\frac{B^2}{\mu_0}=\epsilon_0 E^2
+%	
+%desnità di energia di onda elm, in un cubo di 1m^3
+%	\vba \cross\vba B=B^2v=\frac{E^2}{v^2}\vba v
+%	\vba S=\frac{1}\mu_0\vba E\cross\vba B=\frac{B^2}{\mu_0}\vba v=u\vba v
+%	detto \textit{vettore di Poynting} \index{Poyinting!vettore di} \index{vettore! di Poyinting}
+%	
+%ci dice quant'è l'energia che attraversa una certa superficie per unità di tempo, cioé la potenza che attraversa una superficie
+%attraversano \Sigma con una certa velocità \vba v in una certa direzione
+%	dU
+%vedo quantità di energia contenuta in un volume, cilindro con base la superficie e la dimensione trasversale (altezza) v\Delta t: quantità di energia che attraversa \Sigma in un tempo \Delta t lo vedo in un volume di base \Sigma e altezza nella direzione di propagazione delle onde: così attraversano la superficie in tutto il tempo
+%	dU= volume, che però dipende da angolo
+%	\Delta U=u\Sigma v\Delta t\cos\theta
+%	\dv{U}{t}=\int u\vba v\vdot\vbh u_n d\Sigma= \int\vba S\vdot\vbh u_n d\Sigma
+%	flusso del vettore di Poynting ci dice potenza che attraversa la superficie \Sigma
+%
+%\begin{examplewt}[onda piana polarizzata]
+%	E=E_0\cos(kx-\omega t)
+%	B=\frac{E_0}{v}\cos(kx-\omga t)
+%	calcoliamo il vettore di Poyinting
+%		\vba E\cross\vba B=\frac{E_0^2}{v^2}\vba v \cos[2](kx-\omega t)
+%	non è ancora vettore di Poyinting
+%		\vba S= \frac{1}{\mu_0}\vba E\cross\vba B =\frac{1}{\mu_0 v^2}E_0^2 \vba v\cos[2](kx-\omga t) con v^2=\frac{1}{\mu_0\epsilon_0}
+%		=\epsilon_0 E_0\vba v\cos[2](kx-\omega t)
+%	frequenze di 10^{14}, quindi ci interessa il valore medio
+%		S_m=\frac{1}{T}\int^T_0 \abd{\vba S} dt = \frac{\epsilon_0 E_0^2 v}{T} \int^T_0 \cos[2](kx-\omega t ) dt
+%		quindi S_m=\frac{1}{2} \epsilon_0E_0^2 v
+%		quindi metà del valor massimo
+%		definiamo campo elettrico efficace E_{eff}=\frac{E_0}{\sqrt{2}}
+%		S_m=\epsilon_0E_{eff}^2 v
+%		
+%	ci interessa quanto a potenza possiamo estrarre per una certa superficie, l'energia che attraversa le superficie è data dal flusso del vettore di Poynting, esempio del pannello solare da onde elettromagnetiche a energia elettrica: ci serve la potenza che attraversa la superficie
+%\end{examplewt}
+%
+%\subsection{Intensità di un'onda}
+%Le onde non trasportano materia: zattera su mare mosso rimane ferma a meno di correnti, ma trasportano energia e quantità di moto (lo vedremo nella prossima lezione per qm)
+%definiamo dunque l'\textit{intensità di un'onda} come il valor medio dell'energia che passa attraverso una superficie ortogonale alla direzione di propagazione per unità di tempo e per unità di area
+%	I=\frac{1}{\Sigma}\frac{1}{T}\int^T_0 Pdt=\frac{P_m}{\Sigma}
+%con P_m potenza media
+%vale per un'onda qualunque, non solo elm
+%descrizione intensità tramite caratteristiche intrinseche
+%
+%per le onde elettromagnetiche è banale vedere che
+%	I=S_m=\frac{1}{2}\epsilon_0vE_0^2
+%	
+%\begin{examplewt}[radiazione solare]
+%	I=1,4 10^3 \frac{W}{m^2}
+%	possiamo ricavare il campo elettromagnetico dal Sole
+%		E_0=\frac{2I}{\epsilon_0v}= 1,03 10^3\frac{V}{m} =2IZ_0
+%		Z_0=\sqrt{\frac{\mu_0}{\epsilon_0}}=377 \Omega, come se fsse un'impedenza a quando è nel vuoto
+%		B_0=\frac{E_0}{c}=3,43 10^{-5} T
+%	poco più piccolo di quello terrestre
+%	siccome le onde non sono polarizzate le direzioni cambiano randomicamente, quindi l'effetto medio è nullo e non lo percepiamo, neanche la bussola
+%	dal pov statico non succede  nulla, ma sentiamo la sua propagazione
+%	
+%	Se avessimo un pannello solare di 1 m^2, produce 1,4 kW di potenza
+%	potremmo utilizzarla tutta se i pannelli solari se avessero un'efficienza di conversione del 100%
+%	
+%	
+%	
+%\end{examplewt} 
+	
 
 
 
