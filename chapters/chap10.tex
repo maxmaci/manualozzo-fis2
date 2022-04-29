@@ -347,7 +347,7 @@
 %					\mu_0\rightarrow\mu= k_m
 %	v=\frac{1}{\sqrt{\mu\epsilon}=\frac{c}{\sqrt{k_e k_m} <c
 %il valore di v sono sempre minori diq quelle nel vuoto
-%i valori di k_m sono molto minori di quelli di k_e >>1
+%i valori di k_m sono molto minori di quelli di k_e \gg1
 %qunidi il valore al denominatore è sempre nettamente maggiore di 1
 %
 %e eq di mxwl nel vuoto ammettono soluzione ondulatoria per campo elettrico e per campo magnetico
@@ -550,90 +550,609 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 23, 13/04/2022
+%\square\vba E=0	\square\vba B=0
+%dalambertiano nullo significa che
+%	\square=\laplacian-\frac{1}{v^2}\pdv[2]{t}
+%qunidi dipendono dalla combinazione r-vt
+%	\vba E(\vba r-\vba vt)
+%quindi fenomeno di propagazione a certa velocità v che nel vuoto è c
+%Si dispongono anche secondo una terna seconod la velocità di propagazione, E e B lungo il fronte d'onda, direzione ortogonale a velocità di propagazione
+%come soluzione particolare abbiamo il caso delle onde piane, one in cui il fronte d'onda è piano
+%	\vba E(x-vt) con x direzione di propagazione dell'onda
+%	\vba B(x-vt) 
+%%TODO: IMMAGINE
+%scegliamo velocità di propagazione lungo x, piano ortogonale a v detto fronte d'onda che in questo caso è un piano, su cui giacciono campo elettrico e magnetico
+%il legame è
+%	E=vB in termini di moduli
+%
+%in gnerale per le onde e le sol delle eq di \square=0
+%caso 1d è piano, con 3d ho fronti d'onda non piani
+%siamo interessati alle sol con simmetria, le più comuni sono le onde sferiche
+%onde armoniche sferiche
+%	E=\frac{E_0}{r}\sin(kr-\omega t)
+%	
+%data sorgente che produce fronti d'onda sferici: \vba v è ortogonale alla sfera, propagazione radiale \vba v=v\vbh u_
+%ma abbiamo visto che le onde propagate radialmente si smorzano
+%
+%questo per come è fatto il laplaciano nella simmetria sferica
+%	\square f=0
+%	soluzione a simmetria sferica
+%	f(r,t)=\frac{\tilde f(r-vt)}{r}
+%	r fattore dis smorzamento per come è fatto il laplaciano in coordinate sferiche
+%per le onde armoniche prendiamo \sin o \cos
+%
+%la velocità è nella direzione radiale, il campo el e mgn sono tangenti al fronte d'onda punto per punto
+%
+%la propagazione di onde elm sferiche (che è la più comune, ad esempio il Sole)
+%
+%è difficile costringere le onde elm a non essere sferiche
+%esempio: laser: luce che non parte in modo radiale ma è collimata a stare in un cilindro
+%
+%vediamo com'è fatto
+%	B=\frac{E}{v}
+%quindi il vettore di Poynintg
+%	\vba S=\frac{1}{\mu_0}\vba E\cross\vba B
+%quindi è parallelo alla velocità con modulo dato sopra
+%l'intensità dell'onda è il valor medio del vettore di Poyinting
+%	I=S_m\squarequal
+%siccome per sostituzione e ricordandoci che v^2=\frac{1}{\mu_0\epsilon_0}
+%	\abs{\vba S}=\frac{E^2}{v}\mu_0=\epsilon_0 v E^2
+%tornando al valor medio
+%	\squarequal =\frac{1}{T}\int^T_0 \abs{\vba S}dt	=\frac{\epsilon_0v E_^2}{r^2}\frac{1}{T}\int^T_0 \ins[2](kr-vt)dt= \frac{1}{2}\frac{\epsilon_0vE_0^2}{r^2}
+%con\sin[2] il valor medio è metà del suo vaolre massimo
+%%TODO: IMMAGINE
+%la cosa importane è il fattore \frac{!}{r^2}, l'intensità diminuisce con la distanza dalla  sorgente, la potenza si deve distribuire sulla superficie sferica su cui l'onda si sta propagando
+%l'intensità dell'onda è divisa per l'area 4\pi r^2, quindi abbiamo il fattore \frac{1}{r^2}
+%infatti ricordiamo che
+%	I=\frac{P}{\Sigma}
+%
+%\begin{examplewt}[Radiazione solare]
+%	la scorsa volta abbiamo visto che l'intensità della radiazione solare sulla superficei terrestre è data da (misurazione)
+%		I=1,4 10^{3}W/m^2
+%	posso anche chiedermi: quanta energia produce il Sole ogni secondo? cioè, quant'è la potenza del Sole?
+%	arriva quest'intensità alla Terra perché i Sole produce onde elm in tutte le direzioni, ha fronti d'noda sferici e l'intensità che percepiamo sulla Terra è una piccola porzione di tutta l'energia che viene prodotta. Siccome la sorgete la supponiamo sferica abbiamo sfruttando la simmetria sferica
+%		P_{Sole}=I4\pi r^2==
+%	con r distanza fra Sole e Terra
+%	distribuzione equa su tutto il fronte d'onda sferico, arriva energia per unità di superficie
+%		==1,4 10^{3}4\pi (1,5 10^{11})^2= 3,96 10^{22} W
+%\end{examplewt}
+%	
+%\section{Quantità di moto e pressione di radiazione}
+%le onde non trasportano materia ma energia, e trasportano quantità di moto, ma in che senso?
+%ricordiamoci che una particella carcia puntiforme q con una velocità \vba v_d per vleocità di deriva da non confondere con la velcoità di propagazione
+%subisce in presenza di un campo el e mgn una forza
+%	F=q(\vba E+\vba v_d\cross\vba B)
+%uso onda elm per spostare particella carica, quindi onda trasporta anche quantità di moto
+%particella assorbe erngia dell'onda e qm: processo di urto fra onda elm e particella
+%questo nella rappresentazione classica, ma i fotoni sottostanno al dualismo onda particella: in alcuni range di energia la luce si comporta come onda, per altri range come particella
+%
+%abbiamo così forza el diretta verso l'alto e quella magnetica
+%% TODO IMMAGINE
+%vogliamo capire
+%sappiamo che l'onda elm è caratterizzata da F=Bv
+%vorremmo dire che v=c è molto grande, quindi il contributo di E è più grande di quella di B, ma hanno unità di misura diverse e non possiamo confrontarle
+%possiamo però comparare le forze prodotte dall'una e dall'altra
+%
+%Compariamo forza elettrica e magnetica prodotta da un'onda elm
+%	F_e=qE
+%	F_m=qv_d B
+%	\frac{F_e}{F_m}=\frac{qE}{qv_dB}=\frac{v}{v_d} \gg1
+%nele situazioni cui siamo abtuati la velocità di deriva è molto minore della velocità della luce, quindi il rapporto è molto più grande di 1
+%quindi la forza elettrica è molto più rilevante di quella magnetica
+%
+%ci chiediamo la potenza trasmessa dall'onda elm ad una particella
+%	P=\vba F\vdot\vba v_d=q\vba E \vdot \vba v_d+\cancel{q\vba v_d\cross\vba B\vdot\vba v_d}=q\vba E\vdot\vba v_d
+%con \vba F forza con cui agisce sulla particella
+%immaginiamo il solito cubetto densità di corrente \vba j=ne\vba v_d 	n numero particelle per unità d volume, densità
+%vogliamo calcolare la forza per unità di volume con N particelle
+%	\dv{\vba F}{V}=ne(\vba E+\vba v\cross\vba B)
+%onda elm investe il volume di particelle di materiale conduttore con cariche libere
+%se ho già densità di corrente hanno già velocità di deriva che verrà modificata. Se non ce l'hanno subiscono un campo elettrico che fa sì che inizino a muoversi con una certa velocità di deriva
+%la potenza trasmessa per unità di volume sarà
+%\begin{equation}
+%	\dv{P}{V}=ne\vba E\vdot v_d=\vba E\vdot\vba j
+%\end{equation}
+%
+%Se nel conduttore non è presente corrente allora \vba j è parallelo al campo elettrico, che è oscillante, quindi la dentià di corrente che s crea sarà densità di corrente alternata!
+%Quindi se il campo elettrico \vba E è sinusoidale allora si crea corrente alternata
+%in pratica se investo un materiale conduttore con onda elm produce corrnete \vba j parallela al campo elettrico e alternata, con potenza trasmessa data da \vba E\vdot\vba j
+%
+%
+%vediamo che viene trasmessa quantità di moto trasmessa dalla potenza
+%un modo più generale per descrivere 2° principio della dinamica è
+%	F=\dv{\vba p}{t}
+%	con \vba p=m\vba v quantità di moto
+%se massa costante nel tempo è F=ma
+%definiiamo per ocmodità di notazione
+%	\vba q=\dv{\vba p}{V}
+%quando un'onda elm investe
+%Vogliamo calcolare quant'è la variazione di quantità di moto per unità di volume in un periodo: osserov il conduttore per un periodo e guardo quant'è cambiata la quantià di moto
+%	\Delta\vba q=\int^T_0\dv{\vba F}{V} dt==
+%		notazione di valor medio sul periodo \vm{\dv{\vba F}{V}}=\frac{1}{T}\int^T_0\dv{\vba F}{V}dt
+%		\frac{\Delta\vba q}{T}=\vm{\dv{\vba F}{V}}=ne(\vm\vba E +\vm{\vba v_d \cross\vba B})
+%		ma \vm{\vba E}=E_0\int^T_0 \sin(kx-vt)dt=0			perché sto facndeo il valor medio di una quantità periodica
+%	==ne/v^2\vm{\vba v_d\cross\vba B}=ne/v^2\vm{\vba v_d}\cross(\vba v\cross\vba E)=ne/v^2\vm{(\vba v_d\vdot\vba E) \vba v-(\vba v_d\vdot\vba v)\vba E}= 1/v \vm{(\vba j\vdot\vba E)\vba v -(\vba j\vdot\vba v)\vba E}
+%		ma siccome sono paralleli \vba j e \vba E allora \vba j\vdot\vba E\neq 0 e \vba j\vdot\vba v=0
+%	\frac{\Delta\vba q}{T}=\vm{\vb j\vdot\vba E}\frac{\vba v}{v^2}=\vm{\dv{P}{V}} \frac{\vba v}{v^2}
+%tutto questo nell'assunzione che l'oda elm viene completamente assorbita
+%cioè caso di assorbimento totale
+%in realtà tutti i corpi hanno un certo coefficiente di assorbimento e riflessione
+%la potenza tasportata da una radiazione
+%
+%
+%un caso interessante per le applicazioni è il caso in cui si spara su una superficie invece che su un volume
+%%TODO: IMMAGINE
+%la differenza è che
+%	\vba q=\dv{\vba p}{\Sigma}
+%cioè per unità di superficie invece che di volume
+%	P_{rad}=\frac{\Delta\vba q}{T}=\vm{\dv{P}{\Sigma}}\frac{\vba v}{v^2}= \vm I \frac{\vba v}{v^2}
+%per def di intensità media
+%
+%stanno arrivando le onde elm che producono variazione di quantità di moto
+%dopo un periodo si trova a muoversi
+%la radiazione mette in moto la superficie
+%è detta \textit{pressione di radiazione} \index{pressione!di radiazione} \index{radiazione! pressione di}
+%	P_{rad}=\frac{\abs{\vba q}}{T}
+%	P_{rad}^{abs}=\frac{I}{c}
+%%TODO IMMAGINE
+%la forza elettrica è ortgonale e non contribuisce, vel d deriva verso l'alto, forza magnetica in quella direzione, quindi
+%	\dv{F_m}{\Sigma}=P_{rad}=\frac{\abs{\vba q}}{T}
+%le particelle libere nel conduttore si muovono lungo la dir del campo el, v_d verso campo el, allora subiscono una forza magnetica ortogonale alla sup, quindi il foglio subisce una forza che lo sposta
+%siccome si tratta di una superficie parliamo di pressione ed otteniamo P_{rad}^{abs}=\frac{I}{c}
+%questo se il corpo è totalmente assorbente
+%
+%invece se prendessimo un foglio di carta stagnola trasmette qm l'oda ma è riflessa, per conservazione di quantità di moto è il doppio di quella orginaria
+%	P^{rifl}_{rad}=\frac{2I}{c}
+%tipico esperimento di fisica è prendere una bilancia in cui da una parte c'è carta stagnola, dall'altra materiale assorbente
+%sparo luce e comincia a girare
+%%TODO: IMMAGINE
+%la qm da una parte dove è riflettente è maggiore e si manifesta momento di rotazione
+%
+%\begin{examplewt}[Propulsione solare]
+%	possiamo usare la luce per muovere oggetti
+%	dato il Sole, potrei usare la sue luce per spostare una navicella spaziale?
+%%TODO: IMMAGINE
+%	materiale riflettente per massimizzare 
+%	qunato deve essere grossa la sup per usare il Sole per muovere la navicella spaziale?
+%	assumendo che non ci sinao altri pianeti intorno per dovermi opporre solo all'attrazione gravitazionale del Sole, per avere forza uguali magnetica e gravitazionale dobbiamo avere
+%		P_{rad}\Sigma \geq G_0\frac{mM}{r^2}
+%		con m massa della navicella, M del sole, G_0 costante di gravitazione universale e r distanza navicella-Sole
+%		\frac{2I}{c}\Sigma\geq G_0\frac{mM}{r^2}
+%		con I=\frac{W}{4\pi r^2}
+%		\frac{2W}{4\pi r^2 c}\geq G_0\frac{mM}{r^2}
+%		l'r^2 si cancella perché entrambi decadono allo stesso modo
+%		quindi non dipende dalla distanza, ma dagli altri parametri
+%		quindi
+%		\Sigma\geq \frac{G_0mM2\pi c}{W}\geq 
+%	più la sorgetne elm è potente meno dovrà esser grande la superficie. più è grande la massa del Sole più è grande quella della navicella e avrò bisogno di più superficie
+%	siccome G_0=6,67 10^{-11}
+%		\geq \frac{6,67 10^{-11} 1650 1,99 10^{30} 3 10^{6} 2\pi}{3,96 10^{26}}= 1,05 10^{6}m^2=1,05 km^2
+%		
+%	non è molto comodo
+%	
+%	se invece rendiamo il corpo leggero ed una sorgente luminosa non dispersiva come i laser per avere intensità che non decade come 1/r^2
+%	propulsione a laser
+%\end{examplewt}
+%
+%salto indietro nel tempo dal pov tecnologico: come ci siamo accorti delle onde elm
+%\subsection{Onde fi Fiertz}
+%consideriamo un dipolo oscillante, tipico esempio di sorgente di onda elm
+%generatore di AC fa sì che si muova il dipolo facendo oscillare le cariche come \sin
+%%TODO: IMMAGINE
+%ha un andamento sinusoidale
+%sparo l'onda approssimativamente piana
+%prendo delle spire: A eB sono ortogonali (inteso come piano della spira) alla direzione di propagazione dell'onda, C e D sono parallele a v
+%la dimensione della spira l \ll\lambda lunghezza d'onda delle onde elm
+%l\ll r	con r distanza da sorgente ad A		onda approssimativmante r che così sembrerà piana
+%le spire sono dette \textit{risuonatore} con delle viti all'interno che si regolano e permettono di chiuderle ed aprirle
+%se le apro molto poco in presenza di fem vediamo delle scintille, delle scariche elettriche, questo perché ho ddp fra estremi e circola corrente
+%servono a percepire l'esistenza di una fem sulla spira, cioè rilevano la presenza di f.e.m.
+%come viene prodotta qui la fem?
+%le onde elm producono campo el e mgn oscillanti, che producono fem
+%	\ee=\onit\vba E\vdot d\vba l	prodotta dal campo elettrico
+%	\ee=-\dv{\Phi(\vba B)}{t} 	da legge di Faraday
+%in queste spire messe in questi modi, si produce o no fem?
+%vogliamo testare le proprietà dedotte da Maxwll
+%
+%	\item caso A: \ee_2=0
+%		la spira è messa in modo che sia parallela al campo magnetico, che quindi non ha flusso attraverso la spira, \Phi(\vba B)=0
+%		ma anche \ee_1=0 perché campo elettrico è verticale: siccome le intensità di corrente sono opposte, la fem complessiva dunque è nulla
+%		è messa lì per verificare le posizioni del campo el e mgn
+%	\item caso B
+%		siccome il lato è aperto, i contributi della circuitazione sono diversi, ai capi dell'apertura ho ddp, quindi \ee\neq 0
+%		questo però se non mi muovo in un nodo (zero del \sin): muovendo la spira posso trovare i nodi, quindi dov'è nullo, posso quindi anche dedurre la sua lunghezza d'onda
+%		invece come prima \ee_2=0
+%	\item caso C
+%		il flusso del campo magnetico non è più nullo, \ee_2\neq 0
+%		invece per il campo elettrico avendo contributi verticali opposti abbiamo \ee_1=0
+%		quindi posso solo testare \ee_2, grazie all'assunzione l\ll \lambda posso trovarmi approssimativamente in un nodo e come prima trovarli tutti
+%	\item caso D
+%		entrabmi contribuiscono
+%		\ee_1\neq 0	\ee_2\neq 0
+%		
+%Quindi abbiamo testato l'esistenza e le proprietà delle onde elm: sono ortogonali alla direzione di propagazione ed ortogonali fra loro
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 24, 20/04/2022
+%\section{Effetto Dopler}
+%immaginiamo di avere una sorgente che emette dei fronti d'onda sferici
+%ad esempio prendiamo un'onda sonora, per cui è facile verificare l'effettoDoppler
+%ad ogni fronte d'nnda sappiamo che siamo al picco della sinusoide
+%	\xi=\frac{\xi_0}{r}\sin(k_0r-\omega_0 t)
+%	k_0=\frac{2\pi}{\lambda_0}
+%	\omega0=\frac{2\pi}{T_0}=2\pi\nu_0
+%	
+%immaginiamo che ci sia qualcuno che riceve l'onda dalla sorgente S
+%invio un'onda, la sentiamo con una certa frequenza e lunghezza d'onda che possimo misurare
+%per un certo tempo \Delta t misura le oscillazioni
+%	\nu_R è la frequenza misurata/percepita da chi asclta l'onda, R
+%	\nu_0=\frac{N}{\Delta t}==
+%	quante volte in un tempo \Delta t l'onda compie un'oscillazinoe completa
+%siccome viaggia ad una certa velocità
+%	==\frac{v\Delta t}{\lambda_0\Delta t}=\frac{v}{\lambda_0}=\nu_0
+%stiamo assumendo che sia sorgente sia ricevitore sono fermi, stiamo infatti assumendo che lo spazio percorso dall'onda in un tempo \Delta t sia lo stesso
+%quando ricevente misuro so che il numero di oscillazioni che misuro è lo spazio diviso per la lunghezza d'onda, 
+%	v=\lambda_0\nu_0=\frac{\omega_0}{k_0}
+%se la sorgente è ferma per il ricevente la frequenza misurata è pari alla frequenza emessa
+%
+%la cosa strana che succede è che se la sorgente si muove la frequenza percepita cambia
+%
+%intuitivamente succede che quando la sorgente si muove verso la persona che sta ricevendo, dopo un periodo la sorgente si troverà più avanti di uno spazio dato da v_s T, il fronte d'onda che partirà in quel tempo partirà da lì
+%mentre l'onda si muove continua ad emettere onde sferiche
+%
+%la frequenza percepita da R sarà diversa da quella emessa da $S$
+%togliamo lo spazio che la sorgente ha percorso in un periodo
+%	\lambda_R=\lambda_0-v_sT_0= (v-v_s)T_0=\frac{v-v_s}{v}\lambda_0
+%la cosa più facile da sentire è la frequenza di un suono
+%	\nu_R=\frac{v}{\lambda_R}=\frac{v}{v-v_s}\nu_0
+%qui stiamo supponendo che $v_s<v$
+%la formula ci dice che la frequenza percepita dal ricevente sarà maggiore della frequenza emessa
+%quindi se la sorgente si avvicina al ricevente questo lo percepisce con una frequenza maggiore dei quella emessa
+%l'esempio tipico è la frequenza dell'ambulanza, quando si allontana la frequenza percepita è minore di quella emessa per un cambio di segno
+%stimo anche assumendo che v_s\ll c, cioè stiamo considerando l'effetto Doppler \textit{non} relativistico
+%
+%analogamente avremmo potuto fare
+%	\nu_R=\frac{N}{\Delta t}=\frac{v\Delta t}{\lambda_R}\frac{1}{\Delta t}=\frac{v}{\lambda_R}
+%	
+%vediamo adesso cosa succede quando si muove il ricevente
+%%TODO: IMMAGINE
+%il ricevente si allontana con una certa velocità $v_R$, il tempo che arrivi il fronte d'onda successivo lui si è spostato, quindi arriva dopo: un periodo in più più il tempo in uci mi sono spostato come ricevente in quel periodo
+%	\nu_R=\frac{N}{\Delta t}=\frac{(v-vR)\Delta t}{\lambda_0}=\frac{v-vR}{v}\nu_0
+%in un moto di allontanamento del ricevitore la frequenza percepita da $R$ quando si allontana è minore della frequenza emessa
+%il periodo che rilevo è più grande di quello emesso, quindi anche la frequenza è minore
+%
+%possimao combinare le due formule per ottenere quella definitiva dell'effeto Doppler
+%	\nu_R=\frac{v-v_R}{v-v_s}\nu_s
+%entrambe nella direzione positiva dell'asse che congiunge sorgente e ricevente
+%è solo una scelta di sistema di coordinate
+%se una si muove nel verso opposto basta cambiare il segno
+%notiamo che non è una formula simmetrica: se la sorgente si allontana o il ricevitore la situazione cambia, non è uguale se la sorgente si allontana oppure è il ricevitore a farlo!
+%qualitativamente ho lo stesso effetto di avere la frequenza diminuita, ma lo fa in modo diverso, il fattore è diverso: \frac{v-v_R}{v} e \frac{v}{v+v_s}
+%questa è una peculiarità dell'effetto Doppler
+%
+%
+%vediamo ora cosa succede quando la velocità della sorgente supera la velocità dell'onda parliamo di onda d'urto
+%\section{Onda d'urto}
+%mano mano che la sorgente si sposta, i fronti d'onda tendono ad accumularsi verso un punto: nel tempo in uci l'onda viene emessa la sorgente si sposta
+%per determinare quanto vale l'angolo \theta
+%in un tempo \Delta t
+%tempo arrivato ad arrivare al fronte d'onda conico è v\Delta t
+%il fronte d'onda si dispone lungo lo stesso cono dell'oda emessa dalla sorgente al punto di partenza
+%abbiamo un triangolo rettangolo con v\Delta t e v_s\Delta t
+%quindi 
+%	v_s\Delta t\sin\theta=v\Delta t
+%	\sin\theta\frac{v}{v_s}
+%	n_M=\frav{c}{v_s} è detto \textit{numero di Mach} \index{numero!di Mach} \index{Mach!numero di}
+%	quante volte la velocità della sorgente è più grande di quella dell'onda
+%quando si supera la velocità del suon si verifica un boom acustico: si sente un forte boato dovuto all'arrivo del fronte d'onda conico alle nostre orecchie
+%l'onda sonora emessa dall'aereo, si accumula tutto su un fronte d'onda conico, si ha una variazione di pressione netta che non è sinusoidale, la forma dell'onda ha una forma di questo tipo
+%%TODO: IMMAGINE
+%un altro esempio tipico è il motoscafo, dietro il motoscafo si formano dei fronti d'onda conici
+%i fronti d'onda sono le cime delle sinusoidi, il fatto che si dispongano lungo il cono, tutta la delimitazione del cono è in fase, in tutta questa linea invece di propagarsi sfericamente si propaga per coni successivi
+%per esempio nel caso del motoscafo conoscendo la velocità del motoscafo e l'angolo formato possiamo ricavare la velocità di propagazione delle onde nel mare
+%
+%
+%\section{Interferenza di onde}
+%il fenomeno dell'interfernza è tipico dei fenomeni ondulatori per il quela l'interazione di due onde che obbedisce al principio di sovrapposizione, si formano figure di interferenza tipiche dell'onda stessa
+%possono essere utilizzati per testare se un certo tipo di fenomeno può essere descritto da fenomeni ondulatori
+%	Young + Herz -> luce ondulatoria
+%	
+%date due sorgenti vogliamo determinare l'intensità dell'onda che arriva in quel punto
+%	\xi_1=\frac{\xi_{0,1}}{r_1}\cos(k_1r_1-\omega_1+\oldphi_1)
+%	\xi_2=\frac{\xi_{0,2}}{r_2}\cos(k_2r_2-\omega_2+\oldphi_2)
+%l'onda data dalla loro sovrapposizione è la somma delle due
+%	\xi=\xi_1+\xi_2=\xi_0\cos(\omega t +\alpha)
+%per combinare i due coseni usiamo il metodo dei fasori o del triale usato per i circuiti $RLC$
+%data un'onda con un'ampiezza A_1
+%	\xi_1=A_1\cos(\omega t+\alpha_1)
+%	\xi_2=A_2\cos(\omega t+\alpha_2)
+%posso determinare la sovrapposizione delle due disegnando i vettori di modulo A_i ed inclinazione \alpha_i
+%la somma dei due è la somma vettoriale dei due vettori/fasori
+%alternativamente passiamo alla notazione complessa con la formula di Eulero e poi ridecomporre
+%il vettore risultante ha ampiezza A ed angolo 
+%	\xi=A\cos(\omega t+\alpha)
+%	A=\sqrt{A_1^2+A_2^2 + 2A_1A_2\cos\delta
+%	con \delta angolo fra la retta di A_1 e quella fra la punta di A_1 ed A
+%	\delta=\alpha_2-\alpha_1
+%grazie alle proiezioni invece
+%	\tan\alpha= \frac{A_2\sin\alpha_1+A_2\sin\alpha_2}{A_1\cos\alpha_1+A_2\cos\alpha_2}
+%	\alpha_1=-\oldphi_1-k_1r_1
+%	\alpha_2=-\oldphi_2-k_2r_2
+%	A_1=\frac{\xi_{0,1}}{r_1}
+%	A_2=\frac{\xi_{0,2}}{r_2}
+%	
+%l'ampiezza dell'onda risente di \delta, quindi dipende dalle fasi \oldphi_i, che determina l'interferenza
+%l'intensità di un'onda è proporzionale all'ampiezza quadra
+%	I\alpha %PROPORZIONALE
+%	A^2
+%	I=I_1+I_2+2\sqrt{I_1I_2\cos\delta
+%devono essere sorgenti coerenti, non devono cambiare le fasi nel tempo e devono essere polarizzate nella stessa direzione e verso
+%invece per onde incoerenti possiamo solo vedere l'effetto medio, quindi in un tempo medio \cos\delta=0
+%	I=I_1+I_2
+%
+%
+%focalizziamoci sul caso in cui A=A_1=A_2, =\oldphi=\oldphi_1=\oldphi_2=0, quindi non ci sono fasi intrinseche (peculiarità delle onde iniziali), k=k_1=k_2, si propagano alla stessa velocità
+%quindi abbiamo due sorgenti identiche ma che si trovino a posizioni diverse
+%abbiamo comunque un'interferenza
+%	\alpha_i=-kr_i
+%	\delta=k(r_1-r_2)
+%	
+%conta la differenza delle due distanze
+%sull'asse r_1=r_2 il \cos\delta=1, quindi l'interferenza è massima
+%	A=A_0\sqrt{2(1+\cos\delta)}=2A_0\cos(\frac{\delta}{2})
+%	I=4I_0\cos[2](\frac{\delta}{2})
+%	\tan\alpha=\frac{\sin\alpha_1 +\sin\alpha_2} {\cos\alpha_1+\cos\alpha_2}=\frac{\sin(\frac{\alpha_1+\alpha_2}{2}) \cos(\frac{\alpha_1+\alpha_2}{2})} {\cos(\frac{\alpha_1+\alpha_2}{2}) \cos(\frac{\alpha_1+\alpha_2}{2})}= \tan(\frac{\alpha_1+\alpha_2}{2}
+%	\xi=2A\cos(\frac{k(r_1-r_2){2})\cos(\omega t-\frac{k(r_1+r_2)}{2})
+%
+%se siamo in un punto in cui l'intensità 4 volte quella iniziale siamo in u punto di interferenza costruttiva, invece ci sono dei punti in cui vale 0, ed abbiamo l'interferenza distruttiva
+%%TODO: IMMAGINE
+%abbiamo coì dell'intensità nulla in alcuni punti
+%
+%%TODO: IMMAGINE
+%ognuna delle sorgenti emette un'onda sferica, l'interferenza si genere per l'effetto di sovraposizione di queste onde sferiche
+%per r=0 tracciamo una retta in cui incontriamo tutti i nodi della figura, unendoli troviamo delle iperboli, che sono determinate precisamente dalle equazioni risultanti da un massimo dell'intensità di cui sopra, cioé quando r_1=r_2
+%infatti
+%	\delta=k(r_1-r_2)} 
+%	I_{max} per \delta=2\pi m
+%	r_1-r_2=\frac{2\pi m}{k}
+%ricordandoci che \lambda=\frac{2\pi}{k} abbiamo
+%	\Delta r=m\lambda
+%se abbiamo un'onda con un certa lunghezza d'onda, vediamo i massimi per \Delta r=\lambda, \Delta r=2\lambda , \Delta r=-\lambda, \Delta r=-2\lambda
+%i diversi masismi sono separati da un numero intero di lunghezze d'onde
+%invece i minimi si trovano per i multipli dispari di \pi
+%	I_{min} per \delta=(2m+1)\pi
+%	\Delta r=(2m+1)\frac{\lambda}{2}
+%quindi sono in mezzo ai massimi
+%
+%andiamo a fare una leggera correzione per onde sferiche
+%\subsection{Interferenza per onde sferiche}
+%con sorgenti identiche 
+%	A_1=\frac{A_0}{r_1}
+%	A_2=\frac{A_0}{r_2}
+%	A=A_0\sqrt{\frac{1}{r_1^2} +\frac{1}{r_2^2} + \frac{2}{r_1r_2}\cos\delta }
+%	abbiamo come intensità
+%	I_1=\frac{P}{4\pi r_1^2}
+%	I_2=\frac{P}{4\pi r_2^2}
+%	I=\frac{P}{4\pi} \left( \frac{1}{r_1^2} +\frac{1}{r_2^2} + \frac{2}{r_1r_2}\cos\delta  \right)
+%non cambia la posizione dei massimi e minimi ma la loro intensità
+%	I_{max}=\frac{P}{4\pi} \left( \frac{1}{r_1^2} +\frac{1}{r_2^2} \right)^2 per \Delta r=r_1-r_2=m\lambda
+%	I_{min}=\frac{P}{4\pi} \left( \frac{1}{r_1^2} -\frac{1}{r_2^2} \right)^2 per \Delta r=r_1-r_2 (2m+1)\frac{\lambda}{2}
+%	
+%sperimentalmente ci interessa il caso in cui lo schermo su cui rileviamo è molto lontano con $r_1\sim r_2\sim r$
+%abbiamo che r_2-r_1 è molto piccolo ed è dato da
+%	r_2-r_1=d\sin\theta
+%avremo che
+%	\delta=k(r_1-r_2)=-\frac{2\pi}{\lambda d}\sin\theta
+%in funzione dell'angolo \theta abbiamo le posizioni dei massimi e minimi
+%	I_{max} per d\sin\theta=m\lambda
+%	I_{min} per d\sin\theta=\frac{(2m+1)\lambda}{2}
+%	
+%abbiamo così un'interferenza di tipo sinusoidale (?)
+%
+%
+%\begin{examplewt}[Esperimento di Young]
+%	si tratadi un esperimento a doppia fenditura fatto nell''800
+%	unmodo per produrre delle sorgenti coerenti è di praticare un foro molto minore della lunghezza d'onda in materiale che assorbe la luce
+%	produce fronti d'onda sferici dopo il foro
+%	dopo passa in due fori, ed abbiamo due fronti d'onda sferici
+%	la sorgente iniziale è una sola, arrivando con stessa frequenza e ampiezza, le onde così prodotte sono onde coerenti, cioè con differenza di fase costante
+%	poniamo una lastra fotografica ad una distanza L molto maggiore di d
+%%TODO: IMMAGINE
+%	se L\ggd e L\ggx allora \sin\theta\sim\tan\theta\sim\theta 
+%	sulla lastra fotografica vediamo le figure di interferenza
+%		max per \frac{d}{L}=m\lambda, m\in\integerset
+%		min per \frac{dx}{L}=(2m+1)\lambda
+%	Young ha visto che si trova un pattern di tipo zone di luce alternate da zone di buiio
+%	la distanza fra due massimi l=\frac{\lambda L}{d}
+%	i massimi si traducono in luce, i minimi in buio, separati da distanza l
+%	
+%	così si è misurata la lunghezza d'onda della radiazione elettromagnetica
+%	cambiando colore della luce cambia lunghezza d'onda
+%	ogni colore dello spettro del visibile è associato ad una cert lunghezza d'onda
+%	 ma ci sono lunghezze d'onda corrispondenti a radiazioni che non vediamo, come le ultraviolette e le infrarosse
+%	 vedremo anche che l'energia è legata alla frequenza della radiazione, grazie a legge di Planck \index{legge!di Planck} \index{Planck!legge di}
+%	 
+%	 ad esempio la luce visibile va da 0,78 10^{-6}m <\lambda < 0,38 10^{-6}m
+%	 
+%\end{examplewt}
+%
+%ESAME
+%3/ esercizi
+%
+%	elettrostatica o magnetostatica: data configrazione di cariche o correnti determinare campi el o mgn
+%	sferica o puntiformi per principio di sovrapposizione
+%		
+%	circuito semplice con resistenze, condensatori parallelo e serie, leggi kirkchoff
+%	
+%	problema sui fenomeni dipendenti dal tempo: induzione di Farady o corrente di spostemento( cambio flusso e fem generata)
+%	
+%	in alternativa o aggiunta semplice problema sulle onde: scrivere equazione e proprietà caratteristiche o anda elm con vettore di Poyinting
+%	
+%domani esercizi propedeutici all'esame
+%
+%prova probabilmente diversa da quella del secondo anno
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+LEZ 25, 21/04/2022
+
+domanda su corrente di spostamento
+[...]
+forma integrale della densità di corrente di spostamento
+passaggio dalla forma differenziale a quella integrale: teorema del rotore: prendiamo il flusso del rototre attraverso la superficie 
+	\Sigma	\int\curl\vba B\vdot\vbh u_n d\Sigma =\mu_0\int\vba j\vdot\vbh u_n d\Sigma +\mu_0\epsilon_0\pdv{t}\int\vba E\vdot \vbh u_nd\Sigma
+	\int\vba\vdot d\vba s=\mu_0 i+\mu_0\underbrace{\epsilon_0\dv{\Phi_\Sigma (\vba B)}{t}}_{i}
+solenoidale se campo dipende solo dal contorno e non dalla superficie che scegliamo non passa realmente corrente fra le piastre, ma ho ddp fra piastre condensatore, quindi passano cariche
+
+storicamente ridefiniiamo la corrente per avere corrente totale tale che sia solenoidale, con la formulazione integrale dell'avere due superfici con stesso bordo il cui flusso è uguale
+oppure aggiunta alle eq di Maxwell, simmetrica a quella di Faraday
+
+esercizi per tipo
+\begin{eserciziamociwt}[Elettrostatica]
+	Consideriamo una sfera cava con una densità di carica $\rho=26,58*10^{-8}C/m^2$ uniforme. I raggi della sfera cava sono $R_1=10 cm$ e $R_2=20 cm$.\\
+%TODO: IMMAGINE
+	Determinare il campo elettrico, la velocità ad $r=R_1$ di un elettrone posto in quietead $r=R_2$
+\end{eserciziamociwt}
+\begin{solution}
+	normalmente non c'è da fare tutto il conto, basta usare il teormea di Gauss (o di Ampère se magnetostatica)
+	Cnosideriamo 3 superfici
+		r<R_1	E(r)=0
+		R_1<r<R_2	per simmetria sferica E dipende solo da r, uso il eorem di Gauss 	
+			\Phi(\vba E)=E(r)4\pi r^2 =(carica contenuta all'interno ) =\frac{1}{\epsilon_0}\int^r_{R_1} \rho r'^2 dr' \int_0^\pi\sin\theta d\theta \int_0^{2\pi}d\phi 
+			l'integrale sulle variabili angolari dà 4\pi
+			E(r)4\pi r^2=\frac{\rho 4\pi}{3\epsilon_0}(r^3-R_1^3)
+			E(r)=\frac{rho}{3\epsilon_0}\left(\frac{r^3-R_1^3}{r^2}\right)
+		quindi consideriamo solo la carica interna
+		r>R_2	E(r) per simmetria sferica è come quella generata da una carica puntiforme, dobbiamo determinare la carica
+			E(r=\frac{q}{4\pi \epsilon_0r^2})
+			q lo trovo come densità per volume della corona sferica
+			q=2\pi\int^{R_2}_{R_1}\rho r' dr'=\frac{4\pi\rho}{3}\left(R_2^3-R_1^3\right)=\frac{\rho}{3\epsilon_0r^2}(R^3_2-R^3_1)
+		verifico così anche che p continuo alla superficie, è discontinuo solo se ho distribuzione superficiale, non volumetrica
+	questa era la domanda standard, ora facciamo quella non standard
+	
+	il campo elettrico all'esterno è diretto radialmente verso l'esterno, quindi l'elettrone che ha carica negativa va contro il campo elettrico
+	qui usare l'equazione di Netwotn è sbagliato! il campo elettrico varia nella corona, l'accelerazione non è costante e il problema da risolvere diventa dfficile
+	invece useremo la conservazione dell'energia
+	l'elettrone che va da R_1 a R_2 perde energia potenziale e guadagna energia cinetica
+		\Delta K=-\Delta U
+		=e\Delta V con V differenza di potenziale fra R_2 ed R_1
+		=e\left(V(R_2)-V(R_1)\right)
+		ma \Delta K=\frac{1}{2}m_ev_f^2-\cancel{\frac{1}{2}m_e-v_0^2}
+		con v_f la nostra incognita
+		
+		o ricalcoliamo tutti i potenziali all'interno della sfera, corona ed esterno, oppure ci ricordiamo che E=-\grad V
+		quindi
+		V(R_2)-V(R_1)=-\int_{R_1}^{R_2} E_rdr= -\frac{e\rho}{3\epsilon_0}\int_{R_1}^{R_2} \left(r-\frac{R_1^3}{r^2}\right) dr=
+			=-\frac{e\rho}{3\epsilon_0}\left(\frac{1}{2} (R_2^2-R_1^2) è\left( \frac{R_1^3}{R_2} -\frac{R_1^3}{R_1} \right)\right) = 1,6*10^{-12} J
+		con E_r componente radiale (ma abbiamo solo quella)
+		
+		v_f=\sqrt{\frac{2\Delta K}{m_e}}=5,93*10^{6}m/s
+\end{solution}
+
+\begin{eserciziamociwt}[circuito]
+	Abbiamo un circuito con 3 condensatori di capacità $C_1=2\mu F$, $C_2=2\mu F, C_3=4\mu F$ con f.e.m. $\ee=100 V$.\\
+	Determinare la capacità equivalente, $V_1, V_2, V_3$ e l'energia totale del circuito.
+\end{eserciziamociwt}
+\begin{solution}
+	Vogliamo ridurre il sistema
+	Eliminiamo i condensatori in serie sostituendoli con un equivalente $C'$
+		\frac{1}{C'}=\frac{1}{C_2}+\frac{1}{C_3}
+		C'=\frac{C_2C_3}{C_2+C_3}\frac{4}{3}\mu F
+	rimpiazziamo infine con un condensatore equivalente $C_{eq}$
+		C_{eq}=C_1+C'=\frac{4}{3}+2=\frac{10}{3}\mu F
+		
+	la ddp ai capi dei condensatori 
+		V_1=100 V
+	per $V_2$ e $V_3$ dobbiamo calcolarli $q_2$ e $q_3$.
+	siccome sono in serie 
+		q_2=q_3=q'=C'V 	con V ddp ai capi di C' e C_1, quindi V=\ee (ho usato il circuito intermedio)
+		= \frac{4}{3}100\mu C=133\mu C
+	stiamo usando ripetutamente $q=CV$
+		V_2=\frac{q_2}{C_2}=67 V
+		V_3=\frac{q_3}{C_3}=33 V
+	possiamo controllare che $V_2+V_3=V_1$
+	
+	energia totale: potrei calcolare l'energia singola dei condensatori, ma in realtà è sempre la stessa, la calcolo per il circuito equivalente
+		U=\frac{1}{2}CV^2
+		U=\frac{1}{2}C_{eq}\ee^2 = 1,67*10^{-2} J
+	possiamo controllare che 
+		=\frac{1}{2}C_1 V_1^2+ \frac{1}{2 C_2 V_2^2 +\frac{1}{2} C_3 V_3^2
+		
+		
+		
+\end{solution}
+
+
+\begin{eserciziamociwt}
+	Data una spira a forma di triangolo equilatero, essa entra al tempo $t=0$ in un campo magnetico uscente definito nel semipiano $x>0$ con velocità $\vba v_0$.\\
+%TODO: IMMAGINE
+	Conosciamo i lato della spira $b=20 cm$, la sua massa $m=10 g$, la resistenza $R=0,5 \Omega$, velocità iniziale $v_0=5 m/s$, campo magnetico $B=0,8 T$
+	Determinare in funzione di $x(t)$ posizione del vertice
+		la f.e.m. indotta
+		la correnteindotta
+		la vleocità della spira
+	Determinare la carica totale che circola durante il processo.
+\end{eserciziamociwt}
+\begin{solution}
+	la spira entra nel campo manetico, cambia il flusso, induce feme correnteogni spira che si muove in cmp mgn subisce forza di attrito magnetico: diminuisce nel tempo finché tutta la spira ha oltrepassato l'asse x, quniid il flusso rimane costante e la fem si azzera: ho fem solo quando $0<x(t)<altezza triangolo$
+	
+		\ee=-\dv{\Phi(\vba B)}{t}
+	il flusso è attraverso la parte di superficie che è già dentro al semipiano $x>0$, cioè la superficie $\sigma$
+		\Phi(\vba B)=B\sigma==
+	calcoliamo $\sigma$, il lato del suo bordo che è un triangolo equilatero
+		l=\frac{x(t)r}{\sqrt{3}}
+		\sigma=\frac{x^2(t)}{\sqrt{3}}
+		==B\frac{x^2(t)}{\sqrt{3}}
+	calcoliamo la f.e.m.
+		\ee=-\frac{2B}{\sqrt{3}} x(t)v(t)
+	corrnete indotta per legge di Ohm
+		i=\frac{\ee}{R}=-\frac{2B}{\sqrt{3}R} x(t)v(t)
+	corrente che produce campo magnetico opposto al campo magnetico esistente che l'ha generata, usiamo la regola della vite per trovare il verso/senso in cui gira (deve entrare nel foglio)
+	per determinare la velocità della spira dobbiamo usare l'equazione di Newton
+	forza che agisce su una spira in un campo magnetico è
+		\vba F=i\int d\vba s\cross\vba B= \vba F_1 +\vba F_2
+	la forza che sta agendo sulla spira è data solo dal pezzo di circuito che si trova all'interno del campo magnetico, quindi facendo $d\vba s\cross\vba B$ abbiamo delle forze ortogonali che lungo l'asse $y$ si cancellano, le componenti $x$ si sommano e producono forza di attrito magnetico. Notiamo che gli angoli sono di $30$ 3 $60$ gradi, quindi abbiamo un coseno noto
+		F_{1x}=-F_1\cos\theta=-\frac{F_1}{2}
+		F_{2x}=-F_2\cos\theta=-\frac{F_2}{2}
+	quindi sono uguali in modulo
+		F_{1x}+F_{2x}=F_1+F_2
+	$\vba B$ esce dall'integrale perché è costante
+		F_1=i\vba B\int d\vba s\cross \vbh u_z
+		\abs{\vba F_1}=i B \underbrace{\frac{2x(t)}{\sqrt{3}}}_{lunghezza del segmento}
+		F_x=\frac{-2iBx(t)}{\sqrt{3}}
+	le componenti che ci interessano e danno attrito magnetico sono quelle lungo l'asse $x$
+%TODO: IMMAGINE
+		F_x=-\frac{4 B^2}{3R} x^2(t) v(t)
+	usiamo l'equazione di Newton
+		m\dv[2]{x}{t}=-\frac{4 B^2}{3R} x^2(t) v(t)
+	dobbiamo scriverla in funzione della velocità e ci accorgiamo che il membro di sinistra è una derivata totale
+		\dv{v}{t}--\frac{4 B^2}{3Rm} \frac{1}{3}\dv{t}(x^3(t))
+	integriamo ambo i membri
+		v(t)=c-\rac{4B^2}{)Rm}x^3(t)
+	la condizione iniziale è che per t=0 abbiamo v=v_0
+		v(t)v-0-\frac{4B^2}{9Rm} x^3(t)
+		
+	recap: fem e intensità di corrente (standard), per la velocità bisogna calcolarsi le forze, una volta che abbiamo il modulo sappiamo la forza, uguagliamo all'accelerazione grazie alla legge id Newton, rimuovo una derivata ed esprimiamo $v$ in funzione di $x$
+	
+		x_{max}=\frac{b\sqrt{3}}{2}
+		v_f=v_0-\frac{4B^2}{9Rm}\left( \frac{b\sqrt{3}{2}\right)^3= 4,71 m/s
+
+	la carica è l'integrale della densità di corrente per tutto il tempo
+		q=\int_0^{+\infty} idt = \int^{+\infty}_0 \frac{1}{R}\dv{\Phi(\vba B)}{t} dt= \frac{1}{R} \Delta\Phi(\vba B) =\frac{1}{R} B\Sigma= \frac{1}{R} B\frac{b^2\sqrt{3}{4}=2,78*10^{-12}
+	differenza di flusso, dopo che tutto il triangolo è entrato ho tutto il flusso
+	con i=\dv{q}{t}	
+	
+\end{solution}
+
+un esercizio di questo tipo è al massimo livello di difficoltà
+
+abbiamo ancora 4 settimane di lezione
 
 
 

@@ -447,7 +447,7 @@ In conclusione l'autoflusso di un qualsiasi circuito è proporzionale all'intens
 
 \begin{examplewt}[Induttanza di un solenoide (non) infinito]
 %TODO IMMAGINE 17.4
-	Di solito si usano i solenoidi per creare l'induttanza. Infatti	sappiamo che il campo magnetico in un solenoide infinito è $B=\mu_0 in$ con $n$ densità lineare di spire. Prendiamo il solenoide di una lunghezza $d$ molto maggiore del diametro $R$ ($d>>R$) per avere l'approssimazione che sia infinito trascurando gli effetti di bordo.\\
+	Di solito si usano i solenoidi per creare l'induttanza. Infatti	sappiamo che il campo magnetico in un solenoide infinito è $B=\mu_0 in$ con $n$ densità lineare di spire. Prendiamo il solenoide di una lunghezza $d$ molto maggiore del diametro $R$ ($d\gg R$) per avere l'approssimazione che sia infinito trascurando gli effetti di bordo.\\
 	Siccome il campo magnetico è costante il flusso attraverso $\Sigma$ che taglia il solenoide è dato dal flusso sulla singola spira di superficie $\Sigma$ per il numero totale di spire $N$, abbiamo
 	\begin{gather*}
 		\Phi(B)=\Sigma BN= \mu_0 in^2\Sigma d
@@ -1201,55 +1201,57 @@ Viene usato nelle radio e televisioni per avere frequenza giusta: selettore di f
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %LEZ 20 06/04/22
 %
-%\section{Accenno a magnetismo nella materia}
-%Come si comporta il campo magnetico all'interno dei materiali?\\
-%Valgono tutti i caveat già visti nell'elettricità nei materiali dielettrici
-%per avere modello realistico serve un modello quantistico, gli altri non hnno un valore quantitativo
-%nel caso dielettrico pariremo oss macroscopiche, deduciamo meccanismi proprietà materiali e poi non ci addentreremo nei meccaismi microscopici, serve quantistica. Per quanto riguarda aspetti magnetici delle particelle microscopiche dipendono 
-%un b si accoppia a particella solo se particella carica in moto, che prende momento magnetico se (caso spira) se si muove di moto circolare
-%l'elettrone nella sua rotazione intorno al  nucelo, produce momneto angolare che si allinea cono campo magnetico, ma errata dal pov quantitativo: l'el non gira intoron all'atomo ma si dispone su livelli en degli orbitali
-%hanno anche momento angolare intrinseco (analogo rotazione su sè stesso), è lo spin , caratteristica intrinseca, che produce un momneot di dipolo magneitoc che si accoppia con B e si allinea
-%la descrizione classica mometi dipolo maneitco che si allineano o disallineano
-%comprensione efficace fenomeni servono modelli statistici e quantistici che non abbiamo
-%\subsection{Dielettrici}
-%abbiamo preso due piastre, abbiamo cercato di capire cosa succedesse se lo riempissi di materiale dielettrico
-%campo elettirco generato dalle due piastre, uniforme. Il fatto di avere un dielettrico fa sì che il campo elettrico efficace misurato fra le piastre è pari al campo el se non ci fosse dielettrico E_0
-%E_k=\frac{E_0}{k}=\frac{\sigma}{k\epsilon_0}
-%k>1 costante dielettrica relativa
-%un'altra costante \epsilon=\frac{k}{\epsilon_0} costante dielettrica assoluta
-%le costanti sono proprietà del mezzo, distinguiamo il comportamento del dielettrico in base alla costante, proprietà generali a seconda del valore delle costanti 
-%
-%nel caso del magnetismo
-%le piastre producono campo elettrico uniforme e costante. l'analogo per il cmp mgn è il solenoide
-%consideriamo un solenoide, visto come un set di spire una in pila all'altra che avvolgono un cilindro
-%riempiamo il cilindro di un certo materiale
-%diamo un verso di percorrenza alla corrente: entrano nella parte sotto ed escono dalla parte sopra
-%regola della vite per trovare verso campo magnetico
-%ci chiediamo: rispetto al campo magnetico che avremmo nel vuoto, quanto vale il cmp mgn quando inseriamo un materiale?
-%B_{k_m}=k_m B_0==
-%vale come def di k_m detta \textit{permeabilità magnetica relativa}
-%è posizionata al contrario rispetto alla k del campo elettrico
-%==k_m\mu_o ni
-%definiremo \mu=k_m\mu_0 \textit{permeabilità magnetica (assoluta)}
-%questo è il motivo per cui  \mu_0 si indica con \textit{permeabilità magnetica del vuoto}
-%la grossa differenza rispetto al caso elettrico, qui k_m non è sempre maggiore di 1
-%k_m<1 dà origine a comportamento detto \textit{diamagnetismo}	B_{k_m}<B_0	diminuiscono il campo magnetico
-%k_m>1 \textit{paramagneti} 	
-%k_m>>1 \textit{ferromagneti} non ha neanche senso definire k_m, lo vederemo a fine lezione
-%k_m non è un valore costante nei ferromagneti, dipende come li carichiamo
-%è nell'oridne di $10^5$, 
-%
-%\begin{examplewt}
-%	\chi_m suscettibilità magnetica \chi_m=k_m-1
-%	diamagneti: argento \chi_m=
-%				oro
-%				rame -0,98 10^{-5}
-%	paramagneti:alluminio \chi_m= 2,08 10^{-5}
-%				platino 27,91 10^{-5}
-%				uranio 40,92 10^{-5}
-%			la suscettibilità non è costante: dipende dalla temperatura e dalla densità del materiale: è proporzionale a \chi_m\sim \frac{\rho}{T}, è detta \textit{prima legge di Curie} \index{Curie!legge di}
-%			
-%\end{examplewt}
+\section{Accenno a magnetismo nella materia}
+Come si comporta il campo magnetico all'interno dei materiali?\\
+Valgono tutti i caveat già visti nell'elettricità nei materiali dielettrici.\\
+Per avere un modello realistico serve un modello quantistico, gli altri infatti non hanno un valore quantitativo.\\
+Nel caso dielettrico partendo da osservazioni macroscopiche, deduciamo meccanismi sulle proprietà materiali e poi non ci addentreremo nei meccanismi microscopici, per cui serve quantistica. Per quanto riguarda gli aspetti magnetici delle particelle microscopiche dipendono (?)
+Un campo magnetico si accoppia ad una particella solo se questa è carica ed è in moto, che prende momento magnetico se, nel caso della spira, si muove di moto circolare.\\
+Un'interpretazione che possiamo dare è ch l'elettrone nella sua rotazione intorno al  nucleo, produce un momento angolare che si allinea con il campo magnetico, ma questo è errato dal punto di vista quantitativo,infatti l'elettrone non gira intorno all'atomo ma si dispone sui livelli energetici degli orbitali.\\
+Inoltre gli elettroni hanno anche momento angolare intrinseco (analogo alla rotazione su sè stesso), ed è lo \textit{spin} \index{spin}. Esso è una caratteristica intrinseca, che produce un momento di dipolo magnetico che si accoppia con il campo magnetico e si allinea.\\
+La descrizione classica dei momenti di dipolo magnetico che si allineano o disallineano dà un'intuizione, ma per una comprensione efficace fenomeni servono modelli statistici e quantistici che non abbiamo e non tratteremo in questo corso.
+
+\subsection{Dielettrici}
+%NOTA: mettiamo l'environment del ricrda?
+Ripassiamo cosa abbiamo fatto nel caso dei dielettrici. Abbiamo preso due piastre, abbiamo cercato di capire cosa sarebbe successo se lo avessimo riempito di materiale dielettrico.
+Il campo elettrico generato dalle due piastre è uniforme. Il fatto di avere un dielettrico fa sì che il campo elettrico efficace misurato fra le piastre è pari al campo elettrico se non ci fosse dielettrico, cioè $E_0$
+\begin{equation*}
+	E_k=\frac{E_0}{k}=\frac{\sigma}{k\epsilon_0}
+\end{equation*}
+con $k>1$ costante dielettrica relativa.\\
+%TODO: IMMAGINE 20.1
+Un'altra costante $\epsilon=\frac{k}{\epsilon_0}$ è la costante dielettrica assoluta.\\
+Le costanti sono proprietà del mezzo, infatti distinguiamo il comportamento del dielettrico in base alla costante, e le proprietà generali variano a seconda del valore delle costanti.\\ 
+%NOTA: andrebbero cambiate le sezioni
+L'analogo nel caso del magnetismo invece è il solenoide, che come abbiamo visto produce un campo magnetico uniforme. \\
+Consideriamo un solenoide come un insieme di spire una in pila all'altra che avvolgono un cilindro. Riempiamo il cilindro di un certo materiale e diamo un verso di percorrenza alla corrente: entrante nella parte sotto ed uscente dalla parte sopra, ed usiamo la regola della vite per trovare verso campo magnetico.\\
+%TODO: IMMAGINE 20.2
+Ora ci chiediamo: rispetto al campo magnetico che avremmo nel vuoto, quanto vale il campo magnetico quando inseriamo un materiale?
+\begin{gather*}
+	B_{k_m}=k_m B_0=k_m\mu_0 ni=\mu ni
+\end{gather*}
+e vale come definizione di $k_m$ detta \textit{permeabilità magnetica relativa}, ed è posizionata al contrario rispetto alla $k$ del campo elettrico.\\
+Definiremo anche $\mu=k_m\mu_0$ come \textit{permeabilità magnetica (assoluta)}, e questo è il motivo per cui  $\mu_0$ si indica con \textit{permeabilità magnetica del vuoto}.\\
+La grossa differenza rispetto al caso elettrico, è che qui $k_m$ \textit{non} è sempre maggiore di $1$! Infatti in base al suo comportamento abbiamo effetti magnetici molto diversi fra loro
+\begin{itemize}
+	\item $k_m<1$ dà origine ad un comportamento detto \textit{diamagnetismo} e vale $B_{k_m}<B_0$, per cui diminuiscono il campo magnetico
+	\item $k_m>1$ sono i \textit{paramagneti} 	
+	\item $k_m\gg 1$ sono i \textit{ferromagneti}, ma in questo caso non ha neanche senso definire $k_m$ per motivi che scopriremo più avanti non è un valore costante nei ferromagneti, dipende come li carichiamo ed è nell'ordine di $10^5$	
+\end{itemize}
+
+\begin{examplewt}[Valori della suscettibilità magnetica]
+	Definiamo $\chi_m$ come \textit{suscettibilità magnetica} $\chi_m=k_m-1$
+	\begin{center}
+	\begin{tabular}{l|c|l|c}
+		$\chi_m<0$ & \textsc{diamagneti} & $\chi_m>0$ & \textsc{paramagneti}\\
+		\hline
+		argento & $-2,39*10^{-5}$ & alluminio & $2,08*10^{-5}$\\
+		oro & $-3,46*10^{-5}$ & platino & $2,791*10^{-5}$\\
+		rame & $-0,98*10^{-5}$ & uranio & $40,92*10^{-5}$
+	\end{tabular}
+	\end{center}
+	Inoltre la suscettibilità non è costante: dipende dalla temperatura e dalla densità del materiale: è proporzionale a $\chi_m\sim \frac{\rho}{T}$, che è detta \textit{prima legge di Curie} \index{Curie!legge di}.
+\end{examplewt}
 %
 %Tornando al caso dei dielettirici, il campo el è diminuito
 %questo fenomeno può essere spiegato ammettendo che c'è un campo elettrico prodotto da cariche fittizie poste sulla sup del materiale che creano un campo elettrico opposto a quello generato dalle piastre che contrasta quello precedente
@@ -1326,29 +1328,29 @@ Viene usato nelle radio e televisioni per avere frequenza giusta: selettore di f
 %Se \vba M è uniforme e lungo \vbh u_z impiliamo cubetti, e succede che in ognuno dei cbetti c'è corrente che gira su nastro quadrato, in ognuna delle facce in comune dei cubetti
 %	analisi zoom su due cubetti : i_1 e i_2 sono dirette in direzione opposta
 %	ma se \vba M è uniforme allora i_1=i_2, quindi le correnti sulle facce in comune si cancellano /analogo a dielettrico dove si cancellavano le cariche
-%immaginiamo ora di avere un cilindro (come quello che avevamo inserito all'interno del solenoide) da dividere in pseudo cubetti infinitesimi: se \vba M è uniforme le uniche correnti non bilanciate sono sulla superficie
+%immaginiamo ora di avere un cilindro (come quello che avevamo inserito all'interno del solenoide) da dividere in pseudo cubetti infinitesimi: se $\vba M$ è uniforme le uniche correnti non bilanciate sono sulla superficie
 %nel cilindro si crea corrente superficiale opposta o concorde con le correnti che l'hanno prodotta
 %le correnti esterne sono le correnti ampèriane di cui parlavamo prima
 %saranno date da
 %ogni singola spira produce corrente i_m=\abs{\vba M} \Delta z
 %per la corrente totale dobbiamo integrare
 %i_m=\int_0^h \abs{\vba M}dx =\abs{\vba M}h
-%perché \vba M è uniforme, con $h$ altezza del cilindro
+%perché $\vba M$ è uniforme, con $h$ altezza del cilindro
 %l'effetto di allineamento di dipoli magnetici si rimpiazza con correnti
 %
-%in alternativa si può definire una densità superficiale di corrente, quindi un vettore \vba J_{\Sigma, m} corrente ristretta a superficie e non in generale in un volume o su un filo
+%in alternativa si può definire una densità superficiale di corrente, quindi un vettore $\vba J_{\Sigma, m}$ corrente ristretta ad una superficie e non in generale in un volume o su un filo
 %\vba J_{\Sigma, m}=\vba M\cross \vbh u_n
-%trovo vettore sempre tangenziale al cilindro che è proprio la corrente \vba J_{\Sigma, m} nel verso in cui gira la corrente
-%recap: totalmente analogo al caso del dielettrico: l'allinearsi di momenti di dipolo mgn produce effetto a nalogo a correnti, amperiane. se il vettore magnetizzazione è uniforma (non dipendente dallo spazio) allora le correnti amperiane si localizzano sulla sup esterna del materiale: fenomeno corrente equivalente moto di cariche sulla sup esterna del cilindro
-%a seconda della direzione del vettore magnetizzazione esso si opporrà o contribuirà al cmapo magnetico
+%troviamo un vettore sempre tangenziale al cilindro che è proprio la corrente $\vba J_{\Sigma, m}$ nel verso in cui gira la corrente
+%recap: totalmente analogo al caso del dielettrico: l'allinearsi di momenti di dipolo magnetico produce un effetto a analogo a quello delle correnti ampèriane. se il vettore magnetizzazione è uniforme (non dipendente dallo spazio) allora le correnti ampèriane si localizzano sulla superficie esterna del materiale: fenomeno corrente equivalente al moto di cariche sulla superficie esterna del cilindro
+%a seconda della direzione del vettore magnetizzazione esso si opporrà o contribuirà al campo magnetico
 %
-%ogni corrente produce contributo lungo l'ase y
+%ogni corrente produce contributo lungo l'asse $y$
 %i_y^{(1)_m}=i_1-i_2=\left( M_z(x)-M_z(x+\Delta x) \right) \Delta z= -\pdv{M_z}{x}dxdz
-%sulla superficie in comune abbiamo una corrente diretta lungo l'asse y , i_2 va indietro e i_1 va in avati
+%sulla superficie in comune abbiamo una corrente diretta lungo l'asse $y$, $i_2$ va indietro e $i_1$ va in avati
 %
-%la componente del vettore magnetizzazione M_x
-%sulla faccia in comune i_2 va in direzione opposta a i_1
-%il seconod contributo alla corrente lungo l'asse y è dato da i_2-i_1
+%la componente del vettore magnetizzazione $M_x$
+%sulla faccia in comune $i_2$ va in direzione opposta a $i_1$
+%il secondo contributo alla corrente lungo l'asse $y$ è dato da $i_2-i_1$
 %i^{(2)}_y= \left( M_x(z+\Delta z) -M_x(z)\right \Delta x
 %i_y=i_y^{(1)}+ i^{(2)}_y=\left( \pdv{M_x}{z} - pdv{M_z}{x }\right)
 %riconosciamo le componenti del rotore
@@ -1357,44 +1359,44 @@ Viene usato nelle radio e televisioni per avere frequenza giusta: selettore di f
 %\rho_p=\div\vba P
 %\vba J_m=\curl\vba M
 %
-%se la magnetizzazione non è costante ho correnti interne al cilindro, come per polarizzazione non costante cariche non equilibrate all'interno del volume
+%se la magnetizzazione non è costante abbiamo correnti interne al cilindro, come per polarizzazione non costante cariche non equilibrate all'interno del volume
 %
 %
 %siamo ora pronti a definire
 %riprendiamo le leggi
 %	Ampère: \curl \vba B=\mu_0\vba j nel caso statico
-%	se alle correnti esterne si aggiungono corretni amperiano
-%	aggiungo contributo delle correnti amperiane \curl\vba B=\mu_0\left( \vba j+\vba j_m\right)
+%	se alle correnti esterne si aggiungono corretni ampèriane
+%	aggiungiamo contributo delle correnti ampèriane \curl\vba B=\mu_0\left( \vba j+\vba j_m\right)
 %	\curl\vba B=\mu_0\vba j +\mu_0\vba j_m
-%	quindi portando al membro di sinstra definiaimo il rotore di un nuov vettore
+%	quindi portando al membro di sinstra definiaimo il rotore di un nuovo vettore
 %	\curl\left( \underbrace{\frac{\vba B}{\mu_0}-\vba M}_{\vba H} \right) =\vba J
 %	\curl\vba H=\vba J
-%se regolo la corrente che gira nel solenoide con materiale non sto modificando solo il campo magnetico ma regolo \vba H, vettore che è legato effettivamente alla corrente esterna
-%purtroppo da sola quest'eq non dice molto, dipende da \vba M
-%per determinare \vba H e \vba B (equavalmentemente \vba B e \vba M) ci serve un'equazione di stato magnetica
-%non sappiamo la vairazione della magnetizzazione, come per dielettrici non sappiamo variazione polarizzazione con variazione campo elettrico
-%definiamo i materiali dia e para lineari quando ho relazione di proporzionalit diretta con suscettibilità magnetica
+%se regoliao la corrente che gira nel solenoide con materiale non stiamo modificando solo il campo magnetico ma regoliamo $\vba H$, vettore che è legato effettivamente alla corrente esterna
+%purtroppo da sola quest'equazione non dice molto, dipende da $\vba M$
+%per determinare $\vba H$ e $\vba B$ (equavalmentemente $\vba B$ e $\vba M$) ci serve un'equazione di stato magnetica
+%non sappiamo la variazione della magnetizzazione, come per i dielettrici non sappiamo la variazione di polarizzazione con variazione del campo elettrico
+%definiamo i materiali diamagnetici e paramagnetici lineari quando abbiamo una relazione di proporzionalità diretta con suscettibilità magnetica
 %\vba M=\chi_m\vba H
 %non è vera per i ferromagneti
-%con questa relazione possiamo scriver \vba B
+%con questa relazione possiamo scrivere $\vba B$
 %	\vba B=\mu_0(\vba M + \vba H)=\mu_0(\chi_m+1)\vba H=\mu_0 k_m \vba H= \mu \vba H
 %	per definizione di \mu e \chi
 %	\vba B=\mu\vba H
 %	
-%riscriviamo le eq per capire come si comportano i campi el e mgn eni materiali
+%riscriviamo le equazioni per capire come si comportano i campi elettrico e magnetico nei materiali
 %
 %equazione elettrostatica e magnetostatica nei materiali
 %modificazioni di quelle nel vuoto
-%	\rot\vba E=0
+%	\crl\vba E=0
 %	\div\vba D=\rho
 %	\div\vba B=0
 %	\curl\vba H=\vba J
 %con \epsilon_0\vba E=\vba D-\vba P
 %	\frac{\vba B}{\mu_0}=\vba H+\vba M
 %	
-%el si è aggiunta sorgente \rho prodotta da polarizzazione
-%mgn si è agagiunto contributo a j dato dalla magnetizzazione
-%se non so come sono legati a E e B ci fermiamo qui
+%elettrica si è aggiunta sorgente \rho prodotta da polarizzazione
+%magnetica si è agagiunto il contributo a $\vba j$ dato dalla magnetizzazione
+%se non sappiamo come sono legati a $\vba E$ e $\vba B$ ci fermiamo qui
 %
 %invece nel caso lineare
 %	\vba P=(k-1)\epsilon_0\vba E
@@ -1405,87 +1407,63 @@ Viene usato nelle radio e televisioni per avere frequenza giusta: selettore di f
 %	\vba H=\frac{\vba B}{\mu}
 %	\implies \curl\vba B=\mu\vba J
 %
-%nel cao lineare statico le eq di Maxwell sono invariate a patto di rimpiazzare \epsilon_0 con \epsilon e \mu_0 con \mu
+%nel cao lineare statico le equazioni di Maxwell sono invariate a patto di rimpiazzare $\epsilon_0$ con $\epsilon$ e $\mu_0$ con $\mu$
 %
-%scriviamo direttamente le eq di Maxwell nei materiali, generalizzazione dinamica
+%scriviamo direttamente le equazioni di Maxwell nei materiali, generalizzazione dinamica
 %	\curl\vba E=-\pdv{\vba B}{t}
 %	\div\vba D=\rho
 %	\div\vba B=0
 %	\curl\vba H=\vba J+\pdv{\vba D}{t}
 %
-%caso più interessante: se \vba D=\epsilon \vba E e \vba H=\frac{\vba B}{\mu}
+%caso più interessante: se $\vba D=\epsilon \vba E$ e $\vba H=\frac{\vba B}{\mu}$
 %	\curl\vba E=-\pdv{\vba B}{t}
 %	\div\vba B=0
 %	\div\vba E=\frac{\rho}{\epsilon}
 %	\curl\vba B=\mu\vba j+\epsilon\mu\pdv{\vba E}{t}
 %	
 %	
-%recap: nel caso di dielettirci e dia e para lineare le eq di maxewll sono invariate a patto di rimpiazzare le costanti del materiale in questione
+%recap: nel caso di dielettirci, diamagntici e paramagnetici lineari le equazioni di Maxewll sono invariate a patto di rimpiazzare le costanti del materiale in questione
 %
-%le ultime eq determinano campo elettrico e magnetico, che non era vero per quattro campi vettoriali precedneti (pernultima quaterna)
-%dalle sole eq di maxwwell se non so eq di stato legame fra D e E, H e B in principio non posso risolvere quaterna di eq
-%solo nel caso lineare o se ho un'altra relazione posso risolvere la quaterna
+%le ultime equazioni determinano il campo elettrico e magnetico, che non era vero per quattro campi vettoriali precedenti (pernultima quaterna)
+%dalle sole equazioni di Maxwwell se non sappiamo le equazioni di stato, il legame fra $\vba D$ ed $\vba E$, $\vba H$ e $\vba B$ in principio non possiamo risolvere la quaterna di equazioni
+%solo nel caso lineare o se abbiamo un'altra relazione possiamo risolvere la quaterna
 %
-%Osservazioni su ferromagneti
+%Osservazioni sui ferromagneti
 %fenomenologicamente
-%se ccendo campo magnetic anche molto piccolo in questi materiali per produrre campo magnetico enrome nel ferromagnete
-%se spengo il campo magnetico esterno quello interno del ferromagnete non si spegne, preservano proprietà magnetiche
+%se accendiamo un campo magnetico anche molto piccolo in questi materiali si produce un campo magnetico enorme nel ferromagnete
+%se spegniamo il campo magnetico esterno quello interno del ferromagnete non si spegne, quindi questi materiali preservano le proprietà magnetiche
 %
-%questa eq di stato \vba H=\frac{\vba B}{\mu}
-%prendiamo un toro e costruaimo nu solenoide toroidale, cioé avvolgo il toro con delle spire che collego ad un circuito
-%faccio circolare all'inerno del solnoide della corrente i, se vario i vario \vba H senza variare \vba P
-%voglio capire come varia \vba H rispetto a \vba M (prima era proporzionale, ora no)
-%se \vba M\neq 0 allora il materiale è magnetizzato, cioé produce un campo magnetico
+%questa equazione di stato $\vba H=\frac{\vba B}{\mu}$
+%prendiamo un toro e costruaimo un solenoide toroidale, cioé avvolgiamo il toro con delle spire che colleghiamo ad un circuito
+%facciamo circolare all'inerno del solnoide della corrente $\vba i$, se variamo $\vba i$ variamo $\vba H$ senza variare $\vba P$
+%vogliamo capire come varia $\vba H$ rispetto a $\vba M$ (prima era proporzionale, ora no)
+%se $\vba M\neq 0$ allora il materiale è magnetizzato, cioé produce un campo magnetico
 %quelo che succede nei ferromagneti è il \textit{ciclo di steresi}
-%voglio vedere come varia \vba H rispetto a \vba M 
+%voglio vedere come varia $\vba H$ rispetto a $\vba M$ 
 %%NOTA alla lavagna ha invertito M ed H sugli assi, non so quale sia giusto
-%nel caso lineare \vba M0\chi_m\vba H
-%se inclinazione della retta è posita allora è associato ai paramagneti, quella negativa è per i diamagneti
-%è l'eq di stato lineare in cui aumentando H aumento M in modulo
+%nel caso lineare $\vba M_0\chi_m\vba H$
+%se l'inclinazione della retta è positiva allora è associato ai paramagneti, quella negativa è per i diamagneti
+%è l'equazione di stato lineare in cui aumentando $H$ aumenta $M$ in modulo
 %
-%nei ferromagneti aumentando \vba H
-%se parto da 0 dove non è magnetizzato, accendo e si frma curva di prima magnetizzazione, c'è un valore di magnetizzazione dato da H_M
-%abbasso la corrente e quindi H: il mateirla fa curva che intercetta l'asse della magnetizzazione ad un punto che non è 0!
-%tornando indietro ho una magnetizzazione non nulla
+%nei ferromagneti aumentando $\vba H$
+%se partiamo da $0$ dove non è magnetizzato, accendiamo e si forma una curva di prima magnetizzazione, c'è un valore di magnetizzazione dato da $H_M$
+%abbassiamo la corrente e quindi $H$: il materiale fa curva che intercetta l'asse della magnetizzazione ad un punto che non è $0$!
+%tornando indietro abbiamo una magnetizzazione non nulla
 %esempio calamite sul frigorifero
-%se accendo corrente nella direzione opposta: andrà giù finché non arriva ad un valore di saturazione -M_{sat} per H_{sat} arrivo ad un punto in cui M=0: in quel momento è smagnetizato ma ho corrente che gira
-%vorrei però che sia smagnetizzato senza corrente
-%se di nuovo cambio corrente per tornare indietro ho una magnetizzazione negativa che risale e completa il ciclo
+%se accendiamo la corrente nella direzione opposta: andrà giù finché non arriva ad un valore di saturazione $-M_{sat}$ per $H_{sat}$ arriviamo ad un punto in cui $M=0$: in quel momento è smagnetizato ma abbiamo corrente che gira
+%vorremmo però che sia smagnetizzato senza corrente
+%se di nuovo cambiamo corrente per tornare indietro abbiamo una magnetizzazione negativa che risale e completa il ciclo
 %questo è il ciclo di steresi: la magnatizzazione non è mai nulla a corrente nulla
 %
 %come facciamo a smagnetizzare un materiale?
-%se faccio tutto il ciclo da -H_m a H_m posso tornare indietro e rendere il ciclo sempre più stretto formando un ciclo che tende a restringersi
-%così ho ma smagnetizzazione
+%se facciamo tutto il ciclo da $-H_m$ a $H_m$ possiamo tornare indietro e rendere il ciclo sempre più stretto formando un ciclo che tende a restringersi
+%così abbiamo la smagnetizzazione
 %la forma di tale ciclo può essere molto allungata o larga e dipende dal materiale
 %ogni materiale ferromagnetico ha il suo ciclo di steresi
 %
-%la proprietà di essere ferromagneti dipende dalla temperatura: s elo scaldo molto diventa para
-%viceversa se raffreddo para aidvent ferro
+%la proprietà di essere ferromagneti dipende dalla temperatura: se li scaldiamo molto diventano paramagneti
+%viceversa se raffreddiamo un paragnete esso diventa ferromagnetico
 %è la transizione di fase di magnetizzazione che avviene a temperatura critica di Curie
 %questa transizione di fase è descritta solo a livello quantistico, come modello di ising (?)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
