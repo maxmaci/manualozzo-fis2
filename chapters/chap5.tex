@@ -5,8 +5,8 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{La corrente elettrica}
-\labelChapter{teoriamisura}
+\chapter{Corrente elettrica}
+\labelChapter{correnteElettrica}
 
 \begin{introduction}
 	‘‘Se la tua nuova teoria si può esprimere con grande semplicità, allora esisterà un'eccezione patologica ad esso!'' % TO DO: quotes
@@ -56,7 +56,7 @@ Siamo in presenza del fenomeno di \textbf{conduzione elettrica}\index{conduzione
 \end{define}
 Dato che la velocità della luce è estremamente elevata, l'equilibrio è raggiunto quasi istantaneamente e la corrente elettrica è di breve vita. Per poter indurre un moto consistente e \textit{duraturo} di cariche dobbiamo \textit{mantenere} una differenza di potenziale.
 
-Per far ciò, ci serve un \textbf{generatore di forza elettromotrice}\index{generatore!di forza elettromotrice} ($\mathrm{f.e.m.}$), un marchingegno che trasforma energia \textit{non} elettrica in energia elettrica tale da avere, ai capi del generatore, una differenza di potenziale $\Delta V$, \textit{indipendentemente} da cosa ci si collega.
+Per far ciò, ci serve un \textbf{generatore di forza elettromotrice}\index{generatore!di forza elettromotrice} (\fem), un marchingegno che trasforma energia \textit{non} elettrica in energia elettrica tale da avere, ai capi del generatore, una differenza di potenziale $\Delta V$, \textit{indipendentemente} da cosa ci si collega.
 \begin{digressionwt}[Pila di Volta]
 	Il primo generatore di questo tipo fu la \textbf{pila di Volta}\index{pila di Volta}. Tale generatore consisteva, nella sua forma più semplice costituita da una singola \textit{cella}, in un disco di \textit{zinco} (lo chiameremo \textbf{anodo}) e uno di \textit{rame} (il \textbf{catodo}), separate da una stoffa imbevuta di una soluzione elettrolitica come acqua e acido solforico.
 	% TO DO: insert image
@@ -70,7 +70,7 @@ Per far ciò, ci serve un \textbf{generatore di forza elettromotrice}\index{gene
 	\end{equation*}
 	Gli elettroni usati nel rame per formare le molecole di ossigine provengono da un filo esterno che lo collega al disco di zinco; l'idrogeno prodotto nella riduzione si disperde in forma gassosa.
 
-	Misurando la $\mathrm{d.d.p.}$ tra i dischi si osserva un valore fisso di circa $\SI{0,76}{\volt}$; se impilassimo più celle la differenza di potenziale aumenterebbe. Il valore della  $\mathrm{d.d.p.}$ misurata dipende dalla coppia di metalli scelti.
+	Misurando la \ddp tra i dischi si osserva un valore fisso di circa $\SI{0,76}{\volt}$; se impilassimo più celle la differenza di potenziale aumenterebbe. Il valore della  \ddp misurata dipende dalla coppia di metalli scelti.
 \end{digressionwt}
 % L'energia elettrica è una forma di energia più "nobile", che si trasforma bene in altre forme di energia come il calore, ma che si ottiene difficilmente da altre forme, come dal calore o da reazioni chimiche, senza notevole dispersione di energia.
 \subsection{Intensità di corrente}
@@ -287,7 +287,7 @@ Non tutti i conduttori rispettano questa legge, ma quelli che lo fanno sono dett
 	\end{itemize}
 \end{examplewt}
 \subsection{Legge di Ohm nei conduttori metallici}
-Consideriamo un conduttore metallici cilindrico di lunghezza $d=\overline{AB}$ e sezione $\Sigma$. Ai capi del conduttore è applicata, con un generatore di $\mathrm{f.e.m.}$, una $\mathrm{d.d.p.}$ pari a
+Consideriamo un conduttore metallici cilindrico di lunghezza $d=\overline{AB}$ e sezione $\Sigma$. Ai capi del conduttore è applicata, con un generatore di \fem, una \ddp pari a
 \begin{equation*}
 	V=V_A-V_B=\int_{A}^{B}\vba{E}\vdot d\vba{s}=Ed>0
 \end{equation*}
@@ -342,9 +342,10 @@ Un conduttore
 	La ricerca di un'unità di misura migliore proseguì. L'anno successivo, il 1861, Latimer Clark e Sir Charles Bright presentarono un articolo all'\textit{Associazione Britannica per l'Avanzamento della Scienza}, suggerendo di creare uno standard per la resistenza e di chiamarla in onore del fisico tedesco Georg Ohm... chiamandola \textit{ohma}. Si stabilì subito una commissione, a cui parteciparono fisici dal calibro di James Clark Maxwell e Lord Kelvin, per inventare un unità che fosse coerente con il sistema metrico francese e pratica da utilizzare - a differenza di quella di Siemens.
 	Nel terzo verbale della commissione, nel 1864, si riproposte di chiamarla in onore di Ohm e dunque si riferirono all'unità di misura come... \textit{ohmad}. A volte mi chiedo se i fisici ci sono o ci fanno. Solo nel 1867 il termine \textit{ohm} si userà in modo diffuso.
 	
-	A dir la verità, l'\textit{ohm} definito dall'Associazione Britannica non era così differente da quello di Siemens, dato che cambiava soltanto la lunghezza della colonna di mercurio da $\SI{100}{\centi\meter}$ a $\SI{104.7}{\centi\meter}$. Ciò nonostante, dato che avere due unità di misura differenti per una stessa grandezza era ridicolo, nel 1881 al \textit{Congresso Internazionale degli Elettricisti} si decise di compiere una scelta definitiva tra le due: l'unità di misura della resistenza non doveva essere il \textit{siemens}, ma l'\textit{ohm}... anche se nel frattempo la colonna di mercurio si allungò a $\SI{104.9}{\centi\meter}$.\newline % TO DO: aggiustare citazione
+	A dir la verità, l'\textit{ohm} definito dall'Associazione Britannica non era neanche così differente da quello di Siemens, dato che cambiava soltanto la lunghezza della colonna di mercurio da $\SI{100}{\centi\meter}$ a $\SI{104.7}{\centi\meter}$. Ciò nonostante, dato che avere due unità di misura differenti per una stessa grandezza era ridicolo, nel 1881 al \textit{Congresso Internazionale degli Elettricisti} si decise di compiere una scelta definitiva tra le due: l'unità di misura della resistenza non doveva essere il \textit{siemens}, ma l'\textit{ohm}... anche se nel frattempo la colonna di mercurio si allungò a $\SI{104.9}{\centi\meter}$.\newline % TO DO: aggiustare citazione
 	
-	\noindent Come ricordò Maxwell al convegno, ‘‘le dimensioni contano\textsuperscript{{$\left[\parbox{15em}{\tiny\textit{Fonte: Maxwell ‘‘Manualotso'', un mercoledì pranzo, in un anonimo 100Montaditos}}\right]$}}'' e negli anni l'unità di misura rimase la stessa, ma la colonnina di mercurio cambiò lunghezza più e più volte per adattarsi a studi sempre più analitici - stranamente non cambio lo spessore, ma evidentemente quello non contava più di tanto. La colonna di mercurio puro rimase lo standard fino alla \textit{Conferenza Generale sui Pesi e le Misure} del 1948, dove l'\textit{ohm} fu ridefinito in termini assoluti. Attualmente, il \textit{siemens} di Siemens vale circa $\SI{0.9537}{\ohm}$ moderni.
+	\noindent Come ricordò Maxwell al convegno, ‘‘le dimensioni contano\textsuperscript{[Senza fonte]}%\textsuperscript{{$\left[\parbox{15em}{\tiny\textit{Fonte: Maxwell ‘‘Manualotso'', un mercoledì pranzo, in un anonimo 100Montaditos}}\right]$}}
+	 '' e negli anni l'unità di misura rimase la stessa, ma la colonnina di mercurio cambiò lunghezza più e più volte per adattarsi a studi sempre più analitici - stranamente non cambio lo spessore, ma evidentemente quello non contava più di tanto. La colonna di mercurio puro rimase lo standard fino alla \textit{Conferenza Generale sui Pesi e le Misure} del 1948, dove l'\textit{ohm} fu ridefinito in termini assoluti. Attualmente, il \textit{siemens} di Siemens vale circa $\SI{0.9537}{\ohm}$ moderni.
 	
 	Il povero Siemens, nonostante l'unità della resistenza non prese il suo nome, non si perse d'animo e continuò a sperimentare con l'elettromagnetismo: nel 1867 brevettò una delle prime dinamo industriali --- casualmente lo stesso giorno in cui Sir Charles Wheatstone brevettò una sua personale versione della dinamo. Successivamente, nel 1888 divenne nobile, trasformando il suo cognome in \textit{von Siemens}, e negli anni a seguire la sua azienda si espanse fino a diventare l'odierna multinazionale \textit{Siemens AG}.\newline~\\
 	La resistenza elettrica aveva finalmente ottenuto un'unità di misura, ma ne mancava ancora una per la \textit{conduttanza}. O meglio, siccome tale grandezza era il reciproco della resistenza, mancava soltanto il nome dell'unità di misura: dopotutto, se i reciproci dei \textit{secondi} si chiamano \textit{hertz}, anche il reciproco della resistenza merita un nome, che diamine!
@@ -353,8 +354,14 @@ Un conduttore
 	Se non ve ne foste accorti, \textit{mho} è letteralmente \textit{ohm} letto al contrario - perché un \textit{mho} è il reciproco di un \textit{ohm}.\\
 	Non fu l'unica proposta avanza in quell'incontro: Kelvin propose entusiasta - sempre su un idea di origine studentesca - che la corretta pronuncia di \textit{mho} si dovesse ottenere prendendo una registrazione di \textit{ohm} con il fonografo di Edison e ascoltandola al contrario.\\
 	Non si sa se Kelvin non si accorse di essere stato preso in giro dagli studenti o Kelvin stava cercando di prendersi gioco del suo pubblico, ma sta di fatto che \textit{mho} prese inesplicabilmente piede come nome per la conduttanza; anche il simbolo del \textit{mho} fu ottenuto ribaltando la Omega maiuscola dell'\textit{ohm}.
+
+	La cosa peculiare è che la malsana (in \textit{mho}, come direbbero gli Americani) idea venne riproposta in elettrotecnica in altri due contesti.
+	\begin{itemize}
+		\item l'ingegnere Arthur E. Kennelly scelse il \textit{daraf} per descrivere l'\textit{elastanza elettrica}, in quanto essa è il reciproco della conduttanza e la conduttanza usa i \textit{farad}. In questo caso mi turba di più il nome dell'inverso della conduttanza che non il \textit{daraf}.
+		\item l'ingegnere Vladimir Karapetoff propose nel 1911 di usare gli \textit{yrneh} come reciproco dell'unità di misura dell'induttanza, l'\textit{henry}; la pronuncia, tra l'altro, doveva essere ‘‘earney''. Non dormo la notte cercando di capire come mai quella sia la pronuncia di \textit{yrneh}.
+	\end{itemize} alcuni ingegneri proposero di utilizzare i \textit{daraf} per il reciproco dei 
 	
-	Saltiamo molti anni e nella \textit{Conferenza Generale sui Pesi e le Misure} 1971 si decise che questo scherzo era durato abbastanza: l'unità di misura della conduttanza verrà chiamato \textit{siemens}... aspe', \textit{di nuovo siemens}?\\
+	Saltiamo molti anni e nella \textit{Conferenza Generale sui Pesi e le Misure} 1971 si decise che questo scherzo era durato abbastanza: l'unità di misura della conduttanza verrà chiamato \textit{siemens}... aspettate, \textit{di nuovo siemens}?\\
 	Eh sì, gli scienziati lì riuniti volevano dedicare un unità di misura a Siemens --- non hanno neanche specificato se a Werner von Siemens o al fratello Sir William Siemens --- senza tener conto che in passato è stata usata un'unità di misura dallo stesso nome per tutt'altri scopi. Non si curarono di questo e il \textit{siemens} fu approvato: da allora, usare il \textit{mho} per la conduttanza è considerato un nome non accettabile (e non consono) per un'unità di misura del SI e pertanto deve essere rigorosamente evitato.
 	
 	% TO DO: conclusione
@@ -384,7 +391,7 @@ quindi la potenza totale è data da
 \end{equation*}
 dove $V$ è il calo di potenziale ai capi del conduttore. In sostanza, in presenza di un calo di potenziale si ha una dispersione di energia sotto forma di calore: maggiore è la corrente nel conduttore, maggiore sarà l'energia dispersa.
 
-Cosa succede, a livello microscopico? La $\mathrm{d.d.p.}$ ai capi del conduttore generano un campo elettrico che induce una velocità di deriva nei portatori di carica, fornendo a loro un'energia cinetica. Quando le particelle urtano gli ioni del reticolo cristallino, nell'urto (elastico) viene ceduta energia cinetica dagli elettroni agli ioni, i quali tuttavia sono immobili e quindi \textit{vibrano}, trasformando quella energia sotto forma di calore. Quanta energia viene dispersa dipende dal materiale e dalla geometria del conduttore: questa informazione fisico-empirica è presentata matematicamente nella resistività $\rho$ e, di conseguenza, dalla resistenza.
+Cosa succede, a livello microscopico? La \ddp ai capi del conduttore generano un campo elettrico che induce una velocità di deriva nei portatori di carica, fornendo a loro un'energia cinetica. Quando le particelle urtano gli ioni del reticolo cristallino, nell'urto (elastico) viene ceduta energia cinetica dagli elettroni agli ioni, i quali tuttavia sono immobili e quindi \textit{vibrano}, trasformando quella energia sotto forma di calore. Quanta energia viene dispersa dipende dal materiale e dalla geometria del conduttore: questa informazione fisico-empirica è presentata matematicamente nella resistività $\rho$ e, di conseguenza, dalla resistenza.
 
 Questo è quello che viene chiamato \textbf{effetto Joule}\index{effetto Joule}; nella sua forma più basica questo si esprime dalla legge
 \begin{equation}
@@ -397,22 +404,658 @@ Se assumiamo che il conduttore trasforma completamente l'energia in calore, allo
 \begin{example}
 	Qualunque elettrodomestico o oggetto che produce calore, in una forma o nell'altra, a partire da corrente elettrica si basa sull'effetto Joule, come lampadine, fon, forni...
 \end{example}
+\begin{observe}
+	La legge dell'effetto Joule si può utilizzare per descrivere il legame tra la potenza generata da un generatore di \fem e la corrente in un conduttore: se $\mathcal{E}$ è la forza elettromotrice generata e $P$ la potenza prodotta dal generatore, il generatore produrrà una corrente di intensità
+	\begin{equation}
+		I=\frac{P}{\mathcal{E}}
+	\end{equation}
+\end{observe}
 \paragraph{Lavoro compiuto dal campo elettrico}
 Per ottenere l'energia dispersa in un periodo di tempo $t$, ossia il lavoro compiuto dal campo elettrico nel conduttore per spostare le cariche, ci basta integrare rispetto al tempo la potenza:
 \begin{equation}
 	U=W=\int_{0}^{t}Pdt=\int_{0}^t IVdt
 \end{equation}
 Se la corrente è stazionaria, si ha
-\begin{equation}% V=IR
+\begin{equation}
 	U=W=\frac{I^2V}{2}=\frac{I^3R}{2}=\frac{V^3}{2R^2}
 \end{equation}
 \section{Circuiti elettrici}
+Nel \refChapter{conduttori} abbiamo introdotto brevemente i circuiti elettrici, limitandoci a studiare come si comportano dei condensatori collegati in serie e in parallelo. Ora riprendiamo e approfondiamo ciò che abbiamo detto, alla luce delle nostre nuove conoscenze sulla corrente elettrica.
 \begin{define}[Circuito elettrico]
-	Un \textbf{circuito elettrico} è un insieme interconnesso di componenti elettrici, collegati da fili conduttori in un percorso chiuso in modo che la corrente elettrica possa fluire con continuità.
+	Un \textbf{circuito elettrico}\index{circuito elettrico} è un insieme interconnesso di componenti elettrici, sono connessi da fili conduttori in un percorso chiuso in modo che la corrente elettrica possa fluire con continuità.
 \end{define}
-Di seguito potete vedere un esempio di circuito circolare.
-\begin{center}
-	\begin{frame}{Circuito elettrico}
-		\animategraphics[loop,autoplay,width=\linewidth]{20}{images/scimmia-}{0}{4}
-	\end{frame}
+\begin{define}[Componente, nodo, ramo, maglia, interruttore]
+	In un circuito elettrico,
+	\begin{itemize}
+		\item un \textbf{componente elettrico}\index{componente elettrico} è un congegno con due o più terminali da cui la corrente può entrare o uscire allo scopo di modificare il comportamento degli elettroni o dei campi elettromagnetici. Esse si distinguono in
+		\begin{itemize}
+			\item componenti \textbf{attive}: dette anche \textbf{sorgenti}\index{sorgenti} o \textit{generatori}, producono energia elettrica in quanto indicono una corrente o una \ddp per mezzi non elettrici; ad esempio, sono componenti attive i generatori di tensore e di corrente.
+			\item componenti \textbf{passive}: non producono energia, bensì la ricevono per utilizzarla in altri scopi; ad esempio, sono componenti passive  i condensatori, i resistori e gli induttori. 
+		\end{itemize}
+		\item un \textbf{nodo}\index{nodo} è il punto di incontro di tre o più fili.
+		\item un \textbf{ramo}\index{ramo} è un filo con e/o componenti che collegano due nodi 
+		\item una \textbf{maglia}\index{maglia} è un insieme di rami all'interno di un circuito che forma un circuito chiuso senza auto-intersezioni.
+		\item un \textbf{interruttore}\index{interruttore} permette di chiudere o aprire un circuito, lasciando rispettivamente passare o fermando la corrente elettrica.
+	\end{itemize}
+\end{define}
+Lo scopo dell'\textbf{analisi dei circuiti elettrici} è quella di \textit{risolvere} i circuiti, ossia trovare le differenze di potenziali e le correnti per ciascuna componente del circuito. Ovviamente, noi studieremo soltanto un \textit{modello} dei circuiti elettrici reali, supponendo che:
+\begin{itemize}
+	\item La corrente si suppone \textit{stazionaria} nel circuito.
+	\item La carica rimane \textit{costante} a meno di incontrare un nodo o una componente.
+	\item I fili conduttori e i generatori di $\textrm{f.e.m.}$ \textit{non} possiedono di per sé una resistenza (o al più è trascurabile).
+	\item Il circuito può essere rappresentato secondo una \textit{rappresentazione schematica piana}.
+	\item Le relazioni che caratterizzano le componenti \textit{passive} sono lineari.
+\end{itemize}
+%Di seguito potete vedere un esempio di circuito.
+%\begin{center}
+%	\begin{frame}{Circuito elettrico}
+%		\animategraphics[loop,autoplay,width=\linewidth]{20}{images/scimmia-}{0}{4}
+%	\end{frame}
+%\end{center}
+\paragraph{Collegamenti in serie e in parallelo}
+\begin{define}[Collegamento in serie e in parallelo]~
+	\begin{itemize}
+		\item Due o più componenti sono collegate \textbf{in serie}\index{collegamento!in serie} se tutte sono collegate lungo un unico ‘‘percorso elettrico'', in cui ogni componente è collegata direttamente ad una sola altra componente.
+		\item Due o più componenti sono collegate \textbf{in parallelo}\index{collegamento!in parallelo} se le componenti sono connesse su \textit{rami} separati del ‘‘percorso elettrico''.
+	\end{itemize}
+\end{define}
+Si possono già fare alcune osservazioni:
+\begin{itemize}
+	\item In un collegamento \textit{in serie}, la \textit{carica totale} $q$ rimane costante lungo il percorso e ogni oggetto riceve la \textit{stessa}\footnote{Non necessariamente sono le stesse identiche cariche: ad esempio, nel caso dei condensatori le cariche che partono dall'altra piastra collegata \textit{non} sono le stesse che sono arrivate sull'altra, bensì sono cariche respinte da quelle presenti nell'altra armatura. In ogni caso, ciò che non cambia è la \textit{quantità} di carica totale.}; di conseguenza, anche la \textit{corrente} risulta essere sempre la \textit{stessa} in ogni componente.
+	\item In un collegamento \textit{in parallelo}, la carica si \textit{distribuisce} nei vari rami in modo proporzionale alle caratteristiche delle componenti, e lo stesso fa la corrente elettrica. La carica e la corrente complessiva in un collegamento in parallelo è quindi la \textit{somma} di quella nei vari fili.
+	\item In un collegamento \textit{in serie}, la differenza di potenziale diminuisce per ogni componente che è presente nel filo. Pertanto, la \ddp in un collegamento in serie è la somma di quella tra tutte i capi delle componenti.
+	\item In un collegamento \textit{in parallelo}, la differenza di potenziale è la stessa ai capi di ogni componente, perché metà delle estremità sono attaccate allo stesso filo e l'altra metà ad un altro filo.
+\end{itemize}
+L'idea cardine dello studio dei circuiti elettrici è di \textit{semplificarli} il più possibile, riducendo il numero di componenti: se abbiamo diversi oggetti elettrici collegati nel circuito caratterizzati da delle quantità particolari $Z_i$, ci immaginiamo di sostituire diversi elementi dello stesso tipo (collegati in serie e in parallelo) con un'unica componente \textbf{equivalente} caratterizzata da una quantità $Z_{eq}$ che deriva da quelle delle componenti singole.
+\paragraph{Resistori}
+Prima di descrivere altro, definiamo un componente elettrico molto utile, il resistore.
+\begin{define}[Resistore]
+	Un \textbf{resistore}\index{resistore} è un componente elettrico che implementa gli effetti di una resistenza elettrica all'interno di un circuito. 
+\end{define}
+Nei circuiti elettronici, i resistori sono utilizzati per ridurre l'intensità di corrente e voltaggi, oltre ad altri usi.
+\paragraph{Alcuni simboli elettronici}
+I modelli di circuiti elettrici che andiamo a studiare sono rappresentabili in diagrammi in cui fili e componenti sono stilizzati sotto forma di pittogrammi che permetto di vedere a colpo d'occhio il funzionamento di un circuito.\\
+Di seguito sono elencate i pittogrammi di alcune componenti elettriche che abbiamo incontrato finora.
+\ctikzset{bipoles/thickness=1}
+\begin{itemize}
+	\item \textbf{Filo conduttore.}
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) -- (1,0);
+		\end{tikzpicture}
+	\end{center}
+	\item \textbf{Nodo e rami.}
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) to[short, -*] (0.5,0) -- (1,0)
+			(0.5,0) -- (0.5,1);
+		\end{tikzpicture}
+	\end{center}
+	\item \textbf{Maglia.} \textit{(quella in rosso è una possibile maglia del circuito)}
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[color=red] (-1,0) rectangle (1,2);
+			\draw (1,1) to[short, *-] (2,1)
+						-- (2,3)
+						-- (0,3)
+						to[short, -*] (0,2)
+						-- (0,1)
+						-- (1,1);
+		\end{tikzpicture}
+	\end{center}
+	\item \textbf{Interruttore.}
+	\begin{center}
+		\begin{tikzpicture}
+			\draw (0,0) to[switch]  (1,0);
+		\end{tikzpicture}
+	\end{center}
+	\item \textbf{Generatore di forza elettromagnetica (continua) o batteria.}
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [battery1, v>=$\mathcal{E}$] (1,0);
+		\end{tikzpicture}
+	\end{center}
+	\item \textbf{Condensatore.}
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to node[below, pos=0.5]{$+q$} (0.5, 0)
+						to [C=$C$] (1,0)
+						to node[below, pos=0.5]{$-q$} (1.5, 0);
+		\end{tikzpicture}
+	\end{center}
+	\item \textbf{Resistore.}
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (-0.5,0) to [R=$R$] (1.5,0);
+		\end{tikzpicture}
+	\end{center}
+\end{itemize}
+\subsection{Condensatori in serie e in parallelo}
+Qui riprendiamo solamente i risultati, per come ricavarli rimandiamo a pag. \pageref{condensatoreSerieParallelo}, \refChapterOnly{conduttori}.
+\begin{observe}
+	La corrente passa attraverso un condensatore in un circuito? La risposta è \textit{tecnicamente no, ma di fatto sì}.
+	
+	Quando una corrente giunge ad una delle armature del condensatore la corrente \textit{non} attraversa il vuoto o il materiale tra le piastre. Ciò nonostante, le cariche che raggiungono l'armatura \textit{respingono} nell'armatura opposta una quantità di cariche dello \textit{stesso segno} pari a quella arrivata sul condensatore, creando nei fili collegati una nuova corrente di \textit{pari intensità}.\\
+	In altre parole, le correnti alle due estremità dell'armatura non sono costituita dagli stessi elettroni perché questi non possono attraversare lo spazio interno al condensatore, ma l'intensità è la stessa per effetti di repulsione delle cariche sull'armatura di arrivo: le due correnti sono virtualmente \textit{indistinguibili} l'una dall'altra.
+\end{observe} % TO DO: spostare in sezione migliore?
+\paragraph{Condensatori in serie}
+\begin{center}		
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (0,0) to node[below, pos=0.5]{$+q$} (0.5, 0)
+		to [C=$C_1$] (1,0)
+		to node[below, pos=0.5]{$-q$} (1.5, 0)
+		to node[below, pos=0.5]{$+q$} (2.5,0)
+		to [C=$C_2$] (3,0)
+		to node[below, pos=0.5]{$-q$} (3.5, 0);
+	\end{tikzpicture}
 \end{center}
+\begin{equation}
+	\frac{1}{C_{eq}}=\frac{1}{C_1}+\frac{1}{C_2}
+\end{equation}
+Nel caso generale di $n$ condensatori in serie:
+\begin{equation}
+	\frac{1}{C_{eq}}=\sum_{i=1}^{n}\frac{1}{C_i}
+\end{equation}
+\paragraph{Condensatori in parallelo}
+\begin{center}		
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (-1,0) to [short, -*] (0,0);
+		\draw (0, -1) -- (0, 1);
+		\draw (0, -1) to node[below, pos=0.5]{$+q_2$} (0.5, -1)
+		to [C=$C_2$] (1,-1)
+		to node[below, pos=0.5]{$-q_2$} (1.5, -1);
+		\draw (0, 1) to node[above, pos=0.5]{$+q_1$} (0.5, 1)
+		to [C=$C_1$] (1,1)
+		to node[above, pos=0.5]{$-q_1$} (1.5, 1);
+		\draw (1.5,0) to [short, *-] (2.5,0);
+		\draw (1.5, -1) -- (1.5, 1);
+	\end{tikzpicture}
+\end{center}
+\begin{equation}
+	C_{eq}=C_1+C_2
+\end{equation}
+Nel caso generale di $n$ condensatori in parallelo:
+\begin{equation}
+	C_{eq}=\sum_{i=1}^{n}C_i
+\end{equation}
+\subsection{Resistori in serie e in parallelo}
+\paragraph{Resistori in serie}
+Consideriamo due resistori $R_1$ e $R_2$, collegati in serie. 
+\begin{center}		
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (-0.5,0) to [R=$R_1$] (1.5,0)
+		to [R=$R_2$] (3,0);
+	\end{tikzpicture}
+\end{center}
+Per quanto osservato, la corrente stazionaria che li attraversa è la stessa:
+\begin{equation*}
+	I_1=I_2=I
+\end{equation*}
+Invece, ciascun resistore presenta una \ddp ai suoi capi: il potenziale diminuisce ad ogni nuovo resistore che si incontra lungo il filo e in particolare la \ddp ai capi dell'intero sistema è la somma delle \ddp ai capi delle singole componenti.
+\begin{equation*}
+	V=V_1+V_2
+\end{equation*}
+Per la \textit{legge di Ohm}, se
+\begin{align*}
+	R_1&=\frac{V_1}{I_1}=\frac{V_1}{I} & R_2&=\frac{V_2}{I_2}=\frac{V_2}{I}
+\end{align*}
+si ha che, complessivamente, il sistema corrisponde ad un resistore di capacità
+\begin{equation*}                                              
+	R_{eq}=\frac{V}{I}=\frac{V_1+V_2}{I}=\frac{V_1}{I}+\frac{V_2}{I}=R_1+R_2
+\end{equation*}
+\begin{equation}
+	R_{eq}=R_1+R_2
+\end{equation}
+Nel caso generale di $n$ resistori in serie:
+\begin{equation}
+	R_{eq}=\sum_{i=1}^{n}R_i
+\end{equation}
+\paragraph{Resistori in parallelo}
+Consideriamo due resistori $R_1$ e $R_2$, collegati in parallelo.
+\begin{center}		
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (-1.5,0) to [short, -*] (-0.5,0);
+		\draw (-0.5, -1) -- (-0.5, 1);
+		\draw (-0.5,1) to [R=$R_1$] (1.5,1);
+		\draw (-0.5,-1) to [R=$R_2$] (1.5,-1);
+		\draw (1.5,0) to [short, *-] (2.5,0);
+		\draw (1.5, -1) -- (1.5, 1);
+	\end{tikzpicture}
+\end{center}
+Per quanto osservato, la corrente stazionaria che li attraversa si distribuirà nei due fili:
+\begin{equation*}
+	I=I_1+I_2
+\end{equation*}
+Invece, i terminali d'arrivo dei due resistori sono collegati dallo stesso filo e quindi si ha lo stesso potenziale. Lo stesso vale per i terminali d'uscita, che sono collegati da uno stesso filo e quindi hanno ugual potenziale. La \ddp ai capi delle due resistenze è pertanto la stessa:
+\begin{equation*}
+	V_1=V_2=V
+\end{equation*}
+Per la \textit{legge di Ohm}, se
+\begin{align*}
+	R_1&=\frac{V_1}{I_1}=\frac{V}{I_1} & R_2&=\frac{V_2}{I_2}=\frac{V}{I_2}
+\end{align*}
+si ha che, complessivamente, il sistema corrisponde ad un resistore di capacità
+\begin{equation*}                                              
+	\frac{1}{R_{eq}}=\frac{I}{V}=\frac{I_1+I_2}{V}=\frac{I_1}{V}+\frac{I_2}{V}=\frac{1}{R_1}+\frac{1}{R_2}
+\end{equation*}
+\begin{equation}
+	\frac{1}{R_{eq}}=\frac{1}{R_1}+\frac{1}{R_2}
+\end{equation}
+Nel caso generale di $n$ resistori in parallelo:
+\begin{equation}
+	\frac{1}{R_{eq}}=\sum_{i=1}^{n}\frac{1}{R_i}
+\end{equation}
+\subsubsection{Eserciziamoci! Resistori in serie e in parallelo}
+\begin{exercise}
+	Si consideri il seguente circuito.
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
+						to [resistor, R=$R_1$, -*, i=$I$] (2.5,2.5)
+						to [resistor, R=$R_1$, -*, i_=$I_2$] (2.5,0)
+						to [resistor, R=$R_1$, i=$I$] (0,0)
+						-- (0,0.1);
+			\draw (2.5,2.5) to [resistor, R=$R_2$, i=$I_1$] (5,2.5)
+						to [resistor, R=$R_2$, i=$I_1$] (5,0)
+						to [resistor, R=$R_2$, i=$I_1$] (2.5,0);
+			\node[below left] at (0,0) {$B$};
+			\node[above left] at (0,2.5) {$A$};
+			\node[above right] at (2.5,2.5) {$C$};
+			\node[below left] at (2.5,0) {$F$};
+			\node[below right] at (5,0) {$E$};
+			\node[above right] at (5,2.5) {$D$};
+		\end{tikzpicture}
+	\end{center}
+	Noto che
+	\begin{alignat*}{3}
+		\mathcal{E}=\SI{17,4}{\volt} &\qquad R_1=\SI{3}{\ohm} &\qquad R_2=\SI{9}{\ohm}
+	\end{alignat*}
+	si calcoli:
+	\begin{itemize}
+		\item La corrente elettrica $I$ generata dal generatore di \fem.
+		\item La \ddp tra i nodi $C$ e $F$.
+		\item Calcolare $I_1$ e $I_2$.
+		\item Calcolare la potenza dissipata dai resistori del circuito.
+	\end{itemize}
+\end{exercise}
+\begin{solution}
+	Sappiamo che la differenza di potenziale tra i capi $A$ e $B$ coincide con la \ddp $\mathcal{E}$ del generatore di \fem che mantiene separate cariche positive e negative.
+	\begin{equation*}
+		V_A-V_B=\mathcal{E}
+	\end{equation*}
+	Data la disposizione del circuito possiamo ottenere una resistenza equivalente a quelle presenti che ha ai suoi capi come \ddp proprio $\mathcal{E}$; grazie ad essa e alla legge di Ohm potremo poi ricavare la corrente $I$ prodotta dal generatore.
+	\begin{itemize}
+		\item \textbf{Passo 1:} semplifichiamo il ramo $\overrightarrow{CDEF}$, sostituendo i tre resistori in serie con uno equivalente.
+		\begin{center}		
+			\begin{tikzpicture}[voltage dir=RP]
+				\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
+				to [resistor, R=$R_1$, -*, i=$I$] (2.5,2.5)
+				to [resistor, R=$R_1$, -*, i_=$I_2$] (2.5,0)
+				to [resistor, R=$R_1$, i=$I$] (0,0)
+				-- (0,0.1);
+				\draw[rounded corners=8pt] (2.5,2.5) -- (3.5,2.5)
+				to [resistor, R=$R'$, i=$I_1$] (3.5,0)
+				-- (2.5,0);
+				\node[below left] at (0,0) {$B$};
+				\node[above left] at (0,2.5) {$A$};
+				\node[above right] at (2.5,2.5) {$C$};
+				\node[below left] at (2.5,0) {$F$};
+			\end{tikzpicture}
+		\end{center}
+		\begin{equation*}
+			R'=R_2+R_2+R_2=3R_2=\numproduct[product-symbol = \ensuremath{\cdot}]{3 x 9}\unit{\ohm}=\SI{27}{\ohm}
+		\end{equation*}
+		\item \textbf{Passo 2:} semplifichiamo i rami paralleli collegati ai nodi $C$ e $F$.
+		\begin{center}		
+			\begin{tikzpicture}[voltage dir=RP]
+				\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
+				to [resistor, R=$R_1$, i=$I$] (2.5,2.5)
+				to [resistor, R=$R''$, i_=$I$] (2.5,0)
+				to [resistor, R=$R_1$, i=$I$] (0,0)
+				-- (0,0.1);
+				\node[below left] at (0,0) {$B$};
+				\node[above left] at (0,2.5) {$A$};
+				\node[above right] at (2.5,2.5) {$C$};
+				\node[below left] at (2.5,0) {$F$};
+			\end{tikzpicture}
+		\end{center}
+		\begin{equation*}
+		\frac{1}{R''}=\frac{1}{R_1}+\frac{1}{R'}\implies R''=\frac{R_1R'}{R_1+R'}=\frac{\numproduct[product-symbol = \ensuremath{\cdot}]{3 x 27}}{\num{3}+\num{27}}\unit{\ohm}=\SI{2,7}{\ohm}
+		\end{equation*}
+		Si osservi che a questo passo la corrente che scorre in ogni tratto del circuito è $I$.
+		\item \textbf{Passo 3:} semplifichiamo i tre resistori in serie rimasti con un resistore equivalente.
+		\begin{center}		
+			\begin{tikzpicture}[voltage dir=RP]
+				%\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
+				%to [resistor, R=$R_1$, i=$I$] (2.5,2.5)
+				%to [resistor, R=$R''$, i_=$I$] (2.5,0)
+				%to [resistor, R=$R_1$, i=$I$] (0,0)
+				%-- (0,0.1);
+				\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
+				to [rounded corners=8pt] (1.5,2.5)
+				to [rounded corners=8pt, resistor, R=$R_{eq}$, i=$I$] (1.5,0)
+				-- (0,0)
+				-- (0,0.1);
+				\node[below left] at (0,0) {$B$};
+				\node[above left] at (0,2.5) {$A$};
+			\end{tikzpicture}
+		\end{center}
+		\begin{equation*}
+			R_{eq}=R_1+R_{eq}+R_1=2R_1+R_{eq}=\numproduct[product-symbol = \ensuremath{\cdot}]{2 x 3}\unit{\ohm}+\SI{2,7}{\ohm}=\SI{8,7}{\ohm}
+		\end{equation*}
+	\end{itemize}
+	 Possiamo ora ricavare la corrente $I$ poiché è la corrente che passa nel resistore equivalente:
+	 \begin{equation*}
+	 	I=\frac{V_A-V_B}{R_{eq}}=\frac{\mathcal{E}}{R_{eq}}=\frac{\SI{17,4}{\volt}}{\SI{8,7}{\ohm}}=\SI{2}{\ampere}
+	 \end{equation*}
+ 	Per calcolare la \ddp tra $C$ e $F$ non possiamo utilizzare il passo $3$: in tale semplificazione i punti $C$ e $F$ \textit{non} esistono in più avendo semplificato i resistori che li precedono o li seguono, rispettivamente. Invece, ai passi $2$ e $3$ tali punti esistono ancora.\\
+ 	Potremmo porci al passo $1$ per calcolare $V_F-V_C$, ma avremmo da sommare la differenza di potenziale dei singoli rami - e quindi ci sarebbe bisogno di calcolare prima le correnti $I_1$ e $I_2$. Per semplificare i calcoli, possiamo applicare la legge di Ohm al passo $2$ dato che la corrente in tal caso è soltanto $I$:
+ 	\begin{equation*}
+ 		V_C-V_F=IR''=\numproduct[product-symbol = \ensuremath{\cdot}]{2 x 2.7}\unit{\volt}=\SI{5,4}{\volt}
+ 	\end{equation*}
+ 	Per calcolare $I_1$ e $I_2$, sappiamo che ai capi di $R_1$ e $R'$ nel condotto parallelo si ha come \ddp $V_C-V_F$ in entrambi i casi.
+ 	\begin{equation*}
+ 		I_2=\frac{V_C-V_F}{R_1}=\frac{\SI{5,4}{\volt}}{\SI{3}{\ohm}}=\SI{1,8}{\ampere}
+ 	\end{equation*}
+ 	\begin{equation*}
+ 		I_1=I-I_2=\num{2}-\num{1,8}\unit{\ampere}\SI{0,2}{\ampere}
+ 	\end{equation*}
+ 	In modo analogo a $I_2$, si poteva calcolare $I_1$ usando $R'$:
+ 	\begin{equation*}
+ 		I_2=\frac{V_C-V_F}{R'}=\frac{\SI{5,4}{\volt}}{\SI{27}{\ohm}}=\SI{0,2}{\ampere}
+ 	\end{equation*}
+ 	La potenza dissipata dal circuito, data dalla somma di tutte le potenze dissipate dai singoli resistori, è pari alla potenza dissipata dal circuito equivalente e il suo resistore:
+ 	\begin{equation*}
+ 		P=I^2R_{eq}=\numproduct[product-symbol = \ensuremath{\cdot}]{4 x 8.7}\unit{\watt}=\SI{34,8}{\watt}
+ 	\end{equation*}
+ 	Il circuito disperde come calore $\SI{34,8}{\joule}$ al secondo.
+\end{solution}
+\subsection{Leggi di Kirchhoff} % TO DO
+Abbiamo visto che ci conviene studiare i circuiti elettrici semplificandoli, se possibile, ad un solo generatore di \fem e con una componente singola equivalente alle altre dello stesso tipo presenti (un resistore equivalente e/o condensatore equivalente e/o ...). Il \textit{problema} è che \textit{non} sempre è possibile analizzare i circuiti usando le tecniche di semplificazione per componenti in serie e/o paralleli, in particolare se sono presenti nodi e multiple sorgenti. Ad esempio, nel seguente circuito potremmo ridurre $R_1$ con $R_2$ in serie e analogamente $R_4$ e $R_5$, ma dopo come facciamo con i due generatori?
+\begin{center}
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (0,0) to [resistor, R=$R_1$] (0,1.5)
+		to [battery1, v>=$\mathcal{E}_1$] (0,3)
+		to [short, -*] (1.5,3)
+		to [resistor, R=$R_4$] (3,3)
+		to [resistor, R=$R_5$] (3,1.5)
+		to [battery1, v>=$\mathcal{E}_2$] (3,0)
+		to [short, -*] (1.5,0)
+		to [resistor, R=$R_2$] (0,0)
+		-- (0,0.1);
+		\draw (1.5,0) to [resistor, R=$R_3$] (1.5,3);
+	\end{tikzpicture}
+\end{center}
+In nostro aiuto vengono due ‘‘regole'' dell'analisi dei circuiti, dette \textbf{leggi di Kirchhoff}\index{legge!di Kirchhoff}, chiamate così in onore del loro inventore Gustav \textbf{Kirchhoff}.
+\paragraph{Prima legge di Kirchhoff}
+\begin{theoremaqed}[Prima legge di Kirchhoff o legge dei nodi]\index{legge!di Kirchhoff!dei nodi}
+	La somma algebrica di tutte le correnti che entrano un nodo è pari alla somma algebra di tutte le correnti che escono dal nodo o, equivalentemente, la somma algebrica di tutte le correnti che attraversano un nodo del circuito deve essere pari a zero:
+	\begin{equation}
+		\sum_k^nI_k=0
+	\end{equation}
+	$I_k$ è una corrente \textit{con segno} che attraversa il nodo dal ramo $k$-esimo, mentre $n$ è il numero di rami connessi al nodo.
+\end{theoremaqed}
+Il segno della corrente è fissato arbitrariamente per indicare se la corrente è entrante oppure uscente\footnote{In generale, si pone $+$ per la corrente entrante in un nodo e $-$ per la corrente uscente.}.
+% TO DO: disegno di esempio
+In casi complessi non è però possibile determinare quale sia il verso di percorrenza della corrente, soprattutto in presenza di più generatori di \fem. In tal caso, si può \textit{ipotizzare} un verso di percorrenza della corrente nei rami in cui esso sia \textit{ignoto} e applicare poi le leggi di Kirchhoff. Supponendo di poter risolvere il circuito, il vero verso della corrente si deduce in base al segno della corrente:
+\begin{itemize}
+	\item Il valore della corrente ottenuta ha segno \textit{positivo}; in tal caso, il verso ipotizzato è quello \textit{reale}.
+	\item Il valore della corrente ottenuta ha segno \textit{negativo}; in tal caso, il verso ipotizzato è \textit{errato} e va \textit{invertito}.
+\end{itemize}
+\paragraph{Seconda legge di Kirchhoff}
+\begin{theoremaqed}[Seconda legge di Kirchhoff o legge delle maglie]\index{legge!di Kirchhoff!dei nodi}
+	La somma algebrica di tutte le differenze di potenziale attorno una maglia è zero:
+	\begin{equation}
+		\sum_k^nV_k=0
+	\end{equation}
+	$V_k$ è un voltaggio con segno, mentre $n$ è il numero di componenti e generatori che causano un voltaggio.
+\end{theoremaqed}
+ Per determinare il segno, fissiamo prima dei versi ipotetici in cui scorre la corrente nei vari rami della maglia\footnote{O quanto meno nei rami in cui il verso \textit{non} è noto!} e scegliamo un verso di percorrenza della maglia; attribuiamo ad ogni \ddp il segno nella seguente maniera:
+\begin{itemize}
+	\item Per un generatore di \fem $\mathcal{E}_k$, se il verso di percorrenza passa dal $-$ al $+$ (quindi dal potenziale minore a quello maggiore), poniamo un segno \textit{positivo}:
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (-0.5,0) to [battery1, v>=$\ $] (1.5,0);
+			\draw [dashed, ->, >=stealth] (-0.5,-0.5) -- (1.5,-0.5);
+			\node at (2,0)  {$+\mathcal{E}_k$};
+		\end{tikzpicture}
+	\end{center}
+	\item Per un generatore di \fem $\mathcal{E}_k$, se il verso di percorrenza passa dal $+$ al $-$ (quindi dal potenziale maggiore a quello minore), poniamo un segno \textit{negativo}:
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (-0.5,0) to [battery1, v<=$\ $, invert] (1.5,0);
+			\draw [dashed, ->, >=stealth] (-0.5,-0.5) -- (1.5,-0.5);
+			\node at (2,0)  {$-\mathcal{E}_k$};
+		\end{tikzpicture}
+	\end{center}
+	\item Per una componente con voltaggio $V_k$, se il verso di percorrenza è concorde con il verso (ipotetico) della corrente che lo attraversa poniamo un segno \textit{negativo}:
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (-0.5,0) to [generic, i=$I$] (1.5,0);
+			\draw [dashed, ->, >=stealth] (-0.5,-0.5) -- (1.5,-0.5);
+			\node at (2,0)  {$-V_k$};
+		\end{tikzpicture}
+	\end{center}
+	\item Per una componente con voltaggio $V_k$, se il verso di percorrenza è opposto con il verso (ipotetico) della corrente che lo attraversa poniamo un segno \textit{positivo}:
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (-0.5,0) to [generic, i<=$I$] (1.5,0);
+			\draw [dashed, ->, >=stealth] (-0.5,-0.5) -- (1.5,-0.5);
+			\node at (2,0)  {$+V_k$};
+		\end{tikzpicture}
+	\end{center}
+\end{itemize}% TO DO: add rules diagram
+\subsubsection{Eserciziamoci! Leggi di Kirchhoff}
+\begin{exercise}
+		Si consideri il seguente circuito.
+	\begin{center}
+			\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [battery1, v<=$\mathcal{E}_1$, invert, i=$I_1$] (0,2.5)
+			to [resistor, R=$R_1$, i=$I_1$] (2.5,2.5)
+			to [resistor, R=$R_2$, i=$I_2$] (5,2.5)
+			to [battery1, v>=$\mathcal{E}_2$, i=$I_2$] (5,0)
+			to [resistor, R=$R_4$, -*, i=$I_2$] (2.5,0)
+			-- (0,0)
+			-- (0,0.1);
+			\draw (2.5,2.5) to [resistor, R=$R_3$, *-, i_=$I_3$] (2.5,0);
+			\node[below left] at (2.5,0) {$B$};
+			\node[above right] at (2.5,2.5) {$A$};
+			\node[scale=2.5] at (1.25,1.25) {$\circlearrowright$};
+			\node[scale=2.5] at (3.75,1.25) {$\circlearrowright$};
+			\node at (1.25,1.25) {$\tiny{M_1}$};
+			\node at (3.75,1.25) {$\tiny{M_2}$};
+		\end{tikzpicture}
+	\end{center}
+	Noto che
+	\begin{alignat*}{6}
+		\mathcal{E}_1=\SI{5}{\volt} &\qquad \mathcal{E}_2=\SI{2}{\volt} &\qquad R_1=\SI{1}{\ohm} &\qquad R_2=\SI{2}{\ohm} &\qquad R_3=\SI{4}{\ohm} &\qquad R_4=\SI{3}{\ohm}
+	\end{alignat*}
+	Si calcoli la corrente elettrica nei rami.
+\end{exercise}
+\begin{solution}
+	Data la presenza di due generatori, potrebbe non essere chiaro quale sia il verso della corrente. In questo caso i versi che \textit{ipotizziamo} sono quelli indicati nel diagramma.\\
+	Applichiamo innanzitutto la prima legge di Kirchhoff al nodo $A$, con la convenzione $+$ per la corrente entrante, $-$ per quella uscente:
+	\begin{equation*}
+		I_1-I_2-I_3=0
+	\end{equation*}
+	Utilizziamo la seconda legge sulle due maglie piccole $M_1$ e $M_2$ del circuito, seguendo il verso di percorrenza orario come indicato in figura. In entrambi i casi, partiamo dal generatore nella maglia.
+	\begin{equation*}
+		\begin{cases}
+			M_1\colon & -\mathcal{E}_1-R_1I_1-R_3I_3=0\\
+			M_2\colon & \mathcal{E}_2-R_4I_2+R_3I_3-R_2I_2=0
+		\end{cases}
+	\end{equation*}
+	Per trovare le correnti, risolviamo il sistema con tutte e tre le equazioni ottenute:
+	\begin{align*}
+		&\begin{cases}
+			I_3=I_1-I_2\\
+			\mathcal{E}_1+R_1I_1+R_3\left(I_1-I_2\right)=0\\
+			\mathcal{E}_2-R_4I_2+R_3\left(I_1-I_2\right)-R_2I_2=0
+		\end{cases}\\
+	&\begin{cases}
+		I_3=I_1-I_2\\
+		\left(R_1+R_3\right)I_1+R_3I_2=-\mathcal{E}_1\\
+		\left(R_3-R_4-R_2\right)I_2+R_3I_1=-\mathcal{E}_2
+	\end{cases}\\
+	&\begin{cases}
+	I_3=I_1-I_2\\
+	I_1=\frac{-\mathcal{E}_1-R_3I_2}{R_1+R_3}\\
+	\left(R_3-R_4-R_2\right)I_2+R_3\frac{-\mathcal{E}_1-R_3I_2}{R_1+R_3}=-\mathcal{E}_2
+	\end{cases}\\
+	&\begin{cases}
+		I_3=I_1-I_2\\
+		I_1=\frac{-\mathcal{E}_1-R_3I_2}{R_1+R_3}\\
+		\left(R_3-R_4-R_2-\frac{R_3^2}{R_1+R_3}\right)I_2=-\mathcal{E}_2+\frac{\mathcal{E}_1R_3}{R_1+R_3}
+	\end{cases}\\
+	&\begin{cases}
+		I_3=I_1-I_2\\
+		I_1=\frac{-\mathcal{E}_1-R_3I_2}{R_1+R_3}\\
+		\left[R_1R_3-\left(R_2+R_4\right)\left(R_1+R_3\right)\right]I_2=-\mathcal{E}_2\left(R_1+R_3\right)+\mathcal{E}_1R_3
+	\end{cases}\\
+	&\begin{cases}
+	I_2=\frac{-\mathcal{E}_2\left(R_1+R_3\right)+\mathcal{E}_1R_3}{R_1R_3-\left(R_2+R_4\right)\left(R_1+R_3\right)}=\frac{-2 \cdot (1+4) + 5 \cdot 4}{1 \cdot 4 - (2+3) \cdot (1 + 4)}\unit{\ampere}=\frac{\num{10}}{\num{-16}}\unit{\ampere}=\SI{-0.625}{\ampere}\\
+	I_1=\frac{-\mathcal{E}_1-R_3I_2}{R_1+R_3}=\frac{-4-4 \cdot (-0.625)}{1+4}\unit{\ampere}=\frac{\num{-1.5}}{\num{5}}\unit{\ampere}=\SI{-0.3}{\ampere}\\
+	I_3=I_1-I_2=-0.3+0.625\unit{\ampere}=\SI{0.325}{\ampere}\\
+	\end{cases}
+	\end{align*}
+	In questo caso, i versi delle correnti $I_1$ e $I_2$ sono errati, mentre è corretto il verso di $I_3$. Il circuito con i versi corretti è il seguente:
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [battery1, v<=$\mathcal{E}_1$, invert, i<=$I_1$] (0,2.5)
+			to [resistor, R=$R_1$, i<=$I_1$] (2.5,2.5)
+			to [resistor, R=$R_2$, i<=$I_2$] (5,2.5)
+			to [battery1, v>=$\mathcal{E}_2$, i<=$I_2$] (5,0)
+			to [resistor, R=$R_4$, -*, i<=$I_2$] (2.5,0)
+			-- (0,0)
+			-- (0,0.1);
+			\draw (2.5,2.5) to [resistor, R=$R_3$, *-, i_=$I_3$] (2.5,0);
+			\node[below right] at (2.5,0) {$B$};
+			\node[above left] at (2.5,2.5) {$A$};
+		\end{tikzpicture}
+	\end{center}
+\end{solution} % TO DO: controllare calcoli
+\subsection{Circuiti RC}
+\begin{define}[Circuito RC]
+	Un \textbf{circuito RC}\index{circuito RC} è un circuito che presenta solo \textit{resistori} e \textit{condensatori}.
+	\begin{center}		
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [battery1, v>=$\mathcal{E}$] (0,2.5)
+			to [resistor, R=$R_1$, v=$V_R$] (2.5,2.5)
+			to [capacitor, C=$C$, v=$V_C$] (2.5,0)
+			to [switch, label=$t<0$, mirror] (0,0)
+			-- (0,0.1);
+			\draw (1,0) to[short, *-] (1,0);
+		\end{tikzpicture}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
+			to [resistor, R=$R_1$, v=$V_R$] (2.5,2.5)
+			to [capacitor, C=$C$, v=$V_C$] (2.5,0)
+			-- (0,0) %to [switch, label=$t>0$, mirror] (0,0)
+			%-- (0,0) node [midway, below] (TextNode) {$t>0$}
+			-- (0,0.1);
+			\draw (1,0) to[short, *-] (1,0);
+			\node at (1.25,-0.5) {$t>0$};
+			\node at (1.25,-0.6) {$ $};
+		\end{tikzpicture}% TO DO: mettere un circuito chiuso
+	\end{center}
+\end{define}
+Consideriamo il caso semplice di un circuito RC con un resistore e un condensatore dotato di un interruttore, inizialmente aperto. Al tempo $t=0$ viene chiuso l'interruttore: poiché si verifica la separazione di cariche da parte del generatore di \fem, la corrente può circolare nel circuito per caricare il condensatore, inizialmente \textit{scarico}.
+\begin{itemize}
+	\item Al tempo $t<0$ la \ddp $V_C$ ai capi del condensatore è \textit{nulla}, dato che non si hanno cariche sul condensatore, e anche la differenza $V_R$ ai capi della resistenza lo è perché non scorre corrente.
+	\begin{alignat*}{4}
+		q(t)=0 &\qquad I(t)=0 &\qquad V_R(t)=0 &\qquad V_C(t)=0
+	\end{alignat*}
+	\item Appena il circuito è \textit{chiuso} ($t=0$) scorre subito una corrente $I_0=I(0)$: essa attraversa il resistore e raggiunge il condensatore, il quale inizierà subito a caricarsi. Ai capi del resistore si ha una \ddp pari a $V_R(0)=I_0R$, mentre l'assenza di cariche sul condensatore fa sì che in questo istante $V_C(0)=0$. Ci si potrà aspettare da ciò che la corrente iniziale, per la legge di Ohm, sia $\nicefrac{\mathcal{E}}{R}$.
+	\begin{alignat*}{4}
+		q(0)=0 &\qquad I(0)=I_0 &\qquad V_R(0)=I_0R &\qquad V_C(0)=0
+	\end{alignat*}
+	\item Man mano che passa il tempo il condensatore si \textit{carica} e la carica $q$ sul condensatore \textit{aumenta}; per questo motivo, \textit{meno cariche sono libere} di muoversi e la corrente $I$ che scorre nel circuito \textit{decresce}. Di conseguenza, il voltaggio del resistore \textit{diminuirà}, ma al contempo \textit{aumenterà} quello relativo al condensatore.
+	\begin{alignat*}{4}
+		q(t)=0 &\qquad I(t)=\dv{q}{t} &\qquad V_R(t)=I(t)R &\qquad V_C(t)=\frac{q(t)}{C}
+	\end{alignat*}
+	\item In un \textit{tempo infinito} $(t=+\infty)$ il condensatore sarà completamente carico e \textit{non} scorrerà più corrente nel circuito: poiché nel resistore non scorre corrente, non si ha una \ddp in sua corrispondenza ($V_R(+\infty)=0$),. mentre quella ai capi del condensatore coincide con quello del generatore ($V_C(+\infty)=\mathcal{E}$). La carica accumulata è $q(+\infty)=q_{\infty}=V_C\mathcal{E}$.
+	\begin{alignat*}{4}
+		q(+\infty)=q_{\infty}=V_C\mathcal{E} &\qquad I(+\infty)=0 &\qquad V_R(+\infty)=0 &\qquad V_C(0)=\mathcal{E}
+	\end{alignat*}
+\end{itemize}
+Formalizziamo questo discorso empirico usando la \textit{legge di Kirchhoff} delle maglie. Fissato come verso di percorrenza della maglia quello della corrente $I$, la somma delle \ddp è
+\begin{align*}
+	&\mathcal{E}-V_R-V_C=0\\
+	&\mathcal{E}-IR-\frac{q}{C}=0\\
+	&\mathcal{E}-\dv{q}{t}R-\frac{q}{C}=0
+\end{align*}
+Risolviamo questa equazione differenziale per descrivere la carica $q=q(t)$ del condensatore:
+\begin{align*}% TO DO: fix
+	&\dv{q}{t}=\frac{\mathcal{E}C-q}{RC}\\ &\int_{0}^{q}\frac{d\tilde{q}}{\tilde{q}-\mathcal{E}C}=-\frac{1}{RC}\int_{0}^{t}d\tilde{t}\\
+	&\eval{\log{\tilde{q}-\mathcal{E}C}}_{0}^{q}=-\frac{1}{RC}\eval{\tilde{t}}_{0}^{t}\\
+	&\log{\frac{q-\mathcal{E}C}{-\mathcal{E}C}}=-\frac{t}{RC}\\
+	&\frac{q-\mathcal{E}C}{-\mathcal{E}C}=e^{-\frac{t}{RC}}
+\end{align*}
+\begin{equation}
+	q(t)=\mathcal{E}C\left(1-e^{-\frac{t}{RC}}\right)
+\end{equation}
+% inserire grafico
+L'andamento temporale della corrente è dettato dal \textbf{tempo caratteristico del circuito RC}\index{tempo caratteristico del circuito RC}:
+\begin{equation}
+	\tau=RC
+\end{equation}
+Essa è una costante dimensionalmente pari ad una quantità temporale e quindi nel SI si misura in secondi:
+\begin{equation*}
+	\left[\tau\right]=\left[R\right]\cdot\left[C\right]=\mathsf{M} \mathsf{L}^2  \mathsf{T}^{-3}\mathsf{I}^{-2}\cdot\mathsf{M}^{-1}\mathsf{L}^{-2}\mathsf{T}^4\mathsf{I}^2=\mathsf{T}
+\end{equation*}
+Come previsto, la carica dopo un tempo di carica \textit{infinito} è $q_{\infty}=\mathcal{E}C$. Per un \textit{matematico}, ciò significherebbe che il condensatore non può mai caricarsi completamente; invece, per un \textit{fisico} questo si realizza - approssimando, chiaramente! - per un tempo tra $3\tau=3RC$ e $3\tau=3RC$. Infatti, si ha
+\begin{align*}
+q(3\tau)&=\mathcal{E}C\left(1-e^{-\nicefrac{3\Ccancel[red]{\tau}}{\Ccancel[red]{\tau}}}\right)=\num{0.950}\cdot\mathcal{E}C\\
+q(5\tau)&=\mathcal{E}C\left(1-e^{-\nicefrac{3\Ccancel[red]{\tau}}{\Ccancel[red]{\tau}}}\right)=\num{0.993}\cdot\mathcal{E}
+\end{align*}
+i quali sono valori \textit{molto} vicini al valore asintotico $q_{\infty}$ e che nella pratica possiamo assimilare ad esso.\\
+Per ottenere la corrente che attraversa il circuito ci basta considerare il flusso di corrente attraverso il condensatore - in poche parole, basta derivare $q(t)$ rispetto al tempo:
+\begin{equation}
+	I(t)=\dv{q(t)}{t}=\frac{\mathcal{E}}{R}e^{-\frac{t}{RC}}
+\end{equation}
+Come previsto, la corrente che percorre inizialmente il circuito è $\dfrac{\mathcal{E}}{R}$, mentre asintoticamente tende a zero.\\
+Noto carica e corrente, i valori delle \ddp ai capi del resistore e del condensatore sono facili da ricavare:
+\begin{align}
+	V_C(t)&=\frac{q(t)}{C}=\mathcal{E}\left(1-e^{-\frac{t}{RC}}\right)\\
+	V_R(t)&=RI(t)=\mathcal{E}e^{-\frac{t}{RC}}
+\end{align}
+Riprendendo quanto già detto, il voltaggio del condensatore aumenta al crescere del tempo di carica, mentre quello del resistore diminuisce.\\
+La \textit{potenza} erogata dal generatore è ovviamente dipendente dal tempo e vale
+\begin{equation}
+	P_{gen}(t)=\mathcal{E}I(t)=\frac{\mathcal{E}^2}{R}e^{-\frac{t}{RC}}
+\end{equation}
+mentre quella dissipata del resistore è, in base all'effetto Joule,
+\begin{equation}
+	P_{R}(t)=I^2(t)R=\frac{\mathcal{E}^2}{R}e^{-\frac{2t}{RC}}
+\end{equation}
+Il lavoro per caricare il condensatore è $W=\dfrac{1}{2}V_Cq$; la potenza elementare relativa è la sua derivata temporale\footnote{Si vede, infatti che
+\begin{equation*}
+	P_{C}=\dv{W}{t}=\dv{t}\left(\frac{1}{2}V_Cq\right)=\frac{1}{2}\left(q\dv{V_C}{t}+V_C\dv{q}{t}\right)=\frac{1}{2}\left(q\dv{V_C}{t}+V_CI\right)
+\end{equation*}
+ed essendo $V_C=\dfrac{q}{C}$, allora $\dv{V_C}{t}=\dfrac{1}{C}\dv{q}{t}=\frac{I}{C}$ e quindi
+\begin{equation*}
+	P_{C}=\frac{1}{2}\left(q\frac{I}{C}+V_CI\right)=\frac{1}{2}\left(V_CI+V_CI\right)=V_CI
+\end{equation*}}, ossia 
+\begin{equation}
+	P_{C}(t)=V_C(t)I(t)=\frac{\mathcal{E}^2}{R}e^{-\frac{t}{RC}}-\frac{\mathcal{E}^2}{R}e^{-\frac{2t}{RC}}=P_{gen}-P_{R}
+\end{equation}
+Ciò è coerente col \textit{principio di conservazione dell'energia}: l'energia immagazzinata (per unità di tempo) dal condensatore è ciò che \textit{rimane} dell'energia prodotta dal generatore dopo che parte di essa è stata dissipata sotto forma di calore dal resistore.\\
+Sul lungo termine, l'energia prodotta dal generatore complessivamente è
+\begin{equation*}
+	W_{gen}=\int_{0}^{+\infty}P_{gen}(t)dt=\frac{\mathcal{E}^2}{R}\int_{0}^{+\infty}e^{-\frac{t}{RC}}=-\frac{\mathcal{E}^2}{\Ccancel[red]{R}}\Ccancel[red]{R}C\eval{e^{-\frac{t}{RC}}}_{0}^{+\infty}=\mathcal{E}^2C
+\end{equation*}
+\begin{equation}
+	W_{R}=\frac{1}{2}\mathcal{E}^2C
+\end{equation}
+mentre quella dissipata dal resistore è
+\begin{equation*}
+	W_{R}=\int_{0}^{+\infty}P_{R}(t)dt=\frac{\mathcal{E}^2}{R}\int_{0}^{+\infty}e^{-\frac{2t}{RC}}=-\frac{1}{2}\frac{\mathcal{E}^2}{\Ccancel[red]{R}}\Ccancel[red]{R}C\eval{e^{-\frac{2t}{RC}}}_{0}^{+\infty}=\frac{1}{2}\mathcal{E}^2C
+\end{equation*}
+\begin{observe}
+	L'energia dissipata complessivamente dal resistore è indipendente dal valore della resistenza, ma è sempre la metà di quanto produce il generatore di \fem.
+\end{observe}
+Il lavoro di carica del condensatore è, per \textit{principio di conservazione dell'energia}, pari a 
+\begin{equation}
+	W_{gen}=\frac{1}{2}\mathcal{E}^2C
+\end{equation}
+% add scopo pratico dei circuiti RC

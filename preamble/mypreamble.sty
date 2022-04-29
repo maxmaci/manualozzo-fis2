@@ -104,18 +104,20 @@
 
 %%% Physics stuff %%%
 \RequirePackage{letltxmacro}
-\RequirePackage{siunitx}
+\RequirePackage{siunitx} % provides SI units
 \LetLtxMacro{\svqty}{\qty}
-\RequirePackage[arrowdel]{physics} %diffcoef instead?
+\RequirePackage[arrowdel]{physics} %diffcoef instead? % provides bold vector with arrow above
 \LetLtxMacro{\qty}{\svqty}
 
 \sisetup{output-decimal-marker = {,}}
+
 \usepackage{animate}
 
+\usepackage[americanvoltages]{circuitikz}
 
-% provides SI units
 
-% provides bold vector with arrow above
+
+
 
 % Provides a "cancel" command to create an handwritten diagonal strikethrough text.
 \RequirePackage[thicklines]{cancel}
@@ -2966,3 +2968,8 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 \newcommand\vbh[1]{\hat{\mathbf{#1}}}
 
 \newcommand\fb[1]{\vb*{\underline{#1}}}
+
+% ddp
+\newcommand\fem{\ensuremath{\mathrm{f.e.m.}}}
+
+\newcommand\ddp{\ensuremath{\mathrm{d.d.p.}}}

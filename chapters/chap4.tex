@@ -6,7 +6,7 @@
 {$LastChangedBy$}
 
 \chapter{Conduttori}
-\labelChapter{seriedipotenze}
+\labelChapter{conduttori}
 
 \begin{introduction}
 	‘‘Se si trascurano i casi assolutamente più semplici, allora in tutta la matematica non c'è una singola serie infinita la cui somma è stata rigorosamente determinata. In altre parole, una delle parti più importanti della matematica sta in piedi senza alcun fondamento.''
@@ -390,7 +390,7 @@ Tutti questi esempi ricadono nel fenomeno dello \textbf{schermo elettrostatico},
 	Un \textbf{condensatore}\index{condensatore} è un sistema di conduttori, i quali sono separati da una differenza di potenziale $\Delta V$ e tra i quali c'è induzione completa.
 \end{define}
 \begin{notate}
-	Spesso abbrevieremo la differenza di potenziale con $\mathrm{d.d.p.}$
+	Spesso abbrevieremo la differenza di potenziale con \ddp
 \end{notate}
 La maggior parte dei condensatori sono costituite da due o più conduttori elettrici nella forma di piastre metalliche o superfici separate dal vuoto o da un materiale dielettrico\footnote{Vedremo nel capitolo XXX la definizione di materiale dielettrico.}, dette \textbf{armature}\index{armatura}.
 
@@ -398,7 +398,7 @@ Dalla legge di Coulomb una carica su un'armatura eserciterà una \textit{forza} 
 
 Lo scopo principale dei condensatori non è solo quello di \textit{deposito} di cariche elettriche nelle armature, ma anche di immagazzinare \textbf{energia elettrica} nel campo elettrico; possiamo crearlo se applichiamo una $\textrm{d.d.p.}$ tra le armature. Per misurare questa proprietà di immagazzinare carica, ci interessa definire, in modo analogo a come abbiamo fatto per i conduttori, una \textbf{capacità} dei condensatori.
 \begin{define}[Capacità di un condensatore]
-	La \textbf{capacità}\index{capacità} di un condensatore è la misura di quanta carica elettrica bisogna fornire ad un'armatura del condensatore per aumentare di un'unità la $\mathrm{d.d.p.}$ tra le armature.
+	La \textbf{capacità}\index{capacità} di un condensatore è la misura di quanta carica elettrica bisogna fornire ad un'armatura del condensatore per aumentare di un'unità la \ddp tra le armature.
 	\begin{equation}
 		C=\frac{q}{\Delta V}
 	\end{equation}
@@ -476,10 +476,10 @@ e quindi la capacità del condensatore sferico è
 	C\simeq 4\pi\epsilon_0\left(\frac{R^2}{d}\right)=\frac{\epsilon_0\Sigma}{d}
 \end{equation}
 dove $\Sigma=4\pi R^2$ è la superficie dell'armatura sferica.
-\subsection{Condensatori in parallelo e in serie}
-Per caricare dei condensatori e immagazzinarci dell'energia possiamo fornire cariche ad una delle armature tramite un collegamento conduttivo esterni, come dei \textit{fili metallici}, e poi scaricare le cariche dall'altra armatura con un altro filo. La quantità di carica che si va a depositare sulle armature è \textit{proporzionale} alla $\mathrm{d.d.p.}$ tra le armature - che possiamo controllare collegando ai capi delle armature una batteria o un generatore con dei fili. Quello che abbiamo descritto è un semplice tipo di \textbf{circuito elettrico}.
+\subsection{Condensatori in serie e in parallelo}\label{condensatoreSerieParallelo}
+Per caricare dei condensatori e immagazzinarci dell'energia possiamo fornire cariche ad una delle armature tramite un collegamento conduttivo esterni, come dei \textit{fili metallici}, e poi scaricare le cariche dall'altra armatura con un altro filo. La quantità di carica che si va a depositare sulle armature è \textit{proporzionale} alla \ddp tra le armature - che possiamo controllare collegando ai capi delle armature una batteria o un generatore con dei fili. Quello che abbiamo descritto è un semplice tipo di \textbf{circuito elettrico}.
 
-In questo capitolo non daremo una definizione più precisa di circuito o andremo nel dettaglio del loro funzionamento, ma lo faremo quando parleremo di \textit{corrente elettrica} nel capitolo XXX; nel frattempo anticipiamo ora due concetti importanti nel loro studio:
+In questo capitolo non daremo una definizione più precisa di circuito o andremo nel dettaglio del loro funzionamento, ma lo faremo quando parleremo di \textit{corrente elettrica} nel \refChapterOnly{correnteElettrica}; nel frattempo anticipiamo ora due concetti importanti nel loro studio.
 \begin{define}[Collegamento in serie e in parallelo]~
 	\begin{itemize}
 		\item Due o più componenti sono collegate \textbf{in serie}\index{collegamento!in serie} se tutte sono collegate lungo un unico ‘‘percorso elettrico'', in cui ogni componente è collegata direttamente ad una sola altra componente.
@@ -490,44 +490,18 @@ Si possono già fare alcune osservazioni:
 \begin{itemize}
 	\item In un collegamento \textit{in serie}, la \textit{carica totale} $q$ rimane costante lungo il percorso e ogni oggetto riceve la \textit{stessa}\footnote{Non necessariamente sono le stesse identiche cariche: ad esempio, nel caso dei condensatori le cariche che partono dall'altra piastra collegata \textit{non} sono le stesse che sono arrivate sull'altra, bensì sono cariche respinte da quelle presenti nell'altra armatura. In ogni caso, ciò che non cambia è la \textit{quantità} di carica totale.}; di conseguenza, vedremo che anche la \textit{corrente} risulta essere sempre la \textit{stessa} in ogni componente.
 	\item In un collegamento \textit{in parallelo}, la carica si \textit{distribuisce} nei vari rami in modo proporzionale alle caratteristiche delle componenti, e lo stesso fa la corrente elettrica. La carica e la corrente complessiva in un collegamento in parallelo è quindi la somma di quella nei vari fili.
-	\item In un collegamento \textit{in serie}, la differenza di potenziale diminuisce per ogni componente che è presente nel filo. Pertanto, la $\mathrm{d.d.p.}$ in un collegamento in serie è la somma di quella tra tutte i capi delle componenti.
+	\item In un collegamento \textit{in serie}, la differenza di potenziale diminuisce per ogni componente che è presente nel filo. Pertanto, la \ddp in un collegamento in serie è la somma di quella tra tutte i capi delle componenti.
 	\item In un collegamento \textit{in parallelo}, la differenza di potenziale è la stessa ai capi di ogni componente, perché metà delle estremità sono attaccate allo stesso filo e l'altra metà ad un altro filo.
 \end{itemize}
 L'idea cardine dello studio dei circuiti elettrici è di \textit{semplificarli} il più possibile, quanto meno ipoteticamente: se abbiamo diversi oggetti elettrici collegati nel circuito caratterizzati da delle quantità particolari $Z_i$, ci immaginiamo di sostituire diversi elementi dello stesso tipo (collegati in serie e in parallelo) con un'unica componente \textbf{equivalente} caratterizzata da una quantità $Z_{eq}$ che deriva da quelle delle componenti singole.
-\paragraph{Condensatori in parallelo}
-Consideriamo due condensatori $C_1$ e $C_2$, le cui piastre superiori sono collegate ad uno stesso filo, e si ha una cosa simile con le piastre inferiori.
-% TO DO: inserire grafico
-Per quanto osservato, la carica complessiva si distribuirà nei due fili
-\begin{equation*}
-	q_{tot}=q_1+q_2
-\end{equation*}
-Poiché le piastre superiori sono collegate dallo stesso filo, essendo questo un unico conduttore equipotenziale, si ha in entrambe le armature in alto lo stesso potenziale $V_1$. Lo stesso vale per le armature inferiori, che sono collegate da uno stesso filo e quindi hanno potenziale $V_2$. Segue che la $\mathrm{d.d.p.}$ $\Delta V_1$ tra le piastre del primo condensatore di capacità $C_1$ e la $\mathrm{d.d.p.}$ $\Delta V_2$ tra le piastre del secondo condensatore di capacità $C_2$ è la stessa:
-\begin{equation*}
-	\Delta V_1=\Delta V_2=\Delta V
-\end{equation*}
-Allora, se
-\begin{align*}
-	C_1&=\frac{q_1}{\Delta V_1}=\frac{q_1}{\Delta V} & C_2=\frac{q_2}{\Delta V_2}=\frac{q_2}{\Delta V}
-\end{align*}
-si ha che, complessivamente, il sistema corrisponde ad un condensatore di capacità
-\begin{equation*}
-	C_{eq}=\frac{q_{tot}}{\Delta V}=\frac{q_1+q_2}{\Delta V}=\frac{q_1}{\Delta V}+\frac{q_2}{\Delta V}=C_1+C_2
-\end{equation*}
-\begin{equation}
-	C_{eq}=C_1+C_2
-\end{equation}
-Nel caso generale di $n$ condensatori in parallelo:
-\begin{equation}
-	C_{eq}=\sum_{i=1}^{n}C_i
-\end{equation}
-\paragraph{Condensatori in parallelo}
+\paragraph{Condensatori in serie}
 Consideriamo due condensatori $C_1$ e $C_2$: la piastra inferiore del primo è collegata alla superiore della seconda, in serie.
 % TO DO: inserire grafico
 Per quanto osservato, la carica complessiva è la stessa in ogni componente:
 \begin{equation*}
 	q_1=q_2=q_{tot}
 \end{equation*}
-Al contrario, la differenza di potenziale diminuisce ad ogni nuovo condensatore che si incontra lungo il filo, quindi la $\mathrm{d.d.p}$ ai capi dell'intero sistema è la somma delle $\mathrm{d.d.p.}$ ai capi delle singole componenti.
+Al contrario, il potenziale diminuisce ad ogni nuovo condensatore che si incontra lungo il filo e in particolare la \ddp ai capi dell'intero sistema è la somma delle \ddp ai capi delle singole componenti.
 \begin{equation*}
 	\Delta V=\Delta V_1+\Delta V_2
 \end{equation*}
@@ -545,6 +519,32 @@ si ha che, complessivamente, il sistema corrisponde ad un condensatore di capaci
 Nel caso generale di $n$ condensatori in serie:
 \begin{equation}
 	\frac{1}{C_{eq}}=\sum_{i=1}^{n}\frac{1}{C_i}
+\end{equation}
+\paragraph{Condensatori in parallelo}
+Consideriamo due condensatori $C_1$ e $C_2$, le cui piastre superiori sono collegate ad uno stesso filo, e si ha una cosa simile con le piastre inferiori.
+% TO DO: inserire grafico
+Per quanto osservato, la carica complessiva si distribuirà nei due fili:
+\begin{equation*}
+	q_{tot}=q_1+q_2
+\end{equation*}
+Poiché le piastre superiori sono collegate dallo stesso filo, essendo questo un unico conduttore equipotenziale, si ha in entrambe le armature in alto lo stesso potenziale $V_1$. Lo stesso vale per le armature inferiori, che sono collegate da uno stesso filo e quindi hanno potenziale $V_2$. Segue che la \ddp $\Delta V_1$ tra le piastre del primo condensatore di capacità $C_1$ e la \ddp $\Delta V_2$ tra le piastre del secondo condensatore di capacità $C_2$ è la stessa:
+\begin{equation*}
+	\Delta V_1=\Delta V_2=\Delta V
+\end{equation*}
+Allora, se
+\begin{align*}
+	C_1&=\frac{q_1}{\Delta V_1}=\frac{q_1}{\Delta V} & C_2=\frac{q_2}{\Delta V_2}=\frac{q_2}{\Delta V}
+\end{align*}
+si ha che, complessivamente, il sistema corrisponde ad un condensatore di capacità
+\begin{equation*}
+	C_{eq}=\frac{q_{tot}}{\Delta V}=\frac{q_1+q_2}{\Delta V}=\frac{q_1}{\Delta V}+\frac{q_2}{\Delta V}=C_1+C_2
+\end{equation*}
+\begin{equation}
+	C_{eq}=C_1+C_2
+\end{equation}
+Nel caso generale di $n$ condensatori in parallelo:
+\begin{equation}
+	C_{eq}=\sum_{i=1}^{n}C_i
 \end{equation}
 \section{Lavoro di carica di un condensatore ed energia immagazzinata nel condensatore} % TO DO: riguardare con il Mazzoldi
 Per creare una separazione di carica $q$ nel condensatore, ossia portare la carica $Q$ dalla piastra negativa alla piastra positiva (dal potenziale minore a quello maggiore), una fonte di energia esterna deve compiere un certo \textbf{lavoro} per oppore tale spostamento alla forza del campo elettrico, che la riporterebbe alla piastra originale. L'\textit{energia} $U$ che viene fornita sotto forma di lavoro $W$ incrementa il potenziale da $0$ fino ad avere una differenza di potenziale $\Delta V$, cioè corrisponde all'energia necessaria per creare partendo da armature scariche il \textit{campo elettrico}.
