@@ -169,3 +169,224 @@
 %	otteniamo così l'equazione delle onde che si propagano alla velocità $c$
 %		\frac{1}{c^2}\pdv[2]{\vba E}{t}-\laplacian\vba E=0
 %	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 27, 04/05/2022
+%CIT voi siete tutti criminali, perché zitti zitti non avete detto niente
+abbiamo constatato che la meccanica e  l'elettrodinamica non vanno d'accordo
+la meccanica infatti è covariante per gruppo a 10 parametri: traslazioni spazio temporali e trasformazione galileiane con velocità costante
+motivo evidente: velocità nelle equazioni esplicita che non c'è nelle equazioni di Newton
+forze in completa generalità come differenze di posizioni
+con manipolazioni semplici abbimao trovato le equazioni delle onde
+	\frac{1}{c^2}\pdv[2]{\vba E}{t}\laplacian \vba E=0
+propagazione onde elettromagnetiche nel vuoto alla velocità della luce
+ma in quale sistema di rifereimento si propagano alla velocità della luce?
+se fossero vere le galieiane la luce si propagherebbe avelocità c+v o c-v
+cosa succede a queste eqauzioni se facciamo una trasformazione gelileiana?
+	x\rightarrowx'=x-vt 
+	y\rightarrowy'=y
+	z\rightarrow '=z
+	t\rightarrowt'=t	sempre, incarnazione delle assunzioni filosofiche su spazio assoluto: tutti osservatori misurano lo stesso tempo
+	vedremo poi che non è vero
+alle coordinate sappiamo esattamente cosa fare, sono derivate
+	\pdv{x'}=(catena in 4 variabili)\pdv{x}{x'}\pdv{x}+\pdv{y}{x'}\pdv{y}+\pdv{z}{x'}\pdv{z}+\pdv{t}{x'}\pdv{t}=\pdv{x}
+	\pdv{t'}=\pdv{x}{t'}\pdv{x'}+\dots+\pdv{t}{t'}\pdv{t}=\pdv{t}+v\pdv{x}
+	
+abbiamo così che
+	x=x'+vt'
+abbiamo fatto una particolare trasformazione con una velocità nella direzione x
+tutte le eq sono fatte di vettori, se velocità fosse in direzione qualsiasi cosa dovrei fare?
+devo fare l'unica cosa vettoriale che si riduce in quella direzione
+	\pdv{t}+\vba v\vdot\grad (prodotto scalare)
+possiamo scrivere subito in quel sistema di riferimento con v_x\vdot\pdv{x}
+diventa
+	\pdv[2]{t}\rightarrow \left( \pdv{t'}-v\vdot\grad '\right) \left(\pdv{t'}-\vba v\vdot \grad '\right)=
+ricordiamo che stiamo agendo su un elemento
+	=\pdv[2]{t'}-\pdv{t'}\right[\vba v\vdot\grad '\left]-\vba v\vdot\grad '\pdv{t'}+(v\vdot\grad)^2
+
+	\frac{1}{c^2}\pdv[2]{\vba E}{t}\laplacian \vba E=0 \rightarrow \frac{1}c^2 \left(\pdv[2]{\vba E}{t'} -2v\vdot\grad '\pdv{E}{t'} +(\vba v\vdot\grad ')^2 \vba E \right) -\laplacian\vba E=0
+l'equazione non è invariante in forma, tutto dipende dalla velocità del sistema di riferimento su cui mi sto spostando
+c'è una sottigliezza: abbimao fatto un'ipotesi: ho trasformato coordinate ma non il campo elettrico, cioè $\vba E=\vba E'$, ma se avessi fatto una rotazione avrei dovuto ruotare il vettore $\vba E$
+sembra un'ipotesi sensata perché è un vettore nella rappresentazione fondamentale di SO3 e galileianamente mi aspetto sia così perchè non vede il tempo
+la soluzione che troveremo sarà un cambiamento dei campi elettrici che si mescoleranno con i cmapi magnetici
+galileianamente mi aspetto che si comportino come 3 funzioni scalari 
+	f(x,y,z)=f'(x',y',z')
+l'equazione che comanda il cambio di coordinate per funzione scalare fornisce lo stesso numero
+ad esempio in una stanza in ogni punto c'è un numero scalare che vale qualche cosa
+le coordinate possono essere diverse ma nello stesso punto fisico c'è associato lo stesso numero scalare
+non è vero però per un cmapo vettoriale, avrei una matrice di rotazione davanti, una legge di trasformazione dentro ed una fuori
+
+
+perché sono stati 40 anni sereni su questo fatto?
+tutte le onde che erano state viste erano propagate in un mezzo, la velocità nell'onda nel mezzo statico
+qunidi l'universo deve essere pieno di un mezzo in cui la luce si propaga
+sistema dell'etere in cui è fermo è sistema dell'universo e poi si trasforma in altri sistemi
+c'è l'etere che deve essere evanescente e di essere la roba che vibra per far propagare le onde elettromagnetiche
+analogo al contemporaneo materia oscura ed energia oscura
+
+vediamo ora un paio di esperimenti fatti prima del 1905, con esiti che suggerivano che il quadro di sistema di riferimento dell'etere era problematico
+%NB: ho meesso un environment a caso per gli esperimenti, non so se ha senso implementarlo tho
+\begin{experiment}[Michelson Morley]
+	Scopo: rilevare il moto della Terra attraverso l'etere
+	Se l'etere è fermo, qualsiasi orientazione dell'eclittica la velocità della luce sarà diversa, ma di quanto?
+%TODO: IMMAGINE
+	avremmo un effetto Doppler sulle frequenze delle onde della luce, qunidi vedremmo più rosso o blu
+	il raggio della Terra è 150*10^6km, il numero di secondi in un anno è vicino a \pi*10^7 vogliamo la velocità della Terra
+		\abs{\vba v}\sim \frac{150*10^6 km 2\pi}{\pi 10^7}\sim 30\frac{km}{sec}
+		\frac{v}{c}=\beta\sim 10^{-4}
+	per misurare con questa precisione serve un \textit{interferometro}
+	esso è costituito da specchi e una sorgente luminosa (lampadina ad incandescenza) ed un punto di osservazione rappresentata da cannocchiale (in realtà la lampadina dovrà essere monocromatico)
+	il primo specchio è split, è semitrasparente, una parte del fascio va contro S_1, sbatte e torna indietro, 'altra metà è riflessa dallo specchio S_2 e torna al cannocchiale, quindi ho ricomposto il fascio di luce
+	in generale i bracci L_1 ed L_2 hanno sempre lunghezze diverse per il livello di precisione richiesto
+	inrealtà l'esperimento viene fatto in tutti i i modi possibili e poi viene fatta una media per avere i risultati
+	immaginiamo di essere nella situazione ottimale per cui la Terra si sta muovendo attraverso l'etere e dopo 6 mesi torniamo con velocità -\vba v
+	abbiamo che LC e CO sono in comune, quindi non c'è differenza di cammino ottico che li riguardi
+	vediamo cosa succede in CS_2 nel sistema di laboratorio, quindi sulla Terra
+		siamo in movimento rispetto all'etere, la velocità che si vede è c-v, qunidi quanto tempo ci impiega a fare avanti e indietro?
+			CS_2C\colon t_2= L_2\left( \frac{1*{c-v}+\frac{1}{c+v} \right)= \frac{2cL_2}{c^2-v^2}= \frac{2L_2}{c}\frac{1}{1-\beta^2} \text{ con } \beta=\frac{v}{c}
+	vediamo cosa succede quando la luce va contro lo specchio S_1, viene meglio fatto nel sistema dell'etere, posso farlo perchè $t=t'$
+%TOD: IMMAGINE
+	quando arriva su S_1 è passato un po' di tempo, per l'etere il raggio luminoso è diagonale, è metà del tempo che stiamo cercando di misurare
+	L si trova con il potente strumwnt matematico che è il teorema di Pitagora, L distanza percorsa dalla luce in t_1/2, nell'etere la luce va a velocità c
+		L=\sqrt{L_1^2+\frac{v^2t_1^2}{4}}= 	c\frac{t_1}{2}
+	considerando
+		CS_1C\colon \frac{t_1^2}{4}(c^2-v^2)=L_1^2
+		\implies t_1=\frac{2L_1}{c}\frac{1}{\sqrt{1-\beta^2}}
+	i due tempi sono quindi diversi
+	prendiamo il cao semplice L_1=L_2
+		\frac{t_1}{t_2}=\sqrt{1-\beta^2} <1
+	le dimensioni dell'effetto si misurano con lo sviluppo di Taylor
+		\sqrt{1-\beta^2}\sim 1-\frac{\beta^2}{2}+O(\beta^4)
+	cioè \beta^2/2 con O(10^{-8})
+	lo facciamo in tutti i modi possibili: cambio laboratorio, posizione spaziale, estate, inverno
+	ma quanto predetto non succede!
+	abbiamo in realtà t_1\sim t_2
+	qunidi non si riesce a vedere l'effetto dell'etere, o meglio del nostro movimento rispetto ad esso
+	si sono così inventati delle spiegazioni: trascinamento parziale dell'etere come le mosche du una nave, ma sorgono problemi: attrito, definizione eterea contraddittoria
+	era quello a cui si rifereiva lord Kelvin: il moto attraverso l'etere
+		
+\end{experiment}
+
+\begin{experiment}[Aberrazione della luce stellare]
+%TODO: IMMAGINE	
+	la stella manda una luce con una certa velocità, stelle fisse da DAnte
+	se ci muoviamo con una velocità, nel nostro sistema di riferimento non la vediamo così
+	nel punto $A$ vediamo noi come osservatori, sistema in cu iA è fermo, vediamo la stella muoversi con velocità -v, dobbiamo comporre le vlocità vettorialmente, quindi deve esserci c'
+	in $B$ succede l'opposto, vedo la stella che va avanti (effetto ciclista)
+	mentre la Terra gira nell'orbiat dell'eclittica, tutte le stelle descrivono delle ellissi nel cielo tolti tutti gli altri movimenti
+	effetto detto aberrazione della luce stellare
+	il problema è che non lo fa come predetto dal modello
+	
+	presa una sorgente di luce qualisasi, una sistema di riferimento $\mathcal{S}$, il raggio di luce arriva e forma un angolo $\theta$ con l'asse $x$
+	se simo invece in un sistema di riferimento $\mathcal{S'}$ in movimento di velocità v, la stella $S$ non la vediamo più nello stesso posto: in A e B vediamo la stella spostata
+	stiamo immaginando luce che arriv anell'orginie, sistemi che coincidono in quel'istante lì
+	quindi in $\mathcal{S}$
+		c_x=-c\cos\theta
+		c_y=-c\sin\theta
+	invece in \mathcal{S}' dobbiamo comporre le velocità
+		c'_x=-c\cos\theta-v		abbiamo usato regola di composizione delle velocità galieliane= -c\cos\theta'
+		c'_y=-c\sin\theta=-c\sin\theta'
+	la relazione fra \theta' e \theta dipende dalle trasformazioni galileiane in teoria
+		\tan\theta'=\frac{\sin\theta'}{\cos\theta'}=\frac{c_y'}{c_x'}=\frac{\sin\theta}{\cos\theta +\beta}
+	questo ci dice che $\tan\theta'<\tan\theta$
+	
+	è un fenomeno noto da secoli dal cannocchiale, il risultato però è sbagliato!
+	in realtà ci sono correzioni dell'ordine di O(\beta^2)
+	sviluppando in serie di Taylor è lineare nella velocità della Terra
+	
+	
+\end{experiment}
+
+
+\begin{experiment}[Velocità della luce in un mezzo in moto di Fizeau, 1850]
+	abbiamo n tubo d'acqua con sorgente e rilevatore messo su un treno, ci aspttiamo che la velocità del treno venga sottratta
+	la vleocità nel mezzo è la vloeictà della luce nel vuto sull'indice di rifrazione del mezzo n
+		v_n=\frac{c}{n}
+	nel caso galieliano (moto del sistema con velocità $u$) ci aspettiamo che 
+		v'=v_n+u=\frac{c}{n}+u
+	in realtà però non succede, i dati seguono la tendenza
+		v'_n=\frac{c}{n}+u\left(1-\frac{1}{n^2}\right)
+	questo fattore è detto $k$, \textit{coefficiente di trascinamento dell'etere}
+	il problema era cercare di capire l'interazione dei corpi materiali con l'etere, che era solo teorico
+	
+\end{experiment}
+
+l'etere era solo una piccola modificazione necessaria in un sistema in cui funzionava tutto
+
+si risolve tutto ponendo la velocità della luce uguale in tutti i sistemi di riferimento
+\begin{experiment}[Decadimento di pioni in volo, circa 1960]
+	succede tutto in un acceleratore id particelle, i pioni appartengono ad una categoria di particelle dette \textit{mesoni}, che contengono 2 quark a carica up o down
+		\pi^+ \sim u\vba d
+		\pi^-\sim\vba ud
+		\pi^0\simu\vba u+d\vba d
+	\pi^0 decade in una coppia di fotoni, cioè
+		\pi^0\rightarrow\gamma+\gamma
+	il pione decade in un tempo di 10^{-16} secondi. Facendoli andare più veloce per noi vivono più tempo
+	se è fermo l'impulso è conservato, quindi i fotoni che vanno alla velocità della luce succede
+%TODO: IMMAGINE
+	però noi stiamo lavorando in un acceleratore di particelle, quindi c'è il sistema del laboratorio per cui \pi^0 va molto veloce con velocità v_\pi
+	quando decade abbiamo
+%TODO: IMMAGINE
+	con gelileiana ci aspettiamo che i fotoni abbiano velocità c+\v_\pi e c-v_\pi
+	con molta accuratezza però si è trovato che anche quando v_\pi\sim c il fotone che è stato sparato va sempre a velocità c, non importa cosa sta facendo il pione	
+	quindi non è vero quando predetto da Galileo, cioè che il vettore sparato a velocità abbia velocità 2c e no sempre c
+	
+\end{experiment}
+
+andremo a vedere come questo distrugga la nostra intuizione
+quindi il giocattolo è rotto, che si fa?
+
+si riguardano i postulati della relatività galileiana vanno riguardati
+il problema di chiamarli postulati è che sono suggeriti dai dati sperimentali per usarli come fondamento logico
+
+nella relatività galileiana c'erano due affermazioni mescolate
+RG
+	\item	 le leggi fisiche assumono la stessa forma, cioè sono invarianti o covarianti, in tutti i sistemi di riferimento inerziali SRI
+	\item	 le regole di trasformazione tra SRI sono le trasformazioni di Galileo
+
+Con Maxwell non funziona, cosa si rompe?
+abbiamo due possibilità
+	\item	a è falso, l'etere falsifica a, oppure è ristretto alla meccanica (è un'arringa rossa, una falsa via d'uscita perché non sono due cose separate)
+	quindi esiste un SRI privilegiato, quello dell'etere in cui la velocità della luce è c
+	\item	a è vero anche per l'elettrodinamica, quindi b è falso
+	cioè non esiste il moto assoluto: non posso vedere se sono fermo o in moto rettilineo uniforme: come su una nave o astronave facendo esperimenti senza accelerazioni, quindi il passo logico è dire che la differenza SRI non ha senso perché sono tutti equivalenti
+	
+l'evidenza sperimentale favorisce la soluzione 2
+
+Allora la teoria della relatività ristretta indicata con RR accetta che i sistemi inerziali siano tutti equivalenti
+	\item	 le leggi fisiche assumono la stessa forma in tutti i SRI
+	\item	la velocità della luce è una costante universale che ha lo stesso valore in tutti i SRI ( da esperimento sui pioni)
+una possibile conseguenza è che ci aspettiamo che le equazioni di Maxwell sono corrette! Sono giuste così come sono scritte, non è strano che compaia $c$ perché non dipende dal sistema di riferimento
+allora però la velocità non è a posto, perché il gruppo di trasformazioni è quello sbagliato
+quindi la meccanica newtoniana deve essere modificata sia in termini pratici
+deve comunque restare una buona approssimazione per $\beta\rightarrow 0$
+
+ci tocca stabilire quali sono le trasformazioni, trovarne le regole e riscrivere la meccanica
+come bonus dovremo riscrivere le equazioni di Maxwell, riscritte in modo bellissimo
+
+
+
+
+\subsection{Relatività della simultaneità}
+cambiando sistema di riferimento cambia anche il tempo
+dati due eventi tali che $t_1=t_2$ nel sistema di riferimento $\mathcal{S}$ si ha $t'_1\neq t'_2$ in $\mathcal{S}'$ e vale anche il viceversa
+%TODO: IMMAGINE
+esattamente in mezzo ad un autobus mettiamo una lampadina e due specchi S_1 ed S_2
+per l'osservatore sull'autobus i due eventi sono simultanei perché i fotoni arrivano insieme
+questo quando tl'autobus è fermo
+se invece lo facciamo partire con una velocità $v$ ed osserviamo dalla stazione
+la luce viene accesa esattamente davanti a noi e anche per me che sono in stazione la luce continua ad andare a velocità $c$
+	t_1'<t'_2	lo specchio sta andando addosso alla luce
+	
+in un sistema galileiano funzione perché vediamo fotoni a velocità diverse
+
+
+
+
+
+
+
+
+
+
+
