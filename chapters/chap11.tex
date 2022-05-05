@@ -382,6 +382,240 @@ in un sistema galileiano funzione perché vediamo fotoni a velocità diverse
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 28, 05/05/2022
+
+ieri abbiamo visto dei risultati sperimentali per cui si è giunti alla conclusione che la velocità della luce è universale e non dipende dalla velocità della sorgente, il che è controintuitivo: non è propriamente un paradosso ma una complicazione
+
+la misurazione della velocità della luce è così precisa che la utilizziamo per definire altre unità di misura
+	c=299792458 m/sec esattamente
+un metro è la distanza percorsa dalla luce in 1/c secondi
+volendo possiamo anche cambiare unità di misura, per cui viene la forte tentazione poco pratica di usare un sistema "naturale" per cui $c=1$, usando come unità di misura il secondo-luce
+siccome in questo sistema mi libero di $c$
+in fisica delle alte energie è invece il tipico sistema che si adotta
+un'altra costante fondamentale in natura è la $h$ o $\hslash$, un'unità di azione (energia per tempo). si è anche riusciti a definire il kg grazie ad h
+il sistema di unità naturali per h è $\hslash$=1
+%TODO: cercare notazione per h tagliato: dovrebbe essere \hslash in AMS , bisogna vedere se compila
+
+per ragioni dimensionali spesso si moltiplica il tempo per la velocità della luce: prima erano separate, ora può cambiare anche il tempo, quindi per avere tutte coordinate spaziali moltiplico per $c$, che è una velocità assoluta
+abbiamo così una quadrupla di coordinate spaziali
+per contare partiamo da 0
+	x_0=ct
+	\{x_0,x_1,x_2,x_3\}=\{ct,x,y,z\}
+questo ha senso erchè ho una velocità assoluta che non dipende dal sistema inerziale
+
+per ordine mentale serve procedura operativa per ogni misurazione, ad esempio come sincronizziamo due orologi?
+
+%CIT: se dico che il treno arriva a quell'ora in realtà non è vero, perché è un treno ed arriva in ritardo	
+
+\subsection{Intervallo spazio-temporale}
+sono invarianti
+stiamo cercando cosa va a sostituire le trasformazioni di Galileo
+per definire due sistemi di riferimento che si muovono uno rispetto all'altro 
+assumiamo di poter ruotare rispetto agli assi per avere sempre l'asse $x$ come direzione del moto
+possiamo decidere origine delle coordinate e dei tempi: $t=t'=0$
+abbiamo utilizzato quelle che crediamo essere le covarianze del sistema
+%TODO: IMMAGINE
+prendiamo due sistemi di coordinate, in cui il secondo scorre rispetto al primo con una velocità $\vba v$ la scelta degli assi è fatta in modo che $\vba v=(v,0,0)$
+$t=t'=0$ quando $O=O'$, in quell'istante posso far partire un segnale che va alla velocità della luce: per il sistema di riferimento fermo il lampo ha un fronte d'onda sferico per cui il raggio della sfera è pari a $ct$
+quindi c'è un punto $P$ in cui il fronte d'onda arriva, nei due sistemi è $\vba r$ per $\mathcal{S}$ e $\vba r'$ per $\mathcal{S'}$
+siccome $c$ è la stessa si ha che
+	\abs{\vba r(t)}=ct
+	\abs{\vba r'(t')}=ct'
+cioè l'equazione del fronte d'onda nei due sistemi è che il modulo dei raggi è pari alla velocità della luce per il tempo
+
+passaggio da Galileo ad Einstein: si è spostato un primo
+per Galileo avremmo 
+	\abs{\vba r'}=c't
+perché il tempo era universale e non la velocità della luce
+
+tornando alla relatività ristretta, in \mathcal{S} l'equazione è
+	x^2+y^2+z^2=c^2t^2
+invece per \mathcal{S'}	
+	x'^2+y'^2+z'^2=c^2t'^2
+abbiamo due quantiità che sono 0
+	x^2+y^2+z^2-c^2t^2=0
+	x'^2+y'^2+z'^2-c^2t'^2=0
+abbiamo però fissato implicitamente l'origine dei tempi, altrimenti dovremmo lavorare con differenze
+esiste evidente generalizzazione per cui spazio e tempo sono intercomunicanti ci sono 4 coordinate da determinare: gli eventi fisici sono caratterizzati da quando e dove
+% dove ti diamo le prove prove
+è soggiacente il concetto di dimensionalità: numero di numeri che ti devo dare per trovare un punto
+
+evento A caratterizzato dalle coordinate
+	A\equiv \{x_A,y_A,z_A, ct_A\}
+	
+in diversi sistemi do diversi numeri
+definiamo un intervallo fra eventi \Delta s_{AB} 
+spesso però si usa 
+	\Delta s^2_{AB}=(\Delta s_{AB})^2\equiv c^2(t_A-t_B)^2-(x_A-x_B)^2-(y_A-y_B)^2-(z_A-z_B)^2
+per la definizione della metrica per lo spazio conta quale segno usiamo in
+	-x^2-y^2-z^2+c^2t^2=0
+	-x'^2-y'^2-z'^2+c^2t'^2=0
+questo ci dice che siccome $c=c'$, il fatto che 
+	\Delta s^2=0\Longleftrightarrow \Delta s'^2=0, \forall\mathcal{S,S'}
+%NB: non ricordo com'è l'implies doppio, forse \iff
+se è nullo in un sistema inerziale allora lo è per tutti gli altri, per qualsiasi sistema di riferimento
+sembra così nascere un'invarianza
+in realtà la condizione è più stringente sotto alcune ipotesi che abbiamo già assunto ma che ora espliciteremo
+	\Delta s^2=\Deltas'^2 , \forall\mathcal{S,S'}
+l'invarianza dipende dalle trasformazioni che considero, in questo caso da un sistema di coordinate all'altro. Per restringere le trasformazioni mettiamo le ipotesi che
+	\begin{itemize}
+		\item 	le trasformazioni fra SRI devono essere \texti{lineari}
+%CIT: *si arriva siri*: "I'm not sure about that". Magnea: "siri non conosce i sistemi di riferimento inerziali"
+		quindi		x'_k=\sum_{i=0}^3 A_{ki}(v) x_i
+		questo perchè voglio moti rettilinei uniformi in moti rettilinei uniformi, e questo succede solo sotto trasformazioni lineari, quindi definisco una classe di trasformazioni
+		\item	lo spazio è \textit{isotropo}: tutte e direzioni sono equivalenti, posso sempre scegliere una direzione per gli assi
+		\item	lo spazio ed il tempo sono \textit{omogenei}: è l'invarianza per traslazioni per spazio-tempo, non importa cosa chiamo origine. Attenzione però che bisogna spostare \textit{tutto} il sistema
+%CIT: omogeneo in questo senso, perchè un giorno si nasce ed un giorno si muore, queste sono le considerazioni filosofiche		
+	\end{itemize}
+%NB: ha messo un altro itemize, però non so se faccia parte delle ipotesi	
+	\item 	Per trasformazioni lineari che rispettano omogeneità ed isotropia e $\Delta s=0\iff \Delta s'=0$
+		\Delta s^2=K(v) \Delta s'^2
+	questa è una condizione molto più forte: non ci sono più angoli, ma si parlano solo x e t: se K dipendesse dagli angoli dipenderebbe da y e z, quindi i coefficienti dovrebbero dipendere da x e la trasformazione non rispetterebbe più pe ipotesi
+	\item 	cambio di segni
+			\Delta s'^2=K(-v)\Delta s^2 \implies (sostituendo sopra ) K(v)K(-v)=1
+		però abbiamo anche la condizione che 
+%			K(0)=+1 \implies K(v)^2=1, ovvero K(v)=\pm 1
+%NB: ha fatto frecce a caso e si è confuso
+	quindi  \Delta s^2=\Delta s'^2 per qualsiasi trasformazione da \mathcal{S} a \mathcal{S'}
+	
+volendo potremmo fermarci: da un pov matematico tutto il resto segue 
+abbiamo per le mani un oggetto che è uno spazio vettoriale quadridimensionale: gli eventi sono caratterizzati da questi 4 numeri per uci posso fare combinazioni lineari
+su questo spazio vettoriali agisce set di trasformazioni lineari che lasciano invariata la forma quadratica
+come in \realset^3 le rotazioni lasciano invariato il prodotto scalare
+possiamo definire una metrica invariante per queste trasformazioni, che formano un gruppo (in \realset^3 è O(3))
+sono le \textit{trasformazioni di Lorentz} \index{trasformazioni!di Lorentz}\index{Lorentz!trasformazioni di}, cioè appartengono al gruppo O(1,3)
+abbiamo così esteso il gruppo di trasformazioni
+(rappresentazione matriciale di gruppi di Lie)
+abbiamo però una parametrizzazione esplicita in termini di velocità per poterci lavorare
+
+gruppo che preserva la metrica $\begin{pmatrix}
+	1 & & &\\
+	& -1 & & \\
+	& & -1 &\\
+	& & & -1
+\end{pmatrix}$
+
+\subsection{Trasformazioni di Lorentz}
+Storicamente Lorentz ci ha lavorato prima per vedere sotto quale gruppo fossero invarianti le leggi di Maxwell
+per determinare la matrice sfruttiamo le ipotesi che abbiamo già
+matematicamente è un ansatz: cosa che inventiamo per risolvere equazioni	
+abbiamo due sistemi di riferimento che scorrono uno rispetto all'altro, quindi limitiamo gli assi su cui non lavoriamo uguali, modulo una dilatazione
+	x'=Ax +Bt	B dimensioni di una velocità se A è numero puro
+	y'=Ey
+	z'=fz 	per isotropia dello spazio però E=F
+	ct'= Dct+ Gx	questo da ansatz simmetrico rispetto al primo
+NB: A,B,D,E,G dipendono da v
+
+per isotropia si ha E=1, infatti
+	y'=E(v)y \implies y=E(-v)y' \implies E(v)E(-v)=1 \implies E(v)^2=1 \implies E(v)=\pm 1; E(0)=1
+	
+per v\equiv 0 devo avere l'identità per v=0 devo ritrovare Galileo (?)
+lo scorrimento dei sistemi uno rispetto all'altro fa sì che l'orginie del sistema traslato h un moto ben preciso: visto da \mathcal{S} 
+	x'=0\impiles x=vt	
+quindi 
+	x'=Ax +Bt\implies x'=A(v)(x-vt) con A(0)=1
+	
+ci siamo così ridotti a 3 incognite nell'equazione \Delta s^2=\Delta s'^2, cioè
+	c^2t^2-x^2=c^2t'^2-x'^2==
+		x'=A(v)(x-vt)
+		ct'=D(v)ct+ E(v)x
+	== D^2 (ct)^2+G^2x^2+2DGctx- A^2 (x+(vt)^2-2xvt)
+%DOUBT: E=G per isotropia?
+compariamo i coefficienti in ==	
+	\begin{cases}
+		D^2 -\frac{v^2}{c^2}A^2=1\\
+		G^2-A^2=-1\\
+		DG+\frac{v}{c}A^2=0
+	\end{cases}
+la roba quartica si cancella e si ottiene
+	\implies \begin{cases}
+		D^2=1+\beta^2 A^2\\G^2=A^2-1\\
+		D^2G^2=\beta^2 A^4
+	\end{cases}
+abbiamo due modi per scrivere D^2G^2
+	D^2G^2=(1-\beta^2)A^2-1+\cancel{\beta^2A^4} \stackrel{!}{=} \cancel{\beta^2A^4}
+con (!) imposizione data da equazioni
+	A^2=\frac{1}{1-\beta^2} \implies A(v)=\frac{1}{\sqrt{1-\beta^2}}\equiv\gamma(v) con A(0)=1
+definendo così $\gamma$ che diventerà un parametro cruciale
+%DOUBT: come lo indicizziamo?
+da un'altra equazione
+	D^2=1+\beta^2\gamma^2=1+\frac{\beta^2}{1-\beta^2}=\frac{1}{1-\beta^2}
+	DG=-\beta A^2 \implies G=-\beta A=-\beta\gamma 
+	
+le trasformazioni di Lorentz hanno quindi la forma
+\begin{cases}
+	ct'=\mìgamma(ct-\beta x)\\
+	x'=\gamma (x-\beta ct)\\
+	y'=y\\
+	z'=z
+\end{cases}
+con \beta=\frac{v}{c}, \gamma=\frac{1}{\sqrt{1-\beta^2}}
+%CIT: passeremo il resto della lezione a guardarle in religioso silenzio
+per ordine basso di \beta devo ritrovare le trasformazioni di Galileo
+sviluppando \gamma al primo ordine abbiamo
+	\gamma\sim 1+\frac{\beta^2}{2}+o(\beta^4)
+per non avere c davanti scriviamo
+	\begin{cases}
+		t'=\gamma\left(t-\beta^2 \frac{x}{v}\right) \sim t er ordine di \beta^2, quindi al prim'ordine resta t\\
+		x'=x-vt
+	\end{cases}
+dal secondo ordine in poi abbiamo delle correzioni alle trasformazioni di Galileo
+\begin{observe}
+	\begin{enumerate}
+		\item 	TdL\rightarrow TdG, cioè Lorentz tende a Galileo per O(\beta), da O(\beta^2) in poi differiscono
+		\item 	0\leq\beta <1, 0\leq v<c per \beta>1, poi usciamo dai reali ed abbiamo \gamma=i\abs{\gamma}
+		stiamo così dicendo che la velocità della luce è una velocità limite: non hanno senso fisicamente le trasformazioni di Lorentz le velocità maggiori di c
+		anche se esistessero tachioni, che vanno più velocità della luce, non possiamo interagirvi
+		non è così strano perché anche nelle rotazioni abbiamo un range per \sin e \cos 
+		quello che va alla velocità della luce è un punto fisso per queste trasformazioni, cioè vanno sempre a velocità c in tutti i sistemi di riferimento
+		\item 	le TdL sono invertibili (menomale, perché sono un gruppo), poi scriveremo le inverse
+		la fisica ci aiuta: v\to -v, x\to x'
+		inversa
+		\begin{cases}
+			ct=\gamma(ct'+\beta x')\\
+			x=\gamma(x'+\beta ct')\\
+			y=y'\\
+			z=z'
+		\end{cases}
+		riscriviamo la stessa cosa come
+			\begin{cases}
+				x_0'=\gamma x_0-\beta\gamma x_1\\
+				x'_1=-\beta\gamma x_0 +\gamma x_1
+			\end{cases}
+			\begin{pmatrix}
+				x_0' \\ x_1'
+			\end{pmatrix}= \begin{pmatrix}
+			\gamma & -\gamma\beta\\ -\gamma\beta & \gamma 
+			\end{pmatrix} \begin{pmatriz}
+				x_0 \\ x_1
+			\end{pmatriz}\equiv 
+			det \Gamma=\gamma^2 -\gamm^2\beta^2=1
+			con \Gamma^{-1}=\begin{pmatrix}
+				\gamma & \gamma\beta \\ \gamma\beta & \gamma
+			\end{pmatrix}
+		verifichiamo che sia l'inversa:
+			\begin{pmatrix}
+				\gamma & -\gamma\beta\\ -\gamma\beta & \gamma 
+			\end{pmatrix} \begin{pmatrix}
+			\gamma & \gamma\beta \\ \gamma\beta & \gamma
+		\end{pmatrix} =\begin{pmatrix}
+			1 & 0\\ 0 & 1
+		\end{pmatrix}
+	\end{enumerate}
+\end{observe}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
