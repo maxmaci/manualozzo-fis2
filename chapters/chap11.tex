@@ -1,4 +1,4 @@
-% SVN info for this file
+ SVN info for this file
 \svnidlong
 {$HeadURL$}
 {$LastChangedDate$}
@@ -34,7 +34,7 @@
 %
 %1894 Michelson, sperimentale americano
 %	progresso solo nella precisione decimale
-%1900	Lord Kelvin, in realtà William Thomson, uno dei tre, si occupa di termodinamica e meccanica statistica, gli altri due sono JJ Thompson che corpre l'elettrone è una particella, George Thompson scopre l'elettrone ed è un'onda, padre e figlio
+%1900	Lord Kelvin, in realtà William Thomson, uno dei tre, si occupa di termodinamica e meccanica statistica, gli altri due sono JJ Thompson che scopre l'elettrone è una particella, George Thompson scopre l'elettrone ed è un'onda, padre e figlio
 %	soltanto due nuvole (problemi) sull'orizzonte della fisica teorica:
 %		moto della materia attraverso l'etere
 %		teorema di equipartizione in meccanica statistica
@@ -71,7 +71,7 @@
 %	
 %	Guardiamo le equazioni di Newton, la seconda legge, per un singolo punto materiale
 %		m\dv[2]{\vba r}{t}=\vba F \implies \vba r(t)
-%	cioè posso determinare $\vba r(t)$ questo perchè è equazione differenziale del secondo ordine, basta avere condizione iniziale
+%	cioè posso determinare $\vba r(t)$ questo perché è equazione differenziale del secondo ordine, basta avere condizione iniziale
 %	abbiamo così 3 equazioni
 %		la scelta dell'origine degli assi non fa variare le equazioni
 %			\vba r\rightarrow \vba r'=\vba r+\vba r_0
@@ -97,12 +97,12 @@
 %			\vba r\rightarrow \vba r'=R \vba r, R\in O(3)
 %%TODO: guardare comando per gruppo ortogonale
 %		cioè $R$ matrice ortogonale che ha 3 parametri 
-%		l'equazione non è invariata ma sappiamo come si trasforma, perchè stiamo lavorando come i vettori, che possiamo ruotare e sappiamo come fanno
+%		l'equazione non è invariata ma sappiamo come si trasforma, perché stiamo lavorando come i vettori, che possiamo ruotare e sappiamo come fanno
 %	\end{enumerate}
 %	Otteniamo così 
 %		\vba r'=R\vba r		\vba F'=R\vba F
 %		m\dv[2]{\vba r_i}{t}=\vba F'_i(\vba r_i'-\vba r_j')
-%	oltre che invarianz viene detta \textit{covarianza}
+%	oltre che invarianza viene detta \textit{covarianza}
 %	non rimangono le stessa ma si trasformano allo stesso modo
 %	è un modo intelligente di ridefinire un vettore dopo le frecce e coordinate, cioè sotto azione di rotazioni
 %	vettore è roba che sta nella rappresentazione fondamentale di $O(3)$
@@ -117,7 +117,7 @@
 %	è vero per lo stesso motivo di prima
 %		\vba r_i-\vba r_j=\vba r'_i-\vba r'_j
 %		\dv[2]{\vba r_i}{t}=\dv[2]{\vba r'_i}{t}
-%	questo funzione perchè la forza è proporzionale all'accelerazione, cioè la derivata seconda e non la prima come per Arisostele
+%	questo funzione perchè la forza è proporzionale all'accelerazione, cioè la derivata seconda e non la prima come per Aristotele
 %	
 %	Abbiamo così 10 parametri, che costituiscono il \textit{gruppo di Galileo}
 %	
@@ -154,7 +154,7 @@
 %		\curl\vba B-\frac{1}{c}\pdv{\vba E}{t}=\frac{4\pi}{c}\vba j	[Ampèere-Maxwell]
 %	la relatività galileiana non si applica a queste equazioni che contengono una velocità \textit{fissa} $c$
 %	possiamo provare a fare le trasformazioni galileiana, vengono equazioni complicate che dipendono da $\vba v$
-%	problema messo sotto al tappeto per 30 anni perchè si cercava di risolverlo per onde meccaniche, le uniche che si riuscirono a concepire
+%	problema messo sotto al tappeto per 30 anni perché si cercava di risolverlo per onde meccaniche, le uniche che si riuscirono a concepire
 %%CIT: Hollywood se n'è accorta 10 anni fa che non c'è rumore nello spazio, finroa era tutto BOOM
 %%CIT: solo le onde elm lo percepiscono, e qui già capiamo che siamo nella fisica fantasmatica
 %	si cercava di risolvere tutto con l'etere, così leggero da essere percepito solo dalle onde elettromagnetiche, dunque le equazioni di Maxwell varrebbero solo per il sistema in cui l'etere è a riposo, che sarebbe il sistema di riferimento privilegiato
@@ -169,448 +169,656 @@
 %	otteniamo così l'equazione delle onde che si propagano alla velocità $c$
 %		\frac{1}{c^2}\pdv[2]{\vba E}{t}-\laplacian\vba E=0
 %	
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%LEZ 27, 04/05/2022
+%%CIT voi siete tutti criminali, perché zitti zitti non avete detto niente
+%abbiamo constatato che la meccanica e  l'elettrodinamica non vanno d'accordo
+%la meccanica infatti è covariante per gruppo a 10 parametri: traslazioni spazio temporali e trasformazione galileiane con velocità costante
+%motivo evidente: velocità nelle equazioni esplicita che non c'è nelle equazioni di Newton
+%forze in completa generalità come differenze di posizioni
+%con manipolazioni semplici abbiamo trovato le equazioni delle onde
+%	\frac{1}{c^2}\pdv[2]{\vba E}{t}\laplacian \vba E=0
+%propagazione onde elettromagnetiche nel vuoto alla velocità della luce
+%ma in quale sistema di riferimento si propagano alla velocità della luce?
+%se fossero vere le galileiane la luce si propagherebbe a velocità c+v o c-v
+%cosa succede a queste equazioni se facciamo una trasformazione gelileiana?
+%	x\rightarrowx'=x-vt 
+%	y\rightarrowy'=y
+%	z\rightarrow '=z
+%	t\rightarrowt'=t	sempre, incarnazione delle assunzioni filosofiche su spazio assoluto: tutti osservatori misurano lo stesso tempo
+%	vedremo poi che non è vero
+%alle coordinate sappiamo esattamente cosa fare, sono derivate
+%	\pdv{x'}=(catena in 4 variabili)\pdv{x}{x'}\pdv{x}+\pdv{y}{x'}\pdv{y}+\pdv{z}{x'}\pdv{z}+\pdv{t}{x'}\pdv{t}=\pdv{x}
+%	\pdv{t'}=\pdv{x}{t'}\pdv{x'}+\dots+\pdv{t}{t'}\pdv{t}=\pdv{t}+v\pdv{x}
+%	
+%abbiamo così che
+%	x=x'+vt'
+%abbiamo fatto una particolare trasformazione con una velocità nella direzione x
+%tutte le eq sono fatte di vettori, se velocità fosse in direzione qualsiasi cosa dovrei fare?
+%devo fare l'unica cosa vettoriale che si riduce in quella direzione
+%	\pdv{t}+\vba v\vdot\grad (prodotto scalare)
+%possiamo scrivere subito in quel sistema di riferimento con v_x\vdot\pdv{x}
+%diventa
+%	\pdv[2]{t}\rightarrow \left( \pdv{t'}-v\vdot\grad '\right) \left(\pdv{t'}-\vba v\vdot \grad '\right)=
+%ricordiamo che stiamo agendo su un elemento
+%	=\pdv[2]{t'}-\pdv{t'}\right[\vba v\vdot\grad '\left]-\vba v\vdot\grad '\pdv{t'}+(v\vdot\grad)^2
+%
+%	\frac{1}{c^2}\pdv[2]{\vba E}{t}\laplacian \vba E=0 \rightarrow \frac{1}c^2 \left(\pdv[2]{\vba E}{t'} -2v\vdot\grad '\pdv{E}{t'} +(\vba v\vdot\grad ')^2 \vba E \right) -\laplacian\vba E=0
+%l'equazione non è invariante in forma, tutto dipende dalla velocità del sistema di riferimento su cui mi sto spostando
+%c'è una sottigliezza: abbiamo fatto un'ipotesi: ho trasformato coordinate ma non il campo elettrico, cioè $\vba E=\vba E'$, ma se avessi fatto una rotazione avrei dovuto ruotare il vettore $\vba E$
+%sembra un'ipotesi sensata perché è un vettore nella rappresentazione fondamentale di SO3 e galileianamente mi aspetto sia così perché non vede il tempo
+%la soluzione che troveremo sarà un cambiamento dei campi elettrici che si mescoleranno con i campi magnetici
+%galileianamente mi aspetto che si comportino come 3 funzioni scalari 
+%	f(x,y,z)=f'(x',y',z')
+%l'equazione che comanda il cambio di coordinate per funzione scalare fornisce lo stesso numero
+%ad esempio in una stanza in ogni punto c'è un numero scalare che vale qualche cosa
+%le coordinate possono essere diverse ma nello stesso punto fisico c'è associato lo stesso numero scalare
+%non è vero però per un campo vettoriale, avrei una matrice di rotazione davanti, una legge di trasformazione dentro ed una fuori
+%
+%
+%perché sono stati 40 anni sereni su questo fatto?
+%tutte le onde che erano state viste erano propagate in un mezzo, la velocità nell'onda nel mezzo statico
+%quindi l'universo deve essere pieno di un mezzo in cui la luce si propaga
+%sistema dell'etere in cui è fermo è sistema dell'universo e poi si trasforma in altri sistemi
+%c'è l'etere che deve essere evanescente e di essere la roba che vibra per far propagare le onde elettromagnetiche
+%analogo al contemporaneo materia oscura ed energia oscura
+%
+%vediamo ora un paio di esperimenti fatti prima del 1905, con esiti che suggerivano che il quadro di sistema di riferimento dell'etere era problematico
+%%NB: ho meesso un environment a caso per gli esperimenti, non so se ha senso implementarlo tho
+%\begin{experiment}[Michelson Morley]
+%	Scopo: rilevare il moto della Terra attraverso l'etere
+%	Se l'etere è fermo, qualsiasi orientazione dell'eclittica la velocità della luce sarà diversa, ma di quanto?
+%%TODO: IMMAGINE
+%	avremmo un effetto Doppler sulle frequenze delle onde della luce, quindi vedremmo più rosso o blu
+%	il raggio della Terra è 150*10^6km, il numero di secondi in un anno è vicino a \pi*10^7 vogliamo la velocità della Terra
+%		\abs{\vba v}\sim \frac{150*10^6 km 2\pi}{\pi 10^7}\sim 30\frac{km}{sec}
+%		\frac{v}{c}=\beta\sim 10^{-4}
+%	per misurare con questa precisione serve un \textit{interferometro}
+%	esso è costituito da specchi e una sorgente luminosa (lampadina ad incandescenza) ed un punto di osservazione rappresentata da cannocchiale (in realtà la lampadina dovrà essere monocromatico)
+%	il primo specchio è split, è semitrasparente, una parte del fascio va contro S_1, sbatte e torna indietro, 'altra metà è riflessa dallo specchio S_2 e torna al cannocchiale, quindi ho ricomposto il fascio di luce
+%	in generale i bracci L_1 ed L_2 hanno sempre lunghezze diverse per il livello di precisione richiesto
+%	in realtà l'esperimento viene fatto in tutti i modi possibili e poi viene fatta una media per avere i risultati
+%	immaginiamo di essere nella situazione ottimale per cui la Terra si sta muovendo attraverso l'etere e dopo 6 mesi torniamo con velocità -\vba v
+%	abbiamo che LC e CO sono in comune, quindi non c'è differenza di cammino ottico che li riguardi
+%	vediamo cosa succede in CS_2 nel sistema di laboratorio, quindi sulla Terra
+%		siamo in movimento rispetto all'etere, la velocità che si vede è c-v, quindi quanto tempo ci impiega a fare avanti e indietro?
+%			CS_2C\colon t_2= L_2\left( \frac{1*{c-v}+\frac{1}{c+v} \right)= \frac{2cL_2}{c^2-v^2}= \frac{2L_2}{c}\frac{1}{1-\beta^2} \text{ con } \beta=\frac{v}{c}
+%	vediamo cosa succede quando la luce va contro lo specchio S_1, viene meglio fatto nel sistema dell'etere, posso farlo perchè $t=t'$
+%%TOD: IMMAGINE
+%	quando arriva su S_1 è passato un po' di tempo, per l'etere il raggio luminoso è diagonale, è metà del tempo che stiamo cercando di misurare
+%	L si trova con il potente strumwnt matematico che è il teorema di Pitagora, L distanza percorsa dalla luce in t_1/2, nell'etere la luce va a velocità c
+%		L=\sqrt{L_1^2+\frac{v^2t_1^2}{4}}= 	c\frac{t_1}{2}
+%	considerando
+%		CS_1C\colon \frac{t_1^2}{4}(c^2-v^2)=L_1^2
+%		\implies t_1=\frac{2L_1}{c}\frac{1}{\sqrt{1-\beta^2}}
+%	i due tempi sono quindi diversi
+%	prendiamo il cao semplice L_1=L_2
+%		\frac{t_1}{t_2}=\sqrt{1-\beta^2} <1
+%	le dimensioni dell'effetto si misurano con lo sviluppo di Taylor
+%		\sqrt{1-\beta^2}\sim 1-\frac{\beta^2}{2}+O(\beta^4)
+%	cioè \beta^2/2 con O(10^{-8})
+%	lo facciamo in tutti i modi possibili: cambio laboratorio, posizione spaziale, estate, inverno
+%	ma quanto predetto non succede!
+%	abbiamo in realtà t_1\sim t_2
+%	qunidi non si riesce a vedere l'effetto dell'etere, o meglio del nostro movimento rispetto ad esso
+%	si sono così inventati delle spiegazioni: trascinamento parziale dell'etere come le mosche du una nave, ma sorgono problemi: attrito, definizione eterea contraddittoria
+%	era quello a cui si rifereiva lord Kelvin: il moto attraverso l'etere
+%		
+%\end{experiment}
+%
+%\begin{experiment}[Aberrazione della luce stellare]
+%%TODO: IMMAGINE	
+%	la stella manda una luce con una certa velocità, stelle fisse da DAnte
+%	se ci muoviamo con una velocità, nel nostro sistema di riferimento non la vediamo così
+%	nel punto $A$ vediamo noi come osservatori, sistema in cu iA è fermo, vediamo la stella muoversi con velocità -v, dobbiamo comporre le vlocità vettorialmente, quindi deve esserci c'
+%	in $B$ succede l'opposto, vedo la stella che va avanti (effetto sasso contro ciclista)
+%	mentre la Terra gira nell'orbiat dell'eclittica, tutte le stelle descrivono delle ellissi nel cielo tolti tutti gli altri movimenti
+%	effetto detto aberrazione della luce stellare
+%	il problema è che non lo fa come predetto dal modello
+%	
+%	presa una sorgente di luce qualsiasi, una sistema di riferimento $\mathcal{S}$, il raggio di luce arriva e forma un angolo $\theta$ con l'asse $x$
+%	se simo invece in un sistema di riferimento $\mathcal{S'}$ in movimento di velocità v, la stella $S$ non la vediamo più nello stesso posto: in A e B vediamo la stella spostata
+%	stiamo immaginando luce che arriva nell'origine, sistemi che coincidono in quel'istante lì
+%	quindi in $\mathcal{S}$
+%		c_x=-c\cos\theta
+%		c_y=-c\sin\theta
+%	invece in \mathcal{S}' dobbiamo comporre le velocità
+%		c'_x=-c\cos\theta-v		abbiamo usato regola di composizione delle velocità galileiane= -c\cos\theta'
+%		c'_y=-c\sin\theta=-c\sin\theta'
+%	la relazione fra \theta' e \theta dipende dalle trasformazioni galileiane in teoria
+%		\tan\theta'=\frac{\sin\theta'}{\cos\theta'}=\frac{c_y'}{c_x'}=\frac{\sin\theta}{\cos\theta +\beta}
+%	questo ci dice che $\tan\theta'<\tan\theta$
+%	
+%	è un fenomeno noto da secoli dal cannocchiale, il risultato però è sbagliato!
+%	in realtà ci sono correzioni dell'ordine di O(\beta^2)
+%	sviluppando in serie di Taylor è lineare nella velocità della Terra
+%	
+%	
+%\end{experiment}
+%
+%
+%\begin{experiment}[Velocità della luce in un mezzo in moto di Fizeau, 1850]
+%	abbiamo n tubo d'acqua con sorgente e rilevatore messo su un treno, ci aspettiamo che la velocità del treno venga sottratta
+%	la velocità nel mezzo è la velocità della luce nel vuoto sull'indice di rifrazione del mezzo n
+%		v_n=\frac{c}{n}
+%	nel caso galieliano (moto del sistema con velocità $u$) ci aspettiamo che 
+%		v'=v_n+u=\frac{c}{n}+u
+%	in realtà però non succede, i dati seguono la tendenza
+%		v'_n=\frac{c}{n}+u\left(1-\frac{1}{n^2}\right)
+%	questo fattore è detto $k$, \textit{coefficiente di trascinamento dell'etere}
+%	il problema era cercare di capire l'interazione dei corpi materiali con l'etere, che era solo teorico
+%	
+%\end{experiment}
+%
+%l'etere era solo una piccola modificazione necessaria in un sistema in cui funzionava tutto
+%
+%si risolve tutto ponendo la velocità della luce uguale in tutti i sistemi di riferimento
+%\begin{experiment}[Decadimento di pioni in volo, circa 1960]
+%	succede tutto in un acceleratore id particelle, i pioni appartengono ad una categoria di particelle dette \textit{mesoni}, che contengono 2 quark a carica up o down
+%		\pi^+ \sim u\vba d
+%		\pi^-\sim\vba ud
+%		\pi^0\simu\vba u+d\vba d
+%	\pi^0 decade in una coppia di fotoni, cioè
+%		\pi^0\rightarrow\gamma+\gamma
+%	il pione decade in un tempo di 10^{-16} secondi. Facendoli andare più veloce per noi vivono più tempo
+%	se è fermo l'impulso è conservato, quindi i fotoni che vanno alla velocità della luce succede
+%%TODO: IMMAGINE
+%	però noi stiamo lavorando in un acceleratore di particelle, quindi c'è il sistema del laboratorio per cui \pi^0 va molto veloce con velocità v_\pi
+%	quando decade abbiamo
+%%TODO: IMMAGINE
+%	con gelileiana ci aspettiamo che i fotoni abbiano velocità c+\v_\pi e c-v_\pi
+%	con molta accuratezza però si è trovato che anche quando v_\pi\sim c il fotone che è stato sparato va sempre a velocità c, non importa cosa sta facendo il pione	
+%	quindi non è vero quando predetto da Galileo, cioè che il vettore sparato a velocità abbia velocità 2c e no sempre c
+%	
+%\end{experiment}
+%
+%andremo a vedere come questo distrugga la nostra intuizione
+%quindi il giocattolo è rotto, che si fa?
+%
+%si riguardano i postulati della relatività galileiana vanno riguardati
+%il problema di chiamarli postulati è che sono suggeriti dai dati sperimentali per usarli come fondamento logico
+%
+%nella relatività galileiana c'erano due affermazioni mescolate
+%RG
+%	\item	 le leggi fisiche assumono la stessa forma, cioè sono invarianti o covarianti, in tutti i sistemi di riferimento inerziali SRI
+%	\item	 le regole di trasformazione tra SRI sono le trasformazioni di Galileo
+%
+%Con Maxwell non funziona, cosa si rompe?
+%abbiamo due possibilità
+%	\item	a è falso, l'etere falsifica a, oppure è ristretto alla meccanica (è un'arringa rossa, una falsa via d'uscita perché non sono due cose separate)
+%	quindi esiste un SRI privilegiato, quello dell'etere in cui la velocità della luce è c
+%	\item	a è vero anche per l'elettrodinamica, quindi b è falso
+%	cioè non esiste il moto assoluto: non posso vedere se sono fermo o in moto rettilineo uniforme: come su una nave o astronave facendo esperimenti senza accelerazioni, quindi il passo logico è dire che la differenza SRI non ha senso perché sono tutti equivalenti
+%	
+%l'evidenza sperimentale favorisce la soluzione 2
+%
+%Allora la teoria della relatività ristretta indicata con RR accetta che i sistemi inerziali siano tutti equivalenti
+%	\item	 le leggi fisiche assumono la stessa forma in tutti i SRI
+%	\item	la velocità della luce è una costante universale che ha lo stesso valore in tutti i SRI ( da esperimento sui pioni)
+%una possibile conseguenza è che ci aspettiamo che le equazioni di Maxwell sono corrette! Sono giuste così come sono scritte, non è strano che compaia $c$ perché non dipende dal sistema di riferimento
+%allora però la velocità non è a posto, perché il gruppo di trasformazioni è quello sbagliato
+%quindi la meccanica newtoniana deve essere modificata sia in termini pratici
+%deve comunque restare una buona approssimazione per $\beta\rightarrow 0$
+%
+%ci tocca stabilire quali sono le trasformazioni, trovarne le regole e riscrivere la meccanica
+%come bonus dovremo riscrivere le equazioni di Maxwell, riscritte in modo bellissimo
+%
+%
+%
+%
+%\subsection{Relatività della simultaneità}
+%cambiando sistema di riferimento cambia anche il tempo
+%dati due eventi tali che $t_1=t_2$ nel sistema di riferimento $\mathcal{S}$ si ha $t'_1\neq t'_2$ in $\mathcal{S}'$ e vale anche il viceversa
+%%TODO: IMMAGINE
+%esattamente in mezzo ad un autobus mettiamo una lampadina e due specchi S_1 ed S_2
+%per l'osservatore sull'autobus i due eventi sono simultanei perché i fotoni arrivano insieme
+%questo quando tl'autobus è fermo
+%se invece lo facciamo partire con una velocità $v$ ed osserviamo dalla stazione
+%la luce viene accesa esattamente davanti a noi e anche per me che sono in stazione la luce continua ad andare a velocità $c$
+%	t_1'<t'_2	lo specchio sta andando addosso alla luce
+%	
+%in un sistema galileiano funzione perché vediamo fotoni a velocità diverse
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%LEZ 28, 05/05/2022
+%
+%ieri abbiamo visto dei risultati sperimentali per cui si è giunti alla conclusione che la velocità della luce è universale e non dipende dalla velocità della sorgente, il che è controintuitivo: non è propriamente un paradosso ma una complicazione
+%
+%la misurazione della velocità della luce è così precisa che la utilizziamo per definire altre unità di misura
+%	c=299792458 m/sec esattamente
+%un metro è la distanza percorsa dalla luce in 1/c secondi
+%volendo possiamo anche cambiare unità di misura, per cui viene la forte tentazione poco pratica di usare un sistema "naturale" per cui $c=1$, usando come unità di misura il secondo-luce
+%siccome in questo sistema mi libero di $c$
+%in fisica delle alte energie è invece il tipico sistema che si adotta
+%un'altra costante fondamentale in natura è la $h$ o $\hslash$, un'unità di azione (energia per tempo). si è anche riusciti a definire il kg grazie ad h
+%il sistema di unità naturali per h è $\hslash$=1
+%%TODO: cercare notazione per h tagliato: dovrebbe essere \hslash in AMS , bisogna vedere se compila
+%
+%per ragioni dimensionali spesso si moltiplica il tempo per la velocità della luce: prima erano separate, ora può cambiare anche il tempo, quindi per avere tutte coordinate spaziali moltiplico per $c$, che è una velocità assoluta
+%abbiamo così una quadrupla di coordinate spaziali
+%per contare partiamo da 0
+%	x_0=ct
+%	\{x_0,x_1,x_2,x_3\}=\{ct,x,y,z\}
+%questo ha senso erchè ho una velocità assoluta che non dipende dal sistema inerziale
+%
+%per ordine mentale serve procedura operativa per ogni misurazione, ad esempio come sincronizziamo due orologi?
+%
+%%CIT: se dico che il treno arriva a quell'ora in realtà non è vero, perché è un treno ed arriva in ritardo	
+%
+%\subsection{Intervallo spazio-temporale}
+%sono invarianti
+%stiamo cercando cosa va a sostituire le trasformazioni di Galileo
+%per definire due sistemi di riferimento che si muovono uno rispetto all'altro 
+%assumiamo di poter ruotare rispetto agli assi per avere sempre l'asse $x$ come direzione del moto
+%possiamo decidere origine delle coordinate e dei tempi: $t=t'=0$
+%abbiamo utilizzato quelle che crediamo essere le covarianze del sistema
+%%TODO: IMMAGINE
+%prendiamo due sistemi di coordinate, in cui il secondo scorre rispetto al primo con una velocità $\vba v$ la scelta degli assi è fatta in modo che $\vba v=(v,0,0)$
+%$t=t'=0$ quando $O=O'$, in quell'istante posso far partire un segnale che va alla velocità della luce: per il sistema di riferimento fermo il lampo ha un fronte d'onda sferico per cui il raggio della sfera è pari a $ct$
+%quindi c'è un punto $P$ in cui il fronte d'onda arriva, nei due sistemi è $\vba r$ per $\mathcal{S}$ e $\vba r'$ per $\mathcal{S'}$
+%siccome $c$ è la stessa si ha che
+%	\abs{\vba r(t)}=ct
+%	\abs{\vba r'(t')}=ct'
+%cioè l'equazione del fronte d'onda nei due sistemi è che il modulo dei raggi è pari alla velocità della luce per il tempo
+%
+%passaggio da Galileo ad Einstein: si è spostato un primo
+%per Galileo avremmo 
+%	\abs{\vba r'}=c't
+%perché il tempo era universale e non la velocità della luce
+%
+%tornando alla relatività ristretta, in \mathcal{S} l'equazione è
+%	x^2+y^2+z^2=c^2t^2
+%invece per \mathcal{S'}	
+%	x'^2+y'^2+z'^2=c^2t'^2
+%abbiamo due quantiità che sono 0
+%	x^2+y^2+z^2-c^2t^2=0
+%	x'^2+y'^2+z'^2-c^2t'^2=0
+%abbiamo però fissato implicitamente l'origine dei tempi, altrimenti dovremmo lavorare con differenze
+%esiste evidente generalizzazione per cui spazio e tempo sono intercomunicanti ci sono 4 coordinate da determinare: gli eventi fisici sono caratterizzati da quando e dove
+%% dove ti diamo le prove prove
+%è soggiacente il concetto di dimensionalità: numero di numeri che ti devo dare per trovare un punto
+%
+%evento A caratterizzato dalle coordinate
+%	A\equiv \{x_A,y_A,z_A, ct_A\}
+%	
+%in diversi sistemi do diversi numeri
+%definiamo un intervallo fra eventi \Delta s_{AB} 
+%spesso però si usa 
+%	\Delta s^2_{AB}=(\Delta s_{AB})^2\equiv c^2(t_A-t_B)^2-(x_A-x_B)^2-(y_A-y_B)^2-(z_A-z_B)^2
+%per la definizione della metrica per lo spazio conta quale segno usiamo in
+%	-x^2-y^2-z^2+c^2t^2=0
+%	-x'^2-y'^2-z'^2+c^2t'^2=0
+%questo ci dice che siccome $c=c'$, il fatto che 
+%	\Delta s^2=0\Longleftrightarrow \Delta s'^2=0, \forall\mathcal{S,S'}
+%%NB: non ricordo com'è l'implies doppio, forse \iff
+%se è nullo in un sistema inerziale allora lo è per tutti gli altri, per qualsiasi sistema di riferimento
+%sembra così nascere un'invarianza
+%in realtà la condizione è più stringente sotto alcune ipotesi che abbiamo già assunto ma che ora espliciteremo
+%	\Delta s^2=\Deltas'^2 , \forall\mathcal{S,S'}
+%l'invarianza dipende dalle trasformazioni che considero, in questo caso da un sistema di coordinate all'altro. Per restringere le trasformazioni mettiamo le ipotesi che
+%	\begin{itemize}
+%		\item 	le trasformazioni fra SRI devono essere \texti{lineari}
+%%CIT: *si arriva siri*: "I'm not sure about that". Magnea: "siri non conosce i sistemi di riferimento inerziali"
+%		quindi		x'_k=\sum_{i=0}^3 A_{ki}(v) x_i
+%		questo perché voglio moti rettilinei uniformi in moti rettilinei uniformi, e questo succede solo sotto trasformazioni lineari, quindi definisco una classe di trasformazioni
+%		\item	lo spazio è \textit{isotropo}: tutte e direzioni sono equivalenti, posso sempre scegliere una direzione per gli assi
+%		\item	lo spazio ed il tempo sono \textit{omogenei}: è l'invarianza per traslazioni per spazio-tempo, non importa cosa chiamo origine. Attenzione però che bisogna spostare \textit{tutto} il sistema
+%%CIT: omogeneo in questo senso, perchè un giorno si nasce ed un giorno si muore, queste sono le considerazioni filosofiche		
+%	\end{itemize}
+%%NB: ha messo un altro itemize, però non so se faccia parte delle ipotesi	
+%	\item 	Per trasformazioni lineari che rispettano omogeneità ed isotropia e $\Delta s=0\iff \Delta s'=0$
+%		\Delta s^2=K(v) \Delta s'^2
+%	questa è una condizione molto più forte: non ci sono più angoli, ma si parlano solo x e t: se K dipendesse dagli angoli dipenderebbe da y e z, quindi i coefficienti dovrebbero dipendere da x e la trasformazione non rispetterebbe più pe ipotesi
+%	\item 	cambio di segni
+%			\Delta s'^2=K(-v)\Delta s^2 \implies (sostituendo sopra ) K(v)K(-v)=1
+%		però abbiamo anche la condizione che 
+%%			K(0)=+1 \implies K(v)^2=1, ovvero K(v)=\pm 1
+%%NB: ha fatto frecce a caso e si è confuso
+%	quindi  \Delta s^2=\Delta s'^2 per qualsiasi trasformazione da \mathcal{S} a \mathcal{S'}
+%	
+%volendo potremmo fermarci: da un pov matematico tutto il resto segue 
+%abbiamo per le mani un oggetto che è uno spazio vettoriale quadridimensionale: gli eventi sono caratterizzati da questi 4 numeri per uci posso fare combinazioni lineari
+%su questo spazio vettoriali agisce set di trasformazioni lineari che lasciano invariata la forma quadratica
+%come in \realset^3 le rotazioni lasciano invariato il prodotto scalare
+%possiamo definire una metrica invariante per queste trasformazioni, che formano un gruppo (in \realset^3 è O(3))
+%sono le \textit{trasformazioni di Lorentz} \index{trasformazioni!di Lorentz}\index{Lorentz!trasformazioni di}, cioè appartengono al gruppo O(1,3)
+%abbiamo così esteso il gruppo di trasformazioni
+%(rappresentazione matriciale di gruppi di Lie)
+%abbiamo però una parametrizzazione esplicita in termini di velocità per poterci lavorare
+%
+%gruppo che preserva la metrica $\begin{pmatrix}
+%	1 & & &\\
+%	& -1 & & \\
+%	& & -1 &\\
+%	& & & -1
+%\end{pmatrix}$
+%
+%\subsection{Trasformazioni di Lorentz}
+%Storicamente Lorentz ci ha lavorato prima per vedere sotto quale gruppo fossero invarianti le leggi di Maxwell
+%per determinare la matrice sfruttiamo le ipotesi che abbiamo già
+%matematicamente è un ansatz: cosa che inventiamo per risolvere equazioni	
+%abbiamo due sistemi di riferimento che scorrono uno rispetto all'altro, quindi limitiamo gli assi su cui non lavoriamo uguali, modulo una dilatazione
+%	x'=Ax +Bt	B dimensioni di una velocità se A è numero puro
+%	y'=Ey
+%	z'=fz 	per isotropia dello spazio però E=F
+%	ct'= Dct+ Gx	questo da ansatz simmetrico rispetto al primo
+%NB: A,B,D,E,G dipendono da v
+%
+%per isotropia si ha E=1, infatti
+%	y'=E(v)y \implies y=E(-v)y' \implies E(v)E(-v)=1 \implies E(v)^2=1 \implies E(v)=\pm 1; E(0)=1
+%	
+%per v\equiv 0 devo avere l'identità per v=0 devo ritrovare Galileo (?)
+%lo scorrimento dei sistemi uno rispetto all'altro fa sì che l'orginie del sistema traslato h un moto ben preciso: visto da \mathcal{S} 
+%	x'=0\impiles x=vt	
+%quindi 
+%	x'=Ax +Bt\implies x'=A(v)(x-vt) con A(0)=1
+%	
+%ci siamo così ridotti a 3 incognite nell'equazione \Delta s^2=\Delta s'^2, cioè
+%	c^2t^2-x^2=c^2t'^2-x'^2==
+%		x'=A(v)(x-vt)
+%		ct'=D(v)ct+ E(v)x
+%	== D^2 (ct)^2+G^2x^2+2DGctx- A^2 (x+(vt)^2-2xvt)
+%%DOUBT: E=G per isotropia?
+%compariamo i coefficienti in ==	
+%	\begin{cases}
+%		D^2 -\frac{v^2}{c^2}A^2=1\\
+%		G^2-A^2=-1\\
+%		DG+\frac{v}{c}A^2=0
+%	\end{cases}
+%la roba quartica si cancella e si ottiene
+%	\implies \begin{cases}
+%		D^2=1+\beta^2 A^2\\G^2=A^2-1\\
+%		D^2G^2=\beta^2 A^4
+%	\end{cases}
+%abbiamo due modi per scrivere D^2G^2
+%	D^2G^2=(1-\beta^2)A^2-1+\cancel{\beta^2A^4} \stackrel{!}{=} \cancel{\beta^2A^4}
+%con (!) imposizione data da equazioni
+%	A^2=\frac{1}{1-\beta^2} \implies A(v)=\frac{1}{\sqrt{1-\beta^2}}\equiv\gamma(v) con A(0)=1
+%definendo così $\gamma$ che diventerà un parametro cruciale
+%%DOUBT: come lo indicizziamo?
+%da un'altra equazione
+%	D^2=1+\beta^2\gamma^2=1+\frac{\beta^2}{1-\beta^2}=\frac{1}{1-\beta^2}
+%	DG=-\beta A^2 \implies G=-\beta A=-\beta\gamma 
+%	
+%le trasformazioni di Lorentz hanno quindi la forma
+%\begin{cases}
+%	ct'=\mìgamma(ct-\beta x)\\
+%	x'=\gamma (x-\beta ct)\\
+%	y'=y\\
+%	z'=z
+%\end{cases}
+%con \beta=\frac{v}{c}, \gamma=\frac{1}{\sqrt{1-\beta^2}}
+%%CIT: passeremo il resto della lezione a guardarle in religioso silenzio
+%per ordine basso di \beta devo ritrovare le trasformazioni di Galileo
+%sviluppando \gamma al primo ordine abbiamo
+%	\gamma\sim 1+\frac{\beta^2}{2}+o(\beta^4)
+%per non avere c davanti scriviamo
+%	\begin{cases}
+%		t'=\gamma\left(t-\beta^2 \frac{x}{v}\right) \sim t er ordine di \beta^2, quindi al prim'ordine resta t\\
+%		x'=x-vt
+%	\end{cases}
+%dal secondo ordine in poi abbiamo delle correzioni alle trasformazioni di Galileo
+%\begin{observe}
+%	\begin{enumerate}
+%		\item 	TdL\rightarrow TdG, cioè Lorentz tende a Galileo per O(\beta), da O(\beta^2) in poi differiscono
+%		\item 	0\leq\beta <1, 0\leq v<c per \beta>1, poi usciamo dai reali ed abbiamo \gamma=i\abs{\gamma}
+%		stiamo così dicendo che la velocità della luce è una velocità limite: non hanno senso fisicamente le trasformazioni di Lorentz le velocità maggiori di c
+%		anche se esistessero tachioni, che vanno più velocità della luce, non possiamo interagirvi
+%		non è così strano perché anche nelle rotazioni abbiamo un range per \sin e \cos 
+%		quello che va alla velocità della luce è un punto fisso per queste trasformazioni, cioè vanno sempre a velocità c in tutti i sistemi di riferimento
+%		\item 	le TdL sono invertibili (menomale, perché sono un gruppo), poi scriveremo le inverse
+%		la fisica ci aiuta: v\to -v, x\to x'
+%		inversa
+%		\begin{cases}
+%			ct=\gamma(ct'+\beta x')\\
+%			x=\gamma(x'+\beta ct')\\
+%			y=y'\\
+%			z=z'
+%		\end{cases}
+%		riscriviamo la stessa cosa come
+%			\begin{cases}
+%				x_0'=\gamma x_0-\beta\gamma x_1\\
+%				x'_1=-\beta\gamma x_0 +\gamma x_1
+%			\end{cases}
+%			\begin{pmatrix}
+%				x_0' \\ x_1'
+%			\end{pmatrix}= \begin{pmatrix}
+%				\gamma & -\gamma\beta\\
+%				-\gamma\beta & \gamma 
+%			\end{pmatrix} \begin{pmatriz}
+%				x_0 \\ 
+%				x_1
+%			\end{pmatriz}\equiv 
+%			det \Gamma=\gamma^2 -\gamm^2\beta^2=1
+%			con \Gamma^{-1}=\begin{pmatrix}
+%				\gamma & \gamma\beta \\
+%				\gamma\beta & \gamma
+%			\end{pmatrix}
+%		verifichiamo che sia l'inversa:
+%			\begin{pmatrix}
+%				\gamma & -\gamma\beta\\
+%				-\gamma\beta & \gamma 
+%			\end{pmatrix} \begin{pmatrix}
+%				\gamma & \gamma\beta \\ 
+%				\gamma\beta & \gamma
+%		\end{pmatrix} =\begin{pmatrix}
+%			1 & 0\\
+%			0 & 1
+%		\end{pmatrix}
+%	\end{enumerate}
+%\end{observe}
+%
+%
+%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%LEZ 27, 04/05/2022
-%CIT voi siete tutti criminali, perché zitti zitti non avete detto niente
-abbiamo constatato che la meccanica e  l'elettrodinamica non vanno d'accordo
-la meccanica infatti è covariante per gruppo a 10 parametri: traslazioni spazio temporali e trasformazione galileiane con velocità costante
-motivo evidente: velocità nelle equazioni esplicita che non c'è nelle equazioni di Newton
-forze in completa generalità come differenze di posizioni
-con manipolazioni semplici abbimao trovato le equazioni delle onde
-	\frac{1}{c^2}\pdv[2]{\vba E}{t}\laplacian \vba E=0
-propagazione onde elettromagnetiche nel vuoto alla velocità della luce
-ma in quale sistema di rifereimento si propagano alla velocità della luce?
-se fossero vere le galieiane la luce si propagherebbe avelocità c+v o c-v
-cosa succede a queste eqauzioni se facciamo una trasformazione gelileiana?
-	x\rightarrowx'=x-vt 
-	y\rightarrowy'=y
-	z\rightarrow '=z
-	t\rightarrowt'=t	sempre, incarnazione delle assunzioni filosofiche su spazio assoluto: tutti osservatori misurano lo stesso tempo
-	vedremo poi che non è vero
-alle coordinate sappiamo esattamente cosa fare, sono derivate
-	\pdv{x'}=(catena in 4 variabili)\pdv{x}{x'}\pdv{x}+\pdv{y}{x'}\pdv{y}+\pdv{z}{x'}\pdv{z}+\pdv{t}{x'}\pdv{t}=\pdv{x}
-	\pdv{t'}=\pdv{x}{t'}\pdv{x'}+\dots+\pdv{t}{t'}\pdv{t}=\pdv{t}+v\pdv{x}
-	
-abbiamo così che
-	x=x'+vt'
-abbiamo fatto una particolare trasformazione con una velocità nella direzione x
-tutte le eq sono fatte di vettori, se velocità fosse in direzione qualsiasi cosa dovrei fare?
-devo fare l'unica cosa vettoriale che si riduce in quella direzione
-	\pdv{t}+\vba v\vdot\grad (prodotto scalare)
-possiamo scrivere subito in quel sistema di riferimento con v_x\vdot\pdv{x}
-diventa
-	\pdv[2]{t}\rightarrow \left( \pdv{t'}-v\vdot\grad '\right) \left(\pdv{t'}-\vba v\vdot \grad '\right)=
-ricordiamo che stiamo agendo su un elemento
-	=\pdv[2]{t'}-\pdv{t'}\right[\vba v\vdot\grad '\left]-\vba v\vdot\grad '\pdv{t'}+(v\vdot\grad)^2
 
-	\frac{1}{c^2}\pdv[2]{\vba E}{t}\laplacian \vba E=0 \rightarrow \frac{1}c^2 \left(\pdv[2]{\vba E}{t'} -2v\vdot\grad '\pdv{E}{t'} +(\vba v\vdot\grad ')^2 \vba E \right) -\laplacian\vba E=0
-l'equazione non è invariante in forma, tutto dipende dalla velocità del sistema di riferimento su cui mi sto spostando
-c'è una sottigliezza: abbimao fatto un'ipotesi: ho trasformato coordinate ma non il campo elettrico, cioè $\vba E=\vba E'$, ma se avessi fatto una rotazione avrei dovuto ruotare il vettore $\vba E$
-sembra un'ipotesi sensata perché è un vettore nella rappresentazione fondamentale di SO3 e galileianamente mi aspetto sia così perchè non vede il tempo
-la soluzione che troveremo sarà un cambiamento dei campi elettrici che si mescoleranno con i cmapi magnetici
-galileianamente mi aspetto che si comportino come 3 funzioni scalari 
-	f(x,y,z)=f'(x',y',z')
-l'equazione che comanda il cambio di coordinate per funzione scalare fornisce lo stesso numero
-ad esempio in una stanza in ogni punto c'è un numero scalare che vale qualche cosa
-le coordinate possono essere diverse ma nello stesso punto fisico c'è associato lo stesso numero scalare
-non è vero però per un cmapo vettoriale, avrei una matrice di rotazione davanti, una legge di trasformazione dentro ed una fuori
-
-
-perché sono stati 40 anni sereni su questo fatto?
-tutte le onde che erano state viste erano propagate in un mezzo, la velocità nell'onda nel mezzo statico
-qunidi l'universo deve essere pieno di un mezzo in cui la luce si propaga
-sistema dell'etere in cui è fermo è sistema dell'universo e poi si trasforma in altri sistemi
-c'è l'etere che deve essere evanescente e di essere la roba che vibra per far propagare le onde elettromagnetiche
-analogo al contemporaneo materia oscura ed energia oscura
-
-vediamo ora un paio di esperimenti fatti prima del 1905, con esiti che suggerivano che il quadro di sistema di riferimento dell'etere era problematico
-%NB: ho meesso un environment a caso per gli esperimenti, non so se ha senso implementarlo tho
-\begin{experiment}[Michelson Morley]
-	Scopo: rilevare il moto della Terra attraverso l'etere
-	Se l'etere è fermo, qualsiasi orientazione dell'eclittica la velocità della luce sarà diversa, ma di quanto?
-%TODO: IMMAGINE
-	avremmo un effetto Doppler sulle frequenze delle onde della luce, qunidi vedremmo più rosso o blu
-	il raggio della Terra è 150*10^6km, il numero di secondi in un anno è vicino a \pi*10^7 vogliamo la velocità della Terra
-		\abs{\vba v}\sim \frac{150*10^6 km 2\pi}{\pi 10^7}\sim 30\frac{km}{sec}
-		\frac{v}{c}=\beta\sim 10^{-4}
-	per misurare con questa precisione serve un \textit{interferometro}
-	esso è costituito da specchi e una sorgente luminosa (lampadina ad incandescenza) ed un punto di osservazione rappresentata da cannocchiale (in realtà la lampadina dovrà essere monocromatico)
-	il primo specchio è split, è semitrasparente, una parte del fascio va contro S_1, sbatte e torna indietro, 'altra metà è riflessa dallo specchio S_2 e torna al cannocchiale, quindi ho ricomposto il fascio di luce
-	in generale i bracci L_1 ed L_2 hanno sempre lunghezze diverse per il livello di precisione richiesto
-	inrealtà l'esperimento viene fatto in tutti i i modi possibili e poi viene fatta una media per avere i risultati
-	immaginiamo di essere nella situazione ottimale per cui la Terra si sta muovendo attraverso l'etere e dopo 6 mesi torniamo con velocità -\vba v
-	abbiamo che LC e CO sono in comune, quindi non c'è differenza di cammino ottico che li riguardi
-	vediamo cosa succede in CS_2 nel sistema di laboratorio, quindi sulla Terra
-		siamo in movimento rispetto all'etere, la velocità che si vede è c-v, qunidi quanto tempo ci impiega a fare avanti e indietro?
-			CS_2C\colon t_2= L_2\left( \frac{1*{c-v}+\frac{1}{c+v} \right)= \frac{2cL_2}{c^2-v^2}= \frac{2L_2}{c}\frac{1}{1-\beta^2} \text{ con } \beta=\frac{v}{c}
-	vediamo cosa succede quando la luce va contro lo specchio S_1, viene meglio fatto nel sistema dell'etere, posso farlo perchè $t=t'$
-%TOD: IMMAGINE
-	quando arriva su S_1 è passato un po' di tempo, per l'etere il raggio luminoso è diagonale, è metà del tempo che stiamo cercando di misurare
-	L si trova con il potente strumwnt matematico che è il teorema di Pitagora, L distanza percorsa dalla luce in t_1/2, nell'etere la luce va a velocità c
-		L=\sqrt{L_1^2+\frac{v^2t_1^2}{4}}= 	c\frac{t_1}{2}
-	considerando
-		CS_1C\colon \frac{t_1^2}{4}(c^2-v^2)=L_1^2
-		\implies t_1=\frac{2L_1}{c}\frac{1}{\sqrt{1-\beta^2}}
-	i due tempi sono quindi diversi
-	prendiamo il cao semplice L_1=L_2
-		\frac{t_1}{t_2}=\sqrt{1-\beta^2} <1
-	le dimensioni dell'effetto si misurano con lo sviluppo di Taylor
-		\sqrt{1-\beta^2}\sim 1-\frac{\beta^2}{2}+O(\beta^4)
-	cioè \beta^2/2 con O(10^{-8})
-	lo facciamo in tutti i modi possibili: cambio laboratorio, posizione spaziale, estate, inverno
-	ma quanto predetto non succede!
-	abbiamo in realtà t_1\sim t_2
-	qunidi non si riesce a vedere l'effetto dell'etere, o meglio del nostro movimento rispetto ad esso
-	si sono così inventati delle spiegazioni: trascinamento parziale dell'etere come le mosche du una nave, ma sorgono problemi: attrito, definizione eterea contraddittoria
-	era quello a cui si rifereiva lord Kelvin: il moto attraverso l'etere
-		
-\end{experiment}
-
-\begin{experiment}[Aberrazione della luce stellare]
-%TODO: IMMAGINE	
-	la stella manda una luce con una certa velocità, stelle fisse da DAnte
-	se ci muoviamo con una velocità, nel nostro sistema di riferimento non la vediamo così
-	nel punto $A$ vediamo noi come osservatori, sistema in cu iA è fermo, vediamo la stella muoversi con velocità -v, dobbiamo comporre le vlocità vettorialmente, quindi deve esserci c'
-	in $B$ succede l'opposto, vedo la stella che va avanti (effetto ciclista)
-	mentre la Terra gira nell'orbiat dell'eclittica, tutte le stelle descrivono delle ellissi nel cielo tolti tutti gli altri movimenti
-	effetto detto aberrazione della luce stellare
-	il problema è che non lo fa come predetto dal modello
-	
-	presa una sorgente di luce qualisasi, una sistema di riferimento $\mathcal{S}$, il raggio di luce arriva e forma un angolo $\theta$ con l'asse $x$
-	se simo invece in un sistema di riferimento $\mathcal{S'}$ in movimento di velocità v, la stella $S$ non la vediamo più nello stesso posto: in A e B vediamo la stella spostata
-	stiamo immaginando luce che arriv anell'orginie, sistemi che coincidono in quel'istante lì
-	quindi in $\mathcal{S}$
-		c_x=-c\cos\theta
-		c_y=-c\sin\theta
-	invece in \mathcal{S}' dobbiamo comporre le velocità
-		c'_x=-c\cos\theta-v		abbiamo usato regola di composizione delle velocità galieliane= -c\cos\theta'
-		c'_y=-c\sin\theta=-c\sin\theta'
-	la relazione fra \theta' e \theta dipende dalle trasformazioni galileiane in teoria
-		\tan\theta'=\frac{\sin\theta'}{\cos\theta'}=\frac{c_y'}{c_x'}=\frac{\sin\theta}{\cos\theta +\beta}
-	questo ci dice che $\tan\theta'<\tan\theta$
-	
-	è un fenomeno noto da secoli dal cannocchiale, il risultato però è sbagliato!
-	in realtà ci sono correzioni dell'ordine di O(\beta^2)
-	sviluppando in serie di Taylor è lineare nella velocità della Terra
-	
-	
-\end{experiment}
-
-
-\begin{experiment}[Velocità della luce in un mezzo in moto di Fizeau, 1850]
-	abbiamo n tubo d'acqua con sorgente e rilevatore messo su un treno, ci aspttiamo che la velocità del treno venga sottratta
-	la vleocità nel mezzo è la vloeictà della luce nel vuto sull'indice di rifrazione del mezzo n
-		v_n=\frac{c}{n}
-	nel caso galieliano (moto del sistema con velocità $u$) ci aspettiamo che 
-		v'=v_n+u=\frac{c}{n}+u
-	in realtà però non succede, i dati seguono la tendenza
-		v'_n=\frac{c}{n}+u\left(1-\frac{1}{n^2}\right)
-	questo fattore è detto $k$, \textit{coefficiente di trascinamento dell'etere}
-	il problema era cercare di capire l'interazione dei corpi materiali con l'etere, che era solo teorico
-	
-\end{experiment}
-
-l'etere era solo una piccola modificazione necessaria in un sistema in cui funzionava tutto
-
-si risolve tutto ponendo la velocità della luce uguale in tutti i sistemi di riferimento
-\begin{experiment}[Decadimento di pioni in volo, circa 1960]
-	succede tutto in un acceleratore id particelle, i pioni appartengono ad una categoria di particelle dette \textit{mesoni}, che contengono 2 quark a carica up o down
-		\pi^+ \sim u\vba d
-		\pi^-\sim\vba ud
-		\pi^0\simu\vba u+d\vba d
-	\pi^0 decade in una coppia di fotoni, cioè
-		\pi^0\rightarrow\gamma+\gamma
-	il pione decade in un tempo di 10^{-16} secondi. Facendoli andare più veloce per noi vivono più tempo
-	se è fermo l'impulso è conservato, quindi i fotoni che vanno alla velocità della luce succede
-%TODO: IMMAGINE
-	però noi stiamo lavorando in un acceleratore di particelle, quindi c'è il sistema del laboratorio per cui \pi^0 va molto veloce con velocità v_\pi
-	quando decade abbiamo
-%TODO: IMMAGINE
-	con gelileiana ci aspettiamo che i fotoni abbiano velocità c+\v_\pi e c-v_\pi
-	con molta accuratezza però si è trovato che anche quando v_\pi\sim c il fotone che è stato sparato va sempre a velocità c, non importa cosa sta facendo il pione	
-	quindi non è vero quando predetto da Galileo, cioè che il vettore sparato a velocità abbia velocità 2c e no sempre c
-	
-\end{experiment}
-
-andremo a vedere come questo distrugga la nostra intuizione
-quindi il giocattolo è rotto, che si fa?
-
-si riguardano i postulati della relatività galileiana vanno riguardati
-il problema di chiamarli postulati è che sono suggeriti dai dati sperimentali per usarli come fondamento logico
-
-nella relatività galileiana c'erano due affermazioni mescolate
-RG
-	\item	 le leggi fisiche assumono la stessa forma, cioè sono invarianti o covarianti, in tutti i sistemi di riferimento inerziali SRI
-	\item	 le regole di trasformazione tra SRI sono le trasformazioni di Galileo
-
-Con Maxwell non funziona, cosa si rompe?
-abbiamo due possibilità
-	\item	a è falso, l'etere falsifica a, oppure è ristretto alla meccanica (è un'arringa rossa, una falsa via d'uscita perché non sono due cose separate)
-	quindi esiste un SRI privilegiato, quello dell'etere in cui la velocità della luce è c
-	\item	a è vero anche per l'elettrodinamica, quindi b è falso
-	cioè non esiste il moto assoluto: non posso vedere se sono fermo o in moto rettilineo uniforme: come su una nave o astronave facendo esperimenti senza accelerazioni, quindi il passo logico è dire che la differenza SRI non ha senso perché sono tutti equivalenti
-	
-l'evidenza sperimentale favorisce la soluzione 2
-
-Allora la teoria della relatività ristretta indicata con RR accetta che i sistemi inerziali siano tutti equivalenti
-	\item	 le leggi fisiche assumono la stessa forma in tutti i SRI
-	\item	la velocità della luce è una costante universale che ha lo stesso valore in tutti i SRI ( da esperimento sui pioni)
-una possibile conseguenza è che ci aspettiamo che le equazioni di Maxwell sono corrette! Sono giuste così come sono scritte, non è strano che compaia $c$ perché non dipende dal sistema di riferimento
-allora però la velocità non è a posto, perché il gruppo di trasformazioni è quello sbagliato
-quindi la meccanica newtoniana deve essere modificata sia in termini pratici
-deve comunque restare una buona approssimazione per $\beta\rightarrow 0$
-
-ci tocca stabilire quali sono le trasformazioni, trovarne le regole e riscrivere la meccanica
-come bonus dovremo riscrivere le equazioni di Maxwell, riscritte in modo bellissimo
-
-
-
-
-\subsection{Relatività della simultaneità}
-cambiando sistema di riferimento cambia anche il tempo
-dati due eventi tali che $t_1=t_2$ nel sistema di riferimento $\mathcal{S}$ si ha $t'_1\neq t'_2$ in $\mathcal{S}'$ e vale anche il viceversa
-%TODO: IMMAGINE
-esattamente in mezzo ad un autobus mettiamo una lampadina e due specchi S_1 ed S_2
-per l'osservatore sull'autobus i due eventi sono simultanei perché i fotoni arrivano insieme
-questo quando tl'autobus è fermo
-se invece lo facciamo partire con una velocità $v$ ed osserviamo dalla stazione
-la luce viene accesa esattamente davanti a noi e anche per me che sono in stazione la luce continua ad andare a velocità $c$
-	t_1'<t'_2	lo specchio sta andando addosso alla luce
-	
-in un sistema galileiano funzione perché vediamo fotoni a velocità diverse
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%LEZ 28, 05/05/2022
-
-ieri abbiamo visto dei risultati sperimentali per cui si è giunti alla conclusione che la velocità della luce è universale e non dipende dalla velocità della sorgente, il che è controintuitivo: non è propriamente un paradosso ma una complicazione
-
-la misurazione della velocità della luce è così precisa che la utilizziamo per definire altre unità di misura
-	c=299792458 m/sec esattamente
-un metro è la distanza percorsa dalla luce in 1/c secondi
-volendo possiamo anche cambiare unità di misura, per cui viene la forte tentazione poco pratica di usare un sistema "naturale" per cui $c=1$, usando come unità di misura il secondo-luce
-siccome in questo sistema mi libero di $c$
-in fisica delle alte energie è invece il tipico sistema che si adotta
-un'altra costante fondamentale in natura è la $h$ o $\hslash$, un'unità di azione (energia per tempo). si è anche riusciti a definire il kg grazie ad h
-il sistema di unità naturali per h è $\hslash$=1
-%TODO: cercare notazione per h tagliato: dovrebbe essere \hslash in AMS , bisogna vedere se compila
-
-per ragioni dimensionali spesso si moltiplica il tempo per la velocità della luce: prima erano separate, ora può cambiare anche il tempo, quindi per avere tutte coordinate spaziali moltiplico per $c$, che è una velocità assoluta
-abbiamo così una quadrupla di coordinate spaziali
-per contare partiamo da 0
-	x_0=ct
-	\{x_0,x_1,x_2,x_3\}=\{ct,x,y,z\}
-questo ha senso erchè ho una velocità assoluta che non dipende dal sistema inerziale
-
-per ordine mentale serve procedura operativa per ogni misurazione, ad esempio come sincronizziamo due orologi?
-
-%CIT: se dico che il treno arriva a quell'ora in realtà non è vero, perché è un treno ed arriva in ritardo	
-
-\subsection{Intervallo spazio-temporale}
-sono invarianti
-stiamo cercando cosa va a sostituire le trasformazioni di Galileo
-per definire due sistemi di riferimento che si muovono uno rispetto all'altro 
-assumiamo di poter ruotare rispetto agli assi per avere sempre l'asse $x$ come direzione del moto
-possiamo decidere origine delle coordinate e dei tempi: $t=t'=0$
-abbiamo utilizzato quelle che crediamo essere le covarianze del sistema
-%TODO: IMMAGINE
-prendiamo due sistemi di coordinate, in cui il secondo scorre rispetto al primo con una velocità $\vba v$ la scelta degli assi è fatta in modo che $\vba v=(v,0,0)$
-$t=t'=0$ quando $O=O'$, in quell'istante posso far partire un segnale che va alla velocità della luce: per il sistema di riferimento fermo il lampo ha un fronte d'onda sferico per cui il raggio della sfera è pari a $ct$
-quindi c'è un punto $P$ in cui il fronte d'onda arriva, nei due sistemi è $\vba r$ per $\mathcal{S}$ e $\vba r'$ per $\mathcal{S'}$
-siccome $c$ è la stessa si ha che
-	\abs{\vba r(t)}=ct
-	\abs{\vba r'(t')}=ct'
-cioè l'equazione del fronte d'onda nei due sistemi è che il modulo dei raggi è pari alla velocità della luce per il tempo
-
-passaggio da Galileo ad Einstein: si è spostato un primo
-per Galileo avremmo 
-	\abs{\vba r'}=c't
-perché il tempo era universale e non la velocità della luce
-
-tornando alla relatività ristretta, in \mathcal{S} l'equazione è
-	x^2+y^2+z^2=c^2t^2
-invece per \mathcal{S'}	
-	x'^2+y'^2+z'^2=c^2t'^2
-abbiamo due quantiità che sono 0
-	x^2+y^2+z^2-c^2t^2=0
-	x'^2+y'^2+z'^2-c^2t'^2=0
-abbiamo però fissato implicitamente l'origine dei tempi, altrimenti dovremmo lavorare con differenze
-esiste evidente generalizzazione per cui spazio e tempo sono intercomunicanti ci sono 4 coordinate da determinare: gli eventi fisici sono caratterizzati da quando e dove
-% dove ti diamo le prove prove
-è soggiacente il concetto di dimensionalità: numero di numeri che ti devo dare per trovare un punto
-
-evento A caratterizzato dalle coordinate
-	A\equiv \{x_A,y_A,z_A, ct_A\}
-	
-in diversi sistemi do diversi numeri
-definiamo un intervallo fra eventi \Delta s_{AB} 
-spesso però si usa 
-	\Delta s^2_{AB}=(\Delta s_{AB})^2\equiv c^2(t_A-t_B)^2-(x_A-x_B)^2-(y_A-y_B)^2-(z_A-z_B)^2
-per la definizione della metrica per lo spazio conta quale segno usiamo in
-	-x^2-y^2-z^2+c^2t^2=0
-	-x'^2-y'^2-z'^2+c^2t'^2=0
-questo ci dice che siccome $c=c'$, il fatto che 
-	\Delta s^2=0\Longleftrightarrow \Delta s'^2=0, \forall\mathcal{S,S'}
-%NB: non ricordo com'è l'implies doppio, forse \iff
-se è nullo in un sistema inerziale allora lo è per tutti gli altri, per qualsiasi sistema di riferimento
-sembra così nascere un'invarianza
-in realtà la condizione è più stringente sotto alcune ipotesi che abbiamo già assunto ma che ora espliciteremo
-	\Delta s^2=\Deltas'^2 , \forall\mathcal{S,S'}
-l'invarianza dipende dalle trasformazioni che considero, in questo caso da un sistema di coordinate all'altro. Per restringere le trasformazioni mettiamo le ipotesi che
-	\begin{itemize}
-		\item 	le trasformazioni fra SRI devono essere \texti{lineari}
-%CIT: *si arriva siri*: "I'm not sure about that". Magnea: "siri non conosce i sistemi di riferimento inerziali"
-		quindi		x'_k=\sum_{i=0}^3 A_{ki}(v) x_i
-		questo perchè voglio moti rettilinei uniformi in moti rettilinei uniformi, e questo succede solo sotto trasformazioni lineari, quindi definisco una classe di trasformazioni
-		\item	lo spazio è \textit{isotropo}: tutte e direzioni sono equivalenti, posso sempre scegliere una direzione per gli assi
-		\item	lo spazio ed il tempo sono \textit{omogenei}: è l'invarianza per traslazioni per spazio-tempo, non importa cosa chiamo origine. Attenzione però che bisogna spostare \textit{tutto} il sistema
-%CIT: omogeneo in questo senso, perchè un giorno si nasce ed un giorno si muore, queste sono le considerazioni filosofiche		
-	\end{itemize}
-%NB: ha messo un altro itemize, però non so se faccia parte delle ipotesi	
-	\item 	Per trasformazioni lineari che rispettano omogeneità ed isotropia e $\Delta s=0\iff \Delta s'=0$
-		\Delta s^2=K(v) \Delta s'^2
-	questa è una condizione molto più forte: non ci sono più angoli, ma si parlano solo x e t: se K dipendesse dagli angoli dipenderebbe da y e z, quindi i coefficienti dovrebbero dipendere da x e la trasformazione non rispetterebbe più pe ipotesi
-	\item 	cambio di segni
-			\Delta s'^2=K(-v)\Delta s^2 \implies (sostituendo sopra ) K(v)K(-v)=1
-		però abbiamo anche la condizione che 
-%			K(0)=+1 \implies K(v)^2=1, ovvero K(v)=\pm 1
-%NB: ha fatto frecce a caso e si è confuso
-	quindi  \Delta s^2=\Delta s'^2 per qualsiasi trasformazione da \mathcal{S} a \mathcal{S'}
-	
-volendo potremmo fermarci: da un pov matematico tutto il resto segue 
-abbiamo per le mani un oggetto che è uno spazio vettoriale quadridimensionale: gli eventi sono caratterizzati da questi 4 numeri per uci posso fare combinazioni lineari
-su questo spazio vettoriali agisce set di trasformazioni lineari che lasciano invariata la forma quadratica
-come in \realset^3 le rotazioni lasciano invariato il prodotto scalare
-possiamo definire una metrica invariante per queste trasformazioni, che formano un gruppo (in \realset^3 è O(3))
-sono le \textit{trasformazioni di Lorentz} \index{trasformazioni!di Lorentz}\index{Lorentz!trasformazioni di}, cioè appartengono al gruppo O(1,3)
-abbiamo così esteso il gruppo di trasformazioni
-(rappresentazione matriciale di gruppi di Lie)
-abbiamo però una parametrizzazione esplicita in termini di velocità per poterci lavorare
-
-gruppo che preserva la metrica $\begin{pmatrix}
-	1 & & &\\
-	& -1 & & \\
-	& & -1 &\\
-	& & & -1
-\end{pmatrix}$
-
-\subsection{Trasformazioni di Lorentz}
-Storicamente Lorentz ci ha lavorato prima per vedere sotto quale gruppo fossero invarianti le leggi di Maxwell
-per determinare la matrice sfruttiamo le ipotesi che abbiamo già
-matematicamente è un ansatz: cosa che inventiamo per risolvere equazioni	
-abbiamo due sistemi di riferimento che scorrono uno rispetto all'altro, quindi limitiamo gli assi su cui non lavoriamo uguali, modulo una dilatazione
-	x'=Ax +Bt	B dimensioni di una velocità se A è numero puro
-	y'=Ey
-	z'=fz 	per isotropia dello spazio però E=F
-	ct'= Dct+ Gx	questo da ansatz simmetrico rispetto al primo
-NB: A,B,D,E,G dipendono da v
-
-per isotropia si ha E=1, infatti
-	y'=E(v)y \implies y=E(-v)y' \implies E(v)E(-v)=1 \implies E(v)^2=1 \implies E(v)=\pm 1; E(0)=1
-	
-per v\equiv 0 devo avere l'identità per v=0 devo ritrovare Galileo (?)
-lo scorrimento dei sistemi uno rispetto all'altro fa sì che l'orginie del sistema traslato h un moto ben preciso: visto da \mathcal{S} 
-	x'=0\impiles x=vt	
-quindi 
-	x'=Ax +Bt\implies x'=A(v)(x-vt) con A(0)=1
-	
-ci siamo così ridotti a 3 incognite nell'equazione \Delta s^2=\Delta s'^2, cioè
-	c^2t^2-x^2=c^2t'^2-x'^2==
-		x'=A(v)(x-vt)
-		ct'=D(v)ct+ E(v)x
-	== D^2 (ct)^2+G^2x^2+2DGctx- A^2 (x+(vt)^2-2xvt)
-%DOUBT: E=G per isotropia?
-compariamo i coefficienti in ==	
-	\begin{cases}
-		D^2 -\frac{v^2}{c^2}A^2=1\\
-		G^2-A^2=-1\\
-		DG+\frac{v}{c}A^2=0
-	\end{cases}
-la roba quartica si cancella e si ottiene
-	\implies \begin{cases}
-		D^2=1+\beta^2 A^2\\G^2=A^2-1\\
-		D^2G^2=\beta^2 A^4
-	\end{cases}
-abbiamo due modi per scrivere D^2G^2
-	D^2G^2=(1-\beta^2)A^2-1+\cancel{\beta^2A^4} \stackrel{!}{=} \cancel{\beta^2A^4}
-con (!) imposizione data da equazioni
-	A^2=\frac{1}{1-\beta^2} \implies A(v)=\frac{1}{\sqrt{1-\beta^2}}\equiv\gamma(v) con A(0)=1
-definendo così $\gamma$ che diventerà un parametro cruciale
-%DOUBT: come lo indicizziamo?
-da un'altra equazione
-	D^2=1+\beta^2\gamma^2=1+\frac{\beta^2}{1-\beta^2}=\frac{1}{1-\beta^2}
-	DG=-\beta A^2 \implies G=-\beta A=-\beta\gamma 
-	
-le trasformazioni di Lorentz hanno quindi la forma
-\begin{cases}
-	ct'=\mìgamma(ct-\beta x)\\
-	x'=\gamma (x-\beta ct)\\
-	y'=y\\
-	z'=z
-\end{cases}
-con \beta=\frac{v}{c}, \gamma=\frac{1}{\sqrt{1-\beta^2}}
-%CIT: passeremo il resto della lezione a guardarle in religioso silenzio
-per ordine basso di \beta devo ritrovare le trasformazioni di Galileo
-sviluppando \gamma al primo ordine abbiamo
-	\gamma\sim 1+\frac{\beta^2}{2}+o(\beta^4)
-per non avere c davanti scriviamo
-	\begin{cases}
-		t'=\gamma\left(t-\beta^2 \frac{x}{v}\right) \sim t er ordine di \beta^2, quindi al prim'ordine resta t\\
-		x'=x-vt
-	\end{cases}
-dal secondo ordine in poi abbiamo delle correzioni alle trasformazioni di Galileo
-\begin{observe}
-	\begin{enumerate}
-		\item 	TdL\rightarrow TdG, cioè Lorentz tende a Galileo per O(\beta), da O(\beta^2) in poi differiscono
-		\item 	0\leq\beta <1, 0\leq v<c per \beta>1, poi usciamo dai reali ed abbiamo \gamma=i\abs{\gamma}
-		stiamo così dicendo che la velocità della luce è una velocità limite: non hanno senso fisicamente le trasformazioni di Lorentz le velocità maggiori di c
-		anche se esistessero tachioni, che vanno più velocità della luce, non possiamo interagirvi
-		non è così strano perché anche nelle rotazioni abbiamo un range per \sin e \cos 
-		quello che va alla velocità della luce è un punto fisso per queste trasformazioni, cioè vanno sempre a velocità c in tutti i sistemi di riferimento
-		\item 	le TdL sono invertibili (menomale, perché sono un gruppo), poi scriveremo le inverse
-		la fisica ci aiuta: v\to -v, x\to x'
-		inversa
-		\begin{cases}
-			ct=\gamma(ct'+\beta x')\\
-			x=\gamma(x'+\beta ct')\\
-			y=y'\\
-			z=z'
-		\end{cases}
-		riscriviamo la stessa cosa come
-			\begin{cases}
-				x_0'=\gamma x_0-\beta\gamma x_1\\
-				x'_1=-\beta\gamma x_0 +\gamma x_1
-			\end{cases}
-			\begin{pmatrix}
-				x_0' \\ x_1'
-			\end{pmatrix}= \begin{pmatrix}
-			\gamma & -\gamma\beta\\ -\gamma\beta & \gamma 
-			\end{pmatrix} \begin{pmatriz}
-				x_0 \\ x_1
-			\end{pmatriz}\equiv 
-			det \Gamma=\gamma^2 -\gamm^2\beta^2=1
-			con \Gamma^{-1}=\begin{pmatrix}
-				\gamma & \gamma\beta \\ \gamma\beta & \gamma
-			\end{pmatrix}
-		verifichiamo che sia l'inversa:
-			\begin{pmatrix}
-				\gamma & -\gamma\beta\\ -\gamma\beta & \gamma 
-			\end{pmatrix} \begin{pmatrix}
-			\gamma & \gamma\beta \\ \gamma\beta & \gamma
-		\end{pmatrix} =\begin{pmatrix}
-			1 & 0\\ 0 & 1
-		\end{pmatrix}
-	\end{enumerate}
-\end{observe}
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%LEZ 29, 09/05/2022
+%abbiamo già derivato le trasformazioni di Lorentz e abbiamo visto che l'inversa è facile da ottenere, basta scambiare $v$ con $-v$ (in questa notazione \beta con -\beta), cioè il passaggio di un sistema di riferimento all'altro è detto \textit{boost}\index{boost}, perché ci fa passare da un sistema fermo ad uno in moto con velocità $v$
+%in realtà c'è un grosso gruppo di trasformazioni in cui ci sono anche le rotazioni e possiamo combinare tutte queste cose in vari modi
+%abbiamo tre parametri in più perché possiamo fare i boost in 3 direzioni
+%possiamo però anche scriverlo per una direzione generica per cui la velocità non è allineata con un asse
+%	\vba v=(v_x,v_y,v_z)
+%la situazione generica è legata a questa nel senso che si deve ridurre a quella precedente nei casi particolari
+%osserviamo che la differenza sostanziale fra le componenti del vettore posizione che sono allineate con la velocità
+%conviene distinguere in una situazione generica i pezzi paralleli ai vari assi
+%	\vba r=(x,y,z)
+%lo dividiamo in due
+%	\vba r_\parallel\equiv \frac{\vba r\vdot\vba v}{v^2}\vba v
+%come vettore proporzionale a v con componenti r nella direzione della vleocità
+%	\vba r_\bot\equiv\vba r-\vba r_\parallel
+%ne segue che
+%	\begin{cases}
+%			\vba r_\parallel '=\gamma(\vba r_\parallel -\vba v t)\\		
+%			\vba r'_\bot =\vba r_\bot
+%	\end{cases}
+%\beta diventa vettore ed assorbe c
+%si ottiene 
+%	\vba r'=\vba r'_\parallel +\vba r'_\bot=\gamma(\vba r_\parallel -\vba vt)+\vba r-\vba r_\parallel	==
+%per definizione di \vba r_\parallel abbiamo
+%	== \vba r+(\gamma-1)\frac{\vba r\vdot\vba v}{v^2}\vba v-\gamma\vba vt
+%	ct'=\gamma\left(ct-\frac{\vba v\vdot\vba r}{c} \right)
+%	
+%ALT correzione
+%	da \Delta s'=0\iff\Delta s=0
+%	ne abbiamo ricavato che 
+%		\Delta s^2=K(v)\Delta s'^2
+%		K(v)K(-v)=1
+%	quello che manca per il passaggio successivo
+%		(K(v))^2=1
+%	era l'isotropia dello spazio, che fa sì che
+%		K(-v)=K(v)
+%FINE ALT
+%%TODO: correggere questo passaggio nella lezione precedente
+%
+%lavorando con queste trasformazioni succedono cose controintuitive, come il fatto che la simultaneità degli eventi dipende dalle velocità
+%%CIT non so quanto sia costituzionalizzato nelle vostre teste
+%\begin{enumerate}
+%	\item 	relatività della simultaneità
+%%TODO: IMMAGINE da riciclare
+%%CIT: lo disegno così stilizzato che sembra vada ad un campo di concentramento
+%	chi è nel treno e spara la luce sa che la distanza dalla metà del vagone è L_0, e ribadiamo che è la distanza in \mathcal{S}' in quanto la misura chi è nel vagone
+%	all'istante t'=0 la lampada emette un flash, cioè vi è un'emissione di fotoni nel centro del vagone O'
+%	per un singolo istante e punto potremo scegliere t=t' quando O=O'
+%	abbiamo due rilevatori di fotoni nei punti A e B, e sono rilevatori solidali ad \mathcal{S'}
+%	quindi in \mathcal{S}' la luce raggiunge contemporaneamente i punti A e B (l'evento che succede quando la luce lo raggiunge, non tanto il punto)
+%		in \mathcal{S'} l'evento succede in x'_A=L_0	t'_A=\frac{L_0}{c}\equiv T_0
+%											x'_B=L_0	t'_B=\frac{L_0}{c}\equiv T_0
+%	abbiamo così trovato elle leggi di trasformazione
+%		evento A	\gamma(x'_A+\beta ct'_A)=\gamma\left(-L_0+\frac{v}{c} \cancel c\frac{L_0}{\cancel c}\right)=-\gamma L_0 (1-\beta)=-L_0\sqrt{\frac{1-\beta}{1+\beta}} >-L_0
+%					t_A=\gamma\left( t'_A+\frac{v}{c^2}x'_A\right)= \gamma\left(\frac{L_0}{c}-\frac{v}{c}\frac{L_0}{c}\right)= T_0\gamma(1-\beta)=T_0\sqrt{\frac{1-\beta}{1+\beta}}<T_0
+%					
+%		evento B	\gamma(x'_B+\beta ct'_B)=\gamma\left(L_0+\frac{v}{c} \cancel c\frac{L_0}{\cancel c}\right)=\gamma L_0 (1+\beta)=L_0\sqrt{\frac{1+\beta}{1-\beta}} >-L_0
+%					t_B=\gamma\left( t'_B+\frac{v}{c^2}x'_B\right)= \gamma\left(\frac{L_0}{c}+\frac{v}{c}\frac{L_0}{c}\right)= T_0\gamma(1+\beta)=T_0\sqrt{\frac{1+\beta}{1-\beta}}>T_0
+%	che rispecchia il fatto che B vada avanti
+%	abbiamo ottenuto in maniera precisa che
+%		t_A=T_0\sqrt{\frac{1-\beta}{1+\beta}}<T_0
+%		t_B=T_0\sqrt{\frac{1+\beta}{1-\beta}}>T_0
+%	cioè i due eventi non sono simultanei per chi è alla stazione
+%	i due tempi sono diversi, quindi potremmo interessarci di x_B-x_A, infatti abbiamo x'_B-x'_A=2t
+%		x_B-x_A=L_0\left(\sqrt{\frac{1+\beta}{1-\beta}} + \sqrt{\frac{1-\beta}{1+\beta}}\right) = L_0\frac{1+\cancel\beta +(1-\cancel\beta)}{\sqrt{1-\beta^2}}=\frac{2L_0}{\sqrt{1-\beta^2}}=2L_0\gamma
+%	saremmo tentati di dire che la lunghezza è diversa in base al sistema in cui si misura, ma stiamo però misurando la stessa cose a due tempi diversi! \textbf{Non} è la lunghezza del vagone in \mathcal{S}!
+%	infatti dovremmo considerare due eventi simultanei in \mathcal{S} per disegnare il vagone su una lastra fotografica in uno stesso momento e misurare
+%		
+%	\item	contrazione delle lunghezze
+%	non è vero però che la lunghezza dei vagoni sia uguale in entrambi i sistemi di riferimenti, bisogna però pensare a come si fanno le misurazioni
+%	per misurare le lunghezze dobbiamo considerare eventi \textit{simultanei nel sistema di riferimento scelto}, perché un istante in \mathcal{S} non è lo stesso istante in \mathcal{S'}
+%%TODO: IMMAGINE
+%	dati i sistema \mathcal{S} ed \mathcal{S'}, c'è una sbarra appoggiata in \mathcal{S'}, cioè è solidale al sistema di riferimento ed è ferma, quindi x'_1 e x'_2 rimangono sempre i punti estremi della sbarra, le estremità della sbarra in \mathcal{S'} in x'_1 e x'_2 per ogni t'
+%	adesso possiamo scegliere il t' che preferiamo
+%	la lunghezza della sbarra è la \textit{lunghezza a riposo} L_0=x'_2-x'_1
+%	cosa vede chi sta in \mathcal{S}?
+%	dalla nota trasformazione di Lorentz le coordinate degli estremi per l'altro sistema di riferimento sono
+%		\begin{cases}
+%			x'_1=\gamma(x_1-vt_1)\\
+%			x'_2=\gamma(x_2-vt)
+%		\end{cases}
+%	con t_1 in \mathcal{S} evento sbarra finisce qui è al tempo t_1
+%	ora possiamo scriverlo nelle coordinate spazio temporali dell'altro sistema
+%		\begin{cases}
+%			x'_2=\gamma(x_2-x_1-v(t_2-t_1))
+%		\end{cases}
+%	L_0 lunghezza in \mathcal{S} va misurata per t_2=t_1, imposizione della foto, ma nell'altro sistema sono tempi diversi!
+%		L=x_2-x_1 con t_2-t_1 \iff L_0=\gamma L \implies L=\frac{L_0}{\gamma}\leq L_0
+%	con L lunghezza in \mathcal{S}
+%	
+%	\begin{observe}
+%		\begin{itemize}
+%			\item	l'effetto è \textit{universale}, è valido per qualsiasi tipo di esperimento di misura di lunghezze, perché è una proprietà delle trasformazioni di Lorentz, non conta quale lunghezza misuro e come
+%			può essere utile l'analogia con una rotazione: la componente x di un vettore ruotato può essere maggiore dopo la trasformazione, solo che qui si lavora con 4 coordinate
+%%CIT: non importa se sto ruotando sedie banchi astronavi persone	
+%			\item	l'effetto è simmetrico
+%			se abbiamo due sbarre uguali, consegnate a chi è in stazione ed in treno, dal pov di chi è in stazione la sbarra sul treno è più corta e viceversa per chi è in treno la sbarra in stazione è più corta
+%			\item	quanto è grande l'effetto?
+%			a velocità infime rispetto a quelle della luce l'effetto è piccolissimo
+%			ad esempio per 
+%				v\sim 30 m/sec \sim 100 km/h \sim 10^{-7} c \impiles \beta\sim 10^{-7}
+%%CIT: passa al casello e sembra più corta e viene soddisfazione "ah quanto è corta!"
+%				L=\sqrt{1-\beta^2}L_0 \im \L_0\left( 1-\frac{\beta^2}{2} + \dots\right) \implies \frac{\Delta L}{L_0}\equiv \frac{\abs{L-L_0}}{L_0}			\sim 10^{-14}
+%			quindi l'auto al casello sarà più piccola della dimensione di un atomo
+%			invece negli acceleratori di particelle l'effetto è molto più grande
+%				\gamm\sim 100,1000
+%			accelerando degli ioni di piombo o i protoni stessi
+%			la dimensione trasversale non viene toccata, mentre quella longitudinale è strizzata, ottenendo così da delle sfere delle frittelle
+%			nel sistema del laboratorio non c'è profondità e possiamo descrivere l'oggetto con delle coordinate trasverse e si semplificano i conti nel sistema del laboratorio per poi con una trasformazione di coordinate vedere cosa succede in altri sistemi inerziali
+%			ESEMPIO del paradosso de saltatore con l'asta (è quello del treno e bomba)
+%				l'asta di Bill ha lunghezza L ed anche il capannone, misurati nello stesso sistema di riferimento
+%				se Bill va a velocità della luce Bill rimane intrappolato nel capannone perché con una fotocellula inviamo un segnale che lo chiuda, questo perché per il capannone l'asta è più corta
+%				per Bill invece è il capannone a restringersi
+%				gli eventi in cui le porta si chiudono sono simultanei per il capannone ma non per Bill!
+%				Bill arriva lanciatissima e l'altra estremità della sbarra è ancora fuori dal capannone
+%%CIT: chi nonha mai visto questa cosa e non è stupito o è un genio o non ha capito una cippa				
+%%CIT: abbiamo sempre degli esempi abbastanza bastardi	
+%		\end{itemize}
+%	\end{observe}
+%	\item	dilatazione dei tempi
+%	prima ci siamo concentrati sulla misura delle lunghezze guardandola allo stesso istante
+%	adesso per misurare i tempi dobbiamo vedere le cose nello stesso posto per chi lo misura
+%	orologi nello stesso sistema sincronizzati
+%	consideriamo due eventi che avvengono nello stesso punto in uno dei due sistemi, ad esempio in \mathcal{S'} x'_1=x'_2 ma a due istanti diversi, quindi t'_1\neq t'_2, t'_2>t'_1
+%	definiamo T_0=t'_2-t'_1>0
+%	possiamo calcolare cosa succede in \mathcal{S} con le trasformazioni di Lorentz
+%		in \mathcal{S}	\begin{cases}
+%			x_1=\gamma(x'_1+vt'_1)\\
+%			t_1=\gamma\left(t'_1 + \frac{v}{c^2}x'_1\right)
+%		\end{cases}
+%		\begin{cases}
+%			x_2=\gamma(x'_2+vt'_2)\\
+%			t_2=\gamma\left(t'_2 + \frac{v}{c^2}x'_2\right)
+%		\end{cases}
+%		T\equiv t_2-t_1=\gamma\left(t'_2-t'_1+\frac{v}{c^2} (x'_2-x'_1)\right)=\gamma T_0\geq T_0
+%	il tempo che scorre nell'orologio in moto visto da me scorre più lentamente
+%	se quello in moto dice 7 secondi dal mio pov ne sono passati 10, quindi chi è in moto invecchia più lentamente
+%	\begin{itemize}
+%		\item	è un fenomeno \textit{universale}, è una proprietà delle TdL
+%		\item	è un fenomeno simmetrico fra \mathcal{S} e \mathcal{S'}
+%		a entrambi sembra che l'altro invecchia più lentamente, ed è ciò che porta al paradosso dei gemelli: succede una cosa sola, il problema è che ci sono tre sistemi di riferimento: chi resta, astronave che parte ed astronave che torna
+%		quello che ha viaggiato è più giovane, qui l'effetto non è simmetrico perché solo uno dei gemelli accelera e poi decelera tornando al vecchio sistema, e non c'è confusione su chi ha viaggiato e chi non ha viaggiato
+%%CIT: ok andate a casa e guardate interstellar
+%		\item	l'effetto era implicito in conti è già stato fatto nell'esperimento degli specchi di Michelson e Morley
+%		vediamo ora una versione semplificata
+%%TODO: IMMAGINE
+%		in \mathcal{S'} abbiamo la lampadina e il rilevatore solidali, con uno specchio molto distante la luce rimbalza sullo specchio e fa riaccendere la lampadina, ottenendo un effetto periodico, cioé un orologio: eventi nello stesso posto con una distanza fissata L
+%		vale che T_1=\frac{2L}{c} tempo che intercorre fra la prima e la seconda accensione
+%		siccome ci muoviamo nella direzione perpendicolare abbiamo L=L'
+%		in \mathcal{S} abbiamo di nuovo la lampadina ed il rilevatore solidali
+%		siccome componiamo le velocità in modo non galileiano abbiamo 
+%			v\frac{T_1}{2}
+%		siccome la velocità della luce è sempre a stessa sull'ipotenusa abbiamo c\frac{T_1}{2}
+%		col teorema di Pitagora ricaviamo che
+%			L^2+v^2\frac{T_1^2}{4}=c^2\frac{T_1^2}{4}
+%			\rfac{T_1^2}{4}=\frac{L^2}{c^2-v^2}\implies T_1=\frac{2L}{c}\frac{1}{\sqrt{1-\frac{?}{c^2}} = \gamma T_0>T_0
+%%CIT questo è un orologio che potremmo utilizzare per cuocere la asta, tolta la difficoltà di avere un orlogoio sulla Luna
+%		esepi tipici con muoni \mu, che sono identici agli elettroni solo che sono centinaia di volte più pesanti
+%%CIT non ci si spiega perché ci sono ste cose con cui facciamo la pasta tutti i giorni				
+%	\end{itemize}
+%	
+%	\item	egge di composizione delle vleocità
+%	in un sistema $\mathcal{S}$ un punto materiale si muove con velocità $\vba u$. 
+%	Sia $\mathcal{S'}$ un sistema inmoto con velocità $\vba v$ rispetto a $\mathcal{S}$. Quanto vale $\vba u'$?
+%	
+%	Consideriamo \vba v=(v,0,0)
+%		\begin{ceses}
+%			x'=\gamma(x-vt)\\
+%			t'=\gammal\left(t-\frac{v}{c^2}x \right)
+%		\end{ceses}
+%		\vba u=(u_x,u_y,u_z)=\left( \dv{x}{t}, \dv{y}{t}, \dv{z}{t}\right)
+%		\implies \begin{cases}
+%			dx'=\gamma(dx-vdt)\\
+%			dt'=\gamma\left(dt-\frac{v}{c^2} dx\right)
+%		\end{cases}
+%		u'_x\equiv \dv{x'}{t'}=\frac{\gamma(dx-vdt)}{\gamma\left(dt-\frac{v}{c^2} dx\right)}= mettendo in evidenza dt= \frac{u_x-v}{1-\frac{v}{c^2}u_x}
+%	posto u_x=c abbiamou'_x=c
+%	mentre le coordinate trasverse non cambiano, le velocità non sono invariate perché è cambiato il tempo!
+%		u_y'\equiv \dv{y'}{t'}=\frac{dy}{\gamma\left(dt-\frac{v}{c^2}dx\right)} = \frac{u_y}{\gamma\left(1-\frac{v}{c^2}u_x\right)}
+%	riscalato dipende da x perché abbiamo boost in direzione x
+%	Le trasformazioni inverse si ottengono come al solito scambiando u'\leftrightarrow u e v\leftrightarrow -v
+%		u_x=\frac{u'_x+v}{1+\frac{v}{c^2}u_x
+%		u_y=\frac{u'_y}{\gamma\left(1-\frac{v}{c^2}u_x\right)}
+%		
+%	per v\rightarrow c
+%		u'_x=\frac{c-v}{1-\frac{v}{c^{\cancel 2}}c}=c
+%	in termini di \beta 
+%		\beta_x'=\frac{\beta_x-\beta}{1-\beta\beta_x}
+%		\beta_y'=\frac{\beta_y}{\gamma(1-\beta\beta_x)}
+%	sviluppando per velocità piccole
+%		\beta_x'=(\beta_x-\beta)(1+\beta\beta_x\dots)=\beta_x -\beta +\beta\beta_x^2-\beta^2\beta_x+\dots
+%	all'ordine \beta se \beta_x è grande il sistema se lo ricorda
+%	ritrovo trasformazioni di Galileo per tutte le \beta che ci sono in giro
+%	
+%	Si può scrivere anche per \vba v generico, cioè \vba v=(v_x,v_y,v_z)
+%	procedendo come prima
+%		\vba r'=\vba r+\left( (\gamma-1)\\frac{\vba v\vdot\vba r}{c^2-\gamma t}\right) \vba v
+%		t'=\gamma\left(t-\frac{\vba v\vodt\vba r}{c^2}\right)
+%		\implies d\vba r'=d\vba r+\left((\gamma-1) \frac{\vba v\vdot d\vba r}{v^2} -\gamma dt\right) \vba v
+%		dt'=\gamma\left(dt-\frac{\vba v\vdot d\vba r}{c^2}\right)
+%	per \vba u\equiv \dv{\vba r}{t}
+%		\vba u'\equiv \dv{\vba r'}{t'}= \frac{\vba u dt+ \left( (\gamma-1)\\frac{\vba v\vdot\vba r}{c^2-\gamma t}\right) \vba v dt} {\gamma dt\left(dt-\frac{\vba v\vdot d\vba r}{c^2}\right) }= \frac{\vba u+ \left( (\gamma-1)\\frac{\vba v\vdot\vba r}{c^2-\gamma t}\right) \vba v}{\gamma \left( 1 - \frac{\vba v\vdot\vba u}{c^2}\right)}
+%	
+%\end{enumerate}
 
 
 
