@@ -763,24 +763,24 @@
 %%TODO: IMMAGINE
 %		in \mathcal{S'} abbiamo la lampadina e il rilevatore solidali, con uno specchio molto distante la luce rimbalza sullo specchio e fa riaccendere la lampadina, ottenendo un effetto periodico, cioé un orologio: eventi nello stesso posto con una distanza fissata L
 %		vale che T_1=\frac{2L}{c} tempo che intercorre fra la prima e la seconda accensione
-%		siccome ci muoviamo nella direzione perpendicolare abbiamo L=L'
-%		in \mathcal{S} abbiamo di nuovo la lampadina ed il rilevatore solidali
+%		siccome ci muoviamo nella direzione perpendicolare abbiamo $L=L'$
+%		in $\mathcal{S}$ abbiamo di nuovo la lampadina ed il rilevatore solidali
 %		siccome componiamo le velocità in modo non galileiano abbiamo 
 %			v\frac{T_1}{2}
-%		siccome la velocità della luce è sempre a stessa sull'ipotenusa abbiamo c\frac{T_1}{2}
+%		siccome la velocità della luce è sempre a stessa sull'ipotenusa abbiamo $c\frac{T_1}{2}$
 %		col teorema di Pitagora ricaviamo che
 %			L^2+v^2\frac{T_1^2}{4}=c^2\frac{T_1^2}{4}
 %			\rfac{T_1^2}{4}=\frac{L^2}{c^2-v^2}\implies T_1=\frac{2L}{c}\frac{1}{\sqrt{1-\frac{?}{c^2}} = \gamma T_0>T_0
-%%CIT questo è un orologio che potremmo utilizzare per cuocere la asta, tolta la difficoltà di avere un orlogoio sulla Luna
-%		esepi tipici con muoni \mu, che sono identici agli elettroni solo che sono centinaia di volte più pesanti
+%%CIT questo è un orologio che potremmo utilizzare per cuocere la pasta, tolta la difficoltà di avere un orologio sulla Luna
+%		esempi tipici con muoni $\mu$, che sono identici agli elettroni solo che sono centinaia di volte più pesanti
 %%CIT non ci si spiega perché ci sono ste cose con cui facciamo la pasta tutti i giorni				
 %	\end{itemize}
 %	
-%	\item	egge di composizione delle vleocità
+%	\item	\textit{Legge di composizione delle vleocità}
 %	in un sistema $\mathcal{S}$ un punto materiale si muove con velocità $\vba u$. 
 %	Sia $\mathcal{S'}$ un sistema inmoto con velocità $\vba v$ rispetto a $\mathcal{S}$. Quanto vale $\vba u'$?
 %	
-%	Consideriamo \vba v=(v,0,0)
+%	Consideriamo $\vba v=(v,0,0)$
 %		\begin{ceses}
 %			x'=\gamma(x-vt)\\
 %			t'=\gammal\left(t-\frac{v}{c^2}x \right)
@@ -791,17 +791,17 @@
 %			dt'=\gamma\left(dt-\frac{v}{c^2} dx\right)
 %		\end{cases}
 %		u'_x\equiv \dv{x'}{t'}=\frac{\gamma(dx-vdt)}{\gamma\left(dt-\frac{v}{c^2} dx\right)}= mettendo in evidenza dt= \frac{u_x-v}{1-\frac{v}{c^2}u_x}
-%	posto u_x=c abbiamou'_x=c
+%	posto $u_x=c$ abbiamo $u'_x=c$
 %	mentre le coordinate trasverse non cambiano, le velocità non sono invariate perché è cambiato il tempo!
 %		u_y'\equiv \dv{y'}{t'}=\frac{dy}{\gamma\left(dt-\frac{v}{c^2}dx\right)} = \frac{u_y}{\gamma\left(1-\frac{v}{c^2}u_x\right)}
-%	riscalato dipende da x perché abbiamo boost in direzione x
-%	Le trasformazioni inverse si ottengono come al solito scambiando u'\leftrightarrow u e v\leftrightarrow -v
+%	riscalato dipende da $x$ perché abbiamo boost in direzione $x$
+%	Le trasformazioni inverse si ottengono come al solito scambiando $u'\leftrightarrow u$ e $v\leftrightarrow -v$
 %		u_x=\frac{u'_x+v}{1+\frac{v}{c^2}u_x
 %		u_y=\frac{u'_y}{\gamma\left(1-\frac{v}{c^2}u_x\right)}
 %		
-%	per v\rightarrow c
+%	per $v\rightarrow c$
 %		u'_x=\frac{c-v}{1-\frac{v}{c^{\cancel 2}}c}=c
-%	in termini di \beta 
+%	in termini di $\beta$ 
 %		\beta_x'=\frac{\beta_x-\beta}{1-\beta\beta_x}
 %		\beta_y'=\frac{\beta_y}{\gamma(1-\beta\beta_x)}
 %	sviluppando per velocità piccole
@@ -809,7 +809,7 @@
 %	all'ordine \beta se \beta_x è grande il sistema se lo ricorda
 %	ritrovo trasformazioni di Galileo per tutte le \beta che ci sono in giro
 %	
-%	Si può scrivere anche per \vba v generico, cioè \vba v=(v_x,v_y,v_z)
+%	Si può scrivere anche per $\vba v$ generico, cioè $\vba v=(v_x,v_y,v_z)$
 %	procedendo come prima
 %		\vba r'=\vba r+\left( (\gamma-1)\\frac{\vba v\vdot\vba r}{c^2-\gamma t}\right) \vba v
 %		t'=\gamma\left(t-\frac{\vba v\vodt\vba r}{c^2}\right)
@@ -819,6 +819,237 @@
 %		\vba u'\equiv \dv{\vba r'}{t'}= \frac{\vba u dt+ \left( (\gamma-1)\\frac{\vba v\vdot\vba r}{c^2-\gamma t}\right) \vba v dt} {\gamma dt\left(dt-\frac{\vba v\vdot d\vba r}{c^2}\right) }= \frac{\vba u+ \left( (\gamma-1)\\frac{\vba v\vdot\vba r}{c^2-\gamma t}\right) \vba v}{\gamma \left( 1 - \frac{\vba v\vdot\vba u}{c^2}\right)}
 %	
 %\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%LEZ 30, 11/05/2022
+%
+%incominceremo di parlare un po' di tensori
+%
+%%CIT venendo a Palazzo Campana ho sempre il sospetto che sappiate più di me
+%%CIT sulle varietà differenziali abitano i tensori, è la loro casa
+%abbiamo visto le trasformazioni delle velocità
+%	u'_x=\frac{u_x -v}{1-\frac{vu_x}{c^2}}
+%la velocità relativa e nella stessa direzione di quella di scorrimento fra i due sistemi, ma cambiano anche le altre componenti
+%	u'_y=\frac{u_y}{\gamma\left(1-\frac{vu_x}{c^2}\right)}
+%evidenze sperimentali Michelson e Morley, aberrazione stellare, Fizeau
+%con queste formule possiamo vedere qual è la predizione della relatività ristretta in questi due casi
+%\subsection{Aberrazione stellare}
+%%TODO: IMMAGINE
+%dato il sistema fermo \mathcal{S} e quello in moto \mathcal{S'}
+%\tehat\neq\theta' è l'aberrazione stellare, la stella forma un'ellisse nel cielo
+%in \mathcal{S} abbiamo le componenti
+%	\begin{cases}
+%		c_x=-c\cos\theta\\
+%		c_y=-c\sin\theta
+%	\end{cases}
+%in \mathcal{S'} invece 
+%	\begin{cases}
+%		c'_x=-c\cos\theta'\\
+%		c'_y=-c\sin\theta'
+%	\end{cases}
+%le trasformazioni delle velocità saranno
+%	c'_x=\frac{c_x-v}{1-\frac{c_xv}{c^2}}\\
+%	c'_y=\frac{c_y\sqrt{1-\frac{v^2}{c^2}}{1-\frac{c_xv}{c^2}
+%	\implies \tan\theta=\frac{c_y}{c_y}
+%	\tan\theta'=\frac{c'_y}{c'_x}=\frac{c_y\sqrt{1-\beta^2}{c_x-v}=\frac{\sin\theta}[\cos\theta+\beta]\underbrace{\sqrt{1-\beta^2}}_{1-\frac{\beta^2}{2}+\dots è la correzione a quello galileiano}
+%
+%\subsection{velocità della luce in un mezzo}
+%Barone fa casino in cui confonde $c$ e $c_n$
+%dato un cubo con l'acqua trasparente che scorre, abbiamo dei rilevatori, facendo un esperimento nello stile di Fizeau
+%%TODO: IMMAGINE
+%nel sistema in cui il fluido è in quiete \mathcal{S'} la velocità della luce dipende dal mezzo ed è $c'_n=\frac{c}{n}$
+%%CIT siete troppo giovani per aver visto ricomincio da te, era quasi una citazione [qualcuno ride] lei è vecchio
+%facciamo la trasformazione delle velocità da \mathcal{S'} a \mathcal{S}
+%	\implies c_n=\frac{c'_n+v}{1+\frac{vc'_n}{c^2}}=\frac{\frac{c}{n}+v}{1+\frac{v}{cn}}
+%per riottenere Fizeau dobbiamo usare v\ll c o più accuratamente essendo numeri \beta\ll 1, sviluppo in serie di potenze
+%	\frac{c}{n}\frac{1+n\beta*{1+\frac{\beta}{n}}= \frac{c}{n}(1+n\beta)\left(1-\frac{\beta}{n}+o(\beta^2)\right)= \frac{c}{n} +v-\frac{v}{n^2}=\frac{c}{n}+v\left(1-\frac{1}[n^2]\right) +o(\beta^2)
+%
+%introduciamo i diagrammi di Minkowsky che chiariscono le cose controintuitive
+%\subsection{Diagrammi di Minkowsky}
+%è la rappresentazione dello spazio tempo
+%DEFINE
+%	La lunghezza che dobbiamo guardare è $ct$ ci mettiamo direttamente in un piano con $x$ e $ct$l'angolo retto è poco significativo, potremmo usare delle coordinate diverse
+%%TODO: IMMAGINE
+%	l'origine siamo noi al tempo $t=0$
+%	se emetto un fascio di luce verso l'asse x, allora la luce viaggia lungo la bisettrice del 1 quadrante
+%	un generico punto x viene raggiunto a ct	
+%	abbiamo anche l'altra bisettrice
+%	dobbiamo implementare cosa posso fare io: qualunque oggetto materiale che parte dall'origine deve stare in una zona perché non può superare la velocità della luce
+%	la pendenza della tangente è legata alla velocità e non può superare i 45°
+%	cioè
+%		\dv{ct}{x}>1 \implies \dv{x}{ct}<1 \implies \dv{x}{t}<c
+%	questo vale per qualsiasi tipo di segnale, quindi non posso condizionare nulla che accada nell'altra zona in cui dovrei superare la vleocità della luce
+%	
+%FENOMENOLOGIA
+%	Anche per un osservatore passa un tempo, quindi non si tratta solo di un punto
+%	abbiamo una frequenza data da quel periodo e distanza
+%	se considero raggio di luce qualunque essi hanno sempre una pendenza di 45° gradi
+%	al di fuori del cono non c'è causalità perché non si possono trasmettere segnali di alcun tipo
+%	
+%	cosa fanno le altre due direzioni $y$ e $z$?
+%	immaginiamo di stare in $d=2+1$ dimensioni, per cui siamo su un piano e scorre il tempo
+%	otteniamo così un cono luce perché i raggi di luce devono essere a 45° anche con l'altro piano
+%	se taglio l'asse dei tempi ad un particolare istante t_0, i raggi di luce avranno formato un cerchio di raggio ct, detto \textit{linea di mondo} \index{linea! di mondo}
+%	in 3 dimensioni succede lo stesso ma abbiamo una dimensione in più
+%	avremmo un fronte d'onda della luce che è una sfera
+%	oggetto che seziono trovo sfere di dimensione crescente di raggio ct all'istante t
+%	
+%	
+%\subsection{Classificazione degli intervalli}
+%avevamo definito
+%	\Delta s^2_{12}=c^2(t_2-t_1)^2-(x-2-x_1)^2-(y_2-y_1)^2-(z_2-z_1)^2
+%possiamo metterci nell'origine e considerare un punto $P$ o $E$ come evento
+%ci riduciamo alle due dimensioni ct e x
+%	\Delta s^2_{PO}=s^2_P=c^2t^2_P-x_P^2
+%abbiamo tre tipi di eventi ed invarianti
+%abbiamo 3 possibilità
+%	\begin{itemize}
+%		\item \textit{tipo tempo}	
+%			s_P^2=c^2t^2_P-x_P^2>0
+%		\item \textit{tipo spazio} non posso raggiungere il punto Q, è irriducibilmente da un'altra parte, non è istanteanea la comunicazione, ho un condizionamento temporale fino a quando l'informazione non entra nel cono luce
+%			s_Q^2=c^2t^2_Q-x_Q^2<0
+%		\item \textit{tipo luce}	evento sul cono luce
+%			s_S^2=0
+%		
+%	\end{itemize}
+%	
+%potremmo anche prenderli nell'altro pezzo del cono luce, diviso in passato e futuro, 
+%	futuro: io posso fargli qualcosa
+%	passato: possono farmi qualcosa
+%%CIT: solo quello che sta nel cono luce passat può famri del male
+%quanto tempo dopo succede rispetto al tempo O dipende dal sistema di riferimento, ma nessuna trasformazione cambia il tipo
+%%CIT non siamo riusciti a trovare nessuna formulazione fisica che regga back to the future
+%
+%cosa succede con i sistemi di riferimento inerziale?
+%che faccia ha il sistema di riferimento \mathcal{S'}in questo grafico?
+%il signor O' si muove rispetto a me con velocità minore di quella della luce, quindi so com'è messo l'asse ct': starà dentro il cono luce
+%con O=O' per t=t'=0
+%
+%
+%l'asse x' si trova perché x'=ct'
+%il mio cono luce e i coni luce di tizio che si muove rispetto a me sono gli stessi, quindi in questo tipo di diagramma le trasformazioni di Lorentz non sono rotazioni ma "strizzamenti", assi spazio temporali che si avvicinano al cono luce in base alla velocità $v$
+%luogo degli eventi simultanei per O' ma non lo sono per O perché avvengono in tempi t diversi
+%
+%vediamo come si comporta la relatività della simultaneità
+%	\subsubsection{Relatività della simultaneità}
+%punti fissi per x salgono verticalmente, per x' salgono in modo inclinato perché ho un sistema di assi obliqui, quindi le linee di mondo sono diverse
+%due eventi B ed A avvengono nello steso posto di \mathcal{S'} con coordinate x'_A=x'_B, quindi avvengono nello stesso posto in \mathcal{S'} ma non in \mathcal{S}!
+%NB: è solo una cosa qualitativa perché gli assi non hanno le stesse unità di misura, c'è un riscalamento per cui se ho 1 da una parte non lo sarà anche dall'altra
+%
+%facciamo l'opposto: eventi che avvengono nello stesso istante per \mathcal{S'}: saranno allineate sullo stesso asse parallelo ad x'
+%avremo coordinate x'_A e x'_B per t'_A=t'_B
+%quindi B ed A avvengono nello stesso istante in \mathcal{S'} ma non avvengono nello stesso istante di \mathcal{S} perché proiettando sull'asse t ho punti diversi
+%
+%se voglio guardare le distanze devo avere \Delta s\neq 0
+%quindi considero c^2t^2-x^2=k=c^2t'^2-x'^2
+%abbiamo un iperboloide di eventi che distano k da me (invece di una sfera)
+%l'intervallo è invariante anche quando non è nullo
+%curve con asintoto il cono luce
+%prendiamo ad esempio per k=1 sono tutti nel cono luce e sono di tipo tempo
+%%CIT la curva asintoteggia
+%per k=-1 sono di tipo spazio
+%questo avviene nel mio sistema di riferimento, ma anche per un altro sistema siccome i tipi di intervalli non cambiano abbiamo che
+%su asse x \abs{\overline{OP}}=1 e \abs{\overline{OP'}}=1, riscaliamo per un fattore di ?\beta^2
+%siccome le unità di misura sono diverse non si può applicare direttamente Pitagora
+%si può descrivere qualitativamente
+%vedere che gli intervalli di tempo variano nei due sistemi
+%
+%sbarra ferma per \mathcal{S'} e in moto per \mathcal{S}
+%un estreo della sbarra si muove a vloeictà v ed abbiamo linee di mondo per ogni estremo, creerà superficie di mondo perchè l'insieme degli eventi che lo riguardano riempie tutta una regione
+%	x'_2-x'_1=L_0	è la lunghezza a riposo 
+%se la vogliamo misurare per \mathcal{S} dobbiamo farlo allo stesso istante per O!
+%quindi proiettando per t_1 abbiamo una lunghezza diversa
+%
+%succede la stessa cosa per la dilatazione dei tempi
+%un orologio ha una linea di mondo parallela all'asse dei tempi t'
+%
+%quanto tempo è passato fra A e B in \mathcal{S'}?
+%
+%invece per \mathcal{S} è passato un altro tempo, ma il fattore \sqrt/\sqrt scambia le cose e viene la dilatazione
+%
+%
+%il disegno della sbarra  utile per risolvere i paradossi come quello dell'asta o treno e bomba
+%
+%
+%
+%quello che sta nel cono superiore è il \textit{futuro}, invece nel cono inferiore è il \textit{passato}, fuori dal cono è l'\textit{altrove}
+%
+%	\item 	P può essere raggiunto da O, i segnali che partono da O possono raggiungere P, O può causare P
+%	per ogni evento P che sta nel cono luce possiamo sempre trovare un sistema di riferimento inerziale \mathcal{S'} t.c. O e P avvengono nello stesso posto /è la definizione di futuro
+%	tale sistema è quello per cui l'asse dei tempi è quello che congiunge O e P
+%	O: ti sparo
+%	P: tu muori
+%	\item 	
+%	per ogni evento R che sta fuori dal cono luce possiamo sempre trovare un sistema di riferimento inerziale \mathcal{S'} t.c. O e R avvengono nello stesso istante
+%	tale sistema è quello per cui l'asse dei tempi è quello che congiunge O ed R
+%	siccome possono accadere contemporaneamente non posso essere io la causa, ci sono sistemi in cui R avviene prima o dopo O
+%	questo perché la posizione di R è altrove
+%	O non può causare R né R può causare O
+%	
+%%CIT chissà quante volte avranno fatto questa battuta di una banalità selvaggia
+%
+%
+%\section{Spazio-tempo di Minkowsky}
+%
+%dentro lo spazio tempo vivono vettori e tensori e vogliamo scrivere le leggi della fisica newtoniana in questi termini
+%un vettore è una roba che si trasforma come le coordinate non va più bene, servono i quadrivettori che si trasformano con le trasformazioni di Lorentz e boost, correttamente come le coordinate
+%
+%abbiamo due approcci: bottom-up e top-down
+%avremo un approccio bottom-up
+%eiste un gruppo O(3), definito come l'insieme delle trasformazioni dei vettori di \realset^3 che lasciano invariata una certa forma quadratica quale
+%	r^2=x^2+y^2+z^2=x'^2+y'^2+z'^2=r'^2
+%	\vba r'=R\vba r
+%	\begin{pmatrix}
+%		x'\\ y'\\z'
+%	\end{pmatrix}=\begin{pmatrix}
+%		R_{11}& R_{12} & \dots\\
+%		R_{21}& R_{22} & \dots\\
+%	\end{pmatrix} \begin{pmatrix}
+%		x\\y\\z
+%	\end{pmatrix}
+%lo riscriviamo con la notazione di Einstein
+%%TODO: \begin{remember}[Notaione di Einstein
+%%contenuto...
+%%\end{remember}
+%	\sum_{i,j=1}^3 x_i\dela_{ij}x_j=(\vba x)^T \mathbb{1} \vba x\equiv \vba x\vba x=\sum_{i=1}^3x_ix_i= per invarianza= \sum_{i,j}^3 x'_i\delta_{ij} =(\vba x')^T \mathbb{1} \vba x'\equiv \vba x'\vdot\vba x'=\sum_{i=1}^3x'_ix'_i
+%	
+%	\vba x'=R\vba x
+%	(\vba x')^T=(R\vba x)^T=\vba x^T R?T
+%	per tante frecce
+%	(\vba x)^T R^TR\vba x=\vba x\vdot\vba x \implies R^TR=\mathbb{1}
+%%TODO: cercare comando per 1fancy, che sarebbe mathbb{1} se esistesse
+%
+%lo spazio su cui lavoreremo somiglierà ad \realset^4 ma sarà diverso
+%consideriamo O(1,3)
+%set delle trasformazioni dello spazio di Minkowsky $M$ che lasciano invariata la forma quadratica
+%	s^2=c^2t^2-x^2-y^2-z^2=c^2t'^2-x'^2-y'^2-z^'2\equiv s'^2
+%poniamo 
+%	X^\mu=\{ct,x,y,z\}\equiv\{x^0,x^1,x^2,x^3\}
+%	g=diag(1,-1,-1,-1) come elementi g_{\mu\nu}
+%ed otteniamo
+%	s^2=\sum_{\mu,\nu=0}^3 x^\mu g_{\mu,\nu}x^\nu= X^TgX\equiv X\vdot X
+%con \vdot prodotto scalare diverso da quello solito
+%una trasformazione di Lorentz è una matrice che agisce su tale vettore
+%	(X')^\mu=\sum_{\nu=0}^3 \Lambda^\mu_\nu x^\nu
+%chiedo che s^2=s'^2
+%	s'^2=\sum_{\mu,\nu=0}^3x'^\mu g_{\mu\nu}x'^\nu=(X')^TgX'==
+%		X'=\Lambda X
+%	==X'\vdot X
+%	
+%	X^T\Lambda^Tg\Lambda X=X^TgT=s^2 \iff \Lambda^T g\Lambda=g
+%prima era R^T \mathbb{1} R=\mathbb{1}
+%quello che è successo è che è cambiata la metrica, le ortogonali preservano quella banale
+%
+
+
+
+
+
+
+
+
+
+
 
 
 
