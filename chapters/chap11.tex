@@ -1044,22 +1044,126 @@
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%LEZ 31, 12/05/2022
+[...]
 
+dobbiamo progressivamente generalizzare
+	\begin{cases}
+		x'=x\cos\theta+y\sin\theta\\
+		y'=-x\sin\theta+y\cos\theta
+	\end{cases}
+dobbiamo ridomandarci cos'è un vettore? è una roba che si trasforma come le coordinate sotto il grupppo di trsformazioi preso in riferimento in quel caso
+possimo definire un oggetto \vba F=\{F_x, F_y\}, la freccia rappresenta che facendo una rotazione si comporta così
+	\begin{cases}
+		F'_x=F_x\cos\theta+F_y\sintheta\\
+		F'_y=-F_x\sin\theta+F_y\cos\theta
+	\end{cases}
+	quindi \vba F'=R\vba F
+un tensore è un oggetto con un numero più grande di indici e ciascun indice si trasforma indipendentemente con questa regola qui
+	F'_i=\sum_{j=1}^2 R_{ij}F_j
+dato un oggetto A_{lm} oggetto con più indici, lo chiamo tensore e sotto una rotazione deve fare come F'
+	A_{lm}\stackrel{R}{\rightarrow} A'_{lm}=\sum_{j=1}^2\sum_{h=1}^2 R_{hj}R_{mh}A_{jh} (???)
 
+%CIT non voglio sembrare razzista ma è nella meccanica che insegnano al politecnico
 
+\subsection{Tensore di inerzia}
+lega momento angolare con velocità angolare con cui il sistema sta ruotando
+in generalità è proporzionale al vettore velocità angolare ma non è una proporzionalità componente per componente
+	\vba L= I\vba\omega
+	L_i=\sum_{j=1}^3 I_{ij}\omega_j
+\subsection{Tensore degli sforzi}
+elastica: qunto si accorcia e si allunga dipende da costante elastica
+ci sono però materiali che fanno cose strane
+	\vba F=-h\vba r, legge di Hooke
+è come se fosse una matrice diagonale
+si generalizza come
+	\vba F=-K\Delta\vba r
+	F_i=-\sum_{j=1}^3k_{ij}\Delta x_j
+	
+perché so che è un tensore? so come si trasformano per rotazioni di forma e lo soddisfano
 
+	\vba L= I\vba\omega \stackrel{R}{\vba L'= I'\vba\omega'}
+	\implies \vba L'=R\vba L=RI\vba\omega=RIR^{-1}R\vba\omega= RIR^{-1}\vba\omega'\equiv I'\vba\omega'
+	\implies I'_{ij}=\sum_{h,l=1}^3R_{ik}I_{kl} (R^T)_{lj}==
+infatti siccome sono trasformazioni ortogonali vale R^{-1}=R^T
+	==\sum_{k,l=1}^3R_{ik}R_{jl}I_{k,l} 
+che è la legge di trasformazione che avevo ipotizzato: primo e secondo indice si trasformano con la propria rotazione indipendentemente 
 
+\subsection{Varietà differenziabile}
+una superficie curva più generale possibile
+come descrivere una superficie che è intrinsecamente curvo senza metterlo in uno spazio piatto più grande
+come la sfera che per noi è immersa in $\realset^3$, ma vogliamo essere in grado di capire di essere su una sfera vivendoci sopra
+posso vedere cosa succede cambiando le coordinate
+lo so perché la somma degli angoli interni dei triangoli non è 180°
+\begin{define}[Varietà differenziabile]
+	è uno spazio topologico separabile (i punti hanno intorni aperti e per ogni due punti posso trovare due intorni disgiunti che li separano) in cui ogni punto $P$ ammette un intorno aperto e omeomorfo ad un intorno aperto dell'opportuno spazio lineare che mi serve, come $\realset^d$ o complesso.\\
+	Perché sia non solo una varietà topologica ma anche differenziabile serve che tutte le carte locali siano connesse dove si sovrappongono fra funzioni di transizione invertibili di classe $\mathcal{C}^k$
+\end{define}
+Per la fisica una carta locale è un sistema di coordinate e le funzioni di transizione sono trasformazioni di coordinate
+non sono spazi vettoriali ma lo spazio tangente lo è
+qual è l'informazione che sta nelle coordinate che dice che ho uno spazio tangente?
+lo spazio tangente è lo spazio di tutte le possibili direzioni, e rimango nel tangente se mi muovo in modo infinitesimo, appena mi muovo in modo finito son fuori
 
+voglio parametrizzare il tangente senza uscirvi
+prendo una famiglia di curve $C_x(t)$
+serve funzione scalare $f(x$ )definita sulla $M$
+assegna ad ogni punto della varietà un numero
+	\funz{f}{M}{\realset}
+un esempio è la temperatura, che assegna un numero ad ogni punto della Terra
+compongo le funzioni: calcolo la temperatura mentre mi sposto sulla curva
+	\hat{f}(t)\equiv f\circC_x(t)=f(x(t))
+è una semplice restrizione
+	\dv{t}\hat{f}(t)=\sum_{\mu=1}^d\pdv{f}{x}\dv{x^mu}{t}
+le due derivate hanno stati diversi: info su curva su \dv e sullo scalare su \pdv
+chiamo il muovermi su tutte le latitudini
+	b^\mu\equiv\dv{x^\mu}{t}
+forma spazio vettoriale
+ho così definito il vettore tangente:
+	\funztot{t_x^b}{f(x)} {} {f} {\sum_{\mu=1^d}b^\mu\pdv{x\mu}(f(x))
+un vettore tangente a $M$ in $x$ è un operatore differenziale che si comporta come sopra
+possiamo automaticamente definire le proprietà sulla varietà se lo è la sua immagine sullo spazio reale dove sappiamo fare cose e carte locali permettono di incollare
 
+trasformazioni di coordinate devono essere invertibili e differenziabili quante volte ci servono
+	x'^\beta=x'^\beta(x^1,\dots,x^d), \beta=1,\dots,d
+le quantità finite si trasformano in maniera complicata, quelle belle sono quelle differenziali
+ci interessano gli oggetti che si trasformano con lo jacobiano
+i differenziali delle coordinate dx^\mu si trasformano con lo jacobiano
+	J^\beta_\alpha\equiv\pdv{x^\beta}{x^\alpha}
+	dx'^\mu=\sum_{\nu=1}^d \pdv{x'^\mu}{x^\nu}dx^\nu
+un oggetto con queste proprietà lo chiamo vettore controvariante
+	A^\alpha t.c. A'^\alpha=\sum_{\beta=1}^d \pdv{x'^\alpha}{x^\beta}A^\beta
+non tutti gli oggetti però si trasformano con lo jacobiano, possoo trasformarsi anche son lo jacobiano inverso, ad esempio il gradiente \pdv{x^\beta}
+	\pdv{x'\alpha}?\sum_{\beta=1}^d\pdv{x^\beta}{x^\alpha}\pdv{x^\beta}
+	\sum_{x=1^d (J^{-1})^\sigma_\lambda(J)^\lambda_\rho=\sum_{\lambda=1}^d\pdv{x^\sigma}{x^\lambda}\pdv{x^\lambda}{x^\rho}=\pdv{x^\sigma}{x^\rho}\equiv \delta^\sigma_\rho
+		
+vettore covariante
+	B_\alpha t.c. B'_\alpha=\sum_{\beta=1}^d\pdv{x^\beta}{x'^\alpha}B_\beta
+%NB temo di essermi persa degli indici
 
+posso costruire un prodotto scalare invariante per la contrazione degli indici
+	\sum_{\mu=1}^dA^\mu B_\mu= A^1 B_1+\dots+A^d B_d
+	\sum_{\mu=1}^dA'^\mu B'_\mu=\sum_{\mu,\nu\rho}^d\pdv{x'^\mu}{x^\nu}A^{\nu}\pdv{x^\rho}{x'^\mu}B_\rho= \sum_{\mu,\rho=1}^d A^\nu B_\rho \delta^\rho_\nu
+	
+l'indice ripetuto viene sommato, quindi eliminiamo la \sum
 
+tensore: stessa cosa, ogni indice si trasforma come il suo vettore
+[...]
 
-
-
-
-
-
-
-
-
-
+\begin{prop}
+	\begin{itemize}
+		\item 	i tensori di rango fissato formano uno spazio vettoriale
+		\item	il prodotto tensoriale (componente per componente) è un tensore ed ha le stesse proprietà di trasformazione appropriate
+			T^{lnm}_{ijk}\equiv A^l_{ij}B^{nm}_k
+		\item	le trasformazioni generali di coordinati agiscono come un gruppo:
+			associatività: x\to x'\to x''
+			A''^\mu=\pdv{x''^\mu}{x^{\mu\nu}}A'^\nu=\pdv{x^\mu}{}\pdv{}{A^\sigma}= \pdv{}{}A^\sigma
+%TODO: va riempito, non si leggeva bene
+		\item 	proprietà fondamentale: le cose variano insieme, co-varianza, sono valide in tutti i sistemi di coordinate
+		le equazioni fra tensori dello stesso tipo sono valide in tutti	i sistemi di coordinate raggiungibili con le trasformazioni generali di coordinate
+			A_{\mu\nu}=B_{\mu\nu}
+			A'_{\mu\nu}=\pdv{x'}{x'^\mu}\pdv{x^\sigma}{x^\nu}A_{\rho,\sigma}= \pdv{x^\rho}{x'^\mu}\pdv{x^\sigma}{x'^\nu}B_{\rho\sigma}=B'_{\mu\nu}
+		\item	le derivate dei tensori non sono tensori
+			[...]
+	\end{itemize}
+\end{prop}
