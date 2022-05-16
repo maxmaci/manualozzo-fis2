@@ -1167,3 +1167,224 @@ tensore: stessa cosa, ogni indice si trasforma come il suo vettore
 			[...]
 	\end{itemize}
 \end{prop}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 32, 16/05/2022
+vettori co(ntro)varianti: 
+	si trasforma con lo jacobiano
+	si trasforma con lo jacobiano inverso
+	
+invariante: A^\mu B_\mu\equiv A*B
+
+ci servirà un tensore metrico: definisce una distanza invariante
+per def il differenziale delle coordinate è controvriante, quindi consideriamo due differenziali, per costruire un oggetto invariante devo prendere un tensore controvariante che dipende dal punto, quindi g_{\mu,\nu}dx^\mu dx^\nu=ds^2
+è un oggetto quadratico, è un invariante, ed è detto il quadrato della distanza infinitesima sulla varietà
+per avere una distnza fra due punti $P,Q$ sulla varietà bisogna integrare
+	d(P,Q)=\int_P^Q ds=\int_P^Q \sqrt{g_{\alpha,\beta}dx^\alpha dx^\beta}\equiv immagino di muovermi su una curva fra Pe Q, scelgo una parametrizzazione della curva con t, moltiplico e divido per due volt per dt
+	 \int_P^Q d\tau \abs{\dv{x^\mu}{\tau}}
+chiedo al tensore di essere invertibile per avere un invariante
+	g^{\alpha\beta}g_{\beta\mu}=\delta^\alpha_\mu
+	g^{-1}g=\mathbb{1}
+uso la metrica per trasformare un tensore controvariante in uno covariante o viceversa
+se esiste un vettore coordinate X^\alpha controvariante allora posso costruire un vettore covariante usando la metrica
+	X^\alpha controvariante \rightarrow X_\beta\equiv g_{\beta\alpha}X^\alpha
+	
+la metrica definisce anche la traccia:
+	se ho un tensore controvariante a due indici posso costruire
+	F^{\alpha\beta}g_{\alpha\beta}\equiv F^\alpha_\alpha \equiv Tr(F) che è la somma degli elementi sulla diagonale
+viceversa
+	G_{\alpha\beta}\rightarrow G_{\alpha\beta}g^{\alpha\beta}\equiv G_\alpha^\alpha\equiv Tr(G)
+riotteniamo la dimensione d come
+	g^{\alpha\beta}g_{\alpha\beta}\equiv \delta^\alpha_\alpha\equiv d
+	
+	
+noi però lavoriamo in uno spazio piatto ed è veramente uno spazio vettoriale: l'apparato differenziale si trasforma in trasformazioni lineari
+quindi nel caso dello spazio di Minkowski e delle TdL le TdL sono lineari e le possiamo scrivere come
+ora gli indici in alto hanno un significato preciso, non sono un'abitudine come prima
+controvarianti perché lo sono i differenziali delle coordinate
+
+le trasformazioni di Lorentz sono le matrici \Lambda che agiscono come
+	x^\alpha \stackrel{\Lambda}{\rightarrow} x^\alpha'=\Lambda^\alpha_\beta x^\beta
+	\pdv{x^\lpah'}{x^\sigma}=\Lambda^\alpha_\beta\pdv{x^\beta}{x^\sigma}=\Lambda^\alpha_\beta \delta^\beta_\sigma=\Lambda^\alpha_\sigma
+	
+la metrica sappiamo già cos'è: per necessità modellistiche deve avere dei segni
+
+	g_{\alpha\beta} t.c. g_{00}=+1, g_{11}=g_{22}=g_{33}=-1, g_{ij}=0, \forall i\neq j
+se li scrivo come matrice sono la stessa cosa	
+	g^{\alpha}\sim g_{\alpha\beta}, nel senso di matrici e non di tensori
+	
+	
+I vettori in $M$ sono detti \textit{quadrivettori}
+sono definiti dal fato che si trasformano come x^\mu
+	A^\mu=\{A^0,\vba A\}
+hanno una componente 0 e un vettore \vba A
+
+	\Lambda^\alpha_\beta \rightarrow matrice con quadrato 3x3 in basso a destra
+	\vba A è proprio un vettore di O(3)
+
+possiamo definire la sua parte controvariante con la metrica
+	A_{\mu}\equiv g_{\mu\nu}A^\nu=\{A_0=A^0, -\vba A\}
+questo perché \vba A è moltiplicato per -1
+
+posso definire
+	x_\mu\equiv g_{\mu\nu}x^\nu=\{x^0=x_0,-\vba x\}
+	
+costruendo l'invariante su questa metrica definiamo
+	A^\mu B_\mu \equiv g_{\mu\nu}A^\mu B^\nu=A^0B^0 -\vba A\vdot \vba B
+	
+come effetto collaterale il gradiente \partial_\mu=\pdv{x^\mu} è naturalmente covariante, posso definire operatore differenziale del secondo ordine, generalizzazione del laplaciano, invairante per trasformazioni di Lorentz nello spazio di Minkowski
+	\partial_\mu\rightarrow\partial_\mu\partia^\mu\equiv g^{\mu\nu}\partial_\mu\partial_\nu= \partial_0^2-(\laplacian) = \frac{1}{c^2} \pdv[2]{t}-\laplacian
+la meccanica va cambiata, mentre l'elettro-dinamica viene solo riscritta in modo più elegante perché è già invariante sotto trasformazioni di Lorentz
+
+boost  \Lambda=\begin{pmatrix}
+	\gamma &-\gamma\beta & 0\\
+	-\gamma\beta & \gamma & 0 \\
+	0 & 0 & \mathbb{1}_{2x2}
+\end{pmatrix}
+da Michelson e Morley abbiamo richiesto che
+	g_{\mu\nu}x^\mux^\nu=g_{\rho\sigma}x^\rho' x^\sigma '= g_{\rho\sigma} \Lambda^\rho_\mu x^\mu \Lambda^\sigma_\nu x^\nu= g_{\rho\sigma}\Lambda^\rho_\mu \Lambda^\sigma_\nu \rightarrow \Lambda^T g \Lambda =g
+questo lo posso fare per tensori di rango 2, altrimenti non posso rappresentarlo con una matrice
+
+\section{Riformulare la meccanica in termini di tensori di Lorentz}
+dopo il formalismo matematico, riscriviamo le leggi della fisica in questo linguaggio, la meccanica ne risulta modificata
+quando vediamo un vettore dobbiamo attaccarci un pezzo in modo che si mescoli alla componente vettoriale
+abbiamo x^\mu,x_\mu, g_{\mu\nu}
+non funziona però la definizione di velocità, che non è neanche un pezzo di un quadrivettore, perché non opera sotto le trasformazioni di Lorentz
+la velocità \vba v quindi non è un tensore di Lorentz, infatti
+	facendo un boost nella direzione x è successo che la componente trasversa della velocità non rimaneva invariante
+		u'_y=\frac{u_y}[\gamma(v)\left( 1-\frac{u_xv}{c^2} \right)]
+	ma sarebbe dovuto succedere che se fosse stato un quadrivettore allora u'_y=u_y perché y=y'
+questo perché avevamo definito \vba u'\equiv\dv{\vba x'}{t'} e \vba u=\dv{\vba x}{t}
+non va bene perché si trasformano sia numeratore sia denominatore
+la cosa naturale da fare per ottenere un quadrivettore è scrivere una generalizzazione dividendo per un oggetto invariante invece che per uno che cambia
+il problema è di quale tempo stiamo parlando
+dobbiamo parametrizzare la curva traiettoria per un invariante di Lorentz
+la scelta ovvia è quella di ds o meglio d\tau\equiv \frac{ds}{c} che ha le dimensioni del tempo
+è il tempo di chi si sta muovendo
+	d\tau^2=\frac{ds^2}{c^2}=\fracéc^2dt^2-dx^2-dy^2-dz^2}{c^2}=dt^2\left(1-\frac{v^2}{c^2} \right)=\frac{dt^2}{\gamma^2}
+per i sistema di riferimento a riposo la velocità del moto è 0, il tempo che misura è quello che usiamo per fare la derivata
+per gli altri osservatori è un tempo riscalato per un fattore che dipende dalla velocità della macchina
+	\dv{t}{\tau}=\gamma è la dilatazione dei tempi: l'intervallo dei tempi misurato da chi vede in movimento è \gamma>1 volte quello misurato da chi si sta muovendo
+con questa scelta non unica ma naturale 
+
+fatta questa scelta posso definire un quadrivettore  detto quadrivelocità \index{quadrivelocità}
+	u^\mu=\dv{x^\mu}{\tau}==
+è controvariante per definizione
+messa in relazione con la normale velocità galielaiana abbiamo
+	==\dv{x^\mu}{t}\dv{t}{\tau}=\gamma \dv{x^\mu}{t}= abbiamo anche ua quarta componente x^0=ct		=\gamma(c,\vba u)
+la prima componente sarà un invariante di scala
+costruendo una cosa di Lorentz
+	u^\mu u_\mu\equiv g_{\mu\nu}u^\mu u^\nu=\gamma^2(c^2-u^2)=c^2 nel sistema intelligenet
+
+quindi la quadrivelocità non è mai nulla, anche se è a riposo abbiamo (c,\vba 0)
+
+abbiamo così un altro modo per derivare le trasformazioni delle velocità
+	u^\mu'\equiv \Lambda^\mu_\nu (v)u^\nu
+
+abbiamo due \gamma
+	\begin{cases}
+		u^0'=\gamma(v) (u^0-\beta_v u^1)\\
+		u^1'=\gamma(v)(u^1-\beta_v u^0)\\
+		u^2'=u^2\\
+		u^3'=u^3
+	\end{cases} \implies \begin{cases}
+		\gamma(u')c=\gamma(v)(\gamma(u)c-\beta v \gamma(u)u_x)\\ \gamma(u')u'_x=\gamma(v)(\gamma(u)u_x-\beta_v\gamma(u)c)\\
+		\gamma(u')u'_y=\gamma(u)u_y\\
+		\gamma(u')u'_z=\gamma(u)u_z
+	\end{cases}
+abbiamo \gamma(u), \gamma(v), \gamma(u')
+prendo la prima equazione per stabilire una relazione fra la \gamma
+	\frac{\gamma(u')}{\gamma(u)}=\gamma(v)(1-\beta_u\beta_v) che è il fattore che compare al denominatore
+	u_x'=\gamma(v)\frac{\gamma(u)}{\gamma(u')}(u_x-\beta_v c)= usando l'espressione inversa= \frac{u_x-v}{1-\beta_u\beta_v}
+che è esattamente quella che abbiamo derivato
+	u_y'=\frac{\gamma(u)}{\gamma(u')}u_y=\frac{u_y}{\gamma(v)(1-\beta_u\beta_v)}
+particella che si muove con la sua velocità v, trivelocità u e u'
+trasformiamo le derivate rispetto al tempo in derivate rispetto al tempo proprio
+
+\subsection{quadriaccelerazione}	
+	a^\mu\equiv \dv{u^\mu}{\tau}=\dv[2]{x^\mu}{\tau}=\dv{t}{\tau}\dv{t}(\gamma_uc,\gamma_u\vba u)=\gamma\dv{t}(\gamma_uc,\gamma_u\vba u)
+per quadrivelocità costante u_\mu=\gamma(u_0)(c,\vba u_0)
+	a^\mu=\gamma^2(u_0),\dv{u_0}{t}=0
+non succede in generale e c'è una conseguenza del fatto che ha modulo fissato , non è mai nullo
+	c^2=u^\mu u_\mu=\dv{x^\mu}{\tau}\dv{x_\mu}{\tau}
+	0=\dv{t}(u^\mu u_\mu)=2u^\mu a_\mu
+quadrivelocità u^\mu e quadriaccelerazione a^\mu sempre perpendicolari fra loro per il prodotto lorentziano
+
+adesso parliamo di forzeed impulsi
+\subsection{Quadrimpulso}
+nel caso galielaiano il trimpulso è la massa per la velocità
+	\vba p=m\vba u
+bisogna però decidere cos'è la massa
+troveremo però m_0=m, massa definita dove il sistema di riferimento è a riposo 
+l'oggetto che rappresenta l'impulso ha la massa sempre la stessa, ma dal pov dinamico abbiamo un \gamma alto, quindi ci vuole più forza per accelerare, è scorretto attribuite questo alla massa, è dovuto alle trasformazioni di Lorentz
+	m_0 è a massa a riposo
+	
+abbiamo già deciso come si generalizza
+nel caso lorentziano c'è oggetto p_\mu\equiv m_0 u^\mu, gioca lo stesso ruolo di \tau 
+
+domanda: e se avessimo avuto p^\mu=m(u)u^\mu, cioè massa che dipende dalla velocità?
+avrei bisogno di m(0)=0
+verifichiamo con esperimento concettuale: richiesta di impulso che sia conservato
+
+
+facciamo una collisione calibrata
+abbiamo due sistemi di riferimento: \mathcal{S}_B e \mathcal{S}_A
+A è fermo, manda una particella con velocità \vba u nel suo sistema, dopo l'urto torna a velocità -\vba u
+dal pov di B il disegno è invertito
+	\vba \omega_I, velocità vista da A del lancio di B e \vba\omega_F
+	
+La velocità lungo x_B^2 misurata da B deve essere -\vba u, uguale e opposta in segno alla velocità della particella lanciata da A, misurata da A
+
+usiamo trasformazione delle velocità per capire cosa succede
+attenzione a chi prende le misure!
+	per A \vba \omega_I=v\hat i_A -\frac{u}{\gamma(v)}\vba j_A, u è la velocità misurata da B
+	u_y'=\frac{u_y}{\gamma(v)(1-\vba \beta(u\vdot\vba \beta(v)))}
+
+ci deve essere simmetria, quindi 	
+	\vba \omega_F=v\hat i_A+\frac{u}{\gamma(v)}\hat j_A
+	
+devo decidere qual è la relazione fra gli impulsi
+supponiamo che 
+	\vba p=m(u)\vba u
+	2m(u)u=2m(\omega)\frac{u}[\gamma(v)]
+	la quantità id impulso che ho trasferito fa B ad A deve essere la stessa trasmessa da B
+	\implies m(\omega)=\gamma(v)m(u), sempre nel caso in cui \vba v\bot\vba u
+	
+abbiamo però la condizione al contorno, nel limite u\to 0 che è indipendente per v\to 0
+, \omega\rightarrow v
+quindi 
+	m(\omega)\stckrel{\rightarrow}{u\to 0} m(v)=\gamma(v)m(0)=\gamma(v)m_0
+chiediamo che l'impulso si conservi, quindi \vba p=m_0\gamma(u)\vba u
+
+che èe esattamente quello che stavo postulando all'inizio
+ho perfetta consistenza con p^\mu=m_0 u^\mu
+
+
+ce la scriviamo con calma
+	p^\mu=(m_0c\gamma,m_0\gamma\vba u)
+	cp^0=m_0c^2\gamma
+ha le dimensioni di un'energia
+	E\equiv cp^0=m_0c^2\gamma=\frac{m_0c^2}{\sqrt{1-\frac{v^2}{c^2}}}=m_0c^2\left(1+\frac{1}{2}\frac{v^2}{c^2}+o\left(\frac{v^4}{c^4}	\right)\right) = m_0c^2 +\frac{1}{2}m_0 v^2+0\left(\rfac{v^4}{c^2}\right)
+è l'energia 
+in meccanica l'energia è sempre a meno di una costante, ma qui ne ho una con le dimensioni di un'energia ed è fissata m_0c^2
+quindi l'energia di una particella è m_0c^2 perché è il termine dominante nello sviluppo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
