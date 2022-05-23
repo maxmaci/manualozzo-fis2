@@ -1370,19 +1370,88 @@ in meccanica l'energia è sempre a meno di una costante, ma qui ne ho una con le
 quindi l'energia di una particella è m_0c^2 perché è il termine dominante nello sviluppo
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 33, 18/05/2022
 
+vettori -> quadrivettori
 
+abbiamo definito la quadrivelocità  derivato le coordinate rispetto al tempo proprio
+	u^\mu=\dv{x^\mu}{\tau}=\gamm(u)(c,\vba u)
+ci sono solo 3 oggetti indipendenti, il vincolo fra di loro è che la quadrivelocità ha come modulo costante u^\mu u_\mu=C^2
 
+Quadriaccelerazione
+	a^\mu=\dv{u^\mu}{\tau}=\dv[2]{x^\mu}{\tau}=\gamma(u)\dv{t}(\gamma(u)c,\gamma(u)\vba u)
+qui la differenza è che bisogna derivare anche la \gamma, ho correzioni veramente piccole sviluppando o 0 e \beta^4
+il vincolo è che è perpendicolare in senso lorentziano alla quadrivelocità 	
+	u^\mu a_\m=0
 
+Quadrimpulso
+	p^\mu=m_0 u^\mu (massa per quadrivelocità)= (mc\gamma(u), m\vba u \gamma(u))
+	massa si misura con la bilancia da fermi, a grandi velocità ho fattore \gamma che fa sì che per accelerare le cose la forza necessaria aumenta
 
+ma che cos'è mc\gamma(u)?
+osserviamo che 
+	cp^0=mc^2\gamma=mc^2 +\frac{1}{2}mu^2+\dots
+acquisisce le dimensioni di un'energia, nello sviluppo rispetto a \frac{1}{\sqrt{1-\frac{u^2}{c^2}}}=1+\frac{u^2}{2c^2}+\dots ho costante 
+quindi mc\gamma(u) è l'energia della particella, quindi mc\gamma(u)\equiv \frac{E}{c}
+quindi l'energia della particella a riposo non solo esiste ma è preponderante
 
+questa è una sorta di unificazione concettuale fra impulso ed energia, che per la meccanica newtoniana hanno addirittura due leggi di conservazione
+qui invece si conserva un quadrivettore
+abbiamo così una unificazione delle leggi di conservazione di $E$ e $\vba p$
+risolvendo un problema di urto relativistico, abbiamo che
+	p^\mu_{1, I} +p^\mu_{2,I}= p^\mu_{1,F}+p^\mu_{2,F}
+che incorporano 4 equazioni
+abbiamo identificato la costante
+la massa è solo una forma di energia che può essere convertita in altre forme di energia
+il quadrimpulso h una regola di somma, c'è un invariante di Lorentz: siccome c'è un'interpretazione non banale, il vincolo ha un'implicazione che dice qual è l'espressione relativistica per l'energia di una particella
 
+	p^\mu p_\mu= m^2 u^\mu u_\mu=m^2c^2
+abbiamo identificato la componente 0 come l'energia
+	=\frac{E^2}{c^2}-\abs{\vba p}^2 con \vba p=m\gamma \vba u (il risultato viene per moltiplicazione di co e controvarianti)
+	=m^2c^2
+risolvendo per $E$
+	E=\sqrt{\abs{\vba p}}^2c^2+m^2c^4}
+che nella non relativistica era E=E_0+ \frac{\abs{\vba p}}^2{2m}
 
+sviluppiamo in serie estraendo dalla radice quadrata
+	E=mc^2\sqrt{1+\frac{\abs{\vba p}^2}{m^2c^2}}= mc^2\left(1+\frac{\abs{\vba p}^2}{2m^2c^2}+\dots \right)= mc^2 + \frac{\abs{\vba p}^2}{2m}+\dots 
 
+per completezza, 
+	\frac{\abs{\vba p}}{p^0}=\frac{m\gamma\abs{\vba u}}{m\gamma c}=\beta 
+	
+per il teorema di Noether, siccome prendiamo come simmetria le traslazioni c'è la conservazione di impulso ed energia
+considerando i quadrivettori ci sarà un'unica quantità conservata
 
+\subsection{Quadriforza}
+	F^\mu=\dv{p^\mu}{tau}
+	
+Se la massa m è costante
+	F^\mu=m\dv[2]{x^\mu}{\tau}=ma^\mu
+riotteniamo una diversa equazione di Newton perché stiamo derivando rispetto al tempo proprio
 
+se diamo le def convenzinoali 3dim ha componente aristotelica in direzione della velocità, non è perfettamnte parallela alla direzione dell'accelerazinoe
 
+nel caso galileiano \vba F=\dv{\vba p}{t}
+invece da prima abbiamo 
+	\gamma(u)\left(mc\dot\gamma,\vba F  \right)
+	
+	u^\mu a_\mu=0=u^\mu F_\mu
+	u^0F^0-u^iF^i=0
+	(\gamma c) (\gamma mc\dot\gamma) - \gamma^2\vba F\vdot\vba u=0
+si elimina il fattore \gamma^2 e si ottiene che
+	mc^2\dot\gamma=\vba F\vdot\vba u=\dv{E}{t}
+lavoro fatto sulla particella che si muove alla velocità $\vba u$, proiettato sulla direzione del moto ho il lavoro, quanta energia acquisisce o perde la particella in questione
+otteniamo così il teorema lavoro-energia che viene dal fatto che la quadrivelocità e la quadriforza sono perpendicolari fra loro 
 
+non parallelismo in 3dim viene da
+	caso galileiano \vba a=\dv{\vba u}{t}
+	triforza \vba F=\dv{\vba p}{t}=\dv{t}(m\gamma(u)\vba u)=m\dot\gamma\vba u+m\gamma\vba a
+	pezo piccolo perché è la derivata di \gamma, inizio ad ordine \beta^2
+	usando il teorema dell'energia otteniamo
+	=m\gamma\vba a +\frac{1}{c^2}(\vba F\vdot\vba u)\vba u= (derivata dell'energia) m\gamma\vba a+\frac{1}{c^2}\dv{E}{t}\vba u
+	
+%CIT questo per la nostra intuizione newtoniana sviluppata all'asilo e perfezionata al liceo
 
 
 
