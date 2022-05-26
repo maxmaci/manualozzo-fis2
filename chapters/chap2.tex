@@ -9,9 +9,9 @@
 \labelChapter{convergenzafunzioni}
 
 \begin{introduction}
-	‘‘La situazione si complica. Ora, ce ne sono due di loro!''
+	‘‘BEEP BOOP''
 	\begin{flushright}
-		\textsc{Nute Gunray,} scoprendo la convergenza puntuale dopo quella uniforme. % TO DO: quote
+		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. % TO DO: quote 
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{P}{er}  % TO DO: intro
@@ -192,13 +192,34 @@ dove $\Sigma$ è l'angolo solido sull'intera superficie.\\
 Se la superficie (finita) è chiusa si ha $\Omega=4\pi$, ottenendo quindi il risultato desiderato.
 \end{demonstration}
 \begin{observe}
-	La \ref{LeggeGaussGeneralizzata} descrive il flusso del campo elettrostatico attraverso una superficie \textbf{qualunque}. La legge di Gauss si potrebbe vedere come un \textit{caso specifico} di questa relazione.
+	La \eqref{LeggeGaussGeneralizzata} descrive il flusso del campo elettrostatico attraverso una superficie \textbf{qualunque}. La legge di Gauss si potrebbe vedere come un \textit{caso specifico} di questa relazione.
 \end{observe}
 Il caso per cariche multiple segue dal \textit{principio di sovrapposizione} dei campi elettrici:
 \begin{equation*}
 	\Phi_{\Sigma}\left(\vba{E}\right)=\int_{\Sigma} \vba{E}\vdot \vbh{u}_nd\Sigma=\int_{\Sigma}\left(\sum_i\vba{E}_i\right)\vdot\vbh{u}_nd\Sigma=\sum_i\int_{\Sigma}\vba{E}_i\vdot\vbh{u}_nd\Sigma=\sum_i\frac{q_i}{\epsilon_0}
 \end{equation*}
 Da questa si ottiene, passando al continuo, la relazione \ref{LeggeGaussContinua}.
+\begin{observe}\label{LeggeGaussMoltoGeneralizzata}
+	La dimostrazione della legge di Gauss si basa sul fatto fondamentale che la legge di Coulomb, che descrive l'interazione tra cariche elettriche, è \textit{inversamente proporzionale} a $r^2$. È dunque possibile adattare la legge di Gauss in altri contesti non elettrici, se consideriamo una forza tra due enti inversamente proporzionale a $r^2$.\\
+	Ad esempio, esiste una formulazione della legge di Gauss per la \textit{forza di gravitazione} completamente equivalente alla legge di gravitazione universale di Newton: il flusso del campo gravitazionale attraverso una superficie chiusa è pari alla massa inclusa in essa, moltiplicata per $-4\pi G$.
+	\begin{itemize}
+		\item \textbf{Caso discreto:}
+		\begin{equation}
+			\Phi_\Sigma(\vba{G})=-4\pi G\sum_i m_i
+		\end{equation}
+		\item \textbf{Caso continuo:}
+		\begin{equation}
+			\Phi_\Sigma(\vba{G})=-4\pi G\int_{V}\rho\left(x,y,z\right)dV\qquad\text{tale che}\ \partial V=\Sigma
+		\end{equation}
+	\end{itemize}
+	Si noti, tra l'altro, che non è particolarmente differente dal caso elettrico dato che la legge di Gauss per il campo elettrico si può anche scrivere come \begin{equation*}
+		\Phi_\Sigma\left(\vba{E}\right)=4\pi k\sum_i q_i
+	\end{equation*}
+	o
+	\begin{equation}
+		\Phi_\Sigma\left(\vba{E}\right)=4\pi k\int_{V}\rho\left(x,y,z\right)dV\qquad\text{tale che}\ \partial V=\Sigma
+	\end{equation}
+\end{observe}
 \paragraph{Flusso tramite una superficie chiusa per una carica esterna}
 La legge di Gauss descrive il flusso tramite una superficie chiusa tenendo conto delle cariche \textit{interne} ad essa... e si ci fossero delle cariche \textit{esterne}?
 

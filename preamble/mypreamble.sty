@@ -73,7 +73,7 @@
 %%% Quote packages %%%
 % Provides advanced functions for inline and display quotations
 \RequirePackage{csquotes} 
- 
+
 %%%
 \RequirePackage[inline]{enumitem}
 \RequirePackage{xspace}
@@ -194,13 +194,13 @@
 \begingroup%
 \makeatletter%
 \let\newcounter\@gobble\let\setcounter\@gobbletwo%
-  \globaldefs\@ne \let\c@loldepth\@ne%
-  \newlistof{listings}{lol}{\lstlistlistingname}%
-  \newlistentry{lstlisting}{lol}{0}%
+\globaldefs\@ne \let\c@loldepth\@ne%
+\newlistof{listings}{lol}{\lstlistlistingname}%
+\newlistentry{lstlisting}{lol}{0}%
 \endgroup%
 \makeatletter%
 \g@addto@macro\insertchapterspace%
-  {\addtocontents{lol}{\protect\addvspace{10pt}}}%
+{\addtocontents{lol}{\protect\addvspace{10pt}}}%
 \makeatother%
 \makeatletter%
 \AtBeginDocument{\addtocontents{lol}{\protect\addvspace{10\p@}}}%
@@ -210,17 +210,17 @@
 \xspaceremoveexception{-}
 \makeatletter
 \renewcommand*\@xspace@hook{%
-  \ifx\@let@token-%
-    \expandafter\@xspace@dash@i
-  \fi
+	\ifx\@let@token-%
+	\expandafter\@xspace@dash@i
+	\fi
 }
 \def\@xspace@dash@i-{\futurelet\@let@token\@xspace@dash@ii}
 \def\@xspace@dash@ii{%
-  \ifx\@let@token-%
-  \else
-    \unskip
-  \fi
-  -%
+	\ifx\@let@token-%
+	\else
+	\unskip
+	\fi
+	-%
 }
 \makeatother
 
@@ -230,14 +230,14 @@
 
 % Commands for producing theorems
 \newtheoremstyle{mystyle}%
-  {\baselineskip}% Space above
-  {\baselineskip}% Space below
-  {}% Body font
-  {}% Indent amount
-  {\scshape}% Theorem head font
-  { -- }% Punctuation after theorem head
-  {0pt}% Space after theorem head
-  {}% Theorem head spec (empty means normal)
+{\baselineskip}% Space above
+{\baselineskip}% Space below
+{}% Body font
+{}% Indent amount
+{\scshape}% Theorem head font
+{ -- }% Punctuation after theorem head
+{0pt}% Space after theorem head
+{}% Theorem head spec (empty means normal)
 \theoremstyle{mystyle}
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{definition}{Definition}[chapter]
@@ -248,18 +248,18 @@
 
 % Style-changing commands in text (may also do more stuff)
 \newcommand{\keyword}[1]{%
-  \emph{#1}%
+	\emph{#1}%
 }
 
 % Environment for including notes within the text
 \newenvironment{notes}
 {%
-  \vspace{0.25\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}%
-
-  \footnotesize\itshape%
+	\vspace{0.25\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}%
+	
+	\footnotesize\itshape%
 }
 {%
-  \vspace{0.25\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}%
+	\vspace{0.25\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}%
 }
 
 % Text strings not set in small caps
@@ -356,20 +356,20 @@
 % the string is set in upper case
 \makeatletter
 \DeclareRobustCommand{\setInSC}[1]{%
-  \ifx\f@shape\code@Roman
-    \expandafter\textsc{\MakeTextLowercase{#1}}%
-  \else
-    \ifdim\fontdimen\@ne\font>\z@
-      \begingroup
-      \check@mathfonts
-      \fontsize\sf@size\z@\selectfont
-      \let\MakeTextLowercase\@firstofone
-      \expandafter\MakeUppercase{#1}%
-      \endgroup
-    \else
-      \expandafter\MakeTextUppercase{#1}%
-    \fi
-  \fi
+	\ifx\f@shape\code@Roman
+	\expandafter\textsc{\MakeTextLowercase{#1}}%
+	\else
+	\ifdim\fontdimen\@ne\font>\z@
+	\begingroup
+	\check@mathfonts
+	\fontsize\sf@size\z@\selectfont
+	\let\MakeTextLowercase\@firstofone
+	\expandafter\MakeUppercase{#1}%
+	\endgroup
+	\else
+	\expandafter\MakeTextUppercase{#1}%
+	\fi
+	\fi
 }
 \newcommand*{\code@Roman}{n}
 \newcommand*{\code@Italics}{it}
@@ -378,46 +378,46 @@
 % first letter ("Small Caps, Capitalize First"), and set the remainder in small 
 % caps
 \DeclareRobustCommand{\setInSCCF}[1]{%
-  \StrLeft{#1}{1}[\first]%
-  \StrGobbleLeft{#1}{1}[\remainder]%
-  \MakeTextUppercase{\first}\setInSC{\remainder}%
+	\StrLeft{#1}{1}[\first]%
+	\StrGobbleLeft{#1}{1}[\remainder]%
+	\MakeTextUppercase{\first}\setInSC{\remainder}%
 }
 
 % Command for converting a month number into corresponding month name
 \newcommand{\monthName}[1]{%
-  \ifcase #1%
-  \or January%
-  \or February%
-  \or March%
-  \or April%
-  \or May%
-  \or June%
-  \or July%
-  \or August%
-  \or September%
-  \or October%
-  \or November%
-  \or December%
-\fi%
+	\ifcase #1%
+	\or January%
+	\or February%
+	\or March%
+	\or April%
+	\or May%
+	\or June%
+	\or July%
+	\or August%
+	\or September%
+	\or October%
+	\or November%
+	\or December%
+	\fi%
 }
 
 % Other text strings
 \newcommand{\thesisNumber}{TRITA-ICT-EX-2012:13}
 \newcommand{\appModel}{%
-  \ifnum\currentgrouptype = 6 %
-    \ifnum\lastnodetype = 0 %
-    \else
-      \ifnum\lastnodetype = 7 %
-      \else
-        \relax
-      \fi
-    \fi
-  \fi
-  \ifmmode
-    \mathcal{LSM}%
-  \else
-    $\mathcal{LSM}$\xspace%
-  \fi
+	\ifnum\currentgrouptype = 6 %
+	\ifnum\lastnodetype = 0 %
+	\else
+	\ifnum\lastnodetype = 7 %
+	\else
+	\relax
+	\fi
+	\fi
+	\fi
+	\ifmmode
+	\mathcal{LSM}%
+	\else
+	$\mathcal{LSM}$\xspace%
+	\fi
 }
 % Schedule Finding Methods
 \newcommand{\sfmEp}{\textsc{sfm-ep}\xspace}
@@ -425,22 +425,22 @@
 \newcommand{\sfmBps}{\textsc{sfm-bps}\xspace}
 % When citing sources in figures and tables
 \newcommand{\source}[2][]{%
-  % #1 = prefix text (optional)
-  % #2 = citation(s)
-  \ifthenelse{\equal{#1}{}}{%
-    Source: #2%
-  }{%
-    Source: #1 #2%
-  }%
+	% #1 = prefix text (optional)
+	% #2 = citation(s)
+	\ifthenelse{\equal{#1}{}}{%
+		Source: #2%
+	}{%
+		Source: #1 #2%
+	}%
 }
 \newcommand{\sources}[2][]{%
-  % #1 = prefix text (optional)
-  % #2 = citation(s)
-  \ifthenelse{\equal{#1}{}}{%
-    Sources: #2%
-  }{%
-    Sources: #1 #2%
-  }%  
+	% #1 = prefix text (optional)
+	% #2 = citation(s)
+	\ifthenelse{\equal{#1}{}}{%
+		Sources: #2%
+	}{%
+		Sources: #1 #2%
+	}%  
 }
 
 
@@ -475,36 +475,36 @@
 \newcommand{\listInlineEnumerateLabel}{({\roman*})}
 % Global list settings
 \setlist{%
-  noitemsep,
-  topsep=\listTopSep,
-  parsep=\listParSep,
-  leftmargin=\listAllLeftMarginI,
-  labelsep=\listLabelSep,
+	noitemsep,
+	topsep=\listTopSep,
+	parsep=\listParSep,
+	leftmargin=\listAllLeftMarginI,
+	labelsep=\listLabelSep,
 }
 \setlist[itemize, 1]{%
-  label=\listItemizeLabelI,
+	label=\listItemizeLabelI,
 }
 \setlist[itemize, 2]{%
-  label=\listItemizeLabelII,
-  leftmargin=\listItemizeLeftMarginII,
+	label=\listItemizeLabelII,
+	leftmargin=\listItemizeLeftMarginII,
 }
 \setlist[enumerate, 1]{%
-  label=\listEnumerateLabelI,
-  ref=\listEnumerateRefI,
+	label=\listEnumerateLabelI,
+	ref=\listEnumerateRefI,
 }
 \setlist[enumerate, 2]{%
-  label=\listEnumerateLabelII,
-  ref=\listEnumerateRefII,
-  leftmargin=\listEnumerateLeftMarginII,
+	label=\listEnumerateLabelII,
+	ref=\listEnumerateRefII,
+	leftmargin=\listEnumerateLeftMarginII,
 }
 \newenvironment{inlineEnumerate}
 {%
-  \begin{enumerate*}[%
-      label=\listInlineEnumerateLabel,
-    ]%
-}
-{%
-  \end{enumerate*}
+	\begin{enumerate*}[%
+		label=\listInlineEnumerateLabel,
+		]%
+	}
+	{%
+	\end{enumerate*}
 }
 
 % Timeline
@@ -521,79 +521,79 @@
 \addtolength{\timelineDescWidth}{-3.5em}
 \newenvironment{timeline}
 {%
-  \par\addvspace{\timelineTopSkip}%
-  \hfill%
-  \begin{tabular}{p{\timelineItemWidth}@{\quad}p{\timelineDescWidth}}%
-}
-{%
-  \end{tabular}%
-  \par\addvspace{\timelineBottomSkip}%
+	\par\addvspace{\timelineTopSkip}%
+	\hfill%
+	\begin{tabular}{p{\timelineItemWidth}@{\quad}p{\timelineDescWidth}}%
+	}
+	{%
+	\end{tabular}%
+	\par\addvspace{\timelineBottomSkip}%
 }
 \newcommand{\milestone}[3]{%
-  % #1 = Start week
-  % #2 = End week (leave empty if this only spans one week)
-  % #3 = Mile stone
-  \ifthenelse{\equal{#2}{}}{%
-    \raggedleft Week #1: & #3 \\
-  }{%
-    \raggedleft Weeks #1--#2: & #3 \\
-  }
+	% #1 = Start week
+	% #2 = End week (leave empty if this only spans one week)
+	% #3 = Mile stone
+	\ifthenelse{\equal{#2}{}}{%
+		\raggedleft Week #1: & #3 \\
+	}{%
+		\raggedleft Weeks #1--#2: & #3 \\
+	}
 }
 
 % Objectives
 \newenvironment{objectives}
 {%
-  \begin{enumerate}%
-}
-{%
-  \end{enumerate}%
+	\begin{enumerate}%
+	}
+	{%
+	\end{enumerate}%
 }
 \newenvironment{subobjectives}
 {%
-  \begin{itemize}[label=\listEnumerateLabelII]%
-}
-{%
-  \end{itemize}%
+	\begin{itemize}[label=\listEnumerateLabelII]%
+	}
+	{%
+	\end{itemize}%
 }
 
 % Challenges
 \newenvironment{challenges}
 {%
-  \begin{itemize}[itemsep=\listItemSep]
-}
-{%
-  \end{itemize}
+	\begin{itemize}[itemsep=\listItemSep]
+	}
+	{%
+	\end{itemize}
 }
 \newenvironment{challenge_category}[1]
-  % #1 = category
+% #1 = category
 {%
-  \item #1
-    \begin{itemize}[itemsep=\listItemSep]
-}
-{%
-    \end{itemize}
+	\item #1
+	\begin{itemize}[itemsep=\listItemSep]
+	}
+	{%
+	\end{itemize}
 }
 \newcommand{\priorityLevel}[1]{\textsc{#1}}
 \newcommand{\challenge}[3]{%
-  % #1 = problem
-  % #2 = description
-  % #3 = priority (Critical, High, Medium, Low)
-  \item \textit{#1} (\priorityLevel{#3}) \\ #2
+	% #1 = problem
+	% #2 = description
+	% #3 = priority (Critical, High, Medium, Low)
+	\item \textit{#1} (\priorityLevel{#3}) \\ #2
 }
 
 % Command options
 \newenvironment{componentOptions}
 {%
-  \begin{trivlist}
-}
-{%
-  \end{trivlist}
+	\begin{trivlist}
+	}
+	{%
+	\end{trivlist}
 }
 \newcommand{\option}[2]{%
-  \item[] \hspace{\parindent}{\ttfamily #1}
-  \begin{itemize}
-    \item[] #2
-  \end{itemize}
+	\item[] \hspace{\parindent}{\ttfamily #1}
+	\begin{itemize}
+		\item[] #2
+	\end{itemize}
 }
 
 % List of Abbreviations
@@ -605,15 +605,15 @@
 \addtolength{\abbrDescWidth}{-3em}
 \newenvironment{abbreviations}
 {%
-  \begin{tabular}{p{\abbrItemWidth}p{\abbrDescWidth}}
-}
-{%
-  \end{tabular}
+	\begin{tabular}{p{\abbrItemWidth}p{\abbrDescWidth}}
+	}
+	{%
+	\end{tabular}
 }
 \newcommand{\abbrItem}[2]{%
-  % #1 = Abbreviation
-  % #2 = Description
-  #1 & #2 \\
+	% #1 = Abbreviation
+	% #2 = Description
+	#1 & #2 \\
 }
 
 
@@ -621,23 +621,23 @@
 % Texts
 \newenvironment{introduction}
 {%
-  \begin{minipage}{\textwidth}%
-   \itshape%
-}
-{%
-  \end{minipage}%
-  \par\addvspace{2\baselineskip plus 0.2\baselineskip minus 0.2\baselineskip}%
+	\begin{minipage}{\textwidth}%
+		\itshape%
+	}
+	{%
+	\end{minipage}%
+	\par\addvspace{2\baselineskip plus 0.2\baselineskip minus 0.2\baselineskip}%
 }
 \newenvironment{warning}
 {%
-  {\warningColor\scshape Warning!}
-  \par\addvspace{0.5\baselineskip}
-  \begin{minipage}{\textwidth}%
-   \itshape%
-}
-{%
-  \end{minipage}%
-  \par\addvspace{2\baselineskip}%
+	{\warningColor\scshape Warning!}
+	\par\addvspace{0.5\baselineskip}
+	\begin{minipage}{\textwidth}%
+		\itshape%
+	}
+	{%
+	\end{minipage}%
+	\par\addvspace{2\baselineskip}%
 }
 
 % TODO command (for drafting only)
@@ -650,155 +650,155 @@
 % next page", etc., and only use "... on page XX" when necessary.
 \makeatletter
 \AtBeginDocument{%
-  \patchcmd{\NR@@vpageref}{\reftextfacebefore}{\unskip}%
-           {\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-  \patchcmd{\NR@@vpageref}{\reftextfaceafter}{\unskip}%
-           {\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-  \patchcmd{\NR@@vpageref}{\reftextbefore}{\unskip}%
-           {\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-  \patchcmd{\NR@@vpageref}{\reftextbefore}{\unskip}%
-           {\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-  \patchcmd{\NR@@vpageref}{\reftextafter}{\unskip}%
-           {\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-  \patchcmd{\NR@@vpageref}{\reftextafter}{\unskip}%
-           {\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
+	\patchcmd{\NR@@vpageref}{\reftextfacebefore}{\unskip}%
+	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
+	\patchcmd{\NR@@vpageref}{\reftextfaceafter}{\unskip}%
+	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
+	\patchcmd{\NR@@vpageref}{\reftextbefore}{\unskip}%
+	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
+	\patchcmd{\NR@@vpageref}{\reftextbefore}{\unskip}%
+	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
+	\patchcmd{\NR@@vpageref}{\reftextafter}{\unskip}%
+	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
+	\patchcmd{\NR@@vpageref}{\reftextafter}{\unskip}%
+	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
 }
 \makeatother
 % Figures
 \newcommand{\labelFigure}[1]{%
-  % #1 = label
-  \label{fig:#1}%
+	% #1 = label
+	\label{fig:#1}%
 }
 \newcommand{\refFigure}[1]{%
-  % #1 = reference
-  \figurename~\vref{fig:#1}\xspace%
+	% #1 = reference
+	\figurename~\vref{fig:#1}\xspace%
 }
 \newcommand{\refFigureOnly}[1]{%
-  % #1 = reference
-  \figurename~\ref{fig:#1}\xspace%
+	% #1 = reference
+	\figurename~\ref{fig:#1}\xspace%
 }
 \newcommand{\refSubfigureOnly}[1]{%
-  % #1 = reference
-  \subcaptionref{fig:#1}\xspace%
+	% #1 = reference
+	\subcaptionref{fig:#1}\xspace%
 }
 % Tables
 \newcommand{\labelTable}[1]{%
-  % #1 = label
-  \label{tab:#1}%
+	% #1 = label
+	\label{tab:#1}%
 }
 \newcommand{\refTable}[1]{%
-  % #1 = reference
-  \tablename~\vref{tab:#1}\xspace%
+	% #1 = reference
+	\tablename~\vref{tab:#1}\xspace%
 }
 \newcommand{\refTableOnly}[1]{%
-  % #1 = reference
-  \tablename~\ref{tab:#1}\xspace%
+	% #1 = reference
+	\tablename~\ref{tab:#1}\xspace%
 }
 \newcommand{\refSubtableOnly}[1]{%
-  % #1 = reference
-  \subcaptionref{tab:#1}\xspace%
+	% #1 = reference
+	\subcaptionref{tab:#1}\xspace%
 }
 % Code
 \newcommand{\refListing}[1]{%
-  % #1 = reference
-  \lstlistingname~\vref{lst:#1}\xspace%
+	% #1 = reference
+	\lstlistingname~\vref{lst:#1}\xspace%
 }
 \newcommand{\refListingOnly}[1]{%
-  % #1 = reference
-  \lstlistingname~\ref{lst:#1}\xspace%
+	% #1 = reference
+	\lstlistingname~\ref{lst:#1}\xspace%
 }
 % Lists
 \newcommand{\labelList}[1]{%
-  % #1 = label
-  \label{list:#1}%
+	% #1 = label
+	\label{list:#1}%
 }
 \newcommand{\refList}[1]{%
-  % #1 = reference
-  List~\vref{list:#1}\xspace%
+	% #1 = reference
+	List~\vref{list:#1}\xspace%
 }
 \newcommand{\refListOnly}[1]{%
-  % #1 = reference
-  List~\ref{list:#1}\xspace%
+	% #1 = reference
+	List~\ref{list:#1}\xspace%
 }
 % List items
 \newcommand{\labelListItem}[1]{%
-  % #1 = label
-  \label{list:item:#1}%
+	% #1 = label
+	\label{list:item:#1}%
 }
 \newcommand{\refListItem}[1]{%
-  % #1 = reference
-  \vref{list:item:#1}\xspace%
+	% #1 = reference
+	\vref{list:item:#1}\xspace%
 }
 \newcommand{\refListItemOnly}[1]{%
-  % #1 = reference
-  \ref{list:item:#1}\xspace%
+	% #1 = reference
+	\ref{list:item:#1}\xspace%
 }
 % Parts
 \newcommand{\labelPart}[1]{%
-  % #1 = label
-  \label{chap:#1}%
+	% #1 = label
+	\label{chap:#1}%
 }
 \newcommand{\refPart}[1]{%
-  % #1 = reference
-  Part~\vref{chap:#1}\xspace%
+	% #1 = reference
+	Part~\vref{chap:#1}\xspace%
 }
 \newcommand{\refPartOnly}[1]{% Doesn't include the page referencing
-  % #1 = reference
-  Part~\ref{chap:#1}\xspace%
+	% #1 = reference
+	Part~\ref{chap:#1}\xspace%
 }
 % Chapters
 \newcommand{\labelChapter}[1]{%
-  % #1 = label
-  \label{chap:#1}%
-  \toggletrue{noDefine}
-  \toggletrue{noTheorema}
+	% #1 = label
+	\label{chap:#1}%
+	\toggletrue{noDefine}
+	\toggletrue{noTheorema}
 }
 \newcommand{\refChapter}[1]{%
-  % #1 = reference
-  Capitolo~\vref{chap:#1}\xspace%
+	% #1 = reference
+	Capitolo~\vref{chap:#1}\xspace%
 }
 \newcommand{\refChapterOnly}[1]{% Doesn't include the page referencing
-  % #1 = reference
-  Capitolo~\ref{chap:#1}\xspace%
+	% #1 = reference
+	Capitolo~\ref{chap:#1}\xspace%
 }
 % Sections
 \newcommand{\labelSection}[1]{%
-  % #1 = label
-  \label{sec:#1}%
+	% #1 = label
+	\label{sec:#1}%
 }
 \newcommand{\refSection}[1]{%
-  % #1 = reference
-  Section~\vref{sec:#1}\xspace%
+	% #1 = reference
+	Section~\vref{sec:#1}\xspace%
 }
 \newcommand{\refSectionOnly}[1]{% Doesn't include the page referencing
-  % #1 = reference
-  Section~\ref{sec:#1}\xspace%
+	% #1 = reference
+	Section~\ref{sec:#1}\xspace%
 }
 % Appendices
 \newcommand{\labelAppendix}[1]{%
-  % #1 = label
-  \label{appen:#1}%
-  \toggletrue{AppendixChapters}
+	% #1 = label
+	\label{appen:#1}%
+	\toggletrue{AppendixChapters}
 }
 \newcommand{\refAppendix}[1]{%
-  % #1 = reference
-  Appendix~\vref{appen:#1}\xspace%
+	% #1 = reference
+	Appendix~\vref{appen:#1}\xspace%
 }
 \newcommand{\refAppendixOnly}[1]{% Doesn't include the page referencing
-  % #1 = reference
-  Appendix~\ref{appen:#1}\xspace%
+	% #1 = reference
+	Appendix~\ref{appen:#1}\xspace%
 }
 
 % Command for reverting to normal number style
 \newcommand\normalNumberStyle{%
-  \renewcommand{\rmdefault}{jkp}%
-  \renewcommand{\sfdefault}{jkpss}%
-  \normalfont
+	\renewcommand{\rmdefault}{jkp}%
+	\renewcommand{\sfdefault}{jkpss}%
+	\normalfont
 }
 
 % Command for getting current time stamp
 \newcommand{\getTimestamp}{%
-  \dashdate\today~\currenttime%
+	\dashdate\today~\currenttime%
 }
 
 % Command for writing out email addresses
@@ -833,11 +833,11 @@
 \newlength{\chapterNumSizePt}
 \setlength{\chapterNumSizePt}{60pt}
 \newcommand{\partNumSize}{%
-  \fontsize{\partNumSizePt}{1.2\partNumSizePt}\selectfont%
+	\fontsize{\partNumSizePt}{1.2\partNumSizePt}\selectfont%
 }
 \newcommand{\partNumStyle}{\partChapterNumColor}
 \newcommand{\chapterNumSize}{%
-  \fontsize{\chapterNumSizePt}{1.2\chapterNumSizePt}\selectfont%
+	\fontsize{\chapterNumSizePt}{1.2\chapterNumSizePt}\selectfont%
 }
 \newcommand{\chapterNumStyle}{\partChapterNumColor}
 % Customize parts
@@ -845,33 +845,33 @@
 \renewcommand{\partnumfont}{\partNumSize\partNumStyle}
 \renewcommand{\printpartname}{}
 \renewcommand{\printparttitle}[1]{%
-  \normalfont\normalcolor\partnamefont #1
+	\normalfont\normalcolor\partnamefont #1
 }
-	% Customize chapters
-	\makeatletter
-	\setlength{\beforechapskip}{30pt}
-	\renewcommand*{\chapterheadstart}{\vspace*{\beforechapskip}}
-	\setlength{\afterchapskip}{3ex}
-	\setlength{\midchapskip}{3ex}
-	\renewcommand*{\chapnamefont}{%
-		\Large\flushright\chapterStyle\partChapterNumColor%
-	}
-	\renewcommand*{\chapnumfont}{\chapterNumSize\chapterNumStyle}
-	\renewcommand*{\chaptitlefont}{%
-		\normalfont\flushleft\normalcolor\chapterSize\chapterStyle%
-	}
-	\renewcommand*{\printchaptername}{%
-		\chapnamefont\MakeTextLowercase{\@chapapp}%
-	}
-	\renewcommand*{\chapternamenum}{\quad}
-	\renewcommand*{\printchapternum}{%
-		\chapnumfont\textls[-75]{\thechapter}%
-	}
-	\renewcommand*{\printchaptertitle}[1]{%
-		\chaptitlefont #1
-		\chapterAfter
-	}
-	\makeatother
+% Customize chapters
+\makeatletter
+\setlength{\beforechapskip}{30pt}
+\renewcommand*{\chapterheadstart}{\vspace*{\beforechapskip}}
+\setlength{\afterchapskip}{3ex}
+\setlength{\midchapskip}{3ex}
+\renewcommand*{\chapnamefont}{%
+	\Large\flushright\chapterStyle\partChapterNumColor%
+}
+\renewcommand*{\chapnumfont}{\chapterNumSize\chapterNumStyle}
+\renewcommand*{\chaptitlefont}{%
+	\normalfont\flushleft\normalcolor\chapterSize\chapterStyle%
+}
+\renewcommand*{\printchaptername}{%
+	\chapnamefont\MakeTextLowercase{\@chapapp}%
+}
+\renewcommand*{\chapternamenum}{\quad}
+\renewcommand*{\printchapternum}{%
+	\chapnumfont\textls[-75]{\thechapter}%
+}
+\renewcommand*{\printchaptertitle}[1]{%
+	\chaptitlefont #1
+	\chapterAfter
+}
+\makeatother
 % Customize sections and subsections
 \setsecnumformat{\csname my#1\endcsname\quad}
 \setsecheadstyle{\sectionSize\sectionStyle}
@@ -884,9 +884,9 @@
 % Customize "Table of ..." appearance
 % Customize headings
 \newcommand{\renewPrintXTitle}[1]{%
-  \renewcommand{#1}[1]{%
-    \printchaptertitle{##1}%
-  }%
+	\renewcommand{#1}[1]{%
+		\printchaptertitle{##1}%
+	}%
 }
 \renewPrintXTitle{\printtoctitle}
 \renewPrintXTitle{\printlottitle}
@@ -957,13 +957,13 @@
 \newcommand{\headTextStyle}{\lsstyle\scshape\MakeTextLowercase}
 \nouppercaseheads
 \makeevenhead{headings}%
-             {\hfTextSize\thepage}%
-             {}%
-             {\hfTextSize\headTextStyle\leftmark}
+{\hfTextSize\thepage}%
+{}%
+{\hfTextSize\headTextStyle\leftmark}
 \makeoddhead{headings}%
-            {\hfTextSize\headTextStyle\rightmark}%
-            {}%
-            {\hfTextSize\thepage}
+{\hfTextSize\headTextStyle\rightmark}%
+{}%
+{\hfTextSize\thepage}
 % Add SVN date and revision to footer (remove in final version)
 %\newcommand{\svnInfo}{\$ Revision: \svnrev ~ Date: \svndate~\$}
 %\makeevenfoot{headings}{}{\tiny \svnInfo}{}
@@ -1004,7 +1004,7 @@
 
 % Redefine date/time format
 \newdateformat{dashdate}{%
-  \THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}%
+	\THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}%
 }
 \renewcommand{\timeseparator}{:}
 \settimeformat{hhmmsstime}
@@ -1139,23 +1139,23 @@ qed=\qedsymbol
 
 \newenvironment{theorema}
 {\begin{redsalsaBox}\begin{theoremaT}}
-{\end{theoremaT}\end{redsalsaBox}}
+		{\end{theoremaT}\end{redsalsaBox}}
 
 \newenvironment{theoremas}
 {\begin{redsalsaBox}\begin{theoremasT}}
-{\end{theoremasT}\end{redsalsaBox}}
+		{\end{theoremasT}\end{redsalsaBox}}
 
 \newenvironment{theoremaqed}
 {\begin{redsalsaBox}\begin{theoremaqedT}}
-{\end{theoremaqedT}\end{redsalsaBox}}
+		{\end{theoremaqedT}\end{redsalsaBox}}
 
 \newenvironment{theoremanote}
 {\begin{redsalsaBox}\begin{theoremanoteT}}
-{\end{theoremanoteT}\end{redsalsaBox}}
+		{\end{theoremanoteT}\end{redsalsaBox}}
 
 \newenvironment{theoremasqed}
 {\begin{redsalsaBox}\begin{theoremasqedT}}
-{\end{theoremasqedT}\end{redsalsaBox}}
+		{\end{theoremasqedT}\end{redsalsaBox}}
 
 %%% proposizione %%%
 
@@ -1241,19 +1241,19 @@ qed=\qedsymbol
 
 \newenvironment{proposition}
 {\begin{orangeredBox}\begin{propositionT}}
-{\end{propositionT}\end{orangeredBox}}
+		{\end{propositionT}\end{orangeredBox}}
 
 \newenvironment{propositions}
 {\begin{orangeredBox}\begin{propositionsT}}
-{\end{propositionsT}\end{orangeredBox}}
+		{\end{propositionsT}\end{orangeredBox}}
 
 \newenvironment{propositionqed}
 {\begin{orangeredBox}\begin{propositionqedT}}
-{\end{propositionqedT}\end{orangeredBox}}
+		{\end{propositionqedT}\end{orangeredBox}}
 
 \newenvironment{propositionsqed}
 {\begin{orangeredBox}\begin{propositionsqedT}}
-{\end{propositionsqedT}\end{orangeredBox}}
+		{\end{propositionsqedT}\end{orangeredBox}}
 
 %%% lemma %%%
 
@@ -1310,11 +1310,11 @@ qed=\qedsymbol
 
 \newenvironment{lemming}
 {\begin{yelloworangeBox}\begin{lemmingT}}
-{\end{lemmingT}\end{yelloworangeBox}}
+		{\end{lemmingT}\end{yelloworangeBox}}
 
 \newenvironment{lemmingqed}
 {\begin{yelloworangeBox}\begin{lemmingqedT}}
-{\end{lemmingqedT}\end{yelloworangeBox}}
+		{\end{lemmingqedT}\end{yelloworangeBox}}
 
 %%% corollario %%%
 
@@ -1389,15 +1389,15 @@ qed=\qedsymbol
 
 \newenvironment{corollary}
 {\begin{bycBox}\begin{corollaryT}}
-{\end{corollaryT}\end{bycBox}}
+		{\end{corollaryT}\end{bycBox}}
 
 \newenvironment{corollaryqed}
 {\begin{bycBox}\begin{corollaryqedT}}
-{\end{corollaryqedT}\end{bycBox}}
+		{\end{corollaryqedT}\end{bycBox}}
 
 \newenvironment{corollarynote}
 {\begin{bycBox}\begin{corollarynoteT}}
-{\end{corollarynoteT}\end{bycBox}}
+		{\end{corollarynoteT}\end{bycBox}}
 
 %%% proprietà %%%
 
@@ -1483,19 +1483,19 @@ qed=\qedsymbol
 
 \newenvironment{property}
 {\begin{pistachioBox}\begin{propertyT}}
-{\end{propertyT}\end{pistachioBox}}
+		{\end{propertyT}\end{pistachioBox}}
 
 \newenvironment{properties}
 {\begin{pistachioBox}\begin{propertiesT}}
-{\end{propertiesT}\end{pistachioBox}}
+		{\end{propertiesT}\end{pistachioBox}}
 
 \newenvironment{propertyqed}
 {\begin{pistachioBox}\begin{propertyqedT}}
-{\end{propertyqedT}\end{pistachioBox}}
+		{\end{propertyqedT}\end{pistachioBox}}
 
 \newenvironment{propertiesqed}
 {\begin{pistachioBox}\begin{propertiesqedT}}
-{\end{propertiesqedT}\end{pistachioBox}}
+		{\end{propertiesqedT}\end{pistachioBox}}
 
 %%% dimostrazione %%%
 
@@ -1579,19 +1579,19 @@ qed=\qedsymbol
 
 \newenvironment{demonstration}
 {\begin{platinumBox}\begin{demonstrationT}}
-{\end{demonstrationT}\end{platinumBox}}
+		{\end{demonstrationT}\end{platinumBox}}
 
 \newenvironment{demonstrationcaput}
 {\begin{platinumBox}\begin{demonstrationcaputT}}
-{\end{demonstrationcaputT}\end{platinumBox}}
+		{\end{demonstrationcaputT}\end{platinumBox}}
 
 \newenvironment{demonstrationwt}
 {\begin{platinumBox}\begin{demonstrationwtT}}
-{\end{demonstrationwtT}\end{platinumBox}}
+		{\end{demonstrationwtT}\end{platinumBox}}
 
 \newenvironment{demonstrationcaputwt}
 {\begin{platinumBox}\begin{demonstrationcaputwtT}}
-{\end{demonstrationcaputwtT}\end{platinumBox}}
+		{\end{demonstrationcaputwtT}\end{platinumBox}}
 
 %%% assioma %%%
 
@@ -1664,15 +1664,15 @@ postheadspace=\newline
 
 \newenvironment{axiom}
 {\begin{CGblueBox}\begin{axiomT}}
-{\end{axiomT}\end{CGblueBox}}
+		{\end{axiomT}\end{CGblueBox}}
 
 \newenvironment{falseaxiom}
 {\begin{CGblueBox}\begin{falseaxiomT}}
-{\end{falseaxiomT}\end{CGblueBox}}
+		{\end{falseaxiomT}\end{CGblueBox}}
 
 \newenvironment{principle}
 {\begin{CGblueBox}\begin{principleT}}
-{\end{principleT}\end{CGblueBox}}
+		{\end{principleT}\end{CGblueBox}}
 
 %%% definizione %%%
 
@@ -1727,11 +1727,11 @@ headformat={\NAME\, \NUMBER\small\bfseries\scshape\textcolor{ceruleancrayola!55!
 
 \newenvironment{define}
 {\begin{ceruleancrayolaBox}\begin{defineT}}
-{\end{defineT}\end{ceruleancrayolaBox}}
+		{\end{defineT}\end{ceruleancrayolaBox}}
 
 \newenvironment{defines}
 {\begin{ceruleancrayolaBox}\begin{definesT}}
-{\end{definesT}\end{ceruleancrayolaBox}}
+		{\end{definesT}\end{ceruleancrayolaBox}}
 
 %%% osservazione %%%
 
@@ -1787,15 +1787,15 @@ headformat={\color{pumpkin!55!black}{\NAME\, - \NOTE.}}
 
 \newenvironment{observe}
 {\begin{pumpkinBox}\begin{observeT}}
-{\end{observeT}\end{pumpkinBox}}
+		{\end{observeT}\end{pumpkinBox}}
 
 \newenvironment{observes}
 {\begin{pumpkinBox}\begin{observesT}~{}}
-{\end{observesT}\end{pumpkinBox}}
+		{\end{observesT}\end{pumpkinBox}}
 
 \newenvironment{observewt}
 {\begin{pumpkinBox}\begin{observewtT}}
-{x\end{observewtT}\end{pumpkinBox}}
+		{x\end{observewtT}\end{pumpkinBox}}
 
 %%% Attenzione! %%%
 
@@ -1834,7 +1834,7 @@ headformat={\NAME}
 
 \newenvironment{attention}
 {\begin{attentionT}\begin{darkdarkredBox}}
-{\end{darkdarkredBox}\end{attentionT}}
+		{\end{darkdarkredBox}\end{attentionT}}
 
 %%% esempio %%%
 
@@ -1904,19 +1904,19 @@ headformat={\color{zomp!55!black}{\NAME\, - \NOTE.}}
 
 \newenvironment{example}
 {\begin{zompBox}\begin{exampleT}}
-{\end{exampleT}\end{zompBox}}
+		{\end{exampleT}\end{zompBox}}
 
 \newenvironment{examplewt}
 {\begin{zompBox}\begin{examplewtT}}
-{\end{examplewtT}\end{zompBox}}
+		{\end{examplewtT}\end{zompBox}}
 
 \newenvironment{examples}
 {\begin{zompBox}\begin{examplesT}}
-{\end{examplesT}\end{zompBox}}
+		{\end{examplesT}\end{zompBox}}
 
 \newenvironment{exampleswt}
 {\begin{zompBox}\begin{exampleswtT}}
-{\end{exampleswtT}\end{zompBox}}
+		{\end{exampleswtT}\end{zompBox}}
 
 %%% digressione %%%
 
@@ -1970,11 +1970,11 @@ headformat={\color{yellowcrayola!55!black}{\NAME\, - \NOTE.}}
 
 \newenvironment{digression}
 {\begin{yellowcrayolaBox}\begin{digressionT}}
-{\end{digressionT}\end{yellowcrayolaBox}}
+		{\end{digressionT}\end{yellowcrayolaBox}}
 
 \newenvironment{digressionwt}
 {\begin{yellowcrayolaBox}\begin{digressionwtT}}
-{\end{digressionwtT}\end{yellowcrayolaBox}}
+		{\end{digressionwtT}\end{yellowcrayolaBox}}
 
 
 %%% intuitivamente %%%
@@ -2014,7 +2014,7 @@ headformat={\color{sapphireblue!55!black}{\NAME}}
 
 \newenvironment{intuit}
 {\begin{intuitT}\begin{sapphireblueBox}}
-{\end{sapphireblueBox}\end{intuitT}}
+		{\end{sapphireblueBox}\end{intuitT}}
 
 %%% esercizio %%%
 
@@ -2070,20 +2070,20 @@ headformat={\color{forestgreencrayola!55!black}{\NAME\, - \NOTE.}}
 
 \newenvironment{exercise}
 {\begin{forestgreencrayolaBox}\begin{exerciseT}}
-{\end{exerciseT}\end{forestgreencrayolaBox}}
+		{\end{exerciseT}\end{forestgreencrayolaBox}}
 
 \newenvironment{exercisewt}
 {\begin{forestgreencrayolaBox}\begin{exercisewtT}}
-{\end{exercisewtT}\end{forestgreencrayolaBox}}
+		{\end{exercisewtT}\end{forestgreencrayolaBox}}
 
 \newenvironment{exercises}
 {\begin{forestgreencrayolaBox}\begin{exercisesT}}
-{\end{exercisesT}\end{forestgreencrayolaBox}}
+		{\end{exercisesT}\end{forestgreencrayolaBox}}
 
 %%% soluzione %%%
 
 \definecolor{queenblue}{HTML}{577590}
-	
+
 \newmdenv[skipabove=7pt,
 skipbelow=7pt,
 rightline=false,
@@ -2132,11 +2132,11 @@ headformat={\color{queenblue!55!black}{\NAME.}}
 
 \newenvironment{solution}
 {\begin{queenblueBox}\begin{solutionT}}
-{\end{solutionT}\end{queenblueBox}}
+		{\end{solutionT}\end{queenblueBox}}
 
 \newenvironment{solutioncaput}
 {\begin{queenblueBox}\begin{solutioncaputT}}
-{\end{solutioncaputT}\end{queenblueBox}}
+		{\end{solutioncaputT}\end{queenblueBox}}
 
 %%% notazione %%%
 
@@ -2175,8 +2175,8 @@ headformat={\color{charcoal!55!black}{\NAME.}}
 
 \newenvironment{notate}
 {\begin{notateT}\begin{charcoalBox}}
-{\end{charcoalBox}\end{notateT}}
-	
+		{\end{charcoalBox}\end{notateT}}
+
 %%% tips and trick
 
 \definecolor{violetryb}{HTML}{822FAF}
@@ -2214,7 +2214,7 @@ headformat={\color{violetryb!55!black}{\NAME}}
 
 \newenvironment{tips}
 {\begin{tipsT}\begin{violetrybBox}}
-{\end{violetrybBox}\end{tipsT}}
+		{\end{violetrybBox}\end{tipsT}}
 
 %%% unità di misura
 \declaretheoremstyle[
@@ -2273,7 +2273,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 \newenvironment{remember}
 {\begin{rememberT}\begin{cadetblueBox}}
-{\end{cadetblueBox}\end{rememberT}}
+		{\end{cadetblueBox}\end{rememberT}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2509,8 +2509,8 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 % gruppo fondamentale
 
 \newcommand{\gruf}[2]{%
-		\IfEq{#2}{\ }{\ensuremath{\pi_{1}\left(#1\right)}}
-		{\ensuremath{\pi_{1}\left(#1,\ #2\right)}}%
+	\IfEq{#2}{\ }{\ensuremath{\pi_{1}\left(#1\right)}}
+	{\ensuremath{\pi_{1}\left(#1,\ #2\right)}}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%% definizioni varietà %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2570,7 +2570,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 \newcommand{\proj}[2][]{
 	\IfEq{#2}{\ }{\ensuremath{\mathbb{P}^{#1}}}
-		{\ensuremath{\mathbb{P}^{#1}\left(#2\right)}}
+	{\ensuremath{\mathbb{P}^{#1}\left(#2\right)}}
 }
 
 % gruppo lineare proiettivo a V
@@ -2598,20 +2598,20 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 % parentesi attorno ad elementi di itemize: indicare la riga in fondo con \tikzmark{...} e poi infine, dopo \endd{itemize}, usare \brackitem
 
-	\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture] \node[outer sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
-	
-	\NewDocumentCommand\brackitem{mmo}{%
+\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture] \node[outer sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
+
+\NewDocumentCommand\brackitem{mmo}{%
 	\IfValueTF {#3}{%
-	\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
-	\draw[decorate,thick] (#1.north east) -- (#2.south east) node[midway, right=0.5cm,text=black,text width = 2in,] {{#3}};
-	\end{tikzpicture}%
+		\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+			\draw[decorate,thick] (#1.north east) -- (#2.south east) node[midway, right=0.5cm,text=black,text width = 2in,] {{#3}};
+		\end{tikzpicture}%
 	}%
 	{%
-	\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
-	\draw[decorate,thick] (#1.north east) -- (#2.south east);
-	\end{tikzpicture}%
+		\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+			\draw[decorate,thick] (#1.north east) -- (#2.south east);
+		\end{tikzpicture}%
 	}%
-	}%
+}%
 
 % parentesi graffa per sottolineare testo sotto
 
@@ -2629,13 +2629,13 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 \newcommand{\circled}[2][black]{%
 	\textcolor{#1}{\begin{tikzpicture}[baseline={(char.base)}]
-		\node (char) {\ensuremath{#2}};
-		\node[draw,circle,minimum size=16pt,inner sep=0pt,overlay] (char.center){};
+			\node (char) {\ensuremath{#2}};
+			\node[draw,circle,minimum size=16pt,inner sep=0pt,overlay] (char.center){};
 	\end{tikzpicture}}
 }
 
 %\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
-%		\node[shape=circle,draw,inner sep=2pt] (char) {\ensuremath{#1}};}}
+		%		\node[shape=circle,draw,inner sep=2pt] (char) {\ensuremath{#1}};}}
 %
 
 % testo in un riquadro ad angoli smussati
@@ -2779,7 +2779,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 	six/.style={anchor=south, rotate=23, inner sep=.5mm, yshift=1mm},
 	nine/.style={anchor=south, rotate=90, inner sep=.5mm, yshift=-6.5mm},
 	sixslant1/.style={anchor=south, rotate=17, inner sep=.5mm, yshift=-4mm},
-		sixslant2/.style={anchor=south, rotate=17, inner sep=.5mm, yshift=1mm}		
+	sixslant2/.style={anchor=south, rotate=17, inner sep=.5mm, yshift=1mm}		
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%% altri colori %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2787,6 +2787,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 \definecolor{redill}{RGB}{190, 30, 45 }
 \definecolor{blueill}{RGB}{46, 49, 146 }
 \definecolor{greenill}{RGB}{0, 161, 74 }
+\definecolor{orangeill}{RGB}{239, 119, 16 }
 
 %%%%%%%%%%%%%%%%%%%%%%%% tocs %%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2823,10 +2824,10 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 	\iftoggle{AppendixChapters}{
 		\global\togglefalse{noDefine}
 		\global\togglefalse{AppendixChapters}
-			}{}
+	}{}
 	\iftoggle{noDefine}{
 		\addtocontents{define}{\noindent\textls{\textsc{\textcolor{reddo}{Capitolo \getcurrentref{chapter}:}
-		\nowtitle}}
+					\nowtitle}}
 		}{}
 		\global\togglefalse{noDefine}
 	}{}
@@ -2860,7 +2861,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 % add chapter number and title to toc of theoremas
 \AtBeginEnvironment{theorema}{%
-		\iftoggle{AppendixChapters}{
+	\iftoggle{AppendixChapters}{
 		\global\togglefalse{noDefine}
 		\global\togglefalse{AppendixChapters}
 	}{}
@@ -2873,7 +2874,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 }%
 
 \AtBeginEnvironment{lemming}{%
-			\iftoggle{AppendixChapters}{
+	\iftoggle{AppendixChapters}{
 		\global\togglefalse{noDefine}
 		\global\togglefalse{AppendixChapters}
 	}{}
@@ -2886,7 +2887,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 }%
 
 \AtBeginEnvironment{corollary}{%
-				\iftoggle{AppendixChapters}{
+	\iftoggle{AppendixChapters}{
 		\global\togglefalse{noDefine}
 		\global\togglefalse{AppendixChapters}
 	}{}
@@ -2900,8 +2901,8 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 \AtBeginEnvironment{proposition}{%
 	\iftoggle{AppendixChapters}{
-	\global\togglefalse{noDefine}
-	\global\togglefalse{AppendixChapters}
+		\global\togglefalse{noDefine}
+		\global\togglefalse{AppendixChapters}
 	}{}
 	\iftoggle{noTheorema}{
 		\addtocontents{theorema}{\noindent\textls{\textsc{\textcolor{reddo}{Capitolo \getcurrentref{chapter}:}
@@ -2924,7 +2925,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 \newcommand\underrel[3][]{\mathrel{\mathop{#3}\limits_{%
 			\ifx c#1\relax\mathclap{#2}\else#2\fi}}}
-		
+
 %%%
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
@@ -2963,6 +2964,8 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 	\newpage}
 
 % bold vector with arrow
+\newcommand\vbd[1]{\dot{\vec{\mathbf{#1}}}}
+
 \newcommand\vba[1]{\vb*{\va{#1}}}
 
 \newcommand\vbh[1]{\hat{\mathbf{#1}}}
@@ -2973,3 +2976,5 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 \newcommand\fem{\ensuremath{\mathrm{f.e.m.}}}
 
 \newcommand\ddp{\ensuremath{\mathrm{d.d.p.}}}
+
+\DeclareUnicodeCharacter{22C6}{$\bigstar$}

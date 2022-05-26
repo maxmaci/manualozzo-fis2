@@ -15,14 +15,15 @@
 			\nowtitle}}
 }{}
 \begin{introduction}
-	‘‘Non c'è niente nel mondo il cui significato non sia quello di un qualche massimo o minimo.''
+	‘‘BEEP BOOP''
 	\begin{flushright}
-		\textsc{Leonhard Euler,} dimenticandosi del concetto di estremo inferiore e superiore. % TO DO: quote
+		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. % TO DO: quote 
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{N}{on} % TO DO: intro
-
-\section{Varietà differenziabile}
+\lettrine[findent=1pt, nindent=0pt]{P}{er} comprendere a fondo gli argomenti trattati in questo Manualozzo\texttrademark\ è estremamente importante avere una buona padronanza dei concetti di \textit{Geometria Differenziale} e \textit{Calcolo Differenziale}. In questo capitolo troverete dei cenni, brevi ma-non-troppo, per colmare ogni potenziale lacuna a riguardo.\\
+Quanto indicato con il simbolo ⋆ sono degli \textit{approfondimenti non necessari} - ma possono essere comunque utili ed interessanti per un lettore curioso.
+ % TO DO: intro
+\section{⋆ Varietà differenziabile}
 \begin{define}[Carta, coordinate lagrangiane, parametrizzazione locale]
 	Dato un insieme di punti $M$ non vuoto, una \textbf{carta}\index{carta} è una coppia $\left(U,\phi\right)$ dove
 	\begin{itemize}
@@ -77,7 +78,7 @@ Per semplicità considereremo, se non specificato, le varietà differenziabili d
 		\end{equation*}
 	\end{itemize}
 \end{examples}
-\section{Metrica}
+\section{⋆ Metrica}
 \begin{define}[Metrica]
 	Una \textbf{metrica} (o anche detto \textbf{tensore metrico}) su una varietà differenziabile $M$ è una mappa bilineare simmetrica - ossia un campo tensoriale simmetrico doppiamente contravariante - non degenere
 	\begin{equation}
@@ -154,7 +155,7 @@ Utilizzando il prodotto interno definito da $g$, si ha per qualunque campo vetto
 	\left<\phi^\sharp,Y\right>=g(\phi^\sharp,Y)=\phi(Y)
 \end{equation*}
 \end{itemize}
-\section{Elemento di linea}
+\section{⋆ Elemento di linea}
 \begin{define}[Spostamento infinitesimo]
 	Il vettore \textbf{spostamento infinitesimo}\index{spostamento infinitesimo} è la variazione infinitesima del vettore posizione $\vba{r}$. Scelte delle coordinate $(q^\lambda)$ su $M$, % TO DO: controllare se va bene per le varietà differenziabili o solo le affini qui
 	\begin{equation}
@@ -171,6 +172,9 @@ Lo spostamento infinitesimo si calcola ricavando, per ogni direzione $\vbh{u}_\l
 \begin{notate}
 	Talvolta si indica lo spostamento infinitesimo e l'elemento di linea, in maniera alternativa a $d\vba{s}$ e $ds$, come $d\vba{\mathcal{l}}$ e $d\mathcal{l}$
 \end{notate}
+\begin{attention}
+	In diversi contesti lo spostamento infinitesimo è chiamato elemento di linea, pur essendo concettualmente differente da quello che qui indichiamo come elemento di linea.
+\end{attention}
 Poiché lo spostamento infinitesimo è arbitrario, $ds^2$ definisce completamente la metrica; in notazione suggestiva ma non corretta dal punto di vista tensoriale
 \begin{equation}
 	ds^2=g
@@ -213,7 +217,7 @@ In particolare, la lunghezza della curva $\gamma$ è
 	\end{equation}
 \end{define}
 Gli integrali curvilineo di seconda specie sono indipendenti dalla parametrizzazione, ma dipendono invece dall'\textit{orientazione}: nella fattispecie, invertire l'orientazione della parametrizzazione cambia il segno dell'integrale curvilineo. % TO DO: controllare se vale lo stesso per quello di prima specie
-\section{Elemento di area}
+\section{⋆ Elemento di area}
 \begin{define}
 Data una superficie	$\Sigma$ a due dimensioni immersa in $\realset^3$, l'\textbf{elemento di superficie}\index{elemento di superficie} è una sua porzione infinitesima. In termini matematici, scelte una parametrizzazione $\vba{r}(u,v)$ di $\Sigma$ e dunque una scelta di coordinate $(u,v)$, allora l'elemento di superficie è una 2-forma data da
 \begin{equation}
@@ -250,7 +254,7 @@ Un integrale superficiale per campi vettoriali può essere definito in due modi 
 	\item Integrando il campo \textit{componente per componente} utilizzando l'integrale superficiale per campi scalari; il risultato in tal caso è un vettore.
 	\item Integrando la \textit{componente normale} del campo tramite la superficie con l'integrale superficiale per campi scalari; il risultato in tal caso è uno scalare ed è il \textbf{flusso} del campo vettoriale tramite la superficie considerata.
 \end{itemize}
-\section{Elemento di volume}
+\section{⋆ Elemento di volume}
 \begin{define}[Elemento di volume]
 Fissate delle coordinate $\left(x^i\right)$, un \textbf{elemento di volume}\index{elemento!di volume} su una varietà Riemanniana \textit{orientabile} di dimensione $n$ è una $n$-forma data da
 \begin{equation}
@@ -285,7 +289,7 @@ In particolare, il volume di un dominio $V$ è dato da
 \begin{equation*}
 	V=\int_{V}1dV=\int_VdV
 \end{equation*}
-\section{Operatore star di Hodge}
+\section{⋆ Operatore star di Hodge}
 \begin{define}[Simbolo di Levi-Civita]
 	Il \textbf{simbolo di Levi-Civita}\index{simbolo di Levi-Civita} è definito come
 	\begin{equation}
@@ -370,9 +374,6 @@ Un campo scalare è quindi una mappa che a punti di $\realset^3$ associa valori 
 		\item Se$\phi$ rappresenta la \textit{pressione} o la \textit{temperatura}, $\grad{\phi}$ è la direzione in cui essa varia più rapidamente.
 	\end{itemize}
 \end{examples}
-\begin{define}[Campo conservativo e potenziale]
-	Dato un campo vettoriale $\vba{G}$, se esiste un campo scalare $\phi$ tale che $\vba{G}=\grad{\phi}$, allora $\vba{G}$ viene detto \textbf{conservativo}\index{campo!conservativo} e il campo scalare $\phi$ è detto \textbf{potenziale}\index{potenziale}.
-\end{define}
 \begin{observe}
 	Dato un campo scalare, esistono delle \textbf{superfici equipotenziali} tali per cui $\phi=\text{costante}$ sulla superficie. Il gradiente di $\phi$ è, punto per punto, ortogonale alla superficie equipotenziale.
 \end{observe}
@@ -416,12 +417,6 @@ Per questioni operative conviene comunque servirsi di un sistema di coordinate e
 	Supponiamo che $\vba{G}$ rappresenta la velocità di un flusso d'acqua in una certa regione di spazio e di porre una pallina ruvida nel fluido, in modo che non si può spostare da tale punto. Anche se non si sposta da lì, il fluido fa comunque ruotare la pallina: l'asse di rotazione è nella direzione di $\grad \vdot \vba{G}$ applicato al centro della palla, mentre la velocità angolare dipende dal modulo del rotore in tale punto.\\
 	In altre parole, è una misura di come un fluido potrebbe ruotare (o meglio, far ruotare qualcosa a livello microscopico)
 \end{example}
-\begin{define}[Campo irrotazionale]
-	Un campo vettoriale $\vba{G}$ viene detto \textbf{irrotazionale}\index{campo!irrotazionale} se $\curl{\vba{G}}=0$.
-\end{define}
-\begin{define}[Campo solenoidale e vettore potenziale]
-	Dato un campo vettoriale $\vba{G}$, se esiste un campo vettoriale $\vba{A}$ tale che $\vba{G}=\curl{\vba{A}}$, allora $\vba{G}$ viene detto \textbf{solenoidale}\index{campo!solenoidale} e il campo vettoriale $\vba{A}$ è detto \textbf{vettore potenziale}\index{vettore potenziale}.
-\end{define}
 \subsection{Derivate seconde}
 Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettoriali, possiamo riapplicare l'operatore nabla come in precedenza per ottenere delle derivate seconde; alcune hanno particolare rilevanza perché sono importanti dal punto di vista matematico oppure perché sono costantemente nulle.
 \begin{enumerate}[label=\roman*)]
@@ -489,7 +484,7 @@ Concludiamo la discussione con alcuni teoremi non banali (e forniti senza dimost
 \end{theoremaqed}
 Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
 \begin{equation}
-	\int_V\div{\vba{G}}=\Phi_\Sigma\left(\vba{G}\right)
+	\int_V\div{\vba{G}}=\Phi_\Sigma(\vba{G})
 \end{equation}
 \paragraph{Teorema del rotore}
 \begin{theoremaqed}[Teorema del rotore]
@@ -500,12 +495,71 @@ Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
 \end{theoremaqed}
 Utilizzando la notazione fisica, la \ref{TeoremaRotore} si scrive come
 \begin{equation}
-	\Phi_\Sigma\left(\grad{\vba{G}}\right)=\Gamma_\gamma\left(\vba{G}\right)
+	\Phi_\Sigma\left(\grad{\vba{G}}\right)=\Gamma_\gamma(\vba{G})
 \end{equation}
 \begin{observe}
 	Ci sono infinite superfici con bordo $\gamma$, ma il flusso del rotore rimane \textit{sempre} invariato.
 \end{observe}
-\section{Operatori differenziali e forme differenziali}
+\section{Campi conservativi, irrotazionali e solenoidali}
+\paragraph{Campi conservativi}
+\begin{define}[Campo conservativo e potenziale]
+	Dato un campo vettoriale $\vba{G}$, se esiste un campo scalare $\phi$ tale che $\vba{G}=\grad{\phi}$, allora $\vba{G}$ viene detto \textbf{conservativo}\index{campo!conservativo} e il campo scalare $\phi$ è detto \textbf{potenziale}\index{potenziale}.
+\end{define}
+\paragraph{Campi irrotazionali}
+\begin{define}[Campo irrotazionale]
+	Un campo vettoriale $\vba{G}$ viene detto \textbf{irrotazionale}\index{campo!irrotazionale} se $\curl{\vba{G}}=0$.
+\end{define}
+\begin{propositionqed}[⋆ Campo irrotazionale e campo conservativo]
+	Un campo conservativo è sempre irrotazionale; il viceversa è vero se il dominio è semplicemente connesso.
+\end{propositionqed}
+\begin{theoremaqed}[Caratterizzazioni equivalenti dei campi conservativi in $\realset^3$]
+	Sia $\vba{G}$ un campo vettoriale in $\realset^3$. Le seguenti sono equivalenti:
+	\begin{enumerate}[label=\roman*)]
+		\item $\vba{G}$ è conservativo, cioè esiste $\phi$ campo scalare tale che $\vba{G}=\grad{\phi}$.
+		\item $\vba{G}$ è irrotazionale, cioè $\curl{\vba{G}}=0$.
+		\item $\Gamma_{\gamma}(\vba{G})=0,\ \forall \gamma$ curva chiusa.
+		\item $\int_{\gamma_1}\vba{G}\vdot d\vba{s}=\int_{\gamma_2}\vba{G}d\vba{s},\ \forall \gamma_1,\ \gamma_2$ curve tra due estremi $A$ e $B$ fissi.
+	\end{enumerate}
+\end{theoremaqed}
+\paragraph{Campi solenoidali}\label{CampoSolenoidale}
+\begin{define}[Campo solenoidale e vettore potenziale]
+	Un campo vettoriale $\vba{G}$ viene detto \textbf{solenoidale}\index{campo!solenoidale} se $\div{\vba{G}}=0$.\\
+	In particolare, un campo è solenoidale se e solo se esiste un campo vettoriale $\vba{A}$ tale che $\vba{G}=\curl{\vba{A}}$. Il campo vettoriale $\vba{A}$ è detto \textbf{vettore potenziale}\index{vettore potenziale}.
+\end{define}
+\begin{theorema}[Caratterizzazioni equivalenti dei campi solenoidali in $\realset^3$]
+	Sia $\vba{G}$ un campo vettoriale in $\realset^3$. Le seguenti sono equivalenti:
+	\begin{enumerate}[label=\roman*)]
+		\item $\vba{G}$ è solenoidale, cioè $\div{\vba{G}}=0$.
+		\item $\vba{G}$ ammette un vettore potenziale $\vba{A}$ tale per cui $\vba{G}=\curl{\vba{A}}$.
+		\item $\Phi_{\Sigma}(\vba{G})=0,\ \forall \Sigma$ superficie chiusa.
+		\item $\Phi_{\Sigma_1}(\vba{G})=\Phi_{\Sigma_2}(\vba{G})$ se $\partial\Sigma_1=\partial\Sigma_2$.
+		\item Tutte le linee di forze sono chiuse.
+	\end{enumerate}
+\end{theorema}
+\begin{demonstration}~\\ % TO DO: completare le altre? e riguardare III -> IV
+	$II)\implies I)\quad$ Se $\vba{G}=\curl{\vba{A}}$, allora
+	\begin{equation*}
+		\div{\vba{G}}=\div{\left(\curl{\vba{A}}\right)}=0
+	\end{equation*}
+	$III) \implies IV)\quad$ Consideriamo la superficie $\Sigma_1\cup\Sigma_2$. $\Sigma_1$ e $\Sigma_2$ sono aperte se prese singolarmente, ma unendole al bordo la loro unione diventa chiusa; pertanto, si ha
+	\begin{equation*}
+		\Phi_{\Sigma_1\cup\Sigma_2}(\vba{G})=0
+	\end{equation*}
+	Posto $\vbh{u}_n$ il versore esterno alla superficie unita e $\vbh{u}_i$ il versore della superficie $\Sigma_i$ concorde con il verso di $\vba{G}$, si osserva che
+	\begin{equation*}
+		\Phi_{\Sigma_1\cup\Sigma_2}(\vba{G})=\int_{\Sigma}\vba{G}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma_1}\vba{G}\vdot\vbh{u}_nd\Sigma+\int_{\Sigma_2}\vba{G}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma_1}\vba{G}\vdot\vbh{u}_1d\Sigma_1-\int_{\Sigma_2}\vba{G}\vdot\vbh{u}_2d\Sigma_2
+	\end{equation*}
+da cui segue
+\begin{equation*}
+	\int_{\Sigma_1}\vba{G}\vdot\vbh{u}_1d\Sigma_1-\int_{\Sigma_2}\vba{G}\vdot\vbh{u}_2d\Sigma_2=0
+\end{equation*}
+e quindi la tesi.
+\end{demonstration}
+\paragraph{⋆ Teorema fondamentale del calcolo vettoriale}
+\begin{theoremaqed}[Teorema fondamentale del calcolo vettoriale]
+	Ogni campo vettoriale può essere espresso come la somma di un campo irrotazionale e di un campo solenoidale.
+\end{theoremaqed}
+\section{⋆ Operatori differenziali e forme differenziali}
 Consideriamo $\realset^n$ in coordinate cartesiane: questa è una varietà Riemanniana di dimensione $n$ con metrica l'identità, ossia $g=\mathbb{1}$.\\
 \paragraph{Gradiente}
 Dato un campo scalare $\phi\in\mathcal{F}(\realset^n)$, il \textbf{gradiente} di $\phi$ è definito come il campo vettoriale $\grad{\phi}$ associato tramite l'isomorfismo musicale del diesis alla 1-forma $d\phi$,
@@ -530,7 +584,7 @@ La \textbf{divergenza} di $\vba{G}$ è definito come il campo scalare
 dove $d\vba{G}$ è il differenziale della funzione.\\
 Possiamo definire la divergenza in termini di operatore \textit{star di Hodge}. Dato un campo vettoriale $\vba{G}=E^i(\vba{r})\vbh{u}_i$ su $\realset^3$, l'isomorfismo musicale del bemolle definisce la sua 1-forma associata
 \begin{equation*}
-	\fb{E}=\left(\vba{G}\right)^\flat=G_i(\vba{r})dx^i
+	\fb{E}=(\vba{G})^\flat=G_i(\vba{r})dx^i
 \end{equation*}
 Il suo duale di Hodge è la 2-forma
 \begin{equation*}
@@ -855,12 +909,12 @@ da cui
 \end{equation}
 e quindi l'espressione dell'operatore nabla è
 \begin{equation}
-	\grad =\pdv{R}\vbh{u}_R+\frac{1}{R}\pdv{\theta}{u}_\theta+\pdv{z}\vbh{u}_z
+	\grad =\pdv{R}\vbh{u}_R+\frac{1}{R}\pdv{\theta}\vbh{u}_\theta+\pdv{z}\vbh{u}_z
 \end{equation}
 \paragraph{Divergenza}
 Calcoliamo il divergenza in coordinate cilindriche applicando l'operatore nabla in coordinate sferiche al campo vettoriale come fosse un prodotto scalare, tenendo conto che i versori stessi sono funzioni delle coordinate e che le derivate devono essere applicate \textit{prima} del prodotto:
 \begin{align*}
-	\div{\vba{G}}&=\left(\pdv{R}\vbh{u}_R+\frac{1}{R}\pdv{\theta}{u}_\theta+\pdv{z}\vbh{u}_z\right)\vdot\left(G_R\vba{u}_R+G_\theta\vba{u}_\theta+G_z\vba{u}_z\right)=\\
+	\div{\vba{G}}&=\left(\pdv{R}\vbh{u}_R+\frac{1}{R}\pdv{\theta}\vbh{u}_\theta+\pdv{z}\vbh{u}_z\right)\vdot\left(G_R\vba{u}_R+G_\theta\vba{u}_\theta+G_z\vba{u}_z\right)=\\
 	&=\vba{u}_R\left[\pdv{R}\left(G_R\vbh{u}_R\right)+\pdv{R}\left(G_\theta\vbh{u}_\theta\right)+\pdv{R}\left(G_z\vbh{u}_{z}\right)\right]+\\
 	&\qquad+\frac{\vba{u}_\theta}{R}\left[\pdv{\theta}\left(G_R\vbh{u}_R\right)+\pdv{\theta}\left(G_\theta\vbh{u}_\theta\right)+\pdv{\theta}\left(G_z\vbh{u}_{z}\right)\right]+\\
 	&\qquad+\vba{u}_z\left[\pdv{z}\left(G_R\vbh{u}_R\right)+\pdv{z}\left(G_\theta\vbh{u}_\theta\right)+\pdv{z}\left(G_z\vbh{u}_{z}\right)\right]
