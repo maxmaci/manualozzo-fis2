@@ -1002,12 +1002,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 LEZ 25, 21/04/2022
 
+\begin{comment}
+
 domanda su corrente di spostamento
 [...]
 forma integrale della densità di corrente di spostamento
-passaggio dalla forma differenziale a quella integrale: teorema del rotore: prendiamo il flusso del rototre attraverso la superficie 
+passaggio dalla forma differenziale a quella integrale: teorema del rotore: prendiamo il flusso del rototre attraverso la superficie
+\begin{equation*}
 	\Sigma	\int\curl\vba B\vdot\vbh u_n d\Sigma =\mu_0\int\vba j\vdot\vbh u_n d\Sigma +\mu_0\epsilon_0\pdv{t}\int\vba E\vdot \vbh u_nd\Sigma
 	\int\vba\vdot d\vba s=\mu_0 i+\mu_0\underbrace{\epsilon_0\dv{\Phi_\Sigma (\vba B)}{t}}_{i}
+\end{equation*}
+
 solenoidale se campo dipende solo dal contorno e non dalla superficie che scegliamo non passa realmente corrente fra le piastre, ma ho ddp fra piastre condensatore, quindi passano cariche
 
 storicamente ridefiniiamo la corrente per avere corrente totale tale che sia solenoidale, con la formulazione integrale dell'avere due superfici con stesso bordo il cui flusso è uguale
@@ -1016,43 +1021,43 @@ oppure aggiunta alle eq di Maxwell, simmetrica a quella di Faraday
 esercizi per tipo
 \begin{eserciziamociwt}[Elettrostatica]
 	Consideriamo una sfera cava con una densità di carica $\rho=26,58*10^{-8}C/m^2$ uniforme. I raggi della sfera cava sono $R_1=10 cm$ e $R_2=20 cm$.\\
-%TODO: IMMAGINE
+	%TODO: IMMAGINE
 	Determinare il campo elettrico, la velocità ad $r=R_1$ di un elettrone posto in quietead $r=R_2$
 \end{eserciziamociwt}
 \begin{solution}
 	normalmente non c'è da fare tutto il conto, basta usare il teormea di Gauss (o di Ampère se magnetostatica)
 	Cnosideriamo 3 superfici
-		r<R_1	E(r)=0
-		R_1<r<R_2	per simmetria sferica E dipende solo da r, uso il eorem di Gauss 	
-			\Phi(\vba E)=E(r)4\pi r^2 =(carica contenuta all'interno ) =\frac{1}{\epsilon_0}\int^r_{R_1} \rho r'^2 dr' \int_0^\pi\sin\theta d\theta \int_0^{2\pi}d\phi 
-			l'integrale sulle variabili angolari dà 4\pi
-			E(r)4\pi r^2=\frac{\rho 4\pi}{3\epsilon_0}(r^3-R_1^3)
-			E(r)=\frac{rho}{3\epsilon_0}\left(\frac{r^3-R_1^3}{r^2}\right)
-		quindi consideriamo solo la carica interna
-		r>R_2	E(r) per simmetria sferica è come quella generata da una carica puntiforme, dobbiamo determinare la carica
-			E(r=\frac{q}{4\pi \epsilon_0r^2})
-			q lo trovo come densità per volume della corona sferica
-			q=2\pi\int^{R_2}_{R_1}\rho r' dr'=\frac{4\pi\rho}{3}\left(R_2^3-R_1^3\right)=\frac{\rho}{3\epsilon_0r^2}(R^3_2-R^3_1)
-		verifico così anche che p continuo alla superficie, è discontinuo solo se ho distribuzione superficiale, non volumetrica
+	r<R_1	E(r)=0
+	R_1<r<R_2	per simmetria sferica E dipende solo da r, uso il eorem di Gauss	
+	\Phi(\vba E)=E(r)4\pi r^2 =(carica contenuta all'interno ) =\frac{1}{\epsilon_0}\int^r_{R_1} \rho r'^2 dr' \int_0^\pi\sin\theta d\theta \int_0^{2\pi}d\phi 
+	l'integrale sulle variabili angolari dà 4\pi
+	E(r)4\pi r^2=\frac{\rho 4\pi}{3\epsilon_0}(r^3-R_1^3)
+	E(r)=\frac{rho}{3\epsilon_0}\left(\frac{r^3-R_1^3}{r^2}\right)
+	quindi consideriamo solo la carica interna
+	r>R_2	E(r) per simmetria sferica è come quella generata da una carica puntiforme, dobbiamo determinare la carica
+	E(r=\frac{q}{4\pi \epsilon_0r^2})
+	q lo trovo come densità per volume della corona sferica
+	q=2\pi\int^{R_2}_{R_1}\rho r' dr'=\frac{4\pi\rho}{3}\left(R_2^3-R_1^3\right)=\frac{\rho}{3\epsilon_0r^2}(R^3_2-R^3_1)
+	verifico così anche che p continuo alla superficie, è discontinuo solo se ho distribuzione superficiale, non volumetrica
 	questa era la domanda standard, ora facciamo quella non standard
 	
 	il campo elettrico all'esterno è diretto radialmente verso l'esterno, quindi l'elettrone che ha carica negativa va contro il campo elettrico
 	qui usare l'equazione di Netwotn è sbagliato! il campo elettrico varia nella corona, l'accelerazione non è costante e il problema da risolvere diventa dfficile
 	invece useremo la conservazione dell'energia
 	l'elettrone che va da R_1 a R_2 perde energia potenziale e guadagna energia cinetica
-		\Delta K=-\Delta U
-		=e\Delta V con V differenza di potenziale fra R_2 ed R_1
-		=e\left(V(R_2)-V(R_1)\right)
-		ma \Delta K=\frac{1}{2}m_ev_f^2-\cancel{\frac{1}{2}m_e-v_0^2}
-		con v_f la nostra incognita
-		
-		o ricalcoliamo tutti i potenziali all'interno della sfera, corona ed esterno, oppure ci ricordiamo che E=-\grad V
-		quindi
-		V(R_2)-V(R_1)=-\int_{R_1}^{R_2} E_rdr= -\frac{e\rho}{3\epsilon_0}\int_{R_1}^{R_2} \left(r-\frac{R_1^3}{r^2}\right) dr=
-			=-\frac{e\rho}{3\epsilon_0}\left(\frac{1}{2} (R_2^2-R_1^2) è\left( \frac{R_1^3}{R_2} -\frac{R_1^3}{R_1} \right)\right) = 1,6*10^{-12} J
-		con E_r componente radiale (ma abbiamo solo quella)
-		
-		v_f=\sqrt{\frac{2\Delta K}{m_e}}=5,93*10^{6}m/s
+	\Delta K=-\Delta U
+	=e\Delta V con V differenza di potenziale fra R_2 ed R_1
+	=e\left(V(R_2)-V(R_1)\right)
+	ma \Delta K=\frac{1}{2}m_ev_f^2-\cancel{\frac{1}{2}m_e-v_0^2}
+	con v_f la nostra incognita
+	
+	o ricalcoliamo tutti i potenziali all'interno della sfera, corona ed esterno, oppure ci ricordiamo che E=-\grad V
+	quindi
+	V(R_2)-V(R_1)=-\int_{R_1}^{R_2} E_rdr= -\frac{e\rho}{3\epsilon_0}\int_{R_1}^{R_2} \left(r-\frac{R_1^3}{r^2}\right) dr=
+	=-\frac{e\rho}{3\epsilon_0}\left(\frac{1}{2} (R_2^2-R_1^2) è\left( \frac{R_1^3}{R_2} -\frac{R_1^3}{R_1} \right)\right) = 1,6*10^{-12} J
+	con E_r componente radiale (ma abbiamo solo quella)
+	
+	v_f=\sqrt{\frac{2\Delta K}{m_e}}=5,93*10^{6}m/s
 \end{solution}
 
 \begin{eserciziamociwt}[circuito]
@@ -1062,100 +1067,101 @@ esercizi per tipo
 \begin{solution}
 	Vogliamo ridurre il sistema
 	Eliminiamo i condensatori in serie sostituendoli con un equivalente $C'$
-		\frac{1}{C'}=\frac{1}{C_2}+\frac{1}{C_3}
-		C'=\frac{C_2C_3}{C_2+C_3}\frac{4}{3}\mu F
+	\frac{1}{C'}=\frac{1}{C_2}+\frac{1}{C_3}
+	C'=\frac{C_2C_3}{C_2+C_3}\frac{4}{3}\mu F
 	rimpiazziamo infine con un condensatore equivalente $C_{eq}$
-		C_{eq}=C_1+C'=\frac{4}{3}+2=\frac{10}{3}\mu F
-		
+	C_{eq}=C_1+C'=\frac{4}{3}+2=\frac{10}{3}\mu F
+	
 	la ddp ai capi dei condensatori 
-		V_1=100 V
+	V_1=100 V
 	per $V_2$ e $V_3$ dobbiamo calcolarli $q_2$ e $q_3$.
 	siccome sono in serie 
-		q_2=q_3=q'=C'V 	con V ddp ai capi di C' e C_1, quindi V=\ee (ho usato il circuito intermedio)
-		= \frac{4}{3}100\mu C=133\mu C
+	q_2=q_3=q'=C'V 	con V ddp ai capi di C' e C_1, quindi V=\ee (ho usato il circuito intermedio)
+	= \frac{4}{3}100\mu C=133\mu C
 	stiamo usando ripetutamente $q=CV$
-		V_2=\frac{q_2}{C_2}=67 V
-		V_3=\frac{q_3}{C_3}=33 V
+	V_2=\frac{q_2}{C_2}=67 V
+	V_3=\frac{q_3}{C_3}=33 V
 	possiamo controllare che $V_2+V_3=V_1$
 	
 	energia totale: potrei calcolare l'energia singola dei condensatori, ma in realtà è sempre la stessa, la calcolo per il circuito equivalente
-		U=\frac{1}{2}CV^2
-		U=\frac{1}{2}C_{eq}\ee^2 = 1,67*10^{-2} J
+	U=\frac{1}{2}CV^2
+	U=\frac{1}{2}C_{eq}\ee^2 = 1,67*10^{-2} J
 	possiamo controllare che 
-		=\frac{1}{2}C_1 V_1^2+ \frac{1}{2 C_2 V_2^2 +\frac{1}{2} C_3 V_3^2
+	=\frac{1}{2}C_1 V_1^2+ \frac{1}{2 C_2 V_2^2 +\frac{1}{2} C_3 V_3^2
 		
 		
 		
-\end{solution}
-
-
-\begin{eserciziamociwt}
-	Data una spira a forma di triangolo equilatero, essa entra al tempo $t=0$ in un campo magnetico uscente definito nel semipiano $x>0$ con velocità $\vba v_0$.\\
-%TODO: IMMAGINE
-	Conosciamo i lato della spira $b=20 cm$, la sua massa $m=10 g$, la resistenza $R=0,5 \Omega$, velocità iniziale $v_0=5 m/s$, campo magnetico $B=0,8 T$
-	Determinare in funzione di $x(t)$ posizione del vertice
+	\end{solution}
+	
+	
+	\begin{eserciziamociwt}
+		Data una spira a forma di triangolo equilatero, essa entra al tempo $t=0$ in un campo magnetico uscente definito nel semipiano $x>0$ con velocità $\vba v_0$.\\
+		%TODO: IMMAGINE
+		Conosciamo i lato della spira $b=20 cm$, la sua massa $m=10 g$, la resistenza $R=0,5 \Omega$, velocità iniziale $v_0=5 m/s$, campo magnetico $B=0,8 T$
+		Determinare in funzione di $x(t)$ posizione del vertice
 		la f.e.m. indotta
 		la correnteindotta
 		la vleocità della spira
-	Determinare la carica totale che circola durante il processo.
-\end{eserciziamociwt}
-\begin{solution}
-	la spira entra nel campo manetico, cambia il flusso, induce feme correnteogni spira che si muove in cmp mgn subisce forza di attrito magnetico: diminuisce nel tempo finché tutta la spira ha oltrepassato l'asse x, quniid il flusso rimane costante e la fem si azzera: ho fem solo quando $0<x(t)<altezza triangolo$
-	
+		Determinare la carica totale che circola durante il processo.
+	\end{eserciziamociwt}
+	\begin{solution}
+		la spira entra nel campo manetico, cambia il flusso, induce feme correnteogni spira che si muove in cmp mgn subisce forza di attrito magnetico: diminuisce nel tempo finché tutta la spira ha oltrepassato l'asse x, quniid il flusso rimane costante e la fem si azzera: ho fem solo quando $0<x(t)<altezza triangolo$
+		
 		\ee=-\dv{\Phi(\vba B)}{t}
-	il flusso è attraverso la parte di superficie che è già dentro al semipiano $x>0$, cioè la superficie $\sigma$
+		il flusso è attraverso la parte di superficie che è già dentro al semipiano $x>0$, cioè la superficie $\sigma$
 		\Phi(\vba B)=B\sigma==
-	calcoliamo $\sigma$, il lato del suo bordo che è un triangolo equilatero
+		calcoliamo $\sigma$, il lato del suo bordo che è un triangolo equilatero
 		l=\frac{x(t)r}{\sqrt{3}}
 		\sigma=\frac{x^2(t)}{\sqrt{3}}
 		==B\frac{x^2(t)}{\sqrt{3}}
-	calcoliamo la f.e.m.
+		calcoliamo la f.e.m.
 		\ee=-\frac{2B}{\sqrt{3}} x(t)v(t)
-	corrnete indotta per legge di Ohm
+		corrnete indotta per legge di Ohm
 		i=\frac{\ee}{R}=-\frac{2B}{\sqrt{3}R} x(t)v(t)
-	corrente che produce campo magnetico opposto al campo magnetico esistente che l'ha generata, usiamo la regola della vite per trovare il verso/senso in cui gira (deve entrare nel foglio)
-	per determinare la velocità della spira dobbiamo usare l'equazione di Newton
-	forza che agisce su una spira in un campo magnetico è
+		corrente che produce campo magnetico opposto al campo magnetico esistente che l'ha generata, usiamo la regola della vite per trovare il verso/senso in cui gira (deve entrare nel foglio)
+		per determinare la velocità della spira dobbiamo usare l'equazione di Newton
+		forza che agisce su una spira in un campo magnetico è
 		\vba F=i\int d\vba s\cross\vba B= \vba F_1 +\vba F_2
-	la forza che sta agendo sulla spira è data solo dal pezzo di circuito che si trova all'interno del campo magnetico, quindi facendo $d\vba s\cross\vba B$ abbiamo delle forze ortogonali che lungo l'asse $y$ si cancellano, le componenti $x$ si sommano e producono forza di attrito magnetico. Notiamo che gli angoli sono di $30$ 3 $60$ gradi, quindi abbiamo un coseno noto
+		la forza che sta agendo sulla spira è data solo dal pezzo di circuito che si trova all'interno del campo magnetico, quindi facendo $d\vba s\cross\vba B$ abbiamo delle forze ortogonali che lungo l'asse $y$ si cancellano, le componenti $x$ si sommano e producono forza di attrito magnetico. Notiamo che gli angoli sono di $30$ 3 $60$ gradi, quindi abbiamo un coseno noto
 		F_{1x}=-F_1\cos\theta=-\frac{F_1}{2}
 		F_{2x}=-F_2\cos\theta=-\frac{F_2}{2}
-	quindi sono uguali in modulo
+		quindi sono uguali in modulo
 		F_{1x}+F_{2x}=F_1+F_2
-	$\vba B$ esce dall'integrale perché è costante
+		$\vba B$ esce dall'integrale perché è costante
 		F_1=i\vba B\int d\vba s\cross \vbh u_z
 		\abs{\vba F_1}=i B \underbrace{\frac{2x(t)}{\sqrt{3}}}_{lunghezza del segmento}
 		F_x=\frac{-2iBx(t)}{\sqrt{3}}
-	le componenti che ci interessano e danno attrito magnetico sono quelle lungo l'asse $x$
-%TODO: IMMAGINE
+		le componenti che ci interessano e danno attrito magnetico sono quelle lungo l'asse $x$
+		%TODO: IMMAGINE
 		F_x=-\frac{4 B^2}{3R} x^2(t) v(t)
-	usiamo l'equazione di Newton
+		usiamo l'equazione di Newton
 		m\dv[2]{x}{t}=-\frac{4 B^2}{3R} x^2(t) v(t)
-	dobbiamo scriverla in funzione della velocità e ci accorgiamo che il membro di sinistra è una derivata totale
+		dobbiamo scriverla in funzione della velocità e ci accorgiamo che il membro di sinistra è una derivata totale
 		\dv{v}{t}--\frac{4 B^2}{3Rm} \frac{1}{3}\dv{t}(x^3(t))
-	integriamo ambo i membri
+		integriamo ambo i membri
 		v(t)=c-\rac{4B^2}{)Rm}x^3(t)
-	la condizione iniziale è che per t=0 abbiamo v=v_0
+		la condizione iniziale è che per t=0 abbiamo v=v_0
 		v(t)v-0-\frac{4B^2}{9Rm} x^3(t)
 		
-	recap: fem e intensità di corrente (standard), per la velocità bisogna calcolarsi le forze, una volta che abbiamo il modulo sappiamo la forza, uguagliamo all'accelerazione grazie alla legge id Newton, rimuovo una derivata ed esprimiamo $v$ in funzione di $x$
-	
+		recap: fem e intensità di corrente (standard), per la velocità bisogna calcolarsi le forze, una volta che abbiamo il modulo sappiamo la forza, uguagliamo all'accelerazione grazie alla legge id Newton, rimuovo una derivata ed esprimiamo $v$ in funzione di $x$
+		
 		x_{max}=\frac{b\sqrt{3}}{2}
 		v_f=v_0-\frac{4B^2}{9Rm}\left( \frac{b\sqrt{3}{2}\right)^3= 4,71 m/s
-
-	la carica è l'integrale della densità di corrente per tutto il tempo
-		q=\int_0^{+\infty} idt = \int^{+\infty}_0 \frac{1}{R}\dv{\Phi(\vba B)}{t} dt= \frac{1}{R} \Delta\Phi(\vba B) =\frac{1}{R} B\Sigma= \frac{1}{R} B\frac{b^2\sqrt{3}{4}=2,78*10^{-12}
-	differenza di flusso, dopo che tutto il triangolo è entrato ho tutto il flusso
-	con i=\dv{q}{t}	
-	
-\end{solution}
-
-un esercizio di questo tipo è al massimo livello di difficoltà
-
-abbiamo ancora 4 settimane di lezione
-
-
-
+			
+			la carica è l'integrale della densità di corrente per tutto il tempo
+			q=\int_0^{+\infty} idt = \int^{+\infty}_0 \frac{1}{R}\dv{\Phi(\vba B)}{t} dt= \frac{1}{R} \Delta\Phi(\vba B) =\frac{1}{R} B\Sigma= \frac{1}{R} B\frac{b^2\sqrt{3}{4}=2,78*10^{-12}
+				differenza di flusso, dopo che tutto il triangolo è entrato ho tutto il flusso
+				con i=\dv{q}{t}	
+				
+			\end{solution}
+			
+			un esercizio di questo tipo è al massimo livello di difficoltà
+			
+			abbiamo ancora 4 settimane di lezione
+			
+			
+	content
+\end{comment}
 
 
 

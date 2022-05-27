@@ -90,7 +90,7 @@ La conseguenza immediata della legge di Gauss per il magnetismo è che il campo 
 \end{digression}
 \section{Interazioni con le cariche in moto: gli esperimenti di Oersted e Ampére}
 Come si è potuto notare, gli studi dei fenomeni magnetici erano inizialmente separati da quell sull'elettricità, dato che i due fenomeni risultavano scorrelati. Ed effettivamente con le nostre conoscenze moderne sappiamo perché: le leggi che descrivono i fenomeni \textit{magnetostatici} sono \textit{indipendenti} da aspetti di natura \textit{elettrica}. Purtuttavia, il sospetto che ci fosse un legame tra elettricità e magnetismo ci fu per diversi secoli, ma per avere dei risultati concreti si dovette aspettare la \textit{corrente elettrica}.
-\paragraph{L'esperimento di Oersted}\index{esperimento!di Oersted}
+\subsection{L'esperimento di Oersted}\index{esperimento!di Oersted}
 Il primo ad identificare un legame tra l'elettricità e il magnetismo fu il fisico danese \textbf{Hans Christian Oersted} (1777-1851), che il 21 Luglio 1820 pubblicò le sue scoperte in un libricino di quattro pagine scritto in latino.\\
 Oersted notò che l'ago di una bussola vicino ad un filo percorso da corrente si dispone in modo da essere sempre perpendicolare al filo. Inoltre, osservò che se il filo veniva posto sotto l'ago, invece che sopra, l'ago si muoveva nella direzione opposta, mentre la \textit{deflessione} dell'ago era inversamente proporzionale alla \textit{distanza} dal filo.
 % TO DO: inserire disegno
@@ -104,12 +104,44 @@ Pur non avendo alcun idea del \textit{perché}\footnote{Oestred non parla di cor
 \begin{digression}
 	Fu una sorpresa considerevole per gli scienziati dell'epoca che la direzione della forza fosse \textit{perpendicolare} ad un piano passante per il filo e l'ago, ancor più che la corrente agisse su un ago magnetico. Infatti, sembrava contraddire la legge di gravitazione universale di Newton, la quale afferma che l'attrazione gravitazionale agisce lungo le linee che collega i corpi gravitazionali. Infatti, la legge di Coulomb delle interazioni dei corpi carichi e dei corpi magnetizzati aveva portato ad ipotizzare che anche per tali enti valesse una variante della legge di Newton, in cui le forze agivano sempre lungo le congiungenti dei corpi.
 \end{digression}
-\paragraph{L'esperimento di Ampére}\index{esperimento!di Ampére}
+\subsection{L'esperimento di Ampére}\index{esperimento!di Ampére}
 Anche il francese \textbf{Andre Marie Ampére} (1775-1836), che abbiamo incontrato in precedenza nel trattare la corrente elettrica, propose un esperimento analogo nel 1823. % - anche 
-Ampére osservò che due fili paralleli nei quali le corrente scorre nella stessa direzione sono attratti tra di loro, mentre se la corrente è percorsa in senso opposto i fili tendono ad allontanarsi.
+Ampére osservò che due fili paralleli nei quali le corrente scorre nella stessa direzione sono attratti tra di loro, mentre se la corrente è percorsa in senso opposto i fili tendono ad allontanarsi. In entrambi i casi, la forza su un filo è \textit{uguale e contraria} a quella esercitata sull'altro.
 % TO DO: inserire disegno
-In entrambi i casi, la forza su un filo è \textit{uguale e contraria} a quella esercitata sull'altro.\\
-Per ora non approfondiremo la legge matematica alla base di ciò, né guarderemo la sua derivazione esplicita - lo faremo successivamente in un caso più generale. Ci basta notare che nell'esperimento di Ampère le correnti fungono da ‘‘cariche magnetiche''; la legge che descrive tale fenomeno (che per ovvi motivi prende il nome di \textit{legge di Ampère}) sarà quindi l'equivalente per la magnetostatica della legge di Coulomb per l'elettrostatica.
+Sperimentalmente, si trovò che la \textit{densità lineare} di forza era descritta dalla \textbf{legge di Ampère}\index{legge!di Ampère}
+\begin{equation}
+	\frac{F}{l}=k\frac{I_1I_2}{r}
+\end{equation}
+dove $l$ è la lunghezza dei fili, $r$ la distanza tra i due e $I_1$, $I_2$ le correnti che scorrono in essi e $k$ un'opportuna costante; nel sistema SI si pone pari a
+\begin{equation}
+	k=\frac{\mu}{4\pi}=\SI[per-mode = fraction]{d-7}{\newton\per\ampere\squared}
+\end{equation}
+dove $\mu_0$ è detta \textbf{permeabilità magnetica del vuoto} ed è definita esattamente come
+\begin{equation}
+	\mu_0=4\pi\SI[per-mode = fraction]{d-7}{\newton\per\ampere\squared}
+\end{equation}
+
+È facile immaginare che nell'esperimento di Ampère le correnti fungono da ‘‘cariche magnetiche''. La legge che descrive tale fenomeno è quindi l'equivalente per la magnetostatica della legge di Coulomb per l'elettrostatica.
+\paragraph{Una (obsoleta) definizione dell'ampere}
+Nel \autoref{chap:correnteElettrica} abbiamo parlato dell'\textit{ampere}, l'unica unità fondamentale che introdurremo in questo testo. Dato che è una delle unità base da cui poter derivare tutte le altre, è necessario darne una \textit{definizione}.
+La prima definizione dell'ampere pre-SI - detto l'‘‘Ampere Internazionale'' - era definito elettrochimicamente come la corrente necessaria per depositare $\SI{1.118}{\milli\gram}$ di argento al secondo da una soluzione di nitrato d'argento. Nel 1939 si propose una definizione migliore - ma tecnicamente diversa, dato che fra le due unità c'era una differenza del $0.015\%$ - che utilizzava proprio l'esperimento di Ampère:
+\begin{center}
+	‘‘L'ampere è quella corrente costante che, se mantenuta in due conduttori  paralleli rettilinei, di lunghezza infinita e sezione circolare trascurabile, posti a un metro l'uno dall'altro nel vuoto, produce tra questi una forza pari a $\SI{2d-7}{\newton}$ per ogni metro di lunghezza''
+\end{center}
+La conseguenza di tale definizione fu che la permeabilità magnetica del vuoto era una \textit{costante} ben precisa, pari a
+\begin{equation}
+	\mu_0=4\pi \SI[per-mode = fraction]{d-7}{\newton\per\ampere\squared}
+\end{equation}
+...o almeno, questo era vero fino al 2019. Dall'introduzione nel 1960 fino a tale anno, il SI era basato su sette \textit{unità base}, su cui le altre derivano. Per quanto coerente ed efficace, erano presenti dei problemi:
+\begin{itemize}
+	\item il chilogrammo era ancora pari al peso del campione fisico del 1889 depositato al \textit{Ufficio internazionale dei pesi e delle misure}, il quale era però prono a piccoli ma rilevanti variazioni nell'arco degli anni - considerati inaccettabili per la crescente precisione richiesta negli esperimenti.
+	\item Altre unità, come il kelvin e l'ampere, erano basati su misure difficilmente realizzabili con precisione in un laboratorio. 
+\end{itemize}
+Si decise quindi di cambiare il focus: il sistema non partiva direttamente dalle sette unità in sè, bensì avrebbe fissato con estrema precisione il valore di sette \textit{costanti fondamentali}, da cui poter ricavare la misura delle unità di base e poi delle derivate in modo consistente e ripetibile in laboratorio. Per tale motivo, quattro delle sette unità fondamentali - il chilogrammo, il kelvin, la mole e, ultimo ma non per importanza, l'ampere - vennero ridefinite. L'ampere, nello specifico, venne definito fissando il valore in ampere per secondo (ossia in coulomb) della carica elementare:
+\begin{center}
+	‘‘L'ampere, simbolo $A$, è l'unità del SI della corrente elettrica. È definito considerando il valore numerico costante della carica elementare pari a $1.602176634\cdot10^{-19}$ quando espresso nell'unità $\unit{\coulomb}$, che equivale a $\unit{\ampere\second}$, dove il secondo è definito in termini di $\Delta \ni_{\textrm{Cs}}$''\footnote{Dove $\Delta \ni_{\textrm{Cs}}$ è il valore fissato della frequenza della radiazione emessa dall'atomo di Cesio 133 nella transizione tra due livelli iperfini (F=4, M=0) e (F=3, M=0) dello stato fondamentale $~^2(1/2)$.'' Parole complesse per dire sostanzialmente che anche il secondo è basato su una costante fisica definita.}
+\end{center}
+Una conseguenza di ciò è che la permeabilità magnetica del vuoto non è più fissata esattamente, ma deve essere ricavata sperimentalmente - anche se il valore di $4\pi \SI[per-mode = fraction]{d-7}{\newton\per\ampere\squared}$ è una buona approssimazione per i calcoli più teorici. In questo testo considereremo la situazione pre-2019, anche solo per una mera questione di semplificazione dei calcoli.
 \section{Forza di Lorentz}
 Dagli esperimenti di Oersted e Ampère sappiamo che si devono necessariamente considerare gli effetti della corrente elettrica nello studio del magnetismo; tuttavia, ci manca ancora una descrizione \textit{qualitativa} delle leggi che descrivono ciò.
 
@@ -338,7 +370,7 @@ Ricordando che l'intensità di corrente nel filo è definita come il flusso di c
 \end{equation*}
 si ha
 \begin{equation*}
-	\squarequal\int I\vba{u}_x\cross\vba{B}dx
+	\squarequal\int I\vbh{u}_x\cross\vba{B}dx
 \end{equation*}
 \begin{define}[Seconda legge di Laplace]
 	La \textbf{seconda legge di Laplace}\index{leggi di Laplace!seconda} afferma che la forza magnetica (detta \textbf{forza di Laplace}\index{forza!di Laplace}) esercitata su un filo carico di corrente da un campo magnetico $\vba{B}$ è pari a
@@ -364,7 +396,7 @@ In particolare, se il circuito è chiuso,
 \section{Il momento meccanico di un circuito piano in un campo magnetico}
 Consideriamo una \textit{spira} rettangolare di lati $a$ e $b$ percorsa da una corrente $I$, immersa in un campo magnetico $\vba{B}$ uniforme. Chiamiamo $\theta$ l'angolo compreso tra $\vba{B}$ e il versore normale $\vbh{u}_n$ alla superficie racchiusa dalla spira; il verso di $\vbh{u}_n$ è dettato dalla \textbf{regola della vite}.
 \begin{define}[Regola della vite]\index{regola della vite}
-	Data una curva orientata, il verso del versore normale $\vbh{u}_n$ alla superficie delimitata da tale curva è definito nella seguente maniera: curvando le dita della mano in modo che le dita della mano in modo che seguano l'orientazione della corrente, il pollice retto punta nel verso di $\vba{u}_n$.
+	Data una curva orientata, il verso del versore normale $\vbh{u}_n$ alla superficie delimitata da tale curva è definito nella seguente maniera: curvando le dita della mano in modo che le dita della mano in modo che seguano l'orientazione della corrente, il pollice retto punta nel verso di $\vbh{u}_n$.
 	% TO DO: immagine
 \end{define}
 Le forze magnetiche $\vba{F}_3$ e $\vba{F}_4$ sui lati \textit{orizzontali} sono uguali e contrarie e hanno la stessa retta di azione, dato che sono applicate nel centro del lato.
@@ -407,19 +439,19 @@ dove $\Sigma=ab$ è l'area della spira.
 	\vba{M}=\vba{d}\cross\vba{F}=\abs{\vba{d}}\abs{\vba{F}}B \sin\theta\vbh{u}_M=Iab B \sin\theta\vbh{u}_M=I\Sigma B\sin\theta\vbh{u}_M
 \end{equation*}
 \end{itemize}
-Si noti che il versore $\vbh{u}_M$ è ottenibile anche come prodotto vettoriale (normalizzato!) di $\vba{B}$ con $\vba{u}_n$:
+Si noti che il versore $\vbh{u}_M$ è ottenibile anche come prodotto vettoriale (normalizzato!) di $\vba{B}$ con $\vbh{u}_n$:
 \begin{equation}
-	\vbh{u}_M=\frac{\vba{u}_n\cross\vba{B}}{\abs{\vba{u}_n\cross\vba{B}}}=\frac{\vba{u}_n\cross\vba{B}}{B\sin\theta}
+	\vbh{u}_M=\frac{\vbh{u}_n\cross\vba{B}}{\abs{\vbh{u}_n\cross\vba{B}}}=\frac{\vbh{u}_n\cross\vba{B}}{B\sin\theta}
 \end{equation}
 Riscriviamo $\vba{M}$ con questo prodotto vettoriale:
 \begin{equation*}
-	\vba{M}=I\Ccancel[red]{B}\Sigma\Ccancel[red]{\sin\theta}\frac{\vba{u}_n\cross\vba{B}}{\Ccancel[red]{B}\Ccancel[red]{\sin\theta}}=I\Sigma\vba{u}_n\cross\vba{B}
+	\vba{M}=I\Ccancel[red]{B}\Sigma\Ccancel[red]{\sin\theta}\frac{\vbh{u}_n\cross\vba{B}}{\Ccancel[red]{B}\Ccancel[red]{\sin\theta}}=I\Sigma\vbh{u}_n\cross\vba{B}
 \end{equation*}
 Introduciamo ora la seguente definizione.
 \begin{define}[Momento magnetico della spira]
 	Data una spira di area $\Sigma$ percorsa da una corrente $I$, chiamiamo il \textbf{momento magnetico della spira}\index{momento!magnetico di una spira} la quantità vettoriale
 	\begin{equation}
-		\vba{m}=I\Sigma\vba{u}_n
+		\vba{m}=I\Sigma\vbh{u}_n
 	\end{equation}
 \end{define}
 Otteniamo che il momento meccanico della spira rettangolare è
@@ -435,7 +467,7 @@ Nel caso di una spira generica immersa in un campo magnetico uniforme sappiamo g
 	\end{equation}
 	dove
 	\begin{equation}
-		\vba{m}=I\Sigma\vba{u}_n
+		\vba{m}=I\Sigma\vbh{u}_n
 	\end{equation}
 	è il \textit{momento magnetico} associato ad essa.
 \end{theorema}
@@ -747,7 +779,7 @@ ossia
 \subsection{Unità di misura del flusso del campo magnetico}
 L'unità di misura del flusso del campo magnetico si può derivare in diversi modi. Dalla definizione di flusso stesso, si ha
 \begin{equation*}
-	\left[\Phi_{\Sigma}(\vba{B})\right]=\left[\vba{B}\right]\left[\Sigma\right]=\unit{\tesla\meter\squared}
+	\left[\Phi_{\Sigma}(\vba{B})\right]=\left[\vba{B}\right]\left[\Sigma\right]=\unit[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{\tesla\meter\squared}
 \end{equation*}
 Alternativamente, poiché il flusso è legato all'energia potenziale dalla legge
 \begin{equation*}
@@ -755,9 +787,107 @@ Alternativamente, poiché il flusso è legato all'energia potenziale dalla legge
 \end{equation*}
 si ha anche
 \begin{equation*}
-	\left[\Phi_{\Sigma}(\vba{B})\right]=\frac{\left[U_P\right]}{\left[I\right]}=\unit{\joule\per\ampere}
+	\left[\Phi_{\Sigma}(\vba{B})\right]=\frac{\left[U_P\right]}{\left[I\right]}=\unit[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{\joule\per\ampere}
 \end{equation*}
 \begin{units}~\\
 	\textbf{\textsc{Flusso magnetico:}} weber ($\unit{\weber}$).\\
 	\textit{\textbf{Dimensioni:}} $\left[\Phi_{\Sigma}(\vba{B})\right]=\left[\vba{B}\right]\left[\Sigma\right]=\mathsf{M}\mathsf{L}^2 \mathsf{T}^{-2}  \mathsf{I}^{-1}$
 \end{units}
+\section{Prima legge di Laplace, o legge di Biot-Savart}
+L'esperimento di Ampére, di cui abbiamo parlato ormai molte pagine fa, ci mostrò che due fili percorsi da corrente venivano attratti - o respinti - da forze di natura magnetica. Grazie alla forza di Lorentz ora sappiamo \textit{come} questi fili potevano muoversi: la corrente che percorre ciascun filo genera un campo magnetico che agisce sulle cariche in movimento dell'altro filo, creando una forza su di esse che sposta di conseguenza il filo. Ci rimane un tassello di questo puzzle: qual è il campo magnetico generato dal filo?
+
+\subsection{Campo magnetico generato da cariche puntiformi in moto}
+Procediamo con calma. Innanzitutto, sebbene sia difficilmente osservabile, anche una singola carica in movimento con velocità $\vba{v}$ è in grado generare un campo magnetico. Tale campo $\vba{B}$ soddisfa, nel suo piccolo, alcune proprietà incontrate nell'esperimento di Ampère:
+\begin{itemize}
+	\item Se la carica non è in movimento, non si ha alcun campo; dobbiamo supporre che $\vba{B}$ debba dipendere dalla velocità.
+	\item Se il campo agisce su un'altra carica in movimento, la cui velocità ha direzione parallela a $\vba{v}$, la forza di Lorentz che ne consegue deve essere tale da risultare attrattiva se i versi delle velocità sono concordi e repulsiva se sono discordi. 
+\end{itemize}   Inolt \\
+Fu \textbf{Oliver Heaviside} nel 1888 a derivare, dalle leggi di Maxwell, la legge matematica che descrive il campo magnetico generato da una singola carica in movimento:
+\begin{equation}
+	\vba{B}=\frac{\mu_0}{4\pi}\frac{q\vba{v}\cross\vbh{u}_r}{r^2}
+\end{equation}
+La prima cosa che notiamo è che a tutti gli effetti tale legge soddisfa quanto supposto ed osservato: il campo magnetico \textit{dipende} dalla velocità, mentre il prodotto vettoriale garantisce la seconda osservazione.
+
+\begin{example}
+	Per capire meglio la presenza del prodotto vettoriale consideriamo la seguente situazione: due particelle $1$ e $2$ in moto, entrambe con velocità $\vba{v}$ concorde e parallele, sono attratte l'un l'altra da forze di Lorentz  uguali e contrarie. La forza che subisce la particella 2 è dovuta all'azione del campo magnetico $\vba{B}_1$ generato dalla prima:
+	\begin{equation*}
+		\vba{F}_{2,1}=q_2\vba{v}_2\cross\vba{B}_1
+	\end{equation*}
+% TO DO: disegno
+	Supponendo che le cariche siano negative, per avere che $\vba{F}_{2,1}$ sia attrattiva (cioè diretta verso la particella 1), per la regola della mano destra $\vba{B}_1$ deve essere entrante il piano dove viaggiano le particelle. Allora, il prodotto vettoriale di $\vba{v}$ per il versore $\vbh{u}_r$ diretto da 1 a 2 permette a $vba{B}_1$ di avere verso entrante.
+\end{example}
+% TO DO: check this, not so sure
+\begin{observe}
+	Una carica in movimento genera sia un campo elettrico, sia un campo magnetico. In particolare, il campo elettrico si distribuisce radialmente con centro la carica, mentre quello magnetico è tangenziale a circonferenze perpendicolari alla velocità e con centro sulla retta su cui essa giace.
+\end{observe}
+Si noti che l'espressione del campo magnetico
+\begin{equation}
+	\vba{B}=\frac{\mu_0}{4\pi}\frac{q\vba{v}\cross\vbh{u}_r}{r^2}
+\end{equation}
+e quella del campo elettrico
+\begin{equation}
+	\vba{E}=\frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\vbh{u}_r
+\end{equation}
+generati della particella sono così simili da essere collegati tra di loro dalla relazione
+\begin{equation}
+	\vba{B}=\mu_0\epsilon_0\vba{v}\cross\vba{E}
+\end{equation}
+Poiché, dimensionalmente parlando, si ha
+\begin{equation*}
+	\left[\epsilon_0\right]=\frac{1}{4\pi\left[F\right]}\frac{\left[q\right]^2}{\left[r\right]^2}=\unit[per-mode = fraction]{\coulomb\squared\per\meter\squared\per\newton}
+\end{equation*}
+e
+\begin{equation*}
+	\left[\mu_0\right]=\unit[per-mode = fraction]{\newton\second\squared\per\coulomb\squared},
+\end{equation*}
+il loro prodotto ha dimensioni
+\begin{equation*}
+	\left[\epsilon_0\mu_0\right]=\unit[per-mode = fraction]{\second\squared\per\meter\squared},
+\end{equation*}
+pari a quelle di un inverso di un quadrato di una velocità. Ma non stiamo parlando di una velocità qualunque, bensì della \textit{velocità della luce}! Infatti,
+\begin{equation*}
+	c=\SI[per-mode = fraction]{3d8}{\meter\per\second}=\frac{1}{\sqrt{\epsilon_0\mu_0}}
+\end{equation*}
+La relazione di cui sopra tra campo elettrico $\vba{E}$ e campo magnetico $\vba{B}$ di una particella carica in moto a velocità $\vba{v}$ si riscrive quindi come
+\begin{equation}
+	\vba{B}=\frac{1}{c^2}\vba{v}\cross\vba{E}
+\end{equation}
+Perché però compare la velocità della luce? Facendo un piccolissimo spoiler, i fenomeni elettromagnetici sono legati a fenomeni di natura ondulatoria con velocità di propagazione pari a quelli della luce.
+\subsection{Campo magnetico generato da un filo}
+Sebbene abbiamo visto cosa succede per una particella, una singola carica in movimento non fa una corrente stazionaria - ma tante sì. Supponiamo di avere un elemento di filo infinitesimo percorso da corrente stazionaria di intensità $I$; le cariche si spostano con velocità di deriva $\vba{v}_d$. Per ciascuna singola carica il campo magnetico generato è
+\begin{equation}
+	\vba{B}_i=\frac{\mu_0}{4\pi}\frac{e\vba{v}_d\cross\vbh{u}_r}{r^2}
+\end{equation}
+Se nel volumetto ci sono $N$ cariche, si ha una densità di cariche pari a
+\begin{equation*}
+	n=\frac{dN}{dV}
+\end{equation*}
+Se sommiamo - con continuità - rispetto a tutte le cariche nel volumetto, il campo magnetico complessivo sarà dato da
+\begin{equation*}
+	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{e\vba{v}_d\cross\vbh{u}_r}{r^2}dN=\frac{\mu_0}{4\pi}\int_V\frac{ne\vba{v}_d\cross\vbh{u}_r}{r^2}dV
+\end{equation*}
+Ricordando che $\vba{j}=ne\vba{v}_d$, allora
+\begin{equation*}
+	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{\vba{j}\cross\vbh{u}_r}{r^2}dV
+\end{equation*}
+% bla bla bla confronto con il campo elettrico
+Consideriamo il caso di un filo rettilineo  $\mathcal{l}$: un suo volumetto infinitesimo ha spessore costante $d\Sigma$ e lunghezza $ds$. Se poniamo il filo lungo l'asse $x$ senza perdita di generalità, la densità di corrente è anch'essa parallela all'asse $x$, ossia
+\begin{equation*}
+	\vba{j}=j\vbh{u}_x
+\end{equation*}
+Il campo magnetico sarà
+\begin{equation*}
+	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{\vba{j}\cross\vbh{u}_r}{r^2}d\Sigma ds=\frac{\mu_0}{4\pi}\int_{\mathcal{l}}j\Sigma\frac{\vbh{u}_x\cross\vbh{u}_r}{r^2}=\frac{\mu_0}{4\pi}\int_{\mathcal{l}}I\frac{\vbh{u}_x\cross\vbh{u}_r}{r^2}ds
+\end{equation*}
+Osserviamo che in questo caso $d\vba{s}=ds\vba{u}_x$. Generalizziamo quanto trovato.
+
+\begin{define}[Seconda legge di Laplace]
+	La \textbf{legge di Biot-Savart}\index{legge!di Biot-Savart}, detta anche \textbf{prima legge di Laplace}\index{leggi di Laplace!prima}, afferma che il campo magnetico prodotto da una corrente stazionaria $I$ che percorre un generico filo $\gamma$ è
+	\begin{equation*}
+		\vba{B}=\frac{\mu_0}{4\pi}\int_{\gamma}\frac{d\vba{s}\cross\vbh{u}_r}{r^2}
+	\end{equation*}
+	dove $d\vba{s}$ è lo spostamento infinitesimo lungo la curva $\gamma$.
+\end{define}
+\begin{examplewt}[Filo rettilineo di lunghezza {$2a$}]
+	content
+\end{examplewt}
