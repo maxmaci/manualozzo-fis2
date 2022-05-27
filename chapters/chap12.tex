@@ -178,7 +178,7 @@ l'intera fisica contemporanea è scritta come una generalizzazione di questo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
-%LEZ 34/5? 23/05/2022
+%LEZ 35 23/05/2022
 
 
 la densità di energia della scatola per volume della scatola è 
@@ -323,6 +323,464 @@ così \nu_0=\frac{v_0}{h}
 
 ha un'interessante rilevanza pratica: c'è nascosto il fatto che per quanto ne sappiamo non esiste nessun meccanismo fisico noto per cui l'utilizzo di telefoni cellulari causi tumori, perché lavorano nella banda delle onde radio (..), i fotoni emessi non hanno energia sufficiente per ionizzare 
 una radiazione che non è ionizzante non è ionizzante mai: come una macchina non prende fuoco cse ci butto addosso l'acqua, ma se butto la benzina sì
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 36, 25/05/2022
+
+[...]
+
+1920, esperimenti di Compton osservano \lambda_{fin}=\lambda_{fin}(\theta)
+la radiazione luminosa è fatta di particelle: hanno anche un impulso: fotone che sbatte contro elettrone
+
+\gamma come fotone
+i fotoni a bassa energia si comportano quasi sempre come maniera semiclassica: onde
+se energie sono alte tende e prevalere il loro aspetto particellare
+alta erngia era indicata con raggi \gamma, da qui il nome
+
+dall'altra parte arriva un elettrone
+se lo considero come un urto fra particella il fotone e l'elettrone saranno riflessi perché c'è un impulso da conservare
+l'angolo di scattering del processo di urto è \theta
+
+scrivo la conservazione dell'energia e dell'impulso
+scelgo l'energia del fotone (onda monocromatica)
+	E_\gamma=h\nu
+	\abs{\vba P_\gamma}=(da relazione fra energia e impulso data da relatività ristretta E=\sqrt{m^2c^4+\abs{\vba p}^2c^2}, m_\gamma=0) \frac{E_\gamma}{c}=\frac{h\nu}{c}=\frac{h}{\lambda}
+
+impongo la conservazinoe delle quantità prima e dopo l'urto
+\begin{cases}
+	E_\gamma+E_e=E_\gamma'+E_e'		\\
+	\vba p_\gamma+\vba p_e=\vba p_\gamma'+\vba p_e'
+\end{cases}
+scelgo il sistema di riposo dell'elettrone prima dell'urto: come se considerassi un elettrone fermo
+in questo sistema qui \vba p_e=0 \implies E_e=m_e c^2
+è per forza calcolo relativistico perché ho cose che vanno alla velocità della luce
+e il sistema diventa
+\begin{cases}
+	E_\gamma+E_e=E_\gamma'+E_e'		\\
+	\vba p_\gamma+\cancel{\vba p_e}=\vba p_\gamma'+\vba p_e'
+\end{cases}
+
+riscirvo per togleire la radice quadrata
+
+	E_\gamma-E_\gamma'+m_ec^2= (energia dell'elettrone dopo l'urto) \sqrt{m_e^2c^4+c^2\abs{\vba p_e'}^2}= \sqrt{m_e^2c^4+c^2\abs{\vba p_\gamma-\vba p_\gamma'}^2} = (uso che \abs{\vba p_\gamma}c=E_\gamma e \abs{\vba p'_\gamma}c=E'_\gamma)  \sqrt{m_e^2c^4+ E_\gamma^2 - E_\gamma'^2+2E_\gamma E_\gamma'\cos\theta}
+faccio il quadrato dei membri
+	\implies 2m_ec^2\left(E_\gamma-E_\gamma'\right) -2E_\gamma E_\gamma' = -2E_\gamma E_\gamma'\cos\theta 
+	
+finora erano particelle ma sono fotoni ed ho relazione fra energia lunghezza d'onda e frequenza: E_\gamma=\frac{hc}{\lambda}
+	hm_ec^3\left(\frac{1}{\lambda} -\frac{1}{\lambda'}\right)= h^2c^2\frac{1}{\lambda\lambda'}(1-\cos\theta)
+	\lambda' (lunghezza d'onda del fotone dopo l'urto) -\lambda=\frac{h}{m_ec}(1-\cos\theta)
+che corrisponde all'ooservazione sperimentale di Compton
+\frac{h}{m_ec} è detta lunghezza d'onda Compton dell'elettrone
+
+
+
+le evidenze si accumulano: in una serie di circostanze la radiazione elettromagnetica si può vedere come gas di particelle molto organizzato: tutte stessa direzione ed energia perché hanno la stessa frequenza
+fascio di particella ad energia fissata
+
+
+4° ESPERIMENTO: spettroscopia atomica
+qualcosa di non continuo nella struttura della materia: dopo Planck è quantizzato
+
+lo spettro di lunghezze d'onda non è continuo, ho solo determinate frequenze e quindi lunghezze d'onda
+la luce emessa da elementi (gas) sottoposti a scariche elettriche ha uno spettro discreto
+%CIT che non è un fantasma poco invadente
+se proietto sullo schermo quello che esce dal prisma noto che ho delle righe spettrali con posizioni caratteristiche
+metto l lunghezza d'onda espresse inunità caratteristiche \lambda(A°)
+%tODO: cercare come si fa la A con la ° sopra
+%CIT divetò un gigantesco parco giochi per gli sperimentali
+%CIT questa cosa è inquietante: i nostri modelli teorici corrispondono perfettamente: non si vincono i Noble spiegando qualcosa spiegato già da altri
+
+Rydberg quantifica questa cosa
+per l'idorgeno queste righe spettrali si trovano come
+	\frac{1}{\lambda}=\frac{\nu}{c}=R\left(\frac{1}{n_2^2}-\frac{1]{n_1^2}\right)
+una serie corrisponde a n_2=1, abbiamo n_1=2,3,4,5	:serie di Lyman
+	n_2=2, n_1=3,4,5, 	serie di Balmer
+	n_3=3, n_1=4,5,6	serie di Ritz
+	
+R viene trovato con precisione come R\sim 1,097*10^5 cm^{-1}
+questo aveva a che fare come la struttura della materia interagisce con la luce
+luce che illumina i gas e vedo cosa assorbono, dall'altra parte gli atomi assorbono luce alle stesse frequenze
+ifrogeno assorbe radiazione sulle stesse frequenze alle quali le emette
+
+
+
+\section{Modelli atomici}
+
+1907/8
+com'è possibile che gli atomi siano neutri e non ci sono respingimenti di forze elettromagnetici forti?
+Thompson scopre l'elettrone che ha carica negativa
+qunidi suggerisce un modello qualitativo "plum pudding"
+distriuzione di carica positiva di roba poco densa con dentro sassolini elettroni
+atomo come distribuzione continua di carica positiva con dentro dei puntini, delle particelle puntiformi con carica negativa 
+
+però non è possibile nella fisica classica
+gli sperimentali si buttarono a verificare queste cose
+
+Rutherford con gli studenti Gerger e Marsden
+i primi anni in cui si lavorava con materiale radioattivo, usano partielle \alpha
+fanno un urto di particelle \lpha, che oggia sappimao essere nuclei di elio, qunii due neutroni e due protoni
+essendo particella carica si può pillotare con campi elettrici
+molti materiali radioattivi decadono come \alpha
+
+caso di assassinio da spionaggio governativo: si sospettano movimenti radioattivi
+il polonio è estremamente radioattivo, deve durare abbastanza da poterla trasportare, se estremamente radioattiva tende a decadere: il polonio ha una vita media di 40 giorni. inoltre decade \alpha: è decadimento pericoloso solo se ingerito, perché sono fermate anche da foglio di carta s enon sono molto energetiche: se la ingerisco invece distrugge gli organi interni, dalla pelle è respinto
+
+mettiamo l'oro, elemento pesante per cui la carica positiva fosse rilevabile
+oro è malleabile e sottile
+mettiamo uno schermo per vedere dove sbattono
+
+se Thompson avesse avuto ragione non sarebbe successo nulla: le particelle \alpha avrebbero tirato dirtto: come sparare nella marmellata
+
+
+nella stragrande maggioranza dei casi succede come diceva Thompson, ma in altri il proiettile bazooka viene deviato invece di attraversare marmellata
+il proiettile viene rimbalzato
+
+quello osservato è consistente con un urto di cariche positive
+ma la carica positiva deve essere estremamente concentrata
+
+la carica positiva, oggi detto nucleo atomico, è estremamente concentrato
+
+abbiamo così il modello atomico di Rutherford 1911/13
+c'è un nucleo carico positivamente estremamente piccolo e contiene circa tutta la massa dell'atomo
+la densità \rho_{nucl} della materia nucleare è dell'ordine di 10^{11}kg/cm^3= 10^8 Tonn/cm^3
+questo già ci dice quanto devono essere le dimensioni relative: deve esserci il vuoto
+rapporto fra raggio tipico di un atomo e di un nucleo
+	\frac{R_{atomo}}{R_{nucleo}}\sim 10^5
+nucleo di 1 cm gli elettroni sono ai giardini reali
+%CIT perché non sprofondate? gli elettroni dei vostri pantaloni respingono quelli della sedia, siamo su campi elettromagnetici
+le cariche elettriche sottoposte ad accelerazione emettono energia
+
+se nella meccanica classica faccio come Rutherford e come i pianeti (modello planetario) il problema è che l'elettrone è soggetto ad accelerazione centripeta, per conseguenza delle eq di Maxwell cariche elettriche accelerate irradiano energia: quindi dovremmo vedere l'energia, quindi l'orbita si restringe e decade
+/anche nella gravità ho emissione di onde gravitazionali, che però sono piccole/
+quindi l'atomo di Rutherford non è stabile: dopo 15 picosecondi è collassato: proibita dall'elettrodinamica classica
+
+bisogna introdurre delle modificazioni drastiche a livello atomico
+
+nel 1913 il giovane Niels Bohr
+scriveremo la versione data da Sommerfield
+l'idea di base come postulato è che esistono orbite stabili per gli elettroni (dato sperimentale) nelle quali non possono irradiare, perdere energia
+quindi non obbediscono alle equazioni di Maxwell
+ma l'energia sotto forma di radiazione elm viene emessa solo nelle transizioni da un'orbita stabile all'altra
+bisogna scrivere il vincolo: cosa fissa le orbite stabili?
+Sommerfeld scrive nel contesto nella meccanica hamiltoniana
+se abbiamo un sistema periodico possiamo integrare il momento coniugato
+	\oint p_i dq_i=n h
+multiplo intero di una costante
+
+Bohr immagina orbite circolare: la forza elettrostatica l'ambaradan di Keplero funziona
+consideriamo orbite circolari
+%CIT: io e Giotto siamo parenti - dopo aver disegnato un cerchio perfetto al primo tentativo alla lavagna
+
+l'impuls dell'elettrone per un'orbita circolare è perpendicolare a \vba r
+in questo caso dq=rd\phi
+	\oint pdq= (velocità costante esce)2\pi pr= 2\pi mvr riconosciuto come valore del momento angolare dl'elettrone = 2\pi L_z
+il momento angolare di questo elettrone è quantizzato
+	Lz=n\frac{h}{2\pi}= n\hslash 
+	
+le orbite discrete: ci sono raggi che sono permessi ed altri che non lo sono
+	L_z= l_n=mv_nr_n
+neanche tutti i raggi e velocità sono permessi
+anche le energie saranno dipendenti da n: cinetiche
+	E=E_n=\frac{1}{2}mv_n^2-\frac{e^2}{r_n}
+funziona per tutti atomi idrogenoidi: gira solo un elettrone
+
+
+l'accelerazione è puramente centripeta e corrisponde alla forza coulombiana
+	\frac{ze^2}{r_n^2}=m\frac{v_n^2}{r_n}
+	\implies mv_n^2=\frac{ze^2}{r_n}
+sostituendo nell'energia
+	= -\frac{1}{2}\frac{ze^2}{r_e}
+	
+ma L_x=n\hslash 
+quindi	 v_n=\frac{n\hslash}{mr_n}
+possiamo riscrivere tutto in termini di costanti fondamentali
+	mv_n^2=\frac{ze^2}{r_n}\implies m\frac{n^2\hslash^2}{m^2r_n^2} =\frac{ze^2}{r_n}
+	\implies r_n=\frac{\hsalash^2}{mze^2}n^2
+ritrovo tutto con grandezze fondamentali	
+ho raggio minimo fondamentale con n=1 e tutti gli altri possibili raggi crescono coi quadrati
+
+avendo quantizzato i raggi posso quantizzare anche le energie
+	E_n= -\frac{mz^2e^4}{2\hslash^2}\frac{1}{n^2}
+ abbiamo uno spettro discreto per l'energia: sono stati legati da segni -
+ poi abbiamo abbastanza energia da liberare l'elettrone e quindi ionizzare l'atomo
+ il livello successivo le righe si addensano e al di sopra di 0 lo spettro diventa continuo	
+	
+la nozione di traiettoria per un elettrone viene pi abbandonata in meccanica quantistica
+per ragioni misteriose prende correzioni solo relativistiche, sopravvive a tutto il resto
+
+adesso date queste ipotesi è numeri è chiaro perché la luce ha periodi di frequenza
+perché ho livelli energetici occupabili dagli elettroni
+tutti i salti possibili ci danno tutte le possibili energie e per Planck frequenze emissibili dall'atomo
+l'atomo assorbe la stessa energia che emette
+
+cosa succede se un elettrone salta da un livello all'altro?
+
+	\nu_{n_2n_1}=\frac{c}{\lambda_{n_2n_1}=\frac{E_{n_1}-E_{n_2}}{h}
+salto da livello più alto a più basso che corrisponde a quella differenza di energia
+	\frac{1}{\lambda_{n_2n_1}=\frac{1}{hc}\frac{mz^2e^4}{2\hslash^2}\left(\frac{1}{n_2^2 -\frac{1}{n_1}^2\right)
+per z=1 costante di hildberg (?)
+	R=\frac{me^4}{4\pi\hslash^3 c}
+%CIT trovata questa costante ha capito che avrebbe avuto una carriera in fisica teorica
+
+quest però non è sistematico, indica solo che è la via giusta
+si cerca di generalizzare
+
+NOMENCLATURA
+§ raggio di Bohr: r_1, detto a_0=\frac{\hslash^2}{me^2}\sim 0,5 A°
+sono le dimensioni caratteristiche della roba tomica
+§ costante di struttura fine: si chiama perché le righe spettrali si sdoppiano o triplicano: la struttura interna delle righe spettrlai è detta struttra fine, ora è nota come costante di accoppiamento dell'elettrodinamica su cui si sviluppa la seria di Taylor 			
+	\alpha=\frac{e^2}{\hslash c} \sim \frac{1}{137}	numero puro
+§ lunghezza d'onda compton dell'elettrone 	\lambda_c=\frac{h}{m_ec}\sim 2.4*10^{-10}cm
+§massa dell'elettrone in unità di energia 	 m_ec^20.5111*10^{-6}erg= 0.511 MeV (megaelettronvolt)
+
+raggio n-esima orbita	r_n=a_0 n^2
+energia n-esima orbita	E_n=-\frac{e^2}{2a_0}{\frac{1}{n^2}
+	%CIT se le guardate assieme hanno un sapore coulombiano
+	R=\frac{\alpha}{4\pi a_0}
+energia dello stato fondamentale, minimo di energia
+	E_1=-\frac{e^2}{2a_0}=\frac{me^4}{2\hslash^2}=-\frac{\alpha^2}{2}mc^2\sim  -13,6 eV
+l'energia potenziale o cinetica di un elettrone che orbita è enormemente più piccola di quando è a riposo
+rappresenta l'ordine di grandezza delle energie necessarie per ionizzare atomi
+partendo da quel numoer posso vedere quali sono le radiazioni che ionizzano
+con la luce visibile non posso ionizzare: quanti con poca energia
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%LEZ 37, 26/05/2022
+
+%%ESAMI 
+%scritto vale anche per l'appello successivo nella stessa sessione, da discutere se anche per la sessione successiva
+%numero di esercizi: variabile, dipende dalla lunghezza degli esercizi
+%siccome molti non fanno l'orale potrebbe avere anche delle domande di teoria, anche incorporate negli esercizi
+%non varia la difficoltà complessiva
+%voto unico dello scritto, così come lo scritto in sé 
+%no formulario, però le formule molto derivate sono fornite nel testo dell'esercizio
+%%CIT se copiate vi diamo fuoco
+%da guardare vecchi scritti
+2 ore di scritto
+%anche chi non ha intenzione di dare l'orale ci si dovrebbe iscrivere e basta informare in qualunque modo che si vuole solo la conferma
+
+abbiamo elencato una serie di esperimenti che suggerivano una cosa sorprendente: la luce, sebbene fosse dimostrato da 200 anni che ha un comportamento ondulatorio, ha anche una natura colpuscolare
+modello atomico di Bohr, che riguarda comportamento degli elettroni: il modello atomico prima era corpuscolare
+l'equazione del moto era di un corpuscolo in un cmapo elm
+Bohr (con Sommerfeld) invece disse che la componente z del momento angolare è quantizzata
+	L_z=n\hslash \implies (porta alla determinazione corretta della costante di hilgert(?) che è data solo da costanti della natura) R
+questo è strano: è la componente di un vettore che assume solo certi valori: suggerisce che possa avere solo certe inclinazioni, il che non sembra avere senso perché tutto è invariante per rotazioni per sistemi di riferimento
+quindi non stiamo capendo qualcosa di profondo
+sperimentali: se c'è qualcosa di speciale nel momento angolare dovremmo vederlo anche con altri esperimenti con fasci di particelle ad esempio, con proprietà di momento magnetico: dipolo magnetico in un campo magnetico fa cose: tende ad allinearsi o moto di precessione attorno alla direzione del campo magnetico
+
+Sperimentali: Stern e Gerlach, 1922
+fascio di particelle tipo atomi o elettroni da far passare in campi elm , ma voglio misurare momento magnetico: oscurato su na particella carica perché effetti dei campi mgn sono più piccoli di quelli magnetici per un fattore $c$
+quindi decidono di lavorare con atomi neutri, d'Argento Ag
+l'idea è che dato un foglio con una fesura, lo si argenta come i gioielli, scaldandolo atomi di argento tendono ad essere liberati ed escono in direzioni assortite da un foro, serve un collimatore per avere un fascio
+faccio passare fra dipoli di un magnete che va fatto in modo tale che il campo magnetico non sia costante
+imponiamo le direzioni degli assi
+	\pdv{B_z}{z}\neq 0
+impongo che dipoli magnetici Nord e Sud non siano simmetrici, così le linee di forza del campo magnetico non sono omogeneee/simmetriche
+hanno proprietà: esistenza vettore momento magnetico proporzionale a momento angolare dell'elettrone che gira intorno all'atomo
+	\vba \mu\alpha\vba L 
+%TODO: \alpha è di proporzionalità, non ricordo il simbolo
+ma a quale elettrone ci stiamo riferendo?
+l'argento è un metallo, e per principio di esclusione di Pauli gli elettroni stanno in orbite successive, non possono stare tutti nella stessa orbita: eccetto che per spin su e giù
+in un atomo di argento o metallo: tutti gli orbitali che sono medi orbitano a zero: solo l'ultimo gira, il momento angolare si riferisce a quest'ultimo che gira
+non è del tutto vero: l'elettrone ha uno spin che corrisponde ad un altro momento angolare, bisognerebbe capire come interagiscono
+c'è una cosa che sta ruotando o si comporta come se stesse ruotando
+l'eergia associata a questa interazione è
+	\vba \mu \rightarrow \vba \mu\vdot\vba B
+	è l'energia potenziale di interazione fra un momento magnetico ed un campo magnetico \vba B esterno
+siccome è potenziale, la forza è il gradiente del potenziale
+	F_z=\mu_z\pdv{B}{z}
+immaginando che le altre componenti del gradiente siano nulle o non ci interessino
+
+nella situazione descritta sopra nell'immagine
+ci sarà una deflessione: se \mu_z positivo verso il basso (o alto?)
+ci aspettiamo una deflessione delle particelle, mettiamo uno schermo al fondo: sono particelle neutre, in qualche modo è possibile
+cogliamo guardare la distribuzione di come gli atomi colpiscono lo schermo
+	F_z\alpha L_z\pdv{B}{z}
+in una situazione classica siccome non abbiamo fatto nulla ai momenti
+ci dovrebbe essere una sorta di distribuzione continua, sarebbero possibili tutte le orientazioni
+ci sono effetti ai bordi che sopprimono
+ci aspetteremmo una distribuzione (tipo gaussiana I guess, ma non lo è,  ha solo un picco) N(z)
+situazione classica
+%TODO: IMMAGINE distribuzione con assi z N(z)
+invece quello che vediamo, in particolare per atomi di argento, una distribuzione con due picchi molto marcati
+questo è possibile solo che L_z non ha un continuum di valori ma può prenderne soltanto due
+
+la deduzione di questo esperimento è che per questo atomo L_z può assumere solo due valori
+se cambiamo atomo può succedere che ci siano più picchi, comunque finiti e discreti
+stiamo credendo di misurare le possibili orientazioni di un vettore nello spazio
+quello che sembra emergere è che le possibili orientazioni non sono continue ma discrete
+
+possiamo ruotare l'apparato e tenendo fisso succede sempre questo: non importa quale componente del momento angolare misuriamo esso è effettivamente quantizzato
+
+Come Bohr aveva suggerito parlando di orbite degli elettroni, il momento angolare è quantizzato
+il compito della meccanica quantistica è mostrare che non sono vettori ma qualcos'altro
+una volta fatto questo esperimento in cui spezziamo in fasci in positivo e negativo(?)
+una serie di esperimenti su uno dei due fasci
+
+indico nella scatola quale direzione sto guardando
+SG sta per esperimento di Stern Gerlach
+posso iterare l'esperimento
+siccome ho già misurato la componente z di questi atomi mi aspetto che non ci sia la componente negativa
+
+cosa succede invece se misuro il momento angolare in un'altra direzione?
+SG_z	L_z +	SG_x
+ottengo due fasci L_x + ed L_x -
+	posso fare questo esperimento anche con i fotoni, che possono avere solo due polarizzazioni: circolari oppure orizzontali
+	gli SG sarebbero come le polaroid
+aggiungiamo uno SG_z
+ci aspettiamo che misurare in componente x sia irrilevante: ma in realtà li abbiamo perturbati, fa resuscitare le componenti con L_z -
+
+ho una distruzione di informazione
+non è possibile avere informazioni complete sulle componenti del momento angolare
+è un'istanza del principio di indeterminazione: di solito viene presentato con posizione e velocità, serve lunghezza d'onda dell'ordine di grandezza della particella, quindi frequenze molto alte, serve molta energia
+non si possono misurare contemporaneamente le componenti del (così pensato) momento angolare
+
+l'atomo dei Bohr però inizia a farci sospettare
+finora abbiamo scoperto che ciò che si pensava fossero solo onde in realtà hanno anche comportamento corpuscolare
+ora sta per succedere il contrario!
+l'elettrone ha anche proprietà ondulatorie
+
+Louis De Broglie
+
+%CIT le nuove generazioni sono più drastiche, tranne forse la vostra: lo dovete dimostrare
+quando parliamo di fotoni
+	Planck 	E=h\nu=\frac{h}{T}=\hslash \omega 	con \omega=\frac{2\pi}{T}=2\pi\nu frequenza angolare
+	Einstein	E=pc= (Maxwell)\frac{hc}{\lambda}	
+	\implies p=\frac{h}{\lambda}=\hslash k	con k=\frac{2\pi}{\lambda} numero d'onda
+compaiono naturalmente nelle trasformate di Fourier
+
+ora arriva De Broglie
+	L_z=2\pi mvr\underbrace{=}_{Bohr} nh
+	ma 2\pi r è la lunghezza dell'orbita \mathcal{L}
+	\implies p\mathcal{L}=nh
+se immagino che posso associare all'elettrone un'onda: se chiedo che dentro alla circonferenza ci stia un'onda stazionari
+	cioè \mathcal{L}=n\lambda
+	\implies p=\frac{h}{\lambda}
+c'è un modo fisico di capire quest'idea di quantizzazione?
+De Broglie suggerisce che così come le onde elm hanno una natura corpuscolare così li elettroni hanno una natura ondulatoria: di Bohr stabili perché lì ci associo un'onda stazionaria, che è intrinsecamente stabile
+
+quindi 	p=\frac{h}{\lambda}
+
+per fotoni p=\frac{E}{c}
+per particella materiali E=\frac{p^2}{2m}
+
+
+si apre un gigantesco dibattito: nelle sedi istituzionali è finto nel 1930, ma ancora ci si pensa
+l'elettrone è spalmato: come l'energia ha densità di energia, la quale è spalmate, diffusa
+cosa ne facciamo di questa particella massiva? la spalmiamo?
+no, perché posso colpire l'elettrone in un punto specifico
+
+la lunghezza d'onda \lambda è enormemente piccola
+come lo vediamo?
+se vogliamo vedere una figura di diffrazione classica dovrei avere distanza dell'ordine della lunghezza d'onda: si può fare ma ci vuole molto tempo
+
+fu visto dall'esperimento di Davisson e Germer, 1927, dopo formulazione della meccanica quantistica da Heisenberg e Schroedinger
+osservarono la diffrazione in un fascio di elettroni utilizzando cristalli come reticoli di diffrazione
+a valle sullo schermo abbiamo figure di diffrazione caratteristiche
+abbiamo una prova sperimentale che è diventata sempre più precisa che gli elettroni in realtà hanno una natura ondulatoria: rimane da capire come interpretare questo fatto
+
+dal pov concettuale vediamo una cosa che non corrisponde nè alla diffrazione classica di un'onda elm nè allo sparare proiettili in modo probabilistico
+
+la relatività ristretta è controintuitiva ma alla fine si capisce
+questo invece non si capisce, è semplicemente come vanno le cose, poi ci si abitua
+
+\section{L'esperimento delle 2 fenditure}
+storiella scritta nel volume terzo delle lezioni di Feynman
+
+lo facciamo 3 volte: biglie, onde elm ed elettroni
+
+\subsection{Biglie}
+abbiamo un cannoncino non precisissimo, abbiamo una parete con due fenditure e più in là uno schermo rilevatore di biglie
+le dimensioni delle biglie sono circa uguali alle dimensioni delle fenditure
+quando una biglia passa interagisce con la fenditura e la mira cambia, così una distribuzione di probabilità
+l'idea è che queste imprecisioni possono essere curate
+misuriamo il numero di proiettili che arrivano alla parete in funzione di z
+posto un asse z e la probabilità di trovare una biglia nel punto z
+se chiudo una delle due fenditure (la 2) molte saranno non deflesse ed abbiamo picco P_1(z)
+facciamo il contrario ed abbiamo una curva analoga P_2(z)
+se lascio tutto aperto faccio la somma delle curve
+\begin{enumerate}
+	\item	l'arrivo delle biglie è un fenomeno discreto: arrivano solo biglie intere
+	\item	tutte le biglie che arrivano o sono passate da 1 o sono passate da 2 ognuna con la propria distribuzione
+		P(z)=P_1(z)+P_2(z)
+\end{enumerate}
+
+\subsection{Onde elettromagnetiche}
+potremmo fare lo stesso esperimento con qualsiasi tipo di onda, anche quelle del mare
+abbiamo una sorgente di onde monocromatiche di qualche tipo
+ci sono onde che si propagano con frequenza e lunghezza d'onda prefissata
+dall'altra parte della fenditura abbiamo un fenomeno di diffrazione
+vale il principio di Heygens: ogni fenditura si comporta a sua volta come una sorgente: sommo sui contributi del fronte d'onda precedente
+abbiamo un fenomeno di interferenza
+mettiamo un rivelatore sullo schermo: può misurare l'energia deposta dall'onda elm deposta lì
+oppure l'oscillazione del galleggiante, misura dell'energia trasportata dall'onda
+
+se chiudiamo una fessura misuriamo l'intensità I(z), abbiamo I_1(z) e I_2(z) simmetriche perché non abbiamo interferenza
+se invece apriamo entrambe le fenditure avremo dei punti con interferenza costruttiva e altri con interferenza distruttiva
+	I(z)\equiv \abs{A(z)}^2, A ampiezza ha un segno
+	I_{tot}(z)=\abs{A_1(z)+A_2(z)}^2
+l'energia è conservata perché viene solo spostata
+abbiamo così una figura di distribuzione del tipo
+è una quantità continua
+\begin{enumerate}
+	\item	L'energia è depositata in modo continuo, non è quantizzata
+	\item	c'è interferenza
+			I_{tot}(z)\neq I_1(z)+I_2(z)
+			I_{1,2}(z)=\abs{A_{1,2}(z)}^2
+			I_{tot}(z)=\abs{A_1(z)+A_2(z)}^2
+		non ha senso dire quale onda è passata da quale fenditura: tutte le onde sono passate da tutte e due le fenditure: l'energia passa da entrambe le parti
+\end{enumerate}
+
+\subsection{Elettroni}
+filo scaldato, collimatore
+
+se chiudo una delle due fenditure abbiamo una distribuzione come prima
+è letteralmente il numero di elettroni che arrivano, è analogo al processo delle biglie: arriva sempre un elettrone intero
+idem con l'altra fenditura
+
+\begin{enumerate}
+	\item	arrivano sempre elettroni interi
+	\item	la distribuzione di energia è quantizzata
+	\item	N_{tot}\neq N_1(z)+N_2(z)
+		abbiamo un'interferenza: suggerisce un fenomeno ondulatorio
+		N(z)=\abs{A(z)}^2
+		N_{tot}(z)=\abs{A_1(z)+A_2(z)}^2
+\end{enumerate}
+
+se apriamo entrambe le fenditure, si forma ua figura di interferenza, non è la somma di N_1 ed N_2
+
+le affermazioni sembrano contraddirsi!
+non ha senso porsi la domanda da dove sia passato l'elettrone, per quale fenditura
+
+se so da quale fenditura è passato non ho figura di interferenza e ritrovo biglie
+se il rilevatore è più fine da non disturbare l'elettrone esso scappa ed abbiamo di nuovo l'interferenza
+possiamo fare questo elettrone anche uno per volta
+l'osservare perturba, ma non potremmo mai essere abbastanza furbi da non interferire
+
+interpretazione di Copenaghen della meccanica quantistica: l'onda associata all'elettrone non è di materia ma è un'onda di probabilità di trovarsi sullo schermo quando facciamo la misura
+la probabilità è il modulo al quadrato dell'ampiezza, di un'onda
+
+elettroni
+associo onda
+onda dice distribuzione di probabilità
+onda esibisce fenomeno di interferenza
+cerco equazione delle onde che vada bene e soddisfi vincoli fisici ed energetici etc
+l'equazione delle onde che lo fa è quella di Schroedinger
+
+
+l'ampiezza è interpretata come ampiezza di probabilità
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%FINE
+
+
+
 
 
 
