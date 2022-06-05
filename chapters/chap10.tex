@@ -4,1168 +4,621 @@
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
+% BRUTTISSIMO PUN E CHE NON È POLITICAMENTE CORRETTA; un volt m'ampere d'aver vist un'ohm che s'incoulomb un'altr'ohm. Ah Joule!
+% Metalmeccanico e parrucchiere in un turbine di sesso e politica
+\chapter{Campi elettrici e magnetici variabili nel tempo}
+\labelChapter{elettromagnetismoTempo}
 
-\chapter{Onde}
-\labelChapter{onde}
 \begin{introduction}
-	‘‘onde ondine ondette''
+	‘‘La matematica confronta i più disparati fenomeni e scopre le analogie segrete che li uniscono.''
 	\begin{flushright}
-		\textsc{Ondine} mentre ondeggiava sulle onde% TO DO: quote 
+		\textsc{Joseph Fourier,} cercando disperatamente di motivare ai suoi genitori la scelta di studiare matematica. %TODO: quote
 	\end{flushright}
-\end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{C}{ome iniziano le onde?} 
-%LEZ 21, 07/04/2022
-%
-%ONDE
-%esempio tipico: onda che si propaga in una corda tesa: la perturbazione della tensione della corda si propaga e torna indietro
-%	onde sonore: compressione , variazione di pressinoe dell'aria, a sì che si trasmetta onda sonora
-%perturbazione di una condizione di equilibrio che si propaga nel tempo conuna certa velocità
-%esattmete come la luce
-%esempio: onde sulla superficie di un fluido, mare	/sono i più dfficili da studiare
-%	onde di lancio pietra in uno stagno: da quel punto in cui cade si formano onde che si propagano lungo cerchio
-%	
-%in tutti i fenomeni ondualatori c'è trasporto ma non trasorto a materia
-%	esempio lago: basta inserire una foglia, che osciella ma non si sposta
-%i fenomeni ondulatori si diffondono in un mezzo ma non trasportano materia
-%		suono: si decopmrime e non ma non si spostano oggetti
-%	trasporto anche di impulso ed energia, quantità di moto, NON di materia
-%	
-%esempio: onde elettromagnetiche: luce
-%		onde gravitazionali	ora da 7 anni c'è la prova da buchi neri che orbitano uno nell'altro e poi si uniscono, adesso da esperimenti laigo e virgo (Toscana) se ne osservano molti di più
-%		gravitazionali ed elmgn: vel luce e senza bisogno di un mezzo, sono molto simili fra loro
-%		risolto da Einstein etere: nella teoria relatività ristretta
-%		sol di eq Maxwell e rel generale Einstein, previste teoricamente	eq delle onde è sol delle eq di Maxwell: è previsto che campi B e E producano fenomeno ondulatorio a certa vleocità, che è quella dellla luce
-%		
-%
-%Le onde rappresentano qualsiasi fenomeno in cui una perturbazione si propaga conv elocità $\vba v$
-%possiamo pensare di avere dei campi scalari	
-%	dipendenti da tempo, 
-%	pressione (onde sonore), 
-%	densità materiale (onde elastiche)
-%	temperatura T
-%e dei campi vettoriali:
-%	campo elettrico e magnetico
-%Andremo a considerare perturbazioni di questi campi
-%	pressione: perturbazione Deltap(x,y,z,t)
-%		da stato di equilibrio si formano compressoini e dilatazioni che fanno sì che la pressione del gas nella stanza vicinio al pparlante varii: piccole perturbazioni che si propagano con una certa velocità
-%vederemo che per piccole perturbazioni una grande quantità di fenomeni è descritta dall'equazione
-%\begin{equation*}
-%	\square\xi=0
-%\end{equation*}
-%dove ricordiamo che
-%	\square=\laplacian-\frac{1}{v^2}\pdv[2]{t}
-%con \xi qualsiasi perturbazione del campo
-%
-%che tipo di eq diff stiamo considerando? eq diff alle derivate parziali per un campo \xi del 2° ordine omogenea e lineare in \xi
-%	perché è llneare? le onde che vediamo non sono lineari, come quelle del mare o di una corda
-%	se vediamo eq tipica navier-stokes della fluidodinamica non è lineare
-%	ma nel caso in cui le perturbazioni siano piccole possiamo approssimare le nostre eq in una di questo tipo
-%	in altri casi invece (Mxw o Eins ) non c'è bisogno di un'approssimazione,è conseguenza delle q di Maxwell
-%	basta prendere le eq di Maxwell nel vuoto e vedere che le soddisfano
-%	
-%	
-%	
-%proprietà generali dell'equazione
-%se ho perturbazione a piccoli angoli allora è descritta in modo accurato da tale equazione
-%
-%non è un'equazione non fissa completamente la funzione (non è constraining)
-%la soluzione più generale è una qualsiasi funzione di una certa combinazione di variabili
-%
-%																	caso unidimensionale
-%	\suare=\pdv[2]{x}-\frac{1}{v^2}\pdv[2]{t}
-%	\pdv[2]{\xi(x,t)}{t}-\frac{1}{v^2}\pdv[2]{\xi(x,t)}{t}
-%	considero \xi(x,t)=\xi(x\pm vt)
-%		x_{\p}=x\pm vt
-%	quindi \pdv{\xi}{x}=\pdv{x_\pm}{x}=\pdv{\xi}{x_\pm}
-%	calcolo derivata seconda \pdv[2]{\xi}{x}=\pdv[2]{\xi}{x_\pm}\pdv{x_pm}{x}=\pdv[2]{\xi}{x_\pm}
-%	
-%	derivata di x_\pm rispetto al tempo \pdv{\xi}{t}=   =\pm\pdv{\xi}{x_\pm}v
-%	\pdv[2]{\xi}{t}=\pm\pdv[2]{\xi}{x_\pm}\pdv{x_\pm}{t}v=v^2\pdv[2]{\xi}{x_\pm}
-%	confrontando vediamo chechiarmanete è soluzione
-%		\pdv[2]{\xi}{x_\pm}-\frac{1}{v^2}\pdv[2]{\xi}{t}-\pdv[2]{\xi}{x_\pm}-\frac{1}{v^2}v^2 \pdv[2]{\xi}{x_\pm}=0
-%		
-%la soluzione più generale di questo tipo di equazioni, da corso eeq diff anche l'unica, è una qualsiasi funzione \xi che rispetti
-%\begin{equation*}
-%	\xi(x,t)=\xi_1(x-vt) +\xi_2(x+vt)
-%\end{equation*}
-% perché è funzione delle velocità?
-%ad un certo tempo t_0
-%
-%ad un altro tempo
-%siccome è funzione di x-vt posso prevedere come sarà al tempo t quadno lo so da t_0
-%	x-vt=x_0-vt_0
-%	x=x_0+v(t-t_0)
-%posizione x traslata di moto rettilineo uniforme
-%la forma della funzione resta inalterata, è solo traslata rigidamente ad un punto x diverso da quello precedente
-%lo eguaglio: vario il tempo per cercare di capire come varia x
-%	passare da t_0 a t basta traslarlo
-%	punto x_0 è mappato ad x traslato di quel valore lì
-%
-%
-%quindi la prima parte descrive un qualsiasi funzione dice che qualsiasi sia la forma della funzione al tempo t_0 solo per il fatto di esser funzione di x-vt se a t_0 ha una forma al tempo t ha esattamente la stessa forma per traslazione di quantità v\Delta t
-%se considero evoluzione temporale dell'eq è traslazione rigida nel tempo
-%la dipendenza del tempo dell'eq, nel tempo si muove lungo il verso positivo dell'asse x
-%
-%la seconda parte della sol ha v con segno opposto, descrive una funzione che si muove con velocità negativa lungo l'asse x
-%
-%descrive la propagazione di una certa funzione lungo asse x come traslazione rigida di moto rettilineo uniforme nella direzione dell'asse $x$
-%
-%													consideriamo la soluzione in 3 dimensioni	
-%
-%l'eq è
-%	\laplacian\xi\frac{1}{v^2}\pdv[2]{\xi}{t}=0
-%
-%definiamo per comodità un variabile u_\pm=\vbh h\vbh r\mp\omega t
-%	\xi(u_\pm) è soluzione per \frac{\omega}{\abs{\vbh h}}=v
-%
-%facciamoil gradiente
-%	\grad\xi=\pdv{\xi}{u_\pm}\grad\u_\pm=\pdv{\xi}{u_\pm}\vbh h
-%		infatii \grad\vbh h\vdot\vbh r=\vbh h
-%			\partial_x()=h_x
-%
-%facciamoil laplaciano
-%	\laplacian\xi=\grad\left( \pdv{\xi}{u_\pm}\right)\vdot\vbh h= pdv[2]{\xi}{u_\pm}\grad u_\pm \vdot \vbh h= \pdv[2]{xi}{u_\pm}\abs{\vbh h}^2
-%	
-%	\pdv{\xi}{t}=\pm\pdv{\xi}{u_\pm}\omega
-%	\pdv[2]{\xi}{t}=\pdv[2]{\xi}{u_\pm}\omega \pdv{u_\pm}{t}=\omega^2 \pdv[2]{\xi}{u_\pm}
-%	
-%quindi
-%	\laplacian\xi-\frac{1}{v^2}\pdv[2]{\xi{t= \pdv[2]{\xi}{u_\pm}\abs{\vbh h}^2-\frac{1}{v^2}\omega^2 \pdv[2]{\xi}{u_\pm}= \pdv[2]{\xi}{u_\pm}\left( \abs{\vbh h}^2 -\frac{\omega^2}{v^2} \right)
-%			che è vero solo se v=\frac{\omega}{\abs{\vbh h}^2}
-%			
-%	u_\pm=(\vba h\vdot\vba r)=\vba k\left( \vba r-\frac{\vba k \omega}{\abs{\vba k}^2}t \right)...............
-%	
-%%NOTA h è k, \vbh è \vba
-%%		
-%produce vettore di propagazione e
-%sarei potuta partire da u_\pm=\vba k\vdot
-%v vettore con modulo v e direzione e verso \frac{\vba k}{\abs{\vba k}}
-%l'onda è tridimensionale, direzione di propagazione indicata da \vba k (versore direzione di propagazione dell'onda)
-%dato campo scalare pressione, subisce perturbazione che si propaga in direzione \vba k con velocità v che compare nell'eq che si esprime come v=\frac{\omega}{\abs{\vba k}}
-%se h una foto del campo scalare a t_0, a t è traslazione del campo scalare in cui un punto è mappato in traslato di vt nella direzione \vba k
-%
-%
-%una direzinoe sola è specifica
-%se scelgo \vba k=(k_x, 0, 0) ottengo che
-%	\u_\pm=k_xx\pm \omegat=k_x\left( \frac{\omega}{k_x}t \right)= k_x(x\pm vt)
-%	che è il caso 1-dim
-%è come se fosse caso unidimensionale se si sposta in una sola dierzione: pinai ortoganli su cui si muove l'onda ed è tutta uguale
-%il fronte d'onda sono dei piani ortogonali a v
-%	esempio: zone di compressione dell'aria
-%il fronet d'onda è un pinao perché non si propaga in quelle due coordinate
-%lungo tutto un pinao l'onda è la stessama in direzione x ho variazioni
-%
-%onda piana: si propaga in una sola direzione e fronti d'onda piani nella direzione di propagazione
-%in particolare il campo \xi che descrive la propagazione non dipende da y e z, dipende solo da x
-%	k mi seleziona x nel prodotto scalare
-%
-%il caso 1-dim ci serve per:
-%	due dimensioni trascuarbili: corda sottile che tratto come 1-dim, eq dlambert 1-dim
-%	fronte d'onda piano: propagazinoe che non coinvolge 2 dimensioni
-%		onda piana descritta da eq dalabert 1-dim
-%		
-%esempio onda piana: terremoto (ma la terra non è piana)
-%					onde d'urto molto lontane dalla sorgente
-%	
-%	
-%una conseguenza della scrittura 1-dim è il \textit{principio di sovrapposizione}
-%punto per punto la soluzione è la somma, perché è lineare!
-%proprietà fondamentale delle onde lineari: si sommano e si sorpassano continuando a propagarsi
-%%IMMAGINI magari con due colori per distinguere le due onde?
-%effetto di sommarsi, conseguenza della linearità della soluzione e soprattutto dell'equazione
-%per le onde lineari descritte da D'Alamabert vale il principio di sovrapposizione
-%
-%\section{onde piane armoniche}
-%dipendono da una sola variabile, ho una certa mpiezza \xi_0
-%	\xi(x,t)=\xi_0\sin(kx-\omega t)
-%	k è numero d'onda
-%	\omega è pulsazione, lo chiameremo spesso frequenza anche se son diversi
-%è solo solo se è funz di x-vt
-%	kx-\omega t=k\left( x-\frac{\omega}{k}t \right)
-%		\frac{\omega}{k}=v
-%avremmo potuto usare il \cos o inserire una fase
-%
-%stiamo osservando una funzione periodica, sia nella direzione x a tempo fissato t=cost
-%	l'immagine è una fotografia	esempio corda che oscilla nello spazio
-%la lunghezza d'onda \lambda è il periodo di \sin a tempo fissato
-%	k\lambda=2\pi \implies \lambda=\frac{2\pi}{k}
-%	
-%però è anche un \ins a x costante!
-%	la distanza sarà il periodo T=\frac{2\pi}{\omega}
-%	relazione vista nel moto armonico, moto di una molla
-%	esempio: mi focalizzo su un punto della molla e vedo come va nel tempo: va su e giù, nel tempo fa un \sin
-%	ogni punto fissato nel tempo si muove di moto armonico
-%	legge orara del singolo punto della corda
-%onda armonica: si propaga come una funzione armonica nello spazio ed ogni punto dell'onda si muove di mto armonico: ha lunghezza d'onda \lambda e periodo T
-%
-%per completezza: esiste una branca detta analisi di Fourier: una qualsiasi ffunzine periodica può essere decomposta come sommma indfinita di funzioni armoniche diquesto tipo: sonon base infinito dimensionale di funzioni periodiche
-%inoltre per funz non periodicche si introduce trasformata di Fourier: decomposizione funz no periodca con sovrapposizione continua di funzioni periodiche
-%una qualsiasi altra onda si scrive come sovrapposizione infinita (continua o discreta)
-%questo decomporre in onde armoniche è olto utilizzato in fisica per isolare i contributi alle varie frequenze
-%
-%
-%alla luce delle def del periodo e lunghezza d'onda
-%	v=\frac{\lambda}{T}
-%	spaio percorso in un periodo fratto il tempo
-%	
-%\section{Polarizzazione}
-%finora siamo stati generici su cosa intendiamo per $\xi$
-%Polarizzazione trasversale
-%	corda: spostamento dalla posizione di equilibrio
-%
-%Polarizzazione longitudinale
-%	molla: data una molla in cui do una molla verso la direzione in cui è stesa: onde di compressione e rarefazione
-%		in questo caso \xi non è uno spostamento in una direzione ortogonale a quella di propagazione, ma è parallelo
-%		compressione si sposta lungo la molla, \xi dice quanto è più compressa o più allargata rispetto alla posizione di equilibrio
-%		in questo caso \xi=\Delta x spostamento dall'equilibrio
-%		
-%In generale un'onda, possiamo pensare a \xi come un vettore \vba \xi
-%se consideriamo un'onda piana, \vba \xi=\vba \xi_0 \sin(kx-\omega t)
-%\xi può essere un'oscillazione in qualsiasi direzione
-%\xi_0 vettore di polarizzazione ci dice in quale direzione sta oscillando
-%	se \vba \xi=(\xi_0,0,0) è longitudinale: parallela alla direzione di propagazione
-%	se \vba\xi_0=(0,\xi_{0y},\xi_{0z}) è polarizzazione trasversa: nel piano trasversale rispetto a quello su cui si sta propagando, cioé piano yz. onda piana che si muove e l'oscillazione avviene sul piano ortogonale alla direzione di propagazione 	corda oscillazione lungo asse y ma si muove su asse x
-%	
-%possiamo pensare al fronte d'onda come ad una superficie associata ad un punto distante un certo periodo dal fronte d'onda precedente, come rappresentazione onda d'urto: seguo spostamento di superfici ortogonali alla direzione di propagazione
-%
-%non è detto che un'onda generica sia in una delle due situazioni sopra descritte
-%
-%\begin{examplewt}[Polarizzazione trasversale]
-%	rilevante per onde elettromagnetiche: sonon poche intuitive perché è difficlie pensare ai campi perturbati el emgn
-%	ma sono esempi di fisica fondamentale: non abbiamo bisogno di approssimazioni, le eq di Mxwl sono esatte, non abbiamo una scelta
-%	emerge che l'uncia polarizzazione rievante per le elm è quella trasversale, da eq mxwl
-%	
-%	\xi_y=\xi_{0y}\sin(kx-\omega t)
-%	\xi_z=\xi_{0z}\sin(kx-\omega t+\delta)
-%	potrebbe essere funzione di y e z \delta, non è dett che sia costante
-%	possiamo considerare casi in cui \delta=costante
-%		\delta=0
-%			\xi_y=\xi_{0y}\sin(k-\omega t)
-%			\xi_z=\xi_{0z}\sin(kx-\omega t)
-%			sono uguali ed in fase: c'è un certo pianoche forma un angolo \theta con l'asse z e l'onda si propaga come \sin su questao piano: l'effetto unico di onde in fase, \tan\theta=\frac{\xi_{0y}}{\xi_{0z}}
-%			l'onda si propaga lungo x ma vive sul piano
-%			2-dim: si propaga dentro e fuori il foglio su x
-%			
-%			se avesismo scelto diversamente gli assi avremmo avuto tutto normale
-%			
-%		\delta=\frac{\pi}{2}
-%			\xi_y=\xi_{0y}\sin(kx-\omega t)
-%			\xi_z=\xi_{0z}\cos(kx-\omega t)
-%			situazione in cui \frac{xi_y^2}{xi_z^2}+\frac{\xi_z^2}{\xi_y^2}=1 da \ins^+\cos^2=1
-%			viene equazione di un'ellisse, e viene qunidi detta \texit{polarizzazione ellittica}
-%			al tempo t=0 l'onda punterà in una qualsiasi direzione nell'ellisse
-%			se ci muoviamo quando si propaga lungo asse x ad un tempo successivo sarà leggermente ruotato finendo sempre nel cilindro a base ellittica finché dopo un periodo non ritorna al punto di partenza
-%			la direzione di oscillazione ruota
-%			piano yz
-%			direzione di oscilaione che mentre l'onda si propaga ruota
-%			lungo x e t ha lo stesso andamento, sono interscambiabili
-%				caso particolare
-%				\xi_{0y}=\xi_{0z} è \textit{polarizzazione circolare} perché l'ellissi diventa un cerchio
-%\end{examplewt}
-%
-%
-%\section{Onde sferiche}
-%l'oda piana è particolare situazione in cui fronti d'onda sono piani
-%ma la situazione più comune è quella di una piccola sorgente che emette delle onde che non partono come dei piani ma come delle sfere
-%i fronti d'onda sono sferici
-%%IMMAGINE
-%sinusoidi, quelli sono i picchi di ogni sinusoide
-%dobbiamo cercare una sol delle eq di D'Alambert con simmetria sferica
-%	\laplacian=\frac{1}{r^2}\pdv{r\left( r^2\pdv{r} \right)}
-%laplaciano con simmetria sferica: cerco \xi(r,t) che non dipenda dagli angoli ma solo dal raggio
-%vediamo a vedere cosa fa
-%	\frac{1}{r^2}\pdv{r}\left( r^2\pdv{\xi}{r} \right)= \frac{2}{r}\pdv{\xi}{r}+\pdv[2]{\xi}{r}= \frac{1}{r}\left( 2\pdv{xi}{r}+r\pdv[2]{\xi}{r} \right)
-%vogliamo far vedere che quello fra parentesi è \pdv[2]{(r\xi)}{r}
-%facciamo le derivate
-%	\pdv[2]{(r\xi)}{r}=\pdv{r}\left( \xi+r\pdv{\xi}{r} \right)=\pdv{\xi}{r+\pdv{\xi}{r}+r\pdv[2]{\xi}{r}= 2\pdv{\xi}{r}+r\pdv{\xi}{r}
-%
-%porto dall'alra parte e riscrivo
-%		\frac{1}{r}\pdv[2]{(r\xi)}{r}=\frac{1}{v^2}\pdv[2]{\xi}{t}
-%			\pdv[2]{r\xi}{r}=\frac{1}{v^2}\pdv[2]{(r\xi)}{t}
-%
-%vale per r\xi e non per \xi
-%la sol dell'eq è r\xi
-%	r\xi=\xi_1(r-vt)+\xi_2(r+vt)
-%	
-%avremo
-%	\xi=\frac{\xi_0}{r}\sin(kr-\omega t)
-%	
-%l'ampiezza dell'onda diminuisce con il raggio: l'onda nello stagno all'inizioè alta e poi diminuisce
-%l'energia generata in un punto deve distribuirsi su tutta la superficie e quindi l'ampiezza deve ridursi
-%
+\end{introduction} %TODO: check intro
+\lettrine[findent=1pt, nindent=0pt]{N}{el} capitolo precedente abbiamo finalmente raggiunto un primo, grande risultato: abbiamo enunciato le quattro \textit{equazioni di Maxwell}, le leggi fondamentali che descrivono i fenomeni elettrici e magnetici statici - ossia \textit{costanti nel tempo}:
+\begin{align*}
+	\div{\vba{E}}=\frac{\rho}{\epsilon_0}&&\curl{\vba{E}}=0\\
+	\div{\vba{B}}=0&&\curl{\vba{B}}=\mu_0\vba{j}
+\end{align*}
+Possiamo suddividere le equazioni in due coppie: due di queste leggi riguardando il campo elettrico $\vba{E}$, mentre le altre due il campo magnetico di induzione $\vba{B}$. All'apparenza queste due coppie sono completamente separate e potrebbero essere risolte senza che una soluzione influenzi l'altra.\\
+Tuttavia, già in questa situazione statica non sono completamente indipendenti: le cariche elettriche (nelle equazioni di Maxwell rappresentante dalla densità di carica $\rho$) sono le sorgenti di $\vba{E}$, ma quando sono in movimento danno luogo ad una densità di corrente e quindi diventano \textit{anche} sorgente di $\vba{B}$... ma essere o meno in moto è un fatto \textit{relativo} che dipende dal sistema di riferimento! Un campo elettrico per un sistema di riferimento può apparire come campo magnetico in un altro sistema (o viceversa). È intuibile che $\vba{E}$ e $\vba{B}$ devono essere la manifestazione di un unico ente fisico, il \textit{campo elettromagnetico}. Tale ente, oltre modo, non possiamo escludere che dipenda anche dal tempo.\\
+Inizieremo a raccogliere prove di questa nostra intuizione studiando i fenomeni elettrici e magnetici \textit{non stazionari}. In questo capitolo, partendo da osservazione sperimentale come la \textbf{legge di Faraday-Neumman-Lenz} arriveremo a formulare le ultime due equazioni di Maxwell mancanti, la \textbf{legge di induzione di Faraday} e la l
+\section{Legge di Faraday-Neumann-Lenz}
+Le osservazioni sperimentali sul fenomeno dell'induzione elettromagnetica di \textbf{Michael Faraday} (1791-1867) in Inghilterra e, separatamente, di \textbf{Joseph Henry} (1887 - 1915) in America misero in evidenza che un campo magnetico \textit{variabile nel tempo} genera un campo elettrico \textit{non conservativo}. Rivediamo assieme alcuni di questi esperimenti.
+\begin{itemize}
+	\item \textbf{Esperimento \#1.} Consideriamo una spira collegata ad un circuito - che \textit{non} presenta alcun generatore - dotato di un \textit{amperometro}, cioè di un \textit{misuratore di corrente}. \textit{Avvicinando} un magnete all'interno della spira si \textit{produce} una corrente elettrica.\\
+	%TODO: immagine 16.10
+	Se \textit{allontaniamo} lo stesso magnete alla stessa velocità con cui l'abbiamo avvinato, notiamo ch la corrente che circola ha \textit{cambiato verso di percorrenza}.
+	%TODO: immagine 16.11
+	\item \textbf{Esperimento \#2.} Consideriamo una spira a cui colleghiamo un generatore di \fem; in quanto percorsa da corrente la spira produce un campo magnetico. Se avviciniamo tale apparato ad un altra spira scarica e collegata ad un amperometro, lo strumento della seconda spira inizia a misurare una corrente. Se la allontaniamo, la corrente nella seconda spira girerà in senso opposto.
+	%TODO: immagine 16.12
+	\item \textbf{Esperimento \#3 (esperimento di Faraday)}. Consideriamo un solenoide con al suo interno un'anima di ferro - un cilindretto metallico; il solenoide è collegato ad un circuito dotato di interruttore e generatore di \fem. Quando l'interruttore è aperto non circola corrente e dunque non si ha alcun campo.\\
+	Poniamo ora la solita spira scarica collegata ad un amperometro. Alla chiusura dell'interruttore il solenoide, essendo percorso da corrente, genera un campo magnetico crescente fino a stabilizzarsi. Al contempo, nella spira inizialmente scarica lo strumento segna per qualche istante un passaggio di corrente in una certa direzione, per poi sparire. Appena riapriamo il campo magnetico l'interruttore osserviamo una corrente. Quando il campo magnetico si stabilizza e non varia più nel tempo allora non osserviamo più corrente.\\
+	Riaprendo l'interruttore il campo magnetico gradualmente sparisce; nella spira, invece, per un istante osserviamo una corrente diretta nella direzione opposta a quella precedente.
+\end{itemize}
+Da questi esperimenti\footnote{E tante altre varianti di essi che non vedremo perché questo è un Manualozzo\texttrademark\ di Fisica, non un testo monografico su Faraday e i suoi passatempi perversi.} possiamo ricavare diverse informazioni importanti:
+\begin{itemize}\label{osservazioniFaraday} %t
+	\item \textit{Spostare una sorgente} di un campo magnetico nei pressi di una spira genera una \fem.
+	\item Il moto della sorgente rispetto alla spira influenza il \textit{verso di percorrenza} della corrente lungo di essa.
+	\item \textit{Spostare una spira} nei pressi di un campo magnetico stazionario genera una \fem in quel circuito.
+	\item \textit{Deformare una spira} nei pressi di un campo magnetico stazionario genera una \fem in quel circuito.
+	\item Come viene mossa o deformata la spira influenza il \textit{verso di percorrenza} della corrente lungo di essa.
+	\item È sufficiente che ci sia una \textit{variazione temporale di un campo magnetico} fisso per causare una \fem in una spira anch'essa fissa.
+	\item Come varia temporalmente il campo magnetico fisso influenza il verso di percorrenza della corrente lungo di essa.
+	\item Se il campo magnetico non varia più nel tempo - perché si è stabilizzato oppure perché non c'è più la sorgente del campo - non circola più corrente nella spira.
+\end{itemize}
+La forza elettromotrice dipende dunque da diversi fattori: la \textit{posizione} e l'\textit{intensità} del campo magnetico, la \textit{posizione} e la \textit{forma della spira}, ma soprattutto la \textit{variazione nel tempo} di tutti questi elementi qui citati.
+%TODO: immagine 16.13
+% Maxwell lavorando a livello teorico sulla consistenza delle equazioni ha scoperto che un campo elettrico e variabile nel tempo produce un campo magnetico.\\
+Il concetto matematico che permette di descrivere contemporaneamente un campo vettoriale e come si relaziona con una superficie è quello del \textit{flusso}; per tenere conto degli effetti temporali si deduce che la forza elettromotrice deve dipendere dalla \textit{derivata temporale} dal flusso del $\vba{B}$. Abbiamo descritto quella che è nota come \textbf{legge di Faraday}.
+\begin{theorema}[Legge dell'induzione di Faraday o legge di Faraday-Neumann legge di Faraday-Neumann-Lenz]\index{legge!dell'induzione di Faraday}\index{legge!di Faraday-Neumann}\index{legge!di Faraday-Neumann-Lenz}
+	Dato un campo magnetico $\vba{B}$ e un circuito chiuso $\gamma$, dove $\gamma$ è il bordo di una superficie $\Sigma$ arbitraria, la \textbf{forza elettromotrice indotta} da $\vba{B}$ in $\gamma$ è pari a
+	\begin{equation}
+		\mathcal{E}_i=-\dv{\Phi_\Sigma (\vba B)}{t}
+	\end{equation}
+\end{theorema}
+Grazie alla \textit{legge di Ohm} è immediato ricavare la corrente elettrica prodotta dalla \fem indotta per un circuito con resistenza $R$:
+\begin{equation}
+	I=-\frac{1}{R}\dv{\Phi_\Sigma(\vba B)}{t}
+\end{equation}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%LEZ 22, 11/04/2022
-%\section{onde elettromagnetiche}
-%Partiamo scrivendo le equazioni di Maxwell
-%	\div\vba E=\frac{\rho}{\epsilon_0}
-%	\curld\vba E=-\pdv{\vba B}{t}
-%	
-%	
-%siamo interessati a capire se esistono soluzioni delle equazioni di Maxwell dinamiche nel vuoto
-%La domanda quindi è: esistono soluzioni dell'elettrodinamica (in altri termini delle eq di mxwl) cioè dipendenti dal tempo nel vuoto? Con vuoto inteso in asenza di cariche, non di materiali, dunque \rho=0
-%
-%scriviamo le eq di mxwl nel vuoto
-%	il campo elettiroc diventa solenoidale \div\vba E=0
-%	\curl\vba E
-%	\div\vba B=0
-%	\curl\vba B=\mu_0\epsilon_0\pdv{\vba E}{t}
-%	\curl\vba E=-\pdv{\vba B}{t}
-%sappiamo già che esistono soluzioni statiche, ma ora le cerchiamo dinamiche, che dipendono dal tempo
-%mxwl ha fatto vedere che il legame fra \vba E e \vba B ha soluzinoi non banali, le onde elettromagnetiche
-%Consideriamo il rotore del rotore di \vba E
-%	\curl(\curl\vba E)=\grad(\div\vba E)-\laplacian\vba E	per def di rotore del rotore
-%	usiamo la 1^a eq di mxwl ed eliminiamo la div
-%	\curl(\curl\vba E)=-\curl\pdv{\vba B}{t}
-%	-\laplacian\vba E=-\pdv{t}\left(\mu_0\epsilon_0\pdv{\vba E}{t}\right)			ho scambiato l'ordine delle derivate
-%	\laplacian\vba E -\mu_0\epsilon_0\pdv[2]{\vba E}{t}
-%	\square\vba E=0		con \square =\laplacian -\frac{1}{v^2} \pdv[2]{t}
-%	v^22=\frac{1}{\mu_0\epsilon_0}
-%	ma c=\frac{1}{\sqrt{\mu_0\epsilon_0}
-%il campo el nel vuoto rispetta un'eq di dalambert con velocità dlella luce
-%qualsiasi campo elm che si propaga alla vel della luce soddisfa eeq maxwl
-%
-%Al di là di un sgeno -le sol sono simmetriche
-%Analogamente per \vba B
-%	\curl(\curl\vba B)=\grad\left(\div\vba B\right)- \laplacian\vba B
-%	-\laplacian\vba B=\mu_0\epsilon_0\pdv{t}(\curl\vba E)=-\mu_0\epsilon_0\pdv[2]{\vba B}{t} usando eq mxwl
-%	porto dalla stessa parte		\laplacian\vba B-\mu_0\epsilon_0\pdv[2]{\vba B}{t}=0
-%	\square\vba B=0
-%	
-%sia il campo el sia mgn si possono riscrivere come onde 
-%non sono indipendenti, vederemo come
-%si propagano entrambi con la stessa equazione \square=0
-%e si propagan con velocità della luce se si propagano nel vuoto
-%
-%quindi soluzione non banale ondulatoria delle eq di mxwl
-%%CIT se le eq di mxwl si osservano onde elm, in realtà le stavano osservando già da molto tempo
-%
-%\subsection{Nei materiali}
-%come nei dielettrici lineari, diamagneti o paramagneti lineari
-%dobbiamo sostituire \epsilon_0\rightarrow \epsilon k_\epsilon
-%					\mu_0\rightarrow\mu= k_m
-%	v=\frac{1}{\sqrt{\mu\epsilon}=\frac{c}{\sqrt{k_e k_m} <c
-%il valore di v sono sempre minori diq quelle nel vuoto
-%i valori di k_m sono molto minori di quelli di k_e \gg1
-%qunidi il valore al denominatore è sempre nettamente maggiore di 1
-%
-%e eq di mxwl nel vuoto ammettono soluzione ondulatoria per campo elettrico e per campo magnetico
-%entrambi si propagano, l'impulso si propaga alla velocità della luce in tutte le direzioni
-%cerchiamo di capire quali sono le proprietà di queste onde
-%abbiamo visto che la soluzioni più generale di quelle equazioni è un campo elettrico
-%	\vba E(\vba r\pm\vba v t)	
-%vale anche nei materiali a patto di fare la sostituzione di cui sopra
-%	\vba B(\vba r\pm\vba vt)
-%dipendono solo da \vba r\pm\vba vt
-%Ci focalizzeremo su \vba r-\vba vt
-%definiamo il vettore \vba u=\vba r-\vba vt=(x-v_x t,y-v_yt,z-v_zt)
-%il modo di sabilire una connessione fra cmp el e cmp mgn è ramite le eq di mxwll
-%	\curl\vba E=-\pdv{\vba B}{t}
-%	\curl\vba B=\mu_0\epsilon_0\pdv{\vba E}{t}
-%non posso avere camp el che oscilla senza campo mgn!
-%c'è una connessione fra loro: l'oscillazione di uno permette quella dell'altro
-%dopo che sappiamo che rispettano dipendenza
-%e rimetto nelle q di mxwl per vedere come sono fatti \vba E e \vba B
-%	\pdv{\vba B}{t}	la dipendenza dal tempo sarà attraverso le componenti di \vba u, uso la chain rule
-%		=\pdv{\vba B}{u_x}\pdv{u_x}{t}+\pdv{\vba B}{u_y}\pdv{u_y}{t}+\pdv{\vba B}{u_z}\pdv{u_z}{t}+
-%	riscrivo con dipendenza di u_x etc
-%	=-\pdv{\vba B}{x}v_x-\pdv{\vba B}{y}v_y-\pdv{\vba B}{z}v_z
-%	abbiamo ottenuto uno scalare
-%	=-\left(v\vdot\grad\right)\vba B
-%	vera solo per onde elettromagnetiche, perché E e B dipendono solo dalla combinazione \vba u
-%abbiamo solo legato derivate rispetto al tempo rispetto a quelle delle coordinate
-%ora usaimo 1 eq mxwl per avere un \curl invece di \grad nella eq finale
-%usiamo un'identità di calcolo vettoriale
-%	\left(\vba v\vdot\grad \right)\vba B=\vba v \left(\grad\vba B\right) -\curl(\vba v\cross\vba B)
-%	\pdv{\vba B}{t}=-\curl\vba E=-(\vba v\vdot\grad)\vba B
-%	per l'altra eq di mxwell si cancella \div\vba B, riscrivo \vba v\vdot\grad come
-%	=\curl(\vba v\cross\vba B)
-%	
-%	quindi \vba E=-vba v\cross\vba B=\vba B\cross\vba v
-%quindi \vba E è il prodotto vettoriale, quindi è sempre ortogonale sia  \vba v sia a \vba B, cioè l'onda si sta propagando in direzione \vba v, \vba E è sempre trasverale alla direzione di propagazione dell'onda
-%dobbiamo ancora far vedere che \vba E e \vba B sono ortogonali fra loro
-%Ripetiamo il calcolo
-%	\pdv{\vba E}{t}=-\left(\vba v\vdot\grad\right)\vba E	per la proprietà di qualsiasi campo che dipenda solo da \vba u
-%	vogliamo usare l'altra eq di mxwll
-%	\curl\vba B=\mu_0\epsilon_0\pdv{\vba E}{t}=-\frac{1}{v^2} (\vba v\vdot\grad)\vba E=-\frac{1}{v^2}\left( \vba v\div\vba E-\curl(\vba v\cross\vba E) \right)
-%	ma \div\vba E=0 nel vuoto
-%	=\frac{1}{v^2}\grad(\vba v\cross\vba E)
-%		\vba B=\frac{1}{v^2}\vba v\cross\vba E
-%		
-%abbiamo così ottenuto un'altra equazione che dice che \vba B è ortogonale sia a $\vba v$ sia a $\vba E$
-%data direzione di propagazione dell'onda quale \vba v in ogni istante
-%il vettore \vba E è ortogonale a \vba v e \vba B è ortogonale ad entrambi
-%senza fare nessun tipo di assunzione otteniamo con soluzioni delle equazioni di Maxwell otteniamo che le onde elettromagnetiche sono trasversali
-%oscillano sempre nel piano trasverso alla direzione di propagazione
-%
-%\subsection{identità generale}
-%\curl(\curl\vba B)=\begin{array}{\matrix|}
-%	\partial_x & \partial_y & \partial_z\\
-%	v_yB_z-v_xB_y & v_z B_x -v_x B_z & v_xB_y -v_yB_x\\
-%	\vbh u_x & \vbh u_y & \vbh u_z
-%\end{array}
-%guaridamo solo la componente x visto che le altre sono analoghe
-%v_x\partial_yB_y -		v_x\partial_zB_x=v_x\left( \partial_yB_y+\partial_zB_z \right) - \left( ?????? \right)= v_x(\div\vba B)=(v\vdot\grad )B_x
-%
-%si ricava più facilmente con i simboli di Levi-Civita
-%	v_1\cross v_2=\epsilon_{ijk}v_1^k\cross v_2^?
-%
-%in pratica abbiamo tre vettori sempre ortogonali fra di loro, \vba E e \vba B trasversi alla direzione propagazione
-%è immediato ricavare che
-%	\abs{\vba E}=\vba Bv
-%siccome sono sempre ortogonali fra loro non formano angoli e possiamo ricordarceli con solo i loro moduli, sapendo che sono sempre ortogonali fra loro
-%possiamo sempre calcolarci quanto valgono i prodotti di questi operatori
-%	\vba E\vdot\vba B=\vba v\vdot\vba B=0
-%	\vba E\cross\vba B= B^2 \vba v=\frac{E^2}{v^2} \vba v=EB\frac{\vba v}{\abs{v}}	punta sempre nella direzione di propagazione \vba v
-%	
-%\begin{examplewt}[Onde piane]
-%	onde piane: \vba E(x-vt), \vba B(x-vt)
-%	\vba v=(v,0,0), una sola componente lungo x
-%	otteniamo quindi in questo caso 
-%		\vba E=(0, E_y, E_z) oscilla nel piano yz
-%	una volta avuto E possiamo ricavare B, che è completamente determinato
-%		\vba B=\frac{1}{v}(0,-E_z, E_y)
-%		\vba B=\frac{1}{v^2}\begin{array}{cols}
-%			v & 0 & 0\\
-%			0 & E_y & E_z\\
-%			\vbh u_x & \vbh u_y & \vbh u_z
-%		\end{array}	= \frac{1}{v^2}(-vE_z\vbh u_y + vE_y\vbh u_z)=\frac{1}{v}(E_z\vbh u_y +E_y\vbh u_z)
-%	conoscendo un campo determino completamente l'altro, si influenzano a vicenda: solo l'interazione fra i due permette l'esistenza delle onde elm	
-%	nel disegno sono onde piane armoniche
-%%TODO: immagine
-%	campo elettrico: su piano xy cambio verso periodicamente, oscilla seguendo una sinusoide
-%	il campo magnetico lo è sul pino xz
-%	oscilla vuol dire che diventa più intenso e poi cambia direzione
-%	il legame fra i moduli di E e B è dato dalla velocità
-%	E=Bv
-%		E_y=E_z\cos(kx-\omega t)
-%		B_z=\frac{E_z{v}\cos(kx -\omega t)
-%			
-%	in genrale sono trasverse, oscillano su piano ortonale alla direzione di propagazione
-%	se non è piana oscillando lungo il fronte d'onda
-%	istante per istante sono ortogonali a quella velocità
-%\end{examplewt}
-%	
-%
-%\section{Polarizzazione}
-%abbiamo già visto quella lineare e circolare
-%vediamo tutti i casi per onde trasversali, che è il caso delle elm
-%Onde piane: 
-%	\vba E=(0, E_y, E_z)	 di conseguenza è determinato \vba B=\left(0, -\frac{e_z}{v}, \frac{E_y}{v}\right)
-%	E_y=E_{0y}\cos(kx-\omega t)
-%	E_z=E_{0z}\cos(kx-\omga t+\delta)		con fase
-%
-%	\item \textit{Polarizzazione rettilinea} \delta=0, \pi
-%		sono in fase: \vba E= oscilla lungo un piano inclinato lungo angolo \theta e non cambia
-%		\tan\theta=\frac{E_{0z}}{E_{0y}}
-%		è come se avessimo scelto male il sistea di riferimento
-%	\item \textit{Polarizzazione ellittica} \delta=\frac{\pi}{2}, \frac{3\pi}{2}
-%		avremo un'ellissi sul piano yz, mentre c'è propagazione ungo asse x, $\vba E$ parte in una certa posizione, $\vba B$ ortogonale a $\vba E$, il campo elettrico gira e dinconseguenza B per rimanere sempre ortogonale, fino a che dopo un periodo non si ritorna alla situazione iniziale
-%		disegnandolo sul piano yz troviamo un'ellissi su cui vive il campo elettrico
-%		E_y=E_{0y}\cos(kx-\omega t)
-%		E_z=E_{0z}\sin(kx-\omega t)
-%		quindi \frac{E_y^2}{E_{0y}^2}+ \frac{E_z^2}{E_{0z}^2}=1
-%	\item \textit{Polarizzazione circolare}
-%		caso in cui E_{0y}=E_{0z}=E_0
-%		ho cerchio invee che ellisse di raggio E_0
-%		man mano che avanza nel tempo varia intensità, ma la posizione varia man mano che ci muoviamo
-%		
-%Sono casi molto specifici che dipendono dalla sorgente: se polarizzata anche le onde elettromagnetiche lo saranno
-%di solito non sono polarizzate: $\delta$ non è costante ma varia nel tempo, rapidamente ed in maniera casuale. Vengono dette \texit{onde incoerenti}
-%else le sorgenti sono \textit{coerenti}
-%dispositivi che selezionano una certa polarizzazione
-%esempio: occhiali da sole possono esserlo, occhiali per film 3D
-%
-%
-%\section{Energia delle onde elettromagnetiche}
-%Abbiamo imparato che il campo elettrico e magnetico possiedeon una densità di energia
-%	u_e=\frac{1}{2}\epsilon_0 E^2
-%	u_m=\frac{1}{2}\frac{B^2}{\mu_0}
-%	quindi u=\frac{1}{2}\epsilon_0 E^2 +\frac{B^2}{2\mu_0}
-%	
-%ne caso delle onde elm sappiamo che E=vB=B\frac{1}{\sqrt{\mu_0\epsilon_0}}
-%	u=\frac{B^2}{\mu_0}=\epsilon_0 E^2
-%	
-%desnità di energia di onda elm, in un cubo di 1m^3
-%	\vba \cross\vba B=B^2v=\frac{E^2}{v^2}\vba v
-%	\vba S=\frac{1}\mu_0\vba E\cross\vba B=\frac{B^2}{\mu_0}\vba v=u\vba v
-%	detto \textit{vettore di Poynting} \index{Poyinting!vettore di} \index{vettore! di Poyinting}
-%	
-%ci dice quant'è l'energia che attraversa una certa superficie per unità di tempo, cioé la potenza che attraversa una superficie
-%attraversano \Sigma con una certa velocità \vba v in una certa direzione
-%	dU
-%vedo quantità di energia contenuta in un volume, cilindro con base la superficie e la dimensione trasversale (altezza) v\Delta t: quantità di energia che attraversa \Sigma in un tempo \Delta t lo vedo in un volume di base \Sigma e altezza nella direzione di propagazione delle onde: così attraversano la superficie in tutto il tempo
-%	dU= volume, che però dipende da angolo
-%	\Delta U=u\Sigma v\Delta t\cos\theta
-%	\dv{U}{t}=\int u\vba v\vdot\vbh u_n d\Sigma= \int\vba S\vdot\vbh u_n d\Sigma
-%	flusso del vettore di Poynting ci dice potenza che attraversa la superficie \Sigma
-%
-%\begin{examplewt}[onda piana polarizzata]
-%	E=E_0\cos(kx-\omega t)
-%	B=\frac{E_0}{v}\cos(kx-\omga t)
-%	calcoliamo il vettore di Poyinting
-%		\vba E\cross\vba B=\frac{E_0^2}{v^2}\vba v \cos[2](kx-\omega t)
-%	non è ancora vettore di Poyinting
-%		\vba S= \frac{1}{\mu_0}\vba E\cross\vba B =\frac{1}{\mu_0 v^2}E_0^2 \vba v\cos[2](kx-\omga t) con v^2=\frac{1}{\mu_0\epsilon_0}
-%		=\epsilon_0 E_0\vba v\cos[2](kx-\omega t)
-%	frequenze di 10^{14}, quindi ci interessa il valore medio
-%		S_m=\frac{1}{T}\int^T_0 \abd{\vba S} dt = \frac{\epsilon_0 E_0^2 v}{T} \int^T_0 \cos[2](kx-\omega t ) dt
-%		quindi S_m=\frac{1}{2} \epsilon_0E_0^2 v
-%		quindi metà del valor massimo
-%		definiamo campo elettrico efficace E_{eff}=\frac{E_0}{\sqrt{2}}
-%		S_m=\epsilon_0E_{eff}^2 v
-%		
-%	ci interessa quanto a potenza possiamo estrarre per una certa superficie, l'energia che attraversa le superficie è data dal flusso del vettore di Poynting, esempio del pannello solare da onde elettromagnetiche a energia elettrica: ci serve la potenza che attraversa la superficie
-%\end{examplewt}
-%
-%\subsection{Intensità di un'onda}
-%Le onde non trasportano materia: zattera su mare mosso rimane ferma a meno di correnti, ma trasportano energia e quantità di moto (lo vedremo nella prossima lezione per qm)
-%definiamo dunque l'\textit{intensità di un'onda} come il valor medio dell'energia che passa attraverso una superficie ortogonale alla direzione di propagazione per unità di tempo e per unità di area
-%	I=\frac{1}{\Sigma}\frac{1}{T}\int^T_0 Pdt=\frac{P_m}{\Sigma}
-%con P_m potenza media
-%vale per un'onda qualunque, non solo elm
-%descrizione intensità tramite caratteristiche intrinseche
-%
-%per le onde elettromagnetiche è banale vedere che
-%	I=S_m=\frac{1}{2}\epsilon_0vE_0^2
-%	
-%\begin{examplewt}[radiazione solare]
-%	I=1,4 10^3 \frac{W}{m^2}
-%	possiamo ricavare il campo elettromagnetico dal Sole
-%		E_0=\frac{2I}{\epsilon_0v}= 1,03 10^3\frac{V}{m} =2IZ_0
-%		Z_0=\sqrt{\frac{\mu_0}{\epsilon_0}}=377 \Omega, come se fsse un'impedenza a quando è nel vuoto
-%		B_0=\frac{E_0}{c}=3,43 10^{-5} T
-%	poco più piccolo di quello terrestre
-%	siccome le onde non sono polarizzate le direzioni cambiano randomicamente, quindi l'effetto medio è nullo e non lo percepiamo, neanche la bussola
-%	dal pov statico non succede  nulla, ma sentiamo la sua propagazione
-%	
-%	Se avessimo un pannello solare di 1 m^2, produce 1,4 kW di potenza
-%	potremmo utilizzarla tutta se i pannelli solari se avessero un'efficienza di conversione del 100%
-%	
-%	
-%	
-%\end{examplewt} 
-	
-
-
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%LEZ 23, 13/04/2022
-%\square\vba E=0	\square\vba B=0
-%dalambertiano nullo significa che
-%	\square=\laplacian-\frac{1}{v^2}\pdv[2]{t}
-%qunidi dipendono dalla combinazione r-vt
-%	\vba E(\vba r-\vba vt)
-%quindi fenomeno di propagazione a certa velocità v che nel vuoto è c
-%Si dispongono anche secondo una terna seconod la velocità di propagazione, E e B lungo il fronte d'onda, direzione ortogonale a velocità di propagazione
-%come soluzione particolare abbiamo il caso delle onde piane, one in cui il fronte d'onda è piano
-%	\vba E(x-vt) con x direzione di propagazione dell'onda
-%	\vba B(x-vt) 
-%%TODO: IMMAGINE
-%scegliamo velocità di propagazione lungo x, piano ortogonale a v detto fronte d'onda che in questo caso è un piano, su cui giacciono campo elettrico e magnetico
-%il legame è
-%	E=vB in termini di moduli
-%
-%in gnerale per le onde e le sol delle eq di \square=0
-%caso 1d è piano, con 3d ho fronti d'onda non piani
-%siamo interessati alle sol con simmetria, le più comuni sono le onde sferiche
-%onde armoniche sferiche
-%	E=\frac{E_0}{r}\sin(kr-\omega t)
-%	
-%data sorgente che produce fronti d'onda sferici: \vba v è ortogonale alla sfera, propagazione radiale \vba v=v\vbh u_
-%ma abbiamo visto che le onde propagate radialmente si smorzano
-%
-%questo per come è fatto il laplaciano nella simmetria sferica
-%	\square f=0
-%	soluzione a simmetria sferica
-%	f(r,t)=\frac{\tilde f(r-vt)}{r}
-%	r fattore dis smorzamento per come è fatto il laplaciano in coordinate sferiche
-%per le onde armoniche prendiamo \sin o \cos
-%
-%la velocità è nella direzione radiale, il campo el e mgn sono tangenti al fronte d'onda punto per punto
-%
-%la propagazione di onde elm sferiche (che è la più comune, ad esempio il Sole)
-%
-%è difficile costringere le onde elm a non essere sferiche
-%esempio: laser: luce che non parte in modo radiale ma è collimata a stare in un cilindro
-%
-%vediamo com'è fatto
-%	B=\frac{E}{v}
-%quindi il vettore di Poynintg
-%	\vba S=\frac{1}{\mu_0}\vba E\cross\vba B
-%quindi è parallelo alla velocità con modulo dato sopra
-%l'intensità dell'onda è il valor medio del vettore di Poyinting
-%	I=S_m\squarequal
-%siccome per sostituzione e ricordandoci che v^2=\frac{1}{\mu_0\epsilon_0}
-%	\abs{\vba S}=\frac{E^2}{v}\mu_0=\epsilon_0 v E^2
-%tornando al valor medio
-%	\squarequal =\frac{1}{T}\int^T_0 \abs{\vba S}dt	=\frac{\epsilon_0v E_^2}{r^2}\frac{1}{T}\int^T_0 \ins[2](kr-vt)dt= \frac{1}{2}\frac{\epsilon_0vE_0^2}{r^2}
-%con\sin[2] il valor medio è metà del suo vaolre massimo
-%%TODO: IMMAGINE
-%la cosa importane è il fattore \frac{!}{r^2}, l'intensità diminuisce con la distanza dalla  sorgente, la potenza si deve distribuire sulla superficie sferica su cui l'onda si sta propagando
-%l'intensità dell'onda è divisa per l'area 4\pi r^2, quindi abbiamo il fattore \frac{1}{r^2}
-%infatti ricordiamo che
-%	I=\frac{P}{\Sigma}
-%
-%\begin{examplewt}[Radiazione solare]
-%	la scorsa volta abbiamo visto che l'intensità della radiazione solare sulla superficei terrestre è data da (misurazione)
-%		I=1,4 10^{3}W/m^2
-%	posso anche chiedermi: quanta energia produce il Sole ogni secondo? cioè, quant'è la potenza del Sole?
-%	arriva quest'intensità alla Terra perché i Sole produce onde elm in tutte le direzioni, ha fronti d'noda sferici e l'intensità che percepiamo sulla Terra è una piccola porzione di tutta l'energia che viene prodotta. Siccome la sorgete la supponiamo sferica abbiamo sfruttando la simmetria sferica
-%		P_{Sole}=I4\pi r^2==
-%	con r distanza fra Sole e Terra
-%	distribuzione equa su tutto il fronte d'onda sferico, arriva energia per unità di superficie
-%		==1,4 10^{3}4\pi (1,5 10^{11})^2= 3,96 10^{22} W
-%\end{examplewt}
-%	
-%\section{Quantità di moto e pressione di radiazione}
-%le onde non trasportano materia ma energia, e trasportano quantità di moto, ma in che senso?
-%ricordiamoci che una particella carcia puntiforme q con una velocità \vba v_d per vleocità di deriva da non confondere con la velcoità di propagazione
-%subisce in presenza di un campo el e mgn una forza
-%	F=q(\vba E+\vba v_d\cross\vba B)
-%uso onda elm per spostare particella carica, quindi onda trasporta anche quantità di moto
-%particella assorbe erngia dell'onda e qm: processo di urto fra onda elm e particella
-%questo nella rappresentazione classica, ma i fotoni sottostanno al dualismo onda particella: in alcuni range di energia la luce si comporta come onda, per altri range come particella
-%
-%abbiamo così forza el diretta verso l'alto e quella magnetica
-%% TODO IMMAGINE
-%vogliamo capire
-%sappiamo che l'onda elm è caratterizzata da F=Bv
-%vorremmo dire che v=c è molto grande, quindi il contributo di E è più grande di quella di B, ma hanno unità di misura diverse e non possiamo confrontarle
-%possiamo però comparare le forze prodotte dall'una e dall'altra
-%
-%Compariamo forza elettrica e magnetica prodotta da un'onda elm
-%	F_e=qE
-%	F_m=qv_d B
-%	\frac{F_e}{F_m}=\frac{qE}{qv_dB}=\frac{v}{v_d} \gg1
-%nele situazioni cui siamo abtuati la velocità di deriva è molto minore della velocità della luce, quindi il rapporto è molto più grande di 1
-%quindi la forza elettrica è molto più rilevante di quella magnetica
-%
-%ci chiediamo la potenza trasmessa dall'onda elm ad una particella
-%	P=\vba F\vdot\vba v_d=q\vba E \vdot \vba v_d+\cancel{q\vba v_d\cross\vba B\vdot\vba v_d}=q\vba E\vdot\vba v_d
-%con \vba F forza con cui agisce sulla particella
-%immaginiamo il solito cubetto densità di corrente \vba j=ne\vba v_d 	n numero particelle per unità d volume, densità
-%vogliamo calcolare la forza per unità di volume con N particelle
-%	\dv{\vba F}{V}=ne(\vba E+\vba v\cross\vba B)
-%onda elm investe il volume di particelle di materiale conduttore con cariche libere
-%se ho già densità di corrente hanno già velocità di deriva che verrà modificata. Se non ce l'hanno subiscono un campo elettrico che fa sì che inizino a muoversi con una certa velocità di deriva
-%la potenza trasmessa per unità di volume sarà
-%\begin{equation}
-%	\dv{P}{V}=ne\vba E\vdot v_d=\vba E\vdot\vba j
-%\end{equation}
-%
-%Se nel conduttore non è presente corrente allora \vba j è parallelo al campo elettrico, che è oscillante, quindi la dentià di corrente che s crea sarà densità di corrente alternata!
-%Quindi se il campo elettrico \vba E è sinusoidale allora si crea corrente alternata
-%in pratica se investo un materiale conduttore con onda elm produce corrnete \vba j parallela al campo elettrico e alternata, con potenza trasmessa data da \vba E\vdot\vba j
-%
-%
-%vediamo che viene trasmessa quantità di moto trasmessa dalla potenza
-%un modo più generale per descrivere 2° principio della dinamica è
-%	F=\dv{\vba p}{t}
-%	con \vba p=m\vba v quantità di moto
-%se massa costante nel tempo è F=ma
-%definiiamo per ocmodità di notazione
-%	\vba q=\dv{\vba p}{V}
-%quando un'onda elm investe
-%Vogliamo calcolare quant'è la variazione di quantità di moto per unità di volume in un periodo: osserov il conduttore per un periodo e guardo quant'è cambiata la quantià di moto
-%	\Delta\vba q=\int^T_0\dv{\vba F}{V} dt==
-%		notazione di valor medio sul periodo \vm{\dv{\vba F}{V}}=\frac{1}{T}\int^T_0\dv{\vba F}{V}dt
-%		\frac{\Delta\vba q}{T}=\vm{\dv{\vba F}{V}}=ne(\vm\vba E +\vm{\vba v_d \cross\vba B})
-%		ma \vm{\vba E}=E_0\int^T_0 \sin(kx-vt)dt=0			perché sto facndeo il valor medio di una quantità periodica
-%	==ne/v^2\vm{\vba v_d\cross\vba B}=ne/v^2\vm{\vba v_d}\cross(\vba v\cross\vba E)=ne/v^2\vm{(\vba v_d\vdot\vba E) \vba v-(\vba v_d\vdot\vba v)\vba E}= 1/v \vm{(\vba j\vdot\vba E)\vba v -(\vba j\vdot\vba v)\vba E}
-%		ma siccome sono paralleli \vba j e \vba E allora \vba j\vdot\vba E\neq 0 e \vba j\vdot\vba v=0
-%	\frac{\Delta\vba q}{T}=\vm{\vb j\vdot\vba E}\frac{\vba v}{v^2}=\vm{\dv{P}{V}} \frac{\vba v}{v^2}
-%tutto questo nell'assunzione che l'oda elm viene completamente assorbita
-%cioè caso di assorbimento totale
-%in realtà tutti i corpi hanno un certo coefficiente di assorbimento e riflessione
-%la potenza tasportata da una radiazione
-%
-%
-%un caso interessante per le applicazioni è il caso in cui si spara su una superficie invece che su un volume
-%%TODO: IMMAGINE
-%la differenza è che
-%	\vba q=\dv{\vba p}{\Sigma}
-%cioè per unità di superficie invece che di volume
-%	P_{rad}=\frac{\Delta\vba q}{T}=\vm{\dv{P}{\Sigma}}\frac{\vba v}{v^2}= \vm I \frac{\vba v}{v^2}
-%per def di intensità media
-%
-%stanno arrivando le onde elm che producono variazione di quantità di moto
-%dopo un periodo si trova a muoversi
-%la radiazione mette in moto la superficie
-%è detta \textit{pressione di radiazione} \index{pressione!di radiazione} \index{radiazione! pressione di}
-%	P_{rad}=\frac{\abs{\vba q}}{T}
-%	P_{rad}^{abs}=\frac{I}{c}
-%%TODO IMMAGINE
-%la forza elettrica è ortgonale e non contribuisce, vel d deriva verso l'alto, forza magnetica in quella direzione, quindi
-%	\dv{F_m}{\Sigma}=P_{rad}=\frac{\abs{\vba q}}{T}
-%le particelle libere nel conduttore si muovono lungo la dir del campo el, v_d verso campo el, allora subiscono una forza magnetica ortogonale alla sup, quindi il foglio subisce una forza che lo sposta
-%siccome si tratta di una superficie parliamo di pressione ed otteniamo P_{rad}^{abs}=\frac{I}{c}
-%questo se il corpo è totalmente assorbente
-%
-%invece se prendessimo un foglio di carta stagnola trasmette qm l'oda ma è riflessa, per conservazione di quantità di moto è il doppio di quella orginaria
-%	P^{rifl}_{rad}=\frac{2I}{c}
-%tipico esperimento di fisica è prendere una bilancia in cui da una parte c'è carta stagnola, dall'altra materiale assorbente
-%sparo luce e comincia a girare
-%%TODO: IMMAGINE
-%la qm da una parte dove è riflettente è maggiore e si manifesta momento di rotazione
-%
-%\begin{examplewt}[Propulsione solare]
-%	possiamo usare la luce per muovere oggetti
-%	dato il Sole, potrei usare la sue luce per spostare una navicella spaziale?
-%%TODO: IMMAGINE
-%	materiale riflettente per massimizzare 
-%	qunato deve essere grossa la sup per usare il Sole per muovere la navicella spaziale?
-%	assumendo che non ci sinao altri pianeti intorno per dovermi opporre solo all'attrazione gravitazionale del Sole, per avere forza uguali magnetica e gravitazionale dobbiamo avere
-%		P_{rad}\Sigma \geq G_0\frac{mM}{r^2}
-%		con m massa della navicella, M del sole, G_0 costante di gravitazione universale e r distanza navicella-Sole
-%		\frac{2I}{c}\Sigma\geq G_0\frac{mM}{r^2}
-%		con I=\frac{W}{4\pi r^2}
-%		\frac{2W}{4\pi r^2 c}\geq G_0\frac{mM}{r^2}
-%		l'r^2 si cancella perché entrambi decadono allo stesso modo
-%		quindi non dipende dalla distanza, ma dagli altri parametri
-%		quindi
-%		\Sigma\geq \frac{G_0mM2\pi c}{W}\geq 
-%	più la sorgetne elm è potente meno dovrà esser grande la superficie. più è grande la massa del Sole più è grande quella della navicella e avrò bisogno di più superficie
-%	siccome G_0=6,67 10^{-11}
-%		\geq \frac{6,67 10^{-11} 1650 1,99 10^{30} 3 10^{6} 2\pi}{3,96 10^{26}}= 1,05 10^{6}m^2=1,05 km^2
-%		
-%	non è molto comodo
-%	
-%	se invece rendiamo il corpo leggero ed una sorgente luminosa non dispersiva come i laser per avere intensità che non decade come 1/r^2
-%	propulsione a laser
-%\end{examplewt}
-%
-%salto indietro nel tempo dal pov tecnologico: come ci siamo accorti delle onde elm
-%\subsection{Onde fi Fiertz}
-%consideriamo un dipolo oscillante, tipico esempio di sorgente di onda elm
-%generatore di AC fa sì che si muova il dipolo facendo oscillare le cariche come \sin
-%%TODO: IMMAGINE
-%ha un andamento sinusoidale
-%sparo l'onda approssimativamente piana
-%prendo delle spire: A eB sono ortogonali (inteso come piano della spira) alla direzione di propagazione dell'onda, C e D sono parallele a v
-%la dimensione della spira l \ll\lambda lunghezza d'onda delle onde elm
-%l\ll r	con r distanza da sorgente ad A		onda approssimativmante r che così sembrerà piana
-%le spire sono dette \textit{risuonatore} con delle viti all'interno che si regolano e permettono di chiuderle ed aprirle
-%se le apro molto poco in presenza di fem vediamo delle scintille, delle scariche elettriche, questo perché ho ddp fra estremi e circola corrente
-%servono a percepire l'esistenza di una fem sulla spira, cioè rilevano la presenza di f.e.m.
-%come viene prodotta qui la fem?
-%le onde elm producono campo el e mgn oscillanti, che producono fem
-%	\ee=\onit\vba E\vdot d\vba l	prodotta dal campo elettrico
-%	\ee=-\dv{\Phi(\vba B)}{t} 	da legge di Faraday
-%in queste spire messe in questi modi, si produce o no fem?
-%vogliamo testare le proprietà dedotte da Maxwll
-%
-%	\item caso A: \ee_2=0
-%		la spira è messa in modo che sia parallela al campo magnetico, che quindi non ha flusso attraverso la spira, \Phi(\vba B)=0
-%		ma anche \ee_1=0 perché campo elettrico è verticale: siccome le intensità di corrente sono opposte, la fem complessiva dunque è nulla
-%		è messa lì per verificare le posizioni del campo el e mgn
-%	\item caso B
-%		siccome il lato è aperto, i contributi della circuitazione sono diversi, ai capi dell'apertura ho ddp, quindi \ee\neq 0
-%		questo però se non mi muovo in un nodo (zero del \sin): muovendo la spira posso trovare i nodi, quindi dov'è nullo, posso quindi anche dedurre la sua lunghezza d'onda
-%		invece come prima \ee_2=0
-%	\item caso C
-%		il flusso del campo magnetico non è più nullo, \ee_2\neq 0
-%		invece per il campo elettrico avendo contributi verticali opposti abbiamo \ee_1=0
-%		quindi posso solo testare \ee_2, grazie all'assunzione l\ll \lambda posso trovarmi approssimativamente in un nodo e come prima trovarli tutti
-%	\item caso D
-%		entrabmi contribuiscono
-%		\ee_1\neq 0	\ee_2\neq 0
-%		
-%Quindi abbiamo testato l'esistenza e le proprietà delle onde elm: sono ortogonali alla direzione di propagazione ed ortogonali fra loro
-%
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%LEZ 24, 20/04/2022
-%\section{Effetto Dopler}
-%immaginiamo di avere una sorgente che emette dei fronti d'onda sferici
-%ad esempio prendiamo un'onda sonora, per cui è facile verificare l'effettoDoppler
-%ad ogni fronte d'nnda sappiamo che siamo al picco della sinusoide
-%	\xi=\frac{\xi_0}{r}\sin(k_0r-\omega_0 t)
-%	k_0=\frac{2\pi}{\lambda_0}
-%	\omega0=\frac{2\pi}{T_0}=2\pi\nu_0
-%	
-%immaginiamo che ci sia qualcuno che riceve l'onda dalla sorgente S
-%invio un'onda, la sentiamo con una certa frequenza e lunghezza d'onda che possimo misurare
-%per un certo tempo \Delta t misura le oscillazioni
-%	\nu_R è la frequenza misurata/percepita da chi asclta l'onda, R
-%	\nu_0=\frac{N}{\Delta t}==
-%	quante volte in un tempo \Delta t l'onda compie un'oscillazinoe completa
-%siccome viaggia ad una certa velocità
-%	==\frac{v\Delta t}{\lambda_0\Delta t}=\frac{v}{\lambda_0}=\nu_0
-%stiamo assumendo che sia sorgente sia ricevitore sono fermi, stiamo infatti assumendo che lo spazio percorso dall'onda in un tempo \Delta t sia lo stesso
-%quando ricevente misuro so che il numero di oscillazioni che misuro è lo spazio diviso per la lunghezza d'onda, 
-%	v=\lambda_0\nu_0=\frac{\omega_0}{k_0}
-%se la sorgente è ferma per il ricevente la frequenza misurata è pari alla frequenza emessa
-%
-%la cosa strana che succede è che se la sorgente si muove la frequenza percepita cambia
-%
-%intuitivamente succede che quando la sorgente si muove verso la persona che sta ricevendo, dopo un periodo la sorgente si troverà più avanti di uno spazio dato da v_s T, il fronte d'onda che partirà in quel tempo partirà da lì
-%mentre l'onda si muove continua ad emettere onde sferiche
-%
-%la frequenza percepita da R sarà diversa da quella emessa da $S$
-%togliamo lo spazio che la sorgente ha percorso in un periodo
-%	\lambda_R=\lambda_0-v_sT_0= (v-v_s)T_0=\frac{v-v_s}{v}\lambda_0
-%la cosa più facile da sentire è la frequenza di un suono
-%	\nu_R=\frac{v}{\lambda_R}=\frac{v}{v-v_s}\nu_0
-%qui stiamo supponendo che $v_s<v$
-%la formula ci dice che la frequenza percepita dal ricevente sarà maggiore della frequenza emessa
-%quindi se la sorgente si avvicina al ricevente questo lo percepisce con una frequenza maggiore dei quella emessa
-%l'esempio tipico è la frequenza dell'ambulanza, quando si allontana la frequenza percepita è minore di quella emessa per un cambio di segno
-%stimo anche assumendo che v_s\ll c, cioè stiamo considerando l'effetto Doppler \textit{non} relativistico
-%
-%analogamente avremmo potuto fare
-%	\nu_R=\frac{N}{\Delta t}=\frac{v\Delta t}{\lambda_R}\frac{1}{\Delta t}=\frac{v}{\lambda_R}
-%	
-%vediamo adesso cosa succede quando si muove il ricevente
-%%TODO: IMMAGINE
-%il ricevente si allontana con una certa velocità $v_R$, il tempo che arrivi il fronte d'onda successivo lui si è spostato, quindi arriva dopo: un periodo in più più il tempo in uci mi sono spostato come ricevente in quel periodo
-%	\nu_R=\frac{N}{\Delta t}=\frac{(v-vR)\Delta t}{\lambda_0}=\frac{v-vR}{v}\nu_0
-%in un moto di allontanamento del ricevitore la frequenza percepita da $R$ quando si allontana è minore della frequenza emessa
-%il periodo che rilevo è più grande di quello emesso, quindi anche la frequenza è minore
-%
-%possimao combinare le due formule per ottenere quella definitiva dell'effeto Doppler
-%	\nu_R=\frac{v-v_R}{v-v_s}\nu_s
-%entrambe nella direzione positiva dell'asse che congiunge sorgente e ricevente
-%è solo una scelta di sistema di coordinate
-%se una si muove nel verso opposto basta cambiare il segno
-%notiamo che non è una formula simmetrica: se la sorgente si allontana o il ricevitore la situazione cambia, non è uguale se la sorgente si allontana oppure è il ricevitore a farlo!
-%qualitativamente ho lo stesso effetto di avere la frequenza diminuita, ma lo fa in modo diverso, il fattore è diverso: \frac{v-v_R}{v} e \frac{v}{v+v_s}
-%questa è una peculiarità dell'effetto Doppler
-%
-%
-%vediamo ora cosa succede quando la velocità della sorgente supera la velocità dell'onda parliamo di onda d'urto
-%\section{Onda d'urto}
-%mano mano che la sorgente si sposta, i fronti d'onda tendono ad accumularsi verso un punto: nel tempo in uci l'onda viene emessa la sorgente si sposta
-%per determinare quanto vale l'angolo \theta
-%in un tempo \Delta t
-%tempo arrivato ad arrivare al fronte d'onda conico è v\Delta t
-%il fronte d'onda si dispone lungo lo stesso cono dell'oda emessa dalla sorgente al punto di partenza
-%abbiamo un triangolo rettangolo con v\Delta t e v_s\Delta t
-%quindi 
-%	v_s\Delta t\sin\theta=v\Delta t
-%	\sin\theta\frac{v}{v_s}
-%	n_M=\frav{c}{v_s} è detto \textit{numero di Mach} \index{numero!di Mach} \index{Mach!numero di}
-%	quante volte la velocità della sorgente è più grande di quella dell'onda
-%quando si supera la velocità del suon si verifica un boom acustico: si sente un forte boato dovuto all'arrivo del fronte d'onda conico alle nostre orecchie
-%l'onda sonora emessa dall'aereo, si accumula tutto su un fronte d'onda conico, si ha una variazione di pressione netta che non è sinusoidale, la forma dell'onda ha una forma di questo tipo
-%%TODO: IMMAGINE
-%un altro esempio tipico è il motoscafo, dietro il motoscafo si formano dei fronti d'onda conici
-%i fronti d'onda sono le cime delle sinusoidi, il fatto che si dispongano lungo il cono, tutta la delimitazione del cono è in fase, in tutta questa linea invece di propagarsi sfericamente si propaga per coni successivi
-%per esempio nel caso del motoscafo conoscendo la velocità del motoscafo e l'angolo formato possiamo ricavare la velocità di propagazione delle onde nel mare
-%
-%
-%\section{Interferenza di onde}
-%il fenomeno dell'interfernza è tipico dei fenomeni ondulatori per il quela l'interazione di due onde che obbedisce al principio di sovrapposizione, si formano figure di interferenza tipiche dell'onda stessa
-%possono essere utilizzati per testare se un certo tipo di fenomeno può essere descritto da fenomeni ondulatori
-%	Young + Herz -> luce ondulatoria
-%	
-%date due sorgenti vogliamo determinare l'intensità dell'onda che arriva in quel punto
-%	\xi_1=\frac{\xi_{0,1}}{r_1}\cos(k_1r_1-\omega_1+\oldphi_1)
-%	\xi_2=\frac{\xi_{0,2}}{r_2}\cos(k_2r_2-\omega_2+\oldphi_2)
-%l'onda data dalla loro sovrapposizione è la somma delle due
-%	\xi=\xi_1+\xi_2=\xi_0\cos(\omega t +\alpha)
-%per combinare i due coseni usiamo il metodo dei fasori o del triale usato per i circuiti $RLC$
-%data un'onda con un'ampiezza A_1
-%	\xi_1=A_1\cos(\omega t+\alpha_1)
-%	\xi_2=A_2\cos(\omega t+\alpha_2)
-%posso determinare la sovrapposizione delle due disegnando i vettori di modulo A_i ed inclinazione \alpha_i
-%la somma dei due è la somma vettoriale dei due vettori/fasori
-%alternativamente passiamo alla notazione complessa con la formula di Eulero e poi ridecomporre
-%il vettore risultante ha ampiezza A ed angolo 
-%	\xi=A\cos(\omega t+\alpha)
-%	A=\sqrt{A_1^2+A_2^2 + 2A_1A_2\cos\delta
-%	con \delta angolo fra la retta di A_1 e quella fra la punta di A_1 ed A
-%	\delta=\alpha_2-\alpha_1
-%grazie alle proiezioni invece
-%	\tan\alpha= \frac{A_2\sin\alpha_1+A_2\sin\alpha_2}{A_1\cos\alpha_1+A_2\cos\alpha_2}
-%	\alpha_1=-\oldphi_1-k_1r_1
-%	\alpha_2=-\oldphi_2-k_2r_2
-%	A_1=\frac{\xi_{0,1}}{r_1}
-%	A_2=\frac{\xi_{0,2}}{r_2}
-%	
-%l'ampiezza dell'onda risente di \delta, quindi dipende dalle fasi \oldphi_i, che determina l'interferenza
-%l'intensità di un'onda è proporzionale all'ampiezza quadra
-%	I\alpha %PROPORZIONALE
-%	A^2
-%	I=I_1+I_2+2\sqrt{I_1I_2\cos\delta
-%devono essere sorgenti coerenti, non devono cambiare le fasi nel tempo e devono essere polarizzate nella stessa direzione e verso
-%invece per onde incoerenti possiamo solo vedere l'effetto medio, quindi in un tempo medio \cos\delta=0
-%	I=I_1+I_2
-%
-%
-%focalizziamoci sul caso in cui A=A_1=A_2, =\oldphi=\oldphi_1=\oldphi_2=0, quindi non ci sono fasi intrinseche (peculiarità delle onde iniziali), k=k_1=k_2, si propagano alla stessa velocità
-%quindi abbiamo due sorgenti identiche ma che si trovino a posizioni diverse
-%abbiamo comunque un'interferenza
-%	\alpha_i=-kr_i
-%	\delta=k(r_1-r_2)
-%	
-%conta la differenza delle due distanze
-%sull'asse r_1=r_2 il \cos\delta=1, quindi l'interferenza è massima
-%	A=A_0\sqrt{2(1+\cos\delta)}=2A_0\cos(\frac{\delta}{2})
-%	I=4I_0\cos[2](\frac{\delta}{2})
-%	\tan\alpha=\frac{\sin\alpha_1 +\sin\alpha_2} {\cos\alpha_1+\cos\alpha_2}=\frac{\sin(\frac{\alpha_1+\alpha_2}{2}) \cos(\frac{\alpha_1+\alpha_2}{2})} {\cos(\frac{\alpha_1+\alpha_2}{2}) \cos(\frac{\alpha_1+\alpha_2}{2})}= \tan(\frac{\alpha_1+\alpha_2}{2}
-%	\xi=2A\cos(\frac{k(r_1-r_2){2})\cos(\omega t-\frac{k(r_1+r_2)}{2})
-%
-%se siamo in un punto in cui l'intensità 4 volte quella iniziale siamo in u punto di interferenza costruttiva, invece ci sono dei punti in cui vale 0, ed abbiamo l'interferenza distruttiva
-%%TODO: IMMAGINE
-%abbiamo coì dell'intensità nulla in alcuni punti
-%
-%%TODO: IMMAGINE
-%ognuna delle sorgenti emette un'onda sferica, l'interferenza si genere per l'effetto di sovraposizione di queste onde sferiche
-%per r=0 tracciamo una retta in cui incontriamo tutti i nodi della figura, unendoli troviamo delle iperboli, che sono determinate precisamente dalle equazioni risultanti da un massimo dell'intensità di cui sopra, cioé quando r_1=r_2
-%infatti
-%	\delta=k(r_1-r_2)} 
-%	I_{max} per \delta=2\pi m
-%	r_1-r_2=\frac{2\pi m}{k}
-%ricordandoci che \lambda=\frac{2\pi}{k} abbiamo
-%	\Delta r=m\lambda
-%se abbiamo un'onda con un certa lunghezza d'onda, vediamo i massimi per \Delta r=\lambda, \Delta r=2\lambda , \Delta r=-\lambda, \Delta r=-2\lambda
-%i diversi masismi sono separati da un numero intero di lunghezze d'onde
-%invece i minimi si trovano per i multipli dispari di \pi
-%	I_{min} per \delta=(2m+1)\pi
-%	\Delta r=(2m+1)\frac{\lambda}{2}
-%quindi sono in mezzo ai massimi
-%
-%andiamo a fare una leggera correzione per onde sferiche
-%\subsection{Interferenza per onde sferiche}
-%con sorgenti identiche 
-%	A_1=\frac{A_0}{r_1}
-%	A_2=\frac{A_0}{r_2}
-%	A=A_0\sqrt{\frac{1}{r_1^2} +\frac{1}{r_2^2} + \frac{2}{r_1r_2}\cos\delta }
-%	abbiamo come intensità
-%	I_1=\frac{P}{4\pi r_1^2}
-%	I_2=\frac{P}{4\pi r_2^2}
-%	I=\frac{P}{4\pi} \left( \frac{1}{r_1^2} +\frac{1}{r_2^2} + \frac{2}{r_1r_2}\cos\delta  \right)
-%non cambia la posizione dei massimi e minimi ma la loro intensità
-%	I_{max}=\frac{P}{4\pi} \left( \frac{1}{r_1^2} +\frac{1}{r_2^2} \right)^2 per \Delta r=r_1-r_2=m\lambda
-%	I_{min}=\frac{P}{4\pi} \left( \frac{1}{r_1^2} -\frac{1}{r_2^2} \right)^2 per \Delta r=r_1-r_2 (2m+1)\frac{\lambda}{2}
-%	
-%sperimentalmente ci interessa il caso in cui lo schermo su cui rileviamo è molto lontano con $r_1\sim r_2\sim r$
-%abbiamo che r_2-r_1 è molto piccolo ed è dato da
-%	r_2-r_1=d\sin\theta
-%avremo che
-%	\delta=k(r_1-r_2)=-\frac{2\pi}{\lambda d}\sin\theta
-%in funzione dell'angolo \theta abbiamo le posizioni dei massimi e minimi
-%	I_{max} per d\sin\theta=m\lambda
-%	I_{min} per d\sin\theta=\frac{(2m+1)\lambda}{2}
-%	
-%abbiamo così un'interferenza di tipo sinusoidale (?)
-%
-%
-%\begin{examplewt}[Esperimento di Young]
-%	si tratadi un esperimento a doppia fenditura fatto nell''800
-%	unmodo per produrre delle sorgenti coerenti è di praticare un foro molto minore della lunghezza d'onda in materiale che assorbe la luce
-%	produce fronti d'onda sferici dopo il foro
-%	dopo passa in due fori, ed abbiamo due fronti d'onda sferici
-%	la sorgente iniziale è una sola, arrivando con stessa frequenza e ampiezza, le onde così prodotte sono onde coerenti, cioè con differenza di fase costante
-%	poniamo una lastra fotografica ad una distanza L molto maggiore di d
-%%TODO: IMMAGINE
-%	se L\ggd e L\ggx allora \sin\theta\sim\tan\theta\sim\theta 
-%	sulla lastra fotografica vediamo le figure di interferenza
-%		max per \frac{d}{L}=m\lambda, m\in\integerset
-%		min per \frac{dx}{L}=(2m+1)\lambda
-%	Young ha visto che si trova un pattern di tipo zone di luce alternate da zone di buiio
-%	la distanza fra due massimi l=\frac{\lambda L}{d}
-%	i massimi si traducono in luce, i minimi in buio, separati da distanza l
-%	
-%	così si è misurata la lunghezza d'onda della radiazione elettromagnetica
-%	cambiando colore della luce cambia lunghezza d'onda
-%	ogni colore dello spettro del visibile è associato ad una cert lunghezza d'onda
-%	 ma ci sono lunghezze d'onda corrispondenti a radiazioni che non vediamo, come le ultraviolette e le infrarosse
-%	 vedremo anche che l'energia è legata alla frequenza della radiazione, grazie a legge di Planck \index{legge!di Planck} \index{Planck!legge di}
-%	 
-%	 ad esempio la luce visibile va da 0,78 10^{-6}m <\lambda < 0,38 10^{-6}m
-%	 
-%\end{examplewt}
-%
-%ESAME
-%3/ esercizi
-%
-%	elettrostatica o magnetostatica: data configrazione di cariche o correnti determinare campi el o mgn
-%	sferica o puntiformi per principio di sovrapposizione
-%		
-%	circuito semplice con resistenze, condensatori parallelo e serie, leggi kirkchoff
-%	
-%	problema sui fenomeni dipendenti dal tempo: induzione di Farady o corrente di spostemento( cambio flusso e fem generata)
-%	
-%	in alternativa o aggiunta semplice problema sulle onde: scrivere equazione e proprietà caratteristiche o anda elm con vettore di Poyinting
-%	
-%domani esercizi propedeutici all'esame
-%
-%prova probabilmente diversa da quella del secondo anno
-%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-LEZ 25, 21/04/2022
-
-\begin{comment}
-
-domanda su corrente di spostamento
-[...]
-forma integrale della densità di corrente di spostamento
-passaggio dalla forma differenziale a quella integrale: teorema del rotore: prendiamo il flusso del rototre attraverso la superficie
+\begin{observe} %https://en.wikipedia.org/wiki/Electromotive_force
+	Nel \autoref{chap:correnteElettrica}, sezione \ref{femxesteso}, abbiamo descritto come la forza elettromotrice è prodotta da un campo elettrico \textit{non} conservativo. Nel caso particolare dell'\textit{induzione magnetica}, il campo magnetico \textit{causa} lungo circuito un campo elettromotore indotto $\vba{E}_i$, non necessariamente localizzato in alcun tratto specifico; l'espressione della forza elettromotrice sarà dunque
+	\begin{equation*}
+		\mathcal{E}_i=\oint\vba{E}_i\vdot d\vba{s}
+	\end{equation*}
+	È immediato poter riscrivere la legge di Faraday come
+	\begin{equation}
+		\oint \vba E_i\vdot d\vba s =-\dv{\Phi_{\Sigma}(\vba B)}{t}		
+	\end{equation}
+\end{observe}
+\paragraph{Legge di Lenz}
+Nella legge di induzione troviamo, curiosamente, un meno. Non è un refuso tipografico, ma è una considerazione di natura qualitativa che va sotto il nome di \textbf{legge di Lenz}.
+\begin{corollaryqed}[Legge di Lenz]\index{legge!di Lenz}
+	La forza elettromotrice indotta - e di conseguenza la corrente indotta - è tale da \textit{opporsi} alla causa che l'ha generata e da esercitare una forza meccanica che si oppone al moto. 
+\end{corollaryqed}
+\begin{observe}
+	Torniamo all'esperimento \# 2 visto precedemente. La spira percorsa da corrente $I_1$ viene avvicinata alla spira scarica, crea una variazione nel flusso del campo magnetico $\vba{B}_1$ generato da $I_1$. Nella spira scarica inizia a circolare una corrente $I_2$, ma nella direzione opposta a $I_1$, in modo da generare a sua volta un campo magnetico opposto $\vba{B}_2$ per opporsi a $\vba{B}_1$.  
+	%TODO: inserire immagine 16.14
+\end{observe}
+Per citare il fisico-divulgatore americano \textbf{D.J. Griffiths} (1942), la legge di Lenz si può sintetizzare come ‘‘\textit{la Natura aberra un cambio di flusso}''.
+\paragraph{Com'è bello variar un flusso da Faraday in giù}
+%TODO: you've just got Carràrolled
+Abbiamo capito che la $\fem$ indotta $\mathcal{E}$ è data da una variazione \textit{temporale} di flusso. Ma come possiamo farlo? Noto che il flusso è dato da
 \begin{equation*}
-	\Sigma	\int\curl\vba B\vdot\vbh u_n d\Sigma =\mu_0\int\vba j\vdot\vbh u_n d\Sigma +\mu_0\epsilon_0\pdv{t}\int\vba E\vdot \vbh u_nd\Sigma
-	\int\vba\vdot d\vba s=\mu_0 i+\mu_0\underbrace{\epsilon_0\dv{\Phi_\Sigma (\vba B)}{t}}_{i}
+	\Phi_\Sigma(\vba B)=\int_\Sigma \vba B\vdot \vbh{u}_n d\Sigma	
 \end{equation*}
+e ricordando le osservazioni di pag. \pageref{osservazioniFaraday}, possiamo cambiarlo modificando i seguenti elementi:
+\begin{itemize}
+	\item Il valore di $\vba B$ nel tempo. In altre parole, il campo magnetico $\vba{B}=\vba{B}(t)$ è una funzione del tempo.
+	\item Cambiare il valore di $\vba{B}\vdot \vbh{u}_n$ nel tempo, il che implica cambiare l'angolo tra la normale del circuito scarico e il campo magnetico. Ad esempio, si può traslare la spira in un campo magnetico \textit{non} uniforme \textit{oppure} far muovere con rotazioni la spira in un campo magnetico uniforme \textit{oppure} una combinazione delle due. 
+	\item \textit{Modificare la forma} del circuito nel tempo. Per il \textit{teorema di Stokes}, il flusso dipende solo dal bordo e non da quale superficie $\Sigma$ si sceglie per calcolarlo, dunque cambiare la forma del circuito cambia la necessariamente le potenziali superfici $\Sigma$ e dunque anche il flusso. Se consideriamo un circuito piano di area interna $\Sigma$, questo metodo corrisponde a far variare il valore di $\Sigma$ nel tempo.
+	\item Applicare uno spostamento rigido del circuito nel campo magnetico.
+\end{itemize}
+In realtà la forza elettromotrice prodotta per mezzo del secondo, terzo e quarto modo è causata dalla \textit{sola} forza di Lorentz - e quindi già prevista in realtà dalle leggi della magnetostatica. Quello che \textit{non} era previsto è la produzione di corrente da parte di una variazione del campo magnetico $\vba B$ nel tempo.
+\paragraph{Dimostrazione della legge di Faraday-Neumann-Lenz: i casi stazionari}
+Dimostriamo di seguito la legge di induzione di Faraday nel caso particolare di uno spostamento rigido in un campo magnetico \textit{non necessariamente} uniforme, ma costante nel tempo: vogliamo provare che la \fem indotta è soltanto una conseguenza alla forza di Lorentz.
+\begin{demonstration}
+%TODO: inserire immagine 17.1
+	Immaginiamo di spostare un circuito in un campo magnetico $\vba{B}$ \textit{non uniforme}, ma costante nel tempo. Lo spostamento infinitesimo della spira è
+	\begin{equation*}
+		d\vba{r}=\dv{\vba{r}}{t}dt=\vba{v}dt
+	\end{equation*}
+	dove $\vba{v}$ è la velocità di spostamento rigido.	Ciascuna carica libera presente nella spira subisce una forza di Lorentz pari a
+	\begin{equation*}
+		\vba{F}=e\vba{v}\cross\vba{B}
+	\end{equation*}
+	Il campo elettrico indotto \textit{non} conservativo su ogni carica è
+	\begin{equation*}
+		\vba{E}_i=\frac{\vba{F}}{e}=\vba{v}\cross\vba{B}
+	\end{equation*}
+	e tende a far girare le cariche. La forza elettromotrice nella spira è il lavoro prodotto lungo la spira $\gamma$ per spostare le cariche:
+	\begin{align*}
+		\mathcal{E}_i&=\Gamma_{\gamma}(\vba{E}_i)=\oint_{\gamma} \vba{E}_i\vdot d\vba{s}=\oint_{\gamma} \left(\vba{v}\vdot \vba{B}\right)\vdot d\vba{s}=\oint_{\gamma} \left(d\vba{s}\cross\vba{v}\right)\vdot \vba{B} = \oint_{\gamma} \left(d\vba{s}\cross\dv{\vba{r}}{t}\right)\vdot \vba{B}=\\
+		&=\dv{t} \oint_{\gamma}\left(d\vba{s}\cross d\vba{r}\right)\vdot \vba{B}\squarequal
+	\end{align*}
+	Lo spostamento infinitesimo del circuito individua un cilindro \textit{sbilenco}: il lato è individuato da $d\vba{r}$, mentre i bordi delle basi sono il circuito $\gamma$ e $\gamma$ stesso, preso dopo lo spostamento infinitesimo. Osserviamo che il prodotto vettoriale $d\vba{s}\cross d\vba{r}$ è ortogonale alla superficie laterale ed è in modulo l'elemento di area:
+	\begin{equation*}
+		d\vba s\cross d\vba r=d\Sigma_{\mathcal{l}}\vbh u_n
+	\end{equation*}
+	%Di conseguenza,
+	%\begin{equation*}
+	%	\oint_{\gamma} d\vba s\cross d\vba r = \Sigma_{\mathcal{l}}
+	%\end{equation*}=$
+	Allora
+	\begin{equation*}
+		\squarequal \dv{t} \oint_{\gamma}\left(d\Sigma_{\mathcal{l}}\vbh{u}_n\right)\vdot \vba{B}=\dv{t} \oint_{\gamma}\vba{B} \vdot \vbh{u}_nd\Sigma_{\mathcal{l}}=\dv{t}\Phi_{\Sigma_{\mathcal{l}}}(\vba{B})
+	\end{equation*}
+	Abbiamo trovato che la forza elettromotrice è la variazione temporale del flusso \textit{tagliato}, ossia del flusso tramite la superficie laterale di questo cilindro. Se definiamo
+	\begin{equation*}
+		\dv{\Phi_{\Sigma}}{t}\coloneqq\lim_{\Delta t\to 0}\frac{\Phi_{\Sigma_2}(\vba{B})-\Phi_{\Sigma_1}(\vba{B})}{\Delta t}
+	\end{equation*}
+	dove
+	\begin{itemize}
+		\item $\Sigma_1$ è una superficie con bordo il circuito $\gamma$ \textit{prima} dello spostamento.
+		\item $\Sigma_2$  è una superficie con bordo il circuito $\gamma$ \textit{dopo} lo spostamento.
+	\end{itemize}
+	Poiché il cilindro è una superficie chiusa, per la legge di Gauss per il magnetismo
+	\begin{equation*}
+		0=\Phi_{\Sigma}(\vba{B})=\Phi_{\Sigma_2}(\vba{B})-\Phi_{\Sigma_1}(\vba{B})+\Phi_{\Sigma_{\mathcal{l}}}(\vba{B})
+	\end{equation*}
+	Esplicitiamo rispetto al flusso tagliato e dividiamo per l'intervallo di tempo $\Delta t$:
+	\begin{equation*}
+		\frac{1}{\Delta t}\Phi_{\Sigma_{\mathcal{l}}}(\vba{B})=\frac{\Phi_{\Sigma_2}(\vba{B})-\Phi_{\Sigma_1}(\vba{B})}{\Delta t}
+	\end{equation*}
+	Passando al limite, si ha
+	\begin{equation*}
+		\mathcal{E}_i=-\dv{t}\Phi_{\Sigma}(\vba{B})
+	\end{equation*}
+	dove $\Sigma$ è una superficie arbitraria che finisce sul circuito.
+\end{demonstration}
+In modi analoghi possiamo provare che la \fem indotta dalla variazione di forma e di angolo sono conseguenze soltanto della forza di Lorentz.
+\section{Legge di induzione di Faraday}
+Abbiamo capito che il fatto che la forza elettromotrice prodotta da un campo magnetico \textit{variabile nel tempo} non è prevedibile dalle leggi di Maxwell già note. Per poter descrivere i fenomeni dipendenti dal tempo dobbiamo necessariamente \textit{correggerle}; fra le equazione di Maxwell che possiamo correggere, la prima è proprio quella che avevamo chiamato senza un ben preciso motivo \textit{legge di induzione di Faraday}:
+\begin{equation*}
+	\curl{\vba{E}}=0
+\end{equation*}
+Se il nome vi è \textit{familiare}, è proprio perché è la \textit{stessa} legge di cui abbiamo parlato fino ad ora! La formulazione corretta di questa legge la possiamo dunque ricavare dalla legge (sperimentale) di Faraday.
+\begin{theorema}[Legge di induzione di Faraday]\index{legge!di induzione di Faraday}
+	Dato il campo elettrico $\vba{E}$ e quello magnetico $\vba{B}$, presa una superficie $\Sigma$ con bordo $\gamma=\partial \Sigma$ si hanno le seguenti relazioni:
+	\begin{itemize}
+		\item \textbf{Forma integrale:}
+		\begin{equation}
+			\Gamma_{\gamma}(\vba{E})=\oint_{\partial \Sigma} \vba{E}\vdot d\vba{s}=-\dv{t}\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=-\int_{\Sigma}\pdv{\vba{B}}{t}\vdot\vbh{u}_nd\Sigma\label{LeggeFaradayIntegrale}
+		\end{equation}
+		\item \textbf{Forma differenziale:}
+		\begin{equation}
+			\curl{\vba{E}}=-\pdv{\vba{B}}{t}\label{LeggeFaradayDifferenziale}
+		\end{equation}
+	\end{itemize}
+	In altri termini, un campo magnetico variabile nel tempo è accompagnato da un campo elettrico \textit{non} conservativo variante nello spazio e potenzialmente anche nel tempo, e viceversa.
+\end{theorema}
+\begin{demonstration}
+	Partiamo dalla legge di Faraday nota supponendo che $\vba{B}$ sia dipendente anche dal tempo 
+	\begin{equation*}
+		\mathcal{E}_i=-\dv{t}\Phi_\Sigma(\vba{B})\implies \oint_{\partial \Sigma} \vba{E}\vdot d\vba{s}=-\dv{t}\int_{\Sigma}\vba{B}\vdot \vbh{u}_nd\Sigma
+	\end{equation*}
+	Qui abbiamo considerato il campo elettrico \textit{totale} lungo il circuito, cioè la somma del campo elettrostatico $\vba{E}_s$ e di quello elettromotore \textit{non} conservativo $\vba{E}_i$ - ricordiamo che il contributo lungo il circuito chiuso di $\vba{E}_s$ è nullo. Ora, portando dentro all'integrale superficiale la derivata temporale e applicando il teorema del rotore all'integrale curvilineo otteniamo la \textit{forma integrale} della legge di induzione magnetica di Faraday:
+	\begin{equation*}
+		\int_{\Sigma}\left(\curl{\vba{E}}\right)\vdot\vbh{u}_nd\Sigma=-\int_{\Sigma}\pdv{\vba{B}}{t}\vdot\vbh{u}_nd\Sigma
+	\end{equation*}
+	Poiché la relazione rimane invariata qualunque siano i campi $\vba{E}$ e $\vba{B}$ e qualunque sia la superficie $\Sigma$, vale l'identità tra le integrande. Abbiamo ottenuto così la \textit{forma differenziale} della legge di induzione magnetica di Faraday:
+	\begin{equation*}
+		\curl{\vba{E}}=-\pdv{\vba{B}}{t}\qedhere
+	\end{equation*}
+\end{demonstration}
+\paragraph{Requiem per il potenziale elettrostatico}
+La conseguenza più grande di questa equazione di Maxwell corretta è che il \textit{campo elettrico non è più conservativo} - almeno in generale. Ci chiediamo però se sia comunque possibile esprimerlo in termini di opportuni campi potenziali.\\
+Dalla \textit{legge di Gauss per il magnetismo} sappiamo che il campo magnetico è \textit{solenoidale} e quindi esiste localmente un campo potenziale vettoriale $\vba{A}$ tale per cui
+\begin{equation*}
+	\vba{B}=\curl{\vba{A}}
+\end{equation*}
+Per la legge di induzione di Maxwell si ha
+\begin{equation*}
+	\curl{\vba{E}}=-\pdv{\vba{B}}{t}=-\pdv{t}\left(\curl{\vba{A}}\right)\implies \curl\left(\vba{E}+\pdv{\vba{A}}{t}\right)=0
+\end{equation*}
+Osserviamo che quest'ultima quantità, essendo irrotazionale e quindi conservativa, ammette un campo potenziale scalare $V$ tale che 
+\begin{equation*}
+	\vba{E}+\pdv{\vba{A}}{t}=-\grad{V}
+\end{equation*}
+Il campo elettrico è esprimibile quindi come
+\begin{equation}
+	\vba{E}=-\pdv{\vba{A}}{t}-\grad{V}
+\end{equation}
+Come si può notare, se siamo nel \textit{caso stazionario} e il campo magnetico $\vba{B}$ \textit{non} varia nel tempo, allora anche $\vba{A}$ è costante temporalmente e quindi si ritorna al caso del campo elettrico \textit{conservativo} - il fu campo \textit{elettrostatico}.
+\section{Autoflusso, autoinduzione e induttanza}
+Sappiamo che una spira $\gamma$ percorsa da una corrente di intensità $I$ genera un campo magnetico dato dalle legge di Biot-Savart:
+\begin{equation*}
+	\vba{B}=\frac{\mu_0 I}{4\pi}\oint_{\gamma}\frac{d\vba{s}\cross\vbh{u}_{r}}{r^2}
+\end{equation*}
+Tale campo produce un flusso \textit{non} nullo attraverso la superficie stessa, detto \textbf{autoflusso}:
+\begin{equation}
+	\Phi_{\Sigma}(\vba{B})=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\frac{\mu_0 I}{4\pi}\int_{\Sigma}\vba\oint_{\gamma}\frac{\left(d\vba{s}\cross\vbh{u}_{r}\right)\vdot \vbh{u}_n}{r^2}d\Sigma
+\end{equation}
+Dalla legge di Faraday-Neumann-Lenz sappiamo inoltre che nella spira si genererà una \fem $\mathcal{E}_i$ e dunque un'altra corrente $I'$, il cui verso per la legge di Lenz è tale da opporsi al cambio di corrente; in particolare, la corrente $I'$ percorre la corrente nel verso opposto a $I$. Questo fenomeno prende il nome di \textbf{autoinduttanza}\index{autoinduttanza}:
+\begin{equation*}
+	\mathcal{E}_i=-\dv{t}\Phi_{\Sigma}(\vba{B})=-\dv{t}\frac{\mu_0 I}{4\pi}\int_{\Sigma}\vba\oint_{\gamma}\frac{\left(d\vba{s}\cross\vbh{u}_{r}\right)\vdot \vbh{u}_n}{r^2}d\Sigma
+\end{equation*} %TODO: se la spira si deforma è costante?
+Osserviamo che il doppio integrale superficiale-curvilineo dipende esclusivamente dalla \textit{geometria} della spira e rimane costante nel tempo. Come abbiamo fatto per il condensatore, possiamo definire una quantità \textit{caratteristica} dei circuiti chiusi che quantifica sia l'informazione geometrica della spira sia, dal punto di vista della legge di Faraday, quella relativa all'opposizione al cambiamento di corrente. 
+\begin{define}[Induttanza]
+	L'\textbf{induttanza}\index{induttanza} di una spira $\gamma$ è la tendenza della spira ad opporsi ad un cambiamento nella corrente che scorre in esso. Matematicamente, dipende solo dalla natura geometrica del circuito ed è definita da
+	\begin{equation}
+		L=\frac{\mu_0}{4\pi}\int_{\Sigma}\vba\oint_{\gamma}\frac{\left(d\vba{s}\cross\vbh{u}_{r}\right)\vdot \vbh{u}_n}{r^2}d\Sigma
+	\end{equation}
+\end{define}
+\begin{define}[Autoflusso]
+	L'\textbf{autoflusso}\index{autoflusso} di una spira $\gamma$ percorsa da corrente $I$ è il flusso del campo magnetico generato dalla corrente tramite la superficie delimitata dalla spira stessa:
+	\begin{equation}
+		\Phi_{\Sigma}(\vba{B})=LI
+	\end{equation}
+	dove $L$ è l'\textit{induttanza} della spira.
+\end{define}
+La \fem autoindotta si può dunque esprimere come
+\begin{equation*}
+	\mathcal{E}_i=-\dv{t}\Phi_{\Sigma}(\vba{B})=-\dv{t}\left(LI\right)=-L\dv{I}{t}
+\end{equation*}
+\begin{equation}
+	\mathcal{E}_i=-L\dv{I}{t}
+\end{equation}
+\begin{example}[Solenoide infinito]
+	Supponiamo di avere un solenoide infinito, nella pratica un solenoide di lunghezza $d$ molto maggiore del suo raggio $R$ in modo da escludere, date le notevoli dimensioni, qualunque effetto di bordo. Il campo magnetico è, in modulo,
+	\begin{equation*}
+		B=\mu_0 I n
+	\end{equation*}
+	con $n$ la densità lineare di spire. Se nel solenoide ci sono $N$ spire, ò'autoflusso è dato dalla somma degli autoflussi delle singole spire:
+	\begin{equation}
+		\Phi_{\Sigma}(\vba{B})=\Sigma B N=\pi R^2 \cdot \mu_0 I n \cdot nd=\mu_0 I n^2\Sigma d
+	\end{equation}
+	L'induttanza è quindi
+	\begin{equation}
+		L=\mu_0 n^2\Sigma d
+	\end{equation}
+	dove $\Sigma$ è l'area di una spira del solenoide.
+\end{example}
+\paragraph{Unità di misura}
+\begin{units}~\\
+	\textbf{\textsc{Induttanza:}} henry ($\unit{\henry}$) o weber su ampere  ($\unit[per-mode = fraction]{\weber\per\ampere}$) o volt per secondo su ampere ($\unit[per-mode = fraction]{\volt\second\per\ampere}$) o ohm per secondo ($\unit[per-mode = fraction]{\ohm\second}$).\\
+	\textit{Dimensioni:} $[L]=\frac{\left[\Phi_{\Sigma}(\vba{B})\right]}{\left[I\right]}=\mathsf{M} \mathsf{L}^2 \mathsf{T}^{-2} \mathsf{I}^{-2}$.
+\end{units}
+\section{Circuiti RL}
+Torniamo in ambito elettrotecnico. Per poter aggiungere dell'induttanza ad un circuito si può far uso di un componente elettrico detto \textbf{induttore}.
+\begin{define}[Induttore]
+	Un \textbf{induttore}\index{induttore} è un componente elettrico che implementa gli effetti di un induttanza all'interno di un circuito, in modo da aumentare il flusso magnetico.
+	\begin{center}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (-0.5,0) to [L=$L$] (1.5,0);
+		\end{tikzpicture}
+	\end{center}
+\end{define}
+\begin{example}
+	Un classico esempio di induttore e che è l'origine del simbolo elettrico associato agli induttore è il \textit{solenoide}.
+\end{example}
+\begin{define}[Circuito RL]
+	Un \textbf{circuito RL}\index{circuito!RL} è un circuito che presenta solo \textit{resistori} e \textit{induttori}.
+	\begin{center}		
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [battery1, v>=$\mathcal{E}$] (0,2.5)
+			to [resistor, R=$R_1$, v=$V_R$] (2.5,2.5)
+			to [inductor, L=$L$, v=$V_C$] (2.5,0)
+			to [switch, label=$t<0$, mirror] (0,0)
+			-- (0,0.1);
+			\draw (1,0) to[short, *-] (1,0);
+		\end{tikzpicture}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
+			to [resistor, R=$R_1$, v=$V_R$] (2.5,2.5)
+			to [inductor, L=$L$, v=$\mathcal{E}_i$] (2.5,0)
+			-- (0,0) %to [switch, label=$t>0$, mirror] (0,0)
+			%-- (0,0) node [midway, below] (TextNode) {$t>0$}
+			-- (0,0.1);
+			\draw (1,0) to[short, *-] (1,0);
+			\node at (1.25,-0.5) {$t>0$};
+			\node at (1.25,-0.6) {$ $};
+		\end{tikzpicture}
+	\end{center}
+\end{define}
+Consideriamo il caso semplice di un circuito RL con un resistore e un induttore dotato di un interruttore, inizialmente aperto. Al tempo $t=0$ viene chiuso l'interruttore: poiché si verifica la separazione di cariche da parte del generatore di \fem, la corrente può circolare nel circuito e attraversa l'induttore, generando una forza elettromotrice autoindotta
+\begin{equation*}
+	\mathcal{E}_i=-L\dv{I}{t}
+\end{equation*}
+che si oppone a quella $\mathcal{E}$ del generatore.
+\begin{observe}
+	Inizialmente, la corrente passa lentamente attraverso l'induttore: esso funge quindi da una sorta di \textit{inerzia} della corrente.
+\end{observe}
+Dalla seconda legge di Kirchhoff, fissato come verso di percorrenza quello della corrente $I$, la somma delle \ddp è
+\begin{align*}
+	\mathcal{E}+\mathcal{E}_i-V_R=0\\
+	\mathcal{E}-L\dv{I}{t}-RI=0
+\end{align*}
+Risolviamo questa equazione differenziale per descrivere la corrente $I=I(t)$ che attraversa l'induttore.
+\begin{align*}%TODO: fix
+	&\dv{I}{t}=\frac{\mathcal{E}-RI}{L}\\ &\int_{0}^{I(t)}\frac{dI}{\mathcal{E}-RI}=\frac{1}{L}\int_{0}^{t}dt\\
+	&-\frac{1}{R}\eval{\log{\mathcal{E}-RI}}_{0}^{I(t)}=-\frac{1}{L}\eval{t}_{0}^{t}\\
+	&-\frac{1}{R}\log{\frac{\mathcal{E}-RI(t)}{\mathcal{E}}}=\frac{t}{L}\\
+	&\mathcal{E}-RI(t)=\mathcal{E}e^{-\frac{Rt}{L}}
+\end{align*}
+\begin{equation}
+	I(t)=\frac{\mathcal{E}}{R}\left(1-e^{-\frac{Rt}{L}}\right)=\frac{\mathcal{E}}{R}\left(1-e^{-\frac{t}{\tau}}\right)
+\end{equation}
+%TODO: inserire grafico
+L'andamento temporale della corrente è dettato dal \textbf{tempo caratteristico del circuito RL}\index{tempo caratteristico!del circuito RL}:
+\begin{equation}
+	\tau=\frac{L}{R}
+\end{equation}
+Essa è una costante dimensionalmente pari ad una quantità temporale e quindi nel SI si misura in secondi:
+\begin{equation*}
+	\left[\tau\right]=\frac{\left[L\right]}{\left[R\right]}=\mathsf{M} \mathsf{L}^2 \mathsf{T}^{-2} \mathsf{I}^{-2}\cdot \mathsf{M}^{-1} \mathsf{L}^{-2}  \mathsf{T}^3 \mathsf{I}^{2}=\mathsf{T}
+\end{equation*}
+La corrente dopo un tempo di carica \textit{infinito} è 
+\begin{equation}
+	I_{\infty}=\frac{\mathcal{E}}{R}
+\end{equation}
+ossia a regime l'induttanza smette di fatto di opporsi al generatore e il circuito è equivalente ad un circuito resistore classico.\\
+Per un \textit{matematico} questa situazione non si potrebbe mai realizzare; invece, per un \textit{fisico} questo si realizza - approssimando, neh! - per un tempo tra $3\tau=3RC$ e $3\tau=3RC$. Infatti, si ha
+\begin{align*}
+	I(3\tau)&=\frac{\mathcal{E}}{R}\left(1-e^{-\nicefrac{3\Ccancel[red]{\tau}}{\Ccancel[red]{\tau}}}\right)=\num{0.950}\cdot\frac{\mathcal{E}}{R}\\
+	I(5\tau)&=\frac{\mathcal{E}}{R}\left(1-e^{-\nicefrac{3\Ccancel[red]{\tau}}{\Ccancel[red]{\tau}}}\right)=\num{0.993}\cdot\frac{\mathcal{E}}{R}
+\end{align*}
+i quali sono valori \textit{molto} vicini al valore asintotico $I_{\infty}$ e che nella pratica possiamo assimilare ad esso.\\
+Per ottenere la \fem autoindotta ci basta derivare $I(t)$ rispetto al tempo:
+\begin{equation}
+	\mathcal{E}_i=-L\dv{I(t)}{t}=-\mathcal{E}e^{-\frac{Rt}{L}}
+\end{equation}
+%TODO: inserire grafico
+All'inizio $\mathcal{E}_i$ si oppone \textit{fortemente} al cambio di corrente e quindi al passaggio della stessa dato che è pari alla \fem del generatore $\mathcal{E}$; in seguito diminuisce fino a tendere asintoticamente a zero.
+\paragraph{Potenze ed energia nel circuito RL}
+Come il \textit{condensatore} immagazzinava energia nel \textit{campo elettrico}, l'\textit{induttore} lo immagazzina nel \textit{campo magnetico} generato da esso.\\
+Prima di determinare tale energia, parliamo delle potenze in gioco nel circuito. La potenza erogata dal generatore è
+\begin{equation}
+	P_{\mathcal{E}}(t)=\mathcal{E}I(t)=\frac{\mathcal{E}^2}{R}\left(1-e^{-\frac{Rt}{L}}\right)
+\end{equation}
+mentre quella dissipata dalla resistenza e quella associata all'induttore sono
+\begin{equation}
+	P_{R}(t)=RI^2(t)=\frac{\mathcal{E}^2}{R}\left(1-e^{-\frac{Rt}{L}}\right)^2
+\end{equation}
+\begin{equation}
+	P_{L}(t)=\mathcal{E}_iI(t)=-LI(t)\dv{I(t)}{t}=-\frac{\mathcal{E}^2}{R}e^{-\frac{Rt}{L}}\left(1-e^{-\frac{Rt}{L}}\right)
+\end{equation}
+Si noti che se la \ddp ai capi del generatore è
+\begin{equation}
+	\mathcal{E}=RI+L\dv{I}{t}
+\end{equation}
+si ha
+\begin{equation*}
+	\mathcal{E}(t)I(t)=RI^2(t)+LI\dv{I(t)}{t}\implies P_{\mathcal{E}}(t)=P_R(t)+P_L(t)
+\end{equation*}
+Sul lungo termine, l'energia prodotta dall'induttore complessivamente è
+\begin{equation*}
+	U_L=\int_0^{+\infty}P_Ldt=\int_0^{+\infty} LI(t)\dv{I(t)}{t}dt=\int_{I(0)}^{I(+\infty)}
+	LIdI=\frac{1}{2}L\eval{I}_{I(0)}^{I(+\infty)}=\frac{1}{2}LI_{\infty}^2
+\end{equation*}
+\begin{equation}
+	U_L=\frac{1}{2}L I_{\infty}^2=\frac{1}{2}L\frac{\mathcal{E}^2}{R^2}
+\end{equation}
+\begin{examplewt}[Solenoide]
+	Se l'induttore è un solenoide, l'induttanza è
+	\begin{equation*}
+		L=\mu_0 \Sigma n^2 d
+	\end{equation*}
+	L'energia immagazzinata nel campo magnetico del solenoide è
+	\begin{equation}
+		U_L=\frac{1}{2}\mu_0\Sigma n^2 d  I^2=\frac{1}{2}\frac{B^2}{\mu_0}\Sigma d
+	\end{equation}
+\end{examplewt}
+Osserviamo come $\Sigma d$ corrisponde al volume $V$ occupato dal campo magnetico all'interno del solenoide. Se definiamo la \textbf{densità di energia magnetica per unità di volume}\index{densità!di energia magnetica}
+\begin{equation}\label{DensitàEnergiaMagnetica}
+	\mu_{B}=\frac{1}{2}\frac{B^2}{\mu_0}
+\end{equation}
+l'energia immagazzinata nell'induttore è questa densità moltiplicata per il volume $V$ \textit{occupato} dal campo magnetico.
+\section{Energia del campo magnetico}
+In generale, il campo magnetico immagazzina \textit{sempre} dell'energia nel campo stesso. Tale energia, in un certo volume $V$, è pari a
+\begin{equation}
+	U=\int_V\mu_BdV=\frac{1}{2\mu_0}\int_V\abs{\vba{B}(r)}^2dV
+\end{equation}
+dove $\mu_E$ è la densità di energia magnetica, definita come nell'equazione \eqref{DensitàEnergiaMagnetica}.
+\paragraph{Confronto tra energia elettrica e magnetica}
+\begin{center}
+	\begin{tabular}{p{0.49\textwidth}p{0.49\textwidth}}
+		\multicolumn{1}{c|}{\textbf{Caso elettrico}} &
+		\multicolumn{1}{c}{\textbf{Caso magnetico}} \\ \hline
+		\multicolumn{2}{c}{\textbf{Energia in un}}\\
+		\multicolumn{1}{c|}{\textbf{conduttore}} &
+		\multicolumn{1}{c}{\textbf{induttore}} \\ \hline
+		\multicolumn{1}{c|}{$\displaystyle U_C=\frac{q^2}{2C}$} & \multicolumn{1}{c}{$\displaystyle U_L=\frac{LI^2}{2}$}\\ \hline
+		\multicolumn{2}{c}{\textbf{Densità di energia}}\\ \hline
+		\multicolumn{1}{c|}{$\displaystyle \mu_E=\frac{\epsilon_0}{2}E^2$} & \multicolumn{1}{c}{$\displaystyle \mu_E=\frac{1}{2\mu_0}B^2$}\\ \hline
+		\multicolumn{2}{c}{\textbf{Energia in un volume del campo}}\\ 
+		\multicolumn{1}{c|}{\textbf{elettrico}} &
+		\multicolumn{1}{c}{\textbf{magnetico}} \\ \hline
+		\multicolumn{1}{c|}{$\displaystyle U_E=\frac{\epsilon_0}{2}\int_V E^2dV$} & \multicolumn{1}{c}{$\displaystyle U_B=\frac{1}{2\mu_0}\int_V B^2dV$}\\
+	\end{tabular}
+\end{center}
+Nel caso in cui in un certo volume siano presenti sia il campo elettrico, sia il campo magnetico, le densità di energia si sommano punto per punto:
+\begin{equation}
+	\mu=\frac{1}{2}\left(\epsilon_0E^2+\frac{B^2}{\mu_0}\right)
+\end{equation}
+L'energia complessiva sarà quindi
+\begin{equation}
+	U=\frac{1}{2}\int_V \epsilon_0E^2+\frac{B^2}{\mu_0}dV=U_E+U_B
+\end{equation}
+\section{Legge della circuitazione di Maxwell-Ampère}
+Nel \autoref{chap:leggediampere}, sezione \ref{laleggediAmpereèfalsaepretenziosa} a pag. \pageref{laleggediAmpereèfalsaepretenziosa}, abbiamo osservato la non validità della legge di Ampère
+\begin{align*}
+	\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=\mu_0 I_{int}	&& \left(\text{forma integrale}\right)\\
+	\curl{\vba{B}}=\mu_0\vba{j}	&& \left(\text{forma differenziale}\right)\\
+\end{align*}
+in \textit{condizioni non stazionarie}. Infatti, applicando la divergenza ad entrambi i membri della forma differenziale della legge ottenevamo che essa era consistente soltanto se la \textit{densità di corrente risultasse solenoidale},
+\begin{equation}
+	\div{\vba{j}}=0,
+\end{equation}
+fatto che se la densità di carica varia nel tempo non è più vero sulla base dell'equazione di continuità
+\begin{equation*}
+	\div{\vba{j}}+\pdv{\rho}{t}=0
+\end{equation*}
+La correzione di questa legge deve garantire la validità dell'equazione di continuità.
+Dalla \textit{legge di Gauss per l'elettricità} sappiamo che
+\begin{equation*}
+	\div{\vba{E}}=\frac{\rho}{\epsilon_0}\implies \rho=\epsilon_0\div{\vba{E}}
+\end{equation*}
+Derivando entrambi i membri temporalmente otteniamo
+\begin{equation}
+	\pdv{\rho}{t}=\epsilon_0\div{\pdv{\vba{E}}{t}}\label{Passo1LeggeAmpere}
+\end{equation}
+Ora, sostituendo \eqref{Passo1LeggeAmpere} nell'equazione di continuità, vediamo che
+\begin{equation}
+	\div{\vba{j}}+\epsilon_0\div{\pdv{\vba{E}}{t}}=\div{\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)}=0
+\end{equation}
+Nel caso non stazione, quello che è sempre un vettore \textit{solenoidale} è il vettore
+\begin{equation*}
+	\vba{j}_{tot}=\vba{j}+\epsilon_0\pdv{\vba{E}}{t}
+\end{equation*}
+Introduciamo le seguenti definizioni.
+\begin{define}[Corrente di spostamento e densità di corrente di spostamento]
+	La \textbf{densità di corrente di spostamento}\index{densità!di corrente di spostamento} è la quantità vettoriale
+	\begin{equation}
+		\vba{j}_s=\epsilon_0\pdv{\vba{E}}{t}
+	\end{equation}
+	L'intensità di \textbf{corrente di spostamento} è il suo flusso attraverso una superficie $\Sigma$:
+	\begin{equation}
+		I_S=\int_{\Sigma}\vba{j}_s\vdot \vbh{u}_nd\Sigma=\epsilon_0\int_{\Sigma}\epsilon_0\pdv{\vba{E}}{t}\vdot \vbh{u}_nd\Sigma=\epsilon_0\pdv{\Phi_{\Sigma}(\vba{E})}{t}
+	\end{equation}
+\end{define}
+Dimensionalmente parlando, queste due quantità hanno rispettivamente le stesse dimensioni di una densità di corrente elettrica e un'intensità di corrente elettrica, come i nomi giustamente suggeriscono. Non approfondiamo adesso la spiegazione fisica di \textit{cosa} effettivamente rappresentano   - ma lo faremo tra poco; per ora torniamo alla legge di Ampère.\\
+Posta questa nomenclatura, l'idea è di modificare la legge di Ampère sostituendo alla densità di corrente $\vba{j}$ la \textbf{densità totale}
+\begin{equation*}
+	\vba{j}_{tot}=\vba{j}+\vba{j}_s=\vba{j}+\epsilon_0\pdv{\vba{E}}{t}
+\end{equation*}
+Otteniamo quindi la
+\begin{theorema}[Legge della circuitazione di Maxwell-Ampère]\index{legge!della circuitazione di Maxwell-Ampère}
+	Dato il campo elettrico $\vba{E}$ e quello magnetico $\vba{B}$, presa una superficie $\Sigma$ con bordo $\gamma=\partial \Sigma$ si hanno le seguenti relazioni:
+	\begin{itemize}
+		\item \textbf{Forma integrale:}
+		\begin{multline}
+			\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\left(\int_{\Sigma}\vba{j}\vdot\vbh{u}_n d\Sigma+\epsilon_0\dv{t}\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma\right)=\\
+			=\mu_0 I_{int}+\frac{1}{c^2}\pdv{\Phi_{\Sigma}(\vba{E})}{t}=\mu_0\left(I+I_s\right)\label{LeggeAmpereIntegrale}
+		\end{multline}
+		\item \textbf{Forma differenziale:}
+		\begin{equation}
+			\curl{\vba{B}}=\mu_0\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)=\mu_0\left(\vba{j}+\vba{j}_s\right)=\mu_0\vba{j}_{tot}\label{LeggeAmpereDifferenziale}\qedhere
+		\end{equation}
+	\end{itemize}
+\end{theorema}
+\begin{demonstration}
+	Verifichiamo rapidamente che la riformulazione della legge di Ampère è \textit{consistente} con l'equazione di continuità.\\ 
+	Applicando la divergenza ad entrambi i membri della \eqref{LeggeAmpereDifferenziale}, si ha
+	\begin{equation}
+		0=\div{\left(\curl{\vba{B}}\right)}=\Ccancel[red]{\mu_0}\div{\vba{j}}+\Ccancel[red]{\mu_0}\epsilon_0\div{\pdv{\vba{E}}{t}}\label{Passo2DimleggeAmpere} 
+	\end{equation}
+	Sostituendo la \eqref{Passo1LeggeAmpere}, trovata precedentemente, dentro la \eqref{Passo2DimleggeAmpere} otteniamo l'equazione di continuità come richiesto:
+	\begin{equation*}
+		\div{\vba{j}}+\pdv{\rho}{t}=0\qedhere
+	\end{equation*}
+\end{demonstration}
+\subsection{Interpretazione fisica della corrente di spostamento}
+Oltre ai motivi di \textit{natura matematica} che abbiamo affrontato, la non validità della legge di Ampère e la necessità di introdurre una ‘‘corrente di spostamento'' si può constatare anche dal punto di vista \textit{fisico} in diversi esperimenti, in cui notiamo una \textit{discrepanza} tra i risultati teorici previsti e quelli osservati.
 
-solenoidale se campo dipende solo dal contorno e non dalla superficie che scegliamo non passa realmente corrente fra le piastre, ma ho ddp fra piastre condensatore, quindi passano cariche
+Uno dei più esemplificativi è quello del \textit{processo di carica di un condensatore} per mezzo di un circuito RC, di cui abbiamo parlato nel \autoref{chap:correnteElettrica}, sezione \ref{CircuitiRC}, pag. \pageref{CircuitiRC}.\\
+Ricordiamo che, come detto nell'osservazione di pag. \pageref{correntevariabile}, all'\textit{interno} del condensatore \textit{non} ci sono cariche e dunque neanche una \textit{corrente di conduzione}, ma ai capi del condensatore si ha virtualmente la stessa corrente per repulsione delle cariche. Consideriamo ora un cilindro immaginario $\Sigma$ coassiale al filo e calcoliamo l'intensità di corrente tramite esso in due situazioni differenti: 
+\begin{itemize}
+	\item Se il cilindro $\Sigma$ racchiude al suo interno \textit{entrambe} le armature del condensatore, il flusso netto è nullo. Infatti, a patto di non avere variazioni troppo brusche della carica sulle piastre la densità di carica $\vba{j}$ è la stessa ad entrambi i capi e quindi ‘‘tutto ciò che entra esce''
+	\begin{equation*}
+		i=\dv{q}{t}=\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=0
+	\end{equation*} 
+	\item Se il cilindro $\Sigma$ contiene \textit{soltanto una} delle due armature - non è fondamentale quale - il flusso di $\vba{j}$ \textit{non} è nullo perché c'è una carica entrante o uscente la superficie, ma essa non è controbilanciata da altre cariche uscenti o entranti dal resto della superficie, in quanto nello spazio tra le armature \textit{non} passano particelle libere!
+\end{itemize}
+Nel secondo caso, suddividiamo la superficie in due sottosuperfici $\Sigma_i$ di bordo comune $\partial \Sigma$:
+\begin{itemize}
+	\item $\Sigma_1$ è la base del cilindro, che interseca il filo ma \textit{non} lo spazio in mezzo alle armature.
+	\item $\Sigma_2$ è il resto del cilindro, che interseca lo spazio in mezzo alle armature ma \textit{non} il filo.
+\end{itemize}
+Per la prima superficie $\vba{j}$ lì esiste e quindi l'integrale non è nullo...
+\begin{equation*}
+	\int_{\Sigma_1}\vba{j}\vdot\vbh{u}_n=I=\dv{q}{t}
+\end{equation*}
+... d'altro canto la seconda superficie, non incontrando il filo, \textit{non} presenta alcuna corrente e quindi
+\begin{equation*}
+	\int_{\Sigma_2}\vba{j}\vdot\vbh{u}_n=0
+\end{equation*}
+Sappiamo inoltre che il filo percorso da corrente genera un campo magnetico $\vba{B}$ e il valore della circuitazione di di esso lungo $\partial \Sigma$ \textit{non} è nullo; per la legge di Ampère nella formulazione elettrostatica ci porterebbe a dire che
+\begin{equation*}
+	I=\int_{\Sigma_1}\vba{j}\vdot\vbh{u}_n=\oint_{\partial \Sigma}\vba{B}\vdot\vbh{u}_nd=\int_{\Sigma_2}\vba{j}\vdot\vbh{u}_n=0
+\end{equation*} 
+il che è decisamente assurdo. Inoltre, nel caso considerato $\vba{j}$ non sarebbe solenoidale come previsto invece dalla legge di Ampère.
 
-storicamente ridefiniiamo la corrente per avere corrente totale tale che sia solenoidale, con la formulazione integrale dell'avere due superfici con stesso bordo il cui flusso è uguale
-oppure aggiunta alle eq di Maxwell, simmetrica a quella di Faraday
-
-esercizi per tipo
-\begin{eserciziamociwt}[Elettrostatica]
-	Consideriamo una sfera cava con una densità di carica $\rho=26,58*10^{-8}C/m^2$ uniforme. I raggi della sfera cava sono $R_1=10 cm$ e $R_2=20 cm$.\\
-	%TODO: IMMAGINE
-	Determinare il campo elettrico, la velocità ad $r=R_1$ di un elettrone posto in quietead $r=R_2$
-\end{eserciziamociwt}
-\begin{solution}
-	normalmente non c'è da fare tutto il conto, basta usare il teormea di Gauss (o di Ampère se magnetostatica)
-	Cnosideriamo 3 superfici
-	r<R_1	E(r)=0
-	R_1<r<R_2	per simmetria sferica E dipende solo da r, uso il eorem di Gauss	
-	\Phi(\vba E)=E(r)4\pi r^2 =(carica contenuta all'interno ) =\frac{1}{\epsilon_0}\int^r_{R_1} \rho r'^2 dr' \int_0^\pi\sin\theta d\theta \int_0^{2\pi}d\phi 
-	l'integrale sulle variabili angolari dà 4\pi
-	E(r)4\pi r^2=\frac{\rho 4\pi}{3\epsilon_0}(r^3-R_1^3)
-	E(r)=\frac{rho}{3\epsilon_0}\left(\frac{r^3-R_1^3}{r^2}\right)
-	quindi consideriamo solo la carica interna
-	r>R_2	E(r) per simmetria sferica è come quella generata da una carica puntiforme, dobbiamo determinare la carica
-	E(r=\frac{q}{4\pi \epsilon_0r^2})
-	q lo trovo come densità per volume della corona sferica
-	q=2\pi\int^{R_2}_{R_1}\rho r' dr'=\frac{4\pi\rho}{3}\left(R_2^3-R_1^3\right)=\frac{\rho}{3\epsilon_0r^2}(R^3_2-R^3_1)
-	verifico così anche che p continuo alla superficie, è discontinuo solo se ho distribuzione superficiale, non volumetrica
-	questa era la domanda standard, ora facciamo quella non standard
-	
-	il campo elettrico all'esterno è diretto radialmente verso l'esterno, quindi l'elettrone che ha carica negativa va contro il campo elettrico
-	qui usare l'equazione di Netwotn è sbagliato! il campo elettrico varia nella corona, l'accelerazione non è costante e il problema da risolvere diventa dfficile
-	invece useremo la conservazione dell'energia
-	l'elettrone che va da R_1 a R_2 perde energia potenziale e guadagna energia cinetica
-	\Delta K=-\Delta U
-	=e\Delta V con V differenza di potenziale fra R_2 ed R_1
-	=e\left(V(R_2)-V(R_1)\right)
-	ma \Delta K=\frac{1}{2}m_ev_f^2-\cancel{\frac{1}{2}m_e-v_0^2}
-	con v_f la nostra incognita
-	
-	o ricalcoliamo tutti i potenziali all'interno della sfera, corona ed esterno, oppure ci ricordiamo che E=-\grad V
-	quindi
-	V(R_2)-V(R_1)=-\int_{R_1}^{R_2} E_rdr= -\frac{e\rho}{3\epsilon_0}\int_{R_1}^{R_2} \left(r-\frac{R_1^3}{r^2}\right) dr=
-	=-\frac{e\rho}{3\epsilon_0}\left(\frac{1}{2} (R_2^2-R_1^2) è\left( \frac{R_1^3}{R_2} -\frac{R_1^3}{R_1} \right)\right) = 1,6*10^{-12} J
-	con E_r componente radiale (ma abbiamo solo quella)
-	
-	v_f=\sqrt{\frac{2\Delta K}{m_e}}=5,93*10^{6}m/s
-\end{solution}
-
-\begin{eserciziamociwt}[circuito]
-	Abbiamo un circuito con 3 condensatori di capacità $C_1=2\mu F$, $C_2=2\mu F, C_3=4\mu F$ con f.e.m. $\ee=100 V$.\\
-	Determinare la capacità equivalente, $V_1, V_2, V_3$ e l'energia totale del circuito.
-\end{eserciziamociwt}
-\begin{solution}
-	Vogliamo ridurre il sistema
-	Eliminiamo i condensatori in serie sostituendoli con un equivalente $C'$
-	\frac{1}{C'}=\frac{1}{C_2}+\frac{1}{C_3}
-	C'=\frac{C_2C_3}{C_2+C_3}\frac{4}{3}\mu F
-	rimpiazziamo infine con un condensatore equivalente $C_{eq}$
-	C_{eq}=C_1+C'=\frac{4}{3}+2=\frac{10}{3}\mu F
-	
-	la ddp ai capi dei condensatori 
-	V_1=100 V
-	per $V_2$ e $V_3$ dobbiamo calcolarli $q_2$ e $q_3$.
-	siccome sono in serie 
-	q_2=q_3=q'=C'V 	con V ddp ai capi di C' e C_1, quindi V=\ee (ho usato il circuito intermedio)
-	= \frac{4}{3}100\mu C=133\mu C
-	stiamo usando ripetutamente $q=CV$
-	V_2=\frac{q_2}{C_2}=67 V
-	V_3=\frac{q_3}{C_3}=33 V
-	possiamo controllare che $V_2+V_3=V_1$
-	
-	energia totale: potrei calcolare l'energia singola dei condensatori, ma in realtà è sempre la stessa, la calcolo per il circuito equivalente
-	U=\frac{1}{2}CV^2
-	U=\frac{1}{2}C_{eq}\ee^2 = 1,67*10^{-2} J
-	possiamo controllare che 
-	=\frac{1}{2}C_1 V_1^2+ \frac{1}{2 C_2 V_2^2 +\frac{1}{2} C_3 V_3^2
+Sembrerebbe dunque che oltre al campo magnetico dato dal filo percorso da corrente ci sia un \textit{altro} campo magnetico generato da qualcosa interno alle piastre; per la \textit{legge di Biot-Savart}, quel \textit{qualcosa} dovrebbe essere una \textit{corrente}... ma che sappiamo non esistere!\\
+Maxwell propone come ipotesi per risolvere questo \textit{impasse} proprio quella di supporre l'esistenza di una corrente \textit{fittizia}
+\begin{equation*}
+	\vba{j}_s=\epsilon_0\pdv{\vba{E}}{t}
+\end{equation*}
+e di intensità
+\begin{equation*}
+	I_S=\epsilon_0\int_{\Sigma}\epsilon_0\pdv{\vba{E}}{t}\vdot \vbh{u}_nd\Sigma
+\end{equation*}
+che \textit{scorre tra le piastre} nella stessa direzione della corrente di conduzione $\vba{j}$ - come se \textit{spostasse virtualmente} le cariche da una piastra all'altra.
+Lungo l'intero circuito (spazio tra le armature comprese) possiamo quindi considerare una \textit{densità di carica totale}
+\begin{equation*}
+	\vba{j}_{tot}=\vba{j}+\vba{j}_s
+\end{equation*}
+dove $\vba{j}$ esiste \textit{solo} lungo i fili e $\vba{j}$ esiste \textit{solo} tra le armature del condensatore. Le considerazioni matematiche precedenti ci hanno confermato che, almeno in linea teorica, sostituire nella legge di Ampère a $\vba{j}$ il vettore $\vba{j}_{tot}$ garantisce l'equazione di continuità e di avere una densità di carica (totale) solenoidale.\\
+Ripercorriamo il ragionamento precedente con la densità di carica totale, osservando che per la prima superficie $\vba{j}_{tot}=\vba{j}$...
+\begin{equation*}
+	\int_{\Sigma_1}\vba{j}_{tot}\vdot\vbh{u}_n=\int_{\Sigma_1}\vba{j}\vdot\vbh{u}_n=I=\dv{q}{t}
+\end{equation*}
+... e per la seconda superficie $\vba{j}_{tot}=\vba{j}_s$, osservando che il campo elettrico generato dalle cariche che stanno sulle armature è diverso da zero:
+\begin{equation*}
+	\int_{\Sigma_2}\vba{j}_{tot}\vdot\vbh{u}_n=\int_{\Sigma_2}\vba{j}\vdot\vbh{u}_n=\epsilon_0\int_{\Sigma_2}\pdv{\vba{E}}{t}\vdot\vbh{u}_n=I_S
+\end{equation*}
+Dato che $\vba{j}_{tot}$ è solenoidale, i due flussi ottenuti devono essere uguali.
+\begin{equation*}
+	I=\int_{\Sigma_1}\vba{j}\vdot\vbh{u}_n=\int_{\Sigma_1}\vba{j}_{tot}\vdot\vbh{u}_n=\oint_{\partial \Sigma}\vba{B}\vdot\vbh{u}_nd=\int_{\Sigma_2}\vba{j}_{tot}\vdot\vbh{u}_n=\int_{\Sigma_2}\vba{j}_{s}\vdot\vbh{u}_n=I_s
+\end{equation*}
+\begin{equation}
+	I=I_s
+\end{equation}
+La \textit{corrente totale} ha lo stesso valore lungo l'intero circuito: coincide con $I$ nei cavi di collegamento e $I_s$ all'interno del condensatore.
+\begin{attention}
+	Nonostante il nome suggestivo, con la corrente di spostamento \textit{non avviene alcun moto} fisico di cariche!
+\end{attention}
+\begin{digression}
+	Fra le equazioni di Maxwell, questa è l'\textit{ultima} ad essere stata scoperta. Il contributo al campo magnetico fornito dalla variazione del campo elettrico è molto piccolo a causa del fattore $\nicefrac{1}{c^2}$; per questo motivo, fu ipotizzata \textit{prima} dal punto di vista \textit{teorico} e solo \textit{successivamente}  comprovata \textit{empiricamente}, quando lo sviluppo di strumenti sufficientemente precisi permisero di misurare con certezza tale contributo.
+\end{digression}
+\section{Equazioni di Maxwell dell'elettromagnetismo classico}
+\begin{center}
+	\begin{tabular}{p{0.18\textwidth}|c|c}
+		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
+		\centering{\textbf{Nome}} &
+		\textbf{Forma integrale} &
+		\begin{tabular}{@{}c@{}} \textbf{Forma} \\ \textbf{differenziale}\end{tabular} \\ \hline
 		
-		
-		
-	\end{solution}
-	
-	
-	\begin{eserciziamociwt}
-		Data una spira a forma di triangolo equilatero, essa entra al tempo $t=0$ in un campo magnetico uscente definito nel semipiano $x>0$ con velocità $\vba v_0$.\\
-		%TODO: IMMAGINE
-		Conosciamo i lato della spira $b=20 cm$, la sua massa $m=10 g$, la resistenza $R=0,5 \Omega$, velocità iniziale $v_0=5 m/s$, campo magnetico $B=0,8 T$
-		Determinare in funzione di $x(t)$ posizione del vertice
-		la f.e.m. indotta
-		la correnteindotta
-		la vleocità della spira
-		Determinare la carica totale che circola durante il processo.
-	\end{eserciziamociwt}
-	\begin{solution}
-		la spira entra nel campo manetico, cambia il flusso, induce feme correnteogni spira che si muove in cmp mgn subisce forza di attrito magnetico: diminuisce nel tempo finché tutta la spira ha oltrepassato l'asse x, quniid il flusso rimane costante e la fem si azzera: ho fem solo quando $0<x(t)<altezza triangolo$
-		
-		\ee=-\dv{\Phi(\vba B)}{t}
-		il flusso è attraverso la parte di superficie che è già dentro al semipiano $x>0$, cioè la superficie $\sigma$
-		\Phi(\vba B)=B\sigma==
-		calcoliamo $\sigma$, il lato del suo bordo che è un triangolo equilatero
-		l=\frac{x(t)r}{\sqrt{3}}
-		\sigma=\frac{x^2(t)}{\sqrt{3}}
-		==B\frac{x^2(t)}{\sqrt{3}}
-		calcoliamo la f.e.m.
-		\ee=-\frac{2B}{\sqrt{3}} x(t)v(t)
-		corrnete indotta per legge di Ohm
-		i=\frac{\ee}{R}=-\frac{2B}{\sqrt{3}R} x(t)v(t)
-		corrente che produce campo magnetico opposto al campo magnetico esistente che l'ha generata, usiamo la regola della vite per trovare il verso/senso in cui gira (deve entrare nel foglio)
-		per determinare la velocità della spira dobbiamo usare l'equazione di Newton
-		forza che agisce su una spira in un campo magnetico è
-		\vba F=i\int d\vba s\cross\vba B= \vba F_1 +\vba F_2
-		la forza che sta agendo sulla spira è data solo dal pezzo di circuito che si trova all'interno del campo magnetico, quindi facendo $d\vba s\cross\vba B$ abbiamo delle forze ortogonali che lungo l'asse $y$ si cancellano, le componenti $x$ si sommano e producono forza di attrito magnetico. Notiamo che gli angoli sono di $30$ 3 $60$ gradi, quindi abbiamo un coseno noto
-		F_{1x}=-F_1\cos\theta=-\frac{F_1}{2}
-		F_{2x}=-F_2\cos\theta=-\frac{F_2}{2}
-		quindi sono uguali in modulo
-		F_{1x}+F_{2x}=F_1+F_2
-		$\vba B$ esce dall'integrale perché è costante
-		F_1=i\vba B\int d\vba s\cross \vbh u_z
-		\abs{\vba F_1}=i B \underbrace{\frac{2x(t)}{\sqrt{3}}}_{lunghezza del segmento}
-		F_x=\frac{-2iBx(t)}{\sqrt{3}}
-		le componenti che ci interessano e danno attrito magnetico sono quelle lungo l'asse $x$
-		%TODO: IMMAGINE
-		F_x=-\frac{4 B^2}{3R} x^2(t) v(t)
-		usiamo l'equazione di Newton
-		m\dv[2]{x}{t}=-\frac{4 B^2}{3R} x^2(t) v(t)
-		dobbiamo scriverla in funzione della velocità e ci accorgiamo che il membro di sinistra è una derivata totale
-		\dv{v}{t}--\frac{4 B^2}{3Rm} \frac{1}{3}\dv{t}(x^3(t))
-		integriamo ambo i membri
-		v(t)=c-\rac{4B^2}{)Rm}x^3(t)
-		la condizione iniziale è che per t=0 abbiamo v=v_0
-		v(t)v-0-\frac{4B^2}{9Rm} x^3(t)
-		
-		recap: fem e intensità di corrente (standard), per la velocità bisogna calcolarsi le forze, una volta che abbiamo il modulo sappiamo la forza, uguagliamo all'accelerazione grazie alla legge id Newton, rimuovo una derivata ed esprimiamo $v$ in funzione di $x$
-		
-		x_{max}=\frac{b\sqrt{3}}{2}
-		v_f=v_0-\frac{4B^2}{9Rm}\left( \frac{b\sqrt{3}{2}\right)^3= 4,71 m/s
-			
-			la carica è l'integrale della densità di corrente per tutto il tempo
-			q=\int_0^{+\infty} idt = \int^{+\infty}_0 \frac{1}{R}\dv{\Phi(\vba B)}{t} dt= \frac{1}{R} \Delta\Phi(\vba B) =\frac{1}{R} B\Sigma= \frac{1}{R} B\frac{b^2\sqrt{3}{4}=2,78*10^{-12}
-				differenza di flusso, dopo che tutto il triangolo è entrato ho tutto il flusso
-				con i=\dv{q}{t}	
-				
-			\end{solution}
-			
-			un esercizio di questo tipo è al massimo livello di difficoltà
-			
-			abbiamo ancora 4 settimane di lezione
-			
-			
-	content
-\end{comment}
-
-
-
-
-
-
-
+		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
+			\\[-2mm]\textbf{Legge di Gauss per l'elettricità}\\[-2mm]~
+		\end{tabular}
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\Phi_{\partial V}(\vba{E})=\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{q_{int}}{\epsilon_0}=\frac{1}{\epsilon_0}\int_{V}\rho dV$\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\div{\vba{E}}=\frac{\rho}{\epsilon_0}$\\[-2mm]~
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
+			\\[-2mm] \textbf{Legge di Gauss per il magnetismo}\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\Phi_{\partial V}(\vba{B})=\int_{\partial V}\vba{B}\vdot\vbh{u}_nd\Sigma=0$\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\curl{\vba{E}}=-\pdv{\vba{B}}{t}$\\[-2mm]~
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
+			\\[-2mm] \textbf{Legge dell'induzione di Faraday}\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[l]{@{}l@{}}
+			\\[-3mm]
+			$\displaystyle\Gamma_{\gamma}(\vba{E})=\oint_{\partial \Sigma} \vba{E}\vdot d\vba{s}=$\\
+			$\displaystyle\quad=-\dv{t} \int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=-\int_{\Sigma}\pdv{\vba{B}}{t}\vdot\vbh{u}_nd\Sigma$\\[-1mm]~
+		\end{tabular}
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\curl{\vba{E}}=0$
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
+			\\[-2mm] \textbf{Legge della circuitazione di Ampère-Maxwell}
+		\end{tabular} &
+		\begin{tabular}[l]{@{}l@{}}
+			\\[-3mm]
+			$\displaystyle\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=$\\
+			$\displaystyle\quad=\mu_0\left(\int_{\Sigma}\vba{j}\vdot\vbh{u}_n d\Sigma+\epsilon_0\dv{t}\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma\right)=$\\
+			$\displaystyle\quad=\mu_0I_{int}+\frac{1}{c^2}\pdv{\Phi_{\Sigma}(\vba{E})}{t}=\mu_0\left(I+I_s\right)$
+		\end{tabular} &
+		\begin{tabular}[l]{@{}l@{}}
+			\\[-2mm]
+			$\displaystyle\curl{\vba{B}}=\mu_0\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)$\\
+			$\displaystyle\quad=\mu_0\left(\vba{j}+\vba{j}_s\right)=\mu_0\vba{j}_{tot}$
+		\end{tabular}
+	\end{tabular}
+\end{center}

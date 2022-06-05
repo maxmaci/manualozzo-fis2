@@ -1,0 +1,1384 @@
+\begin{comment}
+	%LEZ 16 28/03/2022
+	\subsection{Digressione sulla derivazione della legge generale di Ampère}
+	Riprendiamo la legge di Ampere, per cui la circuitazione del campo magnetico nel caso stazionario è data da:
+	\begin{equation*}
+		\oint_\gamma \vba B\vdot d\vba s = \mu_0 i	
+	\end{equation*}
+	Riscrivendola opportunamente
+	%TODO: capire che stregoneria ha fatto, temo sia un'integrazione
+	si ottiene una relaziona vettoriale in forma differenziale quale
+	\begin{equation*}
+		\grad\cross\vba B= \mu_0 \vba j
+	\end{equation*}
+	%TODO: inserie disegno del filo infinito: 16.1
+	
+	Questo era nel caso di un filo rettilineo infinito con la circuitazione calcolata su una curva qualsiasi $\gamma$. Ma perché abbiamo lavorato un filo \textit{rettilineo infinito}?\\
+	Consideriamo ora un circuito qualsiasi $\gamma_2$, attraversato da un certo campo magnetico.
+	%TODO: inserie immagine 16.2
+	Data un'altra curva $\gamma_1$ potrei calcolarmi la circuitazione del campo magnetico attraverso quest'ultimo.
+	\begin{equation*}
+		\oint_\gamma \vba B\vdot d\vba s
+	\end{equation*}
+	con $d\vba s$ lungo $\gamma_1$. Se le curve chiuse si intersecano, la circuitazione dovrà essere $\mu_0 i$ per la legge di Ampère.\\
+	Parametrizzo $\gamma_1$ come $\gamma_1 \colon \vba r(\phi_1)$ e parametrizzo il circuito con un'altra curva $\gamma_2 \colon \vba r(\phi_2)$ Inoltre $d\vba s= \dv{\vba r (\phi_1)}{\phi_1} d\phi_1$.\\
+	Usando la prima legge di Laplace il campo magnetico generato dal circuito calcolato nel vettore posizione $\vba r$ è
+	\begin{equation*}
+		\vba B (\vba r)=\frac{\mu_0 i}{4\pi}\int_{\gamma_2} d\vba{s}_2 \cross \frac{\vba r - \vba r (\phi_2)}{\abs{\vba r_ - \vba r (\phi_2)}^3}
+	\end{equation*}
+	
+	Valutando invece il campo magnetico sull'altra curva $B(r(\phi_1))$ si ha:
+	\begin{gather*}
+		\Gamma_{\gamma_1}(\vba B)= \oint_{\gamma_1}\frac{\mu_0i}{4\pi} \oint_{\gamma_2} d\vba s \cross \frac{\vba r - \vba (\phi_2)}{\abs{\vba r - \vba (\phi_2)}^3} \vdot d\vba{s}_1=\\
+		=\frac{\mu_0i}{4\pi}\oint_{\gamma_1} \oint_{\gamma_2} d\vba{s}_1\cross d\vba{s}_2 \vdot \frac{\vba r_1(\phi_1) - \vba r_2 (\phi_2)}{\abs{\vba r_1 - \vba r_2}^3}	
+	\end{gather*}
+	Notiamo che possiamo cambiare l'ordine fra prodotto vettoriale e scalare perché si tratta di un determinante.\\
+	Sappiamo - a posteriori - che legge di Ampere dovremmo ottenere $\mu_0 i$, quindi l'integrale dovrebbe essere $1$. Per riottenere effettivamente questo risultato riconosciamo il \textbf{linking number di Gauss}\index{linking number di Gauss}, che è un invariante topologico rilevante con teoria dei nodi: esso conta il numero di volte che le curve si intersecano con segno. %lezioni di topologia yt
+	Il linking number che conta le intersezioni è $\pm 1$, con il segno deciso grazie all'orientamento delle curve.\\
+	%TODO: inserire immgini 16.3 e 16.4
+	Si ha che il linking number è 
+	\begin{equation*}
+		n=\frac{1}{4\pi} \frac{\vba r_1 - \vba r_2 }{\abs{\vba r_1 - \vba r_2}^3}	
+	\end{equation*}
+	Inoltre esso è collegato anche alla \textit{mappa di Gauss} \index{Gauss!mappa di}, una mappa $G$ che mappa una qualsiasi superficie in $\realset^3$ sulla sfera di raggio $1$, ma in questo caso mappa un toro sulla sfera prendendo la differenza delle parametrizzazioni e normalizzandola:
+	$\funztot[G] {S^1\times S^1} {S^2} {(\phi_1, \phi_2)}{ \frac{\vba r_1(\phi_1) - \vba r_2 (\phi_2)}{\abs{\vba r_1(\phi_1) - \vba r_2(\phi_2)}^3}	}$, che è sicuramente sulla sfera di raggio $1$ perché ha norma $1$. \\
+	Questo integrale $n$ è l'area dell'immagine della mappa di Gauss. Notiamo che la mappa non è biunivoca: se le due curve si intersecano una volta la mappa ricopre la sfera due volte: essa conta l'area delle immagini della mappa di Gauss divisa per $4\pi$, cioé quante volte la mappa ricopre la sfera in base a quante volte si intersecano. Inoltre $n$ è sempre un \textit{numero intero} e se le curve non si intersecano è nullo. Le considerazioni appena fatte provengono dalla teoria dei nodi. \\
+	Abbiamo così dedotto la legge di Ampère dal caso generale.
+	
+	
+	%CIT: ci sono domande a cui io sappia rispondere su questo?
+	
+	Adesso useremo la legge di Ampére per ricavare il campo magnetico, esattamente come abbiamo ricavato il potenziale di Coulomb con la legge di Gauss.
+	\begin{examplewt}[Filo rettilineo infinito]
+		%TODO: inserire immagine 16.5
+		Per simmetria cilindrica il campo magnetico dipende solo dal raggio $R$ ed è diretto lungo $\vbh{u}_\phi$ che indica lo spostamento angolare, quindi $\vba B=B(R)\vbh{u}_\phi$.\\
+		La circuitazione è $\mu_0 i$. Prendo una superficie $\gamma$ per portare fuori il campo magnetico dall'integrale, come per la legge di Gauss per non calcolare il flusso. Scelgo una superficie per cui l'integrale è costante: una circonferenza di raggio $R$, in questo caso $d\vba s=Rd\phi$. Siccome l'integrale è in $d\phi$ ma $\vba B$ dipende solo da $R$, ottengo
+		\begin{gather*}
+			\oint\vba B\vdot d\vba s= \mu_0 i \implies \vba B(R)R\int^{2\pi}_0 d\phi=\mu_0 i \implies B=\frac{\mu_0 i}{2\pi R}
+		\end{gather*}
+		Abbiamo così derivato la legge di Biot- Savart. 
+	\end{examplewt}
+	In questo caso è stato così semplice perché ho una simmetria particolare dietro, in generale però non è vero. Infatti conoscere la circuitazione o il rotore di solito non è sufficiente per trovare il campo vettoriale. Vediamo un altro esempio.
+	
+	\begin{examplewt}[Solenoide infinito]
+		Per simmetria sappiamo che il solenoide infinito produce un campo magnetico all'interno del solenoide e nessun campo magnetico all'esterno del solenoide stesso. Proviamo a ricavarlo di nuovo usando una particolare curva.\\
+		%TODO: inserire immagine 16.6
+		Prendo una curva $\gamma$ rettangolare e calcolo la circuitazione lungo essa. Il campo magnetico potrebbe dipendere dal raggio ed è diretto lungo $\vbh{u}_z$, con l'asse z diretto verso l'alto, quindi $\vba B=B(R)\vbh{u}_z$.\\
+		La circuitazione lungo la curva $\gamma$ sarà
+		\begin{gather*}
+			\oint_\gamma \vba B\vdot d\vba s=\left( \int^B_A + \int_B^C + \int^D_C + \int^A_D  \right) \vba B\vdot d\vba s= \int^B_A \vba B\vdot s=\\
+			=\int^{z_2}_{z_1} B(R)dz=B(R)(z_2-z_1)
+		\end{gather*}
+		Questo perché l'unico tratto che contribuisce è l'integrale fra $A$ e $B$, infatti i tratti $\overline{BC}$ e $\overline{AD}$ sono ortogonali al campo magnetico, invece lungo il tratto $\overline{CD}$ è nullo perché il campo magnetico è esterno al solenoide. Inoltre siccome stiamo integrando lungo la verticale si ha $\vbh{u}_z\vdot ds=dz$.\\
+		Per la legge di Ampère $B(R)(z_2-z_1)=\mu_0 i_\gamma$, dove $i$ è la corrente che attraversa la spira, mentre $i_\gamma$ è la corrente che attraversa al curva $\gamma$ ed è data dal numero di spire contenute nella curva. Avevamo definito il numero di spire $N$ come l'integrale della densità lineare di spire $n$ (supposta costante), mentre la corrente che interseca $\gamma$ è data dall'intensità di corrente nella spire per il numero di spire lì dentro:
+		\begin{gather*}
+			N=\int^{z_2}_{z_1}ndz = n(z_2-z_1) \implies i_\gamma=Ni=n(z_2-z_1)i
+		\end{gather*}
+		La $i$ è la densità di corrente che sta girando nel solenoide, quindi di ogni singola spira. Ricavo quindi che $\vba B$ non dipende neanche da $R$, infatti:
+		\begin{gather*}
+			B(R)\cancel{(z_2-z_1)}=\mu_0 i_\gamma= \mu_0n\cancel{(z_2-z_1)}i \implies B=\mu_0 i n
+		\end{gather*}
+		%DOUBT: mettiamo il recap o no? è molto sintetico ma potrebbe confondere
+		Ricapitolando, il rettangolo è stato scelto in modo accurato, infatti solo un lato parallelo al campo magnetico contribuisce all'integrale e lungo $z$ si ha $\vba B$ costante. Consideriamo poi la densità di corrente data dal numero di spire, ed ogni spira ha intensità di corrente $i$. Infine uguagliamo alla circuitazione e ritroviamo il campo magnetico.	
+	\end{examplewt}
+	
+	\begin{observe}
+		Gli esempi appena visti sono l'equivalente in elettrostatica del trovare il campo elettrico in condizioni di simmetria grazie alla legge di Gauss: 
+		\begin{align*}
+			\text{sfera con densità di carica uniforme} & \leftrightsquigarrow  \text{filo percorso da corrente}\\
+			\text{solenoide infinito} & \leftrightsquigarrow  \text{piastre}
+		\end{align*}
+	\end{observe}
+	%TODO: verificare esempi elettrostatica, sia per denominazione sia per reference
+	
+	\subsection{Elettrostatica e magnetostatica a confronto}
+	L'elettrostatica e la magnetostatica si riassumono in 4 equazioni.
+	%DOUBT: mettiamo un array? alla lavagna è una tabella
+	\begin{gather*}
+		\begin{array}{c|c}
+			\div{\vba E}=\frac{\rho}{\epsilon_0} & \div{\vba B}=0\\
+			\\
+			\hline
+			\\
+			\curl{\vba E}=0 & \curl{\vba B}=\mu_0\vba j
+		\end{array}
+	\end{gather*}
+	%TODO: bisogna migliorare la spaziatura, senza spazi \\ è tutto appiccicato
+	%	possibile alternativa: multicol
+	Notiamo che le equazioni sono ancora indipendenti, questo perché siamo nel caso statico e stazionario in cui i campi non dipendono dal tempo.
+	
+	
+	Siccome il gradiente del campo elettrico è nullo, esiste un campo scalare $V$ tale che $\vba E=-\grad V$: sostituendo nella prima equazione ottengo la legge di Poisson \index{Poisson!equazione} \index{equazione! di Poisson} 
+	\begin{equation*}
+		\laplacian V=-\frac{\rho}{\epsilon_0}
+	\end{equation*}
+	
+	Siccome la divergenza di B è nulla, esiste un potenziale vettore $\vba A$ tale che $\vba B=\curl{\vba A}$. Sostituendo questa equazione nella prima e sviluppando otteniamo
+	\begin{gather*}
+		\curl\left(\curl\vba A\right)=\mu_0\vba j\\
+		\grad \left( \div{\vba A}\right) - \laplacian{\vba A}=\mu_0 \vba j
+	\end{gather*}
+	
+	%OLD
+	%Nella prima lezione %MANCA REFERENCE
+	%abbiamo visto che il rotore del rotore è ...
+	%Dobbiamo fare vedere che il potenziale $A$. Con $V$ era definito a meno di potenziale, per cui conta solo la differenza di potenziale: 
+	Il potenziale $V$ è sempre definito a meno di costanti, infatti quello che conta è la differenza di potenziale: in termini più rigorosi, la sua classe di equivalenza sarà $V\sim V+a$. \\
+	Nel caso del potenziale vettore $A$ c'è qualcosa in più: se definisco $\vba A=\vba A+\grad\oldphi$ allora questo non cambia il campo magnetico:
+	\begin{gather*}
+		\vba B=\curl\vba A=\curl \left( \vba A+\grad\oldphi\right)= \curl \vba A + \cancel{\curl\grad\oldphi}=\curl\vba A		
+	\end{gather*} 
+	perché il rotore del gradiente è nullo. Quindi il potenziale vettore $A$ è definito a meno di una costante e a meno di un gradiente. Questo è un caso dell'\textit{invarianza di Gauge} \index{Gauge!invarianza di} \index{invarianza!di Gauge}.\\
+	%Tale invarianza ci permette di 
+	Analogamente al caso dell'elettrostatica, in cui fissando $V=0$ all'infinto possiamo determinare una costante, fissiamo l'invarianza di Gauge in modo tale che la divergenza di $\vba A$ sia nulla, cioé $\div \vba A=0$. 
+	%OLD 
+	%Posso fissare l'invarianza (scelta rappresentante nella classe di equivalenza) in modo che la divergenza di $\vba A$ sia nulla, cioé $\div \vba A=0$. 
+	Se consideriamo un campo vettoriale $\vba A$ la cui divergenza non è nulla, lo mappiamo sotto la trasformazione $\vba A\sim \vba A+\grad\varphi$. Usiamo $\vba A'$ con $\div \vba A'=0$ e lo scriviamo come
+	\begin{gather*}
+		\div\vba A+\div\grad\oldphi=0 \implies \laplacian\oldphi= -\div\vba A
+	\end{gather*}
+	Ovvero scegliamo lo scalare $\oldphi$ in modo tale che il suo laplaciano sia come sopra. In questo modo $\oldphi$ sarà determinato da un'equazione differenziale del secondo ordine ed è detta \textit{scelta di Gauge} \index{Gauge!scelta di}.\\
+	%OLD
+	%faccio la trasformazione $\vba A'$ per avere
+	%è detta scelta di Cage (?).
+	%
+	%con questa scelta mando a zero $\grad(\div A)$.
+	
+	Abbiamo così ottenuto che sia l'elettrostatica sia la magnetostatica sono soluzioni dell'equazione di Poisson, infatti componente per componente i laplaciani di $\vba A$ sono 
+	\begin{gather*}
+		\laplacian\vba A=-\mu_0\vba j\\
+		\laplacian A_x=\mu_0 j_x\\
+		\laplacian A_y=\mu_0 j_y\\
+		\laplacian A_z=\mu_0 j_z\\
+		\hline
+		\laplacian V=-\frac{\rho}{\epsilon_0}
+	\end{gather*}
+	
+	Così si riduce tutto a 4 equazioni di Poisson per i potenziali: una con il potenziale scalare per l'elettrostatica, e tre per la magnetostatica. Data una certa configurazione di $\rho$ e $\vba j$, cioé intensità di carica e corrente posso determinare i potenziali e da essi i campi elettrici e magnetici.\\
+	
+	Possiamo far vedere che la soluzione più generale, date condizioni al contorno fisiche, cioé $V$ e $\vba A$ vanno a $0$ ad infinito, allora la soluzione di equazioni differenziali è data da
+	\begin{gather*}
+		\vba A(\vba r)=\frac{\mu_0}{4\pi}\int\frac{\vba j(\vba r)}{\abs{\vba r-\vba r'}} dV' \text{ dove } dV'=dx'dy'dz'\\
+		V(\vba r)=\frac{1}{4\pi\epsilon_0}\int \frac{\rho(\vba r')}{\abs{\vba r-\vba r'}}dV'
+	\end{gather*}
+	%OLD
+	%La soluzione che trovo sono 
+	%Controllo con il laplaciano di V(r) e dovrei trovare $\frac{\rho}{\epsilon_0}$.
+	%TODO: va aggiustata la formattazione delle formule, oltre agli environment
+	
+	Vediamo ora nella pratica come usare queste soluzioni con delle situazioni che abbiamo già incontrato
+	\begin{examplewt}[Sfera carica uniformemente]
+		Ritroviamo il campo elettrico sia interno sia esterno di una sfera di raggio $R$ carica uniformemente con $\vba\rho(\vba r)=\begin{cases}
+			\rho & r<r_0\\
+			0 & r>r_0
+		\end{cases}$. 
+		Ci mettiamo in coordinate sferiche$\begin{cases}
+			x=r\cos\phi\sin\theta\\
+			y=r\sin\phi\sin\theta\\
+			z=r\cos\theta
+		\end{cases}$
+		e dopo qualche considerazione calcoliamo l'integrale $V(r)$ dato dall'equazione di Poisson:
+		\begin{itemize}
+			\item Calcoliamo in anticipo $dV'=(r')^2\sin\theta 'dr'd\theta 'd\phi '$
+			\item Se scegliamo il punto in maniera furba abbiamo $|\vba r-\vba r'|=\sqrt{r^2+(r')^2-2rr'\cos\theta '}$.
+			\item L'integrale sarebbe definito fra $0$ e $+\infty$, ma siccome $\rho$ è definito solo all'interno della sfera ci limitiamo a $r_0$
+			\item $\rho$ è costante quindi lo portiamo via dall'integrale
+		\end{itemize}
+		%NOTA: l'itemize è una mia idea per riassumere tutte le varie considerazioni, in un testo unico sarebbe stato un po' dispersivo e sembrava un essay in cui si cercano 100 sinonimi di since
+		Otteniamo così:
+		\begin{gather*}
+			V(r)=\frac{\rho}{4\pi\epsilon_0}\int^{r_0}_0dr' \int^\pi_0 d\theta' \int^{2\pi}_0 d\phi' \frac{(r')^2 \sin\theta '}{\sqrt{r^2+(r')^2 -2rr'\cos\theta '}}\squarequal	
+		\end{gather*}
+		Per i passaggi successivi invece
+		\begin{enumerate}
+			\item operiamo un cambio di variabile $\begin{cases}
+				u=\cos\theta'\\
+				du=-\sin\theta'
+			\end{cases}$
+			\item l'integrale $\int^{2\pi}_0 d\phi'=2\pi$ perché $V$ non dipende da $\phi'$.
+			\item siccome $y=\cos\theta'$ cambiamo i segni di integrazione spostando l'intervallo di integrazione su $[-1,1]$%OLD lo mangia e va in $y$. 
+			\item prestiamo attenzione alla derivata dell'argomento: %OLD facendo la derivata della radice abbiamo 1/2rad per derivata dell'argomento rispetto a y, 
+			semplifichiamo il 2, $r$ esce dall'integrale, $r'$ si semplifica ed otteniamo $\frac{\rho}{2\epsilon_0 r}$. %OLD Valutiamo $r+r'$ in $1$ e in $-1$ 
+			\item il modulo di numeri positivi (i raggi $r+r'$) è positivo, quindi togliamo il modulo. 
+		\end{enumerate}	
+		\begin{gather*}
+			\stackrel{(1,2,3)}{\squarequal}\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr'\int^1_{-1}\negthickspace du \frac{-(r')^2}{\sqrt{r^2+(r')^2-2rr'u}} \stackrel{(4)}{=}
+			\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr' \eval{\frac{-(r')^2}{rr'} \sqrt{r^2+(r')^2-2rr'u}}^1_{-1}=\\
+			=\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr' (-r')\left( \abs{r-r'}-\abs{r+r'} \right)
+			\stackrel{(5)}{=}\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr' r'\left( r+r' + \abs{r-r'} \right)		
+		\end{gather*}
+		%NOTA: soluzione artigianale del \negthickspace perché usciva fuori l'ultimo =
+		Ed è qui che distinguiamo il caso dentro la sfera e fuori dalla sfera:
+		\begin{itemize}
+			\item Fuori dalla sfera:  $r>r_0$.\\
+			Siccome $r'$ è integrato fra $r$ e $r_0$, allora siamo fuori dal range di integrazione di $r'$, quindi consideriamo $r>r'$.\\
+			Siccome $\rho$ è la carica sul volume della sfera, cioé $\rho=\frac{q}{V_S}=\frac{q}{\frac{4}{3} \pi r_0^2}$, sostituisco in $V$ e trovo il potenziale di Coulomb solito:
+			\begin{gather*}
+				V(r)=\frac{\rho}{\cancel 2\epsilon_0 r}\int^{r_0}_0 \cancel 2 (r')^2 dr'= \frac{q r_0^3}{3\epsilon_0 r}=\frac{qr_0^3}{\frac{4}{3}\pi r_0^3 r}=\frac{q}{4\pi \epsilon_0 r}
+			\end{gather*}
+			Il campo elettrico allora è:
+			\begin{gather*}
+				\vba E=-\grad V=\pdv{V}{r}\vbh{u}_r =\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r		
+			\end{gather*}
+			\item Dentro la sfera: $r<r_0$.\\
+			Facendo l'integrale dobbiamo spezzarlo fra $0$ ed $r$ e poi da $r$ a $r_0$, per poi uscire con segno positivo o negativo in base al modulo più grande: %OLD (maggiore  o minore di r su sui sto integrando)		
+			\begin{gather*}
+				V=\frac{\rho}{2\epsilon_0}\left( \int^r_0 dr'(2r')^2 + \int^{r_0}_r dr' 2rr' \right)= \frac{\rho}{2\epsilon_0 \cancel r} \left( \frac{2}{3} r^3 + \cancel r (r_0^2 -r^2) \right)=\frac{\rho}{2\epsilon_0}\left( r_0^2 -\frac{r^2}{3} \right)\\
+				\vba E=-\grad V= -\pdv{V}{r}\vbh{u}_r =\frac{\rho r}{3\epsilon_0}\vbh{u}_r
+			\end{gather*}
+		\end{itemize}
+		Notiamo che il potenziale è continuo per $r=r_0$, inoltre coincide anche la loro derivata rispetto a $r$
+		%NOTA: forse l'itemize non è la scelta migliore, per ora ho lasciato questa per distinguere meglio i casi
+		%GRAFICI 16.8 e 16.9
+		
+		Potenziale:	In $R$ è continua ed è continua anche la derivata prima: non ho cuspidi. 
+		$V(r)=\begin{cases}
+			\frac{\rho}{2\epsilon_0}(r_0^2 -\frac{r^2}{3}) & r<r_0\\
+			\frac{q}{4\pi\epsilon_0 r} &r>r_0
+		\end{cases}$\\
+		Il campo elettrico invece è lineare fino ad $R$ e poi decade come $1/r^2$
+		$\vba E(r)=\begin{cases}
+			\frac{\rho r}{3\epsilon_0} & r<r_0\\
+			\frac{q}{4\pi\epsilon_0 r^2} & r>r_0
+		\end{cases}$
+		Siamo riusciti a fare l'integrale perché la configurazione è simmetrica. Abbiamo così ricavato un risultato già noto partendo dall'equazione di Poisson.
+	\end{examplewt}
+	%NOTA: non avendo i grafici ho lasciato questa non impaginazione, poi andranno fatti i riquadri
+	
+		
+	
+	Questo è simile all'effetto Haul(?),perché è un esempio di campo elettrico indotto da forza di Lorentz.\\
+	%TODO: da aggiustare motivazione seguente sui vari prodotti usati
+	Se le cariche si stanno muovendo con velocità ortogonale al circuito	punto per punto guardiamo come sono diretti il campo magnetico e la velocità della spira	il campo elettrico generato fa girare intorno le cariche.\\
+	La \fem indotta è pari alla circuitazione del campo elettrico, ma non sarà conservativo, poi siccome stiamo assumendo $\vba B$ non uniforme ma costante nel tempo (esso dipende dalla posizione, le derivate sulla posizione non sono nulle).\\
+	la derivata rispetto al tempo può uscire dall'integrale, ma $d\vba s$ è parallelo e rimane uguale, infatti è il vettore spostamento lungo la spira punto per punto tangente al circuito, invece	$d\vba r $ è ortogonale alla spira e indica lo spostamento che sta facendo il circuito nello spazio	
+	\begin{gather*}
+		\mathcal{E}_i=\Gamma_\gamma(\vba E_i)=\oint\vba E_i\vdot d\vba s=\oint \vba v\cross\vba B d\vba s=\\
+		=\oint d\vba s\cross\vba v\vba B=\oint d\vba s\cross\dv{\vba r}{t}\vdot\vba B= \dv{t}\oint_\gamma d\vba s\cross d\vba r\vdot\vba B\squarequal
+	\end{gather*}
+	%DOUBT: mettiamo un itemize come nella leione precedente visto che è una lista di considerazioni da fare prima/durante il gather?
+	Adesso immaginiamo la superficie laterale: abbiamo una sorta di cilindro sbilenco dallo spostamento nel tempo del circuito.
+	%OLD dr=vdt	d\Sigma\vdot un
+	Se consideriamo $d\vba s\cross d\vba r$, esso punta in direzione ortogonale alla superficie laterale ed integrandolo lungo tutta la spira otteniamo tutta la superficie laterale, possiamo infatti considerarlo come l'elemento infinitesimo di superficie $d\Sigma_l\vdot\vbh u_n=d\vba s\cross d\vba r$. Infatti data $\gamma$ curva bordo di una base, l'area laterale del cilindro è l'integrale lungo la coordinata su cui costruisco il cilindro ($d\vba s$) prodotto vettoriale con vettore spostamento lungo la direzione verticale in cui sto costruendo il cilindro e di modulo l'altezza del cilindro:	nel nostro caso $d\vba r$ è piccolo, quindi abbiamo $d\Sigma_l$, ovvero $\Sigma_l\vdot\vbh u_n=\oint_\gamma d\vba s\cross d\vba r$
+	.\\
+	Tornando all'integrale 
+	\begin{gather*}
+		%\dv{t}\oint_\gamma d\vba s\cross d\vba r\vdot \vba B=\dv{t}
+		\squarequal \dv{t}\int_{\Sigma_l}\vba B\vdot\vbh u_n d\Sigma_l
+	\end{gather*}
+	Abbiamo quindi trovato che la \fem indotta è il flusso del campo magnetico attraverso la superficie laterale infinitesima, detto anche \textit{flusso tagliato}
+	\begin{equation*}
+		\mathcal{E}_i=\dv{t}\Phi_{\Sigma_l}(\vba B)
+	\end{equation*}
+	Ricapitolando quanto visto finora: tutte le cariche subiscono un campo elettrico, per ottenere la \fem dobbiamo integrare sul circuito e riusciamo a portare avanti la derivata rispetto al tempo, avendo così l'integrale lungo la superficie laterale infinitesima del cilindretto.\\
+	Non è ancora quello che vogliamo, dobbiamo %OLD far vedere che 
+	considerare la differenza di flusso fra la spira nella posizione 1 e 2, posta la notazione $\Sigma_1$ superficie che finisce sul circuito prima dello spostamento, mentre $\Sigma_2$ dopo lo spostamento: sono le superfici di base prima e dopo lo spostamento. Dato $\Delta\Phi=\Phi_{\Sigma_2}(\vba B) - \Phi_{\Sigma_1}(\vba B)$ sappiamo che il flusso attraverso una superficie chiusa del campo magnetico è nullo $\Phi_\Sigma(\vba B)=0$. La superficie chiusa $\Sigma$ che stiamo considerando è la superficie su cui finisce il circuito $\Sigma=\Sigma_1\cup\Sigma_2\cup\Sigma_l$, per cui $\Phi_\Sigma(\vba B)=\Phi_{\Sigma_2}(\vba B)-\Phi_{\Sigma_1}(\vba B)+\Phi_{\Sigma_l}(\vba B)=0$
+	%OLD	siccome $\vbh{u}_n$ punta fuori dalla superficie chiusa /lo abbiamo già visto altre volte
+	%$....$
+	%la forza di Lorentz per uno spostamento rigido in un campo magnetico uniforme ma non costante produce un \textit{flusso tagliato}
+	%cosa simile a spira immersa in campo magnetico non uniforme
+	%siccome deve essere nullo allora
+	%flusso tagliato $..=-\dv{t}\Phi_{\Sigma}(\vba B)$ con $\Sigma$ superficie che finisce sul circuito
+	%quando calcolo la differenza
+	%aggiungo limite		abbiamo calcolato che è il flusso attraverso la sup laterale e sostituisco
+	La superficie chiusa $\Sigma$ che stiamo considerando è $\Sigma=\Sigma_1\cup\Sigma_2\cup\Sigma_l$, per cui $\Phi_\Sigma(\vba B)=\Phi_{\Sigma_2}(\vba B)-\Phi_{\Sigma_1}(\vba B)+\Phi_{\Sigma_l}(\vba B)=0$. \\
+	Segue che 
+	\begin{gather*}
+		\mathcal{E}_i=-\dv{t}\Phi_\Sigma(\vba B)=-\lim_{\Delta t\to 0}\frac{\Phi_{\Sigma_2}(\vba B)- \Phi_{\Sigma_1}(\vba B)}{\Delta t}
+	\end{gather*}
+\end{demonstration}
+
+Abbiamo così dimostrato che per uno spostamento rigido la forza elettromotrice indotta $\mathcal{E}$ è una conseguenza della forza di Lorentz. La stessa cosa vale per variazioni della forma o dell'angolo. Per spiegare la \fem indotta quando la spira si muove o cambia angolo o cambia forma non servono leggi nuove perché sono effetti della forza di Lorentz. Quello che non è previsto è la \fem per effetto di variazione del campo magnetico $\vba B$, cioé $\pdv{\vba B}{t}\rightarrow \vba E_i$ per spiegarlo infatti vanno modificate le nostre leggi.\\
+Riscriviamo la forza elettromotrice indotta
+\begin{gather*}
+\mathcal{E}_i= -\dv{t}\Phi_\Sigma(\vba B)\\
+\stackrel{teo. div.}{\implies}\int_{\partial\Sigma}\vba E_i\vdot d\vba s=-\dv{t}\int_{\Sigma}\vba B\vdot\vbh u_n d\Sigma
+\end{gather*}
+con curva $\gamma$ su cui il campo elettrico ha circuitazione non nulla, $\Sigma$ che finisce sulla curva $\gamma$: abbiamo così un certo campo magnetico che attraversa $\Sigma$ e produce un flusso. Vogliamo considerare solo un campo magnetico che cambia nel tempo, quindi un circuito fisso e non deformato
+%OLD campo magnetico che cambia nel tempo, la derivata che ci interessa è quella che agisce sul campo magnetico, non forma: consideriamo circuito fisso e non deformato
+\begin{gather*}
+\int_{\partial\Sigma} E_i\vdot d\vba s =-\int_\Sigma \pdv{\vba B}{t}\vdot\vbh u_n d\Sigma\\
+\stackrel{teo. rot.}{\implies}\int_\Sigma\curl\vba E\vdot\vbh{u}_n d\Sigma=-\int_{\Sigma}\pdv{\vba B}{t}\vdot\vbh u_n d\Sigma
+\end{gather*}
+Siccome deve valere per ogni $\Sigma$, per un campo non conservativo la legge è 
+\begin{equation}
+\curl\vba E=-\pdv{\vba B}{t}
+\end{equation}	
+Abbiamo dunque una modifica quando il campo magnetico è dipendente dal tempo: esso produce un campo elettrico non conservativo o \fem indotta.\\
+Questa è la $2^a$ legge di Maxwell o forma differenziale della legge di Faraday\\
+%CIT: è la seconda o terza, dipende come contate
+%è \textit{la} legge fondamentale\\
+Tutti i fenomeni sperimentali che abbiamo visto derivano da questa, che è più specifica di quella integrale che contiene cose che derivano dalla legge di Lorentz. Infatti la legge di Faraday combina quella di Lorentz e Maxwell: tiene conto sia della \fem da Lorentz e del campo magnetico variabile rispetto al tempo.\\
+
+%La legge fondamentale è quella di Maxwell
+
+
+
+Adesso riscriviamo la legge anche per i potenziali.\\
+Una legge che non subisce variazioni è $\div\vba B=0$, cioé $\vba B$ può essere scritto come il rotore di un campo $\exists\vba A$ tale che $\vba E=\curl\vba A$. Quello che invece cambia è la descrizione del campo elettrico come $\vba E= -\grad V$, che non sarà più sufficiente. Dalla $2^a$ legge di Maxwell abbiamo
+\begin{gather*}
+\curl\vba E= -\pdv{\vba B}{t}=-\pdv{t} (\curl\vba A)=\\
+%OLD scambio le derivate
+\curl\left(\vba E+\pdv{\vba A}{t} \right)=0 \implies \grad\left( \vba E+\pdv{t}\vba A \right)=0\\
+%OLD è questo che si può scrivere come $-\grad V$
+\implies \vba E=-\pdv{t} \vba A -\grad V
+\end{gather*}
+Quindi nel caso non statico abbiamo un termine in più: aggiungendo la derivata di $\vba A$ rispetto al tempo riotteniamo i campi dai potenziali con $\vba E=-\pdv{t} \vba A -\grad V$ e $\vba B=????$. Resta comunque il fatto che li possiamo determinare univocamente ma per $\vba E$ devo coinvolgere anche la derivata. Quando affronteremo la relatività ristretta vedremo una formulazione più elegante.\\
+
+Abbiamo così approcciato lo studio delll'elettrodinamica, che mischia elettricità e magnetismo quando si influenzano a vicenda. Vedremo un quadro generale nella relatività ristretta invariante per trasformazioni di Lorentz: sarà tutto contenuto in potenziali vettore $\vba A$ e potenziale scalare $V$.
+
+
+
+Applicativo
+\section{Autoflusso e induttanza}
+Autoflusso
+Sappiamo che una spira in cui circola corrente produce campo magnetico di dipolo quale
+\begin{equation*}
+\vba B=\frac{\mu_0i}{4\pi}\oint\frac{d\vba s\cross \vbh u_r}{r^2}
+\end{equation*}
+ma a sua volta il campo magnetico della spira produce un flusso non nullo attraverso la spira stessa, detto \textit{autoflusso} e
+\begin{gather*}
+\Phi_\Sigma(\vba B)=\int\vba B\vdot \vbh u_n d\Sigma \squarequal
+\end{gather*}
+ma $\vba B$ è il campo magnetico stesso generato dalla spira, dato dalla $1^a$ legge elementare di Laplace: $\vba B=\frac{\mu_0i}{4\pi}\oint \frac{d\vba s\cross\vbh{u}_r}{r^2}d\Sigma$, quindi:
+\begin{gather*}
+\squarequal\frac{\mu_0i}{4\pi}\int_\Sigma\oint_\gamma\frac{d\vba s\cross\vbh{u}_r}{r^2}d\Sigma
+\end{gather*}
+Ci interessa che questi integrali dipendano esclusivamente dalla geometria, e l'unica cosa che non dipende dalla geometria è l'intensità di corrente $i$ che possiamo regolare in laboratorio. Quindi definiamo come \textit{induttanza} la quantità che dipende solo dalla forma del circuito, perché il campo magnetico è autogenerato dalla spira stessa:
+\begin{equation}
+L=\frac{\mu_0}{4\pi}\int_\Sigma\oint\frac{d\vba s\cross\vbh{u}_r}{r^2}d\Sigma
+\end{equation}
+Inoltre $L$ può dipendere eventualmente dal materiale contenuto nella spira, ma è un argomento che tratteremo con il magnetismo nella materia.\\
+L'autoflusso sarà quindi:
+\begin{equation}
+\Phi_\Sigma(\vba B)=Li
+\end{equation}
+In conclusione l'autoflusso di un qualsiasi circuito è proporzionale all'intensità di corrente con costate di proporzionalità dipendente solo dalla geometria. Questa situazione è molto simile a quella del condensatore: differenza di potenziale, capacità dipendente solo da forma (???).
+
+\begin{examplewt}[Induttanza di un solenoide (non) infinito]
+%TODO IMMAGINE 17.4
+Di solito si usano i solenoidi per creare l'induttanza. Infatti	sappiamo che il campo magnetico in un solenoide infinito è $B=\mu_0 in$ con $n$ densità lineare di spire. Prendiamo il solenoide di una lunghezza $d$ molto maggiore del diametro $R$ ($d\gg R$) per avere l'approssimazione che sia infinito trascurando gli effetti di bordo.\\
+Siccome il campo magnetico è costante il flusso attraverso $\Sigma$ che taglia il solenoide è dato dal flusso sulla singola spira di superficie $\Sigma$ per il numero totale di spire $N$, abbiamo
+\begin{gather*}
+	\Phi(B)=\Sigma BN= \mu_0 in^2\Sigma d
+\end{gather*}
+Infatti per un solenoide circolare $\Sigma=\pi R^2=\mu_0i$ (??) e $N=nd$.\\
+Quindi l'induttanza è 
+\begin{equation*}
+	L=\mu_0 n^2\Sigma d	
+\end{equation*}
+Posso calcolarla anche per unità di lunghezza %OLD dividendo per (?)
+\\	Notiamo la somiglianza con il caso delle piastre del condensatore: per produrre campo elettrico costante usavamo due piastre e trascuravamo gli effetti di bordo, qui abbiamo il solenoide e trascuriamo gli effetti di bordo considerandolo molto lungo.
+\end{examplewt}
+
+Unità di misura dell'induttanza\\
+lo leggo dalla definizione \\
+%TODO: mettere unità di misura, environment?
+H di Henry\\
+%CIT: come al solito l'ordine di grandezza di Henry è cannato
+\begin{example}[Ordine di grandezza dell'Henry]
+Solenoide rettilineo $n=10^3$ spire al metro, superficie $\Sigma=100\ cm^2$
+induttanza per unità di lunghezza $L=4\pi 10^{-2}$\\
+In laboratorio riempiamo il solenoide di materiale ferromagnetico che aumenta notevolmente il campo magnetico, poi il flusso e di conseguenza l'induttanza.
+\end{example}
+
+\subsection{Autoinduzione}
+L'induttanza è importante per l'autoinduzione: ogni volta che c'è una variazione di flusso del campo magnetico attraverso una superficie $\Sigma$ abbiamo una \fem $\mathcal{E}_i=-\dv{\Phi_\Sigma (\vba B)}{t}$. Possiamo anche avere una variazione dell'autoflusso, ed è detta \textit{autoinduzione}.
+Siccome $\Phi_\Sigma(\vba B)=Li$ sostituendo sopra otteniamo:
+\begin{gather*}
+\mathcal{E}=-\dv{\Phi_\Sigma(vba B)}{t}= -\dv{t}(Li)=-L\dv{i}{t}\\
+\implies \mathcal{E}=-L\dv{i}{t}
+\end{gather*}
+In conclusione ogni corrente che varia nel tempo ha \fem che fa cambiare la corrente stessa.
+%CIT c'era un mio prof che diceva un loopo che si morde la coda
+
+
+
+
+applicazione induttanza in laboratori
+\subsection{Circuito RL}
+Vediamo ora un'applicazione dell'induttanza nei laboratori e vedremo che hanno delle similitudini con i circuiti $RC$.\\ 
+%IMMAGINE 17.5
+Fisicamente prendiamo il circuito aperto, lo chiudiamo e il generatore produce \fem. Le cariche cominciano a girare, circolano nel solenoide, il quale produce un campo magnetico $\vba B$ che produce una variazione di flusso, la quale tende ad opporsi a quello che l'ha generato. Abbiamo così una \fem nella direzione opposta, per effetto della legge di Lentz:
+\begin{equation*}
+\mathcal{E}_i=-L\dv{i}{t}
+\end{equation*}
+Siccome $L$ si oppone alla circolazione di corrente, ci impiega un po' ad arrivare a regime. Notiamo che è l'opposto di quello che succedeva nei condensatori: la corrente tende a partire più lentamente a causa dell'induttanza, che agisce come una sorta di inerzia. Ora il potenziale ai capi del resistore è:
+\begin{gather*}
+%CIT l'induttanza tende a non far cambiare le cose, come il Gattopardo
+V=\mathcal{E}+\mathcal{E}_i=Ri \implies \mathcal{E}-L\dv{i}{t}=Ri\\
+\end{gather*}
+Ritroviamo un'equazione differenziale come nel caso del condensatore, risolviamola integrando da $t=0$ fino a $t$:
+\begin{gather*}
+\mathcal{E}-Ri=L\dv{i}{t}\\
+\int_0^{i(t)}\frac{di}{\mathcal{E}-Ri}=\int_0^t\frac{dt}{L}\\
+-\frac{1}{R}\log\left( \frac{\mathcal{E}-Ri(t)}{\mathcal{E}}\right)=\frac{t}{L}\\
+\mathcal{E}-Ri(t)=\mathcal{E}e^{\frac{-Rt}{L}}\\
+\implies i(t)=\frac{\mathcal{E}}{R}\left( 1-e^{\frac{-Rt}{L}} \right)=\frac{\mathcal{E}}{R}\left( 1-e^{-\tau t}\right)
+\end{gather*}
+In termini di dimensioni L/R=s e $R/L=\tau$
+%IMMAGINI 17.6 e 17.7
+All'inizio l'intensità di corrente è forte, la \fem che abbiamo è grande all'inizio, ma man mano che la corrente cresce tende ad arrivare a valore costante, la derivata tende a $0$ e \fem tende anch'essa a $0$. La \fem indotta è
+\begin{equation*}
+\mathcal{E}_i=-L\dv{i}{t}=-L\frac{R}{LR} \mathcal{E}e^{-\frac{Rt}{L}} =-\mathcal{E}e^{\frac{-Rt}{L}}
+\end{equation*}
+
+\subsubsection{Confronto con circuiti $RC$}
+Nei circuiti $RC$ succedeva l'opposto, sia per l'intensità di corrente sia per la differenza di potenziale:
+\begin{align*}
+RL: & \tau=RC \text{ cioé si oppone subito}\\
+RC: & \tau=\frac{R}{L}	 \text{ cioé si oppone asintoticamente}
+\end{align*}
+$i(t)=\frac{}{}()$???
+è detta \textit{extracorrente di chiusura}
+%IMMAGINI: 17.8, 17.9
+Sarà più interessante nel caso della corrente alternata, con circuiti $RLC$
+
+
+\subsubsection{Considerazioni energetiche del circuito $RL$}
+Per i condensatori c'è il bilancio energetico: il generatore ha una certa potenza, l'energia viene dissipata nella resistenza, nel condensatore parte dell'energia era immagazzinata come differenza di potenziale fra le due piastre $U_C=\frac{1}{2}\frac{q^2}{C}$ e da qui avevamo dedotto una densità di energia di campo elettrico, immagazzinata fra le due piastre $\mu_E=\frac{1}{2}\epsilon_0 E^2$
+in un volume $V$ è $U_E=\int_V \frac{1}{2}\epsilon_0 E^2  dV$
+dal caso specifico del condensatore avevamo dedotto l'energia associata ad un campo elettrico, ma vale in generale la definizione di densità di energia
+
+equivalente per il caso degli "induttori":
+\begin{itemize}
+\item potenza generata dal generatore $P=Vi$,quindi $P_\mathcal{E}=\mathcal{E}i$ è la potenza erogata dal generatore
+\item potenza dissipata dalla resistenza $P_R=i^2R$
+\item potenza associata all'induttanza $V$ \fem indotta: $P_L=\mathcal{E}_i i=-Li\dv{i}{t}$ si accumula in modo proporzionale alla derivata dell'intensità di corrente
+\end{itemize}
+Allora se la \ddp ai capi del condensatore è $\mathcal{E}=Ri +L\dv{i}{t}$ si ottiene: $\mathcal{E}_i=Ri^2+Li\dv{i}{t}$.\\
+Otteniamo così $P_\mathcal{E}=P_R+P_L$.\\
+Per avere l'energia immagazzinata nell'induttanza dobbiamo calcolare l'integrale fra $0$ è $\infty$ visto che abbiamo un comportamento asintotico:
+\begin{gather*}
+U_L=\int^{+\infty}_0P_Ldt=\int^{+\infty}_0\\ Li\dv{i}{t}dt=\int^{+\infty}_0Lidi=\frac{1}{2}Li_\infty^2
+\end{gather*}
+con $i_\infty=\lim_{t\to +\infty} \frac{\mathcal{E}}{R}$ corrente che circola a regime
+l'energia immagazzinata dall'induttore è
+\begin{gather*}
+U_L=\frac{1}{2}Li_{\infty}^2=\frac{1}{2}L\frac{\mathcal{E}^2}{R^2}
+\end{gather*}
+%OLD analogo ai condensatori
+
+Per completare il parallelismo con il condensatore, l'energia è accumulata nell'induttore, in cui c'è campo magnetico che si porta l'energia. L'energia è associata al fatto che prima non c'era un campo magnetico e adesso c'è. Ma com'è immagazzinata? Prendiamo un solenoide infinito
+$L=\mu_0\Sigma n^2d$
+inseriamolo nella formula di $U_L$
+$U_L=\frac{1}{2}\mu_0\Sigma dn^2i^2=\frac{1}{2}\frac{B^2}{\mu_0}\Sigma d$
+siccome in un solenoide $B=\mu_0in$ e $\Sigma d$ è il volume del solenoide
+
+
+quindi per induttori 
+\begin{itemize}
+\item$U_L=\frac{1}{2}Li^2$
+\item densità di energia del campo magnetico $\mu_B=\frac{1}{2}\frac{B^2}{\mu_0}$
+\item $U_B=\int_V \frac{1}{2}\frac{B^2}{\mu_0}dV$
+\end{itemize}
+
+è una cosa valida in generale: ogni volta che ho $\vba E$ e $\vba B$ si crea densità di energia $u_E$ e $u_B$, e se ci sono entrambi allora si sommano.
+L'energia del campo elettromagnetico sarà quindi 
+\begin{equation}
+U=\frac{1}{2}\left( \epsilon_0 E^2 + \frac{B^2}{\mu_0} \right)
+\end{equation}
+che è vera per qualsiasi campo elettrico e magnetico. questa formula si può anche derivare dal formalismo hamiltoniano.
+\end{comment}
+\section{ALTRO}
+
+\begin{comment}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%LEZ 18 31/03/2022
+	\section{Old}
+	Abbiamo visto che campi variabili nel tempo producono altri campi: abbiamo visto che tramite l'analisi della legge di Faraday un campo magnetico variabile nel tempo produce \fem e quindi campo elettrico indotto. Maxwell voleva unire l'interazione elettrica e magnetica in una sola, e se n'è accorto con la \textit{corrente di spostamento}. Come nome è fuorviante, ma il modo di accorgersene è semplice.\\
+	Partiamo dalla legge di Ampère, che abbiamo derivato nel caso statico, e andremo a derivare la legge di Ampère-Maxwell
+	\begin{gather*}
+		\oint\vba Bd\vba s=\mu_0 i\\
+		\curl\vba B=\mu_0\vba j
+	\end{gather*}
+	Ma non è compatibile con la conservazione della carica: prendiamo la divergenza della seconda equazione: 
+	\begin{gather*}
+		\grad\curl\vba B=\mu_0\grad\vba j
+	\end{gather*}
+	A sinistra è immediatamente nullo, quindi è compatibile con densità di corrente elettrica solenoidale $\div\vba j=0$.\\
+	Quindi la legge di Ampère è consistente solo se la corrente $\vba j$ è solenoidale, cioé ha divergenza nulla.\\
+	In realtà vorremmo l'equazione di continuità: $\div\vba j+\pdv{\rho}{t}=0$,cioé se in un certo volume di spazio c'è carica, tutta quella che passa nella superficie esce e produce carica (?), non si crea nè si distrugge: se non è zero abbiamo corrente elettrica, quindi un flusso di corrente elettrica. Se abbiamo un volume con carica elettrica, se esce allora la corrente $\vba j$ ha un flusso non nullo nella superficie che determina il volume: è un modo locale di formulare la conservazione della carica.\\
+	
+	Tale equazione ci suggerisce come correggere la legge di Ampère. Sappiamo che $\div\vba E=\frac{\rho}{\epsilon_0}$
+	se questa è vera allora possiamo scrivere $\rho=\epsilon_0\div\vba E \implies \pdv{\rho}{t}=\epsilon_0\grad\pdv{\vba E}{t}$
+	vorremmo quindi aggiungere il termine $\div\vba j \pdv{\rho}{t}$, ma abbiamo appena visto che è pari a $\epsilon_0\div\pdv{\vba E}{t}$
+	Quindi aggiungiamo un pezzo tale che dopo la divergenza abbiamo $\pdv{\rho}{t}$
+	\begin{equation}
+		\curl\vba B=\mu_0 \vba j+\mu_0\epsilon_0\pdv{\vba E}{t}
+	\end{equation}
+	arriviamo quindi alla legge di Ampère Maxwell appena scritta
+	\begin{gather*}
+		\grad\curl\vba B=\mu_0\div\vba j+\mu_0\epsilon_0\pdv{\div\vba E}{t}
+	\end{gather*}
+	Per ottenere la forma integrale della legge dobbiamo scrivere i flussi attraverso una superficie $\Sigma$ ricordando che $\mu_0\epsilon_0=\frac{1}{c^2}$
+	\begin{gather*}
+		\int_\Sigma\curl\vba B\vdot\vbh{u}_n d\Sigma = \mu_0\int_\Sigma\vba j\vdot\vbh u_n d\Sigma +\frac{1}{c^2}\pdv{t}\int_\Sigma \vba E\vdot\vbh u_n d\Sigma\\
+		\stackrel{teo.rot.}{\implies} \Gamma_{\partial\Sigma}(\vba B)= \oint_\Sigma \vba B\vdot d\vba s= \mu_0 i + \frac{1}{c^2}\pdv{\Phi_\Sigma (\vba E)}{t}
+	\end{gather*}
+	Quanto visto è l'analogo della legge di Faraday: un cambiamento del flusso del campo elettrico genera un contributo addizionale alla circuitazione.\\
+	Denominiamo \textit{corrente di spostamento} il termine $i_S=\epsilon_0\pdv{\Phi_\Sigma(\vba E)}{t}$. \\
+	Invece la densità di corrente $\vba j_S=\epsilon_0\pdv{\vba E}{t}$ è detta \textit{densità di corrente di spostamento} perché combinandola con un contributo pari a $\vba j$, potrei definire una $\vba j$ totale:
+	\begin{gather*}
+		\vba j_{TOT}=\vba j+\vba j_S\\
+		\text{quindi } \curl\vba B=\mu_0\vba j_{TOT}\\
+		\text{da cui otteniamo un campo solenoidale: } \div\vba j_{TOT}=\div\vba j+\underbrace{\div\vba j_S}_{=\pdv{\rho}{t}}=0
+	\end{gather*}
+	
+	Vediamo perché deve essere necessaria questa corrente.\\
+	Prendiamo un circuito RC: per la consistenza della legge di Ampère, qualsiasi corrente metta a destra deve essere la stessa (?)\\
+	%TODO: immagine 18.1
+	Maxwell ha risolto il problema considerando due superfici aperte: sia $\Sigma_1$ bolla che entra fra le due piastre del condensatore e finisce sulla stessa curva $\gamma$ prima delle piastre del condensatore e sia $\Sigma_2$ bolla che finisce su $\gamma$ ma va solo sul filo e non incontra il condensatore. Quindi si ha per costruzione che:
+	\begin{itemize}
+		\item i loro bordi coincidono $\partial\Sigma_1=\partial\Sigma_2$
+		\item $\Sigma_1$ contiene un'armatura
+		\item $\Sigma_2$ contiene il filo ma non l'armatura
+	\end{itemize}
+	Accendiamo la corrente e circola, il flusso di $\vba j$ attraverso le superfici è:
+	\begin{gather*}
+		\int_{\Sigma_2}\vba j\vdot =i\\
+		\int_{\Sigma_1} \vba j\vdot\vbh u_n d\Sigma =0
+	\end{gather*}
+	infatti fra le piastre del condensatore non circola carica!\\
+	Notiamo così che la corrente $\vba j$ da sola non è solenoidale, se lo fosse questi due contributi dovrebbero essere uguali: è un altro modo per accorgersi che la corrente $\vba j$ da sola non è solenoidale. Sembra che fra le piastre ci sia un'interruzione di corrente, ma in realtà abbiamo il contributo addizionale. \\
+	Ricordiamo che è stato detto che nelle piastre abbiamo un campo elettrico che sta variando, esso diventa più intenso man mano che si carica; se varia abbiamo un contributo non nullo dalla corrente di spostamento, quindi il flusso in $\Sigma_1$ non è $0$ ma è pari alla corrente di spostamento.\\
+	Con questa correzione è ripristinato che $\vba j_{TOT}$ sia solenoidale.\\
+	Ecco così spiegato il termine: nonostante la presenza del condensatore, gira corrente, detta così corrente di spostamento anche se non è una vera e propria corrente. Il fenomeno vero infatti è che la variazione del campo elettrico produce un campo magnetico. L'equazione fisica è quella di continuità: $\div\vba j=\pdv{\rho}{t}$ e la corrente $\vba j$ deve compensare variazione di carica.\\
+	
+	Perché non ci si era mai accorti di questo fatto? Sperimentalmente il contributo aggiuntivo è molto difficile da derivare: infatti $\mu_0\epsilon_0=\frac{1}{c^2}$, quindi il contributo è molto piccolo. Quindi è stato un grande successo della fisica teorica per avere consistenza interna delle equazioni.
+	
+	
+	EPILOGO
+	\section{Equazioni di Maxwell}
+	Siamo così arrivati a formulare l'ultima legge mancante. Ora possiamo scrivere le equazioni di Maxwell, che sono:
+	\begin{enumerate}
+		\item Legge di Gauss: $\div\vba E=\frac{\rho}{\epsilon_0}$
+		\item $\curl\vba E=-\pdv{\vba B}{t}$
+		\item $\div\vba B=0$, cioè $\vba B$ è un campo solenoidale per qualsiasi dipendenza dal tempo
+		\item legge di Ampèere Maxwell: $\curl\vba B=\mu_0\vba j+ \frac{1}{c^2}\pdv{\vba E}{t}$
+	\end{enumerate}
+	L'elettrodinamica classica nel vuoto è data da queste 4 equazioni.\\
+	
+	Abbiamo come \textit{conseguenze}: 
+	\begin{itemize}
+		\item L'equazione di continuità:
+		\begin{equation*}
+			\div\vba j+\pdv{\rho}{t}=0
+		\end{equation*}
+		\item risolvendo possiamo trovare campo elettrico e magnetico,e  per trovare dinamica serve come agiscono i campi su una carica, cioè serve la forza di Lorentz:
+		\begin{equation*}
+			\vba F=q(\vba E+\vba v\cross\vba B)
+		\end{equation*}
+		\item densità di energia dei campi: 
+		\begin{equation*}
+			\mu=\frac{1}{2}\left(\epsilon_0 E^2+\frac{B^2}{\mu_0}\right)
+		\end{equation*}
+	\end{itemize}
+	Queste sono le equazioni fondamentali dell'elettrodinamica classica nel vuoto.\\
+	
+	Abbiamo già visto molte proprietà, ricapitoliamo quelle delle equazioni di Maxwell nel vuoto.\\
+	La prima cosa che ci chiediamo è: se spegnessimo le sorgenti quale sarebbe la soluzione nel vuoto? Per sorgenti intendiamo $\rho$ e $\vba j$, infatti con esse determiniamo i campi elettrico e magnetico.
+	\begin{gather*}
+		\div\vba E=0\\
+		\div\vba B=0\\
+		\curl\vba E=-\pdv{\vba B}{t}\\
+		\curl\vba B= \frac{1}{c^2}\pdv{\vba E}{t}
+	\end{gather*}
+	Notiamo che hanno una certa simmetria: abbiamo già studiato della soluzioni statiche come una carica che si comporta come sfera carica. Possiamo avere anche soluzioni meno statiche: uno dei due può dipendere dal tempo e si scambiano fra loro\\
+	Una conferma cruciale delle equazioni di Maxwell è che ci vediamo: una soluzione delle equazioni è anche la luce, che è un'onda elettromagnetica.\\
+	Infatti la soluzione generale è un'onda elettromagnetica che si propaga alla velocità della luce
+	abbiamo così capito che la luce è in realtà un'oscillazione di campi elettrici e magnetici: si tratta solo di un'onda elettromagnetica con data frequenza che siamo in grado di rilevare.
+	
+	
+	\subsection{Potenziali}
+	Guardando le equazioni di cui sopra possiamo riscriverle in termini di potenziali.\\
+	Per il campo magnetico è semplice visto che è solenoidale
+	\begin{equation*}
+		\vba B=\curl\vba A
+	\end{equation*}
+	Nel caso dinamico invece il rotore elettrico non è nullo e dobbiamo aggiungere un termine
+	\begin{equation*}
+		\vba E=-\pdv{\vba A}{t}-\grad V	
+	\end{equation*}
+	%OLD prendo il rot ed è nullo: ritrovo 2 eq M
+	%sono compatibili coneq
+	Ricordiamo che il potenziale vettore $\vba A$ è definito solo a meno di gradiente: 
+	\begin{equation*}
+		\vba A\sim\vba A+\grad\oldphi
+	\end{equation*}
+	cioè possiamo traslarla di un qualsiasi potenziale gradiente ed è lo stesso. Ma se $\oldphi$ dipende dal tempo non è più una simmetria del campo elettrico, infatti
+	\begin{equation*} 
+		\vba E\rightarrow -\pdv{\vba A}{t}-\grad\pdv{\oldphi}{t}-\grad V
+	\end{equation*}
+	non è più da sola una simmetria, ma abbiamo anche un suggerimento perché sia simmetrico: basta definire $\grad V'=\grad\pdv{\oldphi}{t}-\grad V$. Quindi definiamo la classe d'equivalenza come 
+	\begin{equation*}
+		V\sim V-\pdv{\oldphi}{t}
+	\end{equation*}
+	In questo modo coinvolgiamo due trasformazioni contemporaneamente per la classe d'equivalenza, \textit{invarianza di Gauge}.\\
+	Vorrei usare le equazioni di Maxwell per ricavare i potenziali: esattamente come nel caso statico con le equazioni di Poisson, ma ora lo facciamo nel caso dinamico.\\
+	
+	Possiamo usare l'invarianza per fissare $\div\vba A +\frac{1}{c^2}\pdv{V}{t}=0$, in tal senso è anche detta \textit{scelta di Gauge}, che è un modo da fisici di dire scelta di un rappresentante in una classe di equivalenza. Nel caso statico avevamo $\div\vba A=0$.\\
+	Possiamo farlo grazie all'invarianza: se $\div\vba A +\frac{1}{c^2} \pdv{V}{t} \neq 0$
+	allora definiamo $\begin{cases}
+		\vba A'=\vba A+\grad\oldphi\\
+		V'=V-\pdv{\oldphi}{t}
+	\end{cases}$. Sostituiamo ed otteniamo
+	\begin{gather*} 
+		\div \vba A'-\laplacian\oldphi +\frac{1}{c^2}\pdv[2]{\oldphi}{t}=D
+	\end{gather*}
+	Fissiamo il valore del campo $\oldphi$ in modo che $\div \vba A'+\frac{}{c^2}\pdv{V'}{t}=0$ ed otteniamo
+	\begin{gather*}
+		\laplacian\oldphi-\frac{1}{c^2}\pdv[2]{\oldphi}{t}=-D
+	\end{gather*}
+	Definiamo ora un operatore box, detto operatore dalambertiano (da D'Alambert)
+	\begin{equation}
+		\square=\laplacian -\pdv[2]{t}
+	\end{equation}
+	Quindi $\square\oldphi=-D$.\\
+	
+	?
+	partiamo dal $\begin{cases}
+		\curl\vba B=\grad(\curl\vba A)\\
+		\vba E=-\pdv{\vba A}{t}-\grad V
+	\end{cases}$
+	Sostituendo si ha
+	\begin{gather*}
+		\curl\vba B= \grad\left( \curl\vba A \right) =\grad(\div\vba A)-\laplacian \vba A
+	\end{gather*}
+	Scritta in termini di potenziali la $4^a$ equazione di Maxwell diventa
+	\begin{gather*}
+		\curl\vba B-\frac{1}{c^2}\pdv{\vba E}{t}= \mu_0\vba j \\
+		\implies \grad(\div\vba A)-\laplacian\vba A +\frac{1}{c^2} \pdv[2]{A}{t} +\frac{1}{c^2}\grad\pdv{V}{t}=\mu_0\vba j
+	\end{gather*}
+	raccogliamo il gradiente (gradiente della somma) e all'interno è nullo per la scelta di Gauge
+	\begin{gather*}
+		\cancel{\grad(\underbrace{\div\vba A +\frac{1}{c^2}\pdv{V}{t}}_{=0})}-\left(\laplacian -\frac{1}{c^2}\pdv[2]{t}\right)\left(\vba A \right)=\mu_0\vba j
+	\end{gather*}
+	%OLD (\vba A) significa che applico (?) in A
+	Otteniamo così $\square\vba A=-\mu_0\vba j$.\\
+	Abbiamo così ottenuto una generalizzazione al caso dipendente dal tempo delle equazioni di Poisson: sono delle equazioni di D'Alambert in cui rimpiazziamo il laplaciano con il dalambertiano.\\
+	\begin{observe}
+		L'operatore di d'Alambert è una generalizzazione del laplaciano allo spazio-tempo.
+	\end{observe}
+	
+	Ricaviamo l'equazione di $V$ partendo dalla $\div \vba E$
+	\begin{gather*}
+		\div\vba E= \div \left( -\pdv{\vba A}{t} -\grad V \right) =-\pdv{t}\div\vba A-\laplacian V=\frac{\rho}{\epsilon_0}\\
+		\implies \frac{1}{c^2}\pdv[2]{V}{t} -\laplacian V=\frac{\rho}{\epsilon_0}\\
+		\implies \square V=-\frac{\rho}{\epsilon_0}
+	\end{gather*}
+	Queste sono le equazioni del moto dell'elettrodinamica classica, cioè equazioni differenziali di $\vba A$ e $V$ che date certe distribuzioni di carica $\rho$ e di corrente $\vba j$ possiamo ricavare i potenziali e da questi i campi
+	
+	
+	\subsection{Circuiti RLC}
+	
+	Una loro caratteristica è che possiamo studiarli addirittura senza inserire un generatore, quando ci si aspetta che non ci sia corrente
+	%TODO immagine 18.2
+	Immaginiamo che al tempo $t=0$ il condensatore sia carico, quindi abbiamo una differenza di potenziale. Chiudiamo l'interruttore, le cariche si muovono per compensare la \ddp, avremo una corrente in una certa direzione: all'interno dell'induttanza abbiamo una variazione di corrente. Allora essa vuole creare corrente opposta che rispedisce indietro le cariche. Questo sistema dà origine ad un'oscillazione, simile a quella di una molla: la resistenza smorza le oscillazioni, quindi si perde l'intensità di corrente.\\
+	Vediamo le equazioni del circuito:
+	\begin{itemize}
+		\item \ddp ai capi del condensatore: $V_C=\frac{q}{C}$
+		\item \ddp indotta: $V_L=-L\dv{i}{t}$
+		\item legge di Ohm: $V_C+V_L=Ri$
+	\end{itemize}
+	Quindi $\frac{q}{C}-L\dv{i}{t}=Ri$, e ricordando che $i=-\dv{q}{t}$ prendiamo una derivata rispetta al tempo dell'equazione
+	\begin{gather*}
+		\frac{i}{C} -L\dv[2]{i}{t}=R\dv{i}{t} \implies
+		\dv[2]{i}{t}+\frac{R}{L}\dv{i}{t} +\frac{i}{LC}=0
+	\end{gather*}
+	Otteniamo così un'equazione differenziale di $2°$ grado che corrisponde ad un oscillatore armonico smorzato.\\
+	Cominciamo dal caso $R=0$, quindi circuito LC (realisticamente difficile da realizzare, dovrei avere superconduttori per resistenze molto piccole)
+	\begin{equation*}
+		\dv[2]{i}{t} +\omega_0^2 i=0
+	\end{equation*}
+	con $\omega_0=\frac{1}{\sqrt{LC}}$ detta \textit{frequenza caratteristica} del circuito LC. La soluzione dell'equazione è una funzione sinusoidale 
+	\begin{equation*}
+		i(t)=A\sin(\omega_0 t+\oldphi)
+	\end{equation*}
+	Notiamo che la fase iniziale $\oldphi$ ed $A$ sono costanti di integrazione da determinare e l'intensità di corrente oscilla.\\
+	Sappiamo che $V_C=L\dv{i}{t}=-V_L$,quindi 
+	\begin{gather*}
+		V_C(t)=AL\omega_0\cos(\omega_0 t+\oldphi)
+	\end{gather*}
+	Possiamo fissare delle condizioni iniziali: se a $t=0$ non c'è passaggio di corrente, allora 
+	\begin{align*}
+		V_C=V_0 & i(0)=0 & \dv{i}{t}(0)=\frac{V_0}{L}
+	\end{align*}
+	Imponendo queste condizioni iniziali si ottiene $\oldphi=0$, infatti
+	\begin{gather*}
+		i(0)=A\sin\oldphi=0 \implies \oldphi=0\\
+		V_C(0)=AL\omega_0 \cos\oldphi=V_0 \implies A=\frac{V_0}{L\omega_0}\\
+		\text{sostituendo } i(t)=\frac{V_0}{L\omega_0}\sin\omega_0 t \quad \text{ e } V_C(t)=V_0\cos\omega_0 t
+	\end{gather*}
+	quindi sono in quadratura di fase.
+	%TODO: immagine 18.3
+	Partiamo che la \ddp ai capi del condensatore è massima e la corrente è minima, poi si scambiano come quando la molla è alla posizione di equilibrio ma ha una velocità.\\
+	Tutto questo è dovuto alla presenza dell'induttanza
+	il bilancio energetico è fra campo elettrico e magnetico (energia intrappolata nel campo magnetico nell'induttanza).\\
+	Abbiamo un'oscillazione di energia fra campo elettrico e magnetico $E\rightarrow B\rightarrow E\rightarrow B$\\
+	Il moto così non è smorzato e andrebbe avanti all'infinto, esattamente come una molla in assenza di attrito.\\
+	Scriviamo il bilancio energetico
+	\begin{gather*}
+		E_{TOT}=\frac{1}{2}CV_C^2 +\frac{1}{2}Li^2= \frac{1}{2}CV_0^2=\frac{1}{2}L\frac{V_0^2}{L^2\omega_0^2}
+	\end{gather*}
+	queste sono le energie accumulate all'interno del condensatore e dell'induttanza,e questa equazione vale a qualsiasi istante di tempo. Nell'istante iniziale $t=0$ abbiamo solo l'energia del condensatore, che poi passa fra induttanza e condensatore.\\
+	
+	Caso $R\neq 0$. Cosa succede in caso di presenza di una resistenza? Essa fa sì che l'energia si disperda: le oscillazioni invece di andare avanti all'infinito si smorzano
+	\begin{gather*}
+		\dv[2]{i}{t}+\frac{R}{L}\dv{i}{t}+\frac{1}{LC}i=0
+	\end{gather*}
+	Rispetto all'equazione del moto armonico abbiamo un termine in più di smorzamento proporzionale alla velocità, di solito da liquido viscoso o aria
+	\begin{gather*}
+		\dv[2]{x}{t}+\underbrace{2\gamma\dv{x}{t}}_{ \text{termine di smorzamento}} +\omega^2x=0
+	\end{gather*}
+	Ricordiamo che abbiamo ricavato l'eq della molla come 
+	\begin{gather*}
+		m\dv[2]{x}{t}=-kx -\textcolor{red}{\mu\dv{x}{t}}\\
+		\dv[2]{x}{t}+\frac{k}{m}x= +\textcolor{red}{\frac{u}{m}\dv{x}{t}}=0\\
+		\textcolor{red}{2\gamma=\frac{\mu}{m}}\\
+		\gamma=\frac{R}{2L}\\
+		\omega_0^2=\frac{1}{LC}\\
+		\implies \dv[2]{i}{t}+2\gamma\dv{i}{t}+\omega_0^2i=0
+	\end{gather*}
+	risolviamo l'equazione con
+	sfrutto equazione caratteristica delle equazioni differenziali di $2°$ ordine
+	\begin{gather*}
+		i(t)=Ae^{i\alpha_1 t}+Be^{i\alpha_2t}\\
+		\alpha^2 +2\gamma\alpha +\omega_0^2=0\\
+		\alpha_1=-\gamma+\sqrt{\gamma^2-\omega_0^2}\\
+		\alpha_2=-\gamma+\sqrt{\gamma^2+\omega_0^2}
+	\end{gather*}
+	Distinguiamo i casi
+	\begin{enumerate}
+		\item \textit{Smorzamento forte} $\gamma^2>\omega_0^2$, in termini di RLC si traduce come $R^2>\frac{4L}{C}$, quindi imponiamo come \textit{resistenza critica} $R_C=2\sqrt{\frac{L}{C}}$\\
+		\begin{gather*}
+			i(t)=Ae^{-\gamma t+t\sqrt{\gamma^2-\omega_0^2}} + Be^{-\gamma t -\sqrt{\gamma^2 +\omega_0^2}} 	= e^{-\gamma t}\left( Ae^{-t\sqrt{\gamma^2+\omega_0^2}} + Be^{-t\sqrt{\gamma^2+\omega_0^2}}\right)
+		\end{gather*}
+		questo perché nella radice abbiamo un termine positivo, quindi minore di $\gamma$ e il contributo smorzante è quello che domina.
+		$A$ e $B$ vanno fissate a seconda delle condizioni iniziali
+		%TODO: immagine 18.4
+		Si può definire la \textit{resistenza critica} dopo la quale vale lo smorzamento forte
+		\begin{equation*}
+			R_C=2\sqrt{\frac{L}{C}}
+		\end{equation*}
+		\item \textit{Smorzamento critico} $R=R_C$, $\gamma^2=\omega_0^2$. Le soluzioni sono linearmente dipendenti, quindi $\alpha_1=\alpha_2=-\gamma$
+		\begin{gather*}
+			i(t)=e^{-\gamma t}(A+Bt)
+		\end{gather*}
+		Se $i(0)=0$ allora $i(t)=Bte^{-\gamma t}$. Non abbiamo ancora un'oscillazione perché non c'è fase.
+		\item \textit{Smorzamento debole} $\gamma^2<\omega_0^2$. Essendo negativo otteniamo una fase sommata ad un'altra fase di segno opposto.\\
+		La soluzione si riscrive 
+		\begin{gather*}
+			i(t)=D\underbrace{e^{-\gamma t}}_{\text{fattore smorzamento}} \sin(\omega t+\oldphi)
+		\end{gather*}
+		con $\omega=\sqrt{\omega_0^2+\gamma^2}$ e $D$ non termine di fase.\\
+		Riscrivendo come $\sin$ e $\cos$ otteniamo questa equazione, che è una soluzione equivalente ma scritta in un altro modo. Otteniamo così delle oscillazioni che poi si smorzano. Più è piccola la resistenza più riesce ad oscillare.
+	\end{enumerate}
+	
+	
+	Vedremo che se aggiungiamo un generatore che dà onde sinusoidali possiamo compensare lo smorzamento ed ottenerne uno non smorzato.
+	%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%LEZ 19 04/04/2022
+	Qui parleremo di generatori che convertono energia meccanica in energia elettrica. Consideriamo il seguente circuito, immerso in un campo magnetico uscente, la sbarra si può muovere.
+	%TODO: immagine 19.1
+	Inizialmente non c'è corrente, ma appena muoviamo la sbarra con velocità $\vba v$ cambia l'area della spira e quindi il flusso. Quando si muove il flusso attraverso la spira cambia nel tempo, si crea f.e.m indotta, che dalla legge di Faraday è 
+	\begin{equation*}
+		\ee_i=-\dv{\Phi_\Sigma(\vba B)}{t}
+	\end{equation*}
+	con $\Sigma$ superficie del circuito, quindi $\Sigma=hl$, invece la velocità $\vba v$ è la derivata della distanza $l$ rispetto al tempo. Quindi la variazione della superficie nel tempo $\dv{\Sigma}{t}=h\dv{l}{t}=hv$
+	%OLD il flusso del campo magnetico rispetto al tempo
+	siccome $\vba B$ è sempre parallelo al versore normale alla superficie si ha che il flusso $\Phi\vba B=B\Sigma$. Sostituiamo nella formula della \fem indotta
+	\begin{equation*}
+		\ee_i=-\dv{\Phi_\Sigma}(\vba B){t}=-B\dv{\Sigma}{t}=-Bh\dv{l}{t}=-Bhv
+	\end{equation*}
+	Quindi si crea un flusso di corrente per il solo fatto che si sposta la sbarretta con una certa velocità, da lì una \fem e quindi una corrente creata tramite la forza meccanica. Avevamo già accennato che è una conseguenza della forza di Lorentz, e lo vediamo perché abbiamo delle particelle libere cariche che si muovono con velocità $\vba v$ in quella direzione, esse sono soggette a forza di Lorentz $\vba F_L=e\vba v\cross\vba B$. Il campo elettrico indotto non dipende dal segno delle cariche, quindi è diretto verso il basso.\\
+	Se muoviamo la sbarra per effetto di Lorentz si forma un campo elettrico indotto che genera \ddp fra i punti $A$ e $B$, possiamo calcolarlo come
+	\begin{equation*}
+		\ee=\int^A_B\vba E_i\vdot d\vba s=-vhB
+	\end{equation*}
+	come abbiamo visto sopra. Quindi la \fem indotta è una conseguenza della forza di Lorentz.\\
+	
+	Dalla meccanica abbiamo imparato che per mantenere un moto rettilineo uniforme non abbiamo bisogno di nessuna forza se non è presente attrito. Quindi quello che abbiamo trovato sarebbe problematico: abbiamo creato energia dal nulla, infatti non ne abbiamo introdotta nel sistema, quindi come facciamo a produrre corrente elettrica dissipata dalla resistenza?\\
+	Adesso vedremo che esiste la forza di attrito elettromagnetico.
+	
+	\section{Forza di attrito elm}
+	Qualsiasi circuito immerso in campo elettromagnetico subisce una forza dalla seconda legge di Laplace
+	\begin{equation*}
+		\vba F=i\int_B^A d\vba s\cross\vba B=-ihB\vbh u_x
+	\end{equation*}
+	questo perché $\vba B$ è costante quindi esce dall'integrale, la direzione è negativa quindi serve un segno $-$.\\
+	La forza che agisce sul circuito intero è nulla: stiamo integrando su campo uniforme, ma se dobbiamo trovarlo solo su una sbarretta dobbiamo fare l'integrale di cui sopra.\\
+	Avremo una forza $\vba F$ di attrito diretta in verso opposto al moto: infatti se muoviamo la sbarretta in una direzione la forza si oppone al moto.
+	%OLD si trova da Laplace, quindi da forza di Lorentz
+	Se tentiamo di muovere un circuito aumentando la superficie esposta al campo magnetico abbiamo una forza di attrito elettromagnetico.\\
+	
+	Scrivendo l'intensità di corrente $i$ per la legge di Ohm
+	\begin{gather*}
+		i=\frac{\abs{\ee_i}}{R}=\frac{vhB}{R}
+	\end{gather*}
+	per decidere il segno bisogna mettere il verso di percorrenza della corrente.\\
+	%OLD ==-\frac{}{}v\vbh u_x=(v diretta nel verso positivo di u_x, è \vba v)
+	%\vba F=-\frac{h^2B^2}{R} \vba v
+	Notiamo che è la tipica forza di attrito per attrito viscoso, infatti è direttamente proporzionale alla velocità, finché non arriva alla velocità limite, cioé abbiamo un tipico moto in presenza di forza di attrito proporzionale alla velocità. Come una palla che cade da un aereo raggiunge velocità limite e non accelera indefinitivamente.\\
+	Per mantenere una velocità costante dobbiamo spostare la sbarra con una forza uguale e contraria a quella dell'attrito elettromagnetico
+	\begin{equation*}
+		\vba F_{EST}=-\vba F
+	\end{equation*}
+	Per fare ciò dobbiamo compiere lavoro, o in altri termini una potenza pari a 
+	\begin{equation}
+		P=\vba F_{EST}\vdot\vba v=\frac{h^2B^2v}{R}=i^2R
+	\end{equation}
+	
+	A sinistra abbiamo la formula della potenza meccanica, cioé l'energia per unità di tempo per mantenere la sbarretta in moto rettilineo uniforme. Ma a destra abbiamo ottenuto una potenza elettrica, cioè la potenza dissipata dalla resistenza $R$.\\
+	Quindi un generatore converte interamente la potenza meccanica in potenza elettrica: tutto il lavoro che facciamo per spostare la sbarretta lo troviamo come energia a disposizione del circuito.\\
+	Quindi questo è a tutti gli effetti un generatore: stiamo convertendo energia meccanica in energia elettrica!\\
+	Abbiamo ottenuto un generatore di corrente continua: se manteniamo la velocità costante esso produce corrente $i=\frac{hBv}{R}$.\\
+	
+	Tuttavia come generatore non è molto pratico, perché avremmo bisogno di una rotaia infinita, normalmente quindi non si usa il moto traslazionale, ma quello rotazionale.
+	
+	\begin{examplewt}[Disco di Barlow]
+		Prendiamo un disco di materiale conduttore immerso in un campo magnetico uniforme $\vba B$ uscente dal foglio, colleghiamo un estremo del circuito al bordo del disco in modo che esso possa girare, un altro estremo lo colleghiamo al centro del disco. Il disco ruota con una certa velocità angolare $\omega=\dv{\phi}{t}$ intorno al suo centro.
+		Si cerca una \ddp fra il punto $A$ e il punto $B$ dovuta alla forza di Lorentz, ch a sua volta è dovuta al moto di cariche libere in un campo magnetico.
+		Il campo elettrico indotto, siccome $\vba v$ è diretta lungo $\vbh u_\phi, v=\omega r\vbh u_\phi$, è
+		\begin{gather*}
+			\vba E_i=\vba v\cross\vba B=\omega r\vbh u_\phi\cross\vba B=-\omega r B
+		\end{gather*}
+		La \fem invece, siccome $ds=dr\vbh u_r$
+		\begin{gather*}
+			\mathcal{E}_i=\int^B_A \vba E_i\vdot d\vba s=-\omega B\int_r^0 r'dr'= \frac{1}{2}\omega Br^2
+		\end{gather*}
+		I segni sono dovuti a $\vbh u_\phi\cross\vba B\vdot \vbh u_r=-B$.\\
+		La corrente è il rapporto
+		\begin{gather*}
+			i=\frac{\mathcal{E}_i}{R}=\frac{\omega Br^2}{2R}
+		\end{gather*}
+		Come nel caso precedente il moto subisce non una forza ma un momento di attrito
+		\begin{gather*}
+			\vba M=i\int_B^A\vba r\cross(d\vba r\cross\vba B)=-\frac{B^2r^4}{4R}\vba \omega
+		\end{gather*}
+		Questa volta si oppone alla velocità angolare
+		per mantenere $\omega$ costante, dobbiamo applicare un momento esterno uguale ed opposto a $\vba M$
+		Dovremo dunque fornire una potenza
+		\begin{gather*}
+			P=\vba M_{ext}\vdot\vba\omega=\frac{B^2r^4\omega^2}{4R}=i^2R
+		\end{gather*}
+		
+		Il caso del moto rotazionale è analogo al caso del moto traslazionale: la potenza meccanica necessaria per mantenere in rotazione il disco è trasformata in elettrica.\\
+		Dei tipici esempi di energia rotazionale convertita in elettrica sono le dinamo e le pale eoliche, ma il problema è che di solito utilizziamo corrente alternata.
+		
+	\end{examplewt}
+	
+	
+	\section{Generatori di AC}
+	Notazione: la corrente alternata viene indicata con \textit{AC}, dove per corrente alternata intendiamo la corrente che cambia segno: tipicamente ha una forma sinusoidale del tipo $\sin(\omega t)$ o $\cos(\omega t)$.\\
+	%TODO: IMAGINE 19.3
+	Immaginiamo di avere una spira rettangolare che ruota intorno al suo asse, con $\omega$ dato dalla regola della mano destra o della vite. Essa è immersa in un campo magnetico uniforme diretto verso $x$, quale $\vba B=B\vbh u_x$.\\
+	La spira ruota, non ha generatore: l'unica forza elettromagnetica è dovuta alla \fem indotta:
+	\begin{gather*}
+		\mathcal{E}_i=-\dv{\Phi_\Sigma(\vba B)}{t}
+	\end{gather*}
+	
+	Se la spira è parallela a $\vba B$ abbiamo un flusso minimo, se è ortogonale a $\vba B$ invece è massima.
+	Se consideriamo il vettore $\vbh u_n$ ortogonale alla spira, avremo un angolo $\phi=\omega t$
+	se la spira sta ruotando con velocità angolare costante, l'angolo che forma la spira col campo magnetico è dato dalla velocità angolare per il tempo
+	il flusso del campo magnetico attraverso la superficie è dato da
+	\begin{gather*}
+		\Phi_\Sigma(\vba B)=B\vdot\vbh u_n\Sigma=\Sigma B\cos\omega t
+	\end{gather*}
+	
+	Abbiamo la descrizione data prima  sul flusso minimo e massimo, antiparallelo dà contributo opposto
+	così il flusso è una funzione sinusoidale del tempo
+	possiamo aggiungere una fase per tenere conto della posizione iniziale, per ora la trascuriamo ponendo $\oldphi=0$
+	
+	Calcoliamo la \fem indotta con il flusso trovato
+	\begin{gather*}
+		\mathcal{E}_i=\Sigma B\omega\sin(\omega t)
+	\end{gather*}
+	
+	In questo modo produciamo una \ddp di forma sinusoidale con ampiezza massima data da $\Sigma B\omega$
+	%TODO: IMMAGINE 19.4
+	Questo è il meccanismo che porta un moto rotazionale a produrre corrente elettrica alternata ed è quello che si usa nelle pale eoliche
+	
+	Calcolandoci la potenza notiamo che è un metodo molto efficiente
+	\begin{gather*}
+		P=\mathcal{E}_ii=\frac{B^2\Sigma^2\omega^2\sin[2](\omega t)}{R}=M\omega
+	\end{gather*}
+	
+	ma $i=\frac{\mathcal{E}_i}{R}=\frac{B\Sigma\omega}{R}\sin\omega t$
+	convertiamo così energia meccanica in elettrica, e a differenza di prima la potenza dipende dal tempo ed ha un andamento
+	%TODO: IMMAGINE 19.5
+	Normalmente si definisce un potenza media integrando sul periodo
+	\begin{gather*}
+		P_m=\frac{1}{T}\int^T_0 P(t)dt=\frac{B^2\Sigma^2\omega^2}{RT}\int^T_0 \sin[2](\omega t)dt=\\
+		=\frac{B^2\Sigma^2\omega^2}{2R}=\frac{P_{max}}{2}
+	\end{gather*}
+	La potenza media in questi circuiti $AC$ è metà della potenza di un circuito equivalente in corrente continua
+	
+	Si definisce una forza elettromotrice \textit{efficace} tale per cui la potenza media
+	$P_m=\frac{\mathcal{E}_{EFF}^2}{R}$, cioé 
+	\begin{gather*}
+		\mathcal{E}_{EFF}^2=\frac{\mathcal{E}_{MAX}}{2} \implies \mathcal{E}_{EFF}=\frac{\Sigma B\omega}{\sqrt{2}}
+	\end{gather*}
+	Le oscillazioni della corrente sono molto rapide, quindi l'unico effetto visibile è l'effetto medio, ci interessa la \fem efficace che produrrebbe in dc [...]
+	
+	Notiamo che tutti i meccanismi appena visti sono di generazione di energia: conversione di meccanica in elettrica. Con gli stessi meccanismi però possiamo pensare di convertire energia elettrica in meccanica, cioè a dei motori.
+	
+	\section{motori}
+	Se nell'esempio del moto traslazionale invece della resistenza inseriamo un generatore ed immergiamo in un campo magnetica uniforme uscente dal foglio, allora sul pezzo di rotaia sta circolando della corrente $i$, e si genera una forza, siccome (?) è costante \textit{legge di Oersted(?)}abbiamo
+	\begin{gather*}
+		\vba F=i\left(\int d\vba s\right) \cross\vba B=ihB\vbh u_x\squarequal
+	\end{gather*}
+	%TOT: IMMAGINE 19.6
+	La corrente risente sia del contributo $E_0$ sia da quello indotto.
+	La \fem totale $\mathcal{E}=\mathcal{E}_0+\mathcal{E}_i=\mathcal{E}_0-vhB$
+	Stiamo cercando di dare energia alla barretta, che appena inizia a muoversi subisce forza di attrito proporzionale alla velocità $i=\frac{\mathcal{E}_0-vhB}{R}$
+	Inserendola nella forza otteniamo
+	\begin{gather*}
+		\squarequal\frac{\mathcal{E}_0-vhB}{R}hB\vbh u_x
+	\end{gather*}
+	che è il classico caso di moto in attrito viscoso.\\
+	Usando la legge di Newton $F=m\dv{v}{t}$ otteniamo
+	\begin{gather*}
+		\frac{\mathcal{E}_0-vhB}{R}hB=m\dv{v}{t}
+	\end{gather*}
+	
+	Risolviamo l'equazione differenziale ed otteniamo
+	\begin{gather*}
+		v(t)=\frac{\mathcal{E}_0}{hB}\left( 1-e^{-\frac{h^2B^2}{mR}t} \right)
+	\end{gather*}
+	
+	%TODO: IMMAGINE 19.7
+	Inserendo un generatore di questo tipo produciamo un moto inizialmente accelerato e poi rettilineo per una barretta. 
+	Allo stesso modo inserendo il disco riusciamo a produrre attraverso un generatore un moto accelerato uniforme (?)
+	
+	
+	
+	
+	\section{circuiti AC}
+	Vorremmo ora analizzare i circuiti con generatori di corrente $AC $
+	\subsection{Resistore R}
+	%TODO: IMMAGINE 19.8
+	Consideriamo un circuito con una sola resistenza $R$. Il generatore di corrente alternata produce una \fem $\mathcal{E}=\mathcal{E}_0\cos(\omega t)$. Per la legge di Ohm la corrente è
+	\begin{gather*}
+		i(t)=\frac{\mathcal{E}=0}{R}\cos(\omega t)
+	\end{gather*}
+	%TODO: IMMAGINE 19.9
+	Otteniamo così due sinusoidi perfettamente in fase, tutto grazie alla legge di Ohm
+	
+	\subsection{Induttore L}
+	In questo caso l'induttore produce una \fem autoindotta, ed integrando otteniamo
+	\begin{gather*}
+		\mathcal{E}(t)-L\dv{i}{t}=0\\
+		\dv{i}{t}=\frac{\mathcal{E}(t)}{L}\\
+		\implies i(t)=\frac{\mathcal{E}_0}{\omega L}\sin(\omega t)=\frac{\mathcal{E}_0}{\omega L}\cos(\omega t-\frac{\pi}{2})
+	\end{gather*}
+	Abbiamo così delle intensità di corrente sfasate di $\frac{\pi}{2}$ rispetto alla \ddp
+	%TODO:IMMAGINE 19.11
+	
+	La \ddp che si crea ai capi dell'induttore sarà
+	\begin{gather*}
+		V_L(t)=L\dv{i}{t}=\frac{\mathcal{E}_0}{L}\cos(\omega t)
+	\end{gather*}
+	
+	
+	\subsection{Condensatore di capacità $C$}
+	%TODO: IMMGAINE 19.12
+	Abbiamo la stessa \fem di prima, ma 
+	\begin{gather*}
+		\mathcal{E}(t)=V_C(t)=\frac{q}{C}\\
+		\dv{\mathcal{E}(t)}{t}=\frac{\dv{q}{t}}{C}=\frac{i(t)}{C}\\
+		\implies i(t)=C\dv{\mathcal{E}}{t}=-\mathcal{E}_0\omega C\sin\omega t= -\mathcal{E}_0\omega C\cos(\omega t+frac{\pi}{2})
+	\end{gather*}
+	%TODO : IMMAGINE 19.13
+	Questa volta è sfasata dalla parte opposta. 
+	Normalmente quello che si fa è introdurre una nuova variabile per unificare le equazioni.\\
+	Se $i(t)=i_0\cos\omega t$ allora $V_i(t)=Z_ii_0\cos(\omega t+\oldphi)$
+	con l'indice $i$ dice che varia fra resistenza, induttore e condensatore
+	\begin{gather*}
+		\begin{array}{lll}
+			i=R & Z_R=R & \oldphi_R=0\\
+			i=L & Z_L=\omega L	& \oldphi_L=\frac{\pi}{2}\\
+			i=C & Z_C=\frac{1}{\omega C} & \oldphi_C=-\frac{\pi}{2}
+		\end{array}
+	\end{gather*}
+	
+	Notiamo che stiamo sfasando al contrario: %OLD prima era dell'angolo opposto: fase in V e non in i, 
+	in elettrotecnica partendo da $i$ fissata calcoliamo $V$, che è la situazione reale più comune. Possiamo rappresentare come dei vettori secondo il seguente schema
+	%TODO : IMMAGINE 19.14
+	disegni: $i$ come vettore diretto nella direzione $x$, $v_R$ è nella stessa direzione perché è in fase, $v_L$ è in direzione $y$ (sfasato $\frac{\pi}{2}$).
+	Per combinare gli elementi in serie o in parallelo si fanno i grafici con la somma su vettori che ruotano con frequenza $\omega t$.
+	
+	\begin{examplewt}[AC, RL, in serie]
+		%TODO: IMMAGINE 19.15
+		\begin{gather*}
+			i(t)=i_0\cos\omega t\\
+			V_L(t)=Z_Li_0\cos(\omega t+\frac{\pi}{2})\\
+			V_R(t)=Z_R i_0\cos(\omega t)\\
+			V(t)=V_L(t) +V_R(t)= V_0\cos(\omega t+\oldphi)	
+		\end{gather*}
+		con modulo somma dei vettori (?) e $\oldphi$ angolo di sfasamento
+		\begin{gather*}
+			V_0=\sqrt{Z_L^2 +Z_R^2} i_0\\
+			\tan\oldphi=\frac{Z_L}{Z_R}
+		\end{gather*}
+		%TODO: IMMAGINE 19.16
+		Con il calcolo simbolico vedremo come semplificarlo con i numeri complessi.
+	\end{examplewt}
+	
+	\begin{examplewt}[AC, serie RC]
+		\begin{gather*}
+			i(t)=i_0\cos\omega t\\
+			V_C(t)=Z_Ci_0\cos(\omega t-\frac{\pi}{2})\\
+			V_R(t)=Z_R i_0\cos(\omega t)	
+			V(t)=V_C(t) +V_R(t)=  V_0\cos(\omega t+\oldphi)
+		\end{gather*}
+		Con modulo somma dei vettori(?) e $\oldphi$ angolo di sfasamento
+		\begin{gather*}
+			V_0=\sqrt{Z_C^2 +Z_R^2} i_0\\
+			\tan\oldphi=\frac{Z_C}{Z_R}
+		\end{gather*}
+		%TODO: IMMAGINE 19.18
+		Produciamo corrente e intensità corrente sfasate di $\oldphi$ che dipende da quanto	(?)
+	\end{examplewt}
+	
+	\begin{examplewt}[AC, serie LC]
+		I vettori questa volta sono allineati
+		%TODO : IMMAGINE 19.20
+		\begin{gather*}
+			V_0=\abs{Z_L-Z_C}i_0\\
+			\oldphi=\pm\frac{\pi}{2} \text{ se}  Z_L>Z_C \text{ o } Z_C>Z_L
+		\end{gather*}
+	\end{examplewt}
+	
+	\section{Metodo simbolico}
+	Possiamo ricavare questi risultati molto facilmente con il metodo simbolico: consiste nell'associare ad un circuito un'intensità di corrente complessa 
+	\begin{equation}
+		I=I_0 e^{i\omega t}
+	\end{equation} detta \textit{impedenza}\index{impedenza}, ed è una generalizzazione della resistenza. La vera intensità di corrente è la parte reale.\\
+	Diciamo che la \ddp è $V=\mathcal{Z}I$ con $\mathcal{Z}\in\complexset $
+	\textit{impedenza complessa} 
+	\begin{gather*}
+		\mathcal{Z}=Z_i e^{i\oldphi_i}\\
+		\mathcal{Z}_R=R\\
+		\mathcal{Z}_L=i\omega L\\
+		\mathcal{Z}_C=\frac{1}{i\omega C}
+	\end{gather*}
+	Così abbiamo associato un'impedenza complessa ad ogni elemento del circuito.\\
+	Il vantaggio è che elementi in serie producono un'impedenza complessa totale dalla somma
+	\begin{equation*}
+		\mathcal{Z}=\sum_i \mathcal{Z}_i
+	\end{equation*} ed elementi in parallelo l'\textit{ammettenza} \index{ammettenza}, cioè
+	\begin{equation}
+		Y=\frac{1}{\mathcal{Z}}=\sum_i \frac{1}{\mathcal{Z}_i}
+	\end{equation} 
+	L'impedenza complessa si comporta esattamente come le resistenze in DC, infatti
+	\begin{gather*}
+		\mathcal{Z}_{RL}=\mathcal{Z}_R +\mathcal{Z}_L=R+i\omega L\\
+		Z_{RL}=\abs{\mathcal{Z}_RL}=\sqrt{R^2+\omega^2 L^2}\\
+		\tan\oldphi=\frac{\omega L}{R}
+	\end{gather*}
+	
+	
+	\subsection{Seria RLC}
+	Calcoliamo l'impedenza complessa
+	\begin{gather*}
+		\mathcal{Z}=\mathcal{Z}_R+\mathcal{Z}_L+\mathcal{Z}_C=\\
+		=R+i\omega L+\frac{1}{i\omega  C }=R+i\left(\omega L-\frac{1}{\omega C}\right) =\\ =Ze^{i\oldphi} \text{ in forma esponenziale}\\
+		\implies Z=\sqrt{R^2 +\left(\omega L-\frac{1}{\omega C}\right)^2}\\
+		\tan\oldphi=\frac{\omega L -\frac{1}{\omega C}}{R}\\
+		\text{con }	I=Ie^{i\omega t}\\
+		\implies V=I_0\left(R+i\left(\omega L-\frac{1}{\omega C}\right)\right)e^{i\omega t}=\\ =I_0 \sqrt{R^2 +\left(\omega L-\frac{1}{\omega C}\right)^2} e^{i(\omega t +\oldphi)}
+	\end{gather*}
+	
+	Anche senza generatore avevamo oscillazioni smorzate. Con il generatore sono sfasate rispetto all'intensità di corrente
+	\begin{gather*}
+		V(t)=\underbrace{i_0 \sqrt{R^2 +\left(\omega L-\frac{1}{\omega C}\right)^2}}_{V_0} \cos(\omega t+\oldphi) \\
+		\implies i_0=\frac{V_0}{\sqrt{R^2 +\left(\omega L-\frac{1}{\omega C}\right)^2}}
+	\end{gather*}
+	che è oscillante ma con valore massimo $i_0$. Se plottiamo $i_0$ rispetto alla frequenza $\omega$ del generatore che possiamo regolare, troviamo curva
+	%TODO: IMMAGINE 19.22
+	Il massimo si ottiene mettendo a zero $\omega_0$ frequenza caratteristica del circuito $RLC$	
+	\begin{equation*}
+		\omega_0=\frac{1}{\sqrt{LC}}
+	\end{equation*}
+	La larghezza caratteristica è proporzionale $\Delta\omega_0\sim\frac{R}{L}$.\\
+	Come applicazione interessante si ha che può essere utilizzato come un selettore di frequenza: fa girare corrente solo se è simile e $\omega_0$ è detta \textit{risonanza} \index{risonanza}.\\
+	Con $R/L$ molto piccolo la curva è piccata, %OLD accneo generatore,
+	e nel circuito passa corrente solo se la frequenza è vicino a $\omega_0$.\\
+	Viene usato nelle radio e televisioni per avere frequenza giusta: selettore di frequenza attraverso regolazione dei parametri del circuito.
+	
+	%%Giovedì 21 sessione di domande/esercizi di Bianchi
+	%%UKTIMA LEZIONE MERCOLEDì DOPO PASQUA%SECONDA PARTED DEL CORSO DA DOPO ! MAGGIO
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%LEZ 20 06/04/22
+	%
+	\section{Accenno a magnetismo nella materia}
+	Come si comporta il campo magnetico all'interno dei materiali?\\
+	Valgono tutti i caveat già visti nell'elettricità nei materiali dielettrici.\\
+	Per avere un modello realistico serve un modello quantistico, gli altri infatti non hanno un valore quantitativo.\\
+	Nel caso dielettrico partendo da osservazioni macroscopiche, deduciamo meccanismi sulle proprietà materiali e poi non ci addentreremo nei meccanismi microscopici, per cui serve quantistica. Per quanto riguarda gli aspetti magnetici delle particelle microscopiche dipendono (?)
+	Un campo magnetico si accoppia ad una particella solo se questa è carica ed è in moto, che prende momento magnetico se, nel caso della spira, si muove di moto circolare.\\
+	Un'interpretazione che possiamo dare è ch l'elettrone nella sua rotazione intorno al  nucleo, produce un momento angolare che si allinea con il campo magnetico, ma questo è errato dal punto di vista quantitativo,infatti l'elettrone non gira intorno all'atomo ma si dispone sui livelli energetici degli orbitali.\\
+	Inoltre gli elettroni hanno anche momento angolare intrinseco (analogo alla rotazione su sè stesso), ed è lo \textit{spin} \index{spin}. Esso è una caratteristica intrinseca, che produce un momento di dipolo magnetico che si accoppia con il campo magnetico e si allinea.\\
+	La descrizione classica dei momenti di dipolo magnetico che si allineano o disallineano dà un'intuizione, ma per una comprensione efficace fenomeni servono modelli statistici e quantistici che non abbiamo e non tratteremo in questo corso.
+	
+	\subsection{Dielettrici}
+	
+	%NOTA: mettiamo l'environment del ricrda?
+	Ripassiamo cosa abbiamo fatto nel caso dei dielettrici. Abbiamo preso due piastre, abbiamo cercato di capire cosa sarebbe successo se lo avessimo riempito di materiale dielettrico.
+	Il campo elettrico generato dalle due piastre è uniforme. Il fatto di avere un dielettrico fa sì che il campo elettrico efficace misurato fra le piastre è pari al campo elettrico se non ci fosse dielettrico, cioè $E_0$
+	\begin{equation*}
+		E_k=\frac{E_0}{k}=\frac{\sigma}{k\epsilon_0}
+	\end{equation*}
+	con $k>1$ costante dielettrica relativa.\\
+	%TODO: IMMAGINE 20.1
+	Un'altra costante $\epsilon=\frac{k}{\epsilon_0}$ è la costante dielettrica assoluta.\\
+	Le costanti sono proprietà del mezzo, infatti distinguiamo il comportamento del dielettrico in base alla costante, e le proprietà generali variano a seconda del valore delle costanti.\\ 
+	%NOTA: andrebbero cambiate le sezioni
+	L'analogo nel caso del magnetismo invece è il solenoide, che come abbiamo visto produce un campo magnetico uniforme. \\
+	Consideriamo un solenoide come un insieme di spire una in pila all'altra che avvolgono un cilindro. Riempiamo il cilindro di un certo materiale e diamo un verso di percorrenza alla corrente: entrante nella parte sotto ed uscente dalla parte sopra, ed usiamo la regola della vite per trovare verso campo magnetico.\\
+	%TODO: IMMAGINE 20.2
+	Ora ci chiediamo: rispetto al campo magnetico che avremmo nel vuoto, quanto vale il campo magnetico quando inseriamo un materiale?
+	\begin{gather*}
+		B_{k_m}=k_m B_0=k_m\mu_0 ni=\mu ni
+	\end{gather*}
+	e vale come definizione di $k_m$ detta \textit{permeabilità magnetica relativa}, ed è posizionata al contrario rispetto alla $k$ del campo elettrico.\\
+	Definiremo anche $\mu=k_m\mu_0$ come \textit{permeabilità magnetica (assoluta)}, e questo è il motivo per cui  $\mu_0$ si indica con \textit{permeabilità magnetica del vuoto}.\\
+	La grossa differenza rispetto al caso elettrico, è che qui $k_m$ \textit{non} è sempre maggiore di $1$! Infatti in base al suo comportamento abbiamo effetti magnetici molto diversi fra loro
+	\begin{itemize}
+		\item $k_m<1$ dà origine ad un comportamento detto \textit{diamagnetismo} e vale $B_{k_m}<B_0$, per cui diminuiscono il campo magnetico
+		\item $k_m>1$ sono i \textit{paramagneti} 	
+		\item $k_m\gg 1$ sono i \textit{ferromagneti}, ma in questo caso non ha neanche senso definire $k_m$ per motivi che scopriremo più avanti non è un valore costante nei ferromagneti, dipende come li carichiamo ed è nell'ordine di $10^5$	
+	\end{itemize}
+	
+	\begin{examplewt}[Valori della suscettibilità magnetica]
+		Definiamo $\chi_m$ come \textit{suscettibilità magnetica} $\chi_m=k_m-1$
+		\begin{center}
+			\begin{tabular}{l|c|l|c}
+				$\chi_m<0$ & \textsc{diamagneti} & $\chi_m>0$ & \textsc{paramagneti}\\
+				\hline
+				argento & $-2,39*10^{-5}$ & alluminio & $2,08*10^{-5}$\\
+				oro & $-3,46*10^{-5}$ & platino & $2,791*10^{-5}$\\
+				rame & $-0,98*10^{-5}$ & uranio & $40,92*10^{-5}$
+			\end{tabular}
+		\end{center}
+		Inoltre la suscettibilità non è costante: dipende dalla temperatura e dalla densità del materiale: è proporzionale a $\chi_m\sim \frac{\rho}{T}$, che è detta \textit{prima legge di Curie} \index{Curie!legge di}.
+	\end{examplewt}
+	%
+	%Tornando al caso dei dielettirici, il campo el è diminuito
+	%questo fenomeno può essere spiegato ammettendo che c'è un campo elettrico prodotto da cariche fittizie poste sulla sup del materiale che creano un campo elettrico opposto a quello generato dalle piastre che contrasta quello precedente
+	%queste camp opposto è generato dalla polarizzazione e non dal movimento di cariche
+	%avevamo detto che si generano a livello atomico e molecolare delle polarizzazioni
+	%	polarizzazione elettronica: 
+	%		si può pensare a come el ch produce nuvla di carica negativa intorno al nucelo, accendendo campo el, le car positive si spotano vero l'alto o basso, il centro delle cariche negative è spostato e si crea momento di dipolo el per separazione delle cariche
+	%		\vba F=q\vba a
+	%		in mezzo alle due cariche va da + a -
+	%	polarizzazione molecolare:
+	%		accendendo campo elettrico i dipoli si allineano verso il basso, il dipolo el si allinea con campo el produce campo el risultante dalla polarizzazione è opposto a quello precedente
+	%		quindi il campo elettrico dovuto alla polarizzazione si oppone sempre a quello esterno
+	%quindi ho sempre cam el che si oppongono al campo el esterno, hence k>1
+	%differenza cruciale rispetto al caso magnetico!
+	%
+	%ho una magnetizzazione atomica
+	%nuvole di elettroni, in assenza di camp magn non ha dipolo mag, ma accendendone uno l'atomo ne crea uno in direzione opposta rispetto al campo mag esterno
+	%	prima era nella stessa direzione, ora è opposto
+	%	è il fenomeno all'origine del diamagnetismo
+	%se immagino che l'elettrone sia una sorta di spira otteniamo momneto di dipolo opposto a quello magnetico, ma non funziona quantitativamente, è necessaria la mecc quant
+	%
+	%	tipo polarizzazione molecolare:
+	%		materiale in cui ci sono già dei momenti magnetici \vba m
+	%		se il campo mgn è nullo si equilibrano tutti
+	%		se lo accendo si allineano al cmp mgn
+	%		nel caso della spira se il dip mn verso l'alto il campo di dipolo mgn è a sua volta diretto verso l'alto, stessa direzione del momento di dipolo
+	%		è la differenza sostanziale fra dipolo elettrico e magnetico, non ho un monopolo mgn
+	%		\vba B_0 parallelo \vba B
+	%	è il fenomeno del paramagnetismo
+	%	
+	%un atomo immerso in un campo mgn esterno produce mom dip opposto (cmp mgn opp)	effeto che produce diminuzione
+	%
+	%l'altro produce aumento
+	%
+	%a seconda di quale effetto prevale abbiamo materiale dia o para magnetico
+	%
+	%
+	%immaginiamo di avere all'interno del solenoide delle \textit{correnti amperiane} che possono opporsi (densità corrente dovuta ad allineamento) opposti a quello esterno, quindi abbiamo il diamagnetismo perché diminuisce campo magnetico
+	%oppure possono essere concordi, il cmp mgn misurato è maggiore, è fenomeno del paramagnetismo
+	%%IMMAGINI diverse
+	%il fatto che l'effetto sia dato da correnti si può vedere da B_k=k_m B_0
+	%campo magnetico prodotto dalle correnti 
+	%totale B_k= B_0+ (k_m-1)B_0= \mu-0ni +\chi_m\mu_0 ni
+	%a seconda del segno di \chi aumenta o diminuisce il cpm mgn precedente all'interno del solenoide
+	%definisco correnti i_m=\chi_m i amperiane 
+	%
+	%vogliamo modellizzare le correnti amperiane con dei momenti microscopici
+	%	trattazione analoga a quelal del dielettrico
+	%prendiamo un cubetto con tante particelle col loro momento magnetico
+	%il cubetto ha 
+	%	volume V
+	%	numero di dipoli magnetici N
+	%	def densità dipoli magnetici per unità di volume n=\frac{N}{V}
+	%
+	%%NOTA \vm è momentaneamente il valor medio, parentesi di pace
+	%quindi il valor medio come la somma dei mome mgn dei dipoli diviso per ilnumero di dipoli
+	%\vm \vba m= \frac{1}{N}\sum_i \vba m_i
+	%definisco vettore magnetizzazzione \vba M=\frac{\sum_i \vba m_i}{V}= \frac{N}{V}\frac{1}{N}\sum_i \vba m_i= n \vm \vba m
+	%
+	%nel caso dei dielettrici avevamo un cubetto con momenti di dipolo elettrico che si allineavano in media, produceono vettore polarizzazion \vba P che posso rimpiazzare con un cubetto in cui si deposita una carica + positiva sopra, - sotto, impilandoli 
+	%\div\vba P= densità di carica di volume del dielettirco
+	%quindi assumiamo: se \vba P è uniforme, impilando i cubetti il contributo delle facce in mezzo è compensato, contano soo i contributi alla superficie non bilanciati, che danno denstià di carica \sigma_p=\vba P\vdot\vbh u_n
+	%
+	%analogamente per il caso magnetico consideriamo cubetto con dipoli che si allineano con cmp mgn, posso rimpiazzarlo con una specie di spira con intensità di corrente che circola nel cubetto in modo t.c. produce momento di dipolo magnetico per unità di volume pari a \vba M
+	%\vba m=i\Sigma\vbh u_z
+	%\Sigma è la superficie orogonale a \vbh u_z, quindi xy
+	%voglio calcolare momento di dipolo magnetico per unità di volume
+	%\vba M=\frac{\vba m}{V}=\frac{i_m\Sigma\Delta\vbh u_z}{\Sigma\Delta z}
+	%con i_m=\abs{\vba M}\Delta z
+	%esattamente a prima dove rimpiazzavo cubetto con piastre qui sostituisco cubetto con nastro/spira in cui circola corrente
+	%spira quadrata di altezza \Delta z
+	%la corrente che deve circolare per essere equivalente è i_m
+	%
+	%Se \vba M è uniforme e lungo \vbh u_z impiliamo cubetti, e succede che in ognuno dei cbetti c'è corrente che gira su nastro quadrato, in ognuna delle facce in comune dei cubetti
+	%	analisi zoom su due cubetti : i_1 e i_2 sono dirette in direzione opposta
+	%	ma se \vba M è uniforme allora i_1=i_2, quindi le correnti sulle facce in comune si cancellano /analogo a dielettrico dove si cancellavano le cariche
+	%immaginiamo ora di avere un cilindro (come quello che avevamo inserito all'interno del solenoide) da dividere in pseudo cubetti infinitesimi: se $\vba M$ è uniforme le uniche correnti non bilanciate sono sulla superficie
+	%nel cilindro si crea corrente superficiale opposta o concorde con le correnti che l'hanno prodotta
+	%le correnti esterne sono le correnti ampèriane di cui parlavamo prima
+	%saranno date da
+	%ogni singola spira produce corrente i_m=\abs{\vba M} \Delta z
+	%per la corrente totale dobbiamo integrare
+	%i_m=\int_0^h \abs{\vba M}dx =\abs{\vba M}h
+	%perché $\vba M$ è uniforme, con $h$ altezza del cilindro
+	%l'effetto di allineamento di dipoli magnetici si rimpiazza con correnti
+	%
+	%in alternativa si può definire una densità superficiale di corrente, quindi un vettore $\vba J_{\Sigma, m}$ corrente ristretta ad una superficie e non in generale in un volume o su un filo
+	%\vba J_{\Sigma, m}=\vba M\cross \vbh u_n
+	%troviamo un vettore sempre tangenziale al cilindro che è proprio la corrente $\vba J_{\Sigma, m}$ nel verso in cui gira la corrente
+	%recap: totalmente analogo al caso del dielettrico: l'allinearsi di momenti di dipolo magnetico produce un effetto a analogo a quello delle correnti ampèriane. se il vettore magnetizzazione è uniforme (non dipendente dallo spazio) allora le correnti ampèriane si localizzano sulla superficie esterna del materiale: fenomeno corrente equivalente al moto di cariche sulla superficie esterna del cilindro
+	%a seconda della direzione del vettore magnetizzazione esso si opporrà o contribuirà al campo magnetico
+	%
+	%ogni corrente produce contributo lungo l'asse $y$
+	%i_y^{(1)_m}=i_1-i_2=\left( M_z(x)-M_z(x+\Delta x) \right) \Delta z= -\pdv{M_z}{x}dxdz
+	%sulla superficie in comune abbiamo una corrente diretta lungo l'asse $y$, $i_2$ va indietro e $i_1$ va in avati
+	%
+	%la componente del vettore magnetizzazione $M_x$
+	%sulla faccia in comune $i_2$ va in direzione opposta a $i_1$
+	%il secondo contributo alla corrente lungo l'asse $y$ è dato da $i_2-i_1$
+	%i^{(2)}_y= \left( M_x(z+\Delta z) -M_x(z)\right \Delta x
+	%i_y=i_y^{(1)}+ i^{(2)}_y=\left( \pdv{M_x}{z} - pdv{M_z}{x }\right)
+	%riconosciamo le componenti del rotore
+	%J_y=\frac{i_y}{dxdz}=\pdv{M_x}{z}- \pdv{M_z}{x}
+	%
+	%\rho_p=\div\vba P
+	%\vba J_m=\curl\vba M
+	%
+	%se la magnetizzazione non è costante abbiamo correnti interne al cilindro, come per polarizzazione non costante cariche non equilibrate all'interno del volume
+	%
+	%
+	%siamo ora pronti a definire
+	%riprendiamo le leggi
+	%	Ampère: \curl \vba B=\mu_0\vba j nel caso statico
+	%	se alle correnti esterne si aggiungono corretni ampèriane
+	%	aggiungiamo contributo delle correnti ampèriane \curl\vba B=\mu_0\left( \vba j+\vba j_m\right)
+	%	\curl\vba B=\mu_0\vba j +\mu_0\vba j_m
+	%	quindi portando al membro di sinstra definiaimo il rotore di un nuovo vettore
+	%	\curl\left( \underbrace{\frac{\vba B}{\mu_0}-\vba M}_{\vba H} \right) =\vba J
+	%	\curl\vba H=\vba J
+	%se regoliao la corrente che gira nel solenoide con materiale non stiamo modificando solo il campo magnetico ma regoliamo $\vba H$, vettore che è legato effettivamente alla corrente esterna
+	%purtroppo da sola quest'equazione non dice molto, dipende da $\vba M$
+	%per determinare $\vba H$ e $\vba B$ (equavalmentemente $\vba B$ e $\vba M$) ci serve un'equazione di stato magnetica
+	%non sappiamo la variazione della magnetizzazione, come per i dielettrici non sappiamo la variazione di polarizzazione con variazione del campo elettrico
+	%definiamo i materiali diamagnetici e paramagnetici lineari quando abbiamo una relazione di proporzionalità diretta con suscettibilità magnetica
+	%\vba M=\chi_m\vba H
+	%non è vera per i ferromagneti
+	%con questa relazione possiamo scrivere $\vba B$
+	%	\vba B=\mu_0(\vba M + \vba H)=\mu_0(\chi_m+1)\vba H=\mu_0 k_m \vba H= \mu \vba H
+	%	per definizione di \mu e \chi
+	%	\vba B=\mu\vba H
+	%	
+	%riscriviamo le equazioni per capire come si comportano i campi elettrico e magnetico nei materiali
+	%
+	%equazione elettrostatica e magnetostatica nei materiali
+	%modificazioni di quelle nel vuoto
+	%	\crl\vba E=0
+	%	\div\vba D=\rho
+	%	\div\vba B=0
+	%	\curl\vba H=\vba J
+	%con \epsilon_0\vba E=\vba D-\vba P
+	%	\frac{\vba B}{\mu_0}=\vba H+\vba M
+	%	
+	%elettrica si è aggiunta sorgente \rho prodotta da polarizzazione
+	%magnetica si è agagiunto il contributo a $\vba j$ dato dalla magnetizzazione
+	%se non sappiamo come sono legati a $\vba E$ e $\vba B$ ci fermiamo qui
+	%
+	%invece nel caso lineare
+	%	\vba P=(k-1)\epsilon_0\vba E
+	%	\vba D=\epsilon \vba E	con \epsilon=\epsilon_0k
+	%	\implies \div\vba E=\frac{\rho}{\epsilon}
+	%	
+	%	\vba M=\frac{k_m-1}{k_m}\frac{\vba B}{\mu_0}
+	%	\vba H=\frac{\vba B}{\mu}
+	%	\implies \curl\vba B=\mu\vba J
+	%
+	%nel cao lineare statico le equazioni di Maxwell sono invariate a patto di rimpiazzare $\epsilon_0$ con $\epsilon$ e $\mu_0$ con $\mu$
+	%
+	%scriviamo direttamente le equazioni di Maxwell nei materiali, generalizzazione dinamica
+	%	\curl\vba E=-\pdv{\vba B}{t}
+	%	\div\vba D=\rho
+	%	\div\vba B=0
+	%	\curl\vba H=\vba J+\pdv{\vba D}{t}
+	%
+	%caso più interessante: se $\vba D=\epsilon \vba E$ e $\vba H=\frac{\vba B}{\mu}$
+	%	\curl\vba E=-\pdv{\vba B}{t}
+	%	\div\vba B=0
+	%	\div\vba E=\frac{\rho}{\epsilon}
+	%	\curl\vba B=\mu\vba j+\epsilon\mu\pdv{\vba E}{t}
+	%	
+	%	
+	%recap: nel caso di dielettirci, diamagntici e paramagnetici lineari le equazioni di Maxewll sono invariate a patto di rimpiazzare le costanti del materiale in questione
+	%
+	%le ultime equazioni determinano il campo elettrico e magnetico, che non era vero per quattro campi vettoriali precedenti (pernultima quaterna)
+	%dalle sole equazioni di Maxwwell se non sappiamo le equazioni di stato, il legame fra $\vba D$ ed $\vba E$, $\vba H$ e $\vba B$ in principio non possiamo risolvere la quaterna di equazioni
+	%solo nel caso lineare o se abbiamo un'altra relazione possiamo risolvere la quaterna
+	%
+	%Osservazioni sui ferromagneti
+	%fenomenologicamente
+	%se accendiamo un campo magnetico anche molto piccolo in questi materiali si produce un campo magnetico enorme nel ferromagnete
+	%se spegniamo il campo magnetico esterno quello interno del ferromagnete non si spegne, quindi questi materiali preservano le proprietà magnetiche
+	%
+	%questa equazione di stato $\vba H=\frac{\vba B}{\mu}$
+	%prendiamo un toro e costruaimo un solenoide toroidale, cioé avvolgiamo il toro con delle spire che colleghiamo ad un circuito
+	%facciamo circolare all'inerno del solnoide della corrente $\vba i$, se variamo $\vba i$ variamo $\vba H$ senza variare $\vba P$
+	%vogliamo capire come varia $\vba H$ rispetto a $\vba M$ (prima era proporzionale, ora no)
+	%se $\vba M\neq 0$ allora il materiale è magnetizzato, cioé produce un campo magnetico
+	%quelo che succede nei ferromagneti è il \textit{ciclo di steresi}
+	%voglio vedere come varia $\vba H$ rispetto a $\vba M$ 
+	%%NOTA alla lavagna ha invertito M ed H sugli assi, non so quale sia giusto
+	%nel caso lineare $\vba M_0\chi_m\vba H$
+	%se l'inclinazione della retta è positiva allora è associato ai paramagneti, quella negativa è per i diamagneti
+	%è l'equazione di stato lineare in cui aumentando $H$ aumenta $M$ in modulo
+	%
+	%nei ferromagneti aumentando $\vba H$
+	%se partiamo da $0$ dove non è magnetizzato, accendiamo e si forma una curva di prima magnetizzazione, c'è un valore di magnetizzazione dato da $H_M$
+	%abbassiamo la corrente e quindi $H$: il materiale fa curva che intercetta l'asse della magnetizzazione ad un punto che non è $0$!
+	%tornando indietro abbiamo una magnetizzazione non nulla
+	%esempio calamite sul frigorifero
+	%se accendiamo la corrente nella direzione opposta: andrà giù finché non arriva ad un valore di saturazione $-M_{sat}$ per $H_{sat}$ arriviamo ad un punto in cui $M=0$: in quel momento è smagnetizato ma abbiamo corrente che gira
+	%vorremmo però che sia smagnetizzato senza corrente
+	%se di nuovo cambiamo corrente per tornare indietro abbiamo una magnetizzazione negativa che risale e completa il ciclo
+	%questo è il ciclo di steresi: la magnatizzazione non è mai nulla a corrente nulla
+	%
+	%come facciamo a smagnetizzare un materiale?
+	%se facciamo tutto il ciclo da $-H_m$ a $H_m$ possiamo tornare indietro e rendere il ciclo sempre più stretto formando un ciclo che tende a restringersi
+	%così abbiamo la smagnetizzazione
+	%la forma di tale ciclo può essere molto allungata o larga e dipende dal materiale
+	%ogni materiale ferromagnetico ha il suo ciclo di steresi
+	%
+	%la proprietà di essere ferromagneti dipende dalla temperatura: se li scaldiamo molto diventano paramagneti
+	%viceversa se raffreddiamo un paragnete esso diventa ferromagnetico
+	%è la transizione di fase di magnetizzazione che avviene a temperatura critica di Curie
+	%questa transizione di fase è descritta solo a livello quantistico, come modello di ising (?)
+	
+\end{comment}

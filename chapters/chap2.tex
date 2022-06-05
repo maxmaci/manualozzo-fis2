@@ -11,27 +11,27 @@
 \begin{introduction}
 	‘‘BEEP BOOP''
 	\begin{flushright}
-		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. % TO DO: quote 
+		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. %TODO: quote 
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{P}{er}  % TO DO: intro
-\section{Flusso di un campo vettoriale}
-% TO DO: concezione intuitiva di flusso
+\lettrine[findent=1pt, nindent=0pt]{P}{er}  %TODO: intro
+\section{Il flusso di un campo vettoriale}
+%TODO: concezione intuitiva di flusso
 \begin{define}[Flusso di un campo vettoriale]
 	Il \textbf{flusso di un campo vettoriale attraverso una superficie orientata}\index{flusso di un campo vettoriale} $\Sigma$, parametrizzata da una funzione $\vba{r}(u,v)$, è
 	\begin{equation}
-		\Phi_{\Sigma}\left(\vba{E}\right)=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma}\vba{E}\vdot\frac{\partial \vba{r}}{\partial u}\cross\frac{\partial \vba{r}}{\partial v}dudv
+		\Phi_{\Sigma}(\vba{E})=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma}\vba{E}\vdot\frac{\partial \vba{r}}{\partial u}\cross\frac{\partial \vba{r}}{\partial v}dudv
 	\end{equation}
 \end{define}
 \begin{intuit}
 	Se descriviamo la corrente di un fluido come l'acqua con un campo vettoriale $\vba{F}$, il flusso di $\vba{F}$ rappresenta \textit{quanto fluido} passa \textit{attraverso} una certa superficie per unità di tempo (anche se quest'ultima viene spesso sottointesa).\\
 	Con questa interpretazione euristica si può capire anche perché l'integrale presenta nella definizione un \textit{prodotto scalare}: se l'acqua scorre perpendicolarmente alla superficie, molta acqua passerà e il flusso sarà dunque grande; al contrario, se il fluido scorre parallelamente alla superficie l'acqua non l'attraverserà mai e quindi il flusso è nullo. In altre parole, ciò che influisce sul flusso è la componente del flusso perpendicolare alla superficie!
 \end{intuit}
-Matematicamente parlando, il flusso non è altro che un tipo di integrale superficiale di un campo vettoriale. % TO DO: link ai richiami.\\
+Matematicamente parlando, il flusso non è altro che un tipo di integrale superficiale di un campo vettoriale. %TODO: link ai richiami.\\
 
 Come abbiamo detto, la superficie deve essere \textbf{orientabile}: detto in una maniera suggestiva, intuitiva ma non formale come farebbero i fisici, una superficie con due \textit{facce distinte} e due \textit{orientazioni} possibili che corrispondono alla scelta di un \textit{campo normale} che punta sempre dalla parte di una delle facce.\\
 In particolare, la superficie deve essere effettivamente orientata, ossia si deve scegliere uno dei campi normali in modo da definire quando il flusso è positivo e quando è negativo. Generalmente, per convenzione si impone che il vettore normale alla superficie è orientato verso l'\textit{esterno}: quando la componente perpendicolare del campo vettoriale $\vba{E}$ e il vettore normale saranno \textit{concordi}, cioè quando $\vba{E}$ è \textit{uscente} dalla superficie, si ha un flusso \textit{positivo}; se il campo $\vba{E}$ è \textit{entrante} la superficie, allora si ha un flusso \textit{negativo}.
-\begin{observe} % TO DO: confrontare mazzoldi e note docente, riformulare che non è molto chiaro
+\begin{observe} %TODO: confrontare mazzoldi e note docente, riformulare che non è molto chiaro
 	Data una superficie chiusa $\Sigma$, tracciamo una curva chiusa $\gamma$ su di essa; possiamo scindere $\Sigma$ in due sottosuperfici $\Sigma_1$ e $\Sigma_2$ che hanno in comune una superficie $\Sigma_{1,2}$ delimitata da $\gamma$.
 	Il flusso per linearità di scinde in
 	\begin{equation*}
@@ -52,11 +52,11 @@ In particolare, la superficie deve essere effettivamente orientata, ossia si dev
 	\begin{itemize}
 		\item \textbf{Caso discreto:}
 		\begin{equation}
-			\Phi_\Sigma\left(\vba{E}\right)=\frac{\left(\sum_i q_i\right)_{int}}{\epsilon_0}\label{LeggeGaussDiscreta}
+			\Phi_\Sigma(\vba{E})=\frac{\left(\sum_i q_i\right)_{int}}{\epsilon_0}\label{LeggeGaussDiscreta}
 		\end{equation}
 		\item \textbf{Caso continuo:}
 		\begin{equation}
-			\Phi_\Sigma\left(\vba{E}\right)=\frac{1}{\epsilon_0}\int_{V}\rho\left(x,y,z\right)dV\qquad\text{tale che}\ \partial V=\Sigma\label{LeggeGaussContinua}
+			\Phi_\Sigma(\vba{E})=\frac{1}{\epsilon_0}\int_{V}\rho\left(x,y,z\right)dV\qquad\text{tale che}\ \partial V=\Sigma\label{LeggeGaussContinua}
 		\end{equation}
 	\end{itemize}
 \end{theorema}
@@ -95,7 +95,7 @@ Questo risultato è valido per una qualunque superficie \textit{chiusa} che racc
 	\textit{Dimensioni:} $[\Omega]=\mathsf{1}$.
 \end{units}
 \paragraph{Derivazione fisica della legge di Gauss}
-Dato il campo di Coulomb $\vba{E}$ generato dalla carica $q$, vogliamo determinare l'elemento di flusso infinitesimo $d\Phi\left(\vba{E}\right)$, ossia il flusso tramite l'elemento d'area infinitesimo $d\Sigma$.
+Dato il campo di Coulomb $\vba{E}$ generato dalla carica $q$, vogliamo determinare l'elemento di flusso infinitesimo $d\Phi(\vba{E})$, ossia il flusso tramite l'elemento d'area infinitesimo $d\Sigma$.
 
 Innanzitutto, si noti che l'angolo tra il versore radiale $\vbh{u}_r$ uscente dalla carica $q$ e il versore normale $\vbh{u}_n$ alla superficie coincide con un possibile angolo polare $\theta$ che parametrizza un punto della calotta sferica unitaria centrata in $q$.
 \begin{equation*}
@@ -103,7 +103,7 @@ Innanzitutto, si noti che l'angolo tra il versore radiale $\vbh{u}_r$ uscente da
 \end{equation*}
 Il flusso infinitesimo diventa
 \begin{equation*}
-	d\Phi_{\Sigma}\left(\vba{E}\right)=\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{q}{4\pi\epsilon_0}\frac{\vbh{u}_r\vdot\vbh{u}_n}{r^2}d\Sigma=\frac{q}{4\pi\epsilon_0}\frac{\cos\theta}{r^2}d\Sigma=\frac{q}{4\pi\epsilon_0}\frac{d\Sigma_0}{r^2}=\frac{q}{4\pi\epsilon_0}d\Omega
+	d\Phi_{\Sigma}(\vba{E})=\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{q}{4\pi\epsilon_0}\frac{\vbh{u}_r\vdot\vbh{u}_n}{r^2}d\Sigma=\frac{q}{4\pi\epsilon_0}\frac{\cos\theta}{r^2}d\Sigma=\frac{q}{4\pi\epsilon_0}\frac{d\Sigma_0}{r^2}=\frac{q}{4\pi\epsilon_0}d\Omega
 \end{equation*}
 \begin{observe}
 	Il flusso del campo $\vba{E}$ generato da una carica puntiforme dipende solo dall'angolo solido e \textit{non} dalla superficie o dalla distanza dalla carica: il flusso è lo stesso per qualunque superficie il cui bordo si appoggi sul cono individuato dall'angolo solido.\\
@@ -111,7 +111,7 @@ Il flusso infinitesimo diventa
 \end{observe}
 Per una superficie (finita) e chiusa che racchiude la carica $q$ si ha
  \begin{equation*}
- 	\Phi_\Sigma\left(\vba{E}\right)=\frac{q}{4\pi\epsilon_0}\Omega=\frac{q}{\epsilon_0}
+ 	\Phi_\Sigma(\vba{E})=\frac{q}{4\pi\epsilon_0}\Omega=\frac{q}{\epsilon_0}
  \end{equation*}
 \paragraph{Dimostrazione formale della legge di Gauss}
 \begin{demonstration}
@@ -138,7 +138,7 @@ Per una superficie (finita) e chiusa che racchiude la carica $q$ si ha
 	\end{equation*}
 	Per definizione, il flusso è
 	\begin{equation*}
-		\Phi_{\Sigma}\left(\vba{E}\right)=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma}\vba{E}\vdot\vbh{u}_n\abs{\pdv{\vba{r}(\theta,\phi)}{\theta}\cross\pdv{\vba{r}(\theta,\phi)}{\phi}}d\theta d\phi\squarequal
+		\Phi_{\Sigma}(\vba{E})=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma}\vba{E}\vdot\vbh{u}_n\abs{\pdv{\vba{r}(\theta,\phi)}{\theta}\cross\pdv{\vba{r}(\theta,\phi)}{\phi}}d\theta d\phi\squarequal
 	\end{equation*}
 	Poiché il versore normale è
 	\begin{equation*}
@@ -196,7 +196,7 @@ Se la superficie (finita) è chiusa si ha $\Omega=4\pi$, ottenendo quindi il ris
 \end{observe}
 Il caso per cariche multiple segue dal \textit{principio di sovrapposizione} dei campi elettrici:
 \begin{equation*}
-	\Phi_{\Sigma}\left(\vba{E}\right)=\int_{\Sigma} \vba{E}\vdot \vbh{u}_nd\Sigma=\int_{\Sigma}\left(\sum_i\vba{E}_i\right)\vdot\vbh{u}_nd\Sigma=\sum_i\int_{\Sigma}\vba{E}_i\vdot\vbh{u}_nd\Sigma=\sum_i\frac{q_i}{\epsilon_0}
+	\Phi_{\Sigma}(\vba{E})=\int_{\Sigma} \vba{E}\vdot \vbh{u}_nd\Sigma=\int_{\Sigma}\left(\sum_i\vba{E}_i\right)\vdot\vbh{u}_nd\Sigma=\sum_i\int_{\Sigma}\vba{E}_i\vdot\vbh{u}_nd\Sigma=\sum_i\frac{q_i}{\epsilon_0}
 \end{equation*}
 Da questa si ottiene, passando al continuo, la relazione \ref{LeggeGaussContinua}.
 \begin{observe}\label{LeggeGaussMoltoGeneralizzata}
@@ -213,11 +213,11 @@ Da questa si ottiene, passando al continuo, la relazione \ref{LeggeGaussContinua
 		\end{equation}
 	\end{itemize}
 	Si noti, tra l'altro, che non è particolarmente differente dal caso elettrico dato che la legge di Gauss per il campo elettrico si può anche scrivere come \begin{equation*}
-		\Phi_\Sigma\left(\vba{E}\right)=4\pi k\sum_i q_i
+		\Phi_\Sigma(\vba{E})=4\pi k\sum_i q_i
 	\end{equation*}
 	o
 	\begin{equation}
-		\Phi_\Sigma\left(\vba{E}\right)=4\pi k\int_{V}\rho\left(x,y,z\right)dV\qquad\text{tale che}\ \partial V=\Sigma
+		\Phi_\Sigma(\vba{E})=4\pi k\int_{V}\rho\left(x,y,z\right)dV\qquad\text{tale che}\ \partial V=\Sigma
 	\end{equation}
 \end{observe}
 \paragraph{Flusso tramite una superficie chiusa per una carica esterna}
@@ -237,7 +237,7 @@ I flussi infinitesimi che otteniamo\footnote{Il procedimento è analogo a quello
 \end{equation*}
 Integrando sull'intera superficie chiusa otteniamo
 \begin{equation}
-	\Phi_\Sigma\left(\vba{E}\right)=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=0
+	\Phi_\Sigma(\vba{E})=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=0
 \end{equation}
 Il flusso tramite una superficie \textit{chiusa} dipende \textit{solo} dalle cariche interne ad essa.
 \begin{observe}
@@ -245,7 +245,7 @@ Il flusso tramite una superficie \textit{chiusa} dipende \textit{solo} dalle car
 \end{observe}
 \section{Applicazioni della legge di Gauss}
 La legge di Gauss, in linea di principio, ci descrive solo il flusso tramite una superficie chiusa. Tuttavia, in situazioni di \textit{evidenti simmetrie}, confrontando la definizione di flusso con quello ottenuto dalla legge di Gauss possiamo sorprendentemente calcolare in modo abbastanza facile il campo elettrostatico che genera il flusso.
-\begin{attention} % TO DO: dove cazzo lo metto
+\begin{attention} %TODO: dove cazzo lo metto
 	Bisogna fare attenzione ad utilizzare la legge di Gauss in assenza di simmetrie. Ad esempio, consideriamo una situazione come in figura.
 	
 	Qui il flusso è nullo perché ciò che entra esce, ma il campo elettrico non è nullo.
@@ -263,7 +263,7 @@ Oltre ad essere un sistema di riferimento, fissato $R$ abbiamo una parametrizzaz
 
 Ora, ci è già noto che in questo sistema di riferimento il campo elettrostatico dipende esclusivamente dalla coordinata radiale e ha direzione radiale, ossia $\vba{E}=E(R)\vbh{u}_R$. Per come abbiamo posto il cilindro $\Sigma$, il versore normale alla superficie laterale coincide con quello radiale delle coordinate cilindriche, pertanto
 \begin{equation*}
-	\Phi_{\Sigma}\left(\vba{E}\right)=\int\vba{E}\cdot\vbh{u}_nd\Sigma=\int\vba{E}\cdot\vbh{u}_Rd\Sigma=\int E(R)\vbh{u}_R\vdot\vbh{u}_Rd\Sigma=E(R)\int d\Sigma\squarequal
+	\Phi_{\Sigma}(\vba{E})=\int\vba{E}\cdot\vbh{u}_nd\Sigma=\int\vba{E}\cdot\vbh{u}_Rd\Sigma=\int E(R)\vbh{u}_R\vdot\vbh{u}_Rd\Sigma=E(R)\int d\Sigma\squarequal
 \end{equation*}
 dove l'ultimo passaggio è lecito in quanto sulla superficie del cilindro il raggio è fissato e quindi anche $E(R)$ è costante.\\
 Dato che l'elemento di area è dato da $d\Sigma=d\Phi dz$, si ha
@@ -272,7 +272,7 @@ Dato che l'elemento di area è dato da $d\Sigma=d\Phi dz$, si ha
 \end{equation*}
 Per la legge di Gauss,
 \begin{equation*}
-	\Phi_{\Sigma}\left(\vba{E}\right)=\frac{q}{\epsilon_0}=\frac{\lambda L}{\epsilon_0}
+	\Phi_{\Sigma}(\vba{E})=\frac{q}{\epsilon_0}=\frac{\lambda L}{\epsilon_0}
 \end{equation*}
 dove $\lambda$ è la densità lineare di carica; per ottenere il flusso per il filo infinito ci basterebbe mandare $L$ all'infinito. Eguagliando i due flussi ottenuti si ricava che
 \begin{equation*}
@@ -299,7 +299,7 @@ Il flusso tramite il cilindro $\Sigma$ si può scindere in tre componenti: i due
 \end{equation}
 Pertanto,
 \begin{equation*}
-	\Phi_{\Sigma}\left(\vba{E}\right)=2\int_A E(\abs{x})d\Sigma=2 E(\abs{x})\int_{A_1}d\Sigma=2E(\abs{x})A_1
+	\Phi_{\Sigma}(\vba{E})=2\int_A E(\abs{x})d\Sigma=2 E(\abs{x})\int_{A_1}d\Sigma=2E(\abs{x})A_1
 \end{equation*}
 Ricordando che la densità di carica superficiale $\sigma$ è costante, la carica interna al cilindro è data da
 \begin{equation*}
@@ -325,7 +325,7 @@ A questo punto distinguiamo il calcolo quando la superficie sferica ha raggio ma
 \subparagraph{Il caso esterno: $r>R$}
 In questo caso la superficie sferica \textit{contiene} la sfera uniformemente carica. Il flusso dunque è
 \begin{equation*}
-	\Phi_{\Sigma}\left(\vba{E}\right)=\int E(r)d\Sigma=E(r)4\pi r^2
+	\Phi_{\Sigma}(\vba{E})=\int E(r)d\Sigma=E(r)4\pi r^2
 \end{equation*}
 dato che $E(r)$ è costante sulla sfera di raggio $r$.
 La superficie sferica contiene \textit{tutta} la carica della palla al suo interno, quindi per la legge di Gauss
@@ -346,7 +346,7 @@ In questo caso la superficie sferica contiene al suo interno solo una parte dell
 \end{equation*}
 Se il flusso, calcolato secondo la definizione, non cambia espressione (ma valore sì!)...
 \begin{equation*}
-	\Phi_{\Sigma}\left(\vba{E}\right)=E(r)4\pi r^2
+	\Phi_{\Sigma}(\vba{E})=E(r)4\pi r^2
 \end{equation*}
 ... quello per la legge di Gauss diventa
 \begin{equation*}
@@ -364,3 +364,57 @@ Riassumendo, il campo elettrico generato da una sfera uniformemente carica di ra
 		\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r &\text{se}\ r\geq R
 	\end{cases}
 \end{equation}
+\section{Equilibrio in un campo elettrostatico}
+%TODO: spostare con legge di Gauss, non credo potenziale
+% https://physics.stackexchange.com/questions/190066/why-cant-charge-be-in-a-stable-equilibrium-in-electrostatic-field#:~:text=There%20are%20no%20points%20of,the%20field%20must%20be%20zero.
+% https://diego.assencio.com/?index=bc04395b103021d338b4e30a061bfc74
+\begin{define}[Equilibrio stabile]
+	Un punto $P$ è di \textbf{equilibrio stabile}\index{equilibrio!stabile} per un corpo puntiforme se per un qualsiasi spostamento, piccolo a piacere, da tale posizione esistono forze che riportano l'oggetto nella posizione originale.
+\end{define}
+\begin{define}[Equilibrio instabile]
+	Un punto $P$ è di \textbf{equilibrio instabile}\index{equilibrio!instabile} per un corpo puntiforme se esistono spostamenti, piccolo a piacere, da tale posizione esistono forze che riportano l'oggetto nella posizione originale.
+\end{define}
+Consideriamo delle \textit{sorgenti} fisse (continue o discrete che siano, \textit{non} cambia) nel vuoto e sia $\vba{E}(\vba{r})$ il campo elettrico generato da queste cariche. Esistono dei punti tali per cui, se poniamo una carica $q$ lì, essa rimarrà in equilibrio stabile?
+
+La risposta è data dal \textit{teorema di Earnshaw} e la risposta è \textbf{no}.
+\begin{theorema}[Teorema di Earnshaw]
+	Una collezione di cariche puntuali non possono essere mantenute in una configurazione di equilibrio stabile soltanto dall'interazione elettrostatica delle cariche con un campo elettrico.
+\end{theorema}
+In questa dimostrazione assumiamo che la carica sia positiva ($q>0$), ma la dimostrazione è \textit{mutatis mutandis} la stessa per $q<0$.
+\begin{observe}
+	La carica nella dimostrazione si suppone essere una \textbf{carica di prova}, e quindi il campo generato dalla carica $q$ è trascurabile.
+\end{observe}
+\begin{demonstration}
+	Supponiamo che la carica, immersa nel campo elettrico e non soggetta ad altre forze, è in equilibrio stabile in $P=\vba{r}$; ciò significa che:
+	\begin{enumerate}
+		\item La carica di per sé è ferma; la forza totale agenti sulla carica è dunque nulla, e dato che le uniche forze sulla carica in $\vba{r}$ è la forza di Coulomb/forza associata al campo elettrico si ha
+		\begin{equation*}
+			\vba{F}(\vba{r})=q\vba{E}(\vba{r})=0\underset{q\neq 0}{\implies}\vba{E}(\vba{r})=0
+		\end{equation*}
+		\item Per un (piccolo) spostamento $\delta \vba{r}$ attorno a $\vba{r}$, la forza riporta la carica verso il punto $\vba{r}$, cioè la forza
+		\begin{equation*}
+			\vba{F}(\vba{r}+\delta\vba{r})=q\vba{E}(\vba{r}+\delta\vba{r})
+		\end{equation*}
+		deve puntare verso $\vba{r}$.
+		Consideriamo una superficie chiusa (arbitrariamente piccola) attorno alla carica. Per quanto abbiamo detto, in un qualunque suo punto la forza di Coulomb in tal punto deve essere diretta verso $\vba{r}$. Pertanto, se il campo è entrante la superficie, il flusso tramite la superficie è negativo...
+		\begin{equation}
+			\Phi{\Sigma}(\vba{E})<0
+		\end{equation}
+		... ma possiamo applicare la legge di Gauss per ricavare il valore del flusso tramite tale superficie, tuttavia si avrebbe
+		\begin{equation*}
+			\Phi{\Sigma}(\vba{E})=\frac{q}{\epsilon_0}<0\implies q<0
+		\end{equation*}
+		il che è un assurdo! Segue che non ci può essere equilibrio elettrostatico stabile. 
+	\end{enumerate}
+\end{demonstration}
+L'unica possibilità di avere una carica in equilibrio stabile è se si trovasse esattamente nello stesso punto di un'altra carica $Q$ di segno opposto e quantità di carica maggiore. Infatti, in tal caso qualunque superficie, piccolo a piacere, scegliamo attorno al punto di equilibrio si avrà sempre flusso pari a
+\begin{equation*}
+	\Phi_{\Sigma}(\vba{E})=\frac{q+Q}{\epsilon_0}
+\end{equation*}
+per la legge di Gauss; questa volta non si ha alcun assurdo, dato che il campo elettrico è entrante e quindi il flusso è negativo e, se $\abs{Q}>\abs{q}$, allora anche il flusso secondo Gauss è negativo.
+\begin{digression}
+	Da quanto detto, un sistema di cariche libere \textit{dello stesso segno} non potrà ai restare in equilibrio stabile spontaneamente, ma necessariamente occorrono altre forze per vincolare le cariche.
+	
+	Una conseguenza di ciò è che il modello classico dell'atomo non è stabile, esso basato su una distribuzione fissata di cariche: nel \textit{nucleo atomico} non ci potrebbe essere più di un protone senza compromettere la stabilità del nucleo! È grazie all'interazione \textit{nucleare forte} che, essendo particolarmente forte a distanze microscopiche, i protoni superano la repulsione elettrostatica tra di loro e permettono la stabilità dell'atomo.
+\end{digression}
+%TODO: aggiungere

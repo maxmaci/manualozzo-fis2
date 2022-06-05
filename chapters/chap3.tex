@@ -6,22 +6,22 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Il potenziale elettrico} % TO DO: Il lavoro elettrico?
+\chapter{La circuitazione del campo elettrico, il potenziale elettrico e le leggi di Maxwell per l'elettrostatica} %TODO: Il lavoro elettrico?
 \labelChapter{PotenzialeElettrico}
-% TO DO: quando parlo del potenziale e del campo elettrico a tratti, sostituire il geq o leq con < e > 
+%TODO: quando parlo del potenziale e del campo elettrico a tratti, sostituire il geq o leq con < e > 
 \begin{introduction}
 	‘‘BEEP BOOP''
 	\begin{flushright}
-		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. % TO DO: quote 
+		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. %TODO: quote 
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{P}{er}  % TO DO: intro
-\section{Circuitazione di un campo vettoriale}
-% TO DO: concezione intuitiva di circuitazione
+\lettrine[findent=1pt, nindent=0pt]{P}{er}  %TODO: intro
+\section{La circuitazione di un campo vettoriale}
+%TODO: concezione intuitiva di circuitazione
 \begin{define}[Circuitazione di un campo vettoriale]
 	Il \textbf{circuitazione di un campo vettoriale lungo una curva chiusa}\index{circuitazione di un campo vettoriale} $\gamma$, parametrizzata da una funzione $\funz[\vba{r}]{\left[a,b\right]}{\realset^3}$, è
 	\begin{equation}
-		\Gamma_{\gamma}\left(\vba{E}\right)=\oint_{\gamma}\vba{E}\vdot d\vba{s}=\int_{a}^b\vba{E}\vdot\frac{d\vba{r}}{dt}dt
+		\Gamma_{\gamma}(\vba{E})=\oint_{\gamma}\vba{E}\vdot d\vba{s}=\int_{a}^b\vba{E}\vdot\frac{d\vba{r}}{dt}dt
 	\end{equation}
 \end{define}
 \section{Forze conservative e campi vettoriali conservativi}
@@ -41,7 +41,7 @@ In generale, il lavoro dipende dal \textit{percorso effettuato}: il lavoro compi
 	\end{equation}
 	In altre parole, $\vba{F}$ è conservativa se il lavoro dipende \textit{solo} dai punti iniziali e finali e non quale sia la curva lungo la quale si calcola.
 \end{define}
-\begin{proposition}[Caratterizzazione delle forze conservative]\label{forzaconservativaproposizione} % TO DO: controllare che non sia il teorema del gradiente?
+\begin{proposition}[Caratterizzazione delle forze conservative]\label{forzaconservativaproposizione} %TODO: controllare che non sia il teorema del gradiente?
 	Se una forza $\vba{F}$ è conservativa, allora esiste una funzione $\funz[U]{\realset^3}{\realset}$ detta \textbf{energia potenziale}\index{energia!potenziale} tale che\footnote{Il meno è presente per motivi storici.}
 	\begin{equation}
 		\vba{F}=-\grad{U}
@@ -92,7 +92,7 @@ In modo analogo a come abbiamo fatto per le forze conservative, possiamo facilme
 		\int_{\gamma_1}\vba{G}\vdot d\vba{s}=\int_{\gamma_1}\vba{G}\vdot d\vba{s}
 	\end{equation}
 \end{define}
-\begin{proposition}[Caratterizzazione dei campi vettoriali conservativi]\label{campivettorialiconservativiproposizione} % TO DO: controllare che non sia il teorema del gradiente?
+\begin{proposition}[Caratterizzazione dei campi vettoriali conservativi]\label{campivettorialiconservativiproposizione} %TODO: controllare che non sia il teorema del gradiente?
 	Se un campo vettoriale$\vba{G}$ è conservativo, allora esiste un campo scalare $\funz[\oldphi]{\realset^3}{\realset}$ detto \textbf{potenziale} tale per cui\footnote{Il meno è presente per motivi storici.}
 	\begin{equation}
 		\begin{cases}
@@ -118,7 +118,7 @@ per ogni curva chiusa $\gamma$.
 		\vba{G}=-\grad{\oldphi'}=-\grad{(\oldphi+\oldphi_0)}=-\grad{\oldphi}-\underbrace{\grad{\oldphi_0}}_{=0}=-\grad{\oldphi}
 	\end{equation*}
 \end{observe}
-\section{Potenziale elettrico}
+\section{Il potenziale elettrico}
 Nei diversi esempi di campi elettrostatici visti nel \refChapter{leggediCoulomb} abbiamo sempre trovato un potenziale che ci permetteva di semplificare notevolmente la trattazione del problema. Come preannunciato, questo non è un caso: infatti, il \textit{campo elettrostatico} è sempre conservativo.
 \begin{theorema}[Il campo elettrostatico è conservativo]
 	Il campo elettrostatico $\vba{E}$ è conservativo, ossia è il gradiente (cambiato di segno) di un opportuno campo scalare $V$.
@@ -142,7 +142,7 @@ Si verifica facilmente che
 \end{equation}
 è il potenziale del campo di Coulomb:
 \begin{equation*}
-	-\grad{V}=-\pdv{r}\left(\frac{q}{4\pi\epsilon_0r}\right)\vbh{u}_r=\frac{q}{4\pi\epsilon_0r^2}\vbh{u}_r=\vba{E}\qedhere
+	-\grad{V}=-\pdv{r}\left(\frac{q}{4\pi\epsilon_0r}\right)\vbh{u}_r=\frac{q}{4\pi\epsilon_0r^2}\vbh{u}_r=\vba{E}
 \end{equation*}
 Si osservi che per i campi elettrostatici generati da un sistema di cariche $q_i$ vale il principio di sovrapposizione; noto che ciascuno di questi campi sono conservativi e
 \begin{equation*}
@@ -196,9 +196,9 @@ Una conseguenza immediata del fatto che il campo elettrostatico è conservativo 
 \end{corollary}
 \begin{demonstration}
 	Il campo elettrostatico è conservativo, dunque per la caratterizzazione dei campi vettoriali conservativi\footnote{Si veda la proposizione \ref{campivettorialiconservativiproposizione} a pag. \pageref{campivettorialiconservativiproposizione}.} segue la tesi. 
-\end{demonstration}% TO DO: aggiungere esempio del capitolo 2 sul campo elettrico di una sfera?
+\end{demonstration}%TODO: aggiungere esempio del capitolo 2 sul campo elettrico di una sfera?
 \paragraph{Energia potenziale e potenziale elettrico}
-La forza di Coulomb è conservativa e ammette un potenziale, o per meglio dire un'\textbf{energia potenziale}\index{energia!potenziale}, $U$ tale che $vba{F}=-\grad{U}$, mentre abbiamo dimostrato poc'anzi che $\vba{E}=-\grad{V}$. Dalla legge $\vba{F}=q\vba{E}$ che lega campo elettrostatico e forza di Coulomb si ha immediatamente una relazione tra l'energia potenziale e il potenziale elettrico:
+La forza di Coulomb è conservativa e ammette un'\textbf{energia potenziale}\index{energia!potenziale} $U$ tale che $\vba{F}=-\grad{U}$, mentre abbiamo dimostrato poc'anzi che $\vba{E}=-\grad{V}$. Dalla legge $\vba{F}=q\vba{E}$ che lega campo elettrostatico e forza di Coulomb si ha immediatamente una relazione tra l'energia potenziale e il potenziale elettrico:
 \begin{equation}
 	U=qV\label{EnergiaPotenziale}
 \end{equation}
@@ -213,7 +213,7 @@ La forza di Coulomb è conservativa e ammette un potenziale, o per meglio dire u
 	\end{equation}
 \end{example}
 \paragraph{Unità di misura}
-Dalla relazione \ref{EnergiaPotenziale} si definisce l'unità di misura del potenziale, il \textbf{volt}\index{volt}.
+Dalla relazione \eqref{EnergiaPotenziale} si definisce l'unità di misura del potenziale, il \textbf{volt}\index{volt}.
 \begin{equation*}
 	\left[V\right]=\frac{[U]}{[q]}=\unit[per-mode = fraction]{\joule\per\coulomb}
 \end{equation*}
@@ -233,13 +233,13 @@ Dalla relazione \ref{EnergiaPotenziale} si definisce l'unità di misura del pote
 \paragraph{Potenziale e attrattività delle cariche}
 \begin{examplewt}[Armature elettriche]
 	Consideriamo due piastre elettrostatiche di segno opposto, come in figura.
-	% TO DO: immagine
+	%TODO: immagine
 	Il funzionamento di tale sistema non è dissimile, a livello puramente qualitativo, da un dipolo elettrico: tra le due piastre il campo è sostanzialmente analogo a quello sull'asse verticale congiungente i dipoli e quindi è diretto dalla piastra positiva a quella negativa.\\
 	Poiché $\vba{F}=q\vba{E}$, le cariche positive saranno attratte verso la parte negativa, quelle negative verso la piastra positiva.
 	
 	Si osserva che, essendo $\grad{V}=-\vba{E}$, il gradiente del potenziale è un campo vettoriale diretto - quando lo consideriamo dentro l'armatura - diretto dalla piastra negativa a quella positiva, cioè dal potenziale minore a quello maggiore.
 	
-	% TO DO: spiegare perché funziona, che non mi è chiaro, MAZZOOLLLDI?
+	%TODO: spiegare perché funziona, che non mi è chiaro, MAZZOOLLLDI?
 	Si ha che
 	\begin{equation*}
 		V_1<V_2
@@ -261,9 +261,9 @@ Questo ragionamento si può anche generalizzare in altri contesti, osservando du
 \begin{examples}~{}
 	\begin{itemize}
 		\item Per il potenziale della carica puntiforme, $V=\frac{q}{4\pi\epsilon_0r}=\mathrm{const}$ implica $r=\mathrm{const}$:le superfici equipotenziali sono circonferenze concentriche di raggio $r$, al variare di $r$.
-		% TO DO: inserire immagini
+		%TODO: inserire immagini
 		\item Per il dipolo elettrico $+/-$:
-		% TO DO: inserire immagini
+		%TODO: inserire immagini
 		\item Per il dipolo elettrico $+/+$:
 	\end{itemize}
 \end{examples}
@@ -279,12 +279,12 @@ Distinguiamo, come al solito, due casi: il campo elettrico interno ($r<R$) e que
 \begin{itemize}
 	\item[$\mathbf{r<R}$] Utilizziamo la legge di Gauss su una superficie $\Sigma$ di raggio $r<R$ centrata nell'origine. Dalla definizione di flusso abbiamo che
 	\begin{equation*}
-		\Phi_{\Sigma}\left(\vba{E}\right)=\int E(r)d\Sigma=4\pi r^2 E_r(r)
+		\Phi_{\Sigma}(\vba{E})=\int E(r)d\Sigma=4\pi r^2 E_r(r)
 	\end{equation*}
 dato che $E(r)$ è costante su $\Sigma$.
 Tuttavia, poiché la carica è concentrata tutta sulla sfera di raggio $R$, la superficie $\Sigma$ \textit{non} contiene alcuna carica; pertanto, per la legge di Gauss
 \begin{equation*}
-	4\pi r^2 E_r(r)=\Phi_{\Sigma}\left(\vba{E}\right)=\frac{q_{interna}}{\epsilon_0}=0
+	4\pi r^2 E_r(r)=\Phi_{\Sigma}(\vba{E})=\frac{q_{interna}}{\epsilon_0}=0
 \end{equation*}
 da cui segue che
 \begin{equation}
@@ -321,18 +321,18 @@ Distinguiamo due casi: il campo elettrico interno ($R<R_0$) e quello esterno ($R
 \begin{itemize}
 	\item[$\mathbf{R<R_0}$] Utilizziamo la legge di Gauss su un cilindro $\Sigma$ di raggio $R<R_0$ con asse sull'asse $z$. Dalla definizione di flusso abbiamo che
 	\begin{equation*}
-		\Phi_{\Sigma}\left(\vba{E}\right)=\int E(R)d\Sigma=2\pi R L E_R(R)
+		\Phi_{\Sigma}(\vba{E})=\int E(R)d\Sigma=2\pi R L E_R(R)
 	\end{equation*}
 	dato che $E(R)$ è costante su $\Sigma$.
 	Tuttavia, poiché la carica è concentrata tutta sul cilindro di raggio $R_0$, la superficie $\Sigma$ \textit{non} contiene alcuna carica; pertanto, per la legge di Gauss
 	\begin{equation*}
-		2\pi R L E_R(R)=\Phi_{\Sigma}\left(\vba{E}\right)=\frac{q_{interna}}{\epsilon_0}=0
+		2\pi R L E_R(R)=\Phi_{\Sigma}(\vba{E})=\frac{q_{interna}}{\epsilon_0}=0
 	\end{equation*}
 	da cui segue che
 	\begin{equation}
 		\vba{E}(R)=0
 	\end{equation}
-	\item[$\mathbf{R>R_0}$] In modo simile al caso della sfera, il comportamento esterno è analogo a quello di un filo carico. % TO DO: check mazzoldi?
+	\item[$\mathbf{R>R_0}$] In modo simile al caso della sfera, il comportamento esterno è analogo a quello di un filo carico. %TODO: check mazzoldi?
 	\begin{equation}
 		\vba{E}(r)=\frac{\sigma R_0}{\epsilon_0r}\vbh{u}_R=\frac{q}{2\pi\epsilon_0Lr}\vbh{u}_R
 	\end{equation}
@@ -353,7 +353,7 @@ mentre invece il potenziale è continuo e vale
 	\end{cases}
 \end{equation}
 Si osserva una discontinuità pari a $\frac{\sigma}{\epsilon_0}$ tra il campo elettrico interno ed esterno alla superficie.
-\paragraph{Discontinuità di campo elettrico tra superfici}
+\paragraph{Il caso generale}
 Sebbene l'andamento del campo elettrico nei due esempi precedenti è leggermente diverso, per entrambi i casi la discontinuità tra campo elettrico interno ed esterno in uno stesso punto è pari al valore $\frac{\sigma}{\epsilon_0}$. Non è una coincidenza fortuita, bensì possiamo mostrare che questo è \textit{sempre} così.
 \begin{proposition}[Discontinuità di campo elettrico tra superfici]
 	La differenza di campo elettrico tra due lati di una superficie carica è, punto per punto, pari a 
@@ -367,10 +367,10 @@ Sebbene l'andamento del campo elettrico nei due esempi precedenti è leggermente
 	
 	Posta una carica positiva su una faccia del foglio, ci aspettiamo che si allontani da esso ‘‘dallo stesso lato del foglio'' a causa di un campo elettrico $\vba{E}_1$; viceversa, mettendo una particella positiva dall'altra faccia è prevedibile che la particella sarà respinta dalla superficie da quello stesso lato dalla forza generata dal campo elettrico $\vba{E}_2$, ossia dal verso opposto di $\vba{E}_1$: ci dovrà essere necessariamente una discontinuità di campo elettrico per avere questo cambio drastico di verso.
 	
-	% TO DO: inserire immagine
+	%TODO: inserire immagine
 	Disegniamo un circuito rettangolare $\gamma=[ABCD]$ che interseca il campo e che sia sufficientemente piccolo in modo da considerare $\vba{E}$ costante sul circuito. Dato che la circuitazione circuitazione lungo $\gamma$ è influenzata solo dalle componenti tangenziali $E_{i,t}$ e non dalle componenti perpendicolari $E_{i,n}$ al circuito, si ha
 	\begin{equation*}
-		0=\Gamma_{\gamma}\left(\vba{E}\right)=E_{1,t}d_{AB}-E_{2,t}d_{CD}=\left(E_{2,t}-E_{1,t}\right)d_{AB}
+		0=\Gamma_{\gamma}(\vba{E})=E_{1,t}d_{AB}-E_{2,t}d_{CD}=\left(E_{2,t}-E_{1,t}\right)d_{AB}
 	\end{equation*}
 Da cui segue che
 \begin{equation*}
@@ -381,7 +381,7 @@ ossia che le componenti tangenziali devono essere uguali.
 %TO DO: inserire immagini
 Consideriamo lo stesso foglio, questa volta intersecandolo con una superficie cilindrica con altezza sufficientemente piccola in modo che  il campo elettrico è considerabile costante lungo la superficie di base. Calcolando il flusso e confrontandolo con quello ottenuto dalle legge di Gauss, ricordiamo che lungo la superficie laterale esso è nullo:
 \begin{equation*}
-	\frac{q_{A_{base}}}{\epsilon_0}=\Phi_{\Sigma}\left(\vba{E}\right)=E_{1,n}A_{base}-E_{2,n}A_{base}
+	\frac{q_{A_{base}}}{\epsilon_0}=\Phi_{\Sigma}(\vba{E})=E_{1,n}A_{base}-E_{2,n}A_{base}
 \end{equation*}
 Da cui segue invece
 \begin{equation*}
@@ -392,8 +392,8 @@ Allora, facendo la differenza punto per punto, si ha
 	\Delta\vba{E}=\underbrace{\left(E_{1,t}-E_{2,t}\right)}_{=0}\vbh{u}_t+\underbrace{\left(E_{1,n}-E_{2,n}\right)}_{=\frac{\sigma}{\epsilon_0}}\vbh{u}_n=\frac{\sigma}{\epsilon_0}\vbh{u}_n\qedhere
 \end{equation*}
 \end{demonstration}
-\section{Leggi di Maxwell per l'elettrostatica}
-A questo punto siamo arrivati ad avere tutti gli strumenti e i risultati necessari per enunciare le \textbf{leggi di Maxwell relative all'elettrostatica}.\\
+\section{Le equazioni di Maxwell per l'elettrostatica nel vuoto}
+A questo punto siamo arrivati ad avere tutti gli strumenti e i risultati necessari per enunciare le \textbf{equazioni di Maxwell relative all'elettrostatica}.\\
 Tuttavia, prima di far ciò è importante riprendere in mano alcuni risultati matematici e fisici che ci serviranno a tal scopo.
 \begin{remember}~\\
 		\begin{tabular}{p{0.47\textwidth}p{0.47\textwidth}}
@@ -410,17 +410,17 @@ Tuttavia, prima di far ciò è importante riprendere in mano alcuni risultati ma
 			\begin{itemize}
 			\item[1b] \textbf{Teorema del rotore:} si consideri una curva $\funz[\gamma]{\left[a,b\right]}{\realset^3}$ semplice - ossia senza intersezioni con sé stessa, chiusa e liscia a tratti; si consideri inoltre una superficie $\Sigma$ liscia tale che $\partial \Sigma=\gamma$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
 			\begin{equation*}
-				\int_\Sigma\grad{\vba{G}}\vdot\vbh{u}_nd\Sigma=\oint_{\gamma}\vba{G}\vdot d\vba{s}
+				\int_\Sigma\curl{\vba{G}}\vdot\vbh{u}_nd\Sigma=\oint_{\gamma}\vba{G}\vdot d\vba{s}
 			\end{equation*}
 			o, equivalentemente,
 			\begin{equation*}
-				\Phi_\Sigma\left(\grad{\vba{G}}\right)=\Gamma_\gamma\left(\vba{G}\right)
+				\Phi_\Sigma\left(\curl{\vba{G}}\right)=\Gamma_\gamma\left(\vba{G}\right)
 			\end{equation*}
 		\end{itemize}\\
 			\begin{itemize}
 				\item[2a] \textbf{Legge di Gauss:} il flusso del campo elettrostatico $\vba{E}$ attraverso un superficie \textit{chiusa} è eguale alla quantità di carica contenuta all'\textbf{interno} della superficie, comunque siano distribuite, divisa per $\epsilon_0$.
 				\begin{equation*}
-					\Phi_\Sigma\left(\vba{E}\right)=\frac{1}{\epsilon_0}\int_{V}\rho\left(\vba{r}\right)dV
+					\Phi_\Sigma(\vba{E})=\frac{1}{\epsilon_0}\int_{V}\rho(\vba{r})dV
 				\end{equation*}
 				dove $V$ è uno spazio delimitato da $\Sigma$, ossia tale che $\partial V=\Sigma$.
 			\end{itemize} &
@@ -432,33 +432,62 @@ Tuttavia, prima di far ciò è importante riprendere in mano alcuni risultati ma
 			\end{itemize}
 		\end{tabular}
 \end{remember}
-\begin{theorema}[Equazioni di Maxwell per l'elettrostatica]
+\begin{theorema}[Equazioni di Maxwell per l'elettrostatica nel vuoto]
 	Dato il campo elettrostatico $\vba{E}$ e una densità di carica $\rho$, valgono le seguenti relazioni:
-		\begin{align}
-			\div{\vba{E}}&= \frac{\rho}{\epsilon_0} &
-			\curl{E}&= 0
-		\end{align}
+	\begin{center}
+		\begin{tabular}{p{0.22\textwidth}|c|c}
+			%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
+			\centering{\textbf{Nome}} &
+			\textbf{Forma integrale} &
+			\begin{tabular}{@{}c@{}} \textbf{Forma} \\ \textbf{differenziale}\end{tabular} \\ \hline
+			
+			\begin{tabular}[c]{@{}p{0.22\textwidth}@{}}	
+				\\[-2mm]\textbf{Legge di Gauss per l'elettricità}\\[-2mm]~
+			\end{tabular}
+			&
+			\begin{tabular}[c]{@{}c@{}}
+				\\[-2mm]
+				$\displaystyle\Phi_{\partial V}(\vba{E})=\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{q_{int}}{\epsilon_0}=\frac{1}{\epsilon_0}\int_{V}\rho dV$\\[-2mm]~
+			\end{tabular} &
+			\begin{tabular}[c]{@{}c@{}}
+				\\[-2mm]
+				$\displaystyle\div{\vba{E}}=\frac{\rho}{\epsilon_0}$\\[-2mm]~
+			\end{tabular} \\ \hline
+			\begin{tabular}[c]{@{}p{0.22\textwidth}@{}}	
+				\\[-2mm] \textbf{Legge dell'induzione di Faraday}\\[-2mm]~
+			\end{tabular} &
+			\begin{tabular}[l]{@{}l@{}}
+				\\[-3mm]
+				$\displaystyle\Gamma_{\gamma}(\vba{E})=\oint_{\partial \Sigma} \vba{E}\vdot d\vba{s}=0$\\[-1mm]~
+			\end{tabular}
+			&
+			\begin{tabular}[c]{@{}c@{}}
+				\\[-3mm]
+				$\displaystyle\curl{\vba{E}}=0$
+			\end{tabular}
+		\end{tabular}
+	\end{center}
 \end{theorema}
 \begin{demonstration}
 	Per ottenere la prima legge, partiamo dalla legge di Gauss
-	\begin{equation}
-		\Phi_\Sigma\left(\vba{E}\right)=\frac{q}{\epsilon_0}
-	\end{equation}
+	\begin{equation*}
+		\Phi_\Sigma(\vba{E})=\frac{q}{\epsilon_0}
+	\end{equation*}
 scritta nella sua formulazione integrale:
 	\begin{equation*}
-		\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{1}{\epsilon_0}\int_{V}\rho\left(\vba{r}\right)dV
+		\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{1}{\epsilon_0}\int_{V}\rho(\vba{r})dV
 	\end{equation*}
 Applichiamo il teorema della divergenza al primo membro:
 \begin{equation*}
-	\int_V\div{E}dV=\int_V\frac{\rho}{\epsilon_0}dV
+	\int_V\div{\vba{E}}dV=\int_V\frac{\rho}{\epsilon_0}dV
 \end{equation*}
 Poiché questa relazione è vera per un qualunque volume $V$ arbitrario, si deve necessariamente avere uguaglianza degli integrandi, ottenendo
 \begin{equation*}
-	\div{E}=\frac{\rho}{\epsilon_0}
+	\div{\vba{E}}=\frac{\rho}{\epsilon_0}
 \end{equation*}
 Per ottenere la seconda legge, partiamo dalla circuitazione nulla del campo elettrostatico
 \begin{equation*}
-	\Gamma_{\gamma}\left(\vba{E}\right)=0
+	\Gamma_{\gamma}(\vba{E})=0
 \end{equation*}
 scritta nella sua formulazione integrale:
 \begin{equation*}
@@ -466,17 +495,18 @@ scritta nella sua formulazione integrale:
 \end{equation*}
 Applicando il teorema del rotore al membro non nullo:
 \begin{equation*}
-	\int_{\Sigma}\grad{\vba{E}}\vdot \vbh{u}_nd\Sigma=0
+	\int_{\Sigma}\curl{\vba{E}}\vdot \vbh{u}_nd\Sigma=0
 \end{equation*}
 Poiché questa relazione è vera per una qualunque superficie $\Sigma$ arbitraria, si deve necessariamente avere che l'unico termine non dipendente dalla superficie sia sempre nullo.
 \begin{equation*}
-	\grad{\vba{E}}=0\qedhere
+	\curl{\vba{E}}=0\qedhere
 \end{equation*}
 \end{demonstration}
 \begin{observe}
 	Mentre la prima equazione vale in generale, la seconda vale solo in elettrostatica, considerando un campo elettrico statico e in assenza di campo magnetico.\\
-	Nel caso generale, vedremo che il rotore del campo elettrico dipende dalla variazione temporale del campo magnetico.
+	Nel caso generale, vedremo che il rotore del campo elettrico dipende dalla variazione temporale del campo magnetico. Quando studieremo i fenomeni magnetici dipendenti dal tempo spiegheremo anche che cos'è  l'\textit{induzione} e il motivo per cui dà il nome alla legge omonima.
 \end{observe}
+
 \begin{examplewt}[Sfera uniformemente carica]
 	Verifichiamo che vale la prima equazione dell'elettrostatica nel caso del campo generato da una sfera carica uniformemente:
 	\begin{equation*}
@@ -499,16 +529,16 @@ Poiché questa relazione è vera per una qualunque superficie $\Sigma$ arbitrari
 	\end{equation*}
 \end{examplewt}
 \begin{comment}
-	\begin{digression} % TO DO: spostare alla fine delle equazioni
-		Non dobbiamo pensare che le equazioni di Maxwell sono una conseguenza di tutti i risultati e gli esperimenti visti fin'ora, ma semmai il \textit{contrario}: sono le equazioni di Maxwell che sono così \textit{fondamentali} da descrivere l'intera teoria elettromagnetica.\\ Volendo, si poteva trattare l'elettromagnetismo enunciando le equazioni di Maxwell e solo successivamente \textit{declinare} i risultati particolari da quelle; la scelta di fare l'esatto opposto è stata fatta per seguire grossomodo l'\textit{approccio storico} alla faccenda. % TO DO: completare in modo più interessante.
+	\begin{digression} %TODO: spostare alla fine delle equazioni
+		Non dobbiamo pensare che le equazioni di Maxwell sono una conseguenza di tutti i risultati e gli esperimenti visti fin'ora, ma semmai il \textit{contrario}: sono le equazioni di Maxwell che sono così \textit{fondamentali} da descrivere l'intera teoria elettromagnetica.\\ Volendo, si poteva trattare l'elettromagnetismo enunciando le equazioni di Maxwell e solo successivamente \textit{declinare} i risultati particolari da quelle; la scelta di fare l'esatto opposto è stata fatta per seguire grossomodo l'\textit{approccio storico} alla faccenda. %TODO: completare in modo più interessante.
 	\end{digression}
 \end{comment}
-\section{Equazione di Poisson e di Laplace}
-L'irrotazionalità del campo elettrostatico garantita dalla seconda equazione di Maxwell ci dice che, almeno localmente, è anche conservativo:
+\section{L'equazione di Poisson e di Laplace}\label{EqPoissonSezione}
+L'irrotazionalità del campo elettrostatico garantita dalla \textit{legge di induzione di Faraday} ci dice che, almeno localmente, è anche conservativo:
 \begin{equation*}
 	\curl{\vba{E}}=0\iff \exists V\colon \vba{E}=-\grad{V}
 \end{equation*}
-Sostituendo nella prima legge di Maxwell, ossia la legge di Gauss, otteniamo
+Sostituendo nella \textit{legge di Gauss}, otteniamo
 \begin{equation*}
 	\grad{E}=\frac{\rho}{\epsilon}\implies\div{\grad{V}}=-\frac{\rho}{\epsilon_0}
 \end{equation*}
@@ -524,7 +554,7 @@ In una regione priva di cariche si ha $\rho\equiv0$; l'\textbf{equazione di Lapl
 \end{equation}
 
 Imponendo delle opportune \textit{condizioni di contorno}, che siano di natura \textit{fisica} o imposte come tali per \textit{convenzione}, potremmo idealmente ricavare le soluzioni di queste equazioni e determinare in modo prettamente matematico il potenziale - e di conseguenza anche il campo elettrostatico. Il problema principale è che \textit{non sempre} è possibile trovare facilmente una soluzione; tuttavia, per alcuni specifici casi, ad esempio campi che presentano delle \textit{simmetrie} interessanti, possiamo calcolare senza troppi problemi il potenziale.
-\paragraph{Equazioni di Poisson e di Laplace con simmetria sferica}
+\paragraph{L'equazioni di Poisson e di Laplace con simmetria sferica}\label{EquazioniPoissonSimmetriaSferica}
 Consideriamo un campo a simmetria sferica, ossia dipendente esclusivamente dalla distanza radiale:
 \begin{equation*}
 	V(\vba{r})=V(r)\vbh{u}_r
@@ -588,7 +618,7 @@ dove $A$ e $B$ sono costanti date dalle condizioni al contorno.
 			A=-\frac{q}{4\pi\epsilon_0}
 		\end{equation*}
 	\end{itemize}
-	\begin{itemize}% TO DO: controllare questa prima condizione: ad esempio in simmetria cilindrica per r=0 crolla il campo.
+	\begin{itemize}%TODO: controllare questa prima condizione: ad esempio in simmetria cilindrica per r=0 crolla il campo.
 		\item Sulla base della continuità del potenziale, sul dominio del campo elettrico il potenziale si considera \textit{finito}, pertanto poniamo
 		\begin{equation*}
 			C=0
@@ -612,7 +642,7 @@ Il potenziale complessivo è unico ed è
 	\end{cases}
 \end{equation}
 \end{examplewt}
-\paragraph{Equazione di Laplace con simmetria cilindrica}
+\paragraph{L'equazione di Laplace con simmetria cilindrica}
 Consideriamo un campo a simmetria cilindrica, ossia dipendente esclusivamente dalla distanza assiale:
 \begin{equation*}
 	V(\vba{r})=V(R)\vbh{u}_R
@@ -637,5 +667,5 @@ Facendo gli opportuni calcoli...
 \end{equation}
 dove $A$ e $B$ sono costanti date dalle condizioni al contorno.
 
-% TO DO: add soluzione poisson?
+%TODO: add soluzione poisson?
 

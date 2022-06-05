@@ -1,0 +1,1152 @@
+% SVN info for this file
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+
+\chapter{La legge di Biot-Savart, la legge di Ampère e l'equazioni di Maxwell nel caso statico}
+\labelChapter{leggediampere}
+
+\begin{introduction}
+	‘‘La matematica confronta i più disparati fenomeni e scopre le analogie segrete che li uniscono.''
+	\begin{flushright}
+		\textsc{Joseph Fourier,} cercando disperatamente di motivare ai suoi genitori la scelta di studiare matematica. % quote
+	\end{flushright}
+\end{introduction}
+\lettrine[findent=1pt, nindent=0pt]{S}{i} % quote
+
+\section{Il flusso del campo magnetico per superfici aperte}
+Come già detto, il campo magnetico è \textit{solenoidale}, ossia che la divergenza di esso è nulla:
+\begin{equation*}
+	\div{B}=0
+\end{equation*}
+Ne consegue che, almeno \textit{localmente}, esiste un vettore $\vba{A}$ detto \textbf{potenziale vettore}\index{potenziale!vettore} $\vba{A}$ tale per cui il campo magnetico è il gradiente di $\vba{A}$.
+\begin{equation}
+	\vba{B}=\curl{A}
+\end{equation}
+Questo ci viene in aiuto se vogliamo calcolare il flusso di $\vba{B}$ attraverso una superficie \textit{aperta} $\Sigma$ - per quelle chiuse sappiamo già che è nullo. Supponiamo che il bordo $\partial \Sigma$ sia una curva chiusa; allora
+\begin{align*}
+	\Phi_{\Sigma}(\vba{B})&=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\\
+	&=\int_{\Sigma}\left(\curl{\vba{A}}\right)\vdot\vbh{u}_nd\Sigma=&&\text{(}\vba{B}\ \text{solenoidale)}\\
+	&=\int_{\partial \Sigma}\vba{A}\vdot d\vba{s}=\Gamma_{\Sigma}(\vba{A})&&\text{(teorema di Stokes)}
+\end{align*}
+Quanto trovato è valido in generale per un qualunque campo solenoidale: il flusso tramite una superficie aperta dipende esclusivamente dal \textit{bordo} e \textit{non} dalla superficie in sé. Se prendessi due superfici aperte differenti, ma con lo stesso bordo, avremmo lo stesso flusso.
+
+Noto ciò, vorremmo ora \textit{generalizzare} ancora di più quanto visto nelle sezioni precedenti: dato un circuito qualunque percorso da corrente e immerso in un campo magnetico, vorremo esprimere la forza che agisce, l'energia potenziale, il lavoro del campo magnetico e quant'altro in termini di \textit{flusso}, in modo da utilizzare poi la dipendenza del flusso nei confronti del bordo.
+
+Dato un circuito chiuso $\gamma$, scegliamo una superficie $\Sigma$ arbitraria con bordo $\partial \Sigma=\gamma$. Vorremmo calcolare il gradiente del flusso:
+\begin{equation*}
+	\grad{\Phi_\Sigma(\vba{B})}=\grad{\Gamma_{\partial\Sigma}(\vba{A})}
+\end{equation*}
+Invece che calcolare il gradiente della circuitazione vera e propria di $\vba{A}$, ossia
+\begin{equation}
+	\grad{\Gamma_{\partial\Sigma}(\vba{A})}=\grad{\int_{\partial\Sigma}\vba{A}\vdot d\vba{s}},
+\end{equation}
+ci conviene prima calcolare il gradiente della circuitazione \textit{infinitesima} $\vba{A}\vdot d\vba{s}$ per poi integrare lungo $\partial\Sigma$.
+Si osservi che per il gradiente di un prodotto scalare tra vettori vale la formula per nulla immediata
+\begin{equation}
+	\grad{\vba{A}\vdot\vba{B}}=\left(\vba{A}\vdot\grad\right)\vba{B}+\left(\vba{B}\vdot\grad\right)\vba{A}+\vba{A}\cross\left(\grad\cross\vba{B}\right)+\vba{B}\cross\left(\grad\cross\vba{B}\right)
+\end{equation}
+Se consideriamo nel nostro caso come vettori $\vba{A}$ e lo spostamento infinitesimo $d\vba{s}$ della curva $\partial \Sigma$, otteniamo
+\begin{equation*}
+	\grad{\vba{A}\vdot d\vba{s}}=\left(\vba{A}\vdot\grad\right)d\vba{s}+\left(d\vba{s}\vdot\grad\right)\vba{A}+\vba{A}\cross\left(\grad\cross d\vba{s}\right)+d\vba{s}\cross\left(\grad\cross d\vba{s}\right)
+\end{equation*}
+Posta $\vba{r}$ la parametrizzazione di $\partial \Sigma$, si ha
+\begin{equation*}
+	\pdv{x} d\vba{s}=
+	\pdv{y} d\vba{s}=
+	\pdv{z} d\vba{s}=0
+\end{equation*} %TODO: perchè scusi?
+Noto che lo spostamento infinitesimo della curva $\partial \Sigma$ è
+\begin{equation*}
+	d\vba{s}=\dv{\vba{r}}{t}dt,
+\end{equation*}
+vale
+\begin{equation*}
+	\pdv{q^i} d\vba{s}=
+	\pdv{q^i} \dv{\vba{r}}{t}dt=
+	\dv{t} \pdv{\vba{r}}{q^i}dt=0
+\end{equation*}
+dove $q^1=x$, $q^2=y$, $q^3=z$.
+Di conseguenza,
+\begin{equation*}
+	\begin{cases}
+		\left(\vba{A}\vdot\grad\right)d\vba{s}=A_x\pdv{x} d\vba{s}+A_y\pdv{y} d\vba{s}+A_z\pdv{z} d\vba{s}=0\\
+		\curl{d\vba{s}}=0
+	\end{cases}
+\end{equation*} %TODO: inserire curl esplicito
+Ci interessano solo le derivate applicate al vettore potenziale $\vba{A}$:
+\begin{equation*}
+	\grad{\left(\vba{A}\cdot d\vba{s}\right)}=\left(d\vba{s}\vdot\grad\right)\vba{A}+d\vba{s}\cross\left(\grad\cross\vba{A}\right)
+\end{equation*}
+Calcoliamo la circuitazione di $\vba{A}$ facendo l'integrale curvilineo lungo il circuito $\partial \Sigma$:
++\begin{equation}
+	\oint\grad{\left(\vba{A}\vdot d\vba{s}\right)}=\oint \left(d\vba{s}\vdot\grad\right)\vba{A}+\oint d\vba{s}\cross\left(\grad\cross\vba{A}\right)
+\end{equation}
+Osserviamo che, data una funzione scalare arbitraria $\oldphi$, vale
+\begin{equation*}
+	\left(d\vba{s}\vdot\grad\right)\phi=\pdv{\phi}{x}\pdv{x}{t}dt+\pdv{\phi}{y}\pdv{y}{t}dt+\pdv{\phi}{z}\pdv{z}{t}dt=\dv{t} \left(\phi(\vba{r}(t))\right)
+\end{equation*}
+e dunque
+\begin{equation}
+	d\vba{s}\vdot\grad=\left(\dv{\vba{r}}{t}\vdot\grad\right)dt
+\end{equation}
+Di conseguenza, $d\vba{s}\vdot\grad$ agisce su ciascuna componente di $\vba{A}$ come \textit{derivata totale} e di conseguenza, integrando su una curva chiusa, l'integrale risulta nullo; segue che il primo termine è nullo. Ricaviamo quindi
+\begin{equation*}
+	\grad{\Phi_{\Sigma}(\vba{B})}=\grad{\Gamma_{\partial \Sigma}(\vba{A})}=\oint d\vba{s}\cross\left(\grad\cross\vba{A}\right)=\oint d\vba{s}\cross\vba{B}
+\end{equation*}
+Ma quella che abbiamo ottenuta è la forza di Laplace divisa per l'intensità di corrente $I$ stazionaria. Nella condizione in cui $I$ sia stazionaria, allora
+\begin{equation}
+	\vba{B}=I\int_{\gamma}d\vba{s}\cross\vba{B}=I\grad{\Phi_{\Sigma}(\vba{B})}
+\end{equation}
+\paragraph{Energia potenziale}
+Poiché la forza è espressa come \textit{gradiente} di una quantità scalare, l'energia potenziale è l'opposta di tale quantità:
+\begin{equation}
+	U_P=-I\Phi_{\Sigma}(\vba{B})
+\end{equation}
+In sintesi:
+\begin{align}
+	\vba{F}=&-\grad{U_P}\\
+	U_P=&-I\Phi_{\Sigma}(\vba{B})
+\end{align}
+In particolare, se il campo magnetico $\vba{B}$ è uniforme, allora
+\begin{align*}
+	\Phi_{\Sigma}(\vba{B})&=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\vba{B}\vdot\vbh{u}_n \Sigma\\
+	&\implies U_P=I\Sigma \vbh{u}_n \vdot \vba{B}=-\vba{m}\vdot\vba{B}. 
+\end{align*}
+che, effettivamente, coincide con quanto abbiamo visto a pagina \pageref{EnergiaPotenzialeCasoGeneralemanontroppo}.
+\paragraph{Lavoro per spostare il circuito}
+Il circuito percorso da corrente, essendo soggetto alla forze di Laplace, si muove e si deforma. Ci si aspetterebbe di incontrare degli attriti, ma così non è, come mai?\\
+Supponiamo che il campo magnetico $\vba{B}$ sposti un circuito lungo un percorso $\eta$ dallo stato $A$ allo stato $B$, deformandolo al contempo. Allo stato $A$ il circuito corrisponde alla curva $\gamma_A$, mentre allo stato $B$ alla curva $\gamma_B$. Il lavoro compiuto dal campo magnetico per spostare il circuito è
+\begin{align*}
+	W&=\int_{\eta}\vba{F}\vdot d\vba{s}=-\int_{\eta}\grad{U_P}\vdot d\vba{s}=&&\\
+	&=-\Delta{U_P})=U_P(A)-U_P(B)&&\text{(teorema del gradiente)}
+\end{align*}
+dove $U_P(A)$ è il potenziale allo stato iniziale $A$ e $U_P(B)$ quello allo stato finale $B$. Oltre a non avere alcun attrito, dato che il lavoro è una differenza di energia potenziale senza dispersione, si ha anche che
+\begin{equation}
+	W=I(\Phi_{\Sigma_B}(\vba{B})-\Phi_{\Sigma_A}(\vba{B}))=I\left(\Gamma_{\gamma_B}(\vba{A})-\Gamma_{\gamma_A}(\vba{A})\right)
+\end{equation}
+dove $\Sigma_A,\ \Sigma_B$ sono superficie arbitrarie con bordo i circuiti $\gamma_A,\ \gamma_B$, rispettivamente.
+
+Di fatto, il circuito elettrico è l'equivalente per il lavoro magnetostatico a quello che la particella elettrica fa nel lavoro elettromagnetico: alla carica corrisponde l'intensità di corrente, mentre alla differenza di potenziale corrisponde la differenza di circuitazione del potenziale vettore.
+
+Per un campo magnetico uniforme sappiamo che la forza di Laplace su un circuito chiuso è \textit{nulla}, quindi anche il lavoro compiuto è \textit{nullo}.
+\subsection{Un esempio: la spira circolare vicino al magnete cilindrico}
+Consideriamo un \textit{magnete cilindrico} con asse lungo l'asse $z$; poniamo nello spazio una spira circolare $\gamma$, percorsa da corrente, in modo da essere parallela alla faccia orizzontale del magnete e tale per cui il centro della spira stia sull'asse $z$.
+%TODO: immagine
+Per ovvi motivi, poniamoci nelle coordinate cilindriche:
+\begin{equation*}
+	\begin{cases}
+		x=R\sin\theta\\
+		y=R\cos\theta\\
+		z=z
+	\end{cases}
+\end{equation*}
+Possiamo parametrizzare la spira di raggio $R=R_0$ e quota $z=z_0$ (inizialmente) fissati con
+\begin{equation*}
+	\vba{r}(\phi)=\left(x(\phi),y(\phi),z(\phi)\right)=\left(R_0\cos\phi,\ R_0\sin\phi, z_0\right)=
+\end{equation*}
+Uno spostamento infinitesimo in coordinate cilindriche sarebbe\footnote{	Nelle ‘‘XXX'', a pagina \pageref{spinfinitesimocilindriche} è possibile trovare come si calcola.}
+\begin{equation}
+	d\vba{s}=dR\vbh{u}_R+Rd\theta\vbh{u}_\theta+dz\vbh{u}_z
+\end{equation}
+Nel nostro caso, poiché $R=R_0$ e $z=z_0$ sono inizialmente fissi, si ha solo la variazione infinitesima $d\theta$ e quindi
+\begin{equation}
+	d\vba{s}=Rd\theta\vbh{u}_\theta
+\end{equation}
+Il campo magnetico $\vba{B}$ ha simmetria assiale rispetto all'asse $z$ e si può scomporre come
+\begin{equation}
+	\vba{B}=B\cos\phi\vbh{u}_z+B\sin\phi\vbh{u}_r
+\end{equation}
+dove $\phi$ è l'angolo tra l'asse $z$ e il campo. Calcoliamoci la forza: per la seconda legge di Laplace
+\begin{equation*}
+	\vba{F}=I\int d\vba{s}\cross\vba{B}
+\end{equation*}
+Per la regola della mano destra avremo come direzione e verso della forza quello in figura, ortogonale sia a $d\vba{s}$ che a $\vba{B}$.
+%TODO: inserire figura
+Ci si aspetta che sul piano orizzontale della spira le forze si compensino, mentre che le altre forze siano dirette verso il basso e a causa di esse la spira venga quindi ‘‘risucchiata'' verso il basso. Facendo i dovuti calcoli,
+\begin{equation*}
+	\vba{F}=I\int d\vba{s}\cross\vba{B}=IR\int\vbh{u}_{\theta}\cross\left(B\cos\phi\vbh{u}_z+B\sin\phi\vbh{u}_r\right)d\theta\squarequal
+\end{equation*}
+Poiché
+\begin{align*}
+	\vbh{u}_{\theta}\cross\vbh{u}_{z}=\vbh{u}_R&&
+	\vbh{u}_{\theta}\cross\vbh{u}_{R}=\vbh{u}_z
+\end{align*}
+si ha
+\begin{equation*}
+	\squarequal IR\int \left(B\cos\phi\vbh{u}_R-B\sin\phi\vbh{u}_z\right)d\theta\squarequal
+\end{equation*}
+Osserviamo che per simmetria cilindrica lungo la spira $B$ e $\phi$ devono essere costanti, dunque anche $\cos\phi$ e $\sin\phi$ lo sono:
+\begin{equation*}
+	\squarequal IRB\cos\phi\int \vbh{u}_Rd\theta-B\sin\phi\int\vbh{u}_zd\theta
+\end{equation*}
+Si osservi che
+\begin{itemize}
+	\item $\displaystyle\int\vbh{u}_Rd\theta=0$. Ci sono due modi per convincersi che sia così: o per ragioni di simmetria, dato che ogni versore ha un versore opposto e quindi integrando su un giro completo dell'angolo $\theta$ si annullano tutti, oppure integrando il versore rispetto a $\theta$, noto che $\vbh{u}_R=\left(\cos\theta,\sin\theta\right)$. 
+	\item $\displaystyle\int\vbh{u}_zd\theta=\vbh{u}_z\int d\theta=2\pi\vbh{u}_z$, dato che $\vbh{u}_z$ è costante.
+\end{itemize}
+Segue quindi che la forza subita dalla spira è diretta verso il basso, come previsto:
+\begin{equation}
+	\vba{F}=-2\pi R I B\sin\phi\vbh{u}_z
+\end{equation}
+Vorremmo ora calcolare questa $\vba{F}$ come
+\begin{equation*}
+	\vba{F}=I\grad{\Phi_{\Sigma}(\vba{B})}
+\end{equation*}
+Per farlo, usiamo un trucco: consideriamo, in aggiunta alla spira circolare, un'altra spira \textit{immaginaria} posta ad altezza $\Delta z$; sfrutteremo che il flusso tramite questa superficie cilindrica individuata dalle spire è nullo. Indichiamo con
+\begin{itemize}
+	\item $\Sigma$ la superficie individuata dalla spira originale (base inferiore del cilindro).
+	\item $\Sigma'$ la superficie individuata dalla spira immaginaria (la base superiore del cilindro).
+	\item $\sigma$ la superficie laterale del cilindro.
+\end{itemize}
+Scegliamo un'orientazione di $\vbh{u}_n$ in modo che sia uscente dal cilindro.
+% nelle note: il flusso della superficie attraversi il circuito nella stessa direzione sia sopra, sia sotto.
+In questo caso, poniamo il versore normale di $\Sigma'$ nella direzione positiva dell'asse $z$ e quello di $\Sigma$ uguale e contrario. Allora
+\begin{equation*}
+	\Phi_{\Sigma+\Sigma'+\sigma}(\vba{B})=\Phi_{\Sigma'}(\vba{B})-\Phi_{\Sigma}(\vba{B})+\Phi_{\sigma}(\vba{B})=0
+\end{equation*}
+Il flusso relativo alle basi si può vedere una funzione della quota $z$:
+\begin{equation*}
+	\funztot[\Phi]{\realset}{\realset}{z}{\Phi(z)=\Phi_{\Sigma(z)}(\vba{B})}
+\end{equation*}
+dove $\Sigma(z)$ è l'area contenuta in una spira circolare di raggio $R_0$ a quota $z$. Allora:
+\begin{align*}
+	\Phi_{\Sigma}(\vba{B})=\Phi(z)&&\Phi_{\Sigma'}(\vba{B})=\Phi(z+\Delta z)
+\end{align*}
+Calcoliamo la derivata di tale funzione:
+\begin{equation*}
+	\pdv{\Phi_{\Sigma}}{z}=\lim_{\Delta z\to 0}\frac{\Phi_{\Sigma'}(\vba{B})-\Phi_{\Sigma}(\vba{B})}{\Delta z}=\lim_{\Delta z\to 0}\frac{-\Phi_{\sigma}(\vba{B})}{\Delta z}\squarequal
+\end{equation*}
+Si osservi che
+\begin{align*}
+	\Phi_{\sigma}(\vba{B})&=\int_{\sigma}\vba{B}\vdot\vbh{u}_nd\sigma)=&&\\
+	&=\int_{\sigma}B\vdot\vbh{u}_Rd\sigma&&\text{(versore della sup. laterale)}\\
+	&=\int_{\sigma}\left(B\cos\phi\vbh{z}+B\sin\phi\vbh{u}_R\right)\vdot\vbh{u}_Rd\sigma=&&\\
+	&=\int_{\sigma}B\sin\phi d\sigma=&&\\
+	&=B\sin\phi\int_{\sigma}d\sigma=&&\text{(}B\sin\phi\ \text{costante su}\ \sigma\ \text{per}\ \Delta z\to 0\text{)}\\
+	&=2\pi R \Delta z B\sin\phi&&
+\end{align*}
+Si ottiene infine
+\begin{equation*}
+	\squarequal\lim_{\Delta z\to 0}\frac{-2\pi R \Ccancel[red]{\Delta z} B\sin\phi}{\Ccancel[red]{\Delta z}}=-2\pi R B\sin\phi
+\end{equation*}
+ossia
+\begin{equation}
+	\vba{F}=-2\pi IRB\sin\phi\vbh{u}_z=I\pdv{\Phi_{\Sigma}}{z}\vbh{u}_z
+\end{equation}
+\begin{observe}
+	Abbiamo calcolato la forza tramite il flusso \textit{traverso}, cioè quello della superficie laterale, senza calcolare in realtà il flusso del cilindro.
+\end{observe} %TODO: che osservazione del piffero.
+\subsection{Unità di misura del flusso del campo magnetico}
+L'unità di misura del flusso del campo magnetico si può derivare in diversi modi. Dalla definizione di flusso stesso, si ha
+\begin{equation*}
+	\left[\Phi_{\Sigma}(\vba{B})\right]=\left[\vba{B}\right]\left[\Sigma\right]=\unit[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{\tesla\meter\squared}
+\end{equation*}
+Alternativamente, poiché il flusso è legato all'energia potenziale dalla legge
+\begin{equation*}
+	U_p=-I\Phi_{\Sigma}(\vba{B})
+\end{equation*}
+si ha anche
+\begin{equation*}
+	\left[\Phi_{\Sigma}(\vba{B})\right]=\frac{\left[U_P\right]}{\left[I\right]}=\unit[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{\joule\per\ampere}
+\end{equation*}
+\begin{units}~\\
+	\textbf{\textsc{Flusso magnetico:}} weber ($\unit{\weber}$).\\
+	\textit{\textbf{Dimensioni:}} $\left[\Phi_{\Sigma}(\vba{B})\right]=\left[\vba{B}\right]\left[\Sigma\right]=\mathsf{M}\mathsf{L}^2 \mathsf{T}^{-2}  \mathsf{I}^{-1}$
+\end{units}
+\section{Prima legge di Laplace o legge di Biot-Savart}
+L'esperimento di Ampère\footnote{Si veda la sezione \ref{EsperimentodiAmpere}, pag. \pageref{EsperimentodiAmpere}.} ci mostrò che due fili percorsi da corrente venivano attratti - o respinti - da forze di natura magnetica. Grazie alla forza di Lorentz ora sappiamo \textit{come} questi fili potevano muoversi: la corrente che percorre ciascun filo genera un campo magnetico che agisce sulle cariche in movimento dell'altro filo, le quali subiscono delle forze che, di conseguenza, permettono di spostarlo. Ci rimane un tassello di questo puzzle: qual è il campo magnetico \textit{generato dal filo}?
+
+\subsection{Campo magnetico generato da cariche puntiformi in moto}
+Procediamo con calma. Innanzitutto, sebbene sia difficilmente osservabile, anche una singola carica in movimento con velocità $\vba{v}$ è in grado generare un campo magnetico. Tale campo $\vba{B}$ soddisfa, nel suo piccolo, alcune proprietà incontrate nell'esperimento di Ampère:
+\begin{itemize}
+	\item Se la carica non è in movimento, non si ha alcun campo; dobbiamo supporre che $\vba{B}$ debba dipendere dalla velocità.
+	\item Se il campo agisce su un'altra carica in movimento, la cui velocità ha direzione parallela a $\vba{v}$, la forza di Lorentz che ne consegue deve essere tale da risultare attrattiva se i versi delle velocità sono concordi e repulsiva se sono discordi. 
+\end{itemize}   Inolt \\
+Fu \textbf{Oliver Heaviside} nel 1888 a derivare, dalle leggi di Maxwell, la legge matematica che descrive il campo magnetico generato da una singola carica in movimento:
+\begin{equation}
+	\vba{B}=\frac{\mu_0}{4\pi}\frac{q\vba{v}\cross\vbh{u}_r}{r^2}
+\end{equation}
+La prima cosa che notiamo è che a tutti gli effetti tale legge soddisfa quanto supposto ed osservato: il campo magnetico \textit{dipende} dalla velocità, mentre il prodotto vettoriale garantisce la seconda osservazione.
+
+\begin{example}
+	Per capire meglio la presenza del prodotto vettoriale consideriamo la seguente situazione: due particelle $1$ e $2$ in moto, entrambe con velocità $\vba{v}$ concorde e parallele, sono attratte l'un l'altra da forze di Lorentz  uguali e contrarie. La forza che subisce la particella 2 è dovuta all'azione del campo magnetico $\vba{B}_1$ generato dalla prima:
+	\begin{equation*}
+		\vba{F}_{2,1}=q_2\vba{v}_2\cross\vba{B}_1
+	\end{equation*}
+	%TODO: disegno
+	Supponendo che le cariche siano negative, per avere che $\vba{F}_{2,1}$ sia attrattiva (cioè diretta verso la particella 1), per la regola della mano destra $\vba{B}_1$ deve essere entrante il piano dove viaggiano le particelle. Allora, il prodotto vettoriale di $\vba{v}$ per il versore $\vbh{u}_r$ diretto da 1 a 2 permette a $vba{B}_1$ di avere verso entrante.
+\end{example}
+%TODO: check this, not so sure
+\begin{observe}
+	Una carica in movimento genera sia un campo elettrico, sia un campo magnetico. In particolare, il campo elettrico si distribuisce \textit{radialmente} con centro la carica, mentre quello magnetico è \textit{tangenziale} a circonferenze \textit{perpendicolari} alla velocità e con centro sulla retta su cui essa giace.
+\end{observe}
+Si noti che l'espressione del campo magnetico
+\begin{equation*}
+	\vba{B}=\frac{\mu_0}{4\pi}\frac{q\vba{v}\cross\vbh{u}_r}{r^2}
+\end{equation*}
+e quella del campo elettrico
+\begin{equation*}
+	\vba{E}=\frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\vbh{u}_r
+\end{equation*}
+generati della particella sono così simili da essere collegati tra di loro dalla relazione
+\begin{equation}
+	\vba{B}=\mu_0\epsilon_0\vba{v}\cross\vba{E}
+\end{equation}
+Poiché, dimensionalmente parlando, si ha
+\begin{equation*}
+	\left[\epsilon_0\right]=\frac{1}{4\pi\left[F\right]}\frac{\left[q\right]^2}{\left[r\right]^2}=\unit[per-mode = fraction]{\coulomb\squared\per\meter\squared\per\newton}
+\end{equation*}
+e
+\begin{equation*}
+	\left[\mu_0\right]=\unit[per-mode = fraction]{\newton\second\squared\per\coulomb\squared},
+\end{equation*}
+il loro prodotto ha dimensioni
+\begin{equation*}
+	\left[\epsilon_0\mu_0\right]=\unit[per-mode = fraction]{\second\squared\per\meter\squared},
+\end{equation*}
+pari a quelle di un inverso di un quadrato di una velocità. Ma non stiamo parlando di una velocità qualunque, bensì della \textit{velocità della luce}! Infatti,
+\begin{equation*}
+	c=\SI[per-mode = fraction]{3d8}{\meter\per\second}=\frac{1}{\sqrt{\epsilon_0\mu_0}}
+\end{equation*}
+La relazione di cui sopra tra campo elettrico $\vba{E}$ e campo magnetico $\vba{B}$ di una particella carica in moto a velocità $\vba{v}$ si riscrive quindi come
+\begin{equation}
+	\vba{B}=\frac{1}{c^2}\vba{v}\cross\vba{E}
+\end{equation}
+Perché però compare la velocità della luce? Facendo un piccolissimo spoiler, i fenomeni elettromagnetici sono legati a fenomeni di natura ondulatoria con velocità di propagazione pari a quelli della luce.
+\subsection{Campo magnetico generato da un filo: legge di Biot-Savart}
+Sebbene abbiamo visto cosa succede per una particella, una singola carica in movimento non fa una corrente stazionaria - ma tante sì. Supponiamo di avere un elemento di filo infinitesimo percorso da corrente stazionaria di intensità $I$; le cariche si spostano con velocità di deriva $\vba{v}_d$. Per ciascuna singola carica il campo magnetico generato è
+\begin{equation}
+	\vba{B}_i=\frac{\mu_0}{4\pi}\frac{e\vba{v}_d\cross\vbh{u}_r}{r^2}
+\end{equation}
+Se nel volumetto ci sono $N$ cariche, si ha una densità di cariche pari a
+\begin{equation*}
+	n=\frac{dN}{dV}
+\end{equation*}
+Se sommiamo - con continuità - rispetto a tutte le cariche nel volumetto, il campo magnetico complessivo sarà dato da
+\begin{equation*}
+	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{e\vba{v}_d\cross\vbh{u}_r}{r^2}dN=\frac{\mu_0}{4\pi}\int_V\frac{ne\vba{v}_d\cross\vbh{u}_r}{r^2}dV
+\end{equation*}
+Ricordando che $\vba{j}=ne\vba{v}_d$, allora
+\begin{equation*}
+	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{\vba{j}\cross\vbh{u}_r}{r^2}dV
+\end{equation*}
+% bla bla bla confronto con il campo elettrico
+Consideriamo il caso di un filo rettilineo  $\mathcal{l}$: un suo volumetto infinitesimo ha spessore costante $d\Sigma$ e lunghezza $ds$. Se poniamo il filo lungo l'asse $x$ senza perdita di generalità, la densità di corrente è anch'essa parallela all'asse $x$, ossia
+\begin{equation*}
+	\vba{j}=j\vbh{u}_x
+\end{equation*}
+Il campo magnetico sarà
+\begin{equation*}
+	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{\vba{j}\cross\vbh{u}_r}{r^2}d\Sigma ds=\frac{\mu_0}{4\pi}\int_{\mathcal{l}}j\Sigma\frac{\vbh{u}_x\cross\vbh{u}_r}{r^2}=\frac{\mu_0}{4\pi}\int_{\mathcal{l}}I\frac{\vbh{u}_x\cross\vbh{u}_r}{r^2}ds
+\end{equation*}
+Osserviamo che in questo caso $d\vba{s}=ds\vbh{u}_x$. Generalizziamo quanto trovato.
+
+\begin{define}[Seconda legge di Laplace]
+	La \textbf{legge di Biot-Savart}\index{legge!di Biot-Savart}, detta anche \textbf{prima legge di Laplace}\index{leggi di Laplace!prima}, afferma che il campo magnetico indotto da una corrente stazionaria $I$ che percorre un filo descritto dalla curva $\gamma$ è
+	\begin{equation}
+		\vba{B}=\frac{\mu_0}{4\pi}\int_{\gamma}\frac{d\vba{s}\cross\vbh{u}_r}{r^2}
+	\end{equation}
+	dove $d\vba{s}$ è lo spostamento infinitesimo lungo la curva $\gamma$.
+\end{define}
+\begin{observe}
+	Per sapere il verso di $\vba{B}$ si può applicare la regola della vite destra: indicando con il pollice destro il verso della corrente, le dita della mano curvano seguendo le linee di campo del campo magnetico $\vba{B}$.
+\end{observe}
+\subsection{Campo magnetico generato da un filo rettilineo (in)finito}
+Consideriamo un filo rettilineo di lunghezza $2a$, posto lungo l'asse $z$ in modo che il suo punto medio coincida con l'origine. La parametrizzazione di tale filo è data da
+\begin{equation*}
+	\vba{r}'=\left(0,0,z'\right)
+\end{equation*}
+da cui segue lo spostamento infinitesimo
+\begin{equation*}
+	d\vba{s}=dz'\vbh{u}_z
+\end{equation*}
+Il versore $\vbh{u}_r$ da un generico punto sul filo verso un punto generico $\vba{r}=(x,y,z)$ è
+\begin{equation*}
+	\vbh{u}_r=\frac{\vba{r}-\vba{r}'}{\abs{\vba{r}-\vba{r}'}}=\frac{\left(x,y,z-z'\right)}{\sqrt{x^2+y^2+\left(z-z'\right)^2}}
+\end{equation*}
+Calcoliamo
+\begin{equation*}
+	d\vba{s}\cross\vbh{u}_r=\frac{1}{\sqrt{x^2+y^2+\left(z-z'\right)^2}}
+	\begin{vmatrix}
+		0 & 0 & dz'\\
+		x & y & z-z'\\
+		\vbh{u}_x & \vbh{u}_y & \vbh{u}_z 
+	\end{vmatrix}
+	=\frac{x\vbh{u}_y-y\vbh{u}_x}{\abs{\vba{r}-\vba{r}'}}dz'
+\end{equation*}
+Il campo magnetico, per la legge di Biot-Savart, sarà
+\begin{equation}
+	\vba{B}=\frac{\mu_0 I}{4\pi}\int_{-a}^{a} \frac{x\vbh{u}_y-y\vbh{u}_x}{\left(x^2+y^2+\left(z-z'\right)^2\right)^{\nicefrac{3}{2}}}dz'
+\end{equation}
+Osserviamo però che il problema presentava un'evidente simmetria cilindrica. Passando alle coordinate cilindriche
+\begin{equation*}
+	\begin{cases}
+		x=R\sin\theta\\
+		y=R\cos\theta\\
+		z=z
+	\end{cases}
+\end{equation*}
+si ha
+\begin{equation*}
+	x\vbh{u}_y-y\vbh{u}_x=R\left(\sin\theta,\cos\theta\right)=R\vbh{u}_{\theta}
+\end{equation*}
+e noto che $x^2+y^2=R^2$, riscriviamo
+\begin{equation*}
+	\vba{B}=\frac{\mu_0 I}{4\pi}R\vbh{u}_{\theta}\int_{-a}^{a}\frac{dz'}{\left(R^2+\left(z-z'\right)^2\right)^{\nicefrac{3}{2}}}
+\end{equation*}
+Per semplicità, consideriamo un punto $\vba{r}$ con quota prossima a $0$ (cioè $z\to 0$). Allora
+\begin{equation*}
+	\vba{B}=\frac{\mu_0 I}{4\pi}R\vbh{u}_{\theta}\int_{-a}^{a}\frac{dz'}{\left(R^2+(z')^2\right)^{\nicefrac{3}{2}}}=\frac{\mu_0 I}{4\pi}R\vbh{u}_{\theta}\int_{-a}^{a}\frac{dz'}{R^3\left(1+(\frac{z'}{R})^2\right)^{\nicefrac{3}{2}}}\squarequal
+\end{equation*}
+Imponendo la sostituzione $b=\dfrac{z'}{R}$, il differenziale risulta $db=\dfrac{1}{R}dz'$ e gli estremi diventano $\pm\frac{a}{R}$; quindi
+\begin{align*}
+	&\squarequal\frac{\mu_0 I}{4\pi}\Ccancel[red]{R}\vbh{u}_{\theta}\int_{-\nicefrac{a}{R}}^{\nicefrac{a}{R}}\frac{\Ccancel[red]{R}db}{R^{\Ccancel[red]{3}}\left(1+b^2\right)^{\nicefrac{3}{2}}}=\\
+	&=\frac{\mu_0 I}{4\pi R}\vbh{u}_{\theta}\eval{\frac{b}{\sqrt{1+b^2}}}_{-\nicefrac{a}{R}}^{\nicefrac{a}{R}}=\frac{\mu_0 I}{2\pi R}\frac{\nicefrac{a}{R}}{\sqrt{1+\frac{a^2}{R^2}}}\vbh{u}_{\theta}=\frac{\mu_0 I}{2\pi R}\frac{a}{\sqrt{a^2+R^2}}\vbh{u}_{\theta}
+\end{align*}
+Se facessimo tendere il valore di $a$ a $+\infty$, e cioè nel caso in cui filo fosse di \textit{lunghezza infinita}, il campo magnetico sarebbe descritta da quella che è la \textit{legge di Biot-Savart per un filo infinito}\index{legge!di Biot-Savart!per un filo infinito}:
+\begin{equation}
+	\vba{B}=\frac{\mu_0 I}{2\pi R}\vbh{u}_{\theta}
+\end{equation}
+Grazie a ciò siamo in grado di derivare per via teorica (e non più soltanto empirica) la legge di Ampère. Prendiamo i nostri due fili paralleli di lunghezza infinita. Il campo generato dal filo 1 in un punto sul secondo filo, posto a distanza $d$, è
+\begin{equation*}
+	\vba{B}_1=\frac{\mu_0 I_1}{2\pi d}\vbh{u}_\theta
+\end{equation*}
+La forza che agisce sul filo 2 su un tratto $\gamma_2$ di lunghezza $L$ è, per la seconda legge di Laplace, data da
+\begin{equation*}
+	\vba{F}_2=I_2\int_{\gamma_2}d\vba{s}\cross\vba{B}_1=I_2\left(\int_{\gamma_2}d\vba{s}\right)\cross\vba{B}_1=I_2\left(\int_{0}^Ldz\right)\vbh{u}_z\cross\vba{B}_1=I_2L\vbh{u}_z\cross\vba{B}_1
+\end{equation*}
+Da ciò concludiamo che 
+\begin{equation*}
+	\frac{\vba{F}_2}{L}=I_2\vbh{u}_z\cross\vba{B}_1=\frac{\mu_0 I_1 I_2}{2\pi d}\vbh{u}_z\cross\vbh{u}_{\theta}=\frac{\mu_0}{2\pi}\frac{I_1I_2}{d}\vbh{u}_d
+\end{equation*}
+Per simmetria, lo stesso risultato si ottiene considerando la forza che agisce sul filo 1 con il campo magnetico generato da 2, quindi
+\begin{equation}
+	\frac{\vba{F}}{L}=\frac{\mu_0}{2\pi}\frac{I_1I_2}{d}\vbh{u}_d
+\end{equation}
+\subsection{Campo magnetico generato da una spira circolare}
+Consideriamo un circuito circolare in cui circola corrente. Per la legge di Biot-Savart, è presente un campo magnetico tangenziale a circonferenze perpendicolari alla corrente e centrate lungo il circuito, il cui verso è dato dalla legge della mano destra. Di conseguenza, ci aspettiamo un campo a simmetria cilindrica come in figura.
+%TODO: inserire figura
+Geometricamente parlando, la spira di raggio $R_0$ e posta nel piano $xy$ è una curva parametrizzabile da un angolo $\phi$:
+\begin{equation*}
+	\vba{r}'\left(\phi\right)=\left(R_0\cos\phi,R_0\sin\phi,0\right)
+\end{equation*}
+Lo spostamento infinitesimo lungo il circuito è quindi
+\begin{equation*}
+	d\vba{s}=\dv{\vba{r}'\left(\phi\right)}{\phi}d\phi=\left(-R_0\sin\phi,R_0\cos\phi,0\right)
+\end{equation*}
+Il versore $\vbh{u}_r$ da un generico punto sul filo verso un punto $\vba{r}=\left(R\cos\theta,R\sin\theta,z\right)$ nello spazio è
+\begin{equation*}
+	\vbh{u}_r=\frac{\vba{r}-\vba{r}'(\phi)}{\abs{\vba{r}-\vba{r}'(\phi)}}=\frac{\left(R\cos\theta-R_0\cos\phi,R\sin\theta-R_0\cos\theta,z\right)}{\sqrt{R^2+z^2+R_0^2-2RR_0\cos\left(\theta-\phi\right)}}
+\end{equation*}
+Calcoliamo
+\begin{align*}
+	d\vba{s}\cross\vbh{u}_r&=\frac{1}{\sqrt{R^2+z^2+R_0^2-2RR_0\cos\left(\theta-\phi\right)}}
+	\begin{vmatrix}
+		-R_0\sin\phi & R_0\cos\phi & 0\\
+		R\cos\theta-R_0\cos\phi & R\sin\theta-R_0\cos\theta & z\\
+		\vbh{u}_x & \vbh{u}_y & \vbh{u}_z 
+	\end{vmatrix}
+	=\\
+	&=\frac{zR_0\cos\phi\vbh{u}_x+zR_0\sin\phi\vbh{u}_y+\left(R_0^2-RR_0\cos\left(\theta-\phi\right)\right)\vbh{u}_z}{\sqrt{R^2+z^2+R_0^2-2RR_0\cos\left(\theta-\phi\right)}}
+\end{align*}
+Il campo di induzione magnetica descritto dalla legge di Biot-Savart è
+\begin{align*}
+	\vba{B}&=\frac{\mu_0 I}{4\pi }\int_{\gamma}\frac{d\vba{s}\cross\vbh{u}_r}{r^2}=\frac{\mu_0 I}{4\pi}\int_{\gamma}{\abs{\vba{r}-\vba{r}'(\phi)}}=\\
+	&=\frac{\mu_0 I}{4\pi }\int_0^{2\pi}d\phi\ \frac{zR_0\cos\phi\vbh{u}_x+zR_0\sin\phi\vbh{u}_y+\left(R_0^2-RR_0\cos\left(\theta-\phi\right)\right)\vbh{u}_z}{\left(R^2+z^2+R_0^2-2RR_0\cos\left(\theta-\phi\right)\right)^{\nicefrac{3}{2}}}
+\end{align*}
+Operando un cambio di variabile $\phi'=\phi-\theta$, osserviamo che
+\begin{align*}
+	\cos\phi\vbh{u}_x+\sin\phi\vbh{u}_y&=\cos\left(\phi'+\theta\right)\vbh{u}_x+\sin\left(\phi'+\theta\right)\vbh{u}_y=\\
+	&=\left(\cos\theta\cos\phi'-\sin\theta\sin\phi'\right)\vbh{u}_x+\left(\cos\theta\sin\phi'+\sin\theta\cos\phi'\right)\vbh{u}_y=\\
+	&=\cos\phi'\left(\cos\theta\vbh{u}_x+\sin\theta\vbh{u}_y\right)+\sin\phi'\left(-\sin\theta\vbh{u}_x+\cos\theta\vbh{u}_y\right)\squarequal
+\end{align*}
+Ricordando che
+\begin{equation*}
+	\begin{cases}
+		\vbh{u}_R=\cos\theta\vbh{u}_x+\sin\theta\vbh{u}_y\\
+		\vbh{u}_{\theta}=-\sin\theta\vbh{u}_x+\cos\theta\vbh{u}_y
+	\end{cases}
+\end{equation*}
+si ha
+\begin{equation*}
+	\squarequal \cos\phi'\vbh{u}_R+\sin\phi'\vbh{u}_\theta
+\end{equation*}
+Allora il campo si può riscrivere come
+\begin{equation*}
+	\vba{B}=\frac{\mu_0 I}{4\pi }\int_0^{2\pi}d\phi'\ \frac{zR_0\left(\cos\phi'\vbh{u}_R+\sin\phi'\vbh{u}_\theta\right)+\left(R_0^2-RR_0\cos\phi'\right)\vbh{u}_z}{\left(R^2+z^2+R_0^2-2RR_0\cos\phi'\right)^{\nicefrac{3}{2}}}
+\end{equation*}
+Poniamo per compattezza di scrittura $A\coloneqq R^2+z^2+R_0^2$. Spezziamo il campo rispetto alle direzioni dell coordinate cilindriche:
+\begin{itemize}
+	\item \textit{Rispetto a }$\vbh{u}_{\theta}$:
+	\begin{equation*}
+		B_\theta=\frac{\mu_0 I}{4\pi }\int_0^{2\pi}d\phi'\frac{zR_0\sin\phi'}{\left(A-2RR_0\cos\phi'\right)^{\nicefrac{3}{2}}}=0
+	\end{equation*}
+	Questo vale perché l'integranda è dispari e stiamo integrando su un suo periodo; si può vedere anche più approfonditamente per sostituzione.
+	\item \textit{Rispetto a} $\vbh{u}_{R}$:
+	\begin{equation*}
+		B_R=\frac{\mu_0 I}{4\pi }\int_0^{2\pi}d\phi'\frac{zR_0\phi'}{\left(A-2RR_0\cos\phi'\right)^{\nicefrac{3}{2}}}=0
+	\end{equation*}
+	Questo invece è un'integrale ellittico e non è elementarmente integrabile.
+	\item \textit{Rispetto a} $\vbh{u}_z$: segue una situazione analoga a $\vbh{u}_R$.
+\end{itemize}
+Data l'evidente difficoltà della situazione in cui siamo incappati, vediamo solamente dei casi specifici di ciò.
+\begin{itemize}
+	\item \textbf{Asse della spira.} In questo caso $R=0$.
+	\begin{align*}
+		\vba{B}&=\frac{\mu_0 I}{4\pi }\int_0^{2\pi}d\phi'\ \frac{zR_0\cos\phi'\vbh{u}_R+R_0^2\vbh{u}_z}{\left(z^2+R_0^2\right)^{\nicefrac{3}{2}}}=\\
+		&=\frac{\mu_0 I}{4\pi \left(z^2+R_0^2\right)^{\nicefrac{3}{2}}}\left[\vbh{u}_R\underbrace{\int_0^{2\pi}d\phi'\ zR_0\cos\phi'}_{=0} + \vbh{u}_z \int_0^{2\pi}d\phi'\ R_0^2d\phi'\right]=\\
+		&=\frac{\mu_0 I R_0^2}{2 \left(z^2+R_0^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z
+	\end{align*}
+	\begin{equation}
+		\vba{B}=\frac{\mu_0 I R_0^2}{2 \left(z^2+R_0^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z
+	\end{equation}
+	Il campo magnetico è verticale. In particolare, ha il suo massimo nel centro della spira ($z=0$), dove è pari a
+	\begin{equation}
+		\vba{B}=\frac{\mu_0 I}{2R_0}\vbh{u}_z
+	\end{equation}
+\end{itemize}
+\begin{observe}
+	Per capire il verso del campo magnetico lungo l'asse della spira vale un'altra versione \textbf{legge della vite destra}: curvando le dita della mano lungo la direzione della corrente, il pollice indicherà il verso del campo magnetico.\\
+	Ad esempio, se la spira è percorsa in senso antiorario dalla corrente, allora il campo sarà diretto verso l'alto; viceversa se il circuito è percorso in senso orario.
+\end{observe}
+\begin{itemize}
+	\item $\mathbf{R_0\ll r.}$ I casi sono due: o la spira è molto molto piccola, oppure stiamo osservando il campo a debita distanza da essa. In ogni caso la spira è assimilabile ad un \textit{punto}; per questo, passiamo dalle coordinate cilindriche alle coordinate sferiche. Se $r$ è la distanza dalla spira e $\theta$ l'angolo polare\footnote{Piccola ripetizione (qualcheduno direbbe \textit{abuso}) di notazione: abbiamo già usato $\theta$ in precedenza per l'angolo azimutale delle cilindriche, ma dato che in precedenza abbiamo fatto una sostituzione con $\phi'$ tale angolo non si ripresenta qui.}, allora 
+	\begin{equation*}
+		\begin{cases}
+			R=r\sin\theta\\
+			z=r\cos\theta
+		\end{cases}
+	\end{equation*}
+	Possiamo anche esprimere i versori $\vbh{u}_R$ e $\vbh{u}_z$ delle coordinate cilindriche in funzione di quelli sferici $\vbh{u}_{\theta}$ e $\vbh{u}_r$ tramite una rotazione di essi (in senso orario) rispetto all'angolo polare:
+	\begin{equation*}
+		\begin{cases}
+			\vbh{u}_R=\cos\theta\vbh{u}_{\theta}+\sin\theta\vbh{u}_{z}\\
+			\vbh{u}_z=-\sin\theta\vbh{u}_{\theta}+\cos\theta\vbh{u}_{z}
+		\end{cases}
+	\end{equation*}
+	Allora, facendo le opportune sostituzioni - e raccogliendo un fattore $r^2$ - otteniamo
+	\begin{align*}
+		\vba{B}&=\frac{\mu_0 I}{4\pi }\int_0^{2\pi}d\phi'\ \frac{R_0r\cos\theta\cos\phi'\vbh{u}_R+\left(R_0^2-R_0r\sin\theta\cos\phi'\right)\vbh{u}_z}{\left(r^2+R_0^2-2R_0r\sin\theta\cos\phi'\right)^{\nicefrac{3}{2}}}=\\
+		&=\frac{\mu_0 I}{4\pi r}\int_0^{2\pi}d\phi'\frac{\frac{R_0}{r}\cos\phi'\vbh{u}_{\theta}+\frac{R_0^2}{r^2}\left(\cos\theta\vbh{u}_r-\sin\theta\vbh{u}_\theta\right)}{\left(1-2\frac{R_0}{r}\sin\theta\cos\phi'+\frac{R_0^2}{r^2}\right)^{\nicefrac{3}{2}}}
+	\end{align*}
+	Poiché $R_0\ll r$, approssimiamo in serie di Taylor rispetto a $\frac{R_0}{r}$ il denominatore fino all'ordine quadratrico.
+	\begin{align*}
+		\vba{B}\simeq&\frac{\mu_0 I}{4\pi r}\underbrace{\int_0^{2\pi}d\phi'\frac{R_0}{r}\cos\phi'}_{=0}\vbh{u}_{\theta}+\frac{R_0^2}{r}\left(\cos\theta\vbh{u}_r-\sin\theta\vbh{u}_\theta+3\cos^2\phi'\sin\theta\vbh{u}_\theta\right)=\\
+		&=\frac{\mu_0 I}{4\pi r^3}\left(2\cos\theta\vbh{u}_r-2\sin\theta\vbh{u}_{\theta}+3\int_{0}^{2\pi}d\phi'\ \cos^2\phi'\ \sin\theta\vbh{u}_\theta\right)=\\
+		&=\frac{\mu_0 I R_0^2}{4\pi r^3}\left(2\pi\cos\theta\vbh{u}_r-2\pi \sin\theta\vbh{u}_{\theta}+3\pi \sin\theta\vbh{u}_\theta\right)=\\
+		&=\frac{\mu_0 I R_0^2 \pi}{4 \pi r^3}\left(2\cos\theta\vbh{u}_r+ \sin\theta\vbh{u}_\theta\right)
+	\end{align*}
+	Ricordiamo che il momento di dipolo magnetico è
+	\begin{equation*}
+		\vba{m}=I\Sigma\vbh{u}_n
+	\end{equation*}
+	dove $\Sigma$ è l'area della spira e $\vbh{u}_n$ il versore normale ad essa. Nel nostro caso
+	\begin{equation*}
+		\vba{m}=IR_0^2\pi\vbh{u}_z
+	\end{equation*}
+	Allora il campo magnetico, a debita distanza, è approssimabile da
+	\begin{equation}
+		\vba{B}=\frac{\mu_0 m}{4 \pi r^3}\left(2\cos\theta\vbh{u}_r+ \sin\theta\vbh{u}_\theta\right)
+	\end{equation}
+	\begin{example}
+		Sul piano della spira, il campo magnetico lontano dalla spira punta verso il basso.
+	\end{example}
+	Si può anche scrivere come
+	\begin{equation}
+		\vba{B}=\frac{\mu_0}{4 \pi r^3}\left(3\left(\vba{m}\vdot\vbh{u}_r\right)\vbh{u}_z-\vba{m}\right)
+	\end{equation}
+\end{itemize}
+\paragraph{Confronto con il dipolo elettrico}
+\begin{center}
+	\begin{tabular}{p{0.49\textwidth}p{0.49\textwidth}}
+		\multicolumn{1}{c|}{\textbf{Dipolo elettrico}} &
+		\multicolumn{1}{c}{\textbf{Spira circolare}} \\ \hline
+		\multicolumn{2}{c}{\textbf{Momento}}\\\hline
+		\multicolumn{1}{c|}{$\displaystyle\vba{p}=q\vba{a}$} & \multicolumn{1}{c}{$\displaystyle\vba{m}=I\Sigma\vbh{u}_n$}\\
+		\multicolumn{1}{p{0.49\textwidth}|}{A grandi distanze non si distingue la \textit{distanza} dalla \textit{carica}, ma si può sapere solo il loro \textit{prodotto}.} & 
+		A grandi distanze non si distingue la \textit{superficie} dall'\textit{intensità di corrente}, ma si può sapere solo il loro \textit{prodotto}.
+		\\ \hline
+		\multicolumn{2}{c}{\textbf{Campo generato}}\\\hline
+		\multicolumn{1}{c|}{
+			$\displaystyle\vba{E}=\frac{1}{4\pi\epsilon_0r^3}\left(3\left(\vba{p}\vdot\vbh{u}_r\right)\vbh{u}_z-\vba{p}\right)$
+		} &
+		\multicolumn{1}{c}{
+			$\displaystyle\vba{B}=\frac{\mu_0}{4\pi r^3}\left(3\left(\vba{m}\vdot\vbh{u}_r\right)\vbh{u}_z-\vba{m}\right)$
+		}\\
+		\multicolumn{1}{c|}{Decade di un fattore $\nicefrac{1}{r^3}$.} & 
+		\multicolumn{1}{c}{Decade di un fattore $\nicefrac{1}{r^3}$.}
+		\\ \hline
+		\multicolumn{2}{c}{\textbf{Momento subito torcente}}\\\hline
+		\multicolumn{1}{c|}{
+			$\displaystyle\vba{M}=\vba{p}\cross\vba{E}$
+		} &
+		\multicolumn{1}{c}{
+			$\displaystyle\vba{M}=\vba{m}\cross\vba{B}$
+		}\\ \hline
+		\multicolumn{2}{c}{\textbf{Energia potenziale}}\\\hline
+		\multicolumn{1}{c|}{
+			$\displaystyle U=-\vba{p}\vdot\vba{E}$
+		} &
+		\multicolumn{1}{c}{
+			$\displaystyle U=-\vba{m}\vdot\vba{B}$
+		}\\ \hline
+		\multicolumn{2}{c}{\textbf{Posso separare le ‘‘cariche''?}}\\\hline
+		\multicolumn{1}{c|}{
+			Sì.
+		} &
+		\multicolumn{1}{c}{
+			No.
+		}\\ \hline
+	\end{tabular}
+\end{center}
+\begin{observe}
+	Ci potrebbe capitare di dover studiare un campo elettrico senza sapere di preciso \textit{cosa} lo ha generato - se fosse una carica singola, oppure un dipolo, o un tripolo... Per capire meglio, si può sviluppare in serie di Taylor rispetto a $\frac{1}{r}$ il campo elettrico, in modo da ottenere una scrittura del genere
+	\begin{equation*}
+		\vba{E}=\frac{q}{4\pi \epsilon_0 r^2}+\frac{3\left(\vba{p}\vdot \right)}{4\pi\epsilon_0r^3}+\ldots+o\left(\frac{1}{r^n}\right)
+	\end{equation*}
+	A grandi distanze ($r\to+\infty$), prevale sempre il \textit{campo di monopolo} - che altro non è che quello \textit{di Coulomb}. Tuttavia, se \textit{non} abbiamo una carica - ad esempio nel caso del dipolo in cui le cariche si compensano tra di loro - allora prevale il secondo termine, il \textit{campo di dipolo}; se non abbiamo neanche un momento di dipolo prevarrà \textit{quello di tripolo} e cosi via.\\
+	Si può fare una cosa analoga nel caso del campo magnetico. La differenza sostanziale, tuttavia, è che per quanto abbiamo visto \textit{non} c'è il termine di monopolo perché non esiste la carica magnetica.
+\end{observe}
+\subsection{Solenoide}
+\begin{define}[Solenoide]
+	Un \textbf{solenoide}\index{solenoide} è una bobina elicoidale di filo, la cui lunghezza è nettamente maggiore del suo diametro.
+\end{define}
+Di solito, i solenoidi che andremo a studiare si possono considerare come una \textit{serie di spire circolari} molto, molto vicine tra di loro ma realizzate tutte con un unico filo di materiale conduttore.\\
+In sezione, la corrente percorre il solenoide come in figura:
+%TODO: figura
+Nel caso qui raffigurato la corrente gira in senso antiorario. Per la regola della mano destra il campo prodotto da ciascuna spira del solenoide lungo l'asse è ortogonale e diretto verso l'alto; ci aspettiamo una sovrapposizione di tutti i campi vettoriali, intensificando il campo magnetico \textit{interno} complessivo.\\
+Il campo magnetico generato da una spira a quota $z_i$ in un punto lungo l'asse verticale a quota $z$ è, in modulo,
+\begin{equation*}
+	\vba{B}_i=\frac{\mu_0 I R_0^2}{2\left(R_0^2+\left(z-z_i\right)^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z
+\end{equation*}
+Il campo magnetico di un solenoide con $N$ spire è quindi
+\begin{equation*}
+	\vba{B}=\sum_{i=1}^{N}\vba{B}_i
+\end{equation*}
+In molti casi, però, il numero di spire è talmente elevato che è molto più maneggevole passare al \textit{continuo}. Introducendo una densità \textit{lineare} $n$ di spire, ossia il numero di spire per unità di lunghezza, su un solenoide di lunghezza $2a$ si hanno
+\begin{equation*}
+	N=\int_{-a}^{a}ndz
+\end{equation*}
+spire. Il campo magnetico infinitesimo ad altezza $z'$ si ottiene tenendo conto di quante spire ci sono nell'elemento di lunghezza $dz'$, ossia moltiplicando per la densità $n$ il campo magnetico infinitesimo che si avrebbe con una sola spira:
+\begin{equation*}
+	d\vba{B}=\frac{\mu_0 I R_0^2 n}{2\left(R_0^2+\left(z-z'\right)^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z\ dz'
+\end{equation*}
+Il campo magnetico complessivo si ottiene integrando lungo la lunghezza del solenoide. Supponendo che la densità di spire sia costante,
+\begin{equation*}
+	B=\int_{-a}^{a}\frac{\mu_0 I R_0^2 n}{2\left(R_0^2+\left(z-z'\right)^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z\ dz'=
+	\frac{\mu_0 I n}{2R_0}\int_{-a}^{a}\frac{dz'}{\left(1+\frac{\left(z-z'\right)^2}{R_0^2}\right)^{\nicefrac{3}{2}}}\squarequal
+\end{equation*}
+Operando il campo di variabile $\eta=\dfrac{z'-z}{R_0}$, il differenziale diventa $d\eta=\dfrac{dz'}{R_0}$ mentre gli estremi di integrazione $\frac{\pm a-z}{R_0}$. Allora
+\begin{align*}
+	\squarequal&\frac{\mu_0 I n}{2R_0}\int_{\frac{-a-z}{R_0}}^{\frac{a-z}{R_0}}\frac{\eta}{\left(1è\eta^2\right)^{\nicefrac{3}{2}}}=\frac{\mu_0 I n}{2}\eval{\frac{\eta}{\sqrt{1+\eta^2}}}_{\frac{-a-z}{R_0}}^{\frac{a-z}{R_0}}=\\
+	=&\frac{\mu_0 I n}{2}\left(\frac{\frac{a-z}{R_0}}{\sqrt{1+\left(\frac{a-z}{R_0}\right)^2}}-\frac{\frac{a+z}{R_0}}{\sqrt{1+\left(\frac{a+z}{R_0}\right)^2}}\right)=
+	\frac{\mu_0 I n}{2}\left(\frac{a-z}{\sqrt{R_0^2+\left(a-z\right)^2}}+\frac{a+z}{\sqrt{R_0^2+\left(a+z\right)^2}}\right)
+\end{align*}
+\begin{itemize}
+	\item \textbf{In mezzo al solenoide} ($z=0$):
+	\begin{equation}
+		\vba{B}=\frac{\mu_0 I n a}{\sqrt{R_0^2+a^2}}\vbh{u}_z
+	\end{equation}
+	\item \textbf{Ad un estremo del solenoide} ($z=\pm a$):
+	\begin{equation}
+		\vba{B}=\frac{\mu_0 I n a}{\sqrt{R_0^2+4a^2}}\vbh{u}_z
+	\end{equation}
+	\item \textbf{Solenoide infinito} ($a\to+\infty$): il campo magnetico è omogeneo all'interno, pari a
+	\begin{equation}
+		\vba{B}=\mu_0 I n\vbh{u}_z
+	\end{equation}
+	e nullo all'esterno.
+\end{itemize}
+\begin{observe}
+	Un solenoide infinito - nella pratica, un solenoide molto lungo - è un modo concreto per produrre un campo magnetico uniforme, costante e diretto verso l'alto.
+\end{observe}
+
+
+%%%%%%
+
+% SVN info for this file
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+% BRUTTISSIMO PUN E CHE NON È POLITICAMENTE CORRETTA; un volt m'ampere d'aver vist un'ohm che s'incoulomb un'altr'ohm. Ah Joule!
+% Metalmeccanico e parrucchiere in un turbine di sesso e politica
+\chapter{la legge di Ampère e l'equazioni di Maxwell nel caso statico}
+\labelChapter{leggediampere}
+
+\begin{introduction}
+	‘‘La matematica confronta i più disparati fenomeni e scopre le analogie segrete che li uniscono.''
+	\begin{flushright}
+		\textsc{Joseph Fourier,} cercando disperatamente di motivare ai suoi genitori la scelta di studiare matematica. % quote
+	\end{flushright}
+\end{introduction}
+\lettrine[findent=1pt, nindent=0pt]{S}{i} % quote
+
+\section{La circuitazione del campo magnetico e legge di Ampère}
+Per concludere la trattazione della magnetostatica ci rimane da descrivere la \textit{circuitazione} del campo magnetico.
+\subsection{Il caso con un filo infinito}
+Per capire meglio come si calcola, partiamo da un caso particolare: consideriamo un filo infinito percorso da corrente $I$ e una curva $\gamma$ che gira attorno al filo.
+%TODO: immagine
+Tale curva è parametrizzabile in coordinate cilindriche da
+\begin{equation*}
+	\vba{r}'(\phi)=\left(R(\phi)\cos\phi,R(\phi)\sin\phi,z(\phi)\right)
+\end{equation*}
+con spostamento infinitesimo lungo la curva pari a
+\begin{align*}
+	d\vba{s}&=\dv{\vba{r}'(\phi)}{\phi}d\phi=\\
+	&=\left[\left(R'(\phi)\cos\phi-R(\phi)\sin\phi\right)\vbh{u}_x+\left(R'(\phi)\sin\phi+R(\phi)\cos\phi\right)\vbh{u}_y+z'(\phi)\vbh{u}_z\right]d\phi=\\
+	&=\left(R'(\phi)\vbh{u}_R+R(\phi)\vbh{u}_{\theta}+z'(\phi)\vbh{u}_z\right)d\phi
+\end{align*}
+Per la legge di Biot-Savart, in un punto a distanza $R(\phi)$ dal filo il campo magnetico è
+\begin{equation*}
+	\vba{B}=\frac{\mu_0 I}{2\pi R(\phi)}\vbh{u}_{\theta}
+\end{equation*}
+Osserviamo che nel prodotto scalare $\vba{B}\vdot d\vba{s}$ si ha
+\begin{equation*}
+	\begin{cases}
+		\vbh{u}_\theta\vdot\vbh{u}_R=0\\
+		\vbh{u}_\theta\vdot\vbh{u}_z=0
+	\end{cases}
+\end{equation*}
+La circuitazione del campo magnetico, in questo caso, è
+\begin{equation*}
+	\Gamma_{\gamma}(\vba{B})=\int_{\gamma}\vba{B}\vdot d\vba{s}=\int_{\gamma}\frac{\mu_0 I}{2\pi}d\phi=\mu I
+\end{equation*}
+\begin{equation}
+	\Gamma_{\gamma}(\vba{B})=\oint \vba{B}\vdot d\vba{s}=\mu_0 I
+\end{equation}
+\subsection{Il caso con due fili infiniti}
+Supponiamo ora di avere, all'interno della stessa curva di prima, due fili rettilinei infiniti invece che uno. Per descrivere la circuitazione in questo caso introduciamo un segmento immaginario orientato $\eta$ tra i due fili che colleghi due punti del circuito, in modo da dividere la curva $\gamma$ in due sotto-curve $\xi_1$ e $\xi_2$.
+%TODO: immagine
+Allora, possiamo definire due curve chiuse
+\begin{align*}
+	\gamma_1=\xi_1 \cup \left(-\eta\right)&&\gamma_2=\xi_2\cup \eta 
+\end{align*} 
+dove $-\eta$ è il segmento $\eta$ percorso nel verso opposto. Si osservi che
+\begin{equation*}
+	\gamma_1\cup\gamma_2=\xi_1\cup \left(-\eta\right)\cup \xi_2\cup \eta=\xi_1\cup \xi_2=\gamma
+\end{equation*}
+dato che i segmenti orientati si elidono a vicenda. Allora, dato nell'interno dell'area delimitata dalle curve $\gamma_i$ passa un solo filo, vale il caso precedente e quindi 
+\begin{equation}
+	\Gamma_{\gamma}(\vba{B})=\Gamma_{\gamma_1}(\vba{B})+\Gamma_{\gamma_2}(\vba{B})=\mu_0 I_1+\mu_0I_2
+\end{equation}
+dove $I_j$ sono presi con segno: se si fissa un segno di percorrenza, il verso di percorrenza ha segno opposto - ad esempio, se la corrente è antioraria il segno è positivo, negativo se oraria.
+\subsection{Il caso generale: legge (della circuitazione) di Ampère}
+\begin{theorema}[Legge {(della circuitazione)} di Ampère]\index{legge!(della circuitazione) di Ampère}
+	Dato un campo magnetico $\vba{B}$ generato da della corrente $I$, la circuitazione do $\vba{B}$ lungo una curva chiusa $\gamma$ è proporzionale alla porzione di corrente $I_{int}$ che attraversa una qualunque superficie $\Sigma$ con bordo la curva (cioè tale per cui $\gamma=\partial\Sigma$).
+	\begin{itemize}
+		\item \textbf{Forma integrale:}
+		\begin{equation}
+			\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=\mu_0 I_{int}\label{LeggeAmpereMagnetostaticaIntegrale}
+		\end{equation}
+		\item \textbf{Forma differenziale:}
+		\begin{equation}
+			\curl{\vba{B}}=\mu_0\vba{j}\label{LeggeAmpereMagnetostaticaDifferenziale}\qedhere
+		\end{equation}
+	\end{itemize}
+\end{theorema}
+\begin{demonstration}
+	Deriviamo la forma differenziale. Per il teorema del rotore vale
+	\begin{equation*}
+		\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\int_{\Sigma}\curl{\vba{B}}\vdot\vbh{u}_nd\Sigma=\Phi_{\Sigma}\left(\curl{\vba{B}}\right)
+	\end{equation*}
+	Ma allora, valendo l'uguaglianza
+	\begin{equation*}
+		\int_{\Sigma}\curl{\vba{B}}\vdot\vbh{u}_nd\Sigma=\mu_0\int_{\Sigma}\vba{j}\vdot\vbh{u}_n
+	\end{equation*}
+	per una qualunque superficie $\Sigma$ arbitraria, si ha l'identità delle integrande:
+	\begin{equation*}
+		\curl{\vba{B}}=\mu_0\vba{j}\qedhere
+	\end{equation*}
+\end{demonstration}
+Questa non è altro che l'ultima \textit{equazione di Maxwell} (su quattro) che ci mancava per i fenomeni elettromagnetici non dipendenti dal tempo, sebbene nella meno elegante forma integrale.
+%\subparagraph{Cavilli alla legge di Ampère}
+%Un primo cavillo di questo teorema sta nell'ambiguità di segno. Ci sono tre termini che dipendono dal segno: l'integrale lungo $\gamma$, dato che è una curva orientata, il versore $\vba{u}_n$ normale alla superficie e la corrente $I_{int}$ che attraversa $\Sigma$. In tal caso, ci affida ad un'altra versione della mano destra: posto il palmo della mano destra rispetto all'area di integrazione e puntato l'indice nel verso dello spostamento infinitesimo, il pollice
+% https://en.wikipedia.org/wiki/Amp%C3%A8re%27s_circuital_law, ma che cazzo di verso viene il versore normale?
+Si osservi che la legge appena trovata è valida soltanto se la corrente è \textit{stazionaria}, ossia se è \textit{costante} nel tempo.\\
+Per capire perché, ricordiamo che la \textit{divergenza di un rotore} è sempre nulla:\label{laleggediAmpereèfalsaepretenziosa}
+\begin{equation*}
+	\div{\left(\curl{\vba{B}}\right)}=0
+\end{equation*}
+Se la nostra legge fosse corretta, si avrebbe
+\begin{equation*}
+	0=\div{\left(\curl{\vba{B}}\right)}=\mu_0\div{\vba{j}}=-\pdv{\rho}{t}
+\end{equation*}
+dove nell'ultimo passaggio abbiamo fatto uso dell'\textit{equazione di continuità}:
+\begin{equation*}
+	\div{\vba{j}}+\pdv{\rho}{t}=0
+\end{equation*}
+Di conseguenza, si avrebbe
+\begin{equation*}
+	\pdv{\rho}{t}=0
+\end{equation*}
+ma ciò è vero soltanto per una corrente stazionaria!\\
+Da ciò capiamo la legge di Ampère per la circuitazione \textit{non} è sempre corretta nella forma di cui sopra; sarà necessario integrarla con un altro termine che tiene conto della \textit{variazione temporale} della corrente - ma questa è una storia per un altro capitolo.
+\paragraph{⋆ Tra astratto e concreto: teoria dei nodi nella legge di Ampère}
+Ci sono aspetti della Matematica che per un fisico risultano spesso astrusi, \textit{astratti} e lontani dalla realtà; eppure, in alcuni casi il passo tra il mondo concreto e la Matematica teorica è più \textit{breve} di quel che sembra. Possiamo vedere un esempio di ciò nella \textit{dimostrazione della legge di Ampère} nella sua forma generale.\\
+Vogliamo calcolare la circuitazione del campo magnetico $\vba{B}$ generato da un circuito chiuso qualunque $\gamma_2$ 
+\begin{equation*}
+	\Gamma_{\gamma_1}(\vba{B})=\oint_{\gamma_1}\vba{B}\vdot d\vba{s}
+\end{equation*}
+Parametrizziamo le due curve $\gamma_i$ con angoli $\phi_i$:
+\begin{align*}
+	\gamma_1\colon \vba{r}_1=\vba{r}_1(\phi_1) && 
+	\gamma_2\colon \vba{r}_2=\vba{r}_2(\phi_2)
+\end{align*}
+Lo spostamento infinitesimo lungo la curva $\gamma_i$ è
+\begin{equation*}
+	d\vba{s}_i=\dv{\vba{r}_i(\phi_i)}{\phi_i}d\phi_i
+\end{equation*}
+Per la prima legge di Laplace il campo generato dal circuito $\gamma_2$ è
+\begin{equation*}
+	\vba{B}=\frac{\mu_0 I}{4\pi}\oint_{\gamma_2}d\vba{s}_2\cross\frac{\vba{r}-\vba{r}_2(\phi_2)}{\abs{\vba{r}-\vba{r}_2(\phi_2)}^3}
+\end{equation*}
+La circuitazione $\vba{B}$ lungo la curva $\gamma_2$ si calcola tenendo conto che $\vba{B}$ deve essere valutato sull'altra curva, ossia prendendo $B(r(\phi_1))$: 
+\begin{align*}
+	\Gamma_{\gamma_1}(\vba{B})&=\frac{\mu_0 I}{4\pi}\oint_{\gamma_1} \oint_{\gamma_2} \left(d\vba{s}_2 \cross \frac{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}{\abs{\vba{r}1(\phi_1) - \vba{r}_2(\phi_2)}^3}\right) \vdot d\vba{s}_1=\\
+	&=\frac{\mu_0 I}{4\pi}\oint_{\gamma_1} \oint_{\gamma_2} \frac{\vba{r}_1(\phi_1) - \vba{r}_2 (\phi_2)}{\abs{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}^3} \vdot \left(d\vba{s}_1\cross d\vba{s}_2\right)
+\end{align*}
+dove abbiamo applicato la proprietà del prodotto misto
+\begin{equation*}
+	\vba{a}\vdot\left(\vba{b}\cross\vba{c}\right)=
+	\vba{b}\vdot\left(\vba{c}\cross\vba{a}\right)=
+	\vba{c}\vdot\left(\vba{a}\cross\vba{b}\right)
+\end{equation*}
+La cosa peculiare è il doppio integrale curvilineo che abbiamo trovato, diviso per $4\pi$, è pari al \textbf{linking number di Gauss} (in italiano \textit{numero di concatenamento}), un \textit{invariante numerico} rilevante con teoria dei nodi.
+
+Matematicamente parlando, una curva chiusa nello spazio tridimensionale è quello che definiamo come \textbf{nodo}.
+\begin{define}[Nodo]
+	Un \textbf{nodo}\index{nodo} è un'inclusione topologica $\funz[f]{S^1}{\realset^3}$ della circonferenza $S^1$ in $\realset^3$, cioè se $\funz[f]{S^1}{f(S^1)}$ è un omeomorfismo.
+\end{define}
+I nodi possono essere proiettati su un piano $\realset^2$; tale proiezione è quasi sempre \textbf{regolare}, ossia che è iniettiva sempre tolto al più un numero finito di incroci, proiezione di soli due punti del nodo.
+\begin{define}[Mappa di Gauss]
+	Dati due nodi differenziabili $\funz[f]{S^1}{\realset^3}$, la \textbf{mappa di Gauss}\index{mappa!di Gauss} è la funzione
+	\begin{equation}
+		\funztot[G(\phi_1,\phi_2)]{S^1\times S^1}{S^2}{\left(\phi_1,\phi_2\right)}{\frac{\vba{r}_1(\phi_1) - \vba{r}_2 (\phi_2)}{\abs{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}}}
+	\end{equation}
+	Dato che la mappa non è biunivoca, la mappa può ricoprire la sfera più volte.
+\end{define}
+\begin{define}[Linking number di Gauss]
+	Il \textbf{linking number di Gauss} è un numero intero che conta quante volte due nodi si avvolgono tra di loro - senza intersecarsi direttamente. Il segno di tale numero dipende dall'orientazione scelta delle due curve.\\
+	Formalmente, esso corrisponde a quante volte con segno l'immagine di $G$ ricopre la sfera $S^2$:
+	\begin{align}
+		\textrm{lk}(\gamma_1,\gamma_2)=&\frac{1}{4\pi}\frac{1}{4\pi}\oint_{\gamma_1} \oint_{\gamma_2} \frac{\vba{r}_1(\phi_1) - \vba{r}_2 (\phi_2)}{\abs{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}^3} \vdot \left(d\vba{s}_1\cross d\vba{s}_2\right)\\
+		=&\frac{1}{4\pi}\int_{S^1\times S^1}\frac{\det\left(\vbd{r}_1(\phi_1),\vbd{r}_2(\phi_2),\vba{r}_1(\phi_1)-\vba{r}_2(\phi_2)\right)}{\abs{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}}d\phi_1d\phi_2
+	\end{align}
+	Il doppio integrale curvilineo qui scritto è l'area totale con segno dell'immagine di $G$, che va diviso per l'area della sfera unitaria.
+\end{define}
+\begin{example}
+	\item $\textrm{lk}(\gamma_1,\gamma_2)=\pm 1$ %TODO: immagine
+	\item $\textrm{lk}(\gamma_1,\gamma_2)=\pm 1$ %TODO: immagine
+\end{example}
+La circuitazione del campo magnetico lungo una curva si può quindi scrivere in funzione del linking number della curva lungo cui si calcola e del circuito che genera il campo:
+\begin{equation*}
+	\Gamma_{\gamma_1}(\vba{B})=\mu_0 I\ \textrm{lk}(\gamma_1,\gamma_2)
+\end{equation*}
+A seconda di quante volte il circuito e la curva si avvolgono, la corrente interna alla curva $I_{int}$ non è necessariamente $I$: essa può essere pari a multipli interi (con segno) della corrente $I$. Tale valore, per l'appunto, lo otteniamo con il linking number, ottenendo così la legge di Ampére nel caso generale.
+\paragraph{Applicazioni della legge di Ampère}
+Adesso useremo la legge di Ampére per ricavare il \textit{campo magnetico}, in modo analogo a come si può ricavare in casi di particolari simmetrie il \textit{campo elettrico} con la \textit{legge di Gauss}.
+\begin{examplewt}[Legge di Biot-Savart per un filo rettilineo infinito]
+	Consideriamo un filo rettilineo infinito. Per simmetria il campo magnetico è dipendente solo dalla distanza assiale dal filo d è diretto lungo $\vbh{u}_\theta$, tangenziale a delle circonferenze centrate lungo il filo. Poste le coordinate cilindriche
+	\begin{equation*}
+		\begin{cases}
+			x=R\cos\theta\\
+			y=R\sin\theta
+		\end{cases}
+	\end{equation*}
+	si ha
+	\begin{equation*}
+		\vba{B}=B(R)\vbh{u}_\theta
+	\end{equation*}
+	Poniamoci lungo una curva immaginaria su cui $\vba{B}$ è costante, ad esempio una circonferenza $\gamma$ di raggio $R$ centrata nel filo. In questo caso lo spostamento infinitesimo lungo tale curva è
+	\begin{equation*}
+		d\vba{s}=R\vbh{u}_\theta d\theta
+	\end{equation*}
+	Allora, usando la legge di Ampère, si ha
+	\begin{equation*}
+		\mu_0I=\Gamma_{\gamma}(\vba{B})=\oint\vba{B}\vdot d\vba{s}=\oint B(R)R\vbh{u}_\theta\vdot\vbh{u}_{\theta}d\theta=B(R)R\int_{0}^{2\pi}d\theta=2\pi R B(R)
+	\end{equation*}
+	da cui
+	\begin{equation}
+		B(R)=\frac{\mu_0 I}{2\pi R}
+	\end{equation}
+\end{examplewt}
+
+\begin{examplewt}[Solenoide infinito]
+	%Per simmetria, il solenoide infinito produce un campo magnetico all'interno del solenoide e nessun campo magnetico all'esterno del solenoide stesso. Proviamo a ricavarlo di nuovo usando una particolare curva.\\
+	%TODO: inserire immagine 16.6
+	Consideriamo un solenoide di lunghezza infinita, posto lungo l'asse verticale $z$. Per calcolare il campo magnetico all'interno (all'esterno è nullo), prendiamo una curva $\gamma=\overrightarrow{ABCD}$ rettangolare e calcolo la circuitazione lungo essa. Tale curva è costituita da quattro tratti:
+	\begin{itemize}
+		\item $\overrightarrow{AB}$ è un segmento verticale \textit{interno} al solenoide, diretto verso l'alto.
+		\item $\overrightarrow{BC}$ è un segmento orizzontale, intersecante il solenoide e diretto verso l'esterno.
+		\item $\overrightarrow{CD}$ è un segmento verticale \textit{esterno} al solenoide, diretto verso il basso.
+		\item $\overrightarrow{DA}$ è un segmento orizzontale, intersecante il solenoide e diretto verso l'interno.
+	\end{itemize}
+	La circuitazione lungo la curva $\gamma$ sarà
+	\begin{align*}
+		\Gamma_{\gamma}(\vba{B})=&=\oint\vba{B}\vdot d\vba{s}=\left( \int_A^B + \int_B^C + \int_C^D + \int_D^A  \right) \vba{B}\vdot d\vba s= \int^B_A \vba{B}\vdot s=\\
+		&=\int_{A}^{B}\vba{B}\vdot d\vba{s}=\int^{z_2}_{z_1} B(R)dz=B(R)(z_2-z_1)
+	\end{align*}
+	dove $z_1$ è la quota di $A$ e $z_2$ quella di $B$. Infatti, tutti gli altri contributi sono nulli:
+	\begin{itemize}
+		\item I contributi della circuitazione lungo  $\overrightarrow{BC}$ e $\overrightarrow{DA}$ sono nulli perché perpendicolari al campo.
+		\item Il contributo della circuitazione lungo $\overrightarrow{CD}$ è nullo perché all'esterno del solenoide non c'è campo.
+	\end{itemize}
+	Per la legge di Ampére
+	\begin{equation*}
+		\Gamma_{\gamma}(\vba{B})=\mu_0I_\gamma
+	\end{equation*}
+	dove $I_\gamma$ è corrente che attraversa la curva $\gamma$, che dipende dal numero di spire $N$ contenute all'interno di $\gamma$:
+	\begin{equation*}
+		N=\int_{z_1}^{z_2}ndz=n\left(z_2-z_1\right)
+	\end{equation*}
+	dove $n$ è la densità lineare di spire, che supponiamo costante. Allora
+	\begin{equation*}
+		I_{\gamma}=N I = n\left(z_2-z_1\right) I
+	\end{equation*}
+	dove $I$ è la corrente in una singola spira. Concludiamo che
+	\begin{equation*}
+		B(R)\Ccancel[red]{(z_2-z_1)}=\Gamma_{\gamma}(\vba{B})=\mu_0I_\gamma=n\Ccancel[red]{(z_2-z_1)} I
+	\end{equation*}
+	\begin{equation}
+		B(R)=\mu_0 n I
+	\end{equation}
+	Come già osservato il campo del solenoide non dipende dalla distanza assiale, ma è uniforme in \textit{tutto} il solenoide. 
+\end{examplewt}
+\section{Equazioni di Maxwell per l'elettrostatica e la magnetostatica}
+\begin{center}
+	\begin{tabular}{p{0.2\textwidth}|c|c}
+		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
+		\centering{\textbf{Nome}} &
+		\textbf{Forma integrale} &
+		\begin{tabular}{@{}c@{}} \textbf{Forma} \\ \textbf{differenziale}\end{tabular} \\ \hline
+		
+		\begin{tabular}[c]{@{}p{0.2\textwidth}@{}}	
+			\\[-3mm] \textbf{Legge di Gauss per l'elettricità}
+		\end{tabular}
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\Phi_{\partial V}\left(\vba{E}\right)=\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{q_{int}}{\epsilon_0}=\frac{1}{\epsilon_0}\int_{V}\rho dV$
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\div{\vba{E}}=\frac{\rho}{\epsilon_0}$
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.2\textwidth}@{}}	
+			\\[-3mm] \textbf{Legge di Gauss per il magnetismo}
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\Phi_{\partial V}(\vba{B})=\int_{\partial V}\vba{B}\vdot\vbh{u}_nd\Sigma=0$
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\div{\vba{B}}=0$
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.2\textwidth}@{}}	
+			\\[-3mm] \textbf{Legge dell'induzione di Faraday}
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\Gamma_{\partial \Sigma}\left(\vba{E}\right)=\oint_{\partial \Sigma}\vba{E}\vdot d\vba{s}=0$
+		\end{tabular}	
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\curl{\vba{E}}=0$
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
+			\\[-3mm] \textbf{Legge della circuitazione di Ampère}
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\Gamma_{\partial \Sigma}(\vba{B})=\oint_{\partial \Sigma}\vba{B}\vdot d\vba{s}=\mu_0\int_{\Sigma}\vba{j}\vdot\vbh{u}_n=\mu_0 I_{int}$
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\curl{\vba{B}}=\mu_0\vba{j}$
+		\end{tabular}
+	\end{tabular}
+\end{center}
+\begin{observe}
+	Sebbene le \textit{leggi di Gauss} per l'\textit{elettricità} e per il \textit{magnetismo} siano valide anche se i campi elettrici e magnetici sono variabili nel tempo, lo stesso non si può dire per le \textit{leggi di Faraday} e di \textit{Ampère}: dovremo aggiungere a ciascuna un opportuno termine \textit{dipendente dal tempo}.\\
+	Una conseguenza di ciò che esploreremo meglio successivamente è che il campo elettrico dipendente dal tempo \textit{non} è più conservativo; il campo magnetico, invece, resta sempre solenoidale.
+\end{observe}
+\subsection{Invarianza di gauge nell'elettromagnetostatica}
+Nel \autoref{chap:PotenzialeElettrico}, sezione \ref{EqPoissonSezione}, abbiamo parlato delle equazioni di Poisson e di Laplace:
+\begin{itemize}
+	\item \textbf{Equazione di Poisson} (caso non omogeneo, $\rho\neq 0$):
+	\begin{equation}
+		\laplacian{V}=-\frac{\rho}{\epsilon_0}
+	\end{equation}
+	\item \textbf{Equazione di Laplace} (caso omogeneo, $\rho=0$):
+	\begin{equation}
+		\laplacian{V}=0
+	\end{equation}
+\end{itemize}
+Qui $V$ è il \textit{potenziale scalare} del campo elettrostatico $\vba{E}$ tale per cui $\vba{E}=-\grad{V}$, mentre $\rho$ è la densità di carica.
+
+Un'equazione differenziale simile si può scrivere per il campo magnetico.		Siccome la divergenza del campo magnetico è nulla per la legge di Gauss, allora esiste un potenziale vettore $\vba{A}$ tale che $\vba{B}=\curl{\vba{A}}$. Sostituendo questa equazione nella \textit{legge di Ampère} otteniamo
+\begin{equation*}
+	\curl\left(\curl\vba{A}\right)=\mu_0\vba j
+\end{equation*}
+che, sviluppando, risulta
+\begin{equation*}
+	\grad \left( \div{\vba{A}}\right) - \laplacian{\vba{A}}=\mu_0 \vba j
+\end{equation*}
+Ci è oramai ben noto che il potenziale scalare $V$ è sempre definito a \textit{meno di costante}. Infatti, quello che conta - anche dal punto di vista fisico - è la \textit{differenza di potenziale}. In termini più rigorosi, quando parliamo del potenziale quello che stiamo facendo è prendere un opportuno \textit{rappresentante} dalla classe di equivalenza $\left[V\right]$, ottenuta dalla relazione
+\begin{align*}
+	V\sim V+a && \text{dove}\ a\in\realset
+\end{align*}
+Nel caso del vettore potenziale si verifica una situazione analoga. Data una \textit{funzione scalare} $\oldphi$, $\vba{A}$ è definito \textit{a meno di gradiente}. In termini di classi di equivalenza, $\vba{A}$ è il rappresentante della classe $\left[\vba{A}\right]$ data dalla relazione
+\begin{align*}
+	\vba{A}\sim \vba{A}+\grad{\phi} && \text{dove}\ \funz[\phi]{\realset^3}{\realset}
+\end{align*}
+Infatti, si vede che il campo magnetico resta invariato:
+\begin{equation*}
+	\vba{B}=\curl\vba{A}=\curl \left( \vba{A}+\grad\oldphi\right)= \curl \vba{A} + \Ccancel[red]{\curl\grad\oldphi}=\curl\vba{A}		
+\end{equation*}
+In particolare ciò succede perché il rotore del gradiente è nullo.\\
+In sostanza, abbiamo descritto un caso di \textbf{invarianza di gauge}\index{gauge!invarianza di}.
+\begin{define}[Invarianza di gauge]
+	Consideriamo una configurazione elettromagnetica $\left(\vba{E},\vba{B}\right)$ e supponiamo che essa sia descritta dai campi potenziali $\left(V,\vba {A}\right)$. Allora esiste una trasformazione arbitraria $\Lambda=$, detta \textbf{trasformazione (locale) di gauge}\index{gauge! trasformazione di}, tale da ottenere una \textit{nuova} coppia di campi potenziali $\left(V',\vba {A}'\right)$...
+	\begin{align*}
+		V\overset{\Lambda}{\longleftrightarrow} V'=V+c\\
+		\vba{A}\overset{\Lambda}{\longleftrightarrow} \vba{A}'=\vba{A}+\grad{\phi}\\
+	\end{align*}
+	... che descrive la \textit{stessa} configurazione $\left(\vba{E}',\vba{B}'\right)=\left(\vba{E},\vba{B}\right)$. i campi elettrici e magnetici sono \textit{invarianti di Gauge}\index{gauge!invarianti di}.
+\end{define}
+Questo distingue profondamente ciò che è effettivamente osservabile da ciò che non lo è, almeno direttamente. I campi elettrici e magnetici sono \textit{osservabili} direttamente e hanno un particolare valore. I campi \textit{potenziali} elettrici e magnetici sono meglio descrivibili come \textit{classi di equivalenza}; dato che non possiamo parlare di un rappresentante preferito, a priori \textit{non} è possibile osservarli direttamente senza fare una scelta particolare del rappresentante. Tale scelta è detta \textbf{scelta di gauge}\index{gauge!scelta di}
+\begin{intuit}
+	Guardando un asta perfettamente cilindrica è possibile dire se è attorcigliata o no? A priori no: ciascuna sezione ortogonale del cilindro è uguale - o per meglio dire \textit{invariante} - rispetto ad ogni potenziale simmetria circolare del cilindro. Tuttavia, se lungo l'asta disegnassimo una linea dritta, allora potremmo determinare se il cilindro è contorto o no, dato che basta guardare com'è la linea.\\
+	In modo analogo, l'asta corrisponde al campo elettromagnetico e lo status di ‘‘essere attorcigliata'' ai campo potenziali: la linea dritta corrisponde ad una scelta di gauge, dato che le sezioni ortogonali non sono invarianti per le simmetrie circolari.
+\end{intuit}
+\noindent Fare una scelta certamente rovina l'invarianza di gauge, ma ci permette spesso di ricondurci ad una situazione molto più facile da studiare.\\
+Ad esempio, supponiamo di avere un campo potenziale magnetico $\vba{A}$ tale per cui $\div{\vba{A}}\neq 0$. Possiamo effettuare una \textit{scelta di gauge} imponendo che la trasformazione descritta dal campo scalare $\oldphi$, ossia
+\begin{equation*}
+	\vba{A}\mapsto\vba{A}'=\vba{A}+\grad{\oldphi},
+\end{equation*}
+sia tale per cui $\div{\vba{A}'}=0$. Questa condizione si scrive come
+\begin{gather*}
+	\div\vba{A}+\div\grad\oldphi=0 \implies \laplacian\oldphi= -\div\vba{A}
+\end{gather*}
+In questo modo $\oldphi$ sarà determinato da un'equazione differenziale del secondo ordine.
+
+Preso allora $\vba{A}$ con la scelta di gauge qui sopra, dato che $\div{A}=0$ si ha $\grad{\left(\div{A}\right)}=0$, da cui segue
+\begin{equation*}
+	\grad \left( \div{\vba{A}}\right) - \laplacian{\vba{A}}=\mu_0 \vba j\implies \laplacian{\vba{A}}=-\mu_0 \vba j
+\end{equation*}
+Previa una scelta di gauge opportuna, l'intera elettromagnetostatica può essere descritta da quattro equazioni di Laplace - una con il potenziale scalare per l'elettrostatica, e tre con il potenziale vettoriale per la magnetostatica.
+\begin{align}
+	\laplacian A_x&=\mu_0 j_x\\
+	\laplacian A_y&=\mu_0 j_y\\
+	\laplacian A_z&=\mu_0 j_z\\
+	\laplacian V&=-\frac{\rho}{\epsilon_0}
+\end{align}
+La soluzione più generale di queste equazioni differenziali, date le \textit{condizioni al contorno} di natura fisica
+\begin{equation*}
+	V,\ \vba{A}\underset{\vba{r}\to\infty}{\to}0 0
+\end{equation*}
+è data da
+\begin{align}
+	\vba{A}(\vba r)&=\frac{\mu_0}{4\pi}\int\frac{\vba j\left(\vba r'\right)}{\abs{\vba r-\vba r'}} dV'\\
+	V(\vba r)&=\frac{1}{4\pi\epsilon_0}\int \frac{\rho\left(\vba r'\right)}{\abs{\vba r-\vba r'}}dV'
+\end{align}
+dove $dV'=dx'dy'dz'$.
+Noti dunque $\rho$ e $\vba{j}$ siamo in grado descrivere completamente una configurazione (statica) di natura elettromagnetica - modulo saper calcolare l'integrale, che non è per nulla scontato.
+\begin{examplewt}[Sfera carica uniformemente]
+	Ricalcoliamo\footnote{Avevamo calcolato il potenziale elettrostatico in presenza di simmetria radiale direttamente a partire dalle equazioni di Poisson e Laplace nella sezione \ref{EquazioniPoissonSimmetriaSferica}, pag. \pageref{EquazioniPoissonSimmetriaSferica}, \autoref{chap:PotenzialeElettrico}; per ottenere nello specifico il caso della \textit{sfera carica}  avevamo imposto le condizioni al contorno solo successivamente. Il procedimento qui scelto risulta utilizza invece la soluzione scritta poc'anzi - ma di fatto l'origine è anch'essa dalle equazioni di Laplace e Poisson} il campo elettrico interno ed esterno ad una sfera di raggio $r_0$ carica uniformemente con densità di carica
+	\begin{equation*}
+		\rho(\vba r)=
+		\begin{cases}
+			\rho & r<r_0\\
+			0 & r>r_0
+		\end{cases}=\rho\mathbb{1}_{[0,r_0]}
+	\end{equation*}
+	Prese le coordinate sferiche
+	\begin{equation*}
+		\begin{cases}
+			x=r\cos\phi\sin\theta\\
+			y=r\sin\phi\sin\theta\\
+			z=r\cos\theta
+		\end{cases}
+	\end{equation*}
+	l'elemento di volume risulta
+	\begin{equation*}
+		dV=r^2\sin\theta drd\theta d\phi
+	\end{equation*}
+	mentre la differenza di coordinate tra un punto generico $\vba{r}$ e il vettore posizione d'integrazione  $\vba{r}'$ è
+	\begin{equation*}
+		\abs{\vba r-\vba r'}=\sqrt{r^2+(r')^2-2rr'\cos\theta '}
+	\end{equation*}
+	Il dominio di integrazione della variabile $r$ sarebbe definito fra $0$ e $+\infty$, ma siccome $\rho$ è \textit{non} nullo solo all'interno della sfera ci limitiamo , come indicato dalla funzione indicatrice $\mathbb{1}_{[0,r_0]}$, tra $0$ e $r_0$. Inoltre, supponendo $\rho$ si può portar fuori dall'integrale ottenendo
+	\begin{equation*}
+		V(r)=\frac{\rho}{4\pi\epsilon_0}\int^{r_0}_0dr' \int^\pi_0 d\theta' \int^{2\pi}_0 d\phi' \frac{(r')^2 \sin\theta '}{\sqrt{r^2+(r')^2 -2rr'\cos\theta '}}\squarequal	
+	\end{equation*}
+	%NOTA: l'itemize è una mia idea per riassumere tutte le varie considerazioni, in un testo unico sarebbe stato un po' dispersivo e sembrava un essay in cui si cercano 100 sinonimi di since
+	% nice idea, per la prima parte
+	Operiamo il cambio di variabile $u=\cos\theta'$: il differenziale diventa $du=-\sin\theta'd\theta'$ e gli estremi di integrazione rispetto a $u$ sono $\pm 1$.
+	\begin{align*}
+		\squarequal&\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr'\int^1_{-1}\negthickspace du \frac{-(r')^2}{\sqrt{r^2+(r')^2-2rr'u}}=\\
+		=&\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr' \eval{\frac{-(r')^{\Ccancel[red]{2}}}{r\Ccancel[red]{r'}} \sqrt{r^2+(r')^2-2rr'u}}^1_{-1}=\\
+		=&\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr'\ -r'\left(\sqrt{r^2+(r')^2-2rr'}-\sqrt{r^2+(r')^2+2rr'}\right)=\\
+		=&\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr'\ r'\left(\sqrt{\left(r+r'\right)^2}-\sqrt{\left(r-r'\right)^2}-\right)=\\
+		=&\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr'\ r'\left(\abs{r+r'}-\abs{r-r'}\right)=\\
+		=&=\frac{\rho}{2\epsilon_0r}\int^{r_0}_0 dr'\ r'\left( r+r' + \abs{r-r'} \right)
+	\end{align*}
+	Adesso distinguiamo il caso \textit{esterno} ed \textit{interno} alla sfera.
+	\begin{itemize}
+		\item \textbf{Fuori dalla sfera} ($r>r_0$). Dato che $0<r'<r_0$ per gli estremi di integrazione, consideriamo $r>r'$; segue che $\abs{r-r'}=r-r'$ e dunque
+		\begin{equation*}
+			V(r)=\frac{\rho}{\Ccancel[red]{2}\epsilon_0 r}\int^{r_0}_0 \Ccancel[red]{2} (r')^2 dr'= \frac{\rho r_0^3}{3\epsilon_0 r}\squarequal
+		\end{equation*}
+		Siccome $\rho$ è la densità di carica della sfera, cioè
+		\begin{equation*}
+			\rho=\frac{q}{V_S}=\frac{q}{\frac{4}{3} \pi r_0^2}
+		\end{equation*}
+		dove $q$ è la carica distribuita sul volume della sfera $V_S$, sostituendo troviamo il solito potenziale di Coulomb:
+		\begin{equation*}
+			\squarequal\frac{q\Ccancel[red]{r_0^3}}{\frac{4}{\Ccancel[red]{3}}\Ccancel[red]{3}\pi \Ccancel[red]{r_0^3} r}=\frac{q}{4\pi \epsilon_0 r}
+		\end{equation*}
+		\begin{equation}
+			V(r)=\frac{\rho r_0^3}{3\epsilon_0 r}=\frac{q}{4\pi \epsilon_0 r}
+		\end{equation}
+		Il campo elettrico associato è
+		\begin{equation}
+			\vba{E}(\vba{r})=-\grad V=\pdv{V}{r}\vbh{u}_r =\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r
+		\end{equation}
+		\item \textbf{Dentro la sfera} ($r<r_0$). Dobbiamo spezzare l'integrale in due a seconda del segno del modulo: in $\left[0,r\right]$ e in $\left[r, r_0\right]$.
+		\begin{align*}
+			V(r)&=\frac{\rho}{2\epsilon_0}\left( \int^r_0 dr'(2r')^2 + \int^{r_0}_r dr' 2rr' \right)= \frac{\rho}{2\epsilon_0 \Ccancel[red]{r}} \left( \frac{2}{3} r^{\Ccancel[red]{red}} + \Ccancel[red]{r} (r_0^2 -r^2) \right)\\
+			=&\frac{\rho}{2\epsilon_0}\left( r_0^2 -\frac{r^2}{3} \right)
+		\end{align*}
+		\begin{equation}
+			V(r)=\frac{\rho}{2\epsilon_0}\left( r_0^2 -\frac{r^2}{3} \right)
+		\end{equation}
+		Il campo elettrico associato è
+		\begin{equation}
+			\vba{E}=-\grad V= -\pdv{V}{r}\vbh{u}_r =\frac{\rho r}{3\epsilon_0}\vbh{u}_r
+		\end{equation}
+	\end{itemize}
+	%GRAFICI 16.8 e 16.9
+	Notiamo che il potenziale è continuo per $r=r_0$ ed è continua anche la sua derivata prima; graficamente non ci sono cuspidi.
+	\begin{equation*}
+		V(r)=\begin{cases}
+			\frac{\rho}{2\epsilon_0}(r_0^2 -\frac{r^2}{3}) & r<r_0\\
+			\frac{q}{4\pi\epsilon_0 r} &r>r_0
+		\end{cases}
+	\end{equation*}
+	Invece, il campo elettrico è continuo, ma la derivata prima no: infatti, esso è lineare fino ad $R$ e poi decade come $\nicefrac{1}/{r}^2$.
+	\begin{equation*}
+		\vba{E}(r)=\begin{cases}
+			\frac{\rho r}{3\epsilon_0} & r<r_0\\
+			\frac{q}{4\pi\epsilon_0 r^2} & r>r_0
+		\end{cases}
+	\end{equation*}
+	%Siamo riusciti a fare l'integrale perché la configurazione è simmetrica. Abbiamo così ricavato un risultato già noto partendo dall'equazione di Poisson.
+\end{examplewt}

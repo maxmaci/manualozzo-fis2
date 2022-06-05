@@ -5,13 +5,13 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Dalla legge di Coulomb al formalismo dei campi vettoriali}
+\chapter{Il campo elettrostatico}
 \labelChapter{leggediCoulomb}
 
 \begin{introduction}
 ‘‘BEEP BOOP''
 \begin{flushright}
-	\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. % TO DO: quote 
+	\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. %TODO: quote 
 \end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{L}{a meccanica} ci descrive come funziona un sistema soggetto ad una certa \textit{forza}. Ad oggi, siamo riusciti a ricondurre tutte le forze ad alcune \textbf{interazioni fondamentali}; in ordine di magnitudine decrescente:
@@ -32,7 +32,7 @@ Quindi, non solo le \textbf{forze elettromagnetiche} sono quelle dominanti nella
 Anche se le prime osservazioni sui fenomeni elettromagnetici sono attribuite al filosofo greco Talete nel VI secolo a.C., fu grazie alle innumerevoli scoperte di Franklin, Coulomb, Ampère, Faraday, Volta e tanti altri che \textbf{James Clerk Maxwell} impacchettò tutto questo bagaglio scientifico in quattro, stupende formule matematiche - che probabilmente avrete visto per la prima volta su una discutibile maglietta di un fan sfegatato della Fisica.
 
 Prima di arrivare a formulare tutte le equazioni di Maxwell, tuttavia, ci conviene fare un tour guidato attraverso la storia di questa disciplina, costruendo passo per passo queste leggi facendo le stesse osservazioni dei più famosi scienziati che lavorarono sull'elettromagnetismo - chiaramente, viste con degli strumenti matematici moderni. In questo capitolo, dopo un'excursus storico dello studio dei fenomeni elettrostatici introdurremo la \textbf{legge di Coulomb}; la seconda parte sarà più prettamente matematica e tratterà del \textbf{formalismo dei campi vettoriali} - introducendo diversi strumenti particolarmente utili ai nostri scopi.
-\section{I primi studi dell'elettricità}
+\section{I primi studi sull'elettricità}
 Già, ma... che significa il termine \textbf{‘‘elettromagnetismo''}? La sua etimologia permette di svelare molte informazioni su come stati osservati in natura questi fenomeni:
 \begin{itemize}
 	\item ‘‘Elettro'' e ‘‘elettricità'' derivano da \textit{elettricus}, parola latina coniata nel 1600 da \textbf{William Gilbert} nel suo trattato \textit{De Magnete}, derivata a sua volta dal termine \textit{elektron}, ‘‘ambra'' in greco: infatti, le popolazioni attorno al Mediterraneo sapevano che oggetti in ambra, se strofinati con il pelo di gatto o col vello di lana, erano in grado di attrarre oggetti leggeri come piume e pagliuzze.
@@ -122,7 +122,7 @@ Nel 1785, il fisico francese \textbf{Charles Augustin de Coulomb} pubblicò la s
 \paragraph{Unità di misura della carica elettrica}
 Non abbiamo ancora dato per bene un'unità di misura della carica elettrica. Potremmo basarci proprio sulla legge di Coulomb e definirla in modo che $k=1$ e che la carica unitaria è tale che, se posta a distanza unitaria da un'altra carica unitaria, essa subisce una forza unitaria (come accade nel \textit{sistema centimetro-grammo-secondo o c.g.s}).  
 
-Nonostante alcuni evidenti vantaggi teorici nell'utilizzare il sistema c.g.s., noi utilizzeremo per ragioni anche soprattutto storiche, l'unità di misura della carica elettrica prevista dal \textbf{SI}, il \textbf{coulomb}\index{coulomb} ($\unit{\coulomb}$). % TO DO: add unit box
+Nonostante alcuni evidenti vantaggi teorici nell'utilizzare il sistema c.g.s., noi utilizzeremo per ragioni anche soprattutto storiche, l'unità di misura della carica elettrica prevista dal \textbf{SI}, il \textbf{coulomb}\index{coulomb} ($\unit{\coulomb}$). %TODO: add unit box
 
 Non è un'unità fondamentale, bensì è definito come $\unit{\ampere\second}$, ossia come la carica che attraversa in un secondo un conduttore percorso dalla corrente di un ampere. Non sapendo ancora che cosa sia la corrente elettrica, né tanto meno un'ampere, non approfondiremo qui la definizione.
 \begin{units}~\\
@@ -213,7 +213,7 @@ In generale, le linee di campo sono soluzioni $\vba{r}=\left(x,y(x),z(x)\right)$
 		\frac{dz}{dx}=\frac{G_z}{G_x}
 	\end{cases}
 \end{equation}
-\section{Campo elettrostatico}
+\section{Il campo elettrostatico}
 Un campo vettoriale è quindi una mappa che a punti di $\realset^3$ associa vettori tridimensionali.
 In questo formalismo, la forza di Coulomb si può vedere come il vettore in un certo punto di un campo vettoriale detto \textbf{campo elettrostatico}.
 \begin{define}[Campo elettrostatico]
@@ -266,7 +266,7 @@ Dalle condizioni al contorno $(0,0)$ e $(x_0,y_0)$ si ricavano le linee di forza
 	\end{equation*}
 	ossia coincide con la componente radiale, dato che $E_\phi=E_\theta=0$.
 \end{observe}
-\section{Dipolo elettrico}
+\section{Il dipolo elettrico}
 Consideriamo due cariche puntiformi $q_1$ e $q_2$, rispettivamente fisse in $\vba{r}_1=\left(0,0,z_0\right)$ e $\vba{r}_2=\left(0,0,-z_0\right)$. I campi elettrici generati dalle singole cariche sono, in un generico punto $\vba{r}=(x,y,z)$,
 \begin{gather*}
 	\vba{E}_1(x,y,z)=\frac{1}{4\pi\epsilon_0}\frac{q_1}{\abs{\vba{r}-\vba{r_1}^2}}\\
@@ -324,13 +324,13 @@ Vogliamo descrivere il campo elettrostatico generato tramite vettori e tramite l
 	\end{gather*}
 \end{itemize}
 Analizzando ulteriori casi si denotano, per il dipolo elettrico, le linee di campo come in figura.
-% TO DO: immagine
+%TODO: immagine
 \begin{observe}
 	Dove il campo elettrico è \textit{intenso}, la rappresentazione delle linee di campo è più densa, mentre si fa più rada dove il campo è \textit{meno intenso}.
 \end{observe}
 Se considerassimo $q_1=q_2=q$, le linee di campo sarebbero come quelle nella seguente figura.
-% TO DO: immagine
-\begin{observe}% TO DO: controllare se è l'opposto oppure no
+%TODO: immagine
+\begin{observe}%TODO: controllare se è l'opposto oppure no
 	Dalle formule di dipolo, si vede che $\vba{E}$ è l'opposto del gradiente di un opportuno \textit{potenziale}\footnote{Nelle ‘‘XXX'', a pagina \pageref{gradiente} è possibile trovare la definizione di gradiente e altri operatori differenziali.} $V$:
 	\begin{equation}
 		V=-\frac{1}{4\pi\epsilon_0}\left(\frac{q_1}{\sqrt{x^2+y^2+(z-z_0)^2}}+\frac{q_2}{\sqrt{x^2+y^2+(z+z_0)^2}}\right)
@@ -404,8 +404,8 @@ Calcoliamo ora il campo elettrostatico usando il gradiente espresso in coordinat
 		\end{equation}
 	\end{remember}
 	La distanza di $\vba{r}$ si può
-% TO DO: completare
-\section{Distribuzione continua di carica}
+%TODO: completare
+\section{Distribuzioni continua di carica}
 Nella pratica difficilmente avremo a che fare con una, due o qualche carica, bensì di un numero \textit{enorme} di cariche puntiformi. Chiaramente, trattare tutte le cariche una per una e vedere le interazioni con le altre non è benché minimamente consigliato: per fare un esempio, un $\unit{\cubic\milli\metre}$ di rame contiene circa $\num[exponent-product = \ensuremath{\cdot}]{2,5e21}$ elettroni.
 
 Per ovviare a questa difficoltà si assume che le cariche siano così tante che si abbia un \textit{cootinuum} di cariche; introduciamo dunque il concetto di \textbf{distribuzione continua di carica}\index{distribuzione!continua!di carica}, caratterizzata da una \textbf{densità di carica}.

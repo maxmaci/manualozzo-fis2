@@ -5,13 +5,13 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Dielettrici}
-\labelChapter{integraledilebesgue}
+\chapter{Campi elettrici nella materia}
+\labelChapter{dielettrici}
 
 \begin{introduction}
 	‘‘BEEP BOOP''
 	\begin{flushright}
-		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. % TO DO: quote 
+		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. %TODO:quote 
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{D}{opo}
@@ -25,10 +25,10 @@ e la differenza di potenziale è
 	V_0=\frac{\sigma d}{\epsilon_0}=E_0d
 \end{equation*}
 Se colleghiamo (in parallelo) l'elettroscopio, tale differenza di potenziale corrisponde ad un certo angolo di separazione delle foglioline d'oro. 
-% TO DO: inserire immagine
+%TODO:inserire immagine
 \paragraph{Potenziale e capacità di un condensatore con conduttore all'interno}
 Se introduciamo una \textit{lastra conduttrice} di spessore $s$ nello spazio tra le due piastre, osservando l'elettroscopio ci accorgiamo che l'angolo tra le foglioline è minore rispetto al caso precedente. Effettivamente avviene un calo di potenziale, ma perché?\\
-Il campo elettrico del condensatore induce una separazione di carica nella lastra conduttrice, formando una distribuzione superficie di carica positiva da un lato e negativa dall'altra. Ciò induce un campo elettrico di verso opposto a quello già presente, in modo che all'interno della lastra \textit{non} ci sia campo elettrico, ma questo comporta una diminuzione del campo elettrico. In termini di potenziali, si noti che la $\ddp$
+Il campo elettrico del condensatore induce una separazione di carica nella lastra conduttrice, formando una distribuzione superficie di carica positiva da un lato e negativa dall'altra. Ciò induce un campo elettrico di verso opposto a quello già presente, in modo che all'interno della lastra \textit{non} ci sia campo elettrico, ma questo comporta una diminuzione del campo elettrico. In termini di potenziali, si noti che la \ddp
 \begin{itemize}
 	\item tra la prima piastra e il conduttore è $V_1=E_0d_1$.
 	\item tra il conduttore e la seconda piastra è $V_2=E_0d_2$.
@@ -46,17 +46,18 @@ Al contrario, la capacità \textit{aumenta}. Se chiamiamo la nuova capacità $C_
 \begin{equation}
 	C_C=\frac{\Sigma \epsilon_0}{d-s}>C_0
 \end{equation}
-\paragraph{Potenziale e capacità di un condensatore con isolante all'interno. Costante dielettrica relativa}
+\paragraph{Potenziale di un condensatore con isolante all'interno}
 Ripetendo l'esperimento con una lastra di \textit{materiale isolante}\footnote{In realtà quello che affrontiamo in questo paragrafo è vero solo alcuni tipi di isolanti, i cosiddetti \textbf{dielettrici (lineari)}; nella sezione XXX approfondiremo la differenza tra i due.}, ci accorgiamo che la differenza di potenziale $V$ (e quindi il campo elettrico) è comunque \textit{minore} del caso col vuoto nell'intercapedine, ma tale \ddp è maggiore del caso con il materiale conduttore  - a parità di spessore.
 \begin{equation*}
 	V_{C}<V<V_0
-\end{equation*} % TO DO: disegno?
+\end{equation*} %TODO:disegno?
 
 Se riempissi tutto lo spazio intermedio con una lastra di isolante, si avrebbe $V_{\kappa}\neq0$. In particolare, si osserva che il potenziale tra le piastre in presenza di un isolante di spessore $s$ è
 \begin{equation*}
 	V(s)=\left(V_{\kappa}-V_0\right)\frac{s}{d}+V_0
 \end{equation*} 
-dove $V_{\kappa}$ indica il potenziale per $s=d$ (condensatore pieno di isolante) e $V_0$ quello per $s=0$  (condensatore vuoto).\\
+dove $V_{\kappa}$ indica il potenziale per $s=d$ (condensatore pieno di isolante) e $V_0$ quello per $s=0$  (condensatore vuoto).
+\paragraph{Costante dielettrica relativa}
 Sperimentalmente, si trova che il rapporto tra la \ddp $V_0$ misurata con il condensatore vuoto e quella $V_{\kappa}$ con il condensatore riempito di isolante è \textit{caratteristico} del \textit{tipo} di materiale, ma non dipende dalla geometria o dalla carica delle armature.
 \begin{define}[Costante dielettrica relativa e suscettibilità elettrica del dielettrico]
 	La \textbf{costante dielettrica relativa}\index{costante!dielettrica!relativa} è il rapporto adimensionale
@@ -85,6 +86,7 @@ La seguente tabella presenta alcuni materiali e le loro costanti dielettriche re
 		Porcellana     & \num{6,5}                                                                       
 	\end{tabular}
 \end{center}
+\paragraph{Capacità di un condensatore con isolante all'interno}
 Come per il caso del conduttore, la capacità \textit{aumenta}:
 \begin{equation*}
 	C_{\kappa}=\frac{q}{V_{\kappa}}=\frac{q\kappa}{V_0}=\kappa C_0
@@ -92,6 +94,25 @@ Come per il caso del conduttore, la capacità \textit{aumenta}:
 \begin{equation}
 	C_{\kappa}=\kappa C_0>C_0
 \end{equation}
+\paragraph{Campo elettrico nel condensatore con isolante all'interno}
+Se il potenziale del condensatore completamente riempito di isolante è minore, anche il campo elettrico è ridotto rispetto al caso senza isolante; si vede, infatti, che
+\begin{equation*}
+	E_{\kappa}=\frac{V_k}{d}=\frac{V_0}{\kappa d}=\frac{E_0}{\kappa}\leq E_0
+\end{equation*} 
+La variazione del campo elettrico dovuta alla presenza del materiale è
+\begin{equation*}
+	E_0-E_{\kappa}=\frac{V_0}{d}-\frac{V_0}{\kappa d}=\frac{V_0}{d}\frac{\kappa-1}{\kappa}=E_0\frac{\kappa - 1}{\kappa}
+\end{equation*}
+Se la densità di carica è $E_0=\dfrac{\sigma_0}{\epsilon_0}$, si osserva che 
+\begin{equation}\label{campoelettricodielettrico}
+	E_{\kappa}=E_0-\frac{\kappa-1}{\kappa}E_0=\frac{\sigma_0}{\epsilon_0}-\frac{\sigma_p}{\sigma_0}
+\end{equation}
+dove
+\begin{equation}
+	\sigma_p=\frac{\kappa-1}{\kappa}\sigma_0<\sigma_0
+\end{equation}
+La \eqref{campoelettricodielettrico} mostra come il campo elettrico all'interno del dielettrico si possa vedere come la \textit{sovrapposizione} di due campi elettrici nel vuoto, uno $E_0$ dovuto dalle cariche libere (distribuzione di carica $\sigma$) sulle armature, l'altro $E_p$ di intensità minore e generato da una distribuzione di carica $\sigma_p$. Le cariche che generano quest'ultimo si possono \textit{immaginare} come depositate sulle facce della \textit{lastra dielettrica}, con segno opposto a quello della carica libera sull'armatura continua - in modo per certi versi simile a quanto succede con i conduttori, ma in maniera ridotta.
+%TODO:insert immagine Quest'ultimo si può immaginare come
 \paragraph{Costante dielettrica assoluta}
 Nel \refChapterOnly{leggediCoulomb} abbiamo definito la \textit{costante dielettrica del vuoto} $\epsilon_0$. Come era prevedibile dal nome, non è l'unica costante dielettrica: per trattare dei fenomeni elettromagnetici nei materiali ci conviene definire delle costanti, basate su $\epsilon_0$, che incorporano l'informazione sulla conducibilità elettrica data dalla costante dielettrica relativa $\kappa$.
 \begin{define}[Costante dielettrica assoluta]
@@ -117,25 +138,6 @@ Le formule che descrivono fenomeni elettrici nei materiali\footnote{Come già de
 		\kappa=\frac{\epsilon}{\epsilon_0}
 	\end{equation}
 \end{observe}
-\paragraph{Campo elettrico nel condensatore con isolante all'interno}
-Ritornando al condensatore completamente riempito di isolante, se il potenziale è minore il campo elettrico è minore del caso nel vuoto; si vede, infatti, che
-\begin{equation*}
-	E_{\kappa}=\frac{V_k}{d}=\frac{V_0}{\kappa d}=\frac{E_0}{\kappa}\leq E_0
-\end{equation*} 
-La variazione del campo elettrico dovuta alla presenza del materiale è
-\begin{equation*}
-	E_0-E_{\kappa}=\frac{V_0}{d}-\frac{V_0}{\kappa d}=\frac{V_0}{d}\frac{\kappa-1}{\kappa}=E_0\frac{\kappa - 1}{\kappa}
-\end{equation*}
-Se la densità di carica è $E_0=\dfrac{\sigma_0}{\epsilon_0}$, si osserva che 
-\begin{equation}\label{campoelettricodielettrico}
-	E_{\kappa}=E_0-\frac{\kappa-1}{\kappa}E_0=\frac{\sigma_0}{\epsilon_0}-\frac{\sigma_p}{\sigma_0}
-\end{equation}
-dove
-\begin{equation}
-	\sigma_p=\frac{\kappa-1}{\kappa}\sigma_0<\sigma_0
-\end{equation}
-La \eqref{campoelettricodielettrico} mostra come il campo elettrico all'interno del dielettrico si possa vedere come la \textit{sovrapposizione} di due campi elettrici nel vuoto, uno $E_0$ dovuto dalle cariche libere (distribuzione di carica $\sigma$) sulle armature, l'altro $E_p$ di intensità minore e generato da una distribuzione di carica $\sigma_p$. Le cariche che generano quest'ultimo si possono \textit{immaginare} come depositate sulle facce della \textit{lastra dielettrica}, con segno opposto a quello della carica libera sull'armatura continua - in modo per certi versi simile a quanto succede con i conduttori, ma in maniera ridotta.
-% TO DO: insert immagine Quest'ultimo si può immaginare come
 \section{Polarizzazione}
 È noto che gli isolanti sono caratterizzati da una scarsa presenza di cariche libere, a differenza dei conduttori. Ciò farebbe presupporre che le cariche sulle facce che abbiamo immaginato nella sezione precedente come potenziale spiegazione del campo $E_p$ siano, per l'appunto, un \textit{lavoro di fantasia} della fervida immaginazione di un fisico.\\
 In realtà tali cariche non sono per nulla fittizie, ma non sono lo stesso tipo di cariche libere presenti nei conduttori, bensì sono il risultato macroscopico di \textit{processi microscopici}, alla cui base stanno i fenomeni di \textit{polarizzazione}.
@@ -147,7 +149,7 @@ Il fenomeno della \textbf{polarizzazione}\index{polarizzazione} consiste proprio
 Approfondiamo ora il primo tipo. Un atomo, secondo il modello non quantistico, consiste in un \textit{nucleo} positivo immerso in una \textit{nube} di elettroni negativi. In assenza di un campo elettrico esterno, il nucleo è neutro e la distribuzione degli elettroni attorno al nucleo è mediamente simmetrica, in modo che il centro di massa della nube coincida con la posizione del nucleo.
 
 Introducendo il campo elettrico, la nube negativa subisce uno spostamento \textit{contro} il campo elettrico, mentre il nucleo positivo si sposta in senso \textit{concorde} al campo fino a raggiungere una nuova posizione di equilibrio in cui il campo elettrico è \textit{controbilanciato} dall'attrazione di \textit{dipolo} tra cariche di segno opposto.
-% TO DO: add immagine
+%TODO:add immagine
 All'equilibrio, tra i due centri di cariche c'è una distanza $\vba{x}$, con cui definiamo il \textbf{momento di dipolo elettrico} della configurazione ottenuta.
 \begin{equation}
 	\vba{p}_a=q\vba{x}=Ze\vba{x}
@@ -167,7 +169,7 @@ Tuttavia, in assenza di campo elettrico esterno i momenti di dipoli molecolari s
 \begin{equation*}
 	\left<\vba{p}\right>=0
 \end{equation*}
-% TO DO: add image
+%TODO:add image
 In presenza di un campo elettrico $\vba{E}$ esterno, i momenti di dipoli si allineano con il campo a causa del momento delle forze, facendo sì che il momento di dipolo medio risulti non nullo.
 \begin{equation*}
 	\left<\vba{p}\right>\neq0
@@ -208,14 +210,14 @@ La maggior parte dei \textit{dielettrici} soddisfano una legge di proporzionalit
 \end{equation}
 I dielettrici che seguono tale legge sono detti \textbf{lineari}\index{lineari}: sono sostanze \textit{amorfe} con simmetria spaziale in tutte le direzioni (\textbf{isotropia spaziale}); in altre parole, \textit{non} ci sono direzioni preferenziali dovute \textit{a priori} dal materiale. I dielettrici \textit{non lineari}, come certi cristalli, sono invece anisotropi: $\vba{P}$ e $\vba{E}$ non sono necessariamente paralleli, ma sono su direzioni particolari dette \textit{assi cristallografici}. La suscettibilità elettrica, di conseguenza, non potrà essere rappresentata da un semplice numero, ma è rappresentata da un \textit{tensore}.
 \begin{observe}
-	Ecco spiegato il perché del termine ‘‘suscettibilità elettrica'': un materiale come acqua e alcol etilico hanno alta suscettibilità elettrica e sono proni a polarizzarsi fortemente, mentre altri come la carta o il polistirolo che hanno bassa suscettibilità tendono a polarizzarsi di meno. % TO DO: check se è vero con quei materiali
+	Ecco spiegato il perché del termine ‘‘suscettibilità elettrica'': un materiale come acqua e alcol etilico hanno alta suscettibilità elettrica e sono proni a polarizzarsi fortemente, mentre altri come la carta o il polistirolo che hanno bassa suscettibilità tendono a polarizzarsi di meno. %TODO:check se è vero con quei materiali
 \end{observe}
 \begin{example}
 	Ricordiamo che nel caso del condensatore si aveva
 	\begin{align*}
 		E_{\kappa}=\frac{E_0}{\kappa}&\text{con } E_0=\frac{\sigma}{\epsilon_0 }
 	\end{align*}
-	% TO DO: image
+	%TODO:image
 	Allora, la densità di polarizzazione, in modulo, è
 	\begin{equation}
 		P=\epsilon_0\frac{\kappa-1}{\kappa}E_0=\sigma_0\frac{\kappa-1}{\kappa}=\sigma_p
@@ -237,14 +239,14 @@ poste \textit{nel vuoto}, distanti $dH$ e distribuite sulle basi del prisma con 
 \begin{equation*}
 	\pm\sigma_p=\frac{\pm dq_p}{d\Sigma}=\pm\frac{\abs{\vba{P}}\Ccancel[red]{d\Sigma}}{\Ccancel[red]{d\Sigma}}=\pm\abs{P}
 \end{equation*}
-% TO DO: immagine
+%TODO:immagine
 Siccome supponiamo $\vba{P}$ uniforme su tutto il dielettrico, il vettore di polarizzazione è lo stesso per due prismi contigui. Di conseguenza, sulle superfici di contatto le cariche sono uguali e contrarie; se ripetiamo questo ragionamento con altri prismi contigui alle basi, le uniche cariche rimanenti che \textit{non} sono compensate sono solo quelle sulle basi dei primi che \textit{appartengono} alla superficie del dielettrico.\\
 Quello che stiamo facendo è supporre che le cariche nel dielettrico, spostate \textit{localmente} dalle posizioni di equilibrio in quanto il materiale è polarizzato uniformemente, si compensino all'interno ma \textit{non} all'esterno dato che la superficie di bordo non permette ulteriori compensazioni. Le cariche si distribuiscono sulla superficie con densità
 \begin{equation}
 	\sigma_p=\vba{P}\vdot \vbh{u}_n
 \end{equation}
 dove $\vbh{u}_n$ è il versore normale alla superficie $\Sigma$ del materiale.
-% TO DO: immagine
+%TODO:immagine
 \begin{attention}
 	Sebbene a tratti ciò possa ricordare il comportamento dei conduttori, il funzionamento è \textit{fondamentalmente} differente. Le cariche di polarizzazione non sono libere come nei conduttori e quelle che notiamo sulla superficie non sono elettroni che si sono raccolti lì da altre parti del materiale, ma sono gli elettroni \textit{già presenti superficialmente}: li notiamo solo in virtù degli \textit{spostamenti locali} negli atomi e nelle molecole.\\
 	Questo è il motivo per cui non possiamo \textit{asportare un pezzo} di dielettrico e misurare le cariche superficiali, come potremmo fare ad esempio con un conduttore - il funzionamento è più vicino a quello che studieremo dei \textit{magnete}, da questo punto di vista.
@@ -254,7 +256,7 @@ dove $\vbh{u}_n$ è il versore normale alla superficie $\Sigma$ del materiale.
 	q=\int_{\Sigma_0}\sigma_pd\Sigma=\int_{\Sigma_0}\vba{P}\vdot \vbh{u}_nd\Sigma
 	\end{equation}
 \begin{observe}
-	Se la polarizzazione è uniforme non si manifestano cariche all'interno del dielettrico, quindi la carica totale sulla superficie \textit{deve} essere nulla:
+	Se la polarizzazione è \textit{uniforme} non si manifestano cariche all'interno del dielettrico, quindi la carica totale sulla superficie \textit{deve} essere nulla:
 	\begin{equation*}
 		0=\int_{\Sigma} \sigma_p d\Sigma=\int_\Sigma \vba{P}\vdot\vbh{u}_nd\Sigma
 	\end{equation*}
@@ -269,24 +271,26 @@ La carica su una superficie infinitesima è
 	dq(z)=\vba{P}\vdot \vbh{u}_nd\Sigma
 \end{equation*}
 Ricordiamo che il versore $\vbh{u}_n$ lo prendiamo orientato verso l'esterno della superficie; nel nostro caso, il versore
-% TO DO: guardare il mazzoldi che preferisco quella spiegazione
+%TODO:guardare il mazzoldi che preferisco quella spiegazione
 Si ha quindi che la densità di carica nel dielettrico dovuta alla polarizzazione è
 \begin{equation}
 	\rho_p=-\div{\vba{P}}
 \end{equation}
 Nel caso di $\vba{P}$ uniforme si ha
 \begin{equation*}
-	0=q_to=\int_V=\rho_pdV=-\int_V\div{\vba{P}}dV+\int_{\partial V}\vba{P}\vdot\vbh{u}_n d\Sigma=0
+	0=q_{tot}=\int_V\rho_pdV=-\int_V\div{\vba{P}}dV+\int_{\partial V}\vba{P}\vdot\vbh{u}_n d\Sigma=0
 \end{equation*}
-\section{Equazioni dell'elettrostatica nel dielettrico}
-Siamo ora in grado di formulare le equazioni dell'elettrostatica nei materiali dielettrici. Consideriamo un campo elettrostatico $\vba{E}$ che attraversa un materiale dielettrico, inducendo un vettore di polarizzazione $\vba{P}$.\\
-Mentre il rotore del campo elettrico rimane nullo...
+dove
+%TODO:guardare il mazzoldi che preferisco quella spiegazione
+\section{Le equazioni di Maxwell per l'elettrostatica nei materiali dielettrici}
+Siamo ora in grado di formulare le equazioni dell'elettrostatica nei materiali dielettrici.\\
+Consideriamo un campo elettrostatico $\vba{E}$. Mentre il rotore del campo elettrico rimane nullo...
 \begin{equation}
-	\grad{E}=0
+	\curl{\vba{E}}=0
 \end{equation}
-... la sua diverga risulta pari alla carica complessiva nel materiale, diviso per $\epsilon_0$ - ma tale carica è pari alla somma della carica $\rho$ già presente e della carica da polarizzazione $\rho$:
+... la sua divergenza risulta pari alla densità di carica complessiva $\rho_{tot}$ nel materiale, diviso per $\epsilon_0$ - ma tale densità è pari alla somma della densità $\rho$ già presente e della carica da polarizzazione $\rho_p$:
 \begin{equation*}
-	\div{vba{E}}=\frac{\rho+\rho_p}{\epsilon_0}=\frac{\rho}{\epsilon_0}-\frac{\div{\vba{P}}}{\epsilon_0}\implies \div{\epsilon_0\vba{E}+\vba{P}}=\rho
+	\div{\vba{E}}=\frac{\rho_{tot}}{\epsilon_0}=\frac{\rho+\rho_p}{\epsilon_0}=\frac{\rho}{\epsilon_0}-\frac{\div{\vba{P}}}{\epsilon_0}\implies \div{\left(\epsilon_0\vba{E}+\vba{P}\right)}=\rho
 \end{equation*}
 Definito il \textbf{campo elettrostatico di induzione dielettrica}\index{campo!elettrostatico!di induzione dielettrica}
 \begin{equation}
@@ -311,3 +315,71 @@ ed equivalentemente, la legge \eqref{SecondaMaxwellDIelettriciUno} si può riscr
 \begin{observe}
  Come abbiamo osservato in altri casi lavorando con i dielettrici \textit{lineari}, l'ultima legge è pari all'analoga equazione dell'elettrostatica nel vuoto a cui abbiamo sostituito a $\epsilon_0$ la costante assoluta $\epsilon$.
 \end{observe}
+Ricapitolando, si hanno le seguenti leggi nel caso di un dielettrico qualunque...
+\begin{center}
+	\begin{tabular}{p{0.22\textwidth}|c|c}
+		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
+		\centering{\textbf{Nome}} &
+		\textbf{Forma integrale} &
+		\begin{tabular}{@{}c@{}} \textbf{Forma} \\ \textbf{differenziale}\end{tabular} \\ \hline
+		
+		\begin{tabular}[c]{@{}p{0.22\textwidth}@{}}	
+			\\[-2mm]\textbf{Legge di Gauss per l'elettricità}\\[-2mm]~
+		\end{tabular}
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\Phi_{\partial V}(\vba{D})=\int_{\partial V}\vba{D}\vdot\vbh{u}_nd\Sigma=q_{int}=\int_{V}\rho dV$\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\div{\vba{D}}=\rho$\\[-2mm]~
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.22\textwidth}@{}}	
+			\\[-2mm] \textbf{Legge dell'induzione di Faraday}\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[l]{@{}l@{}}
+			\\[-3mm]
+			$\displaystyle\Gamma_{\gamma}(\vba{E})=\oint_{\partial \Sigma} \vba{E}\vdot d\vba{s}=0$\\[-1mm]~
+		\end{tabular}
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\curl{\vba{E}}=0$
+		\end{tabular}
+	\end{tabular}
+\end{center}
+... e le seguenti per un dielettrico lineare.
+\begin{center}
+	\begin{tabular}{p{0.22\textwidth}|c|c}
+		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
+		\centering{\textbf{Nome}} &
+		\textbf{Forma integrale} &
+		\begin{tabular}{@{}c@{}} \textbf{Forma} \\ \textbf{differenziale}\end{tabular} \\ \hline
+		
+		\begin{tabular}[c]{@{}p{0.22\textwidth}@{}}	
+			\\[-2mm]\textbf{Legge di Gauss per l'elettricità}\\[-2mm]~
+		\end{tabular}
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\Phi_{\partial V}(\vba{E})=\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{q_{int}}{\epsilon_0}=\int_{V}\rho dV$\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\div{\vba{E}}=\frac{\rho}{\epsilon}$\\[-2mm]~
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.22\textwidth}@{}}	
+			\\[-2mm] \textbf{Legge dell'induzione di Faraday}\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[l]{@{}l@{}}
+			\\[-3mm]
+			$\displaystyle\Gamma_{\gamma}(\vba{E})=\oint_{\partial \Sigma} \vba{E}\vdot d\vba{s}=0$\\[-1mm]~
+		\end{tabular}
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\curl{\vba{E}}=0$
+		\end{tabular}
+	\end{tabular}
+\end{center}

@@ -5,78 +5,24 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Conduttori}
+\chapter{Conduttori e condensatori}
 \labelChapter{conduttori}
 
 \begin{introduction}
 	‘‘BEEP BOOP''
 	\begin{flushright}
-		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. % TO DO: quote 
+		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. %TODO: quote 
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{N}{el} % TO DO: intro
+\lettrine[findent=1pt, nindent=0pt]{N}{el} %TODO: intro
 
-\section{Equilibrio in un campo elettrostatico}
-% TO DO: spostare con legge di Gauss, non credo potenziale
-% https://physics.stackexchange.com/questions/190066/why-cant-charge-be-in-a-stable-equilibrium-in-electrostatic-field#:~:text=There%20are%20no%20points%20of,the%20field%20must%20be%20zero.
-% https://diego.assencio.com/?index=bc04395b103021d338b4e30a061bfc74
-\begin{define}[Equilibrio stabile]
-	Un punto $P$ è di \textbf{equilibrio stabile}\index{equilibrio!stabile} per un corpo puntiforme se per un qualsiasi spostamento, piccolo a piacere, da tale posizione esistono forze che riportano l'oggetto nella posizione originale.
-\end{define}
-\begin{define}[Equilibrio instabile]
-	Un punto $P$ è di \textbf{equilibrio instabile}\index{equilibrio!instabile} per un corpo puntiforme se esistono spostamenti, piccolo a piacere, da tale posizione esistono forze che riportano l'oggetto nella posizione originale.
-\end{define}
-Consideriamo delle \textit{sorgenti} fisse (continue o discrete che siano, \textit{non} cambia) nel vuoto e sia $\vba{E}(\vba{r})$ il campo elettrico generato da queste cariche. Esistono dei punti tali per cui, se poniamo una carica $q$ lì, essa rimarrà in equilibrio stabile?
-
-La risposta è data dal \textit{teorema di Earnshaw} e la risposta è \textbf{no}.
-\begin{theorema}[Teorema di Earnshaw]
-	Una collezione di cariche puntuali non possono essere mantenute in una configurazione di equilibrio stabile soltanto dall'interazione elettrostatica delle cariche con un campo elettrico.
-\end{theorema}
-In questa dimostrazione assumiamo che la carica sia positiva ($q>0$), ma la dimostrazione è \textit{mutatis mutandis} la stessa per $q<0$.
-\begin{observe}
-	La carica nella dimostrazione si suppone essere una \textbf{carica di prova}, e quindi il campo generato dalla carica $q$ è trascurabile.
-\end{observe}
-\begin{demonstration}
-	Supponiamo che la carica, immersa nel campo elettrico e non soggetta ad altre forze, è in equilibrio stabile in $P=\vba{r}$; ciò significa che:
-	\begin{enumerate}
-		\item La carica di per sé è ferma; la forza totale agenti sulla carica è dunque nulla, e dato che le uniche forze sulla carica in $\vba{r}$ è la forza di Coulomb/forza associata al campo elettrico si ha
-		\begin{equation*}
-			\vba{F}(\vba{r})=q\vba{E}(\vba{r})=0\underset{q\neq 0}{\implies}\vba{E}(\vba{r})=0
-		\end{equation*}
-		\item Per un (piccolo) spostamento $\delta \vba{r}$ attorno a $\vba{r}$, la forza riporta la carica verso il punto $\vba{r}$, cioè la forza
-		\begin{equation*}
-			\vba{F}(\vba{r}+\delta\vba{r})=q\vba{E}(\vba{r}+\delta\vba{r})
-		\end{equation*}
-		deve puntare verso $\vba{r}$.
-		Consideriamo una superficie chiusa (arbitrariamente piccola) attorno alla carica. Per quanto abbiamo detto, in un qualunque suo punto la forza di Coulomb in tal punto deve essere diretta verso $\vba{r}$. Pertanto, se il campo è entrante la superficie, il flusso tramite la superficie è negativo...
-		\begin{equation}
-			\Phi{\Sigma}(\vba{E})<0
-		\end{equation}
-		... ma possiamo applicare la legge di Gauss per ricavare il valore del flusso tramite tale superficie, tuttavia si avrebbe
-		\begin{equation*}
-			\Phi{\Sigma}(\vba{E})=\frac{q}{\epsilon_0}<0\implies q<0
-		\end{equation*}
-		il che è un assurdo! Segue che non ci può essere equilibrio elettrostatico stabile. 
-	\end{enumerate}
-\end{demonstration}
-L'unica possibilità di avere una carica in equilibrio stabile è se si trovasse esattamente nello stesso punto di un'altra carica $Q$ di segno opposto e quantità di carica maggiore. Infatti, in tal caso qualunque superficie, piccolo a piacere, scegliamo attorno al punto di equilibrio si avrà sempre flusso pari a
-\begin{equation*}
-	\Phi_{\Sigma}(\vba{E})=\frac{q+Q}{\epsilon_0}
-\end{equation*}
-per la legge di Gauss; questa volta non si ha alcun assurdo, dato che il campo elettrico è entrante e quindi il flusso è negativo e, se $\abs{Q}>\abs{q}$, allora anche il flusso secondo Gauss è negativo.
-\begin{digression}
-	Da quanto detto, un sistema di cariche libere \textit{dello stesso segno} non potrà ai restare in equilibrio stabile spontaneamente, ma necessariamente occorrono altre forze per vincolare le cariche.
-	
-	Una conseguenza di ciò è che il modello classico dell'atomo non è stabile, esso basato su una distribuzione fissata di cariche: nel \textit{nucleo atomico} non ci potrebbe essere più di un protone senza compromettere la stabilità del nucleo! È grazie all'interazione \textit{nucleare forte} che, essendo particolarmente forte a distanze microscopiche, i protoni superano la repulsione elettrostatica tra di loro e permettono la stabilità dell'atomo.
-\end{digression}
-% TO DO: aggiungere
 \section{Conduttori}
 \begin{define}[Conduttore]
 	Un \textbf{conduttore}\index{conduttore} è un materiale in cui alcune delle cariche elettriche che li costituiscono sono libere di muoversi.
 \end{define}
 Per caricare un conduttore possiamo utilizzare diversi metodi, ad esempio con dell'induzione elettrostatica, ma per mantenerlo carico abbiamo bisogno di tenerlo \textit{isolato} da qualunque altro conduttore.
 
-In presenza di un campo elettrico $\vba{E}$, le cariche libere all'interno possono muoversi in modo ordinato e dare vita ad una \textit{corrente elettrica}, ma di questo ci occuperemo nel capitolo XXX. Dato che stiamo studiando i fenomeni elettrostatici, le cariche sono in equilibrio se non abbiamo un \textit{moto di cariche}. Ciò si ha, in termini di condizione media macroscopica, se all'interno del materiale si ha
+In presenza di un campo elettrico $\vba{E}$, le cariche libere all'interno possono muoversi in modo ordinato e dare vita ad una \textit{corrente elettrica}, ma di questo ci occuperemo nel \autoref{chap:correnteElettrica}. Dato che stiamo studiando i fenomeni elettrostatici, le cariche sono in equilibrio se non abbiamo un \textit{moto di cariche}. Ciò si ha, in termini di condizione media macroscopica, se all'interno del materiale si ha
 \begin{equation}
 	\vba{E}=0
 \end{equation}
@@ -122,19 +68,19 @@ Ci sono alcune conseguenze di questa condizione.
 		\end{align*}
 	\end{example}
 \end{itemize}
-\subsection{Campo elettrico indotto}
+\paragraph{Il campo elettrico indotto}
 Per quanto osservato, si può notare come in un conduttore in equilibrio elettrostatico la carica debba avere lo \textit{stesso segno dappertutto} per mantenere $\vba{E}=0$. Questo, tuttavia, non è più vero nel momento in cui il conduttore è \textit{immerso} in un campo elettrico esterno.
 
 Ad esempio, consideriamo due \textit{piastre} cariche di segno opposto in modo che tra di esse si forma un campo elettrico \textit{uniforme} $\vba{E}$, diretto dall'armatura positiva a quella negativa.
 Ponendo un conduttore carico in mezzo alle due piastre, le cariche sono soggette ad una forza di Coulomb dovuta alle due piastre e si spostano nel conduttore: le cariche negative si spostano verso la piastra positiva, mentre le positive verso la piastra negativa, come in figura.
-% TO DO: add figura
+%TODO: add figura
 La differenza tra le cariche interne al conduttore crea un \textbf{campo elettrico indotto} $\vba{E}_i$; se lo consideriamo all'equilibrio, esso ha stessa direzione e intensità di $\vba{E}$, ma ha verso opposto in modo da avere all'interno del conduttore la condizione di equilibrio elettrico.
 \begin{equation}
 	\vba{E}_i=-\vba{E}
 \end{equation}
 Questo accade in generale anche se il conduttore è immerso in un generico campo elettrico, non necessariamente uniforme o generato da delle armature cariche: per avere l'equilibrio nel conduttore le cariche si devono disporre in modo che la differenza di carica all'interno di esso generi un campo elettrico indotto uguale e opposto a quello del campo elettrico in cui il conduttore è immerso.
 \section{Capacità di un conduttore}
-Come abbiamo ribadito più volte, parte delle cariche in un conduttore sono libere di muoversi. Se carichiamo un conduttore e poi lo \textit{isoliamo}, possiamo \textit{conservare} della carica elettrica al suo interno --- e quindi dell'energia elettrica --- che potrà eventualmente essere utilizzata successivamente per altri scopi. % TO DO: sono sicuro dell'energia elettrica?
+Come abbiamo ribadito più volte, parte delle cariche in un conduttore sono libere di muoversi. Se carichiamo un conduttore e poi lo \textit{isoliamo}, possiamo \textit{conservare} della carica elettrica al suo interno --- e quindi dell'energia elettrica --- che potrà eventualmente essere utilizzata successivamente per altri scopi. %TODO: sono sicuro dell'energia elettrica?
 Ci interessa dunque \textit{caratterizzare} i conduttori in base alla loro capacità di caricarsi.
 \begin{observe}
 	Per studiare un conduttore carico all'equilibrio, dalle osservazioni precedenti ci basta considerarlo come fosse una superficie carica $\Sigma$ con densità di carica $\sigma$. La carica nel conduttore è
@@ -146,7 +92,7 @@ Ci interessa dunque \textit{caratterizzare} i conduttori in base alla loro capac
 		V=\frac{1}{4\pi\epsilon_0}\int_{\Sigma}\frac{\sigma(x',y',z')}{\abs{\vba{r}'}}\Sigma
 	\end{equation*}
 	dove supponiamo, sempre per le osservazioni precedenti, di considerare l'\textit{origine} del sistema di riferimento scelto all'interno del conduttore e di misurare il potenziale in tale punto --- dopotutto, il potenziale è \textit{costante} in tutto il conduttore.
-\end{observe}% TO DO: controllare denominatore: io ho segnato solo r, ma che fine fa il termine di integrazione? dove lo misura, in zero? credo di sì, e ho messo questa spiegazione.
+\end{observe}%TODO: controllare denominatore: io ho segnato solo r, ma che fine fa il termine di integrazione? dove lo misura, in zero? credo di sì, e ho messo questa spiegazione.
 Ora, osserviamo che se aumentassimo la carica sul conduttore da $q$ a $mq$, si avrebbe un aumento sia della densità di carica di un fattore $m$, sia del potenziale sempre di un fattore $m$. Il loro rapporto, pertanto, rimane costante ed è indipendente da come aumenta la carica e il potenziale: pertanto, esso rappresenta quanto aumenta il potenziale del conduttore all'aumentare della carica. 
 \begin{define}[Capacità di un conduttore]
 	La \textbf{capacità}\index{capacità} di un conduttore è la misura di quanta carica elettrica bisogna fornire ad un conduttore isolato per aumentare il suo potenziale di un'unità.
@@ -208,7 +154,7 @@ Sorprendentemente, ciò succede anche nel caso del conduttore cavo: non ci sono 
 \begin{demonstration}
 	Ricordiamo che, quando consideriamo l'equilibrio elettrostatico, il campo interno al conduttore deve essere nullo. Se consideriamo una superficie $\Sigma$ che circonda completamente la cavità, ma giace interamente all'interno del materiale conduttore, il flusso tramite tale superficie è nullo in quanto il campo elettrico nei punti della superficie è nullo.
 	\begin{equation*}
-		\Phi_{\Sigma}\left(\vba{E}\right)=0
+		\Phi_{\Sigma}(\vba{E})=0
 	\end{equation*}
 Applicando la \textit{legge di Gauss}, segue che la carica \textit{complessiva} interna a $\Sigma$ deve essere nulla.
 \begin{equation}
@@ -220,7 +166,7 @@ Ciò nonostante, questo non preclude ancora la possibilità che ci sia una quant
 	\item l'integrale di linea lungo la parte di $\gamma$ contenuta nel conduttore sarebbe, invece, nullo perché $\vba{E}=0$ dentro il conduttore.
 \end{itemize}
 Pertanto \textit{non} ci possono essere cariche sulla superficie interna e pertanto anche \textit{dentro} la cavità il campo elettrico deve essere nullo.
-% TO DO: inserire immagine di https://farside.ph.utexas.edu/teaching/em/lectures/node58.html
+%TODO: inserire immagine di https://farside.ph.utexas.edu/teaching/em/lectures/node58.html
 \end{demonstration}
 
 % https://physics.stackexchange.com/questions/579941/conductor-with-hollow-cavity-under-external-electric-field
@@ -229,9 +175,10 @@ Questo è vero anche in presenza di un \textit{campo elettrico esterno} $\vba{E}
 \begin{equation*}
 	\vba{E}_{tot}=\vba{E}+\vba{E}_i=0
 \end{equation*}
-\subsection{Conduttore cavo con carica}
+\subsection{Il conduttore cavo con carica}
+\paragraph{Conduttore cavo con carica interna}
 Consideriamo, all'equilibrio, una sfera conduttrice cava (inizialmente non carica) di raggio $R_3$ e raggio della cavità $R_2$; al suo interno prendiamo un'ulteriore sfera conduttrice di raggio $R_1<R_2$, e supponiamo che quest'ultima abbia una carica $Q$ positiva.
-% TO DO: inserire immagine
+%TODO: inserire immagine
 Sappiamo che nella sfera interna il campo elettrico è nullo; la stessa cosa succede sulla \textit{sfera esterna}, ma è meno ovvio.
 
 La sfera carica genera un campo elettrico radiale che, all'esterno di essa, \textit{non} è nullo e attraversa la sfera esterna. Le cariche nel conduttore esterno si dispongono come se fosse attraversati da un \textit{campo elettrico esterno}; in particolare le cariche \textit{negative} si posizionano lungo la superficie \textit{interna}, mentre quelle \textit{positive} sono respinte sulla superficie esterna in modo chele cariche sulla superficie interna $q_{int}$ controbilancino quelle sulla superficie esterna $q_{ext}$. Diremo che questo tipo di campo elettrico è un caso di \textbf{induzione totale}.
@@ -241,7 +188,7 @@ La sfera carica genera un campo elettrico radiale che, all'esterno di essa, \tex
 
 Ora, consideriamo una superficie ipotetica $\Sigma$ che è contenuta nella sfera esterna e che contiene la cavità. Perché siamo all'equilibrio si ha $\vba{E}=0$, il flusso è
 \begin{equation*}
-	\Phi_{\Sigma}\left(\vba{E}\right)=0
+	\Phi_{\Sigma}(\vba{E})=0
 \end{equation*}
 Ma per la legge di Gauss la carica complessiva è $q_{tot}=0$. Necessariamente, sulla superficie interna deve affacciarsi una carica $q_{int}=-Q$, da cui si ha che $q_{ext}=Q$.
 
@@ -376,7 +323,7 @@ Ricapitolando:
 \end{itemize}
 % TO DO grafico qui
 
-\paragraph{Schermo elettrostatico}
+\paragraph{Lo schermo elettrostatico}
 Tutti questi esempi ricadono nel fenomeno dello \textbf{schermo elettrostatico}, detto anche \textbf{schermo di Faraday}.
 \begin{define}[lol]
 	Uno \textbf{schermo elettrostatico}\index{schermo elettrostatico}, detto anche \textbf{schermo di Faraday}, è un sistema costituito da un contenitore - non necessariamente continuo - di materiale conduttore in modo da isolare l'ambiente interno da un campo elettrostatico esterno.
@@ -413,7 +360,7 @@ Consideriamo due armature piane, distanti $d=x_2-x_1$; supponiamo che tale dista
 	d^2\ll \Sigma
 \end{equation}
 dove $\Sigma$ è l'area della superficie.\\
-Il campo elettrico tra due armature piane, lontano dai bordi, è% TO DO: add riferimento
+Il campo elettrico tra due armature piane, lontano dai bordi, è%TODO: add riferimento
 \begin{equation*}
 	E(x)=\frac{\sigma}{\epsilon_0}=\frac{q}{\Sigma \epsilon_0}
 \end{equation*}
@@ -427,7 +374,7 @@ e quindi la capacità del condensatore piano è
 \end{equation}
 \paragraph{Condensatore cilindrico}
 Consideriamo un conduttore cilindrico con armatura interna di raggi $R_1$, armatura esterna di raggi $R_2$ e $R_3$.
-In modo analogo a come abbiamo trovato che il campo elettrico di un cilindro uniformemente carico, % TO DO: inserire chapt3 rrefer-
+In modo analogo a come abbiamo trovato che il campo elettrico di un cilindro uniformemente carico, %TODO: inserire chapt3 rrefer-
 il campo elettrico nella cavità è
 \begin{equation*}
 	E(R)=\frac{\sigma R_0}{\epsilon_0r}=\frac{q}{2\pi\epsilon_0Lr},\quad R_1<R<R_2
@@ -458,7 +405,7 @@ e quindi la capacità del condensatore cilindrico è
 \end{equation}
 dove $\Sigma=2\pi RL$ è la superficie dell'armatura cilindrica.
 \paragraph{Condensatore sferico}
-Dallo studio del condensatore sferico % TO DO: inserire pagina?
+Dallo studio del condensatore sferico %TODO: inserire pagina?
 abbiamo visto che la differenza di potenziale tra le 
 \begin{equation*}
 	\Delta V=\frac{q}{4\pi\epsilon_0}\left(\frac{1}{R_1}-\frac{1}{R_2}\right)=\frac{q}{4\pi\epsilon_0}\left(\frac{R_1-R_2}{R_1R_2}\right)
@@ -496,7 +443,7 @@ Si possono già fare alcune osservazioni:
 L'idea cardine dello studio dei circuiti elettrici è di \textit{semplificarli} il più possibile, quanto meno ipoteticamente: se abbiamo diversi oggetti elettrici collegati nel circuito caratterizzati da delle quantità particolari $Z_i$, ci immaginiamo di sostituire diversi elementi dello stesso tipo (collegati in serie e in parallelo) con un'unica componente \textbf{equivalente} caratterizzata da una quantità $Z_{eq}$ che deriva da quelle delle componenti singole.
 \paragraph{Condensatori in serie}
 Consideriamo due condensatori $C_1$ e $C_2$: la piastra inferiore del primo è collegata alla superiore della seconda, in serie.
-% TO DO: inserire grafico
+%TODO: inserire grafico
 Per quanto osservato, la carica complessiva è la stessa in ogni componente:
 \begin{equation*}
 	q_1=q_2=q_{tot}
@@ -522,7 +469,7 @@ Nel caso generale di $n$ condensatori in serie:
 \end{equation}
 \paragraph{Condensatori in parallelo}
 Consideriamo due condensatori $C_1$ e $C_2$, le cui piastre superiori sono collegate ad uno stesso filo, e si ha una cosa simile con le piastre inferiori.
-% TO DO: inserire grafico
+%TODO: inserire grafico
 Per quanto osservato, la carica complessiva si distribuirà nei due fili:
 \begin{equation*}
 	q_{tot}=q_1+q_2
@@ -546,7 +493,7 @@ Nel caso generale di $n$ condensatori in parallelo:
 \begin{equation}
 	C_{eq}=\sum_{i=1}^{n}C_i
 \end{equation}
-\section{Lavoro di carica di un condensatore ed energia immagazzinata nel condensatore} % TO DO: riguardare con il Mazzoldi
+\section{Il lavoro di carica di un condensatore e l'energia immagazzinata nel condensatore} %TODO: riguardare con il Mazzoldi
 Per creare una separazione di carica $q$ nel condensatore, ossia portare la carica $Q$ dalla piastra negativa alla piastra positiva (dal potenziale minore a quello maggiore), una fonte di energia esterna deve compiere un certo \textbf{lavoro} per oppore tale spostamento alla forza del campo elettrico, che la riporterebbe alla piastra originale. L'\textit{energia} $U$ che viene fornita sotto forma di lavoro $W$ incrementa il potenziale da $0$ fino ad avere una differenza di potenziale $\Delta V$, cioè corrisponde all'energia necessaria per creare partendo da armature scariche il \textit{campo elettrico}.
 
 Posto $\Delta V=V(q)-V(0)=V$ e dunque $V=\frac{q}{C}$, si ha
@@ -556,23 +503,26 @@ Posto $\Delta V=V(q)-V(0)=V$ e dunque $V=\frac{q}{C}$, si ha
 \begin{equation}
 	W=U=\frac{q^2}{2C}=\frac{1}{2}CV^2=\frac{1}{2}qV
 \end{equation}
-Questa energia è immagazzinata fondamentalmente nel campo elettrico. Ad esempio, consideriamo un condensatore ad armature piane cdi superficie $\Sigma$ a distanza $d$; il suo campo elettrico tra le armature è
-\begin{equation*}
-	E=\frac{\sigma}{\epsilon_0}=\frac{q}{\Sigma \epsilon_0}
-\end{equation*}
-e la sua capacità è
-\begin{equation*}
-	C=\frac{\epsilon_0\Sigma}{d}
-\end{equation*}
-L'energia immagazzinata nel condensatore è
-\begin{equation*}
-	U=\frac{q^2}{2C}=\frac{E^2\Sigma^{\Ccancel[red]{2}}\epsilon_0^{\Ccancel[red]{2}} d}{2\Ccancel[red]{\epsilon_0}\Ccancel[red]{\Sigma}}=\frac{1}{2}\epsilon_0E^2\Sigma d
-\end{equation*}
-Osserviamo come $\Sigma d$ corrisponde al volume ${Vol}$ occupato dal campo elettrico tra le facce del condensatore: l'ultima formula è uguale alla \textbf{densità di energia per unità di volume}\index{densità!di energia elettrostatica}
+Questa energia è immagazzinata fondamentalmente nel campo elettrico.
+\begin{examplewt}[Condensatore ad armature piane]
+	Se consideriamo un condensatore ad armature piane di superficie $\Sigma$ a distanza $d$; il suo campo elettrico tra le armature è
+	\begin{equation*}
+		E=\frac{\sigma}{\epsilon_0}=\frac{q}{\Sigma \epsilon_0}
+	\end{equation*}
+	e la sua capacità è
+	\begin{equation*}
+		C=\frac{\epsilon_0\Sigma}{d}
+	\end{equation*}
+	L'energia immagazzinata nel condensatore è
+	\begin{equation*}
+		U=\frac{q^2}{2C}=\frac{E^2\Sigma^{\Ccancel[red]{2}}\epsilon_0^{\Ccancel[red]{2}} d}{2\Ccancel[red]{\epsilon_0}\Ccancel[red]{\Sigma}}=\frac{1}{2}\epsilon_0E^2\Sigma d
+	\end{equation*}
+\end{examplewt} 
+Osserviamo come $\Sigma d$ corrisponde al volume $V$ occupato dal campo elettrico tra le facce del condensatore. Se definiamo la \textbf{densità di energia elettrostatica per unità di volume}\index{densità!di energia elettrostatica}
 \begin{equation}\label{DensitàEnergiaElettrostatica}
-	\mu_{E}==\frac{1}{2}\epsilon_0E^2
+	\mu_{E}=\frac{1}{2}\epsilon_0E^2
 \end{equation}
-moltiplicata per il volume ${Vol}$ di campo elettrico, confermando che l'energia del condensatore non è conservata nelle piastre, ma nel \textit{campo elettrico}
+l'energia immagazzinata nel condensatore è questa densità moltiplicata per il volume $V$ \textit{occupato} dal campo elettrico, confermando che l'energia del condensatore non è conservata nelle piastre, ma nel \textit{campo elettrico}!\\
 % \footnote{Grazie Maccio di esistere - Fra} - lo metterò nelle dediche, do not eliminare
 \section{Energia del campo elettrostatico}
 In generale, il campo elettrico immagazzina \textit{sempre} dell'energia nel campo stesso, dato che è l'energia necessaria a separare le cariche richieste per generare il campo elettrico. Tale energia, in un certo volume $V$, è pari a
@@ -583,7 +533,7 @@ dove $\mu_E$ è la densità di energia elettrostatica, definita come nell'equazi
 \section{Pressione elettrostatica}
 In un condensatore le piastre sono caricate con segno opposto: questo comporta l'esistenza di una forza che tende a farle \textit{attrarle}. Questa forza è
 \begin{equation}
-	\vba{F}=-\grad{\vba{U}}
+	\vba{F}=-\grad{U}
 \end{equation}
 dove $U$, nel caso di un condensatore ad armature piane, è
 \begin{equation*}
@@ -597,4 +547,4 @@ La \textbf{pressione elettrostatica}\index{pressione!elettrostatica} percepita d
 \begin{equation}
 	P=\frac{F}{\Sigma}=\frac{q^2}{2\epsilon_0\Sigma^2}=\frac{\sigma^2}{2\epsilon_0}
 \end{equation}
-% TO DO: espandere?
+%TODO: espandere?

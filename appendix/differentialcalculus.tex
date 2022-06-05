@@ -437,17 +437,18 @@ Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettori
 	Dimostriamo ii) e iv).
 	\begin{itemize}
 		\item[ii)]
-		\begin{equation*}
+		\begin{align*}
 			\begin{vmatrix}
 				\partial_x & \partial_y & \partial_z\\
 				G_x & G_y & G_z\\
 				\vbh{u}_x & \vbh{u}_y & \vbh{u}_z
-			\end{vmatrix}=\left(\partial_y\partial_z\phi-\partial_z\partial_y\phi\right)\vbh{u}_x+\left(\partial_z\partial_x\phi-\partial_x\partial_z\phi\right)\vbh{u}_y+\left(\partial_x\partial_y\phi-\partial_y\partial_x\phi\right)\vbh{u}_z=0
-		\end{equation*}
+			\end{vmatrix}&=\
+		&=\left(\partial_y\partial_z\phi-\partial_z\partial_y\phi\right)\vbh{u}_x+\left(\partial_z\partial_x\phi-\partial_x\partial_z\phi\right)\vbh{u}_y+\left(\partial_x\partial_y\phi-\partial_y\partial_x\phi\right)\vbh{u}_z=0
+		\end{align*}
 		\item[iv)]
 		\begin{align*}
 			\left(\partial_x,\partial_y,\partial_z\right)\vdot(\partial_yG_x-\partial_xG_y,\partial_zG_x-\partial_xG_z,\partial_xG_y-\partial_yG_x)=&\\
-			\\=\partial_x\partial_yG_z-\partial_x\partial_zG_y+\partial_y\partial_zG_x-\partial_y\partial_xG_z+\partial_z\partial_xG_y-\partial_z\partial_yG_x=&0\qedhere
+			=\partial_x\partial_yG_z-\partial_x\partial_zG_y+\partial_y\partial_zG_x-\partial_y\partial_xG_z+\partial_z\partial_xG_y-\partial_z\partial_yG_x=&0\qedhere
 		\end{align*}
 	\end{itemize}
 \end{demonstration}

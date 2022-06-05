@@ -5,8 +5,8 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Magnetostatica}
-\labelChapter{magnetismo}
+\chapter{Il campo magnetico}
+\labelChapter{campoMagnetismo}
 
 \begin{introduction}
 	‘‘BEEP BOOP''
@@ -15,7 +15,8 @@
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{C}{on}
-\section{Gli albori dello studio del magnetismo}
+
+\section{I primi studi sul magnetismo}
 Come già detto agli albori di questo Manualozzo\texttrademark\ , il termine magnetismo deriva da \textit{magnētis lithos}, ‘‘pietra di Magnesia'' in greco: sull'isola egea di Magnesia erano diffuse rocce di \textit{magnetite}, un minerale ferroso che in certi casi è capace di attrarre piccoli pezzetti di ferro - che a loro volta diventavano magnetici.
 Il fatto che la magnetite può attrarre il ferro fu osservato non solo in Grecia, ma in diverse aree geografiche: in India, ad esempio, la magnetite veniva usata per rimuovere le frecce infilzate nel corpo di una persona.
 \paragraph{La bussola}
@@ -50,11 +51,12 @@ La situazione potrebbe sembrare simile al caso della \textit{forza elettrica} - 
 % TO DO: immagine
 Un dipolo magnetico, invece, si separa sempre in altri dipoli! Ad esempio, se un magnete a barra viene tagliato a metà, non si avrà una metà con il polo nord e l'altra con il polo sud ma, ciascun pezzo avrà un suo polo nord e polo sud.
 % TO DO: immagine
-\section{Legge di Gauss per la magnetostatica}
 \paragraph{Le linee di forza}
 Se ad oggi parliamo di campi vettoriali nell'elettromagnetismo, probabilmente parte del merito lo dobbiamo allo scienziato inglese \textbf{Michael Faraday} (1791 - 1867). Durante i suoi esperimenti sul magnetismo, circa intorno al 1831, egli notò la maniera peculiare con cui della \textit{limatura di ferro} si disponeva su un cartoncino o una lastra di vetro in presenza di un magnete: essa sembrava disporsi naturalmente lungo delle \textit{linee} che si estendevano da un \textit{polo} all'altro del magnete. Faraday ipotizzò quindi che i magneti esercitava delle forze lungo queste ‘‘linee di forza'', che secondo Faraday dovevano esistere in qualche modo \textit{fisicamente}.
 % TO DO: inserire disegno
 Le osservazioni di Faraday anticipano la descrizione moderna dei fenomeni magnetici: come è stato per quelli elettrici, la descrizione del magnetismo passa per il \textit{formalismo dei campi vettoriali}: in questo caso, le forze sono l'applicazione in un punto del \textbf{campo magnetico}\index{campo!magnetico} $\vba{B}$ generato, ad esempio, da magneti; le linee di forza sono, ovviamente, le curve tali per cui in ogni loro punto il vettore tangente alla curva è il vettore dato da $\vba{B}$.
+\section{Legge di Gauss per la magnetostatica}
+Le linee di campo svolgono un ruolo fondamentale per capire la prima, grossa differenza tra il campo magnetico e quello elettrico: il flusso attraverso una superficie chiusa.
 
 Analizziamo la questione dal punto di vista matematico, confrontandola con una situazione a noi \textit{famigliare}. Ricordiamo che, nel \textit{dipolo elettrico}, le linee di campo si sviluppano come in figura.
 % TO DO: immagine
@@ -72,11 +74,11 @@ Osserviamo che la forza di interazione magnetostatica di Coulomb è inversamente
 Si noti che se applichiamo la legge di Gauss ad una superficie contenente un \textit{dipolo elettrico}, il flusso sarà nullo. La situazione è analoga per il caso magnetico: non possiamo individuare dei monopoli, certo, ma dal polo nord esce un numero di linee di flusso pari a quelle che entrano dal polo sud - non può esistere una ‘‘carica magnetica'' totale differente da zero.\\
 Di conseguenza, abbiamo mostrato empiricamente la
 \begin{theorema}[Legge di Gauss per la magnetostatica]\index{legge!di Gauss!per la magnetostatica}
-	Il flusso del campo magnetostatico $\vba{B}$ attraverso un superficie \textbf{chiusa} è nullo
+	Il flusso del campo magnetostatico $\vba{B}$ attraverso un superficie \textbf{chiusa} è nullo.
 	\begin{itemize}
 		\item \textbf{Forma integrale:}
 		\begin{equation}
-			\Phi_\Sigma(\vba{B})=0\label{LeggeGaussMagnetismoIntegrale}
+			\Phi_\Sigma(\vba{B})=\int_{\Sigma}\vba{B}\vdot \vbh{u}_nd\Sigma=0\label{LeggeGaussMagnetismoIntegrale}
 		\end{equation}
 		\item \textbf{Forma differenziale:}
 		\begin{equation}
@@ -84,11 +86,23 @@ Di conseguenza, abbiamo mostrato empiricamente la
 		\end{equation}
 	\end{itemize}
 \end{theorema}
-La conseguenza immediata della legge di Gauss per il magnetismo è che il campo magnetostatico è un \textbf{campo solenoidale}\footnote{Nelle ‘‘XXX'', a pagina \ref{CampoSolenoidale} è possibile trovare la definizione di campo solenoidale e altre proprietà.}, a differenza del campo elettrostatico che è \textit{conservativo}.
+\begin{demonstration}
+	Deriviamo la forma differenziale. Per il teorema della divergenza si ha
+	\begin{equation*}
+		0=\Phi_\Sigma(\vba{B})=\int_{\Sigma}\vba{B}\vdot \vbh{u}_nd\Sigma=\int_V\div{\vba{B}}
+	\end{equation*}
+	dove $V$ è il volume racchiuso da $\Sigma$, ossia $\partial V=\Sigma$. Poichè tale relazione è vera per ogni volume $V$, si ha l'uguaglianza delle integrande:
+	\begin{equation*}
+		\div{\vba{B}}=0\qedhere
+	\end{equation*}
+\end{demonstration}
+Tale legge è una delle due \textit{equazioni di Maxwell} per la magnetostatica.
+
+Una conseguenza immediata della legge di Gauss per il magnetismo è che il campo magnetostatico è un \textbf{campo solenoidale}\footnote{Nelle ‘‘XXX'', a pagina \ref{CampoSolenoidale} è possibile trovare la definizione di campo solenoidale e altre proprietà.}, a differenza del campo elettrostatico che è \textit{conservativo}.
 \begin{digression}
 	Se, in futuro, si dovessero scoprire i monopoli magnetici, la legge di Gauss per il magnetismo affermerebbe che il flusso del campo magnetico $\vba{B}$ attraverso una superficie chiusa deve essere proporzionale alla \textit{carica magnetica} in essa racchiusa o, in forma differenziale, la divergenza di $\vba{B}$ è proporzionale ad un'apposita \textit{densità di carica magnetica} $\rho_m$. La forma originale della legge di Gauss si otterrebbe in presenza di una densità di carica magnetica \textit{nulla}.
 \end{digression}
-\section{Interazioni con le cariche in moto: gli esperimenti di Oersted e Ampére}
+\section{Interazioni con le cariche in moto}
 Come si è potuto notare, gli studi dei fenomeni magnetici erano inizialmente separati da quell sull'elettricità, dato che i due fenomeni risultavano scorrelati. Ed effettivamente con le nostre conoscenze moderne sappiamo perché: le leggi che descrivono i fenomeni \textit{magnetostatici} sono \textit{indipendenti} da aspetti di natura \textit{elettrica}. Purtuttavia, il sospetto che ci fosse un legame tra elettricità e magnetismo ci fu per diversi secoli, ma per avere dei risultati concreti si dovette aspettare la \textit{corrente elettrica}.
 \subsection{L'esperimento di Oersted}\index{esperimento!di Oersted}
 Il primo ad identificare un legame tra l'elettricità e il magnetismo fu il fisico danese \textbf{Hans Christian Oersted} (1777-1851), che il 21 Luglio 1820 pubblicò le sue scoperte in un libricino di quattro pagine scritto in latino.\\
@@ -104,11 +118,11 @@ Pur non avendo alcun idea del \textit{perché}\footnote{Oestred non parla di cor
 \begin{digression}
 	Fu una sorpresa considerevole per gli scienziati dell'epoca che la direzione della forza fosse \textit{perpendicolare} ad un piano passante per il filo e l'ago, ancor più che la corrente agisse su un ago magnetico. Infatti, sembrava contraddire la legge di gravitazione universale di Newton, la quale afferma che l'attrazione gravitazionale agisce lungo le linee che collega i corpi gravitazionali. Infatti, la legge di Coulomb delle interazioni dei corpi carichi e dei corpi magnetizzati aveva portato ad ipotizzare che anche per tali enti valesse una variante della legge di Newton, in cui le forze agivano sempre lungo le congiungenti dei corpi.
 \end{digression}
-\subsection{L'esperimento di Ampére}\index{esperimento!di Ampére}
-Anche il francese \textbf{Andre Marie Ampére} (1775-1836), che abbiamo incontrato in precedenza nel trattare la corrente elettrica, propose un esperimento analogo nel 1823. % - anche 
-Ampére osservò che due fili paralleli nei quali le corrente scorre nella stessa direzione sono attratti tra di loro, mentre se la corrente è percorsa in senso opposto i fili tendono ad allontanarsi. In entrambi i casi, la forza su un filo è \textit{uguale e contraria} a quella esercitata sull'altro.
+\subsection{L'esperimento di Ampère}\index{esperimento!di Ampère}\label{EsperimentodiAmpere}
+Anche il francese \textbf{Andre Marie Ampère} (1775-1836), che abbiamo incontrato in precedenza nel trattare la corrente elettrica, propose un esperimento analogo nel 1823. % - anche 
+Ampère osservò che due fili paralleli nei quali le corrente scorre nella stessa direzione sono attratti tra di loro, mentre se la corrente è percorsa in senso opposto i fili tendono ad allontanarsi. In entrambi i casi, la forza su un filo è \textit{uguale e contraria} a quella esercitata sull'altro.
 % TO DO: inserire disegno
-Sperimentalmente, si trovò che la \textit{densità lineare} di forza era descritta dalla \textbf{legge di Ampère}\index{legge!di Ampère}
+Sperimentalmente, si trovò che la \textit{densità lineare} di forza era descritta dalla \textbf{legge (della forza) di Ampère}\index{legge! della forza di Ampère}
 \begin{equation}
 	\frac{F}{l}=k\frac{I_1I_2}{r}
 \end{equation}
@@ -122,12 +136,12 @@ dove $\mu_0$ è detta \textbf{permeabilità magnetica del vuoto} ed è definita 
 \end{equation}
 
 È facile immaginare che nell'esperimento di Ampère le correnti fungono da ‘‘cariche magnetiche''. La legge che descrive tale fenomeno è quindi l'equivalente per la magnetostatica della legge di Coulomb per l'elettrostatica.
-\paragraph{Una (obsoleta) definizione dell'ampere}
+\paragraph{Una (obsoleta) definizione dell'ampere} % TO DO: spostare dopo?
 Nel \autoref{chap:correnteElettrica} abbiamo parlato dell'\textit{ampere}, l'unica unità fondamentale che introdurremo in questo testo. Dato che è una delle unità base da cui poter derivare tutte le altre, è necessario darne una \textit{definizione}.
 La prima definizione dell'ampere pre-SI - detto l'‘‘Ampere Internazionale'' - era definito elettrochimicamente come la corrente necessaria per depositare $\SI{1.118}{\milli\gram}$ di argento al secondo da una soluzione di nitrato d'argento. Nel 1939 si propose una definizione migliore - ma tecnicamente diversa, dato che fra le due unità c'era una differenza del $0.015\%$ - che utilizzava proprio l'esperimento di Ampère:
-\begin{center}
-	‘‘L'ampere è quella corrente costante che, se mantenuta in due conduttori  paralleli rettilinei, di lunghezza infinita e sezione circolare trascurabile, posti a un metro l'uno dall'altro nel vuoto, produce tra questi una forza pari a $\SI{2d-7}{\newton}$ per ogni metro di lunghezza''
-\end{center}
+\begin{define}[Ampere (1960)]
+	L'\textbf{ampere}\index{ampere} è quella corrente costante che, se mantenuta in due conduttori paralleli rettilinei, di lunghezza infinita e sezione circolare trascurabile, posti a un metro l'uno dall'altro nel vuoto, produce tra questi una forza pari a $\SI{2d-7}{\newton}$ per ogni metro di lunghezza.
+\end{define}
 La conseguenza di tale definizione fu che la permeabilità magnetica del vuoto era una \textit{costante} ben precisa, pari a
 \begin{equation}
 	\mu_0=4\pi \SI[per-mode = fraction]{d-7}{\newton\per\ampere\squared}
@@ -138,11 +152,11 @@ La conseguenza di tale definizione fu che la permeabilità magnetica del vuoto e
 	\item Altre unità, come il kelvin e l'ampere, erano basati su misure difficilmente realizzabili con precisione in un laboratorio. 
 \end{itemize}
 Si decise quindi di cambiare il focus: il sistema non partiva direttamente dalle sette unità in sè, bensì avrebbe fissato con estrema precisione il valore di sette \textit{costanti fondamentali}, da cui poter ricavare la misura delle unità di base e poi delle derivate in modo consistente e ripetibile in laboratorio. Per tale motivo, quattro delle sette unità fondamentali - il chilogrammo, il kelvin, la mole e, ultimo ma non per importanza, l'ampere - vennero ridefinite. L'ampere, nello specifico, venne definito fissando il valore in ampere per secondo (ossia in coulomb) della carica elementare:
-\begin{center}
-	‘‘L'ampere, simbolo $A$, è l'unità del SI della corrente elettrica. È definito considerando il valore numerico costante della carica elementare pari a $1.602176634\cdot10^{-19}$ quando espresso nell'unità $\unit{\coulomb}$, che equivale a $\unit{\ampere\second}$, dove il secondo è definito in termini di $\Delta \ni_{\textrm{Cs}}$''\footnote{Dove $\Delta \ni_{\textrm{Cs}}$ è il valore fissato della frequenza della radiazione emessa dall'atomo di Cesio 133 nella transizione tra due livelli iperfini (F=4, M=0) e (F=3, M=0) dello stato fondamentale $~^2(1/2)$.'' Parole complesse per dire sostanzialmente che anche il secondo è basato su una costante fisica definita.}
-\end{center}
+\begin{define}[Ampere (2019)]
+	L'\textbf{ampere}\index{ampere}, simbolo $A$, è l'unità del SI della corrente elettrica. È definito considerando il valore numerico costante della carica elementare pari a $1.602176634\cdot10^{-19}$ quando espresso nell'unità $\unit{\coulomb}$, che equivale a $\unit{\ampere\second}$, dove il secondo è definito in termini di $\Delta \ni_{\textrm{Cs}}$.\footnote{Dove $\Delta \ni_{\textrm{Cs}}$ è il valore fissato della frequenza della radiazione emessa dall'atomo di Cesio 133 nella transizione tra due livelli iperfini (F=4, M=0) e (F=3, M=0) dello stato fondamentale $~^2(1/2)$.'' Parole complesse per dire sostanzialmente che anche il secondo è basato su una costante fisica definita.} 
+\end{define}
 Una conseguenza di ciò è che la permeabilità magnetica del vuoto non è più fissata esattamente, ma deve essere ricavata sperimentalmente - anche se il valore di $4\pi \SI[per-mode = fraction]{d-7}{\newton\per\ampere\squared}$ è una buona approssimazione per i calcoli più teorici. In questo testo considereremo la situazione pre-2019, anche solo per una mera questione di semplificazione dei calcoli.
-\section{Forza di Lorentz}
+\section{La forza di Lorentz}
 Dagli esperimenti di Oersted e Ampère sappiamo che si devono necessariamente considerare gli effetti della corrente elettrica nello studio del magnetismo; tuttavia, ci manca ancora una descrizione \textit{qualitativa} delle leggi che descrivono ciò.
 
 All'inizio si pensò che la forza che agiva in questi fenomeni dovesse essere dipendente dalla distanza tra gli oggetti, ma tale approccio si rivelò inconclusivo. Fu solo dopo le teorie delle linee di forza di Faraday e la loro descrizione matematica da parte di Lord Kelvin e James Clark Maxwell che si parlo di tale forza in termini di campo elettrico e magnetico.\\
@@ -159,7 +173,7 @@ Spesso si parla di forza di Lorentz anche per indicare la sola componente della 
 	\vba{F}=q\vba{v}\cross\vba{B}
 \end{equation}
 Da qui in poi ci riferiremo, se non specificato diversamente, a questa seconda interpretazione della legge di Lorentz.
-\paragraph{Lavoro della forza di Lorentz}
+\paragraph{Il lavoro della forza di Lorentz}
 Il lavoro della forza di Lorentz è nullo. Infatti,
 \begin{equation}
 	W=\int \vba{F}\vdot d\vba{s}=\int q\vba{v}\cross\vba{B}\vdot d\vba{s}=0
@@ -169,7 +183,7 @@ dato che lo spostamento infinitesimo è \textit{parallelo} alla velocità della 
 	W=\Delta E_k=\frac{1}{2}mv_{f}^2-\frac{1}{2}mv_{i}^2=0\implies{v_1}^2={v_f}^2
 \end{equation*}
 La forza di Lorentz \textit{non} modifica il modulo della velocità della particella.
-\subsection{Forza di Lorentz con campo magnetico uniforme: il caso perpendicolare alla velocità}
+\subsection{La forza di Lorentz con campo magnetico uniforme: il caso perpendicolare alla velocità}
 Essendo un prodotto vettoriale, nel caso di un campo magnetico uniforme $\vba{B}$ si ha la forza massima se $\vba{v}$ è perpendicolare al campo - in tal caso il modulo della forza è
 \begin{equation*}
 	F=qvB
@@ -208,7 +222,7 @@ Il periodo del moto è
 \begin{equation}
 	T=\frac{2\pi}{\omega}=\frac{2\pi m}{qB}
 \end{equation}
-\subsection{Forza di Lorentz con campo magnetico uniforme: il caso generale}
+\subsection{La forza di Lorentz con campo magnetico uniforme: il caso generale}
 In generale, il modulo della forza di Lorentz risulta
 \begin{equation*}
 	F=qvB\sin\theta=q v_n B
@@ -263,7 +277,7 @@ se $A_1$ e $A_2$ sono le masse atomiche di tali isotopi, allora
 misurando la posizione sul rilevatore ci permette quindi di distinguere la massa e di rapportarle tra di loro.
 \paragraph{Effetto Hall} % heddie hall me lo cerco
 Consideriamo un conduttore, ad esempio a forma di parallelepipedo, messo in un campo magnetico diretto verso $x$.
-%TO DO: immagine
+%TODO: immagine
 In esso, le cariche si muovono con una certa velocità di deriva $\vba{v}_d$, dove
 \begin{equation*}
 	\vba{j}=ne\vba{v}_d
@@ -345,7 +359,7 @@ Come molte altre unità che abbiamo incontrato, i tesla sono ordini di grandezza
 \begin{equation}
 	\SI[exponent-product=\ensuremath{\cdot}]{1}{\text{G}}=\SI[exponent-product=\ensuremath{\cdot}]{d-4}{\tesla}
 \end{equation}
-\section{Seconda legge di Laplace e legge di Biot-Savart} % TO DO: BIOT-SAVART IS GONE
+\section{Seconda legge di Laplace}
 La forza di Lorentz ci permette di quantificare l'interazione tra una particella in movimento e il campo magnetico. Per quanto sia un importantissimo risultato teorico e abbia anche delle immediate applicazioni pratiche (ad esempio per spiegare il funzionamento dei tubi a raggi catodici), ha un problema: generalmente non studiamo singole cariche in movimento, bensì un numero estremamente elevato sotto forma di \textit{corrente elettrica}. La \textbf{seconda legge di Laplace}, che descrive l'interazione magnetica dovuta ad una corrente elettrica costante, fu inizialmente scoperta \textit{ancor prima} della forza di Lorentz con metodi \textit{sperimentali}; noi la deriveremo in via teorica per mezzo della forza di Lorentz.
 
 Ricordiamo che la corrente elettrica che attraversa una porzione di filo è
@@ -388,11 +402,11 @@ In particolare, se il circuito è chiuso,
 	\vba{F}=I\oint d\vba{s}\cross\vba{B}=0
 \end{equation}
 \end{example}
-\begin{observe}
+\begin{example}
 	Consideriamo un lungo circuito elettrico posto su un piano verticale. Una sua parte è immersa in un campo magnetico uniforme $\vba{B}$ uscente dal piano, in modo da formare una sezione a ferro di cavallo come in figura, di larghezza $d$.
 	% TO DO: immagine
 	Se il valore di $d$ è noto, posso misurare la forza magnetica all'equilibrio utilizzando una bilancia.
-\end{observe}
+\end{example}
 \section{Il momento meccanico di un circuito piano in un campo magnetico}
 Consideriamo una \textit{spira} rettangolare di lati $a$ e $b$ percorsa da una corrente $I$, immersa in un campo magnetico $\vba{B}$ uniforme. Chiamiamo $\theta$ l'angolo compreso tra $\vba{B}$ e il versore normale $\vbh{u}_n$ alla superficie racchiusa dalla spira; il verso di $\vbh{u}_n$ è dettato dalla \textbf{regola della vite}.
 \begin{define}[Regola della vite]\index{regola della vite}
@@ -459,7 +473,7 @@ Otteniamo che il momento meccanico della spira rettangolare è
 	\vba{M}=\vba{m}\cross\vba{B}
 \end{equation}
 \subsection{Il caso generale}
-Nel caso di una spira generica immersa in un campo magnetico uniforme sappiamo già che la risultante delle forze è nulla\footnote{Si veda l'esempio a pag. \pageref{RisultateSpiraNulla}}, quindi non abbiamo alcun moto traslatorio. Tuttavia, a meno di casi specifici, c'è un momento meccanico - il cui punto di applicazione è arbitrario, che porta ad una rotazione della spira.
+Nel caso di una spira generica immersa in un campo magnetico uniforme sappiamo già che la risultante delle forze è nulla\footnote{Si veda l'esempio a pag. \pageref{RisultateSpiraNulla}.}, quindi non abbiamo alcun moto traslatorio. Tuttavia, a meno di casi specifici, c'è un momento meccanico - il cui punto di applicazione è arbitrario, che porta ad una rotazione della spira.
 \begin{theorema}[Momento meccanico di una spira]
 	Una spira generica, da intendersi come un circuito piano chiuso di area $\Sigma$, percorsa da corrente costante $I$ e immersa in un campo magnetico uniforme $\vba{B}$ subisce un momento meccanico pari a
 	\begin{equation}
@@ -544,7 +558,7 @@ Per piccole oscillazioni, si ha che $\sin\theta\sim\theta$ e quindi
 	-I\Sigma B\theta=I\dv[2]{\theta}{t}
 \end{equation*}
 \begin{align}
-	\dv[2]{\theta}{t}+\omega^2\theta=0&\text{dove}\ \omega^2=\frac{I\Sigma B}{I}
+	\dv[2]{\theta}{t}+\omega^2\theta=0&&\text{dove}\ \omega^2=\frac{I\Sigma B}{I}
 \end{align}
 e dunque il comportamento ricorda quello di un oscillatore armonico.
 \paragraph{Il principio di equivalenza di Ampère}
@@ -553,341 +567,3 @@ Quanto abbiamo visto ci porta ad affermare quello che chiamiamo \textbf{principi
 	Un circuito elettrico piano immerso in un campo magnetico uniforme si comporta come un dipolo magnetico.
 \end{theoremaqed}% TO DO: cambiare in principio?
 Un magnete si può quindi interpretare come un circuito elettrico con un certo momento di dipolo magnetico $\vba{m}$.
-\section{Flusso del campo magnetico}
-Come già detto, il campo magnetico è \textit{solenoidale}, ossia che la divergenza di esso è nulla:
-\begin{equation*}
-	\div{B}=0
-\end{equation*}
-Ne consegue che, almeno \textit{localmente}, esiste un vettore $\vba{A}$ detto \textbf{potenziale vettore}\index{potenziale!vettore} $\vba{A}$ tale per cui il campo magnetico è il gradiente di $\vba{A}$.
-\begin{equation}
-	\vba{B}=\curl{A}
-\end{equation}
-Questo ci viene in aiuto se vogliamo calcolare il flusso di $\vba{B}$ attraverso una superficie \textit{aperta} $\Sigma$ - per quelle chiuse sappiamo già che è nullo. Supponiamo che il bordo $\partial \Sigma$ sia una curva chiusa; allora
-\begin{align*}
-	\Phi_{\Sigma}(\vba{B})&=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\\
-	&=\int_{\Sigma}\left(\curl{\vba{A}}\right)\vdot\vbh{u}_nd\Sigma=&&\text{(}\vba{B}\ \text{solenoidale)}\\
-	&=\int_{\partial \Sigma}\vba{A}\vdot d\vba{s}=\Gamma_{\Sigma}(\vba{A})&&\text{(teorema di Stokes)}
-\end{align*}
-Quanto trovato è valido in generale per un qualunque campo solenoidale: il flusso tramite una superficie aperta dipende esclusivamente dal \textit{bordo} e \textit{non} dalla superficie in sé. Se prendessi due superfici aperte differenti, ma con lo stesso bordo, avremmo lo stesso flusso.
-
-Noto ciò, vorremmo ora \textit{generalizzare} ancora di più quanto visto nelle sezioni precedenti: dato un circuito qualunque percorso da corrente e immerso in un campo magnetico, vorremo esprimere la forza che agisce, l'energia potenziale, il lavoro del campo magnetico e quant'altro in termini di \textit{flusso}, in modo da utilizzare poi la dipendenza del flusso nei confronti del bordo.
-
-Dato un circuito chiuso $\gamma$, scegliamo una superficie $\Sigma$ arbitraria con bordo $\partial \Sigma=\gamma$. Vorremmo calcolare il gradiente del flusso:
-\begin{equation*}
-	\grad{\Phi_\Sigma(\vba{B})}=\grad{\Gamma_{\partial\Sigma}(\vba{A})}
-\end{equation*}
-Invece che calcolare il gradiente della circuitazione vera e propria di $\vba{A}$, ossia
-\begin{equation}
-	\grad{\Gamma_{\partial\Sigma}(\vba{A})}=\grad{\int_{\partial\Sigma}\vba{A}\vdot d\vba{s}},
-\end{equation}
-ci conviene prima calcolare il gradiente della circuitazione \textit{infinitesima} $\vba{A}\vdot d\vba{s}$ per poi integrare lungo $\partial\Sigma$.
-Si osservi che per il gradiente di un prodotto scalare tra vettori vale la formula per nulla immediata
-\begin{equation}
-	\grad{\vba{A}\vdot\vba{B}}=\left(\vba{A}\vdot\grad\right)\vba{B}+\left(\vba{B}\vdot\grad\right)\vba{A}+\vba{A}\cross\left(\grad\cross\vba{B}\right)+\vba{B}\cross\left(\grad\cross\vba{B}\right)
-\end{equation}
-Se consideriamo nel nostro caso come vettori $\vba{A}$ e lo spostamento infinitesimo $d\vba{s}$ della curva $\partial \Sigma$, otteniamo
-\begin{equation*}
-	\grad{\vba{A}\vdot d\vba{s}}=\left(\vba{A}\vdot\grad\right)d\vba{s}+\left(d\vba{s}\vdot\grad\right)\vba{A}+\vba{A}\cross\left(\grad\cross d\vba{s}\right)+d\vba{s}\cross\left(\grad\cross d\vba{s}\right)
-\end{equation*}
-Posta $\vba{r}$ la parametrizzazione di $\partial \Sigma$, si ha
-	\begin{equation*}
-		\pdv{x} d\vba{s}=
-		\pdv{y} d\vba{s}=
-		\pdv{z} d\vba{s}=0
-		\end{equation*} % TO DO: perchè scusi?
-Noto che lo spostamento infinitesimo della curva $\partial \Sigma$ è
-	\begin{equation*}
-		d\vba{s}=\dv{\vba{r}}{t}dt,
-	\end{equation*}
-	vale
-	\begin{equation*}
-		\pdv{q^i} d\vba{s}=
-		\pdv{q^i} \dv{\vba{r}}{t}dt=
-		\dv{t} \pdv{\vba{r}}{q^i}dt=0
-	\end{equation*}
-dove $q^1=x$, $q^2=y$, $q^3=z$.
-Di conseguenza,
-\begin{equation*}
-\begin{cases}
-	\left(\vba{A}\vdot\grad\right)d\vba{s}=A_x\pdv{x} d\vba{s}+A_y\pdv{y} d\vba{s}+A_z\pdv{z} d\vba{s}=0\\
-	\curl{d\vba{s}}=0
-\end{cases}
-\end{equation*} % TO DO: inserire curl esplicito
-Ci interessano solo le derivate applicate al vettore potenziale $\vba{A}$:
-\begin{equation*}
-	\grad{\left(\vba{A}\cdot d\vba{s}\right)}=\left(d\vba{s}\vdot\grad\right)\vba{A}+d\vba{s}\cross\left(\grad\cross\vba{A}\right)
-\end{equation*}
-Calcoliamo la circuitazione di $\vba{A}$ facendo l'integrale curvilineo lungo il circuito $\partial \Sigma$:
-+\begin{equation}
-	\oint\grad{\left(\vba{A}\vdot d\vba{s}\right)}=\oint \left(d\vba{s}\vdot\grad\right)\vba{A}+\oint d\vba{s}\cross\left(\grad\cross\vba{A}\right)
-\end{equation}
-Osserviamo che, data una funzione scalare arbitraria $\oldphi$, vale
-\begin{equation*}
-	\left(d\vba{s}\vdot\grad\right)\phi=\pdv{\phi}{x}\pdv{x}{t}dt+\pdv{\phi}{y}\pdv{y}{t}dt+\pdv{\phi}{z}\pdv{z}{t}dt=\dv{t} \left(\phi(\vba{r}(t))\right)
-\end{equation*}
-e dunque
-\begin{equation}
-	d\vba{s}\vdot\grad=\left(\dv{\vba{r}}{t}\vdot\grad\right)dt
-\end{equation}
-Di conseguenza, $d\vba{s}\vdot\grad$ agisce su ciascuna componente di $\vba{A}$ come \textit{derivata totale} e di conseguenza, integrando su una curva chiusa, l'integrale risulta nullo; segue che il primo termine è nullo. Ricaviamo quindi
-\begin{equation*}
-	\grad{\Phi_{\Sigma}(\vba{B})}=\grad{\Gamma_{\partial \Sigma}(\vba{A})}=\oint d\vba{s}\cross\left(\grad\cross\vba{A}\right)=\oint d\vba{s}\cross\vba{B}
-\end{equation*}
-Ma quella che abbiamo ottenuta è la forza di Laplace divisa per l'intensità di corrente $I$ stazionaria. Nella condizione in cui $I$ sia stazionaria, allora
-\begin{equation}
-	\vba{B}=I\int_{\gamma}d\vba{s}\cross\vba{B}=I\grad{\Phi_{\Sigma}(\vba{B})}
-\end{equation}7
-\paragraph{Energia potenziale}
-Poiché la forza è espressa come \textit{gradiente} di una quantità scalare, l'energia potenziale è l'opposta di tale quantità:
-\begin{equation}
-U_P=-I\Phi_{\Sigma}(\vba{B})
-\end{equation}
-In sintesi:
-\begin{align}
-	\vba{F}=&-\grad{U_P}
-	U_P=&-I\Phi_{\Sigma}(\vba{B})
-\end{align}
-In particolare, se il campo magnetico $\vba{B}$ è uniforme, allora
-\begin{align*}
-	\Phi_{\Sigma}(\vba{B})&=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\vba{B}\vdot\vbh{u}_n \Sigma\\
-	&\implies U_P=I\Sigma \vbh{u}_n \vdot \vba{B}=-\vba{m}\vdot\vba{B}. 
-\end{align*}
-che, effettivamente, coincide con quanto abbiamo visto a pagina \pageref{EnergiaPotenzialeCasoGeneralemanontroppo}.
-\paragraph{Lavoro per spostare il circuito}
-Il circuito percorso da corrente, essendo soggetto alla forze di Laplace, si muove e si deforma. Ci si aspetterebbe di incontrare degli attriti, ma così non è, come mai?\\
-Supponiamo che il campo magnetico $\vba{B}$ sposti un circuito lungo un percorso $\eta$ dallo stato $A$ allo stato $B$, deformandolo al contempo. Allo stato $A$ il circuito corrisponde alla curva $\gamma_A$, mentre allo stato $B$ alla curva $\gamma_B$. Il lavoro compiuto dal campo magnetico per spostare il circuito è
-\begin{align*}
-	W&=\int_{\eta}\vba{F}\vdot d\vba{s}=-\int_{\eta}\grad{U_P}\vdot d\vba{s}=&&\\
-	&=-\Delta{U_P})=U_P(A)-U_P(B)&&\text{(teorema del gradiente)}
-\end{align*}
-dove $U_P(A)$ è il potenziale allo stato iniziale $A$ e $U_P(B)$ quello allo stato finale $B$. Oltre a non avere alcun attrito, dato che il lavoro è una differenza di energia potenziale senza dispersione, si ha anche che
-\begin{equation}
-	W=I(\Phi_{\Sigma_B}(\vba{B})-\Phi_{\Sigma_A}(\vba{B}))=I\left(\Gamma_{\gamma_B}(\vba{A})-\Gamma_{\gamma_A}(\vba{A})\right)
-\end{equation}
-dove $\Sigma_A,\ \Sigma_B$ sono superficie arbitrarie con bordo i circuiti $\gamma_A,\ \gamma_B$, rispettivamente.
-
-Di fatto, il circuito elettrico è l'equivalente per il lavoro magnetostatico a quello che la particella elettrica fa nel lavoro elettromagnetico: alla carica corrisponde l'intensità di corrente, mentre alla differenza di potenziale corrisponde la differenza di circuitazione del potenziale vettore.
-
-Per un campo magnetico uniforme sappiamo che la forza di Laplace su un circuito chiuso è \textit{nulla}, quindi anche il lavoro compiuto è \textit{nullo}.
-\subsection{Un esempio: la spira circolare vicino al magnete cilindrico}
-Consideriamo un \textit{magnete cilindrico} con asse lungo l'asse $z$; poniamo nello spazio una spira circolare $\gamma$, percorsa da corrente, in modo da essere parallela alla faccia orizzontale del magnete e tale per cui il centro della spira stia sull'asse $z$.
-% TO DO: immagine
-Per ovvi motivi, poniamoci nelle coordinate cilindriche:
-\begin{equation*}
-	\begin{cases}
-		x=R\sin\theta\\
-		y=R\cos\theta\\
-		z=z
-	\end{cases}
-\end{equation*}
-Possiamo parametrizzare la spira di raggio $R=R_0$ e quota $z=z_0$ (inizialmente) fissati con
-\begin{equation*}
-	\vba{r}(\phi)=\left(x(\phi),y(\phi),z(\phi)\right)=\left(R_0\cos\phi,\ R_0\sin\phi, z_0\right)=
-\end{equation*}
-Uno spostamento infinitesimo in coordinate cilindriche sarebbe\footnote{	Nelle ‘‘XXX'', a pagina \pageref{spinfinitesimocilindriche} è possibile trovare come si calcola.}
-\begin{equation}
-	d\vba{s}=dR\vbh{u}_R+Rd\theta\vbh{u}_\theta+dz\vbh{u}_z
-\end{equation}
-Nel nostro caso, poiché $R=R_0$ e $z=z_0$ sono inizialmente fissi, si ha solo la variazione infinitesima $d\theta$ e quindi
-\begin{equation}
-	d\vba{s}=Rd\theta\vbh{u}_\theta
-\end{equation}
-Il campo magnetico $\vba{B}$ ha simmetria assiale rispetto all'asse $z$ e si può scomporre come
-\begin{equation}
-	\vba{B}=B\cos\phi\vbh{u}_z+B\sin\phi\vbh{u}_r
-\end{equation}
-dove $\phi$ è l'angolo tra l'asse $z$ e il campo. Calcoliamoci la forza: per la seconda legge di Laplace
-\begin{equation*}
-	\vba{F}=I\int d\vba{s}\cross\vba{B}
-\end{equation*}
-Per la regola della mano destra avremo come direzione e verso della forza quello in figura, ortogonale sia a $d\vba{s}$ che a $\vba{B}$.
-% TO DO: inserire figura
-Ci si aspetta che sul piano orizzontale della spira le forze si compensino, mentre che le altre forze siano dirette verso il basso e a causa di esse la spira venga quindi ‘‘risucchiata'' verso il basso. Facendo i dovuti calcoli,
-\begin{equation*}
-	\vba{F}=I\int d\vba{s}\cross\vba{B}=IR\int\vbh{u}_{\theta}\cross\left(B\cos\phi\vbh{u}_z+B\sin\phi\vbh{u}_r\right)d\theta\squarequal
-\end{equation*}
-Poiché
-\begin{align*}
-	\vbh{u}_{\theta}\cross\vbh{u}_{z}=\vbh{u}_R&&
-	\vbh{u}_{\theta}\cross\vbh{u}_{R}=\vbh{u}_z
-\end{align*}
-si ha
-\begin{equation*}
-\squarequal IR\int \left(B\cos\phi\vbh{u}_R-B\sin\phi\vbh{u}_z\right)d\theta\squarequal
-\end{equation*}
-Osserviamo che per simmetria cilindrica lungo la spira $B$ e $\phi$ devono essere costanti, dunque anche $\cos\phi$ e $\sin\phi$ lo sono:
-\begin{equation*}
-\squarequal IRB\cos\phi\int \vbh{u}_Rd\theta-B\sin\phi\int\vbh{u}_zd\theta
-\end{equation*}
-Si osservi che
-\begin{itemize}
-	\item $\displaystyle\int\vbh{u}_Rd\theta=0$. Ci sono due modi per convincersi che sia così: o per ragioni di simmetria, dato che ogni versore ha un versore opposto e quindi integrando su un giro completo dell'angolo $\theta$ si annullano tutti, oppure integrando il versore rispetto a $\theta$, noto che $\vbh{u}_R=\left(\cos\theta,\sin\theta\right)$. 
-	\item $\displaystyle\int\vbh{u}_zd\theta=\vbh{u}_z\int d\theta=2\pi\vbh{u}_z$, dato che $\vbh{u}_z$ è costante.
-\end{itemize}
-Segue quindi che la forza subita dalla spira è diretta verso il basso, come previsto:
-\begin{equation}
-	\vba{F}=-2\pi R I B\sin\phi\vbh{u}_z
-\end{equation}
-Vorremmo ora calcolare questa $\vba{F}$ come
-\begin{equation*}
-	\vba{F}=I\grad{\Phi_{\Sigma}(\vba{B})}
-\end{equation*}
-Per farlo, usiamo un trucco: consideriamo, in aggiunta alla spira circolare, un'altra spira \textit{immaginaria} posta ad altezza $\Delta z$; sfrutteremo che il flusso tramite questa superficie cilindrica individuata dalle spire è nullo. Indichiamo con
-\begin{itemize}
-	\item $\Sigma$ la superficie individuata dalla spira originale (base inferiore del cilindro).
-	\item $\Sigma'$ la superficie individuata dalla spira immaginaria (la base superiore del cilindro).
-	\item $\sigma$ la superficie laterale del cilindro.
-\end{itemize}
-Scegliamo un'orientazione di $\vbh{u}_n$ in modo che sia uscente dal cilindro.
-% nelle note: il flusso della superficie attraversi il circuito nella stessa direzione sia sopra, sia sotto.
-In questo caso, poniamo il versore normale di $\Sigma'$ nella direzione positiva dell'asse $z$ e quello di $\Sigma$ uguale e contrario. Allora
-\begin{equation*}
-	\Phi_{\Sigma+\Sigma'+\sigma}(\vba{B})=\Phi_{\Sigma'}(\vba{B})-\Phi_{\Sigma}(\vba{B})+\Phi_{\sigma}(\vba{B})=0
-\end{equation*}
-Il flusso relativo alle basi si può vedere una funzione della quota $z$:
-\begin{equation*}
-	\funztot[\Phi]{\realset}{\realset}{z}{\Phi(z)=\Phi_{\Sigma(z)}(\vba{B})}
-\end{equation*}
-dove $\Sigma(z)$ è l'area contenuta in una spira circolare di raggio $R_0$ a quota $z$. Allora:
-\begin{align*}
-	\Phi_{\Sigma}(\vba{B})=\Phi(z)&&\Phi_{\Sigma'}(\vba{B})=\Phi(z+\Delta z)
-\end{align*}
-Calcoliamo la derivata di tale funzione:
-\begin{equation*}
-	\pdv{\Phi_{\Sigma}}{z}=\lim_{\Delta z\to 0}\frac{\Phi_{\Sigma'}(\vba{B})-\Phi_{\Sigma}(\vba{B})}{\Delta z}=\lim_{\Delta z\to 0}\frac{-\Phi_{\sigma}(\vba{B})}{\Delta z}\squarequal
-\end{equation*}
-Si osservi che
-\begin{align*}
-	\Phi_{\sigma}(\vba{B})&=\int_{\sigma}\vba{B}\vdot\vbh{u}_nd\sigma)=&&\\
-	&=\int_{\sigma}B\vdot\vbh{u}_Rd\sigma&&\text{(versore della sup. laterale)}\\
-	&=\int_{\sigma}\left(B\cos\phi\vbh{z}+B\sin\phi\vbh{u}_R\right)\vdot\vbh{u}_Rd\sigma=&&\\
-	&=\int_{\sigma}B\sin\phi d\sigma=&&\\
-	&=B\sin\phi\int_{\sigma}d\sigma=&&\text{(}B\sin\phi\ \text{costante su}\ \sigma\ \text{per}\ \Delta z\to 0\text{)}\\
-	&=2\pi R \Delta z B\sin\phi&&
-\end{align*}
-Si ottiene infine
-\begin{equation*}
-	\squarequal\lim_{\Delta z\to 0}\frac{-2\pi R \Ccancel[red]{\Delta z} B\sin\phi}{\Ccancel[red]{\Delta z}}=-2\pi R B\sin\phi
-\end{equation*}
-ossia
-\begin{equation}
-	\vba{F}=-2\pi IRB\sin\phi\vbh{u}_z=I\pdv{\Phi_{\Sigma}}{z}\vbh{u}_z
-\end{equation}
-\begin{observe}
-	Abbiamo calcolato la forza tramite il flusso \textit{traverso}, cioè quello della superficie laterale, senza calcolare in realtà il flusso del cilindro.
-\end{observe} % TO DO: che osservazione del piffero.
-\subsection{Unità di misura del flusso del campo magnetico}
-L'unità di misura del flusso del campo magnetico si può derivare in diversi modi. Dalla definizione di flusso stesso, si ha
-\begin{equation*}
-	\left[\Phi_{\Sigma}(\vba{B})\right]=\left[\vba{B}\right]\left[\Sigma\right]=\unit[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{\tesla\meter\squared}
-\end{equation*}
-Alternativamente, poiché il flusso è legato all'energia potenziale dalla legge
-\begin{equation*}
-	U_p=-I\Phi_{\Sigma}(\vba{B})
-\end{equation*}
-si ha anche
-\begin{equation*}
-	\left[\Phi_{\Sigma}(\vba{B})\right]=\frac{\left[U_P\right]}{\left[I\right]}=\unit[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{\joule\per\ampere}
-\end{equation*}
-\begin{units}~\\
-	\textbf{\textsc{Flusso magnetico:}} weber ($\unit{\weber}$).\\
-	\textit{\textbf{Dimensioni:}} $\left[\Phi_{\Sigma}(\vba{B})\right]=\left[\vba{B}\right]\left[\Sigma\right]=\mathsf{M}\mathsf{L}^2 \mathsf{T}^{-2}  \mathsf{I}^{-1}$
-\end{units}
-\section{Prima legge di Laplace, o legge di Biot-Savart}
-L'esperimento di Ampére, di cui abbiamo parlato ormai molte pagine fa, ci mostrò che due fili percorsi da corrente venivano attratti - o respinti - da forze di natura magnetica. Grazie alla forza di Lorentz ora sappiamo \textit{come} questi fili potevano muoversi: la corrente che percorre ciascun filo genera un campo magnetico che agisce sulle cariche in movimento dell'altro filo, creando una forza su di esse che sposta di conseguenza il filo. Ci rimane un tassello di questo puzzle: qual è il campo magnetico generato dal filo?
-
-\subsection{Campo magnetico generato da cariche puntiformi in moto}
-Procediamo con calma. Innanzitutto, sebbene sia difficilmente osservabile, anche una singola carica in movimento con velocità $\vba{v}$ è in grado generare un campo magnetico. Tale campo $\vba{B}$ soddisfa, nel suo piccolo, alcune proprietà incontrate nell'esperimento di Ampère:
-\begin{itemize}
-	\item Se la carica non è in movimento, non si ha alcun campo; dobbiamo supporre che $\vba{B}$ debba dipendere dalla velocità.
-	\item Se il campo agisce su un'altra carica in movimento, la cui velocità ha direzione parallela a $\vba{v}$, la forza di Lorentz che ne consegue deve essere tale da risultare attrattiva se i versi delle velocità sono concordi e repulsiva se sono discordi. 
-\end{itemize}   Inolt \\
-Fu \textbf{Oliver Heaviside} nel 1888 a derivare, dalle leggi di Maxwell, la legge matematica che descrive il campo magnetico generato da una singola carica in movimento:
-\begin{equation}
-	\vba{B}=\frac{\mu_0}{4\pi}\frac{q\vba{v}\cross\vbh{u}_r}{r^2}
-\end{equation}
-La prima cosa che notiamo è che a tutti gli effetti tale legge soddisfa quanto supposto ed osservato: il campo magnetico \textit{dipende} dalla velocità, mentre il prodotto vettoriale garantisce la seconda osservazione.
-
-\begin{example}
-	Per capire meglio la presenza del prodotto vettoriale consideriamo la seguente situazione: due particelle $1$ e $2$ in moto, entrambe con velocità $\vba{v}$ concorde e parallele, sono attratte l'un l'altra da forze di Lorentz  uguali e contrarie. La forza che subisce la particella 2 è dovuta all'azione del campo magnetico $\vba{B}_1$ generato dalla prima:
-	\begin{equation*}
-		\vba{F}_{2,1}=q_2\vba{v}_2\cross\vba{B}_1
-	\end{equation*}
-% TO DO: disegno
-	Supponendo che le cariche siano negative, per avere che $\vba{F}_{2,1}$ sia attrattiva (cioè diretta verso la particella 1), per la regola della mano destra $\vba{B}_1$ deve essere entrante il piano dove viaggiano le particelle. Allora, il prodotto vettoriale di $\vba{v}$ per il versore $\vbh{u}_r$ diretto da 1 a 2 permette a $vba{B}_1$ di avere verso entrante.
-\end{example}
-% TO DO: check this, not so sure
-\begin{observe}
-	Una carica in movimento genera sia un campo elettrico, sia un campo magnetico. In particolare, il campo elettrico si distribuisce radialmente con centro la carica, mentre quello magnetico è tangenziale a circonferenze perpendicolari alla velocità e con centro sulla retta su cui essa giace.
-\end{observe}
-Si noti che l'espressione del campo magnetico
-\begin{equation}
-	\vba{B}=\frac{\mu_0}{4\pi}\frac{q\vba{v}\cross\vbh{u}_r}{r^2}
-\end{equation}
-e quella del campo elettrico
-\begin{equation}
-	\vba{E}=\frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\vbh{u}_r
-\end{equation}
-generati della particella sono così simili da essere collegati tra di loro dalla relazione
-\begin{equation}
-	\vba{B}=\mu_0\epsilon_0\vba{v}\cross\vba{E}
-\end{equation}
-Poiché, dimensionalmente parlando, si ha
-\begin{equation*}
-	\left[\epsilon_0\right]=\frac{1}{4\pi\left[F\right]}\frac{\left[q\right]^2}{\left[r\right]^2}=\unit[per-mode = fraction]{\coulomb\squared\per\meter\squared\per\newton}
-\end{equation*}
-e
-\begin{equation*}
-	\left[\mu_0\right]=\unit[per-mode = fraction]{\newton\second\squared\per\coulomb\squared},
-\end{equation*}
-il loro prodotto ha dimensioni
-\begin{equation*}
-	\left[\epsilon_0\mu_0\right]=\unit[per-mode = fraction]{\second\squared\per\meter\squared},
-\end{equation*}
-pari a quelle di un inverso di un quadrato di una velocità. Ma non stiamo parlando di una velocità qualunque, bensì della \textit{velocità della luce}! Infatti,
-\begin{equation*}
-	c=\SI[per-mode = fraction]{3d8}{\meter\per\second}=\frac{1}{\sqrt{\epsilon_0\mu_0}}
-\end{equation*}
-La relazione di cui sopra tra campo elettrico $\vba{E}$ e campo magnetico $\vba{B}$ di una particella carica in moto a velocità $\vba{v}$ si riscrive quindi come
-\begin{equation}
-	\vba{B}=\frac{1}{c^2}\vba{v}\cross\vba{E}
-\end{equation}
-Perché però compare la velocità della luce? Facendo un piccolissimo spoiler, i fenomeni elettromagnetici sono legati a fenomeni di natura ondulatoria con velocità di propagazione pari a quelli della luce.
-\subsection{Campo magnetico generato da un filo}
-Sebbene abbiamo visto cosa succede per una particella, una singola carica in movimento non fa una corrente stazionaria - ma tante sì. Supponiamo di avere un elemento di filo infinitesimo percorso da corrente stazionaria di intensità $I$; le cariche si spostano con velocità di deriva $\vba{v}_d$. Per ciascuna singola carica il campo magnetico generato è
-\begin{equation}
-	\vba{B}_i=\frac{\mu_0}{4\pi}\frac{e\vba{v}_d\cross\vbh{u}_r}{r^2}
-\end{equation}
-Se nel volumetto ci sono $N$ cariche, si ha una densità di cariche pari a
-\begin{equation*}
-	n=\frac{dN}{dV}
-\end{equation*}
-Se sommiamo - con continuità - rispetto a tutte le cariche nel volumetto, il campo magnetico complessivo sarà dato da
-\begin{equation*}
-	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{e\vba{v}_d\cross\vbh{u}_r}{r^2}dN=\frac{\mu_0}{4\pi}\int_V\frac{ne\vba{v}_d\cross\vbh{u}_r}{r^2}dV
-\end{equation*}
-Ricordando che $\vba{j}=ne\vba{v}_d$, allora
-\begin{equation*}
-	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{\vba{j}\cross\vbh{u}_r}{r^2}dV
-\end{equation*}
-% bla bla bla confronto con il campo elettrico
-Consideriamo il caso di un filo rettilineo  $\mathcal{l}$: un suo volumetto infinitesimo ha spessore costante $d\Sigma$ e lunghezza $ds$. Se poniamo il filo lungo l'asse $x$ senza perdita di generalità, la densità di corrente è anch'essa parallela all'asse $x$, ossia
-\begin{equation*}
-	\vba{j}=j\vbh{u}_x
-\end{equation*}
-Il campo magnetico sarà
-\begin{equation*}
-	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{\vba{j}\cross\vbh{u}_r}{r^2}d\Sigma ds=\frac{\mu_0}{4\pi}\int_{\mathcal{l}}j\Sigma\frac{\vbh{u}_x\cross\vbh{u}_r}{r^2}=\frac{\mu_0}{4\pi}\int_{\mathcal{l}}I\frac{\vbh{u}_x\cross\vbh{u}_r}{r^2}ds
-\end{equation*}
-Osserviamo che in questo caso $d\vba{s}=ds\vba{u}_x$. Generalizziamo quanto trovato.
-
-\begin{define}[Seconda legge di Laplace]
-	La \textbf{legge di Biot-Savart}\index{legge!di Biot-Savart}, detta anche \textbf{prima legge di Laplace}\index{leggi di Laplace!prima}, afferma che il campo magnetico prodotto da una corrente stazionaria $I$ che percorre un generico filo $\gamma$ è
-	\begin{equation*}
-		\vba{B}=\frac{\mu_0}{4\pi}\int_{\gamma}\frac{d\vba{s}\cross\vbh{u}_r}{r^2}
-	\end{equation*}
-	dove $d\vba{s}$ è lo spostamento infinitesimo lungo la curva $\gamma$.
-\end{define}
-\begin{examplewt}[Filo rettilineo di lunghezza {$2a$}]
-	content
-\end{examplewt}
