@@ -173,7 +173,7 @@ I nodi possono essere proiettati su un piano $\realset^2$; tale proiezione è qu
 \begin{example}~
 	\begin{itemize}
 		\item $\textrm{lk}(\gamma_1,\gamma_2)=\pm 1$ %TODO: immagine
-		\item $\textrm{lk}(\gamma_1,\gamma_2)=\pm 1$ %TODO: immagine
+		\item $\textrm{lk}(\gamma_1,\gamma_2)=\pm 2$ %TODO: immagine
 	\end{itemize}
 \end{example}
 La circuitazione del campo magnetico lungo una curva si può quindi scrivere in funzione del linking number della curva lungo cui si calcola e del circuito che genera il campo:
@@ -310,7 +310,7 @@ Adesso useremo la legge di Ampére per ricavare il \textit{campo magnetico}, in 
 	Sebbene le \textit{leggi di Gauss} per l'\textit{elettricità} e per il \textit{magnetismo} siano valide anche se i campi elettrici e magnetici sono variabili nel tempo, lo stesso non si può dire per le \textit{leggi di Faraday} e di \textit{Ampère}: dovremo aggiungere a ciascuna un opportuno termine \textit{dipendente dal tempo}.\\
 	Una conseguenza di ciò che esploreremo meglio successivamente è che il campo elettrico dipendente dal tempo \textit{non} è più conservativo; il campo magnetico, invece, resta sempre solenoidale.
 \end{observe}
-\subsection{Invarianza di gauge nell'elettromagnetostatica}
+\subsection{Invarianza di gauge nell'elettromagnetostatica}\label{invarianzagauge}
 Nel \autoref{chap:PotenzialeElettrico}, sezione \ref{EqPoissonSezione}, abbiamo parlato delle equazioni di Poisson e di Laplace:
 \begin{itemize}
 	\item \textbf{Equazione di Poisson} (caso non omogeneo, $\rho\neq 0$):
@@ -334,11 +334,11 @@ che, sviluppando, risulta
 \end{equation*}
 Ci è oramai ben noto che il potenziale scalare $V$ è sempre definito a \textit{meno di costante}. Infatti, quello che conta - anche dal punto di vista fisico - è la \textit{differenza di potenziale}. In termini più rigorosi, quando parliamo del potenziale quello che stiamo facendo è prendere un opportuno \textit{rappresentante} dalla classe di equivalenza $\left[V\right]$, ottenuta dalla relazione
 \begin{align*}
-	V\sim V+a && \text{dove}\ a\in\realset
+	V\sim V+a \qquad \text{dove}\ a\in\realset
 \end{align*}
-Nel caso del vettore potenziale si verifica una situazione analoga. Data una \textit{funzione scalare} $\oldphi$, $\vba{A}$ è definito \textit{a meno di gradiente}. In termini di classi di equivalenza, $\vba{A}$ è il rappresentante della classe $\left[\vba{A}\right]$ data dalla relazione
+Nel caso del vettore potenziale si verifica una situazione analoga. Data una \textit{funzione scalare} $\oldphi$, $\vba{A}$ è definito \textit{a meno di gradiente}. In termini di classi di equivalenza, $\vba{A}$ è il rappresentante della classe $[\vba{A}]$ data dalla relazione
 \begin{align*}
-	\vba{A}\sim \vba{A}+\grad{\phi} && \text{dove}\ \funz[\phi]{\realset^3}{\realset}
+	\vba{A}\sim \vba{A}+\grad{\phi} \qquad \text{dove}\ \funz[\phi]{\realset^3}{\realset}
 \end{align*}
 Infatti, si vede che il campo magnetico resta invariato:
 \begin{equation*}

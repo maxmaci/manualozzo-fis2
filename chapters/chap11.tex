@@ -5,7 +5,7 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Onde}
+\chapter{Oscillazioni elettriche e correnti alternate}
 \labelChapter{onde}
 \begin{introduction}
 	‘‘onde ondine ondette''
@@ -16,3 +16,520 @@
 \lettrine[findent=1pt, nindent=0pt]{C}{ome iniziano le onde?} 
 %LEZ 21, 07/04/2022
 
+\section{Circuiti RLC}
+\begin{observe}
+	Sia per il circuito $RC$, sia per il circuito $RL$, l'equazione che descrive la corrente nel \textit{processo di scarica} è un'equazione differenziale lineare a coefficienti costanti della forma
+	\begin{equation*}
+		\dv{I}{t}=-kI
+	\end{equation*}
+	dove $K$ dipende dalla componente del circuito:
+	\begin{itemize}
+		\item Se il circuito è $RC$, allora $k=\dfrac{1}{RC}$.
+		\item Se il circuito è $RL$, allora $k=\dfrac{R}{L}$
+	\end{itemize}
+	La soluzione generale è
+	\begin{equation}
+		I(t)=Ae^{-kt}
+	\end{equation}
+	dove $A$ è determinata dalla condizione iniziale. Si osservi che, in entrambi i casi, la costante $k$ è l'inverso del tempo caratteristico del circuito
+	\begin{equation}
+		\tau=\frac{1}{k}
+	\end{equation}
+	e quindi è dimensionalmente una frequenza.
+\end{observe}
+\begin{define}[Circuito RLC]
+	Un \textbf{circuito RLC}\index{circuito!RLC} è un circuito che presenta \textit{resistori}, \textit{induttori} e \textit{condensatori}.
+	\begin{center}		
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [capacitor, C=$C$, v=$V_C$] (0,2.5)
+			to [resistor, R=$R$, v=$V_R$] (2.5,2.5)
+			to [inductor, L=$L$, v=$\mathcal{E}_i$] (2.5,0)
+			to [switch, label=$t<0$, mirror] (0,0)
+			-- (0,0.1);
+			\draw (1,0) to[short, *-] (1,0);
+		\end{tikzpicture}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [capacitor, C=$C$, v=$V_C$, i=$I$] (0,2.5)
+			to [resistor, R=$R$, v=$V_R$] (2.5,2.5)
+			to [inductor, L=$L$, v=$\mathcal{E}_i$] (2.5,0)
+			-- (0,0) %to [switch, label=$t>0$, mirror] (0,0)
+			%-- (0,0) node [midway, below] (TextNode) {$t>0$}
+			-- (0,0.1);
+			\draw (1,0) to[short, *-] (1,0);
+			\node at (1.25,-0.5) {$t>0$};
+			\node at (1.25,-0.6) {$ $};
+		\end{tikzpicture}
+	\end{center}
+\end{define}
+La peculiarità di un circuito $RLC$ è che può funzionare da solo \textit{senza la presenza di un generatore}!
+
+Consideriamo il caso semplice di un circuito $RLC$ in serie, dotato di un interruttore \textit{inizialmente aperto}, un resistore, un induttore e un condensatore carico. Al tempo $t=0$ viene chiuso l'interruttore: la differenza di potenziale ai capi del conduttore permette a della corrente di percorrere il circuito e attraversare l'induttore, generando una forza elettromotrice autoindotta
+\begin{equation*}
+	\mathcal{E}_i=-L\dv{I}{t}
+\end{equation*}
+che si opposte a quella $V_C$ del condensatore. Inoltre la corrente, attraversando il resistore, genera un calo di potenziale. Dalla seconda legge di Kirchhoff, fissato come verso di percorrenza quello della corrente $I$, la somma delle \ddp è
+\begin{align*}
+	V_C+V_L-V_R=0\\
+	\frac{q}{C}-L\dv{I}{t}-RI=0
+\end{align*}
+Derivando rispetto a $t$, noto che $I=-\dv{q}{t}$, si ha
+\begin{equation*}
+	\frac{I}{C}-L\dv[2]{I}{t}-R\dv{I}{t}=0
+\end{equation*}
+\begin{equation*}
+	\dv[2]{I}{t}+\frac{R}{L}\dv{I}{t}+\frac{I}{C}=0\label{RLCEqDiff1}
+\end{equation*}
+Se nei \textit{processi di scarica} dei circuiti $RC$ e $RL$ la corrente si otteneva come soluzione di un equazione differenziale del prim'ordine, la corrente che scorre nel circuito $RLC$ in serie è invece la soluzione di un'\textit{equazione differenziale lineare del secondo ordine}. Se denotiamo i coefficienti costanti dell'equazione differenziali
+\begin{align}
+	\gamma\coloneqq\frac{R}{2L}&&\omega_0\coloneqq\frac{1}{\sqrt{LC}}
+\end{align}
+detti rispettivamente \textbf{coefficiente di smorzamento}\index{coefficiente!di smorzamento} e \textbf{pulsazione propria}\index{pulsazione propria}, la legge \eqref{RLCEqDiff1} si scrive come
+\begin{equation}
+	\dv[2]{I}{t}+2\gamma\dv{I}{t}+\omega_0I=0\label{RLCEqDiff2}
+\end{equation}
+Si tratta della stessa equazione dell'\textit{oscillatore armonico smorzato}.
+\paragraph{La soluzione generale}
+La soluzione generale della \eqref{RLCEqDiff2} è
+\begin{equation}
+	I(t)=Ae^{-\lambda_1t}+Be^{-\lambda_2t}
+\end{equation}
+dove $A,\ B$ sono determinate dalle condizioni iniziali, mentre $\lambda_{1,2}$ sono le soluzioni dell'\textit{equazione caratteristica}
+\begin{equation}
+	\lambda^2+2\gamma\lambda+\omega^2_0=0
+\end{equation}
+ossia
+\begin{equation}
+	\lambda_{1,2}=-\gamma\pm\sqrt{\gamma^2-\omega_0^2}
+\end{equation}
+A seconda del valore del discriminante $\Delta=\gamma^2-\omega_0^2$ ci riconduciamo a tre andamenti temporali differenti per la corrente.
+\begin{itemize}
+	\item \textbf{Smorzamento forte.} $\Delta > 0$, ossia $\gamma^2>\omega_0^2$ e quindi
+	\begin{equation*}
+		R^2>4\frac{L}{C}
+	\end{equation*}
+	La corrente ha un andamento \textit{esponenziale decrescente}:
+	\begin{equation}
+		I(t)=e^{-\gamma t}\left(A e^{t\sqrt{\gamma^2-\omega_0^2}}+B e^{-t\sqrt{\gamma^2-\omega_0^2}}\right)
+	\end{equation}
+	dove $A,\ B$ sono determinate dalle condizioni iniziali.
+	\item \textbf{Smorzamento critico.} $\Delta = 0$, ossia $\gamma^2=\omega_0^2$ e quindi
+	\begin{equation*}
+		R^2=4\frac{L}{C}
+	\end{equation*}
+	La corrente ha un andamento \textit{esponenziale decrescente}:
+	\begin{equation}
+		I(t)=e^{-\gamma t}\left(A +Bt\right)
+	\end{equation}
+	dove $A,\ B$ sono determinate dalle condizioni iniziali.
+	\item \textbf{Smorzamento debole.} $\Delta < 0$, ossia $\gamma^2<\omega_0^2$ e quindi
+	\begin{equation*}
+		R^2<4\frac{L}{C}
+	\end{equation*}
+	La corrente ha un andamento \textit{oscillante smorzato}:
+	\begin{equation}
+		I(t)=De^{-\gamma t}\sin(\omega t+\oldphi)\qquad\text{dove}\ \omega=\sqrt{\omega_0^2-\gamma^2}
+	\end{equation}
+	dove $D,\ \oldphi$ sono determinate dalle condizioni iniziali.
+\end{itemize}
+\begin{define}[Resistenza critica]
+	La \textbf{resistenza critica}\index{resistenza!critica} è la resistenza massima sopra la quale un circuito $RLC$ sarebbe criticamente smorzato.
+	\begin{equation}
+		R_C=2\sqrt{\frac{L}{C}}
+	\end{equation}
+	Equivalentemente, è la soglia per cui un circuito $RLC$ risulta essere smorzato debolmente.
+\end{define}
+%TODO: grafico
+In tutti i tre i casi il passaggio di corrente è dunque soltanto temporaneo, dato che il \textit{fattore di smorzamento} $e^{-\gamma t}$ è prevalente.
+
+\subsection{Circuiti LC}
+\begin{define}[Circuito LC]
+	Un \textbf{circuito LC}\index{circuito!LC} è un circuito che presenta solo \textit{induttori} e \textit{condensatori}.
+	\begin{center}		
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [capacitor, C=$C$, v=$V_C$] (0,2.5)
+			-- (2.5,2.5)
+			to [inductor, L=$L$, v=$\mathcal{E}_i$] (2.5,0)
+			to [switch, label=$t<0$, mirror] (0,0)
+			-- (0,0.1);
+			\draw (1,0) to[short, *-] (1,0);
+		\end{tikzpicture}
+		\begin{tikzpicture}[voltage dir=RP]
+			\draw (0,0) to [capacitor, C=$C$, v=$V_C$, i=$I$] (0,2.5)
+			-- (2.5,2.5)
+			to [inductor, L=$L$, v=$\mathcal{E}_i$] (2.5,0)
+			-- (0,0) %to [switch, label=$t>0$, mirror] (0,0)
+			%-- (0,0) node [midway, below] (TextNode) {$t>0$}
+			-- (0,0.1);
+			\draw (1,0) to[short, *-] (1,0);
+			\node at (1.25,-0.5) {$t>0$};
+			\node at (1.25,-0.6) {$ $};
+		\end{tikzpicture}
+	\end{center}
+\end{define}
+Sebbene sia una situazione praticamente soltanto teorica (è sostanzialmente impossibile realizzare un circuito di resistenza $R$ nulla!), anche un circuito $LC$ può funzionare \textit{senza la presenza di un generatore}.
+Dalla seconda legge di Kirchhoff avremmo che
+\begin{align*}
+	V_C+V_L=0\\
+	\frac{q}{C}-L\dv{I}{t}=0
+\end{align*}
+L'equazione differenziale che descrive la corrente è
+\begin{equation}
+	\dv[2]{I}{t}+\omega_0I=0
+\end{equation}
+dove $\omega_0$ è la frequenza caratteristica definita precedentemente. In questo caso particolare ci siamo ricondotti all'equazione di un oscillatore armonico \textit{non} smorzato, la cui soluzione è
+\begin{equation}
+	I(t)=A\sin(\omega_0 t+\oldphi)
+\end{equation}
+La differenza di potenziale ai capi del condensatore è la stessa di quella ai capit della induttanza; si ricava facilmente dalla legge di Kirchhoff che essa è $L$ volte la derivata temporale della corrente:
+\begin{equation*}
+	V_C(t)=V_L(t)=AL\omega_0\cos(\omega_0 t+\oldphi)
+\end{equation*}
+Determiniamo le costanti di contesto. Sappiamo che la corrente inizia a scorrere soltanto alla chiusura dell'interruttore al tempo $t=0$, mentre la \ddp ai capi del condensatore denotiamola come $V_0=\frac{q}{C}$. Allora
+\begin{align*}
+	0=I(0)=A\sin(\omega_0 0+\oldphi)=A\sin(\oldphi)&\implies \oldphi =0\\
+	V_0=V_C(0)=AL\omega_0\cos(\omega_0 0+\oldphi)=AL\omega_0\cos(\oldphi)=AL\omega_0&\implies A=\frac{V_0}{L\omega_0}
+\end{align*}
+Le equazioni diventano dunque
+\begin{gather}
+	I(t)=\frac{V_0}{L\omega_0}\sin(\omega_0 t)\\
+	V_C(t)=V_L(t)=V_0\cos(\omega_0 t)
+\end{gather}
+\paragraph{Corrente continua e alternata}
+Nei circuiti dotati di generatori classici come le \textit{batterie}, la corrente è \textbf{continua}.
+\begin{define}[Corrente continua]
+	La corrente elettrica è detta \textbf{continua}\index{corrente elettrica!continua} (DC) se la sua direzione è costante; la sua intensità può essere anch'essa costante oppure può variare d'intensità nel tempo. 
+\end{define} %dal potenziale maggiore a quello minore.
+Nel circuito $LC$ la corrente non è \textit{continua}, bensì \textbf{alternata}.
+\begin{define}[Corrente continua]
+	La corrente elettrica è detta \textbf{alternata}\index{corrente elettrica!alternata} (AC) se la sua direzione e intensità varia periodicamente nel tempo.
+\end{define} 
+ossia \textit{cambia direzione} nel tempo.
+\paragraph{L'andamento periodico}
+Sia $T$ il periodo dell'oscillazione; cosa succede nel circuito in tale periodo?
+\begin{itemize}
+	\item La corrente parte nulla ($I(t=0)=0$), mentre la \ddp ai capi del condensatore è massima ($V_C(t=0)=V_0$).
+	\item Man mano che il condensatore si \textit{scarica}, la corrente aumenta fino a raggiungere il valore massimo ($I(t=\nicefrac{T}{4})=I_max$) e la \ddp ad annullarsi ($V_C(t=\nicefrac{T}{4})=0$). Allo stesso tempo la variazione di corrente induce sia l'induttore a produrre una corrente di verso opposto, sia ad immagazzinare energia magnetica. Ad un quarto del periodo il condensatore è scarico, mentre l'induttore è completamente carico. 
+	\item Superato $t=\nicefrac{T}{4}$, il condensatore inizia a ricaricarsi e la \ddp ai capi del condensatore si inverte di segno. Dopo mezzo periodo, il condensatore è tornato carico mentre l'induttore non ha più energia; in particolare, la corrente è di nuovo nulla ($I(t=\nicefrac{T}{2})=0$) e la \ddp è massima, ma di segno opposto ($V_C(t=\nicefrac{T}{2})=-V_0$)
+	\item Superato $t=\nicefrac{T}{2}$, riparte il processo di scarica del condensatore e di carica dell'induttore; questa volta, la corrente percorre il verso opposto di quello di partenza e incrementa la sua intensità fino a raggiungere il massimo negativo per tre quarti del periodo ($I(t=\nicefrac{T}{2})=-I_max$). La \ddp descese fino ad annullarsi.
+	\item Nell'ultimo quarto di periodo il condensatore si carica, l'induttore si scarica e la situazione torna quella di partenza.
+\end{itemize}
+Da quanto osservato, possiamo affermare che $I$ e $V_C$ sono in \textbf{quadratura di fase}\index{quadratura di fase}: quando la corrente è massima $V_C$ è nulla e viceversa.
+%TODO: grafico
+\paragraph{Energia del circuito RLC}
+Si può notare che l'andamento della corrente e della differenza di potenziale comporta un'oscillazione tra l'\textit{energia} del \textit{campo elettrico}, immagazzinata nel \textit{condensatore}...
+\begin{equation*}
+	U_C(t)=\frac{CV_C(t)^2}{2}
+\end{equation*}
+... e l'\textit{energia} del \textit{campo magnetico}, immagazzinata nell'\textit{induttore}.
+\begin{equation*}
+	U_L(t)=\frac{LI(t)^2}{2}
+\end{equation*}
+Sono anch'esse in \textit{quadratura di fase}! Quando la corrente è massima (e la \ddp nulla) l'energia del circuito è soltanto magnetica (perché quella elettrica è zero) e viceversa. In ogni caso, per \textit{conservazione dell'energia}, l'energia totale è quella del condensatore alla chiusura dell'interrutore a $t=0$ o a quella dell'induttore a metà periodo:
+\begin{equation}
+	E_{tot}=\frac{CV_C(t)^2}{2}+\frac{LI(t)^2}{2}=\frac{1}{2}CV_0^2=\frac{1}{2}LI_0^2
+\end{equation}
+%\section{Elettrogeneratori e motori}
+%L'\textit{induzione elettromagnetica} è alla base di innumerevoli dispositivi elettrotecnici dagli scopi più disparati. In questa sezioni ci occuperemo di due tipologie in particolare: gli \textit{elettrogeneratori} e i \textit{motori elettrici}.
+\section{Elettrogeneratori}
+\begin{define}[Elettrogeneratore]
+	Un \textbf{elettrogeneratore}\index{elettrogeneratore} è un dispositivo elettrotecnico che converte \textit{energia meccanica} in \textit{energia elettrica}.
+\end{define}
+\subsection{Spira mobile}\label{spiramobilegeneratori}
+Un esempio facile - ma di scarsa rilevanza pratica - di \textit{elettrogeneratore} è quello di una \textbf{spira mobile}\index{spira!mobile}. Consideriamo un circuito a forma di U \textit{aperto} e di altezza $h$, come in figura.
+%TODO:immagine
+Esso è fisso e immerso in un campo magnetico $\vba{B}$ uniforme e perpendicolare ad esso. Sui rami laterali, nel punto $x$ è posto una \textit{sbarra conduttrice rigida} di lunghezza $h$; essa è libera di muoversi lungo i rami - la posizione è $x=x(t)$. Il circuito assieme alla sbarra formano una spira chiusa $\Sigma$.\\
+Inizialmente nel circuito non è presente una corrente, ma appena muoviamo la sbarra con velocità $\vba{v}$, dovuta ad un'azione esterna, l'area $\Sigma$ della spira \textit{cambia} e di conseguenza cambia il flusso del campo magnetico attraverso di essa. Dalla legge di Faraday-Neumann-Lenz la \fem indotta è
+\begin{equation*}
+	\mathcal{E}_i=-\dv{\Phi_{\Sigma}(\vba{B})}{t}
+\end{equation*}
+Poiché l'area della spira è
+\begin{equation*}
+	\Sigma(t)=hx(t)
+\end{equation*}
+il flusso è, data la perpendicolarità del campo magnetico alla spira, pari a
+\begin{equation*}
+	\Phi_{\Sigma}(\vba{B})=B\Sigma=Bhx(t)
+\end{equation*}
+La variazione della posizione $x(t)$ nel tempo è la velocità $\vba{v}$ con cui viene sposta la spira, pertanto
+\begin{equation*}
+	\mathcal{E}_i=-\dv{\Phi_{\Sigma}(\vba{B})}{t}=-B\dv{\Sigma(t)}{t}=-Bh\dv{x(t)}{t}=-Bhv
+\end{equation*}
+\begin{equation}
+	\mathcal{E}_i=-Bhv
+\end{equation}
+\begin{observe}
+	Come abbiamo affermato nel \autoref{chap:elettromagnetismoTempo}, sezione \ref{faradayavevaascopertoiltempo}, \pageref{faradayavevaascopertoiltempo}, la creazione di una \fem indotta in questo caso (deformazione di una spira) si poteva anche ricavare nota la \textit{sola} forza di Lorentz.\\
+	Muovendo la filo, le cariche libere in esso si muovono solidali alla sbarra e quindi subiscono una forza di Lorentz
+	\begin{equation*}
+		\vba{F}_L=e\vba{v}\cross\vba{B}
+	\end{equation*}
+	e di conseguenza generano un campo elettrico indotto
+	\begin{equation*}
+		\vba{E}_i=\vba{v}\cross\vba{B}
+	\end{equation*}
+	La \fem indotta si ricava dalla definizione di forza elettromotrice come circuitazione:
+	\begin{equation*}
+		\mathcal{E}_i=\oint \vba{E}_i\vdot d\vba{s}=\int_{B}^{A}\vba{E}_i\vdot d\vba{s}=-Bv\int_{A}^{B}ds=-Bhv
+	\end{equation*}
+\end{observe}
+Supponendo che la parte fissa abbia una resistenza $R$, dalla \textit{legge di Ohm} la corrente che circola nel circuito è
+\begin{equation}
+	I=\frac{\abs{\mathcal{E}_i}}{R}=\frac{Bhv}{R}
+\end{equation}
+\begin{observe}
+	La corrente indotta, per la legge di Lenz, deve opporsi al cambio di flusso. Per determinare il verso, possiamo operare diversi metodi, tra cui:
+	\begin{itemize}
+		\item Dato che la corrente indotta percorrendo la sbarra genera una forza di Laplace $\vba{F}_B$, il verso della corrente deve essere tale che $\vba{F}_B$ si oppone al moto.
+		\item Dato che la corrente indotta percorrendo la spira chiusa genera un campo magnetico $\vba{B}_i$, il verso della corrente deve essere tale che $\vba{B}_i$ si oppone a $\vba{B}$.
+	\end{itemize}
+	Applicandoli entrambi al caso in questione, la corrente dovrà percorrere la spira in \textit{senso orario}.
+\end{observe}
+\paragraph{Attrito elettromagnetico}
+Purtroppo, il moto della spira mobile \textit{non} è privo di attriti. Infatti, il filo percorso dalla corrente autoindotta è soggetto, per la \textit{seconda legge di Laplace}, ad una \textbf{forza di attrito elettromagnetico}\index{forza!di attrito elettromagnetico}
+\begin{equation*}
+	\vba{F}_B=I\int_{B}^{A}d\vba{s}\cross\vba{B}=-IBh\vbh{u}_x=-\frac{h^2B^2}{R}\vba{v}
+\end{equation*}
+\begin{equation}
+	\vba{F}_B=-\frac{h^2B^2}{R}\vba{v}
+\end{equation}
+che, naturalmente, si oppone al moto.
+\begin{observe}
+	La forza di attrito assume la forma di un \textit{attrito viscoso}, in quanto è proporzionale alla velocità.
+\end{observe}
+Per mantenere una velocità costante $\vba{v}$ dobbiamo applicare alla sbarra una \textit{forza esterna} uguale e contraria a quella dell'\textit{attrito elettromagnetico}.
+\begin{equation*}
+	\vba{F}_{ext}=-\vba{F}_B
+\end{equation*}
+È necessario compiere un \textit{lavoro} per mantenere tale equilibrio o, in altri termini, devo produrre un'opportuna \textit{potenza meccanica} da sopperire alla \textit{potenza elettrica} dissipata dalla resistenza per avere la corrente elettrica nel circuito.
+\begin{define}[Potenza meccanica]
+	La \textbf{potenza meccanica}\index{potenza!meccanica} è l'energia per unità di tempo necessaria per sopperire alla potenza elettrica dissipata dall'elettrogeneratore.
+\end{define}
+Nel caso della spira mobile, essa è
+\begin{equation}
+	P=\vba{F}_{ext}\vdot \vba{v}=\frac{h^2B^2v}{R}=I^2R
+\end{equation}
+\subsection{Disco di Barlow}
+Come generatore, la spira mobile non è particolarmente funzionale: per continuare a produrre corrente dovrei avere delle \textit{rotaie infinite} su cui far scorrere la sbarra.
+
+Per produrre una corrente è nettamente più efficace ricorrere a sistemi che utilizzano energia meccanica di natura \textit{rotazionale}; la \textbf{ruota di Barlow}\index{ruota di Barlow} o \textbf{disco di Barlow}\index{disco di Barlow} è uno dei primi.\\
+Esso consiste in un disco di materiale conduttore che ruota attorno al suo asse con velocità costante $\vba{\omega}$, dovuta ad un'azione esterna. Il disco è perpendicolare ad un campo magnetico $\vba{B}$ uniforme. Sia l'asse (punto $A$), sia la superficie del disco (punto $B$) sono a contatto di due elementi striscianti collegati ad un elemento di resistenza $R$ - di fatto rendendo il disco funzionalmente una spira.\\
+
+La variazione della velocità del disco va a creare una variazione del flusso del campo magnetico e dunque una \ddp indotta ai capi $A$ e $B$ del circuito.
+Ricordiamo che possiamo descrivere la posizione di un punto sul disco in coordinate polari
+\begin{equation*}
+	\vba{r}=(r\cos\phi,r\sin\phi)
+\end{equation*}
+dove $r$ è la distanza dall'asse e $\phi$ l'angolo di rotazione rispetto all'asse $x$ di un sistema di riferimento cartesiano opportunamente scelto. La velocità di tale punto è data da
+\begin{equation*}
+	\vba{v}=\dv{r}{t}=\left(\dot{r}\cos\phi-\dot{\phi}r\sin\phi,\dot{r}\sin\phi+\dot{\phi}r\cos\phi\right)=\dot{r}\left(\cos\phi,\sin\phi\right)+\dot{\phi}r\left(-\sin\phi,\cos\phi\right)=\dot{r}\vbh{u}_r+\dot{\phi}r\vbh{u}_{\phi}
+\end{equation*}
+Se consideriamo una carica libera nel disco a distanza $r$ dall'asse, essa ruota solidale con il disco alla stessa velocità angolare $\vba{\omega}$ e si muove dunque su traiettorie circolari; poiché non varia il raggio $r$, si ha $\dot{r}=0$ e la velocità subita è soltanto una tangenziale e non radiale.
+\begin{equation*}
+	\vba{v}=\dot{\phi}r\vbh{u}_{\phi}=\dv{\phi}{t}r\vbh{u}_{\phi}=\omega r\vbh{u}_{\phi}
+\end{equation*}
+Il campo elettrico indotto a distanza $r$ dall'asse è quindi
+\begin{equation*}
+	\vba{E}_i=\vba{v}\cross\vba{B}=\dv{\phi}{t}r\vbh{u}_{\phi}\cross\vba{B}=\omega r\vbh{u}_{\phi}\cross\vba{B}=-\omega r B\vbh{u}_r
+\end{equation*}
+Allora la forza elettromotrice è, dalla definizione come circuitazione, 
+\begin{equation*}
+	\mathcal{E}_i=\int_{A}^{B}\vba{E}_i\vdot d\vba{s}=\int_{B}^{A}\omega r' B\vbh{u}_r\vdot d\vba{s}=\omega B\int_0^r r'dr'=\frac{1}{2}\omega Br^2
+\end{equation*}
+\begin{equation}
+	\mathcal{E}_i=\frac{1}{2}\omega Br^2
+\end{equation}
+e la corrente è
+\begin{equation}
+	I=\frac{\mathcal{E}_i}{R}=\frac{\omega B r^2}{2R}
+\end{equation}
+\paragraph{Attrito elettromagnetico torcente}
+Sull'elemento radiale infinitesimo $d\vba{r}'$ a distanza $r'$ dal centro, percorso da corrente $I$, agisce una forza (infinitesima) di Laplace
+\begin{equation*}
+	d\vba{F}_B=I d\vba{r}'\cross \vba{B}=\frac{\omega B r^2}{2R}d\vba{r}'\cross \vba{B}=\frac{\omega B^2 r^2}{2R} r'\vbh{u}_{\phi}
+\end{equation*}
+che, rispetto all'asse, ha momento (infinitesimo)
+\begin{equation*}
+	d\vba{M}_B=\vba{r}\cross d\vba{F}_B=I\vba{r}\cross\left(d\vba{r}\cross \vba{B}\right)=\frac{\omega B^2 r^2}{2R}r'\vba{r}\cross\vbh{u}_{\phi}=-\frac{B^2r^2}{2R}r'dr'\vba{\omega}
+\end{equation*}
+Il disco è soggetto dunque ad un \textit{momento magnetico} ortogonale e opposto a $\vba{\omega}$:
+\begin{equation*}
+	\vba{M}_B=\int_{B}^{A}d\vba{M}_B=I\int_{B}^{A}\vba{r}\cross(d\vba{r}\cross\vba{B})=-\frac{B^2r^2}{2R}\int_{0}^{r}r'dr'\vba{\omega}=-\frac{B^2r^4}{4R}\vba{\omega}
+\end{equation*}
+\begin{equation}
+	\vba{M}_B=-\frac{IBr^2}{2}\vba{\omega}=-\frac{B^2r^4}{4R}\vba{\omega}=
+\end{equation}
+Questo momento risulta essere un \textit{attrito torcente} che si oppone alla velocità angolare. Per mantenere $\omega$ costante bisogna applicare al disco un \textit{momento esterno} uguale e contrario a questo \textbf{attrito elettromagnetico torcente}.
+\begin{equation*}
+	\vba{M}_{ext}=-\vba{M}_B
+\end{equation*}
+La \textit{potenza meccanica} per mantenere l'equilibrio e sopperire alla \textit{potenza elettrica} dissipata dalla resistenza è
+\begin{equation}
+	P=\vba{M}_{ext}\vdot\vba{\omega}=\frac{B^2r^4\omega^2}{4R}=I^2R
+\end{equation}
+\subsection{Generatori di corrente alternata}
+Consideriamo una \textit{spira} piana immersa in un campo magnetico $\vba{B}$ uniforme. La spira ruota con velocità angolare $\omega$ uniforme attorno al suo asse verticale in senso orario; pertanto, il flusso del campo magnetico tramite essa varia e, per la legge di Faraday-Neumann-Lenz, varia anche la \fem indotta:
+\begin{equation*}
+	\mathcal{E}_i=-\dv{\Phi_{\Sigma}(\vba{B})}{t}
+\end{equation*}
+La variazione di flusso dipende dall'angolo $\alpha$ tra $\vba{B}$ e la normale alla spira:
+\begin{equation*}
+	\cos\alpha=\vba{B}\vdot\vbh{u}_n
+\end{equation*}
+Poiché la spira ruota con velocità angolare uniforme, significa che
+\begin{equation*}
+	\alpha(t)=\omega t+\oldphi
+\end{equation*}
+dove $\oldphi$ dipende dalle condizioni iniziali. Si ha
+\begin{equation*}
+	\Phi_{\Sigma}(\vba{B})=\vba{B}\vdot\vbh{u}_n\Sigma=\Sigma B\cos(\omega t+\oldphi)
+\end{equation*}
+da cui segue
+\begin{equation}
+	\mathcal{E}_i(t)=-\dv{\Phi_{\Sigma}(\vba{B})}{t}=\Sigma B\omega\sin(\omega t+\oldphi)
+\end{equation}
+Notiamo che la \fem varia \textit{sinusoidalmente nel tempo}, con valore massimo assunto 
+\begin{equation}
+	\mathcal{E}_{max}=\Sigma B\omega
+\end{equation}
+%TODO: grafico
+La corrente elettrica che scorre nel circuito è
+\begin{equation}
+	I(t)=\frac{\Sigma B\omega}{R}\sin(\omega t+\oldphi)
+\end{equation}
+e, come la \fem che la genera, varia \textit{sinusoidalmente nel tempo}, con valore massimo 
+\begin{equation}
+	I_{max}=\frac{\Sigma B\omega}{R}
+\end{equation}
+%TODO: grafico
+La corrente elettrica risulta cambiare verso periodicamente ed è quindi una \textit{corrente alternata}.\\ 
+Anche la \textit{potenza elettrica} varia periodicamente nel tempo, rimanendo però per ovvi motivi sempre una quantità positiva:
+\begin{equation}
+	P(t)=\mathcal{E}_i I=\frac{\mathcal{E}_i^2}{R}=\frac{B^2\Sigma^2\omega^2}{R}\sin^2\omega t=M\omega
+\end{equation}
+dove $M$ è il momento magnetico della spira. Il valore massimo è
+\begin{equation}
+	P_{max}=\mathcal{E}_{max}I_max=\frac{\mathcal{E}_{max}^2}{R}=\frac{B^2\Sigma^2\omega^2}{R}
+\end{equation}
+\paragraph{Potenza e f.e.m. efficace}
+Nella pratica, tuttavia, il periodo dell'elettrogeneratore è \textit{talmente breve} che i valori della potenza e della \fem oscillano così furiosamente da rendere impraticabile uno studio dei loro valori al variare del tempo. Ci interessa quindi approssimare un generatore AC ad uno a corrente continua sostanzialmente equivalente. Dato che lo scopo principale dei generatori è quello di convertire un energia meccanica in energia elettrica, possiamo cercare un elettrogeneratore DC che produca una potenza uguale a quella che, \textit{mediamente}, il generatore AC produce. Tale potenza elettrica deve valere
+\begin{equation}
+	P_m=\frac{1}{T}\int_0^{t}P(t)dt=\frac{B^2\Sigma^2\omega^2}{R}\int_0^{t}\sin^2\omega tdt=\frac{B^2\Sigma^2\omega^2}{2R}=\frac{P_{max}}{2}=\frac{\mathcal{E}_{max}^2}{2R}
+\end{equation}
+Il generatore DC sostitutivo deve quindi produrre una \fem $\mathcal{E}_{eff}$, detta \textbf{forza elettromotrice efficace}\index{forza elettromotrice!effficace}, tale per cui
+\begin{equation}
+	P_m=\frac{\mathcal{E}^2_{eff}}{R}
+\end{equation}
+ossia
+\begin{equation*}
+	\frac{\mathcal{E}_{max}^2}{2R}=frac{\mathcal{E}^2_{eff}}{R}
+\end{equation*}
+\begin{equation}
+	\mathcal{E}_{eff}=\frac{\mathcal{E}_{max}}{\sqrt{2}}
+\end{equation}
+\section{Motori}
+\begin{define}[Motore]
+	Il \textbf{motore}\index{motore} è un dispositivo elettrotecnico che converte \textit{energia elettrica} in \textit{energia meccanica}.
+\end{define}
+\subsection{Spira mobile}
+Consideriamo la stessa spira vista a \pageref{spiramobilegeneratori}, ma invece di immergerla in un campo magnetico supponiamo di porre nel circuito un generatore di \fem $\mathcal{E}_0$: esso genera una corrente che circola nella spira e, in particolare, sulla sbarra scorrevole. Per la \textit{seconda legge di Laplace}, su di essa agisce una forza
+\begin{equation*}
+	\vba{F}_B=I\left(\int_{A}^{B}d\vba{s}\right)\cross\vba{B}=IBh\vbh{u}_x
+\end{equation*}
+che fa spostare la barra con una velocità $\vba{v}(t)$. Poiché essa si muove, il flusso del campo magnetico tramite la superficie varia e produce per la legge di Faraday-Neumann-Lenz una \fem indotta nella spira
+\begin{equation*}
+	\mathcal{E}_{i}=-vhB
+\end{equation*}
+che si contrappone a quella di $\mathcal{E}_0$. Siamo dunque in presenza di un fenomeno di \textit{autoinduzione}: nella spira circola complessivamente una corrente
+\begin{equation*}
+	I=\frac{\mathcal{E}_0-\mathcal{E}_i}{R}=\frac{\mathcal{E}_0-vhB}{R}
+\end{equation*}
+Supponiamo inoltre che sia presente una \textit{forza} $\vba{F}_{opp}$ opposta al moto $\vba{v}$, rappresentante ad esempio un corpo da sollevare attaccato all'asta. La forza complessiva sulla sbarra è
+\begin{equation*}
+	\vba{F}=\vba{F}_B-\vba{F}_{opp}=\left(IhB-F_{opp}\right)\vbh{u}_x=\left(\frac{\mathcal{E}_0-vhB}{R}hB-F_{opp}\right)\vbh{u}_x
+\end{equation*}
+\begin{observe}
+	Nella forza indotta $\vba{F}_i$ è presente una componente resistiva simile all'\textit{attrito elettrostatico}:
+	\begin{equation*}
+		\vba{F}_A=-\frac{h^2B^2}{R}\vba{v}
+	\end{equation*}
+\end{observe}
+Dalla legge di Newton abbiamo che
+\begin{align*}
+	&\vba{F}=m\vba{a}=m\dv{\vba{v}}{t}\\
+	&\left(\frac{\mathcal{E}_0-vhB}{R}hB-F_{opp}\right)\vbh{u}_x=m\dv{v}{t}\vbh{u}_x\\
+\end{align*}
+Da cui, riordinando i termini, otteniamo un'equazione differenziale ordinaria
+\begin{equation*}
+	\dv{v}{t}+\frac{h^2B^2}{mR}v+\left(\frac{F_{opp}}{m}-\frac{\mathcal{E}_0}{mR}\right)=0
+\end{equation*}
+la cui soluzione è
+\begin{equation}
+	v(t)=\left(\frac{\mathcal{E}_0}{hB}-\frac{R F_{opp}}{h^2B^2}\right)\left(1-e^{-\frac{h^2B^2}{mR}t}\right)
+\end{equation}
+%TODO: inserire grafico
+L'andamento temporale della velocità è dettato dal \textit{tempo caratteristico}:
+\begin{equation}
+	\tau=\frac{mR}{B^2h^2}
+\end{equation}
+Essa è una costante dimensionalmente pari ad una quantità temporale e quindi nel SI si misura in secondi:
+\begin{equation*}
+	\left[\tau\right]=\frac{\left[m\right]\left[R\right]}{\left[B\right]^2\left[h\right]^2}=\mathsf{M}\cdot\mathsf{M}\mathsf{L}^2\mathsf{T}^{-3} \mathsf{I}^{-2}\cdot \mathsf{M}^{-2} \mathsf{I}^{2} \mathsf{T}^4\cdot\mathsf{L}^{-2}  =\mathsf{T}
+\end{equation*}
+La velocità della sbarra dopo un tempo \textit{infinito} (ossia a \textit{regime}) è costante in quanto $F_B=F_{opp}$ ed è pari a
+\begin{equation}
+	v_{\infty}=\frac{\mathcal{E}_0}{hB}-\frac{R F_{opp}}{h^2B^2}
+\end{equation}
+da cui segue che la \fem, la corrente e la potenza di regime sono
+\begin{gather}
+	\mathcal{E}_i=-\mathcal{E}_0+\frac{R F_{opp}}{hB}\\
+	I_{\infty}=\frac{F_{opp}}{hB}
+	P_{\infty}=RI_{\infty}^2+F_{opp}v_{\infty}
+\end{gather}
+Il primo termine della potenza di regime è la potenza dissipata dalla resistenza, mentre il secondo è la potenza meccanica necessaria a vincere la forza resistente $\vba{F}_{opp}$
+%TODO: lo stesso succede in modo analogo con il disco di Barlow
+\subsection{⋆ Disco di Barlow}
+In modo analogo a quanto visto con la spira mobile, consideriamo un disco di Barlow in cui al posto del resistore è posto un generatore di \fem $\mathcal{E}_0$ che deve vincere un momento meccanico esterno $M_{opp}$, che può rappresentare ad esempio una fune che sostiene una massa. Il passaggio di corrente nel disco produce il momento magnetico
+\begin{equation*}
+	\vba{M}_B=-\frac{IBr^2}{2}\vba{\omega}
+\end{equation*}
+che mette in moto il disco. Tale rotazione produce una \fem indotta
+\begin{equation*}
+	\mathcal{E}_i=\frac{1}{2}\omega Br^2
+\end{equation*}
+tale per cui nel sistema circola una corrente complessiva
+\begin{equation*}
+	I=\frac{\mathcal{E}_0-\mathcal{E}_i}{R}=\frac{\mathcal{E}_0-\frac{1}{2}\omega Br^2}{R}
+\end{equation*}
+Dal teorema del momento angolare otteniamo l'equazione differenziale ordinaria che descrive il moto:
+\begin{equation*}
+	\mathbf{I}\dv{\omega}{t}=M_B-M_{opp}\frac{IBr^2}{2}-M_{opp}
+\end{equation*}
+con $\mathbf{I}$ il momento di inerzia del disco rispetto all'asse di rotazione.\\
+L'andamento temporale della velocità è dettato dal \textit{tempo caratteristico}:
+\begin{equation}
+	\tau=\frac{4\mathbf{I}R}{B^2}
+\end{equation}
+che, come tutti i tempi caratteristici visti finora, si vede essere dimensionalmente (poco) sorprendentemente pari ad una quantità temporale - quindi nel SI si misura in secondi.\\
+La velocità angolare della sbarra dopo un tempo \textit{infinito} (ossia a \textit{regime}) è costante in quanto $M_B=M_{opp}$ ed è pari a
+\begin{equation}
+	\omega_{\infty}=\frac{2}{Br^2}\left(\mathcal{E}_0-\frac{2RM_{opp}}{Br^2}\right)
+\end{equation}
+da cui segue che la \fem, la corrente e la potenza di regime sono
+\begin{gather}
+	\mathcal{E}_i=-\mathcal{E}_0+\frac{2R M_{opp}}{Br^2}\\
+	I_{\infty}=\frac{2M_{opp}}{Br^2}
+	P_{\infty}=RI_{\infty}^2+M_{opp}\omega_{\infty}
+\end{gather}
+\section{Circuiti in corrente alternata}
+\paragraph{Il metodo simbolico dei vettori rotanti di Fresnel}
+\paragraph{Resistore R}
+\paragraph{Induttore L}
+\paragraph{Condensatore C}
+\paragraph{Circuito RL in serie}
+\paragraph{Circuito RC in serie}
+\paragraph{Circuito LC in serie}
+\paragraph{Circuito RLC in serie}
+\paragraph{⋆ Circuito RL in parallelo}
+\paragraph{⋆ Circuito RC in parallelo}
+\paragraph{⋆ Circuito LC in parallelo}
+\paragraph{⋆ Circuito RLC in parallelo}

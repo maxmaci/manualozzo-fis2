@@ -37,7 +37,7 @@ Le osservazioni sperimentali sul fenomeno dell'induzione elettromagnetica di \te
 	Riaprendo l'interruttore il campo magnetico gradualmente sparisce; nella spira, invece, per un istante osserviamo una corrente diretta nella direzione opposta a quella precedente.
 \end{itemize}
 Da questi esperimenti\footnote{E tante altre varianti di essi che non vedremo perché questo è un Manualozzo\texttrademark\ di Fisica, non un testo monografico su Faraday e i suoi passatempi perversi.} possiamo ricavare diverse informazioni importanti:
-\begin{itemize}\label{osservazioniFaraday} %t
+\begin{enumerate}[label=\alph*)]\label{osservazioniFaraday} %t
 	\item \textit{Spostare una sorgente} di un campo magnetico nei pressi di una spira genera una \fem.
 	\item Il moto della sorgente rispetto alla spira influenza il \textit{verso di percorrenza} della corrente lungo di essa.
 	\item \textit{Spostare una spira} nei pressi di un campo magnetico stazionario genera una \fem in quel circuito.
@@ -46,7 +46,7 @@ Da questi esperimenti\footnote{E tante altre varianti di essi che non vedremo pe
 	\item È sufficiente che ci sia una \textit{variazione temporale di un campo magnetico} fisso per causare una \fem in una spira anch'essa fissa.
 	\item Come varia temporalmente il campo magnetico fisso influenza il verso di percorrenza della corrente lungo di essa.
 	\item Se il campo magnetico non varia più nel tempo - perché si è stabilizzato oppure perché non c'è più la sorgente del campo - non circola più corrente nella spira.
-\end{itemize}
+\end{enumerate}
 La forza elettromotrice dipende dunque da diversi fattori: la \textit{posizione} e l'\textit{intensità} del campo magnetico, la \textit{posizione} e la \textit{forma della spira}, ma soprattutto la \textit{variazione nel tempo} di tutti questi elementi qui citati.
 %TODO: immagine 16.13
 % Maxwell lavorando a livello teorico sulla consistenza delle equazioni ha scoperto che un campo elettrico e variabile nel tempo produce un campo magnetico.\\
@@ -88,14 +88,16 @@ Abbiamo capito che la $\fem$ indotta $\mathcal{E}$ è data da una variazione \te
 \begin{equation*}
 	\Phi_\Sigma(\vba B)=\int_\Sigma \vba B\vdot \vbh{u}_n d\Sigma	
 \end{equation*}
-e ricordando le osservazioni di pag. \pageref{osservazioniFaraday}, possiamo cambiarlo modificando i seguenti elementi:
+e ricordando le osservazioni di pag. \pageref{osservazioniFaraday}, possiamo cambiarlo in diversi modi.
 \begin{itemize}
-	\item Il valore di $\vba B$ nel tempo. In altre parole, il campo magnetico $\vba{B}=\vba{B}(t)$ è una funzione del tempo.
-	\item Cambiare il valore di $\vba{B}\vdot \vbh{u}_n$ nel tempo, il che implica cambiare l'angolo tra la normale del circuito scarico e il campo magnetico. Ad esempio, si può traslare la spira in un campo magnetico \textit{non} uniforme \textit{oppure} far muovere con rotazioni la spira in un campo magnetico uniforme \textit{oppure} una combinazione delle due. 
-	\item \textit{Modificare la forma} del circuito nel tempo. Per il \textit{teorema di Stokes}, il flusso dipende solo dal bordo e non da quale superficie $\Sigma$ si sceglie per calcolarlo, dunque cambiare la forma del circuito cambia la necessariamente le potenziali superfici $\Sigma$ e dunque anche il flusso. Se consideriamo un circuito piano di area interna $\Sigma$, questo metodo corrisponde a far variare il valore di $\Sigma$ nel tempo.
-	\item Applicare uno spostamento rigido del circuito nel campo magnetico.
+	\item \textit{Spostando rigidamente} il circuito in un campo magnetico, purché non sia soltanto traslatorio in un campo uniforme; infatti, in tal caso non varia mai l'angolo tra la normale del circuito e il campo magnetico, il cui coseno è $\vba{B}\vdot \vbh{u}_n$, e dunque non varia neanche il flusso.\\
+	Invece, se il campo magnetico \textit{non} è uniforme o se il moto è \textit{rotatorio}, allora il flusso varia: nel primo caso varia al variare della posizione del circuito nello spazio, mentre nel secondo caso cambia perché cambia l'orientazione del circuito rispetto al campo magnetico.
+	\item \textit{Deformando la forma} del circuito nel tempo. Per il \textit{teorema di Stokes}, il flusso del campo magnetico (uniforme o no) dipende solo dal bordo e non da quale superficie $\Sigma$ si sceglie per calcolarlo, dunque cambiare la forma del circuito cambia la necessariamente le potenziali superfici $\Sigma$ e dunque anche il flusso. Se consideriamo un circuito piano di area interna $\Sigma$, questo metodo corrisponde a far variare il valore di $\Sigma$ nel tempo.
+	\item \textit{Spostando la sorgente del campo magnetico}, mantenedo allo stesso tempo il circuito fisso.
+	\item \textit{Muovendo un mezzo ferromagnetico magnetizzato} nel campo magnetico (uniforme o no), mantenendo allo stesso tempo il circuito fisso e le sorgenti fisse. Senza andare nei dettagli ora\footnote{Nelle ‘‘XXX'', a pagina \pageref{ferromagnetico} è possibile trovare maggiori informazioni sui materiali ferromagnetici e le loro proprietà.}, il movimento di tale mezzo ridistribuisce le linee del campo $\vba{B}$..
+	\item In assenza di \textit{qualsiasi moto relativo tra circuito e campo}, il varia se varia $\vba B$ (uniforme o no) \textit{nel tempo}. 
 \end{itemize}
-In realtà la forza elettromotrice prodotta per mezzo del secondo, terzo e quarto modo è causata dalla \textit{sola} forza di Lorentz - e quindi già prevista in realtà dalle leggi della magnetostatica. Quello che \textit{non} era previsto è la produzione di corrente da parte di una variazione del campo magnetico $\vba B$ nel tempo.
+In realtà la forza elettromotrice prodotta per mezzo di tutti i modi eccetto l'ultima è causata dalla \textit{sola} forza di Lorentz - e quindi già prevista in realtà dalle leggi della magnetostatica. Quello che \textit{non} era previsto è la produzione di corrente da parte di una variazione del campo magnetico $\vba B$ nel tempo.\label{faradayavevaascopertoiltempo}
 \paragraph{Dimostrazione della legge di Faraday-Neumann-Lenz: i casi stazionari}
 Dimostriamo di seguito la legge di induzione di Faraday nel caso particolare di uno spostamento rigido in un campo magnetico \textit{non necessariamente} uniforme, ma costante nel tempo: vogliamo provare che la \fem indotta è soltanto una conseguenza alla forza di Lorentz.
 \begin{demonstration}
@@ -278,15 +280,15 @@ Torniamo in ambito elettrotecnico. Per poter aggiungere dell'induttanza ad un ci
 	\begin{center}		
 		\begin{tikzpicture}[voltage dir=RP]
 			\draw (0,0) to [battery1, v>=$\mathcal{E}$] (0,2.5)
-			to [resistor, R=$R_1$, v=$V_R$] (2.5,2.5)
-			to [inductor, L=$L$, v=$V_C$] (2.5,0)
+			to [resistor, R=$R$, v=$V_R$] (2.5,2.5)
+			to [inductor, L=$L$, v=$\mathcal{E}_i$] (2.5,0)
 			to [switch, label=$t<0$, mirror] (0,0)
 			-- (0,0.1);
 			\draw (1,0) to[short, *-] (1,0);
 		\end{tikzpicture}
 		\begin{tikzpicture}[voltage dir=RP]
 			\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
-			to [resistor, R=$R_1$, v=$V_R$] (2.5,2.5)
+			to [resistor, R=$R$, v=$V_R$] (2.5,2.5)
 			to [inductor, L=$L$, v=$\mathcal{E}_i$] (2.5,0)
 			-- (0,0) %to [switch, label=$t>0$, mirror] (0,0)
 			%-- (0,0) node [midway, below] (TextNode) {$t>0$}
@@ -297,7 +299,7 @@ Torniamo in ambito elettrotecnico. Per poter aggiungere dell'induttanza ad un ci
 		\end{tikzpicture}
 	\end{center}
 \end{define}
-Consideriamo il caso semplice di un circuito RL con un resistore e un induttore dotato di un interruttore, inizialmente aperto. Al tempo $t=0$ viene chiuso l'interruttore: poiché si verifica la separazione di cariche da parte del generatore di \fem, la corrente può circolare nel circuito e attraversa l'induttore, generando una forza elettromotrice autoindotta
+Consideriamo il caso semplice di un circuito RL, dotato di un interruttore inizialmente aperto, con un resistore e un induttore. Al tempo $t=0$ viene chiuso l'interruttore: poiché si verifica la separazione di cariche da parte del generatore di \fem, la corrente può circolare nel circuito e attraversa l'induttore, generando una forza elettromotrice autoindotta
 \begin{equation*}
 	\mathcal{E}_i=-L\dv{I}{t}
 \end{equation*}
@@ -389,7 +391,7 @@ Osserviamo come $\Sigma d$ corrisponde al volume $V$ occupato dal campo magnetic
 \begin{equation}\label{DensitàEnergiaMagnetica}
 	\mu_{B}=\frac{1}{2}\frac{B^2}{\mu_0}
 \end{equation}
-l'energia immagazzinata nell'induttore è questa densità moltiplicata per il volume $V$ \textit{occupato} dal campo magnetico.
+l'energia immagazzinata nell'induttore è questa densità moltiplicata per il volume $V$ \textit{occupato} dal campo magnetico. Dal punto
 \section{Energia del campo magnetico}
 In generale, il campo magnetico immagazzina \textit{sempre} dell'energia nel campo stesso. Tale energia, in un certo volume $V$, è pari a
 \begin{equation}
@@ -404,7 +406,7 @@ dove $\mu_E$ è la densità di energia magnetica, definita come nell'equazione \
 		\multicolumn{2}{c}{\textbf{Energia in un}}\\
 		\multicolumn{1}{c|}{\textbf{conduttore}} &
 		\multicolumn{1}{c}{\textbf{induttore}} \\ \hline
-		\multicolumn{1}{c|}{$\displaystyle U_C=\frac{q^2}{2C}$} & \multicolumn{1}{c}{$\displaystyle U_L=\frac{LI^2}{2}$}\\ \hline
+		\multicolumn{1}{c|}{$\displaystyle U_C=\frac{q^2}{2C}=\frac{qV}{2}=\frac{CV^2}{2}$} & \multicolumn{1}{c}{$\displaystyle U_L=\frac{LI^2}{2}$}\\ \hline
 		\multicolumn{2}{c}{\textbf{Densità di energia}}\\ \hline
 		\multicolumn{1}{c|}{$\displaystyle \mu_E=\frac{\epsilon_0}{2}E^2$} & \multicolumn{1}{c}{$\displaystyle \mu_E=\frac{1}{2\mu_0}B^2$}\\ \hline
 		\multicolumn{2}{c}{\textbf{Energia in un volume del campo}}\\ 
@@ -422,10 +424,10 @@ L'energia complessiva sarà quindi
 	U=\frac{1}{2}\int_V \epsilon_0E^2+\frac{B^2}{\mu_0}dV=U_E+U_B
 \end{equation}
 \section{Legge della circuitazione di Maxwell-Ampère}
-Nel \autoref{chap:leggediampere}, sezione \ref{laleggediAmpereèfalsaepretenziosa} a pag. \pageref{laleggediAmpereèfalsaepretenziosa}, abbiamo osservato la non validità della legge di Ampère
+Nel \autoref{chap:leggediampere}, sezione \ref{laleggediAmpereèfalsaepretenziosa} a pag. \pageref{laleggediAmpereèfalsaepretenziosa}, abbiamo osservato la \textit{non validità} della legge di Ampère
 \begin{align*}
-	\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=\mu_0 I_{int}	&& \left(\text{forma integrale}\right)\\
-	\curl{\vba{B}}=\mu_0\vba{j}	&& \left(\text{forma differenziale}\right)\\
+	&\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=\mu_0 I_{int}	&& \left(\text{forma integrale}\right)\\
+	&\curl{\vba{B}}=\mu_0\vba{j}	&& \left(\text{forma differenziale}\right)\\
 \end{align*}
 in \textit{condizioni non stazionarie}. Infatti, applicando la divergenza ad entrambi i membri della forma differenziale della legge ottenevamo che essa era consistente soltanto se la \textit{densità di corrente risultasse solenoidale},
 \begin{equation}
@@ -506,7 +508,7 @@ Ricordiamo che, come detto nell'osservazione di pag. \pageref{correntevariabile}
 	\end{equation*} 
 	\item Se il cilindro $\Sigma$ contiene \textit{soltanto una} delle due armature - non è fondamentale quale - il flusso di $\vba{j}$ \textit{non} è nullo perché c'è una carica entrante o uscente la superficie, ma essa non è controbilanciata da altre cariche uscenti o entranti dal resto della superficie, in quanto nello spazio tra le armature \textit{non} passano particelle libere!
 \end{itemize}
-Nel secondo caso, suddividiamo la superficie in due sottosuperfici $\Sigma_i$ di bordo comune $\partial \Sigma$:
+Nel secondo caso, suddividiamo la superficie $\Sigma$ in due sottosuperfici $\Sigma_i$ di bordo comune $\partial \Sigma$:
 \begin{itemize}
 	\item $\Sigma_1$ è la base del cilindro, che interseca il filo ma \textit{non} lo spazio in mezzo alle armature.
 	\item $\Sigma_2$ è il resto del cilindro, che interseca lo spazio in mezzo alle armature ma \textit{non} il filo.
@@ -591,6 +593,66 @@ La \textit{corrente totale} ha lo stesso valore lungo l'intero circuito: coincid
 		\end{tabular} &
 		\begin{tabular}[c]{@{}c@{}}
 			\\[-2mm]
+			$\displaystyle\div{\vba{B}}=0$\\[-2mm]~
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
+			\\[-2mm] \textbf{Legge dell'induzione di Faraday}\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[l]{@{}l@{}}
+			\\[-3mm]
+			$\displaystyle\Gamma_{\gamma}(\vba{E})=\oint_{\partial \Sigma} \vba{E}\vdot d\vba{s}=$\\
+			$\displaystyle\quad=-\dv{t} \int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=-\int_{\Sigma}\pdv{\vba{B}}{t}\vdot\vbh{u}_nd\Sigma$\\[-1mm]~
+		\end{tabular}
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-3mm]
+			$\displaystyle\curl{\vba{E}}=-\pdv{\vba{B}}{t}$
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
+			\\[-2mm] \textbf{Legge della circuitazione di Ampère-Maxwell}
+		\end{tabular} &
+		\begin{tabular}[l]{@{}l@{}}
+			\\[-3mm]
+			$\displaystyle\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=$\\
+			$\displaystyle\quad=\mu_0\left(\int_{\Sigma}\vba{j}\vdot\vbh{u}_n d\Sigma+\epsilon_0\dv{t}\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma\right)=$\\
+			$\displaystyle\quad=\mu_0I_{int}+\frac{1}{c^2}\pdv{\Phi_{\Sigma}(\vba{E})}{t}=\mu_0\left(I+I_s\right)$
+		\end{tabular} &
+		\begin{tabular}[l]{@{}l@{}}
+			\\[-2mm]
+			$\displaystyle\curl{\vba{B}}=\mu_0\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)$\\
+			$\displaystyle\quad=\mu_0\left(\vba{j}+\vba{j}_s\right)=\mu_0\vba{j}_{tot}$
+		\end{tabular}
+	\end{tabular}
+\end{center}
+In assenza di sorgenti\footnote{In diversi testi tale condizione viene detta ‘‘nel vuoto'' e le relative equazioni di Maxwell ‘‘equazioni di Maxwell nel vuoto''. Tale nomenclatura non deve trarre in inganno: sebbene tali equazioni siano valide nel vuoto inteso come \textit{assenza di materia}, \textit{non} sono corrette se sono presenti sorgenti. Per evitare ulteriori confusioni, in questo testo \textit{non} utilizzeremo tale nomenclatura fuorviante.} di campi elettrici, rappresentate dalla densità di carica $\rho$, e di campi magnetici, rappresentate dalla densità di corrente $\vba{j}$, allora
+\begin{center}
+	\begin{tabular}{p{0.18\textwidth}|c|c}
+		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
+		\centering{\textbf{Nome}} &
+		\textbf{Forma integrale} &
+		\begin{tabular}{@{}c@{}} \textbf{Forma} \\ \textbf{differenziale}\end{tabular} \\ \hline
+		
+		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
+			\\[-2mm]\textbf{Legge di Gauss per l'elettricità}\\[-2mm]~
+		\end{tabular}
+		&
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\Phi_{\partial V}(\vba{E})=\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{q_{int}}{\epsilon_0}=\frac{1}{\epsilon_0}\int_{V}\rho dV$\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\div{\vba{E}}=\frac{\rho}{\epsilon_0}$\\[-2mm]~
+		\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
+			\\[-2mm] \textbf{Legge di Gauss per il magnetismo}\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
+			$\displaystyle\Phi_{\partial V}(\vba{B})=\int_{\partial V}\vba{B}\vdot\vbh{u}_nd\Sigma=0$\\[-2mm]~
+		\end{tabular} &
+		\begin{tabular}[c]{@{}c@{}}
+			\\[-2mm]
 			$\displaystyle\curl{\vba{E}}=-\pdv{\vba{B}}{t}$\\[-2mm]~
 		\end{tabular} \\ \hline
 		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
@@ -612,13 +674,122 @@ La \textit{corrente totale} ha lo stesso valore lungo l'intero circuito: coincid
 		\begin{tabular}[l]{@{}l@{}}
 			\\[-3mm]
 			$\displaystyle\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=$\\
-			$\displaystyle\quad=\mu_0\left(\int_{\Sigma}\vba{j}\vdot\vbh{u}_n d\Sigma+\epsilon_0\dv{t}\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma\right)=$\\
-			$\displaystyle\quad=\mu_0I_{int}+\frac{1}{c^2}\pdv{\Phi_{\Sigma}(\vba{E})}{t}=\mu_0\left(I+I_s\right)$
+			$\displaystyle\quad=\frac{1}{c^2}\dv{t} \int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=$\\
+			$\displaystyle\quad=\frac{1}{c^2}\pdv{\Phi_{\Sigma}(\vba{E})}{t}=\mu_0I_s$
 		\end{tabular} &
 		\begin{tabular}[l]{@{}l@{}}
 			\\[-2mm]
-			$\displaystyle\curl{\vba{B}}=\mu_0\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)$\\
-			$\displaystyle\quad=\mu_0\left(\vba{j}+\vba{j}_s\right)=\mu_0\vba{j}_{tot}$
+			$\displaystyle\curl{\vba{B}}=\frac{1}{c^2}\pdv{\vba{E}}{t}$\\
+			$\displaystyle\quad=\mu_0\vba{j}_s$
 		\end{tabular}
 	\end{tabular}
 \end{center}
+%TODO: intro equazioni di Maxwell
+\paragraph{Maxwell... è tutto quello che c'è}
+Abbiamo finalmente ottenuto le equazioni di Maxwell. In realtà, non dobbiamo pensare che le equazioni di Maxwell siano una conseguenza di tutti i risultati e gli esperimenti visti fin'ora, ma semmai il \textit{contrario}: sono le equazioni di Maxwell ad essere quelle \textit{fondamentali}!\\
+Da esse possiamo quindi ricavare tutte le leggi viste in precedenza, come ad esempio:
+\begin{itemize}
+	\item \textbf{Equazione di continuità.}
+	\begin{equation}
+		\div{\vba{j}}+\pdv{\rho}{t}=0
+	\end{equation}
+	\item \textbf{Forza di Lorentz.}
+	\begin{equation}
+		\vba{F}=q\left(\vba{E}+\vba{v}\cross\vba{B}\right)
+	\end{equation}
+	\item \textbf{Densità di energia nei campi.}
+	\begin{equation}
+		\mu=\frac{1}{2}\left(\epsilon_0E^2+\frac{B^2}{\mu_0}\right)
+	\end{equation}
+\end{itemize}
+Volendo, si poteva trattare l'elettromagnetismo enunciando le equazioni di Maxwell e solo successivamente \textit{declinare} i risultati particolari da quelle; in questo testo si è deciso di fare l'esatto opposto per seguire grossomodo l'\textit{approccio storico} alla faccenda.
+%TODO: completare in modo più interessante.
+\subsection{Invarianza di gauge nell'elettromagnetismo}
+Sappiamo, dalla \textit{legge di Gauss del magnetismo} che $\vba{B}$ è solenoidale, dunque esiste un campo potenziale vettoriale $\vba{A}$ tale che
+\begin{equation*}
+	\vba{B}=\curl{\vba{A}}
+\end{equation*}
+Abbiamo inoltre visto come $\vba{E}$ è \textit{conservativo} nel caso stazionario, mentre in generale non lo è; in ogni caso, esiste un campo potenziale scalare $V$ tale che
+\begin{equation*}
+	\vba{E}=-\pdv{\vba{A}}{t}-\grad{V}
+\end{equation*}
+In particolare, se $\vba{B}$ dipende dal tempo, allora anche il vettore potenziale $\vba{A}$ è sempre definito \textit{a meno di gradiente}. in termini di classi di equivalenza, $\vba{A}$ è il rappresentante della classe $\left[\vba{A}\right]$ data dalla relazione
+\begin{align*}
+	\vba{A}\sim \vba{A}+\grad{\phi} \qquad \text{dove}\ \funz[\phi]{\realset^4}{\realset}
+\end{align*}
+Tuttavia, $\phi$ può dipendere anche dal tempo. Una conseguenza di ciò è che la formulazione del campo elettrico in termini dei campi potenziali \textit{non} sarebbe consistente con quella del campo elettrostatico, dato che
+\begin{equation*}
+	\vba{E}=-\pdv{\vba{A}}{t}-\grad{\pdv{\oldphi}{t}}-\grad{V}
+\end{equation*}
+Per ovviare a ciò ricordiamo che il potenziale è definito a meno di costante. Pertanto, ci basta ridefinire la relazione di equivalenza che definisce la classe di equivalenza $\left[V\right]$, in modo che
+\begin{align*}
+	V\sim V-\pdv{\phi}{t} \qquad \text{dove}\ \funz[\phi]{\realset^4}{\realset}
+\end{align*}
+Quindi, i campi potenziali dei campi elettrici e magnetici sono rappresentanti delle classi di equivalenza $\left[V\right]$ e $\left[\vba{A}\right]$ dati dalle relazioni
+\begin{align*}
+	V\sim V-\pdv{\phi}{t}&& \vba{A}\sim \vba{A}+\grad{\phi}
+\end{align*}
+dove $\funz[\phi]{\realset^4}{\realset}$ è una funzione delle tre coordinate spaziali $(x,y,z)$ e del tempo $t$. In questo modo abbiamo generalizzato al caso non stazionario l'invarianza di gauge osservata per i campi elettromagnetostatica nel \autoref{chap:leggediAmpere}, sezione \ref{invarianzagauge}.\\
+Consideriamo dei campi potenziali $\vba{A}$ e $V$ tali per cui
+\begin{equation*}
+	D\coloneqq\div{\vba{A}}+\frac{1}{c^2}\pdv{V}{t}\neq 0
+\end{equation*}
+Possiamo operare una operare una scelta di gauge: imponiamo che la trasformazione di gauge descritta dal campo scalare $\phi$, ossia
+\begin{align*}
+	\vba{A}\mapsto\vba{A}'=\vba{A}+\grad{\oldphi}&&
+	V\mapsto V'=V-\pdv{\phi}{t}
+\end{align*}
+sia tale che
+\begin{equation}
+	\div{\vba{A}'}+\frac{1}{c^2}\pdv{V'}{t}=0\label{CondizioneDivEcc}
+\end{equation}
+La \textit{condizione} per la scelta di $\phi$ si ottiene sostituendo le trasformazioni dei campi potenziali all'interno della \eqref{CondizioneDivEcc}:
+\begin{equation*}
+	\grad{\vba{A}'}-\laplacian{\oldphi}+\frac{1}{c^2}\pdv{V'}{t}+\frac{1}{c^2}\pdv[2]{\oldphi}{t}=D
+\end{equation*}
+\begin{equation}
+	\frac{1}{c^2}\pdv[2]{\phi}{t}-\laplacian{\oldphi}=D
+\end{equation}
+Se utilizziamo l'operatore di D'alambert\footnote{Nelle ‘‘XXX'', a pagina \pageref{dalembertiano} è possibile trovare maggiori informazioni su tale operatore.}, l'equazione che descrive $\oldphi$ in modo da garantire la scelta di gauge precedente è
+\begin{equation}
+	\Box{\oldphi}=D
+\end{equation}
+\paragraph{Equazioni del moto della dinamica classica}
+Fatta la scelta di gauge, vogliamo ora trovare delle relazioni tra i campi potenziali e le sorgenti dei campi elettromagnetici. Ricordiamo che
+\begin{align*}
+	\vba{B}=\curl{\vba{A}} && \vba{E}=-\pdv{\vba{A}}{t}-\grad{V}
+\end{align*}
+Per proprietà delle derivate seconde degli operatori differenziali, vale la relazione
+\begin{equation}
+	\curl{\vba{B}}=\curl{\left(\curl{\vba{A}}\right)}=\grad{\left(\div{\vba{A}}\right)}-\laplacian{\vba{A}}\label{PotenzialeBox1}
+\end{equation}
+Sostituendo la \eqref{PotenzialeBox1} nella \textit{legge di circuitazione di Ampère}:
+\begin{align*}
+	&\curl{\vba{B}}=\mu_0\vba{j}+\frac{1}{c^2}\pdv{\vba{E}}{t}\\
+	&\grad{\left(\div{\vba{A}}\right)}-\laplacian{\vba{A}}-\frac{1}{c^2}\pdv{t}\left(-\pdv{\vba{A}}{t}-\grad{V}\right)=\mu_0\vba{j}\\
+	&\grad{\left(\div{\vba{A}}\right)}-\laplacian{\vba{A}}+\frac{1}{c^2}\pdv[2]{\vba{A}}{t}-\frac{1}{c^2}\grad{\pdv{V}{t}}=\mu_0\vba{j}\\
+	&\underbrace{\grad{\left(\div{\vba{A}}+\frac{1}{c^2}\pdv{V}{t}\right)}}_{=0\ \text{per la scelta di gauge}}+\underbrace{\left(\frac{1}{c^2}\pdv[2]{t}-\laplacian\right)}_{=\Box}\vba{A}=\mu_0\vba{j}
+\end{align*}
+\begin{equation}
+	\Box{\vba{A}}=\mu_0\vba{j}
+\end{equation}
+Per trovare la relazione del campo potenziale $V$, partiamo calcolando la divergenza del campo elettrico con la \textit{legge di Gauss}:
+\begin{equation}
+	\frac{\rho}{\epsilon_0}=\div{\vba{E}}=\div{\left(-\pdv{\vba{A}}{t}-\grad{V}\right)}=-\pdv{t}\left(\div{\vba{A}}\right)-\laplacian{V}
+\end{equation}
+Derivando temporalmente la scelta di gauge
+\begin{equation*}
+	\div{\vba{A}}-\frac{1}{c^2}\pdv{V}{t}=0
+\end{equation*}
+otteniamo
+\begin{equation}
+	\pdv{t}\left(\div{\vba{A}}\right)-\frac{1}{c^2}\pdv[2]{V}{t}=0 \label{PotenzialeBox2} 
+\end{equation}
+Ricavando da \eqref{PotenzialeBox2} il termine $\pdv{t}\left(\div{\vba{A}}\right)$
+\begin{equation*}
+	\frac{1}{c^2}\pdv[2]{V}{t}-\laplacian{V}=\frac{\rho}{\epsilon_0}
+\end{equation*}
+\begin{equation}
+	\Box{V}=\frac{\rho}{\epsilon_0}
+\end{equation}
+%TODO: sezione corrente alternata

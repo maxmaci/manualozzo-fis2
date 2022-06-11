@@ -5,9 +5,9 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Richiami di geometria differenziale e calcolo differenziale}
+\chapter{Raccolta Differenziata: richiami di geometria e calcolo differenziale}
 \labelAppendix{differentialcalculus}
- % TO DO: nome sezione
+%TODO: nome sezione
 \addtocontents{define}{\noindent\textls{\textsc{\textcolor{reddo}{Appendice A:}
 			\nowtitle}}
 }{}
@@ -17,12 +17,12 @@
 \begin{introduction}
 	‘‘BEEP BOOP''
 	\begin{flushright}
-		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. % TO DO: quote 
+		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni.%TODO: quote 
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{P}{er} comprendere a fondo gli argomenti trattati in questo Manualozzo\texttrademark\ è estremamente importante avere una buona padronanza dei concetti di \textit{Geometria Differenziale} e \textit{Calcolo Differenziale}. In questo capitolo troverete dei cenni, brevi ma-non-troppo, per colmare ogni potenziale lacuna a riguardo.\\
 Quanto indicato con il simbolo ⋆ sono degli \textit{approfondimenti non necessari} - ma possono essere comunque utili ed interessanti per un lettore curioso.
- % TO DO: intro
+%TODO: intro
 \section{⋆ Varietà differenziabile}
 \begin{define}[Carta, coordinate lagrangiane, parametrizzazione locale]
 	Dato un insieme di punti $M$ non vuoto, una \textbf{carta}\index{carta} è una coppia $\left(U,\phi\right)$ dove
@@ -157,7 +157,7 @@ Utilizzando il prodotto interno definito da $g$, si ha per qualunque campo vetto
 \end{itemize}
 \section{⋆ Elemento di linea}
 \begin{define}[Spostamento infinitesimo]
-	Il vettore \textbf{spostamento infinitesimo}\index{spostamento infinitesimo} è la variazione infinitesima del vettore posizione $\vba{r}$. Scelte delle coordinate $(q^\lambda)$ su $M$, % TO DO: controllare se va bene per le varietà differenziabili o solo le affini qui
+	Il vettore \textbf{spostamento infinitesimo}\index{spostamento infinitesimo} è la variazione infinitesima del vettore posizione $\vba{r}$. Scelte delle coordinate $(q^\lambda)$ su $M$,%TODO: controllare se va bene per le varietà differenziabili o solo le affini qui
 	\begin{equation}
 		d\vba{s}=\pdv{\vba{r}}{q^\lambda}dq^\lambda=\abs{\pdv{\vba{r}}{q^\lambda}}\frac{\pdv{\vba{r}}{q^\lambda}}{\abs{\pdv{\vba{r}}{q^\lambda}}}dq^\lambda=\abs{\pdv{\vba{r}}{q^\lambda}}dq^\lambda\vbh{u}_\lambda
 	\end{equation}
@@ -216,7 +216,7 @@ In particolare, la lunghezza della curva $\gamma$ è
 		\int_\gamma \vba{F}\vdot d\vba{s}=\int_a^b \vba{F}(\vba{r}(\tau))\vdot\abs{\vba{r}'(\tau)}d\tau
 	\end{equation}
 \end{define}
-Gli integrali curvilineo di seconda specie sono indipendenti dalla parametrizzazione, ma dipendono invece dall'\textit{orientazione}: nella fattispecie, invertire l'orientazione della parametrizzazione cambia il segno dell'integrale curvilineo. % TO DO: controllare se vale lo stesso per quello di prima specie
+Gli integrali curvilineo di seconda specie sono indipendenti dalla parametrizzazione, ma dipendono invece dall'\textit{orientazione}: nella fattispecie, invertire l'orientazione della parametrizzazione cambia il segno dell'integrale curvilineo.%TODO: controllare se vale lo stesso per quello di prima specie
 \section{⋆ Elemento di area}
 \begin{define}
 Data una superficie	$\Sigma$ a due dimensioni immersa in $\realset^3$, l'\textbf{elemento di superficie}\index{elemento di superficie} è una sua porzione infinitesima. In termini matematici, scelte una parametrizzazione $\vba{r}(u,v)$ di $\Sigma$ e dunque una scelta di coordinate $(u,v)$, allora l'elemento di superficie è una 2-forma data da
@@ -341,7 +341,7 @@ In questa sezione ci limitiamo a considerare lo spazio affine $\realset^3$ - dot
 \begin{define}[Operatore nabla]
 	L'operatore \textbf{nabla}\index{nabla}	è una notazione matematica che semplifica la scrittura di diverse equazioni. In coordinate cartesiane su $\realset^3$, si può immaginare un vettore puramente formale che contiene gli operatori delle derivate parziali nelle tre direzioni spaziali (cartesiane):
 	\begin{equation}
-		\grad = \pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z\label{nablacartesiano}
+		\grad = \left(\partial_x,\partial_y,\partial_z\right)=\pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z\label{nablacartesiano}
 	\end{equation}
 \end{define}
 \begin{attention}
@@ -365,7 +365,7 @@ Un campo scalare è quindi una mappa che a punti di $\realset^3$ associa valori 
 \begin{define}[Gradiente]\label{gradiente}
 	Dato un campo scalare $\funz[\phi]{\realset^3}{\realset}$, il \textbf{gradiente}\index{gradiente} è il campo vettoriale dato dall'applicazione della nabla tramite moltiplicazione per uno scalare a $\phi$:
 	\begin{equation}
-		\grad{\phi}=\left(\partial_x\phi,\partial_y\phi,\partial_z\phi\right)
+		\grad{\phi}=\left(\partial_x\phi,\partial_y\phi,\partial_z\phi\right)=\pdv{\phi}{x}\vbh{u}_x+\pdv{\phi}{y}\vbh{u}_y+\pdv{\phi}{z}\vbh{u}_z
 	\end{equation}
 \end{define}
 \begin{examples}~
@@ -420,7 +420,7 @@ Per questioni operative conviene comunque servirsi di un sistema di coordinate e
 \subsection{Derivate seconde}
 Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettoriali, possiamo riapplicare l'operatore nabla come in precedenza per ottenere delle derivate seconde; alcune hanno particolare rilevanza perché sono importanti dal punto di vista matematico oppure perché sono costantemente nulle.
 \begin{enumerate}[label=\roman*)]
-	\item  $\div{\left(\grad\phi\right)}=\laplacian{\phi}$, dove $\laplacian{\phi}$ è il \textbf{laplaciano}\index{laplaciano}:
+	\item  $\div{\left(\grad\phi\right)}=\laplacian{\phi}$, dove $\laplacian$ è il \textbf{laplaciano}\index{laplaciano}:
 	\begin{equation}
 		\laplacian{\phi}=\partial^2_x\phi+\partial^2_y\phi+\partial^2_z\phi\label{laplacianocartesiano}
 	\end{equation}
@@ -429,7 +429,7 @@ Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettori
 	\item $\div{\left(\curl{\vba{G}}\right)}=0$
 	\item $\curl{\left(\curl{\vba{G}}\right)}=\grad{\left(\div{\vba{G}}\right)}+\laplacian{\vba{G}}$, dove $\laplacian{\vba{G}}$ è il \textbf{laplaciano vettoriale}\index{laplaciano!vettoriale}:
 	\begin{equation}
-		\laplacian{\vba{G}}=\left(\laplacian{\partial_xE},\laplacian{\partial_yE},\laplacian{\partial_zE}\right)
+		\laplacian{\vba{G}}=\left(\laplacian{G_x},\laplacian{G_y},\laplacian{G_z}\right)
 	\end{equation}
 \end{enumerate}
 
@@ -442,7 +442,7 @@ Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettori
 				\partial_x & \partial_y & \partial_z\\
 				G_x & G_y & G_z\\
 				\vbh{u}_x & \vbh{u}_y & \vbh{u}_z
-			\end{vmatrix}&=\
+			\end{vmatrix}&=\\
 		&=\left(\partial_y\partial_z\phi-\partial_z\partial_y\phi\right)\vbh{u}_x+\left(\partial_z\partial_x\phi-\partial_x\partial_z\phi\right)\vbh{u}_y+\left(\partial_x\partial_y\phi-\partial_y\partial_x\phi\right)\vbh{u}_z=0
 		\end{align*}
 		\item[iv)]
@@ -462,7 +462,8 @@ Definite le nostre derivate seconde, otteniamo una conseguenza quasi immediata.
 		\curl{\vba{G}}=\curl{\grad{\phi}}=0\qedhere
 	\end{equation*}
 \end{demonstration}
-Concludiamo la discussione con alcuni teoremi non banali (e forniti senza dimostrazione) che seguono dalle derivate seconde qui definite
+\paragraph{Teoremi relativi alle derivate seconde}
+Concludiamo la discussione con alcuni teoremi non banali (e forniti senza dimostrazione) che seguono dalle derivate seconde qui definite.
 \begin{theoremaqed}[Ogni campo irrotazionale è conservativo]
 	Ogni campo irrotazionale $\vba{G}$ è (localmente) conservativo, ossia è il gradiente di un opportuno campo scalare $\phi$.
 	\begin{equation*}
@@ -475,6 +476,66 @@ Concludiamo la discussione con alcuni teoremi non banali (e forniti senza dimost
 		\div{\vba{G}}=0\implies \exists \vba{A}\colon \vba{G}=\curl{\vba{A}}\qedhere
 	\end{equation*}
 \end{theoremaqed}
+\subsection{Operatori differenziali in dimensioni maggiori}
+Matematicamente, possiamo estendere parte delle definizioni precedenti dallo spazio affine $\realset^3$ a quello di un generico di $\realset^n$.
+\begin{define}[Operatore nabla in {$\realset^n$}]
+	L'operatore \textbf{nabla}\index{nabla}	è una notazione matematica che semplifica la scrittura di diverse equazioni. Nelle coordinate $(x_1,\ldots,x_n)$ della base standard $\left(\vba{e}_1,\ldots,\vba{e}_n\right)$ su $\realset^n$, è il vettore puramente formale che contiene gli operatori delle derivate parziali nelle direzioni della base :
+	\begin{equation}
+		\grad = \pdv{x^1}\vba{e}_1+\ldots+\pdv{x^n}\vba{e}_n=\sum_{i=1}^n\pdv{x^i}\vba{e}_i\label{nablacartesianondim}
+	\end{equation}
+\end{define}
+Preso il campo scalare
+\begin{equation}
+	\funztot[\phi]{\realset^n}{\realset}{(x^1,\ldots,x^n)}{\phi(x^0,\ldots,x^n)}
+\end{equation}
+e il campi vettoriale
+\begin{equation}
+	\funztot[\vba{G}]{\realset^n}{\realset^n}{(x^1,\ldots,x^n)}{\left(G_1(x^0,\ldots,x^n),\ldots,G_n(x^0,\ldots,x^n)\right)}
+\end{equation}
+possiamo definire i seguenti operatori differenziali:
+\begin{itemize}
+	\item \textbf{Gradiente}:
+	\begin{equation}
+		\grad{\phi}=\left(\partial_1\phi,\ldots,\partial_n\phi\right)=\pdv{\phi}{x^1}\vba{e}_1+\ldots+\pdv{\phi}{x^n}\vba{e}_n=\sum_{i=1}^n\pdv{\phi}{x^i}\vba{e}_i
+	\end{equation}
+	\item \textbf{Divergenza}:
+	\begin{equation}
+		\div{\vba{G}}=\partial_1G^1+\partial_yG_y+\partial_zG_z=\sum_{i=1}^n\pdv{G^i}{x^i}=\partial_iG^i
+	\end{equation}
+	\item \textbf{Laplaciano}:
+	\begin{equation}
+		\laplacian{\phi}=\partial^2_i\phi+\ldots+\partial^2_n\phi=\sum_{i=1}^n\pdv[2]{\phi}{(x^i)}\label{laplacianocartesianondim}
+	\end{equation}
+	\item \textbf{Laplaciano vettoriale}:
+	\begin{equation}
+		\laplacian{\vba{G}}=\left(\laplacian{G_i},\ldots,\laplacian{G_n}\right)
+	\end{equation}
+\end{itemize}
+\paragraph{Operatore d'Alembertiano}\label{dalembertiano}
+Se consideriamo lo \textit{spaziotempo di Minkowski} $M=\realset^4$, con coordinate $(x^0=ct,x^1=x,x^2=y,x^3=z)$ dotato della \textit{metrica di Minkowski}
+\begin{equation*}
+	\eta=\begin{pmatrix}
+		1 & 0 & 0 & 0\\
+		0 & -1 & 0 & 0\\
+		0 & 0 & -1 & 0\\
+		0 & 0 & 0 & -1
+	\end{pmatrix}
+\end{equation*}
+si può definire un'estensione in tale spazio del \textit{laplaciano} $\laplacian$, l'\textbf{operatore d'Alembertiano}\index{d'Alembertiano}:
+\begin{multline}
+	\Box=\partial^{\mu}\partial_{\mu}=\eta^{\mu\nu}\partial_{\mu}\partial_{\nu}=\pdv[2]{(x^0)}-\pdv[2]{(x^1)}-\pdv[2]{(x^2)}-\pdv[2]{(x^3)}=\\
+	\frac{1}{c^2}\pdv[2]{t}-\pdv[2]{x}-\pdv[2]{y}-\pdv[2]{z}=\frac{1}{c^2}\pdv[2]{t}-\laplacian
+\end{multline}
+dove $c$ è la velocità della luce.\\
+In questo modo possiamo definire il laplaciano di un campo scalare...
+\begin{equation}
+	\Box\phi=\frac{1}{c^2}\pdv[2]{\phi}{t}-\laplacian{\phi}
+\end{equation}
+...e, dato un campo vettoriale $\vba{G}(x^0, x^1, x^2, x^3)$, l'estensione del laplaciano vettoriale
+\begin{equation}
+	\Box{\vba{G}}=\left(\Box{G_0},\Box{G_1},\Box{G_2},\Box{G_3}\right)
+\end{equation}  
+In alcuni ambiti, ma specialmente nell'ambito dello studio delle onde \textit{non} elettromagnetiche, si può adattare tale operatore sostituendo a $c$ un'opportuna velocità $v$. %TODO: check this
 \section{Teorema della divergenza e del rotore}
 \paragraph{Teorema della divergenza}
 \begin{theoremaqed}[Teorema della divergenza]
@@ -537,7 +598,7 @@ Utilizzando la notazione fisica, la \ref{TeoremaRotore} si scrive come
 		\item Tutte le linee di forze sono chiuse.
 	\end{enumerate}
 \end{theorema}
-\begin{demonstration}~\\ % TO DO: completare le altre? e riguardare III -> IV
+\begin{demonstration}~\\%TODO: completare le altre? e riguardare III -> IV
 	$II)\implies I)\quad$ Se $\vba{G}=\curl{\vba{A}}$, allora
 	\begin{equation*}
 		\div{\vba{G}}=\div{\left(\curl{\vba{A}}\right)}=0

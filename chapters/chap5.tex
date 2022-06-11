@@ -52,7 +52,7 @@ dove $d$ è la lunghezza del filo e $c$ la \textit{velocità della luce}, fino a
 \end{equation*}
 Siamo in presenza del fenomeno di \textbf{conduzione elettrica}\index{conduzione!elettrica}.
 \begin{define}[Corrente elettrica]
-	Un moto \textit{ordinato} di elettroni liberi di un conduttore in una certa direzione è detto una \textbf{corrente elettrica}.
+	Un moto \textit{ordinato} di elettroni liberi di un conduttore in una certa direzione è detto una \textbf{corrente elettrica}\index{corrente elettrica}.
 \end{define}
 Dato che la velocità della luce è estremamente elevata, l'equilibrio è raggiunto quasi istantaneamente e la corrente elettrica è di breve vita. Per poter indurre un moto consistente e \textit{duraturo} di cariche dobbiamo \textit{mantenere} una differenza di potenziale.
 
@@ -977,7 +977,7 @@ In casi complessi non è però possibile determinare quale sia il verso di perco
 		\end{tikzpicture}
 	\end{center}
 \end{solution} %TODO: controllare calcoli
-\subsection{Circuiti RC e processo di carica di un condensatore}\label{CircuitiRC}
+\subsection{Circuiti RC e processo di carica di un condensatore}\label{CircuitiRC}%TODO: processo di scarica
 \begin{define}[Circuito RC]
 	Un \textbf{circuito RC}\index{circuito!RC} è un circuito che presenta solo \textit{resistori} e \textit{condensatori}.
 	\begin{center}		
@@ -1032,7 +1032,7 @@ Formalizziamo questo discorso empirico usando la \textit{legge di Kirchhoff} del
 	&\mathcal{E}-IR-\frac{q}{C}=0\\
 	&\mathcal{E}-\dv{q}{t}R-\frac{q}{C}=0
 \end{align*}
-Risolviamo questa equazione differenziale per descrivere la carica $q=q(t)$ del condensatore:
+Risolviamo questa \textit{equazione differenziale del prim'ordine} per descrivere la carica $q=q(t)$ del condensatore:
 \begin{align*}%TODO: fix
 	&\dv{q}{t}=\frac{\mathcal{E}C-q}{RC}\\ &\int_{0}^{q(t)}\frac{dq}{q-\mathcal{E}C}=-\frac{1}{RC}\int_{0}^{t}dt\\
 	&\eval{\log{q-\mathcal{E}C}}_{0}^{q(t)}=-\frac{1}{RC}\eval{t}_{0}^{t}\\
