@@ -6,23 +6,24 @@
 {$LastChangedBy$}
 % BRUTTISSIMO PUN E CHE NON È POLITICAMENTE CORRETTA; un volt m'ampere d'aver vist un'ohm che s'incoulomb un'altr'ohm. Ah Joule!
 % Metalmeccanico e parrucchiere in un turbine di sesso e politica
-\chapter{Campi elettrici e magnetici variabili nel tempo}
+\chapter{Campi elettrici e magnetici variabili nel tempo e le equazioni di Maxwell}
 \labelChapter{elettromagnetismoTempo}
 
 \begin{introduction}
-	‘‘La matematica confronta i più disparati fenomeni e scopre le analogie segrete che li uniscono.''
+	‘‘Sono un esperto di Elettricità. Mio padre ha occupato la cattedra di Elettricità Applicata nella	prigione di stato.''
 	\begin{flushright}
-		\textsc{Joseph Fourier,} cercando disperatamente di motivare ai suoi genitori la scelta di studiare matematica. %TODO: quote
+		\textsc{W.C. Fields,} perito (R.I.P.) elettrotecnico e famoso esperto nel campo.
 	\end{flushright}
-\end{introduction} %TODO: check intro
+\end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{N}{el} capitolo precedente abbiamo finalmente raggiunto un primo, grande risultato: abbiamo enunciato le quattro \textit{equazioni di Maxwell}, le leggi fondamentali che descrivono i fenomeni elettrici e magnetici statici - ossia \textit{costanti nel tempo}:
 \begin{align*}
 	\div{\vba{E}}=\frac{\rho}{\epsilon_0}&&\curl{\vba{E}}=0\\
 	\div{\vba{B}}=0&&\curl{\vba{B}}=\mu_0\vba{j}
 \end{align*}
 Possiamo suddividere le equazioni in due coppie: due di queste leggi riguardando il campo elettrico $\vba{E}$, mentre le altre due il campo magnetico di induzione $\vba{B}$. All'apparenza queste due coppie sono completamente separate e potrebbero essere risolte senza che una soluzione influenzi l'altra.\\
-Tuttavia, già in questa situazione statica non sono completamente indipendenti: le cariche elettriche (nelle equazioni di Maxwell rappresentante dalla densità di carica $\rho$) sono le sorgenti di $\vba{E}$, ma quando sono in movimento danno luogo ad una densità di corrente e quindi diventano \textit{anche} sorgente di $\vba{B}$... ma essere o meno in moto è un fatto \textit{relativo} che dipende dal sistema di riferimento! Un campo elettrico per un sistema di riferimento può apparire come campo magnetico in un altro sistema (o viceversa). È intuibile che $\vba{E}$ e $\vba{B}$ devono essere la manifestazione di un unico ente fisico, il \textit{campo elettromagnetico}. Tale ente, oltre modo, non possiamo escludere che dipenda anche dal tempo.\\
-Inizieremo a raccogliere prove di questa nostra intuizione studiando i fenomeni elettrici e magnetici \textit{non stazionari}. In questo capitolo, partendo da osservazione sperimentale come la \textbf{legge di Faraday-Neumman-Lenz} arriveremo a formulare le ultime due equazioni di Maxwell mancanti, la \textbf{legge di induzione di Faraday} e la l
+Tuttavia, già in questa situazione statica non sono completamente indipendenti: le cariche elettriche (nelle equazioni di Maxwell rappresentante dalla densità di carica $\rho$) sono le sorgenti di $\vba{E}$, ma quando sono in movimento danno luogo ad una densità di corrente e quindi diventano \textit{anche} sorgente di $\vba{B}$... ma essere o meno in moto è un fatto \textit{relativo} che dipende dal sistema di riferimento! Un campo elettrico per un sistema di riferimento può apparire come campo magnetico in un altro sistema (o viceversa). È intuibile che $\vba{E}$ e $\vba{B}$ devono essere la manifestazione di un unico ente fisico, il \textit{campo elettromagnetico}. Oltre modo, non possiamo escludere che tale ente dipenda anche dal tempo.\\
+Inizieremo a raccogliere prove di questa nostra intuizione studiando i fenomeni elettrici e magnetici \textit{non stazionari}. In questo capitolo partiremo da osservazioni sperimentali per formulare la \textbf{legge di induzione di Faraday} e le sue applicazioni - autoflusso, \textbf{induttanza}, induttori e \textbf{circuiti RL}. Successivamente, parleremo delle correzioni da apporre alla \textbf{legge della circuitazione di Ampère} e la loro interpretazione fisica come \textbf{corrente di spostamento}, concludendo finalmente il principale obiettivo intrapreso all'inizio di questo testo: formulare le \textbf{equazioni di Maxwell nel vuoto}.
+
 \section{Legge di Faraday-Neumann-Lenz}
 Le osservazioni sperimentali sul fenomeno dell'induzione elettromagnetica di \textbf{Michael Faraday} (1791-1867) in Inghilterra e, separatamente, di \textbf{Joseph Henry} (1887 - 1915) in America misero in evidenza che un campo magnetico \textit{variabile nel tempo} genera un campo elettrico \textit{non conservativo}. Rivediamo assieme alcuni di questi esperimenti.
 \begin{itemize}
@@ -243,7 +244,7 @@ La \fem autoindotta si può dunque esprimere come
 	\mathcal{E}_i=-L\dv{I}{t}
 \end{equation}
 \begin{example}[Solenoide infinito]
-	Supponiamo di avere un solenoide infinito, nella pratica un solenoide di lunghezza $d$ molto maggiore del suo raggio $R$ in modo da escludere, date le notevoli dimensioni, qualunque effetto di bordo. Il campo magnetico è, in modulo,
+	Supponiamo di avere un \textit{solenoide infinito}, che nella pratica è un solenoide di lunghezza $d$ molto maggiore del suo raggio $R$ in modo da escludere qualunque effetto di bordo. Il campo magnetico è, in modulo,
 	\begin{equation*}
 		B=\mu_0 I n
 	\end{equation*}
@@ -305,7 +306,7 @@ Consideriamo il caso semplice di un circuito RL, dotato di un interruttore inizi
 \end{equation*}
 che si oppone a quella $\mathcal{E}$ del generatore.
 \begin{observe}
-	Inizialmente, la corrente passa lentamente attraverso l'induttore: esso funge quindi da una sorta di \textit{inerzia} della corrente.
+	Inizialmente, la corrente passa lentamente attraverso l'induttore: come per la resistenza, l'induttanza funge da \textit{ostacolo} alla corrente.
 \end{observe}
 Dalla seconda legge di Kirchhoff, fissato come verso di percorrenza quello della corrente $I$, la somma delle \ddp è
 \begin{align*}
@@ -625,7 +626,7 @@ La \textit{corrente totale} ha lo stesso valore lungo l'intero circuito: coincid
 	\end{tabular}
 \end{center}
 In assenza di sorgenti\footnote{In diversi testi tale condizione viene detta ‘‘nel vuoto'' e le relative equazioni di Maxwell ‘‘equazioni di Maxwell nel vuoto''. Tale nomenclatura non deve trarre in inganno: sebbene tali equazioni siano valide nel vuoto inteso come \textit{assenza di materia}, \textit{non} sono corrette se sono presenti sorgenti. Per evitare ulteriori confusioni, in questo testo \textit{non} utilizzeremo tale nomenclatura fuorviante.} di campi elettrici, rappresentate dalla densità di carica $\rho$, e di campi magnetici, rappresentate dalla densità di corrente $\vba{j}$, allora
-\begin{center}
+\begin{center}%TODO:check
 	\begin{tabular}{p{0.18\textwidth}|c|c}
 		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
 		\centering{\textbf{Nome}} &
@@ -638,11 +639,11 @@ In assenza di sorgenti\footnote{In diversi testi tale condizione viene detta ‘
 		&
 		\begin{tabular}[c]{@{}c@{}}
 			\\[-2mm]
-			$\displaystyle\Phi_{\partial V}(\vba{E})=\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=\frac{q_{int}}{\epsilon_0}=\frac{1}{\epsilon_0}\int_{V}\rho dV$\\[-2mm]~
+			$\displaystyle\Phi_{\partial V}(\vba{E})=\int_{\partial V}\vba{E}\vdot\vbh{u}_nd\Sigma=0$\\[-2mm]~
 		\end{tabular} &
 		\begin{tabular}[c]{@{}c@{}}
 			\\[-2mm]
-			$\displaystyle\div{\vba{E}}=\frac{\rho}{\epsilon_0}$\\[-2mm]~
+			$\displaystyle\div{\vba{E}}=0$\\[-2mm]~
 		\end{tabular} \\ \hline
 		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
 			\\[-2mm] \textbf{Legge di Gauss per il magnetismo}\\[-2mm]~
@@ -653,7 +654,7 @@ In assenza di sorgenti\footnote{In diversi testi tale condizione viene detta ‘
 		\end{tabular} &
 		\begin{tabular}[c]{@{}c@{}}
 			\\[-2mm]
-			$\displaystyle\curl{\vba{E}}=-\pdv{\vba{B}}{t}$\\[-2mm]~
+			$\displaystyle\div{\vba{B}}=0$\\[-2mm]~
 		\end{tabular} \\ \hline
 		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
 			\\[-2mm] \textbf{Legge dell'induzione di Faraday}\\[-2mm]~
@@ -666,7 +667,7 @@ In assenza di sorgenti\footnote{In diversi testi tale condizione viene detta ‘
 		&
 		\begin{tabular}[c]{@{}c@{}}
 			\\[-3mm]
-			$\displaystyle\curl{\vba{E}}=0$
+			$\displaystyle\curl{\vba{E}}=-\pdv{\vba{B}}{t}$
 		\end{tabular} \\ \hline
 		\begin{tabular}[c]{@{}p{0.18\textwidth}@{}}	
 			\\[-2mm] \textbf{Legge della circuitazione di Ampère-Maxwell}

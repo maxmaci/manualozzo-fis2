@@ -5,7 +5,7 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Campi elettrici nella materia}
+\chapter{Proprietà elettriche della materia}
 \labelChapter{dielettrici}
 
 \begin{introduction}
@@ -144,7 +144,7 @@ In realtà tali cariche non sono per nulla fittizie, ma non sono lo stesso tipo 
 
 Negli isolanti, come appena detto, le cariche non sono particolarmente libere: quasi tutti gli elettroni sono legati agli atomi e non possono allontanarsi spontaneamente. Si può comunque, con l'azione di \textit{agenti esterni}, separare \textit{localmente} cariche positive e negative all'interno degli atomi - senza romperne quindi i legami - in modo da indurre una separazione di carica.
 
-Il fenomeno della \textbf{polarizzazione}\index{polarizzazione} consiste proprio in questo: molto brevemente, esso consiste nel rendere degli atomi normalmente neutri in microscopici \textit{dipoli} sotto l'effetto di un campo elettrico esterno, in modo da causare il comportamento osservato in precedenza nei dielettrici. Non esiste un \textit{unico} modo di polarizzare atomi o molecole; noi ci occuperemo della \textit{polarizzazione elettronica} e della \textit{polarizzazione per orientamento}.
+Il fenomeno della \textbf{polarizzazione}\index{polarizzazione} consiste proprio in questo: molto brevemente, esso consiste nel far acquisire alle particelle della materiale un momento di dipolo proporzionale all'effetto di un campo elettrico esterno, in modo da causare il comportamento osservato in precedenza nei dielettrici. Non esiste un \textit{unico} modo di polarizzare atomi o molecole; noi ci occuperemo della \textit{polarizzazione elettronica} e della \textit{polarizzazione per orientamento}.
 \paragraph{Polarizzazione elettronica}
 Approfondiamo ora il primo tipo. Un atomo, secondo il modello non quantistico, consiste in un \textit{nucleo} positivo immerso in una \textit{nube} di elettroni negativi. In assenza di un campo elettrico esterno, il nucleo è neutro e la distribuzione degli elettroni attorno al nucleo è mediamente simmetrica, in modo che il centro di massa della nube coincida con la posizione del nucleo.
 
@@ -177,38 +177,38 @@ In presenza di un campo elettrico $\vba{E}$ esterno, i momenti di dipoli si alli
 Ciò nonostante, l'orientamento delle molecole è soltanto \textit{parziale} perché disturbato dall'agitazione termica: se la temperatura è bassa e il campo è intenso allora aumentano le molecole allineate.
 
 La \textbf{polarizzazione per orientamento}\index{polarizzazione!per orientamento} è quindi una polarizzazione basata sul fatto che le molecole polari sono intrinsecamente dei dipoli.
-\paragraph{Dielettrici e isolanti}
+\paragraph{Dielettrici e isolanti}\label{defdielettrico}
 Prima di spiegare come queste due polarizzazioni agiscono a livello macroscopico nei materiale dielettrici, dobbiamo effettivamente spiegare cosa sia un \textit{materiale dielettrico}.
 
 Fino ad ora abbiamo utilizzato abbastanza interscambiabilmente il termine ‘‘isolante'' e ‘‘dielettrico'', ma \textit{non} sono sinonimi.
 \begin{itemize}
-	\item Gli isolanti non hanno (molti) elettroni liberi che si muovono spontaneamente. Di conseguenza, sono materiali che hanno un'alta \textit{resistività} e non scorre praticamente alcuna corrente se soggetto ad un campo esterno. Inoltre, òa costante dielettrica è minore per gli isolanti.
-	\item I dielettrici sono materiali isolanti le cui particelle (atomi, molecole) sono facilmente soggette a fenomeni di polarizzazione. Pertanto, immagazzinano facilmente energia nei dipoli formati.
+	\item Gli \textbf{isolanti}\index{materiale!isolante} non hanno (molti) elettroni liberi che si muovono spontaneamente. Di conseguenza, sono materiali che hanno un'alta \textit{resistività} e non scorre praticamente alcuna corrente se soggetto ad un campo esterno. Inoltre, òa costante dielettrica è minore per gli isolanti.
+	\item I \textbf{dielettrici}\index{materiale!dielettrico} sono materiali isolanti le cui particelle (atomi, molecole) sono facilmente soggette a fenomeni di polarizzazione. Pertanto, immagazzinano facilmente energia nei dipoli formati.
 \end{itemize}
 Nei fatti, sebbene tutti i dielettrici sono isolanti, \textit{non} tutti gli isolanti sono dielettrici. Se non specificato differentemente, quando parliamo di isolanti consideriamo sempre \textit{isolanti dielettrici}.
 %https://www.quora.com/What-is-difference-between-insulator-and-dielectric-substanc
 \paragraph{Polarizzazione del dielettrico}
 I momenti dipoli dei singoli atomi o molecole sono \textit{microscopici}. Tuttavia, l'elevato numero di particelle per unità di volume e l'alta suscettibilità alla polarizzazione fa sì che nei dielettrici questi effetti si \textit{sovrappongono} e si abbia un risultato misurabile a livello \textit{macroscopico}.
 
-In termini espliciti, in presenza di un campo elettrico esterno $\vba{E}$ ciascun atomi o particelle in un unità di volume $\Delta V$ del dielettrico acquistano un momento di dipolo $\left<\vba{p}\right>$, parallelo e concorde con $\vba{E}$.
+In termini espliciti, in presenza di un campo elettrico esterno $\vba{E}$ ciascun atomo o particella in un volumetto $\Delta V$ intorno ad un punto $Q$ del dielettrico acquista un momento di dipolo $\left<\vba{p}\right>$, parallelo e concorde con $\vba{E}$.
 \begin{equation*}
 	\left<\vba{p}\right>=\frac{1}{N}\sum_{i=1}^N\vba{p}_i
 \end{equation*}
-Qui $N$ è il numero di atomi nel volume $\Delta V$. La \textbf{densità di polarizzazione}\index{densità!di polarizzazione} è quindi
+Qui $N$ è il numero di particelle nel volume $\Delta V$. La \textbf{densità di polarizzazione}\index{densità!di polarizzazione} è quindi
 \begin{equation}
-	\vba{P}=\lim_{\Delta V\to 0}\frac{1}{\Delta V}\sum_{i=1}^{N}\vba{p}_i=n\left<\vba{p}\right>
+	\vba{P}=\frac{1}{\Delta V}\sum_{i=1}^{N}\vba{p}_i=n\left<\vba{p}\right>
 \end{equation}
 dove
 \begin{equation*}
 	n=\lim_{\Delta V\to 0}\frac{N}{\Delta V}
 \end{equation*}
-è la densità di particelle. Il vettore $\vba{P}$ è anche detto \textbf{vettore polarizzazione!del dielettrico} e caratterizza l'effetto di formazione dei momenti di dipolo indotti dal campo esterno.
+è la densità di particelle nell'intorno di $Q$. Il vettore $\vba{P}$ è anche detto \textbf{vettore polarizzazione del dielettrico}\index{vettore polarizzazione!del dielettrico} e caratterizza l'effetto di formazione dei momenti di dipolo indotti dal campo esterno.
 
 La maggior parte dei \textit{dielettrici} soddisfano una legge di proporzionalità lineare tra la densità di dipolo e il campo elettrico:
 \begin{equation}
 	\vba{P}=\epsilon_0\left(\kappa-1\right)\vba{E}=\epsilon_0\chi\vba{E}
 \end{equation}
-I dielettrici che seguono tale legge sono detti \textbf{lineari}\index{lineari}: sono sostanze \textit{amorfe} con simmetria spaziale in tutte le direzioni (\textbf{isotropia spaziale}); in altre parole, \textit{non} ci sono direzioni preferenziali dovute \textit{a priori} dal materiale. I dielettrici \textit{non lineari}, come certi cristalli, sono invece anisotropi: $\vba{P}$ e $\vba{E}$ non sono necessariamente paralleli, ma sono su direzioni particolari dette \textit{assi cristallografici}. La suscettibilità elettrica, di conseguenza, non potrà essere rappresentata da un semplice numero, ma è rappresentata da un \textit{tensore}.
+I dielettrici che seguono tale legge sono detti \textbf{lineari}\index{lineari}: sono sostanze \textit{amorfe} con simmetria spaziale in tutte le direzioni (\textbf{isotropia spaziale}); in altre parole, \textit{non} ci sono direzioni preferenziali dovute \textit{a priori} dal materiale. I dielettrici \textit{non lineari}, come certi cristalli, sono invece \textbf{anisotropi}: $\vba{P}$ e $\vba{E}$ non sono necessariamente paralleli, ma sono su direzioni particolari dette \textit{assi cristallografici}. La suscettibilità elettrica, di conseguenza, non potrà essere rappresentata da un semplice numero, ma è rappresentata da un \textit{tensore}.
 \begin{observe}
 	Ecco spiegato il perché del termine ‘‘suscettibilità elettrica'': un materiale come acqua e alcol etilico hanno alta suscettibilità elettrica e sono proni a polarizzarsi fortemente, mentre altri come la carta o il polistirolo che hanno bassa suscettibilità tendono a polarizzarsi di meno. %TODO:check se è vero con quei materiali
 \end{observe}
@@ -226,32 +226,32 @@ Il vettore polarizzazione corrisponde alla densità (vettoriale) di cariche ‘�
 \end{example}
 \subsection{Campo elettrico generato dalla polarizzazione}
 Dopo aver visto come il vettore di polarizzazione sia legato ad un campo elettrico esterno, ci interessa capire come funziona il campo \textit{generato dal dielettrico polarizzato} e quale sia il legame con il vettore di polarizzazione.
-
-Consideriamo un dielettrico \textit{polarizzato uniformemente}, ossia tale per cui $\vba{P}=\text{const}$ e supponiamo di suddividerlo in prismi infinitesimi di base $d\Sigma$, altezza $dh$ e volume $dV=d\Sigma dh$. Le cariche formano tanti dipoli elettrici, ciascuno pari a
+\paragraph{Il caso uniforme}
+Consideriamo un dielettrico \textit{polarizzato uniformemente}, ossia tale per cui $\vba{P}=\text{const}$, e supponiamo di suddividerlo in prismi infinitesimi di base $d\Sigma$, altezza $dh$ e volume $dV=d\Sigma dh$. Le cariche formano tanti dipoli elettrici, ciascuno pari a
 \begin{equation*}
 	d\vba{p}=\vba{P}dV=\abs{\vba{P}}d\Sigma d\vba{h}=dqd\vba{h}
 \end{equation*}
-dove $d\vba{h}$ è concorde con $\vba{P}$ e $dq$ è la carica interna al prisma. Ricordiamo che distribuzioni di cariche \textit{differenti} ma con stesso momento di dipolo sono esternamente \textit{indistinguibili} l'una dall'altra; è dunque perfettamente \textit{equivalente} rimpiazzare l'effetto di moltissimi dipoli microscopici interni al prisma $dV$ con un sistema costituito da due distribuzioni di cariche
+dove $d\vba{h}$ è concorde con $\vba{P}$ e $dq$ è la carica interna al prisma. Ricordiamo che \textit{distribuzioni di cariche differenti} ma con \textit{stesso momento di dipolo} sono esternamente \textit{indistinguibili} l'una dall'altra; è dunque perfettamente \textit{equivalente} rimpiazzare l'effetto di moltissimi dipoli microscopici interni al prisma $dV$ con un sistema costituito da due distribuzioni di cariche
 \begin{equation*}
 	\pm dq_p=\pm \abs{\vba{P}}d\Sigma
 \end{equation*}
-poste \textit{nel vuoto}, distanti $dH$ e distribuite sulle basi del prisma con densità
+poste \textit{nel vuoto}, distanti $dh$ e distribuite sulle basi del prisma con densità
 \begin{equation*}
-	\pm\sigma_p=\frac{\pm dq_p}{d\Sigma}=\pm\frac{\abs{\vba{P}}\Ccancel[red]{d\Sigma}}{\Ccancel[red]{d\Sigma}}=\pm\abs{P}
+	\pm\sigma_p=\frac{\pm dq_p}{d\Sigma}=\pm\frac{\abs{\vba{P}}\Ccancel[red]{d\Sigma}}{\Ccancel[red]{d\Sigma}}=\pm\abs{\vba{P}}
 \end{equation*}
 %TODO:immagine
-Siccome supponiamo $\vba{P}$ uniforme su tutto il dielettrico, il vettore di polarizzazione è lo stesso per due prismi contigui. Di conseguenza, sulle superfici di contatto le cariche sono uguali e contrarie; se ripetiamo questo ragionamento con altri prismi contigui alle basi, le uniche cariche rimanenti che \textit{non} sono compensate sono solo quelle sulle basi dei primi che \textit{appartengono} alla superficie del dielettrico.\\
-Quello che stiamo facendo è supporre che le cariche nel dielettrico, spostate \textit{localmente} dalle posizioni di equilibrio in quanto il materiale è polarizzato uniformemente, si compensino all'interno ma \textit{non} all'esterno dato che la superficie di bordo non permette ulteriori compensazioni. Le cariche si distribuiscono sulla superficie con densità
+Siccome supponiamo $\vba{P}$ uniforme su tutto il dielettrico, il vettore di polarizzazione è lo stesso per due prismi \textit{contigui}; di conseguenza, sulle superfici di contatto le cariche sono \textit{uguali e contrarie}. Se ripetiamo questo ragionamento con altri prismi contigui alle basi, le uniche cariche rimanenti che \textit{non} sono compensate sono solo quelle sulle basi dei primi che \textit{appartengono} alla superficie del dielettrico.\\
+Quello che stiamo facendo è supporre che le cariche nel dielettrico, spostate \textit{localmente} dalle posizioni di equilibrio in quanto il materiale è \textit{polarizzato uniformemente}, si compensino all'interno ma \textit{non} all'esterno dato che la superficie di bordo non permette ulteriori compensazioni. Le cariche si distribuiscono sulla superficie con densità
 \begin{equation}
 	\sigma_p=\vba{P}\vdot \vbh{u}_n
 \end{equation}
 dove $\vbh{u}_n$ è il versore normale alla superficie $\Sigma$ del materiale.
 %TODO:immagine
 \begin{attention}
-	Sebbene a tratti ciò possa ricordare il comportamento dei conduttori, il funzionamento è \textit{fondamentalmente} differente. Le cariche di polarizzazione non sono libere come nei conduttori e quelle che notiamo sulla superficie non sono elettroni che si sono raccolti lì da altre parti del materiale, ma sono gli elettroni \textit{già presenti superficialmente}: li notiamo solo in virtù degli \textit{spostamenti locali} negli atomi e nelle molecole.\\
+	Sebbene a tratti ciò possa ricordare il comportamento dei conduttori, il funzionamento è \textit{fondamentalmente} differente. Le \textbf{cariche di polarizzazione}\index{carica!di polarizzazione} non sono libere come nei conduttori e quelle che notiamo sulla superficie non sono elettroni che si sono raccolti lì da altre parti del materiale, ma sono gli elettroni \textit{già presenti superficialmente}: li notiamo solo in virtù degli \textit{spostamenti locali} negli atomi e nelle molecole.\\
 	Questo è il motivo per cui non possiamo \textit{asportare un pezzo} di dielettrico e misurare le cariche superficiali, come potremmo fare ad esempio con un conduttore - il funzionamento è più vicino a quello che studieremo dei \textit{magnete}, da questo punto di vista.
 \end{attention}
-\noindent La carica - che avevamo definito ‘‘fittizia'' - in una particolare porzione di superficie $\Sigma_0$ è
+\noindent La carica - che avevamo erroneamente definito ‘‘fittizia'' - in una particolare porzione di superficie $\Sigma_0$ è
 \begin{equation}
 	q=\int_{\Sigma_0}\sigma_pd\Sigma=\int_{\Sigma_0}\vba{P}\vdot \vbh{u}_nd\Sigma
 	\end{equation}
@@ -265,25 +265,62 @@ dove $\vbh{u}_n$ è il versore normale alla superficie $\Sigma$ del materiale.
 		\int_{V}\div{\vba{P}}dV=0
 	\end{equation}
 \end{observe}
-Se il vettore di polarizzazione \textit{non} è uniforme, la carica \textit{non} si distribuisce solo sulla superficie. Consideriamo sempre la suddivisione in prismi infinitesimi e studiamo il valore della carica sulla base comune a due prismi contigui, con asse parallelo all'asse $z$ e area di base $d\Sigma=dxdy$.
-La carica su una superficie infinitesima è
+\paragraph{Il caso \textit{non} uniforme}
+Se il vettore di polarizzazione \textit{non} è uniforme, la carica di polarizzazione \textit{non} si distribuisce solo sulla superficie. Consideriamo sempre la suddivisione in prismi infinitesimi, in modo che in ogni prisma il vettore di polarizzazione ha un valore costante. Studiamo il valore della carica sulla \textit{base comune} a due prismi contigui, con asse parallelo all'asse $z$ e area di base $d\Sigma=dxdy$: a carica su una superficie infinitesima essa è
 \begin{equation*}
-	dq(z)=\vba{P}\vdot \vbh{u}_nd\Sigma
+	dq(z)=\sigma_pd\Sigma=\vba{P}\vdot \vbh{u}_nd\Sigma
 \end{equation*}
-Ricordiamo che il versore $\vbh{u}_n$ lo prendiamo orientato verso l'esterno della superficie; nel nostro caso, il versore
-%TODO:guardare il mazzoldi che preferisco quella spiegazione
-Si ha quindi che la densità di carica nel dielettrico dovuta alla polarizzazione è
+La carica infinitesima sulla base è data dalla carica complessiva, sommando con segno quella presente sulla faccia inferiore $(I)$ e superiore $(II)$:
+\begin{equation*}
+	dq_{p}(z)=dq^{(I)}(z)-dq^{(II)}(z)=dq(z)-dq(z+dz)
+\end{equation*}
+Ricordiamo che il versore $\vbh{u}_n$ è preso orientato verso l'esterno della superficie; nel nostro caso,
+\begin{equation*}
+	\vbh{u}_n=\begin{cases}
+		\vbh{u}_z&\text{per la faccia}\ (I)\\
+		-\vbh{u}_z&\text{per la faccia}\ (II)\\
+	\end{cases}
+\end{equation*}
+Se sul lato $(I)$ si ha il vettore di polarizzazione $\vba{P}^{(I)}=\vba{P}(z)$, mentre su quello $(II)$ si ha $\vba{P}^{(II)}=\vba{P}(z+dz)$, otteniamo
+\begin{align*}
+	-dq^{(II)}&=\vba{P}^{(II)}\vdot \vbh{u}_nd\Sigma=-P^{(II)}_z dxdy\\
+	dq^{(I)}&=\vba{P}^{(I)}\vdot \vbh{u}_nd\Sigma=P^{(I)}_z dxdy
+	dq_{p}=dq^{(I)}-dq^{(II)}&=-\left(P^{(II)}_z-P^{(I)}_z\right) dxdy
+\end{align*}
+Poiché stiamo considerando una variazione infinitesima di $P_z$ - l'unica componente variabile di $\vba{P}$ - da un lato all'altro della superficie, questo equivale a considerar la \textit{derivata direzionale}\footnote{Per essere matematicamente corretti, qui avremmo dovuto tener conto di un limite} per l'elemento infinitesimo di spessore, dato che
+\begin{equation*}
+	\pdv{P_z}{z}=\frac{P(z+\delta z)-P(z)}{dz}=\frac{P^{(II)}_z-P^{(I)}_z}{dz}
+\end{equation*}
+da cui segue
+\begin{equation*}
+	dq_{p}(z)=-\pdv{P_z}{z}dxdydz
+\end{equation*}
+Se $\vba{P}$ varia lungo l'asse $z$ allora \textit{non avviene} la compensazione di cariche e le cariche di polarizzazioni appaiono anche \textit{all'interno} del dielettrico.\\
+In generale, dentro ad un volumetto $dV=dxdydz$ c'è una carica di polarizzazione pari a
+\begin{equation*}
+	dq_{p}=\left(-\pdv{P_x}{x}-\pdv{P_y}{y}-\pdv{P_z}{z}\right)dxdydz=-\div{\vba{P}}dV
+\end{equation*}
+distribuita con densità volumica
 \begin{equation}
-	\rho_p=-\div{\vba{P}}
+	\rho_p=\frac{dq_{p}}{dV}=-\div{\vba{P}}
 \end{equation}
-Nel caso di $\vba{P}$ uniforme si ha
-\begin{equation*}
-	0=q_{tot}=\int_V\rho_pdV=-\int_V\div{\vba{P}}dV+\int_{\partial V}\vba{P}\vdot\vbh{u}_n d\Sigma=0
-\end{equation*}
-dove
-%TODO:guardare il mazzoldi che preferisco quella spiegazione
-\section{Le equazioni di Maxwell per l'elettrostatica nei materiali dielettrici}
-Siamo ora in grado di formulare le equazioni dell'elettrostatica nei materiali dielettrici.\\
+Anche in questo caso la carica totale di polarizzazione deve essere nulla...
+\begin{equation}
+	\int_V\rho_p dV+\int_{\partial V}\sigma_p d\Sigma=0
+\end{equation}
+... ma tale relazione ci riporta al \textit{teorema della divergenza}:
+\begin{equation}
+	\int_V \div{\vba{P}} dV = \int_{\partial V} \vba{P}\vdot\vbh{u}_nd\Sigma
+\end{equation}
+\begin{attention}
+	Le distribuzioni di cariche \textit{superficiali} e \textit{spaziali} si compensano \textit{globalmente}, non localmente!
+\end{attention}
+%Nel caso di $\vba{P}$ uniforme:
+%\begin{equation*}
+%	0=q_{tot}=\int_V\rho_pdV=-\int_V\div{\vba{P}}dV+\int_{\partial V}\vba{P}\vdot\vbh{u}_n d\Sigma=0
+%\end{equation*}
+\section{Le equazioni di Maxwell per l'elettrostatica nei materiali dielettrici}\label{EqMaxwellDielettrici}
+Siamo ora in grado di formulare le equazioni dell'elettrostatica nei materiali dielettrici: dovremo modificare quelle leggi che presentano al loro interno informazioni riguardo le sorgenti di campo.\\
 Consideriamo un campo elettrostatico $\vba{E}$. Mentre il rotore del campo elettrico rimane nullo...
 \begin{equation}
 	\curl{\vba{E}}=0
@@ -300,15 +337,16 @@ otteniamo la legge
 \begin{equation}
 	\div{\vba{D}}=\rho\label{SecondaMaxwellDIelettriciUno}
 \end{equation}
-Nel caso dei dielettrici lineari, ricordiamo che
+Ci sembrerebbe di aver fatto ‘‘sparire'' le cariche di polarizzazioni riscrivendo la \textit{legge di Gauss} in questa maniera,, ma in realtà le abbiamo soltanto nascoste sotto il tappeto!\footnote{Con grande gioia di chi dovrà lavarlo.} I campi $\vba{E}$ e $\vba{D}$ sono legati ancora dalla densità di polarizzazione $\vba{P}$ - che incorpora in essa le informazioni della carica di polarizzazione. Per poter risolvere \textit{definitivamente} $\vba{E}$ e $\vba{D}$ ci un'\textbf{equazione di stato del mezzo dielettrico}\index{equazione!di stato!del mezzo dielettrico} che leghi esplicitamente $\vba{E}$ e $\vba{P}$ o, equivalentemente, $\vba{D}$ e $\vba{P}$.\\
+Nel caso dei \textit{dielettrici lineari}, tale legge l'abbiamo già incontrata:
 \begin{equation*}
 	\vba{P}=\epsilon_0\left(\kappa-1\right)\vba{E}=\epsilon_0\chi\vba{E}
 \end{equation*}
-da cui
-\begin{equation*}
+Da essa ricaviamo
+\begin{equation}
 	\vba{D}=\kappa\epsilon_0\vba{E}=\epsilon\vba{E}
-\end{equation*}
-ed equivalentemente, la legge \eqref{SecondaMaxwellDIelettriciUno} si può riscrivere come
+\end{equation}
+e la \eqref{SecondaMaxwellDIelettriciUno} si può riscrivere come
 \begin{equation}
 	\div{\vba{E}}=\frac{\rho}{\epsilon}
 \end{equation} 
@@ -347,9 +385,12 @@ Ricapitolando, si hanno le seguenti leggi nel caso di un dielettrico qualunque..
 			\\[-3mm]
 			$\displaystyle\curl{\vba{E}}=0$
 		\end{tabular}
-	\end{tabular}
+	\end{tabular}~\\
+\begin{equation*}
+	\textit{dove}\qquad\qquad\epsilon_0\vba{E}=\vba{D}-\vba{P}
+\end{equation*}
 \end{center}
-... e le seguenti per un dielettrico lineare.
+... e le seguenti per un dielettrico lineare con \textit{costante dielettrica assoluta} $\epsilon=\kappa\epsilon_0$.
 \begin{center}
 	\begin{tabular}{p{0.22\textwidth}|c|c}
 		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}

@@ -1,7 +1,6 @@
 \documentclass[a4paper, 11pt, twoside, openright, italian]{memoir}
 
 \usepackage{preamble/mypreamble}
-% TO DO: environment o altro per indicare "è extra, non serve nulla"
 
 % SVN info for this file
 \svnidlong
@@ -26,6 +25,7 @@
   chapters/chap10,
   chapters/chap11,
   chapters/chap12,
+  chapters/chap13,
   appendix/differentialcalculus,
   appendix/settheory,
   appendix/footnotes,
@@ -44,7 +44,6 @@
 \include{introduction/toc}
 
 \mainmatter
-% TO DO: proposta: riordinare come il mazzoldi: forza e campo elettrostatico, potenziale elettrostatico, legge di Guass ed elettrostatica.
 \part{Elettricità}
 \labelPart{first}
 \include{chapters/chap1}
@@ -55,18 +54,20 @@
 \include{chapters/chap6}
 \part{Magnetismo}
 \labelPart{second}
-
 \include{chapters/chap7}
 \include{chapters/chap8}
 \include{chapters/chap9}
 \include{chapters/chap10}
 \include{chapters/chap11}
 \include{chapters/chap12}
+\part{Onde}
+\labelPart{third}
+\include{chapters/chap13}
 \appendix
 \part{Raccolta Differenziata}
 \labelPart{appendix}
 \include{appendix/differentialcalculus}
-%\include{appendix/settheory}
+%\include{appendix/complexnumbers}
 \include{appendix/footnotes}
 \include{appendix/prop}
 \include{appendix/list}

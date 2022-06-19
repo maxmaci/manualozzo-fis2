@@ -6,12 +6,12 @@
 {$LastChangedBy$}
 
 \chapter{Il campo magnetico}
-\labelChapter{campoMagnetismo}
+\labelChapter{campoMagnetico}
 
 \begin{introduction}
-	‘‘BEEP BOOP''
+	‘‘Il magnetismo è una forza che fa sì che certi oggetti siano attratti ai frigoriferi.''
 	\begin{flushright}
-		\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. % TO DO: quote 
+		\textsc{Dave Barry}, poco prima di essere bocciato al secondo appello.
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{C}{on}
@@ -26,7 +26,7 @@ Tuttavia, i primi utilizzi della bussola erano di natura \textit{divinatoria}: l
 
 L'invenzione della bussola permise di osservare ulteriori proprietà dei magneti. Ad esempio, si notò che avvicinando una bussola ad un oggetto magnetico essa \textit{non} indicava più la direzione nord della terra, bensì puntava \textit{verso l'oggetto}. In particolare il ‘‘polo nord della bussola'' - ossia il capo dell'ago che normalmente punta verso il nord terrestre - puntava verso una parte specifica dell'oggetto, mentre era respinto dal resto.
 D'altro canto, il ‘‘polo sud della bussola'' - ossia il capo dell'ago che normalmente punta verso il sud terrestre  - funzionava al contrario: era attratto dalla parte che \textit{respingeva} il polo nord della bussola e, viceversa, era \textit{respinto} dalla parte che attraeva il polo nord della bussola.
-% TO DO: inserire immagine
+%TODO: inserire immagine
 In altre parole, si dedusse che come i \textit{poli terrestri} attraevano la bussola nella direzione nord-sud, anche i magneti dovevano avere sempre due \textbf{poli magnetici}\index{polo!magnetico}, a cui la bussola punta se vicina al magnete.
 
 \begin{digression}
@@ -34,7 +34,7 @@ In altre parole, si dedusse che come i \textit{poli terrestri} attraevano la bus
 	Con gli occhi del fisico moderno sappiamo come funzionano e lo approfondiremo in questi capitoli: le bussole si allineano parallelamente alle linee di forza del campo magnetico terrestre - anche se non devono necessariamente puntare ad uno dei due poli.\\
 	Tuttavia, all'epoca di queste scoperte il funzionamento della bussola rimaneva particolarmente oscuro - come del resto gran parte del magnetismo. Per un filosofo naturale il concetto di \textit{campo vettoriale} era semplicemente ignoto: una bussola doveva necessariamente puntare a qualcosa. Questo portò ad immaginare che la fonte dell'attrazione notata dalle bussole dovesse essere sempre e comunque \textit{localizzata} in un particolare punto.\\
 	Inizialmente, si suppose che la sorgente attrattiva fosse in cielo, ad esempio la Stella Polare o i poli celesti. Tale ipotesi fu presto sostituita da una proposta ‘‘terrena'', come una roccia o una montagna. Nelle cartine europee del sedicesimo secolo si possono spesso notare tali montagne magnetiche, come nelle \textit{mappe} di \textbf{Gerardo Mercatore} (1512 - 1594), dove si possono vedere una ‘‘\textit{rupes nigra et altissima}'', talvolta anche due, nei pressi del polo nord.
-	% TO DO: immagine da wikipedia della montagna di colore
+	%TODO: immagine da wikipedia della montagna di colore
 	All'inizio, il cartografo fiammingo era solito piazzarne soltanto una in posizione arbitraria, ma successivamente pensò bene di essere un cartografo \textit{rigoroso} e di trovare il luogo in cui era situata sulla base di osservazioni degli effetti magnetici in varie zone europee. Dopo che ulteriori misurazioni risultarono in due stime completamente contraddittorie di tale montagne, Mercatore decise di tagliare la testa al toro e di piazzare due montagne.\\ % mercatore è un mood, ragazzi
 	Fu solo nel 1600 che \textbf{William Gilbert} (1544 - 1603) nel suo \textit{De Magnete} popolarizzò un approccio sperimentale per dedurre che la Terra stessa fosse un magnete - e che quindi il motivo per cui le bussole erano attratte dai poli terrestri è perché essi stessi erano dei poli magnetici.
 \end{digression}
@@ -48,28 +48,28 @@ Per avere degli studi quantitativi dei fenomeni magnetici bisognerà aspettare i
 Tale forza era direttamente proporzionale al prodotto delle ‘‘intensità'' dei magneti e inversamente proporzionale al quadrato della distanza $r$ tra i due magneti, mentre sembrava - in modo analogo alla \textit{forza elettrica di Coulomb} che era diretta da una carica all'altra - diretta da un polo all'altro.
 
 La situazione potrebbe sembrare simile al caso della \textit{forza elettrica} - ed in parte è così, dato che entrambe sono proporzionali a $\nicefrac{1}{r^2}$ - ma i due casi sono notevolmente distinti dal fatto che non si sono mai osservati (nè allora, né oggi) dei \textbf{monopoli magnetici}. Ricordiamo che nel caso elettrico, un \textit{dipolo} elettrico può essere separato in due \textit{monopoli elettrici}.
-% TO DO: immagine
+%TODO: immagine
 Un dipolo magnetico, invece, si separa sempre in altri dipoli! Ad esempio, se un magnete a barra viene tagliato a metà, non si avrà una metà con il polo nord e l'altra con il polo sud ma, ciascun pezzo avrà un suo polo nord e polo sud.
-% TO DO: immagine
+%TODO: immagine
 \paragraph{Le linee di forza}
 Se ad oggi parliamo di campi vettoriali nell'elettromagnetismo, probabilmente parte del merito lo dobbiamo allo scienziato inglese \textbf{Michael Faraday} (1791 - 1867). Durante i suoi esperimenti sul magnetismo, circa intorno al 1831, egli notò la maniera peculiare con cui della \textit{limatura di ferro} si disponeva su un cartoncino o una lastra di vetro in presenza di un magnete: essa sembrava disporsi naturalmente lungo delle \textit{linee} che si estendevano da un \textit{polo} all'altro del magnete. Faraday ipotizzò quindi che i magneti esercitava delle forze lungo queste ‘‘linee di forza'', che secondo Faraday dovevano esistere in qualche modo \textit{fisicamente}.
-% TO DO: inserire disegno
+%TODO: inserire disegno
 Le osservazioni di Faraday anticipano la descrizione moderna dei fenomeni magnetici: come è stato per quelli elettrici, la descrizione del magnetismo passa per il \textit{formalismo dei campi vettoriali}: in questo caso, le forze sono l'applicazione in un punto del \textbf{campo magnetico}\index{campo!magnetico} $\vba{B}$ generato, ad esempio, da magneti; le linee di forza sono, ovviamente, le curve tali per cui in ogni loro punto il vettore tangente alla curva è il vettore dato da $\vba{B}$.
 \section{Legge di Gauss per la magnetostatica}
 Le linee di campo svolgono un ruolo fondamentale per capire la prima, grossa differenza tra il campo magnetico e quello elettrico: il flusso attraverso una superficie chiusa.
 
 Analizziamo la questione dal punto di vista matematico, confrontandola con una situazione a noi \textit{famigliare}. Ricordiamo che, nel \textit{dipolo elettrico}, le linee di campo si sviluppano come in figura.
-% TO DO: immagine
+%TODO: immagine
 Prese due superfici $\Sigma_1$ e $\Sigma_2$, la prima contenente la \textit{carica positiva} e la seconda \textit{entrambe}, si ha
 \begin{equation*}
 	\Phi_{\Sigma_1}(\vba{G})=\frac{q}{\epsilon_0}\qquad\Phi_{\Sigma_2}(\vba{E})=\frac{q-q}{\epsilon_0}=0
 \end{equation*}
 Con un dipolo magnetico ci ritroviamo una situazione simile.
-% TO DO: immagine
+%TODO: immagine
 Come osservò Faraday con la limatura di ferro, le linee di forza che visualizziamo \textit{attorno} al magnete sono uguali a quelle \textit{esterne} del dipolo elettrico. Ci possiamo però chiedere cosa succedere all'\textit{interno} del magnete. Se proviamo a spezzare a metà il magnete, si creano delle linee di forze ‘‘interne'' tra i due magnetini ma, a differenza del dipolo elettrico, sono rivolte verso l'alto e non verso il basso - di fatto, sembra che le linee di forza delle curve orientate chiuse!
-% TO DO: immagine
+%TODO: immagine
 Se continuiamo a dividere i magneti, le linee di forza che si vengono a formare tra di essi continuano ad essere in tale maniera. Pertanto, dobbiamo aspettarci che le linee di forza all'esterno proseguano all'interno e formino delle curve orientate chiuse.
-% TO DO: immagine
+%TODO: immagine
 Osserviamo che la forza di interazione magnetostatica di Coulomb è inversamente proporzionale a $r^2$, pertanto potremmo applicare una versione ‘‘magnetica'' della legge di Gauss\footnote{In modo analogo a come abbiamo fatto nell'osservazione a pag. \pageref{LeggeGaussMoltoGeneralizzata}, \refChapter{LeggeGaussMoltoGeneralizzata}.}. Tuttavia, per quanto osservato sperimentalmente non sappiamo costruire o produrre dei monopoli magnetici, pertanto dobbiamo considerare sempre considerare un dipolo magnetico nella equazione.
 Si noti che se applichiamo la legge di Gauss ad una superficie contenente un \textit{dipolo elettrico}, il flusso sarà nullo. La situazione è analoga per il caso magnetico: non possiamo individuare dei monopoli, certo, ma dal polo nord esce un numero di linee di flusso pari a quelle che entrano dal polo sud - non può esistere una ‘‘carica magnetica'' totale differente da zero.\\
 Di conseguenza, abbiamo mostrato empiricamente la
@@ -107,8 +107,8 @@ Come si è potuto notare, gli studi dei fenomeni magnetici erano inizialmente se
 \subsection{L'esperimento di Oersted}\index{esperimento!di Oersted}
 Il primo ad identificare un legame tra l'elettricità e il magnetismo fu il fisico danese \textbf{Hans Christian Oersted} (1777-1851), che il 21 Luglio 1820 pubblicò le sue scoperte in un libricino di quattro pagine scritto in latino.\\
 Oersted notò che l'ago di una bussola vicino ad un filo percorso da corrente si dispone in modo da essere sempre perpendicolare al filo. Inoltre, osservò che se il filo veniva posto sotto l'ago, invece che sopra, l'ago si muoveva nella direzione opposta, mentre la \textit{deflessione} dell'ago era inversamente proporzionale alla \textit{distanza} dal filo.
-% TO DO: inserire disegno
-Pur non avendo alcun idea del \textit{perché}\footnote{Oestred non parla di corrente elettrica ma di un ‘‘\textit{conflictus electricus}'', la cui spiegazione è da ritrovarsi nella filosofia di Oerstred e che bellamente tralasceremo in quanto del tutto irrilevante ai nostri scopi.}, il danese concluse che la forza magnetica in questo caso soddisfava le seguenti proprietà - che esprimeremo in termini moderni così: % TO DO: "il danese" non suona molto bene, così sembra che il fisico in realtà fosse un cane.
+%TODO: inserire disegno
+Pur non avendo alcun idea del \textit{perché}\footnote{Oestred non parla di corrente elettrica ma di un ‘‘\textit{conflictus electricus}'', la cui spiegazione è da ritrovarsi nella filosofia di Oerstred e che bellamente tralasceremo in quanto del tutto irrilevante ai nostri scopi.}, il danese concluse che la forza magnetica in questo caso soddisfava le seguenti proprietà - che esprimeremo in termini moderni così: %TODO: "il danese" non suona molto bene, così sembra che il fisico in realtà fosse un cane.
 \begin{itemize}
 	\item Le linee di campo circondando il filo in cui passa la corrente, formando delle circonferenze. La forza magnetica è dunque tangente a tali circonferenze e perpendicolare al filo.
 	\item Le linee di campo sono situate su un piano perpendicolare al filo. In altre parole, la forza non ha componenti lungo il filo,
@@ -121,7 +121,7 @@ Pur non avendo alcun idea del \textit{perché}\footnote{Oestred non parla di cor
 \subsection{L'esperimento di Ampère}\index{esperimento!di Ampère}\label{EsperimentodiAmpere}
 Anche il francese \textbf{Andre Marie Ampère} (1775-1836), che abbiamo incontrato in precedenza nel trattare la corrente elettrica, propose un esperimento analogo nel 1823. % - anche 
 Ampère osservò che due fili paralleli nei quali le corrente scorre nella stessa direzione sono attratti tra di loro, mentre se la corrente è percorsa in senso opposto i fili tendono ad allontanarsi. In entrambi i casi, la forza su un filo è \textit{uguale e contraria} a quella esercitata sull'altro.
-% TO DO: inserire disegno
+%TODO: inserire disegno
 Sperimentalmente, si trovò che la \textit{densità lineare} di forza era descritta dalla \textbf{legge (della forza) di Ampère}\index{legge! della forza di Ampère}
 \begin{equation}
 	\frac{F}{l}=k\frac{I_1I_2}{r}
@@ -136,7 +136,7 @@ dove $\mu_0$ è detta \textbf{permeabilità magnetica del vuoto} ed è definita 
 \end{equation}
 
 È facile immaginare che nell'esperimento di Ampère le correnti fungono da ‘‘cariche magnetiche''. La legge che descrive tale fenomeno è quindi l'equivalente per la magnetostatica della legge di Coulomb per l'elettrostatica.
-\paragraph{Una (obsoleta) definizione dell'ampere} % TO DO: spostare dopo?
+\paragraph{Una (obsoleta) definizione dell'ampere} %TODO: spostare dopo?
 Nel \autoref{chap:correnteElettrica} abbiamo parlato dell'\textit{ampere}, l'unica unità fondamentale che introdurremo in questo testo. Dato che è una delle unità base da cui poter derivare tutte le altre, è necessario darne una \textit{definizione}.
 La prima definizione dell'ampere pre-SI - detto l'‘‘Ampere Internazionale'' - era definito elettrochimicamente come la corrente necessaria per depositare $\SI{1.118}{\milli\gram}$ di argento al secondo da una soluzione di nitrato d'argento. Nel 1939 si propose una definizione migliore - ma tecnicamente diversa, dato che fra le due unità c'era una differenza del $0.015\%$ - che utilizzava proprio l'esperimento di Ampère:
 \begin{define}[Ampere (1960)]
@@ -167,7 +167,7 @@ All'epoca di Maxwell, nonostante con gli occhi moderni una formulazione differen
 		\vba{F}=q\left(\vba{E}+\vba{v}\cross\vba{B}\right)
 	\end{equation}
 \end{define}
-% TO DO: immagine
+%TODO: immagine
 Spesso si parla di forza di Lorentz anche per indicare la sola componente della forza elettromagnetica che è legata al campo magnetico, ossia
 \begin{equation}
 	\vba{F}=q\vba{v}\cross\vba{B}
@@ -189,7 +189,7 @@ Essendo un prodotto vettoriale, nel caso di un campo magnetico uniforme $\vba{B}
 	F=qvB
 \end{equation*}
 La direzione è data dalla regola della mano destra, mentre il verso dipende dal segno di $q$.\\
-% TO DO: immagine
+%TODO: immagine
 \begin{observe}
 	Un campo magnetico uniforme \textit{non} produce un'accelerazione tangenziale, ma solo una \textit{centripeta} per l'ortogonalità di $\vba{F}$ rispetto alla velocità $\vba{v}$. Il moto è quindi \textit{circolare uniforme}. 
 \end{observe}
@@ -249,7 +249,7 @@ Nel caso dell'elica dovuta alla forza di Lorentz:
 \begin{define}[Bottiglia magnetica]
 	Una bottiglia magnetica\index{bottiglia magnetica} è una configurazione particolare del campo magnetico in cui l'intensità del campo cambia muovendosi parallelamente: ai lati e negli estremi della bottiglia c'è un campo magnetico molto più intenso della parte centrale.
 \end{define}
-% TO DO: figura
+%TODO: figura
 Se una particella entra nel campo magnetico della bottiglia, può succedere che la particella venga intrappolata all'interno della bottiglia. Infatti, la particella subisce ai lati una forza di Lorentz così intensa da far cambiare direzione alla velocità.
 \begin{example}[Fascia di Van Allen]
 	Nel campo magnetico terrestre - più di preciso nella magnetosfera che circonda la Terra - c'è una zona toroidale detta \textbf{fascia di Van Allen}\footnote{Da non confondersi con la fascia di van Halen, accessorio del chitarrista olandese Eddie van Halen.} che funge da bottiglia magnetica: in tale area la densità di particelle cariche è maggiore proprio perché rimangono intrappolate per effetto della bottiglia magnetica.
@@ -259,7 +259,7 @@ Se una particella entra nel campo magnetico della bottiglia, può succedere che 
 	Uno \textbf{spettrometro di massa}\index{spettrometro di massa} è uno strumento che, avvalendosi di campi elettrici e magnetici, permette di misurare la massa di particelle atomiche.
 \end{define}
 Nel tipico spettrometro di massa una sorgente, ad esempio di ioni, emette delle particelle in un campo elettrico dovuto a delle armature. Esse vengono quindi accelerate dal campo elettrico lì presente, per poi entrare in un campo magnetico uniforme uscente dal piano in cui le particelle si muovono: esse vengono deflesse dal campo e, curvando la loro traiettoria, colpiscono un rilevatore di velocità.
-% TO DO: immagine
+%TODO: immagine
 Tra la fine delle armature e l'inizio del campo magnetico, l'energia cinetica della particella è dovuta esclusivamente dall'energia potenziale fornita dal campo:
 \begin{equation*}
 	E_C=E_P\implies \frac{1}{2}mv^2=qV\implies v=\sqrt{\frac{2qV}{m}}
@@ -295,7 +295,7 @@ che, per la regola della mano destra, ha direzione l'asse $z$ e verso dipendente
 	\item se $e>0$, $\vba{F}$ va verso l'alto.
 	\item se $e<0$, $\vba{F}$ va verso il basso.
 \end{itemize}
-Si verifica quindi una separazione di cariche positive e negative, creando una differenza di potenziale e di conseguenza un campo elettrico all'interno del conduttore, che chiameremo \textbf{campo di Hall}\index{campo!di Hall} % TO DO: dal suo scopritore?
+Si verifica quindi una separazione di cariche positive e negative, creando una differenza di potenziale e di conseguenza un campo elettrico all'interno del conduttore, che chiameremo \textbf{campo di Hall}\index{campo!di Hall} %TODO: dal suo scopritore?
 \begin{equation}
 	\vba{E}_H=\frac{\vba{F}}{e}=\vba{v}_d\cross\vba{B}=\frac{\vba{j}}{ne}\cross\vba{B}
 \end{equation}
@@ -312,7 +312,7 @@ Il valore di $\vba{E}_H$ \textit{non} dipende quindi dalla carica in sé (e quin
 	\item Se le cariche sono \textit{positive}, il segno è positivo.
 	\item Se le cariche sono \textit{negative}, il segno è negativo.
 \end{itemize}
-% TO DO: inserire immagine
+%TODO: inserire immagine
 È possibile dunque distinguere in due conduttori con stessa corrente $\vba{j}$ se i portatori di carica sono positivi e negativi misurando il segno del potenziale, il quale dipende esclusivamente dal segno delle cariche.
 \begin{example}
 	Grazie all'effetto Hall si è potuto osservare che nei \textit{conduttori metallici} la carica che si muove è \textit{negativa}.
@@ -324,7 +324,7 @@ Il valore di $\vba{E}_H$ \textit{non} dipende quindi dalla carica in sé (e quin
 
 \paragraph{Selettore di velocità}
 Consideriamo la situazione in figura: due piastre cariche creano un campo elettrico $\vba{E}$ tra di esse; al contempo è presente tra le armature un campo magnetico uniforme $\vba{B}$ perpendicolare al campo elettrico.
-% TO DO: immagine
+%TODO: immagine
 Prendiamo un fascio di particelle di carica $q$ che entrano dentro le piastre con velocità $\vba{v}$ perpendicolare sia al campo elettrico, sia al campo magnetico: esse sono soggette sia alla \textit{forza di Lorentz} $\vba{F}_L$ in quanto particelle in movimento, ma sono soggette anche ad un \textit{forza di Coulomb} $\vba{F}_C$ data dal campo magnetico delle piastre.
 \begin{align*}
 	F_L=qvB&&F_C=qE
@@ -387,7 +387,7 @@ si ha
 	\squarequal\int I\vbh{u}_x\cross\vba{B}dx
 \end{equation*}
 \begin{define}[Seconda legge di Laplace]
-	La \textbf{seconda legge di Laplace}\index{leggi di Laplace!seconda} afferma che la forza magnetica (detta \textbf{forza di Laplace}\index{forza!di Laplace}) esercitata su un filo carico di corrente da un campo magnetico $\vba{B}$ è pari a
+	La \textbf{seconda legge di Laplace}\index{legge!di Laplace!seconda} afferma che la forza magnetica (detta \textbf{forza di Laplace}\index{forza!di Laplace}) esercitata su un filo carico di corrente da un campo magnetico $\vba{B}$ è pari a
 	\begin{align}
 		\vba{F}=\int I d\vba{s}\cross\vba{B}&& \text{dove}\ d\vba{s}=\dv{\vba{r}(t)}{t}dt
 	\end{align}
@@ -404,24 +404,24 @@ In particolare, se il circuito è chiuso,
 \end{example}
 \begin{example}
 	Consideriamo un lungo circuito elettrico posto su un piano verticale. Una sua parte è immersa in un campo magnetico uniforme $\vba{B}$ uscente dal piano, in modo da formare una sezione a ferro di cavallo come in figura, di larghezza $d$.
-	% TO DO: immagine
+	%TODO: immagine
 	Se il valore di $d$ è noto, posso misurare la forza magnetica all'equilibrio utilizzando una bilancia.
 \end{example}
 \section{Il momento meccanico di un circuito piano in un campo magnetico}\label{spirarettangolaremeccanica}
 Consideriamo una \textit{spira} rettangolare di lati $a$ e $b$ percorsa da una corrente $I$, immersa in un campo magnetico $\vba{B}$ uniforme. Chiamiamo $\theta$ l'angolo compreso tra $\vba{B}$ e il versore normale $\vbh{u}_n$ alla superficie racchiusa dalla spira; il verso di $\vbh{u}_n$ è dettato dalla \textbf{regola della vite}.
 \begin{define}[Regola della vite]\index{regola della vite}
 	Data una curva orientata, il verso del versore normale $\vbh{u}_n$ alla superficie delimitata da tale curva è definito nella seguente maniera: curvando le dita della mano in modo che le dita della mano in modo che seguano l'orientazione della corrente, il pollice retto punta nel verso di $\vbh{u}_n$.
-	% TO DO: immagine
+	%TODO: immagine
 \end{define}
 Le forze magnetiche $\vba{F}_3$ e $\vba{F}_4$ sui lati \textit{orizzontali} sono uguali e contrarie e hanno la stessa retta di azione, dato che sono applicate nel centro del lato.
-% TO DO: immagine
+%TODO: immagine
 Una situazione simile si verifica con le forze $\vba{F}_{1}$ e $\vba{F}_2$ sui lati \textit{verticali}: le forze sono uguali e contrarie, di valore massimo $IaB$. Infatti,
 	\begin{equation*}
 		\abs{\vba{F}}=I\abs{d\vba{s}}\abs{\vba{B}}=IaB
 	\end{equation*}
 in quanto $\abs{d\vba{s}}=a$ e $\vba{B}$ è ortogonale ai lati.\\ 
 Di conseguenza, sulla spira la risultante delle forze è nulla e non si ha un \textit{movimento traslatorio}.
-% TO DO: immagine
+%TODO: immagine
 Tuttavia, c'è una differenza sostanziale dal primo caso: la coppia di forze laterali \textit{non} hanno la stessa retta di azione! Come si può facilmente vedere guardando la spira dall'alto, tale coppia di forze generano sulla spira un \textit{momento di coppia} attorno all'asse verticale del centro di massa e dunque una \textit{rotazione}.
 
 \begin{attention}
@@ -436,7 +436,7 @@ Tuttavia, c'è una differenza sostanziale dal primo caso: la coppia di forze lat
 		\begin{equation}
 			\vba{M}=\vba{r}\cross\vba{F}
 		\end{equation}
-		Esso \textit{non} dipende da alcun punto di riferimento, a differenza del momento di una forza, ed è pertanto un vettore ‘‘libero''. Il momento di una coppia di forze è la \textit{somma vettoriale} dei momenti di ciascuna forza rispetto ad un punto scelto $O$; di conseguenza, è un caso \textit{particolare} del momento di una forza.\\ % TO DO: controllare ciò
+		Esso \textit{non} dipende da alcun punto di riferimento, a differenza del momento di una forza, ed è pertanto un vettore ‘‘libero''. Il momento di una coppia di forze è la \textit{somma vettoriale} dei momenti di ciascuna forza rispetto ad un punto scelto $O$; di conseguenza, è un caso \textit{particolare} del momento di una forza.\\ %TODO: controllare ciò
 		Si può generalizzare il momento di coppia se abbiamo un sistema di più forze la cui risultante è nulla.
 	\end{itemize}
 \end{attention}
@@ -538,7 +538,23 @@ pertanto,
 \end{equation*}
 \end{demonstration}
 \paragraph{Condizione di equilibrio}
-Dato che il momento risultante è ottenibile come un prodotto vettoriale tra il momento magnetico $\vba{m}$ e il campo magnetico $\vba{B}$, la spira risulta essere in equilibrio se $\vba{m}$ è parallelo a $\vba{B}$.
+Dato che il momento risultante è ottenibile come un prodotto vettoriale tra il momento magnetico $\vba{m}$ e il campo magnetico $\vba{B}$, la spira risulta essere in equilibrio se $\vba{m}$ è parallelo a $\vba{B}$. Se $\theta$ è l'angolo tra il campo e la normale alla spira, allora
+\begin{itemize}
+	\item $\theta = 0$: equilibrio stabile.
+	\item $\theta = \pi$ equilibrio instabile.
+\end{itemize}
+Consideriamo un asse di rotazione parallelo a $\vba{M}$ e sia $\mathbf{I}$ il momento d'inerzia della spira attorno a tale asse. Ricordiamo che il \textit{momento angolare} si può esprimere in funzione dell'\textit{accelerazione angolare}:
+\begin{equation}
+	M=\mathbf{I}\alpha=\mathbf{I}\dv[2]{\theta}{t}
+\end{equation}
+Per piccole oscillazioni, si ha che $\sin\theta\sim\theta$ e quindi
+\begin{equation*}
+	-\mathbf{I}\Sigma B\theta=\mathbf{I}\dv[2]{\theta}{t}
+\end{equation*}
+\begin{align}
+	\dv[2]{\theta}{t}+\omega^2\theta=0\quad\text{dove}\ \omega^2=\frac{I\Sigma B}{\mathbf{I}}=\frac{m B}{\mathbf{I}}
+\end{align}
+Il comportamento delle piccole oscillazioni ricorda quello di un \textit{oscillatore armonico}.
 \paragraph{Energia potenziale}
 L'energia potenziale del moto angolare è
 \begin{equation}
@@ -548,22 +564,14 @@ Allora
 \begin{equation}
 	\abs{\vba{M}}=\dv{U_P}{\theta}=I\Sigma B\sin\theta
 \end{equation}\label{EnergiaPotenzialeCasoGeneralemanontroppo}
-% TO DO: inserire grafico sinuisoidale
-Ricordiamo che il momento angolare si può esprimere in funzione dell'accelerazione angolare:
-\begin{equation}
-	M=I\alpha=I\dv[2]{\theta}{t}
-\end{equation}
-Per piccole oscillazioni, si ha che $\sin\theta\sim\theta$ e quindi
-\begin{equation*}
-	-I\Sigma B\theta=I\dv[2]{\theta}{t}
-\end{equation*}
-\begin{align}
-	\dv[2]{\theta}{t}+\omega^2\theta=0&&\text{dove}\ \omega^2=\frac{I\Sigma B}{I}
-\end{align}
-e dunque il comportamento ricorda quello di un oscillatore armonico.
-\paragraph{Il principio di equivalenza di Ampère}
-Quanto abbiamo visto ci porta ad affermare quello che chiamiamo \textbf{principio di equivalenza di Ampere}.
-\begin{theoremaqed}
-	Un circuito elettrico piano immerso in un campo magnetico uniforme si comporta come un dipolo magnetico.
-\end{theoremaqed}% TO DO: cambiare in principio?
-Un magnete si può quindi interpretare come un circuito elettrico con un certo momento di dipolo magnetico $\vba{m}$.
+%TODO: inserire grafico sinuisoidale
+\paragraph{Il principio di equivalenza di Ampère}\label{principio di equivalenza di ampere}
+Si può osservare come un \textit{ago magnetico} immerso in un campo magnetico si comporta, per piccole oscillazioni, in \textit{modo analogo} a quanto visto con la spira percorsa da corrente - ma un ago magnetico non è altro che un dipolo magnetico! Ciò ci porta ad affermare quello che chiamiamo \textbf{principio di equivalenza di Ampere}.
+\begin{principle}[Principio di equivalenza di Ampère]\index{principio!di equivalenza di Ampère}
+	Un circuito elettrico piano di area $d\Sigma$ percorsa da una corrente $I$ equivale agli effetti di un dipolo elementare di momento magnetico
+	\begin{equation}
+		d\vba{m}=Id\Sigma \vbh{u}_n
+	\end{equation}
+	perpendicolare al piano della spira e orientata rispetto al verso della corrente secondo la \textit{regola della vite}.
+\end{principle}%TODO: cambiare in principio?
+Chiaramente, parlando di un'equivalenza il ragionamento è bilaterale: ogni qual volta incontriamo un dipolo magnetico possiamo immaginarlo come se fosse una spira percorsa corrente.

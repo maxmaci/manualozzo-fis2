@@ -76,3 +76,116 @@ Quanto indicato con il simbolo ⋆ sono degli \textit{approfondimenti non necess
 	Tale risultato è equivalente a calcolare l'area di una superficie bidimensionale utilizzando il \textbf{teorema di Gauss-Green} e dunque è un'ulteriore corollario del \textit{teorema di Stokes}.\\
 	In quanto tale, si può mostare che la relazione scritta vale per una \textit{qualunque} superficie che ha come bordo una determinata curva: il vettore area è determinato \textit{esclusivamente} dal bordo della superficie.
 \end{observe}
+\section{Capitolo 11: oscillazioni elettriche e correnti alternate}
+\subsection{Fasori}\label{fasori}
+\begin{define}[Fasore]
+	Data una grandezza sinusoidale
+	\begin{equation*}
+		\xi(t)=A\cos(\omega t+\oldphi)
+	\end{equation*}
+	dove l'\textit{ampiezza} $A$, la pulsazione $\omega$ e la fase $\oldphi$ sono costanti temporali, la sua \textbf{rappresentazione analitica}\index{rappresentazione analitica} o \textbf{fasore}\index{fasore} è
+	\begin{equation}
+		\hat{\xi}(t)=A\cos(\omega t+\oldphi)+iA\sin(\omega t+\oldphi)=Ae^{i(\omega t+\oldphi)}=Ae^{i\oldphi}e^{i\omega t}
+	\end{equation}
+\end{define}
+Il fasore può essere rappresentato nel \textit{piano complesso di Argand-Gauss} come un vettore di lunghezza $A$ e angolo $\oldphi$, che ruota con velocità angolare $\omega$.
+%TODO: grafico
+In realtà, in molti contesti il termine di rotazione $e^{i\omega t}$ risulta essere comune ad altri fasori e pertanto le operazioni che andremo a fare si possono eseguire direttamente sui termine $Ae^{i\oldphi}$ - sarà poi facile reinserire $e^{i\omega t}$ alla fine dei calcoli. Di conseguenza, potrà essere utile passare alla \textit{rappresentazione vettoriale} per le nostre operazioni tra fasori con la stessa pulsazione.
+\begin{attention}
+	Per il motivo sopracitato, in diversi contesti il termine ‘‘\textit{fasore}'' fa riferimento esclusivamente a $Ae^{i\theta}$.
+\end{attention}
+Si osservi che, poiché la grandezza originale non è altro che la \textit{parte reale} del fasore...
+\begin{equation}
+	\xi(t)=\Re{\hat{\xi}(t)}
+\end{equation}
+... nella rappresentazione vettoriale dei fasori la grandezza originale è la proiezione sulla (retta dei reali).
+\begin{notate}
+	Tralasciando il termine di rotazione, un fasore di ampiezza $A$ e angolo $\oldphi$ si indica come
+	\begin{equation}
+		\xi=A\angle\oldphi
+	\end{equation}
+\end{notate}
+\paragraph{Moltiplicazione per una costante (scalare)}
+La \textbf{moltiplicazione} di un fasore
+\begin{equation*}
+	\hat{\xi}(t)=Ae^{i\oldphi}e^{i\omega t}
+\end{equation*}
+per una costante scalare complessa
+\begin{equation*}
+	\hat{k}=Be^{i\theta}
+\end{equation*}
+è ancora un fasore, che modifica l'\textit{ampiezza} e la \textit{fase} del fasore originale.
+\begin{gather}
+	\hat{k}\hat{\xi}(t)=Be^{i\theta}\cdot Ae^{i\oldphi}e^{i\omega t}=ABe^{i(\oldphi+\theta)}e^{i\omega t}\\
+	k\xi(t)=AB\cos(\omega t+(\oldphi+\theta))
+\end{gather}
+%TODO: grafico
+In notazione fasoriale:
+\begin{equation}
+	\hat{k}\cdot A\angle\oldphi=AB\angle\left(\oldphi+\theta\right)
+\end{equation}
+\paragraph{Somma di fasori}
+La \textbf{somma} di due fasori
+\begin{align*}
+	\hat{\xi_1}(t)=A_1e^{i\oldphi_1}e^{i\omega t}&&\hat{\xi_2}(t)=A_2e^{i\oldphi_2}e^{i\omega t}
+\end{align*}
+è ancora un fasore.
+\begin{gather}
+	\hat{\xi_1}(t)+\hat{\xi_2}(t)=A_1e^{i\oldphi_1}e^{i\omega t}+A_2e^{i\oldphi_2}e^{i\omega t}=\left(A_1e^{i\oldphi_1}+A_2e^{i\oldphi_2}\right)e^{i\omega t}=A_3e^{i\oldphi_3}e^{i\omega t}\\
+	\xi_1(t)+\xi_2(t)=A_3\cos(\omega t+\oldphi_3)
+\end{gather}
+dove
+\begin{gather*}
+	A_3^2=\left(A_1^2\cos\oldphi_1+A_2^2\cos\oldphi_1\right)^2+\left(A_1^2\sin\oldphi_1+A_2^2\sin\oldphi_1\right)^2=A_1^2+A_2^2+2A_1A_2\cos(\oldphi_1-\oldphi_2)\\
+	\oldphi_3=\begin{cases}
+		\textrm{sgn}(A_1 \sin(\oldphi_1)  + A_2 \sin(\oldphi_2)) \frac{\pi}{2}&\text{se}\ A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2 = 0\\
+		\arctan\left(\frac{A_1 \sin\oldphi_1 + A_2 \sin\oldphi_2}{A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2}\right)&\text{se}\ A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2 >0\\
+		\pi + \arctan\left(\frac{A_1 \sin\oldphi_1 + A_2 \sin\oldphi_2}{A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2}\right) &\text{se}\ A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2 <0
+	\end{cases}
+\end{gather*}
+%TODO: grafico
+In notazione fasoriale:
+\begin{equation}
+	A_1\angle\oldphi_1+A_2\angle\oldphi_2=A_3\angle\oldphi_3
+\end{equation}
+Alternativamente, si può fare la \textit{somma vettoriale} dei vettori di coordinate
+\begin{align*}
+	\hat{\xi_1}(t)=\left(A_1\cos(\omega t+\oldphi_1),A_1\sin(\omega t+\oldphi_1)\right)&&
+	\hat{\xi_2}(t)=\left(A_2\cos(\omega t+\oldphi_2),A_2\sin(\omega t+\oldphi_2)\right)
+\end{align*}
+per produrre il vettore risultante
+\begin{equation*}
+	\hat{\xi_1}(t)+\hat{\xi_2}(t)=\left(A_3\cos(\omega t+\oldphi_3),A_3\sin(\omega t+\oldphi_3)\right)
+\end{equation*}
+\paragraph{Derivata e integrale}
+La \textbf{derivata temporale} o l'\textbf{integrale} rispetto a $t$ di un fasore produce un altro fasore.
+\begin{gather}
+	\dv{t} \hat{\xi}(t)=\dv{t}\left(Ae^{i\oldphi}e^{i\omega t}\right)=Ae^{i\oldphi}i\omega e^{i\omega t}=\omega Ae^{i\oldphi}e^{i\frac{\pi}{2}} e^{i\omega t}=\omega Ae^{i(\oldphi+\frac{\pi}{2})}e^{i\omega t}\\
+	\dv{t} \xi(t)=\omega A\cos\left(\omega t+\theta+\frac{\pi}{2}\right)
+\end{gather}
+In altre parole, \textit{derivare} un fasore temporalmente è equivalente a moltiplicare per la costante scalare $i\omega$.
+\begin{equation}
+	\dv{t} \hat{\xi}(t)=i\omega\hat{\xi}(t)=e^{i\frac{\pi}{2}}\omega\hat{\xi}(t)
+\end{equation}
+In notazione fasoriale:
+\begin{equation}
+	\dv{t} A\angle\oldphi=i\omega \cdot A\angle\oldphi=\omega A\angle\left(\oldphi+\frac{\pi}{2}\right)
+\end{equation}
+In modo analogo, integrare un fasore temporalmente è equivalente a dividere per la costante scalare $i\omega$.
+\begin{equation}
+	\int \hat{\xi}(t) dt=\frac{1}{i\omega}\hat{\xi}(t)=\frac{e^{-\frac{\pi}{2}}}{\omega}\hat{\xi}(t)
+\end{equation}
+In notazione fasoriale:
+\begin{equation}
+	\int A\angle\oldphi dt=\frac{i\omega} \cdot A\angle\oldphi=\frac{A}{\omega}\angle\left(\oldphi-\frac{\pi}{2}\right)
+\end{equation}
+\paragraph{Rapporto tra fasori}
+Il \textbf{rapporto} tra due fasori
+\begin{align*}
+	\hat{\xi_1}(t)=A_1e^{i\oldphi_1}e^{i\omega t}&&\hat{\xi_2}(t)=A_2e^{i\oldphi_2}e^{i\omega t}
+\end{align*}
+prende il nome di \textbf{impendenza}\index{impendenza}:
+\begin{equation}
+	 Z=\frac{\hat{\xi_1}(t)}{\hat{\xi_2}(t)}=\frac{A_1e^{i\oldphi_1}\Ccancel[red]{e^{i\omega t}}}{A_2e^{i\oldphi_2}\Ccancel[red]{e^{i\omega t}}}=\frac{A_1}{A_2}e^{i(\oldphi_1-\oldphi_2)}
+\end{equation}
+Tuttavia, \textit{non} è un fasore, perché non corrisponde ad una grandezza sinusoidale variabile nel tempo.

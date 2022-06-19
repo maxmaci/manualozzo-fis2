@@ -9,9 +9,12 @@
 \labelChapter{leggediCoulomb}
 
 \begin{introduction}
-‘‘BEEP BOOP''
+	‘‘\emph{Piper:} Non so neanche i concetti base dell'elettricità.\\
+	\emph{Joel Luschek:} Ripeti dopo di me: 'Non prendere la scossa'.\\
+	\emph{Piper:} Non prendere la scossa.\\
+	\emph{Joel Luschek:} Bene, ora hai il concetto base.''
 \begin{flushright}
-	\textsc{Lollo BiancoBOT}, dopo aver finito le citazioni. %TODO: quote 
+	\textsc{Orange Is the New Black}.
 \end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{L}{a meccanica} ci descrive come funziona un sistema soggetto ad una certa \textit{forza}. Ad oggi, siamo riusciti a ricondurre tutte le forze ad alcune \textbf{interazioni fondamentali}; in ordine di magnitudine decrescente:
@@ -50,7 +53,7 @@ Il già citato Gilbert fu il primo a dare un certo rigore allo studio di questi 
 \end{minipage}\hspace{10pt}
 \begin{minipage}{0.34\textwidth}
 		\includegraphics[width=1\textwidth]{images/foamcat.jpg}
-	{\footnotesize Gilbert controllò tante combinazioni di materiali, ma non ‘‘pelo di gatto'' e ‘‘polistirolo da imballaggio''. Immagino non avesse un gatto per farlo.}
+	{\scriptsize Gilbert sperimentò tante combinazioni di materiali, ma non ‘‘pelo di gatto'' e ‘‘polistirolo da imballaggio''. Immagino non avesse un gatto per farlo.}
 \end{minipage}\vspace{3pt}\\
 Da queste osservazioni Gilbert concluse l'esistenza di due tipi diversi di elettrizzazione, attribuite a \textbf{cariche elettriche}\index{carica elettrica} differenti.
 \begin{define}[Carica elettrica positiva e negativa]
@@ -105,24 +108,37 @@ Potremmo fornire già in questa maniera un'opportuna unità di misura, ma non è
 \section{Legge di Coulomb}
 Corpi carichi si attraggono o si respingono, a qualunque distanza, a seconda della loro carica: più sono vicini e più sono carichi, maggiore è questa attrazione/repulsione. Questa descrizione qualitativa delle forze di natura elettrostatica era già nota da Gilbert, ma per averne una \textit{quantitativa} dobbiamo aspettare quasi duecento anni.
 Nel 1785, il fisico francese \textbf{Charles Augustin de Coulomb} pubblicò la sua memoria \textit{Recherches théoriques et expérimentales sur la force de torsion et sur l'élasticité des fils de metal}, in cui stabilì, mediante l'uso di una bilancia di torsione analoga a quella di \textit{Cavendish} per la misura delle forze gravitazionali, una legge matematica per la descrizione dell'interazione elettrostatica.
-\begin{define}[Legge di Coulomb]\index{Legge!di Coulomb}
+\begin{define}[Legge di Coulomb]\index{legge!di Coulomb}\index{forza!di Coulomb}
 	Date due cariche puntiformi $q_1$ e $q_2$, poste a distanza $r$ \textit{nel vuoto}, interagiscono con una forza $F$ diretta secondo la loro congiungente data da
 	\begin{equation}
-		\vba{F}=k\frac{q_1q_2}{r^2}\vbh{u}_r\label{leggeCoulomb}
+		\tcboxmath{\vba{F}=k\frac{q_1q_2}{r^2}\vbh{u}_r}\label{leggeCoulomb}
 	\end{equation}
+	\begin{center}
+		\begin{minipage}{0.45\textwidth}
+			\begin{center}
+				\includegraphics[width=0.8\textwidth]{images/chp1forzacoulomb1.pdf}
+			\end{center}
+		\end{minipage}
+		\hspace{5pt}
+		\begin{minipage}{0.45\textwidth}
+			\begin{center}
+				\includegraphics[width=0.8\textwidth]{images/chp1forzacoulomb2.pdf}
+			\end{center}
+		\end{minipage}
+	\end{center}
 \end{define}
 \begin{observes}~
 	\begin{itemize}
 		\item $\vba{F}$ è la forza che $q_1$ esercita su $q_2$; la forza che $q_2$ esercita su $q_1$ è $-\vba{F}$.
 		\item $k$ è una costante di proporzionalità detta \textbf{costante di Coulomb}\index{costante!di Coulomb} che dipende dalle unità di misura.
 		\item $\vbh{u}_r$ è il versore del vettore distanza $\vba{r}$ dalla carica $q_1$ alla carica $q_2$.
-		\item $q_1q_2$ è il prodotto delle due cariche: se hanno lo stesso segno, la forza è repulsiva perché $\vba{F}$ ha lo stesso verso di $\vbh{u}_r$, altrimenti se hanno segno opposto è attrattiva perché hanno versi discordi.
+		\item $q_1q_2$ è il prodotto delle due cariche: se hanno lo stesso segno, la forza è \textit{repulsiva} perché $\vba{F}$ ha lo stesso verso di $\vbh{u}_r$, altrimenti se hanno segno opposto è \textit{attrattiva} perché hanno versi discordi.
 	\end{itemize}
 \end{observes}
 \paragraph{Unità di misura della carica elettrica}
 Non abbiamo ancora dato per bene un'unità di misura della carica elettrica. Potremmo basarci proprio sulla legge di Coulomb e definirla in modo che $k=1$ e che la carica unitaria è tale che, se posta a distanza unitaria da un'altra carica unitaria, essa subisce una forza unitaria (come accade nel \textit{sistema centimetro-grammo-secondo o c.g.s}).  
 
-Nonostante alcuni evidenti vantaggi teorici nell'utilizzare il sistema c.g.s., noi utilizzeremo per ragioni anche soprattutto storiche, l'unità di misura della carica elettrica prevista dal \textbf{SI}, il \textbf{coulomb}\index{coulomb} ($\unit{\coulomb}$). %TODO: add unit box
+Nonostante alcuni evidenti vantaggi teorici nell'utilizzare il sistema c.g.s., noi utilizzeremo per ragioni anche soprattutto storiche, l'unità di misura della carica elettrica prevista dal \textbf{SI}, il \textbf{coulomb}\index{coulomb} ($\unit{\coulomb}$).
 
 Non è un'unità fondamentale, bensì è definito come $\unit{\ampere\second}$, ossia come la carica che attraversa in un secondo un conduttore percorso dalla corrente di un ampere. Non sapendo ancora che cosa sia la corrente elettrica, né tanto meno un'ampere, non approfondiremo qui la definizione.
 \begin{units}~\\
@@ -190,17 +206,26 @@ dove $(x,y,z)$ sono eventualmente funzioni del tempo.
 		\vba{G}(x,y,z)=G_x\vbh{u}_x+G_y\vbh{u}_y+G_z\vbh{u}_z
 	\end{equation}
 \end{notate}
-\begin{observe}
-	Con $\vba{E}$ indichiamo il \textbf{campo elettrico}, mentre indichiamo con $\vba{B}$ il \textbf{campo magnetico}.
-\end{observe}
+\begin{examples}~
+	\begin{itemize}
+		\item $\vba{E}$ indica il \textbf{campo elettrico}.
+		\item $\vba{B}$ indica il \textbf{campo magnetico}.
+	\end{itemize}
+\end{examples}
 \paragraph{Linee di campo}
-Potremmo rappresentare il campo disegnando ad ogni punto di $\realset^3$ il vettore ad esso associato da $\vba{G}$.\\
-In alternativa, possiamo disegnare delle curve dette \textbf{linee di campo}\index{linee di campo}.
+Potremmo rappresentare un campo vettoriale disegnando in ogni punto\footnote{ ‘‘Disegnando in ogni punto'' è un'affermazione iperbolica: oltre che essere impossibile da realizzare fisicamente - ci sono infiniti punti nello spazio! - tale disegno risulterebbe un ammasso indistinguibile di frecce. Chiaramente dobbiamo limitarci ad un \textit{numero decente di vettori} in modo da far comprendere l'andamento del campo, sapendo comunque che anche dove non abbiamo disegnato i vettori esiste il campo.} di $\realset^3$ il vettore ad esso associato da $\vba{G}$. In alternativa, possiamo disegnare delle curve dette \textbf{linee di campo}\index{linee di campo}.
 \begin{define}[Linea di campo]
+\begin{minipage}{0.65\textwidth}
 	Una linea di campo di $\vba{G}$ è una curva 
 \begin{equation}
 	\funztot[\gamma]{\realset}{\realset^3}{t}{\vba{r}(t)}
 \end{equation}
+\end{minipage}\hspace{10pt}
+\begin{minipage}{0.34\textwidth}
+\begin{center}
+	\includegraphics[width=1\textwidth]{images/chp1lineedicampo.pdf}
+\end{center}
+\end{minipage}~\\
 tale per cui in ogni suo punto il vettore tangente alla curva è il vettore dato da $\vba{G}$:
 \begin{equation}
 	\dot{\gamma}(t)=\vba{G}\left(\gamma\left(t\right)\right),\ \forall t\in\realset
@@ -219,9 +244,22 @@ In questo formalismo, la forza di Coulomb si può vedere come il vettore in un c
 \begin{define}[Campo elettrostatico]
 	Il \textbf{campo elettrostatico}\index{campo elettrostatico} generato da un sistema di cariche $q_i$ ferme associa ad ogni punto dello spazio una forza pari alla forza elettrica che agisce su una \textbf{carica di prova}\index{carica!di prova} $q_0$ positiva posta in quel punto, divisa per la carica stessa:
 	\begin{equation}\label{campoelettrostatico}
-		\vba{E}(x,y,z)=\frac{\vba{F}}{q_0}=\frac{1}{4\pi\epsilon_0}\sum_i \frac{q_i}{\abs{\vba{r}-\vba{r_i}}^2}\vbh{u}_{r_i}=\frac{1}{4\pi\epsilon_0}\sum_i q_i\frac{\vba{r}-\vba{r_i}}{\abs{\vba{r}-\vba{r_i}}^3}
+		\tcboxmath{\vba{E}(x,y,z)=\frac{\vba{F}}{q_0}=\frac{1}{4\pi\epsilon_0}\sum_i \frac{q_i}{\abs{\vba{r}-\vba{r_i}}^2}\vbh{u}_{r_i}=\frac{1}{4\pi\epsilon_0}\sum_i q_i\frac{\vba{r}-\vba{r_i}}{\abs{\vba{r}-\vba{r_i}}^3}}
 	\end{equation}
 	dove $\vba{r}_i=(x_i,y_i,z_i),\ \vba{r}=(x,y,z)$ e $\vbh{u}_i=\dfrac{\vba{r}-\vba{r_i}}{\abs{\vba{r}-\vba{r_i}}}$.
+	\begin{center}
+		\begin{minipage}{0.45\textwidth}
+			\begin{center}
+				\includegraphics[width=0.6\textwidth]{images/chp1campocoulomb1.pdf}
+			\end{center}
+		\end{minipage}
+			\hspace{5pt}
+		\begin{minipage}{0.45\textwidth}
+			\begin{center}
+				\includegraphics[width=0.6\textwidth]{images/chp1campocoulomb2.pdf}
+			\end{center}
+		\end{minipage}
+	\end{center}
 \end{define}
 \paragraph{Unità di misura}
 Nel SI l'unità di misura del campo elettrico, essendo il rapporto tra una forza e una carica, è il \textbf{newton su coulomb} $\left(\unit[per-mode = fraction]{\newton\per\coulomb}\right)$. Più avanti vedremo un'altra unità di misura usata maggiormente nelle applicazioni pratiche.
@@ -234,9 +272,9 @@ Si noti che dalla definizione segue ovviamente che la forza che $q_0$ subisce si
 \begin{equation}
 	\vba{F}=q_0\vba{E}
 \end{equation}
-Nella \ref{campoelettrostatico} abbiamo fatto uso di un \textbf{principio di sovrapposizione}\index{principio di sovrapposizione} per campi vettoriali.
+Nella \ref{campoelettrostatico} abbiamo fatto uso di un \textbf{principio di sovrapposizione}\index{principio di sovrapposizione} per campi vettorialig.
 \begin{principle}[Principio di sovrapposizione per campi elettrostatici]
-	Il campo elettrico generato da un sistema di cariche è data dalla somma vettoriale dei campi elettrici generati da ciascuna carica del sistema.
+	Il campo elettrico generato da un sistema di cariche è data dalla \textit{somma vettoriale} dei campi elettrici generati da ciascuna carica del sistema.
 \end{principle}
 Preso il caso di una singola carica $Q$ posta nell'origine, il campo elettrico generato da $Q$ è
 \begin{equation*}
@@ -252,11 +290,11 @@ Posto
 	dx=\dot{x}(t)=\frac{1}{4\pi\epsilon_0}Q\frac{x}{(x^2+y^2)^{3/2}}\\
 	dy=\dot{y}(t)=\frac{1}{4\pi\epsilon_0}Q\frac{y}{(x^2+y^2)^{3/2}}
 \end{gather*}
-Da cui otteniamo la seguente equazione differenziale:
-\begin{align*}
-	\frac{dx}{dy}=\frac{x}{y}&\\
-	\implies&\int_{x_0}^{x}\frac{dx}{x}=\int_{y_0}^{y}\frac{dy}{y}\implies \log\frac{x}{x_0}=\log\frac{y}{y_0}\implies y=\frac{y_0}{x_0}x
-\end{align*}
+otteniamo la seguente equazione differenziale:
+\begin{equation*}
+	\frac{dx}{dy}=\frac{x}{y}\implies\int_{x_0}^{x}\frac{dx}{x}=\int_{y_0}^{y}\frac{dy}{y}
+	\implies \log\frac{x}{x_0}=\log\frac{y}{y_0}\implies y=\frac{y_0}{x_0}x
+\end{equation*}
 Dalle condizioni al contorno $(0,0)$ e $(x_0,y_0)$ si ricavano le linee di forza del campo coulombiano: è un fascio di rette passanti per l'origine del sistema di riferimento.
 \end{examplewt}
 \begin{observe}
@@ -317,25 +355,29 @@ Vogliamo descrivere il campo elettrostatico generato tramite vettori e tramite l
 		E_z=\frac{-2qz_0}{4\pi\epsilon_0}\frac{1}{\left(x^2+y^2+z_0^2\right)^{3/2}}
 	\end{equation*}
 	\item Consideriamo ora il piano $z=z_0$ e $y=0$. Si ha
-	\begin{gather*}
-		E_x=\frac{xq}{4\pi\epsilon_0}\left(\frac{1}{\abs{x}^3}-\frac{1}{\left(x^2+4z_0^2\right)^{3/2}}\right)\\
-		E_y=0\\
+	\begin{align*}
+		E_x=\frac{xq}{4\pi\epsilon_0}\left(\frac{1}{\abs{x}^3}-\frac{1}{\left(x^2+4z_0^2\right)^{3/2}}\right)&&
+		E_y=0&&
 		E_z=\frac{-2qz_0}{4\pi\epsilon_0}\frac{1}{(x^2+4z_0^2)^{3/2}}
-	\end{gather*}
+	\end{align*}
 \end{itemize}
 Analizzando ulteriori casi si denotano, per il dipolo elettrico, le linee di campo come in figura.
-%TODO: immagine
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/chp1campodipolo1.pdf}
+\end{center}
 \begin{observe}
 	Dove il campo elettrico è \textit{intenso}, la rappresentazione delle linee di campo è più densa, mentre si fa più rada dove il campo è \textit{meno intenso}.
 \end{observe}
-Se considerassimo $q_1=q_2=q$, le linee di campo sarebbero come quelle nella seguente figura.
-%TODO: immagine
-\begin{observe}%TODO: controllare se è l'opposto oppure no
+Se considerassimo $q_1=q_2=+q$, le linee di campo sarebbero come quelle nella seguente figura.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/chp1campodipolo2.pdf}
+\end{center}
+\begin{observe}
 	Dalle formule di dipolo, si vede che $\vba{E}$ è l'opposto del gradiente di un opportuno \textit{potenziale}\footnote{Nelle ‘‘XXX'', a pagina \pageref{gradiente} è possibile trovare la definizione di gradiente e altri operatori differenziali.} $V$:
 	\begin{equation}
 		V=-\frac{1}{4\pi\epsilon_0}\left(\frac{q_1}{\sqrt{x^2+y^2+(z-z_0)^2}}+\frac{q_2}{\sqrt{x^2+y^2+(z+z_0)^2}}\right)
 	\end{equation}
-Vedremo che questo \textit{non} è un caso: il potenziale elettrostatico è \textit{sempre} un campo \textit{conservativo}.
+Vedremo nel \autoref{chap:PotenzialeElettrico} che questo \textit{non} è un caso: il potenziale elettrostatico è \textit{sempre} un campo \textit{conservativo}.
 \end{observe}
 \paragraph{Campo di dipolo lontano}
 Cosa succede alle forze elettrostatiche e al campo elettrostatico se lo si osserva \textit{a debita distanza} dal dipolo? Se siamo molto lontani dal sistema, diciamo a distanza $\abs{\vba{r}}\gg\abs{\vba{r}_1}=\abs{\vba{r}_2}=z_0$, non ci sono molte distinzione pratiche fra due cariche distinte, opposte e distanti e considerare due cariche distinte, opposte ma \textit{coincidenti}: di fatto, un dipolo da lontano appare come un \textit{dipolo puntiforme} posto nell'origine.
@@ -395,25 +437,22 @@ Calcoliamo ora il campo elettrostatico usando il gradiente espresso in coordinat
 \begin{observe}
 	Sommando il contributo di più cariche uniformi il potenziale (e quindi il campo elettrico) può dipendere da relazioni differenti da $\nicefrac{1}{r}$.
 \end{observe}
-\subparagraph{Metodi alternativi al campo di dipolo lontano}
-	Ci sono altri modi equivalenti per ottenere il potenziale di cui sopra. Uno di questi passa tramite il teorema del coseno. 
-	\begin{remember}
-		Dati un triangolo di angoli $\alpha,\ \beta,\ \gamma$, rispettivamente opposti ai lati $a,\ b,\ c$, vale per il \textbf{teorema dei coseni}\index{teorema!dei coseni}
-		\begin{equation}
-			c^2=a^2+b^2-2ab\cos \gamma
-		\end{equation}
-	\end{remember}
-	La distanza di $\vba{r}$ si può
-%TODO: completare
 \section{Distribuzioni continua di carica}
 Nella pratica difficilmente avremo a che fare con una, due o qualche carica, bensì di un numero \textit{enorme} di cariche puntiformi. Chiaramente, trattare tutte le cariche una per una e vedere le interazioni con le altre non è benché minimamente consigliato: per fare un esempio, un $\unit{\cubic\milli\metre}$ di rame contiene circa $\num[exponent-product = \ensuremath{\cdot}]{2,5e21}$ elettroni.
 
 Per ovviare a questa difficoltà si assume che le cariche siano così tante che si abbia un \textit{cootinuum} di cariche; introduciamo dunque il concetto di \textbf{distribuzione continua di carica}\index{distribuzione!continua!di carica}, caratterizzata da una \textbf{densità di carica}.
 \begin{define}[Densità di carica volumica]
-	Considerato un oggetto di volume $V$ carico tale che nell'elemento di volume $dV(x,y,z)=dxdydz$ attorno al punto di coordinate cartesiane $(x,y,z)$ ci sia una carica infinitesima $dq$. La \textbf{densità di carica volumica}\index{densità!di carica!volumica} è un campo scalare definito dalla relazione
+\begin{minipage}{0.65\textwidth}
+Considerato un oggetto di volume $V$ carico tale che nell'elemento di volume $dV(x,y,z)=dxdydz$ attorno al punto di coordinate cartesiane $(x,y,z)$ ci sia una carica infinitesima $dq$. La \textbf{densità di carica volumica}\index{densità!di carica!volumica} è un campo scalare definito dalla relazione
 	\begin{equation}
 		dq=\rho(x,y,z)dV
 	\end{equation}
+\end{minipage}\hspace{10pt}
+\begin{minipage}{0.34\textwidth}
+	\begin{center}
+		\includegraphics[width=1\textwidth]{images/chp1density.pdf}
+	\end{center}
+\end{minipage}
 \end{define}
 \begin{units}~\\
 	\textbf{\textsc{Densità di carica volumica:}} coulomb su metro cubo $\left(\unit[per-mode = fraction]{\coulomb\per\cubic\meter}\right)$.\\
@@ -463,9 +502,9 @@ La carica totale e il campo elettrico sono, rispettivamente,
 	\vba{E}(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_\mathcal{l}\lambda(x',y',z')\frac{\vba{r}-\vba{r}'}{\abs{\vba{r}-\vba{r}'}^3}d\mathcal{l}
 \end{gather}
 \begin{observe}
-	Può capire di avere una densità di carica \textit{non} nulla, ma carica totale nulla.
+	Può capire di avere una densità \textit{non} nulla, ma carica totale nulla.
 \end{observe}
-\paragraph{Filo carico rettilineo (infinito)}
+\paragraph{Filo carico rettilineo (infinito)}%TODO:immagine
 	Si consideri un filo rettilineo di lunghezza $L$ con densità lineare costante $\lambda$. Per semplicità, poniamo il sistema di riferimento in modo che il filo carico sia lungo l'asse $x$. Si ha
 	\begin{equation*}
 		q=\int_{\mathcal{l}}\lambda(x',y',z')d\mathcal{l}=\lambda\int_{-L/2}^{L/2}dx'=\lambda L\implies \lambda=\frac{q}{L}
@@ -559,7 +598,7 @@ Il campo in coordinate cilindriche risulta
 	\end{equation*}
 dove $\mathcal{k}$ è una costante numerica e non influisce sulla dimensione. L'unica componente che si deve considerare ‘‘libera'', perché non è vincolata dalle condizioni del sistema, è una lunghezza: nel nostro caso, andando per intuizione fisica sulla base di simmetrie presenti, la distanza assiale $R$.
 \end{observe}
-\paragraph{Superficie carica infinita}
+\paragraph{Superficie carica infinita}%TODO:immagine
 	Si consideri una superficie piana $\Sigma$ con densità superficiale costante $\sigma$. Per semplicità, poniamo il sistema di riferimento in modo che la superficie coincida con il piano $x=0$. Si ha
 	\begin{equation*}
 		q=\int_{\Sigma}\sigma(x',y',z')d\Sigma=\sigma\int_{\Sigma}d\Sigma=\sigma A\implies \sigma=\frac{q}{A}
@@ -633,7 +672,7 @@ In sintesi, il campo elettrico generato da una superficie piana infinita è
 	\end{equation*}
 con $A$ adimensionale... e in effetti nel nostro caso $A=\frac{1}{2}$.
 \end{observe}
-\paragraph{Sfera uniformemente carica}
+\paragraph{Sfera uniformemente carica}%TODO:immagine
 Si consideri una palla sferica di raggio $R$ con densità volumica costante $\rho$. Per semplicità, poniamo il sistema di riferimento in modo che l'origine coincida con il centro della sfera. Si ha
 \begin{equation*}
 	q=\int_{V}\rho(x',y',z')dV=\rho\int_{V}dV=\rho V_s=\rho \cdot \frac{4}{3}\pi R^3
@@ -675,7 +714,7 @@ Cambiamo la variabile $\theta$ con $y=\cos\theta$ (a cui è associato $dy=\sin\t
 \begin{equation*}
 	\squarequal\frac{\rho}{2\epsilon_0}\int_0^Rdr\int_{-1}^{1}dy\frac{x-2y}{\left(x^2-2rxy+x^2\right)^{3/2}}r^2
 \end{equation*}
-Non è immediato, ma si può trovare che anche in questo caso specifico $\vba{E}=-\grad{V}$, dove
+Non è immediato, ma si ritrova come già preannunciato un \textit{potenziale} $V$ tale per cui $\vba{E}=-\grad{V}$, dove
 \begin{equation*}
 	V(x,0,0)=\frac{\rho}{2\epsilon_0}\int_{0}^Rdr\int_{-1}^{1}dy\frac{r^2}{\sqrt{r^2-2rxy+x^2}}\squarequal
 \end{equation*}
@@ -684,7 +723,7 @@ Svolgendo l'integrale rispetto alla variabile $t$, si vede che
 	\squarequal&\frac{\rho}{2\epsilon_0}\int_{0}^Rdr\int_{-1}^{1}dy\frac{r^2}{\sqrt{r^2-2rxy+x^2}}=\frac{\rho}{2\epsilon_0}\int_{0}^Rdr\left[-\frac{r}{x}\sqrt{r^2+x^2-2rxy}\eval\right]_{-1}^{1}=\\
 	&=\frac{\rho}{2\epsilon_0}\int_{0}^Rdr\left(-\frac{r}{x}\abs{r-x}+\frac{r}{x}\abs{r+x}\right)
 \end{align*}
-A questo punto distinguiamo il caso di un punto esterno alla sfera ($x>R$) o di uno interno ad essa ($x<R$).
+Ora distinguiamo il caso di un punto esterno alla sfera ($x>R$) o di uno interno ad essa ($x<R$).
 \subparagraph{Il caso esterno: $x>R$}
 \begin{equation*}
 	E_x(x,0,0)=-\partial_x\frac{\rho}{2\epsilon_0}\int_0^Rdr\frac{2r^2}{x}=-\frac{\rho}{\Ccancel[red]{2}\epsilon_0}\frac{\Ccancel[red]{2}}{3}R^3\partial_x \frac{1}{x}=\frac{\rho R^3}{3\epsilon_0}\frac{1}{x^2}
@@ -704,3 +743,4 @@ Ricordando che $\rho=\frac{q}{\frac{4}{3}\pi R^3}$, si ha
 	E_x(x,0,0)=\frac{\rho x}{3\epsilon_0}=\frac{qx}{4\pi\epsilon_0R^3}
 \end{equation}
 Il grafico del campo elettrostatico, al variare di $x>0$, è il seguente:
+%TODO:grafico

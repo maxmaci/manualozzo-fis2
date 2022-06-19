@@ -6,15 +6,14 @@
 {$LastChangedBy$}
 
 \chapter{Oscillazioni elettriche e correnti alternate}
-\labelChapter{onde}
+\labelChapter{correnteAlternata}
 \begin{introduction}
-	‘‘onde ondine ondette''
+	‘‘Fantasticare con la corrente alternata è solo una perdita di tempo. Nessuno la userà, mai.''
 	\begin{flushright}
-		\textsc{Ondine} mentre ondeggiava sulle onde% TO DO: quote 
+		\textsc{Thomas Alva Edison}, lievemente passivo-aggressivo nei confronti del rivale George Westinghouse.
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{C}{ome iniziano le onde?} 
-%LEZ 21, 07/04/2022
 
 \section{Circuiti RLC}
 \begin{observe}
@@ -195,15 +194,15 @@ Le equazioni diventano dunque
 	V_C(t)=V_L(t)=V_0\cos(\omega_0 t)
 \end{gather}
 \paragraph{Corrente continua e alternata}
-Nei circuiti dotati di generatori classici come le \textit{batterie}, la corrente è \textbf{continua}.
+Fino ad ora avevamo incontrato circuiti dotati di generatori che chiamiamo a corrente \textit{continua}: come le batterie o altri di natura elettrochimica, essi producono una corrente potenzialmente variabile nel tempo, ma che non cambia mai direzione nel conduttore.
 \begin{define}[Corrente continua]
 	La corrente elettrica è detta \textbf{continua}\index{corrente elettrica!continua} (DC) se la sua direzione è costante; la sua intensità può essere anch'essa costante oppure può variare d'intensità nel tempo. 
-\end{define} %dal potenziale maggiore a quello minore.
-Nel circuito $LC$ la corrente non è \textit{continua}, bensì \textbf{alternata}.
-\begin{define}[Corrente continua]
-	La corrente elettrica è detta \textbf{alternata}\index{corrente elettrica!alternata} (AC) se la sua direzione e intensità varia periodicamente nel tempo.
-\end{define} 
-ossia \textit{cambia direzione} nel tempo.
+\end{define}
+Con il circuito $LC$ siamo di fronte ad una situazione nuova: la \ddp del circuito e la corrente non solo variano nel tempo, ma hanno un comportamento \textit{sinusoidale}. Chiamiamo tale tipo di corrente \textit{alternata}.\\
+In Fisica, parliamo di \textit{grandezze alternate} se sono periodiche e hanno un valor medio nullo in un periodo; nell'uso comune il termine è riservato soltanto alle variazioni sinusoidali.
+\begin{define}[Corrente alternata]
+	La corrente elettrica è detta \textbf{alternata}\index{corrente elettrica!alternata} (AC) se è una grandezza alternata: il valor medio della corrente è nullo e varia intensità e direzione periodicamente.
+\end{define}
 \paragraph{L'andamento periodico}
 Sia $T$ il periodo dell'oscillazione; cosa succede nel circuito in tale periodo?
 \begin{itemize}
@@ -301,9 +300,9 @@ Per mantenere una velocità costante $\vba{v}$ dobbiamo applicare alla sbarra un
 	\vba{F}_{ext}=-\vba{F}_B
 \end{equation*}
 È necessario compiere un \textit{lavoro} per mantenere tale equilibrio o, in altri termini, devo produrre un'opportuna \textit{potenza meccanica} da sopperire alla \textit{potenza elettrica} dissipata dalla resistenza per avere la corrente elettrica nel circuito.
-\begin{define}[Potenza meccanica]
-	La \textbf{potenza meccanica}\index{potenza!meccanica} è l'energia per unità di tempo necessaria per sopperire alla potenza elettrica dissipata dall'elettrogeneratore.
-\end{define}
+%\begin{define}[Potenza meccanica]
+%	La \textbf{potenza meccanica}\index{potenza!meccanica} è l'energia per unità di tempo necessaria per sopperire alla potenza elettrica dissipata dall'elettrogeneratore.
+%\end{define}
 Nel caso della spira mobile, essa è
 \begin{equation}
 	P=\vba{F}_{ext}\vdot \vba{v}=\frac{h^2B^2v}{R}=I^2R
@@ -428,7 +427,7 @@ ossia
 \end{equation}
 \section{Motori}
 \begin{define}[Motore]
-	Il \textbf{motore}\index{motore} è un dispositivo elettrotecnico che converte \textit{energia elettrica} in \textit{energia meccanica}.
+	Un \textbf{motore}\index{motore} è un dispositivo elettrotecnico che converte \textit{energia elettrica} in \textit{energia meccanica}.
 \end{define}
 \subsection{Spira mobile}
 Consideriamo la stessa spira vista a \pageref{spiramobilegeneratori}, ma invece di immergerla in un campo magnetico supponiamo di porre nel circuito un generatore di \fem $\mathcal{E}_0$: esso genera una corrente che circola nella spira e, in particolare, sulla sbarra scorrevole. Per la \textit{seconda legge di Laplace}, su di essa agisce una forza
@@ -520,16 +519,766 @@ da cui segue che la \fem, la corrente e la potenza di regime sono
 	I_{\infty}=\frac{2M_{opp}}{Br^2}
 	P_{\infty}=RI_{\infty}^2+M_{opp}\omega_{\infty}
 \end{gather}
-\section{Circuiti in corrente alternata}
-\paragraph{Il metodo simbolico dei vettori rotanti di Fresnel}
-\paragraph{Resistore R}
-\paragraph{Induttore L}
-\paragraph{Condensatore C}
-\paragraph{Circuito RL in serie}
-\paragraph{Circuito RC in serie}
-\paragraph{Circuito LC in serie}
-\paragraph{Circuito RLC in serie}
-\paragraph{⋆ Circuito RL in parallelo}
-\paragraph{⋆ Circuito RC in parallelo}
-\paragraph{⋆ Circuito LC in parallelo}
-\paragraph{⋆ Circuito RLC in parallelo}
+\section{Il metodo simbolico}
+Finché ci limitiamo a \textit{circuiti semplici}, costituiti solo da un generatore AC e un componente elettrico, determinare tutte le grandezze in gioco non è particolarmente difficile. Tuttavia, in presenza di \textit{molte componenti} risulta particolarmente complicato - dato che stiamo operando con grandezze sinusoidali!\\
+In aiuto ci viene il \textbf{metodo simbolico}\index{metodo simbolico}, un approccio di analisi dei circuiti che consente di risolvere le reti in corrente alternata sinusoidale in modo formalmente analogo alle reti in corrente continua grazie ai \textit{fasori}\footnote{Nelle ‘‘Note aggiuntive'', a pag. \pageref{fasori}, è possibile trovare maggiori dettagli e risultati sui fasori.}. L'idea di fondo è di associare all'intensità di corrente
+\begin{equation}
+	I(t)=I_0\cos(\omega t+\oldphi_I)
+\end{equation}
+un'\textbf{intensità di corrente complessa}\index{intensità di corrente complessa}, ossia il fasore
+\begin{equation}
+	\hat{I}(t)=I_0\cos(\omega t+\oldphi_I)+iI_0\sin(\omega t+\oldphi_I)=I_0e^{i(\omega t+\oldphi_I)}=I_0e^{i\omega t}e^{i\oldphi_I}
+\end{equation}
+in modo che la parte reale della corrente complessa sia la corrente vera e propria
+\begin{equation}
+	\Re{\hat{I}(t)}=I(t)
+\end{equation}
+In modo analogo, alla differenza di potenziale ai capi di una componente elettrica (resistore, induttore, condensatore)
+\begin{equation}
+	V(t)=V_0\cos(\omega t+\oldphi_V)
+\end{equation}
+si può definire il fasore associato
+\begin{equation}
+	\hat{V}(t)=V_0\cos(\omega t+\oldphi_V)+iV_0\sin(\omega t+\oldphi_V)=V_0e^{i(\omega t+\oldphi_V)}=I_0e^{i\omega t}e^{i\oldphi_V}
+\end{equation}
+\paragraph{Impedenza  e ammettenza}
+Il rapporto tra due fasori qui definiti è una quantità complessa (ma \textit{non} un fasore!) detta \textbf{impedenza elettrica}.
+\begin{define}[Impedenza e ammettenza]
+	L'\textbf{impedenza elettrica}\index{impedenza!elettrica} è una quantità complessa indipendente dal tempo che rappresenta un ostacolo al passaggio della corrente alternata in un circuito, causando una differenza di potenziale al passaggio di corrente. Essa combina assieme gli effetti di eventuali \textit{resistori}, \textit{induttori} e \textit{condensatori}. La legge che lega l'intensità di corrente e la \ddp è la \textbf{legge di Ohm generalizzata}:
+	\begin{equation}
+		\hat{V}(t)=Z\hat{I}(t)
+	\end{equation}
+	Un'espressione dell'impedenza è quindi
+	\begin{equation}
+		Z=\frac{V_0}{I_0}e^{i(\oldphi_V-\oldphi_I)}=\frac{V_0}{I_0}e^{i\theta}
+	\end{equation}
+	Il reciproco dell'impedenza è detta \textbf{ammettenza elettrica}\index{ammetenza elettrica}.
+	\begin{equation}
+		\mathcal{A}=\frac{1}{Z}
+	\end{equation}
+\end{define}
+\begin{attention}
+	Alcuni testi ambiguamente usano il termine ‘‘\textit{impedenza}'' per indicare il valore reale dato dal \textit{modulo} dell'impedenza (complessa) qui definita. Per evitare inutili confusioni in questo testo ci riferiremo soltanto all'impedenza complessa
+\end{attention}
+Dato un componente elettrico attraversato da una corrente complessa
+\begin{equation*}
+	\hat{I}(t)=I_0e^{i\omega t}e^{i\oldphi}
+\end{equation*}
+e dotato di un impendenza
+\begin{equation}
+	Z=Z_0e^{i\theta}=\abs{Z}e^{i\theta}
+\end{equation}
+dalla legge di Ohm generalizzata e dalla regola di moltiplicazione di un fasore per uno scalare complesso segue che il voltaggio complesso applicato ai capi dell'impendenza è
+\begin{equation}
+	\hat{V}(t)=Z_0I_0e^{i\omega t}e^{i(\theta+\oldphi)}
+\end{equation}
+Prendendo la parte reale si ottiene la seguente versione della legge di Ohm:
+\begin{equation}
+	V(t)=Z_0I_0\cos(\omega t+(\theta+\oldphi))
+\end{equation}
+Il valore massimo $V_0$ è legato al valore massimo $I_0$ dalla relazione lineare
+\begin{equation}
+	V_0=Z_0I_0
+\end{equation}
+	I valori massimi non sono (generalmente) raggiunti nello stesso istante, in quanto $V$ e $I$ possono essere sfasate.
+\begin{observe}
+	L'impedenza \textit{non} è una costante caratteristica del circuito in quanto \textit{dipende} dalla pulsazione $\omega$.
+\end{observe}
+\subparagraph{Unità di misura}
+L'unità di misura dell'impedenza è la stessa della resistenza, l'\textit{ohm}; segue chiaramente che l'ammettenza si misura in \textit{siemens}.
+\begin{units}~\\
+	\textbf{\textsc{Impedenza elettrica:}} ohm ($\unit{\ohm}$) o volt su ampere $\left(\unit[per-mode = fraction]{\volt\per\ampere}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[Z]=\dfrac{[V]}{[I]}=\mathsf{M} \mathsf{L}^2  \mathsf{T}^{-3}\mathsf{I}^{-2}$
+\end{units}
+\begin{units}~\\
+	\textbf{\textsc{Ammettenza elettrica:}} siemens ($\unit{\siemens}$), mho  ($\mho$) o ampere su volt $\left(\unit[per-mode = fraction]{\ampere\per\volt}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[\mathcal{A}]=\dfrac{[I]}{[V]}=\mathsf{I}^{2}\mathsf{T}^{3}\mathsf{M}^{-1} \mathsf{L}^{-2}$
+\end{units}
+\paragraph{⋆ Resistenza e reattanza}
+In forma cartesiana, l'impedenza prende la forma
+\begin{equation}
+	Z=R+iX
+\end{equation}
+Mentre la parte reale coincide la resistenza del componente...
+\begin{equation}
+	R=\Re Z
+\end{equation}
+... la parte immaginaria è una quantità detta \textbf{reattanza}.
+\begin{define}[Reattanza]
+	La \textbf{reattanza elettrica}\index{reattanza elettrica} è una quantità che rappresenta un ostacolo al passaggio della corrente alternata in un circuito da parte di induttori o condensatori, causando una differenza di potenziale al passaggio di corrente. Essa è la parte immaginaria dell'impedenza.
+	\begin{equation}
+		X=\Im Z
+	\end{equation}
+	Il reciproco della reattanza è detta \textbf{suscettanza elettrica}\index{suscettanza elettrica}.
+	\begin{equation}
+		B=\frac{1}{X}
+	\end{equation}
+\end{define}
+L'unità di misura della reattanza è ovviamente la stessa della resistenza, l'\textit{ohm} e quella della suscettanza si misura in \textit{siemens}.
+\begin{units}~\\
+	\textbf{\textsc{Reattanza elettrica:}} ohm ($\unit{\ohm}$) o volt su ampere $\left(\unit[per-mode = fraction]{\volt\per\ampere}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[X]=\mathsf{M} \mathsf{L}^2  \mathsf{T}^{-3}\mathsf{I}^{-2}$
+\end{units}
+\begin{units}~\\
+	\textbf{\textsc{Ammettenza elettrica:}} siemens ($\unit{\siemens}$), mho  ($\mho$) o ampere su volt $\left(\unit[per-mode = fraction]{\ampere\per\volt}\right)$.\\
+	\textit{\textbf{Dimensioni:}} $[B]=\mathsf{I}^{2}\mathsf{T}^{3}\mathsf{M}^{-1} \mathsf{L}^{-2}$
+\end{units}
+\noindent La resistenza e la reattanza all'apparenza sembrano simili: entrambe sono grandezze con le stesse dimensioni e per entrambe si ha che maggiore è la resistenza/reattanza, minore è la corrente che passa a parità di voltaggio. Inoltre, un circuito dotato di elementi che hanno soltanto una reattanza (induttori, condensatori) si possono studiare come se tutte le componenti fossero dei resistori.
+
+Ci sono però delle differenze fondamentali tra le due. In primis, la reattanza \textit{cambia la fase della corrente}  di un quarto di periodo relativamente alla fase della \ddp applicata dai capi della resistenza.
+Inoltre, per le componenti dotate di reattanza la potenza elettrica \textit{non} viene dissipata come succede con i resistori, bensì \textit{viene immagazzinata} sotto forma di energia del campo magnetico (induttore) o del campo elettrico (condensatori).
+Infine, ma non meno importanze, la reattanza \textit{dipende} dalla pulsazione e quindi dalla frequenza della corrente elettromagnetica.
+\paragraph{Induttanze in serie e in parallelo}
+Il principale vantaggio è che le induttanze equivalenti dei circuiti in serie e dei in parallelo seguono la stessa legge per calcolare la resistenza equivalente di resistori in serie e in parallelo:
+\begin{itemize}
+	\item Impedenze in \textbf{serie}:
+	\begin{equation}
+		Z_{eq}=\sum_{i=1}^{n}Z_i
+	\end{equation}
+	\item Impedenze in \textbf{parallelo}:
+	\begin{equation}
+		\frac{1}{Z_{eq}}=\sum_{i=1}^{n}\frac{1}{Z_i}
+	\end{equation}
+\end{itemize}
+\paragraph{Risoluzione dei}
+\section{Esempi di circuiti in corrente alternata}
+Nella trattazione che faremo supponiamo senza perdita di generalità che se è nota inizialmente la corrente $I$, la sua fase sia $\oldphi_I=0$ - in modo che per $t=0$ si abbia subito il valore massimo della corrente; in modo analogo, se è nota la \ddp $V$, la sua fase sia $\oldphi_V=0$.
+\subsection{Resistore R}
+	\begin{center}		
+	\begin{tikzpicture}%[voltage dir=RP]
+		\draw (0,0) to [sinusoidal current source, sV>=$\mathcal{E}(t)$] (0,2.5)
+		-- (2.5,2.5)
+		to [resistor, R=$R$, v=$V_R$] (2.5,0)
+		-- (0,0)
+		-- (0,0.1);
+	\end{tikzpicture}
+	\end{center}
+Applicando ai capi del resistore $R$ una \fem
+\begin{equation*}
+	\mathcal{E}(t)=\mathcal{E}_0\cos(\omega t)
+\end{equation*}
+per la \textit{legge di Ohm} si ha un passaggio di corrente alternata
+\begin{equation}
+	I(t)=\frac{\mathcal{E}_0}{R}\cos(\omega t)=I_0\cos(\omega t)
+\end{equation}
+La \fem e la corrente sono \textit{in fase} ($\psi_R=0$), con relazione tra i valori massimi dati da
+\begin{equation}
+	I_0=\frac{\mathcal{E}_0}{R}
+\end{equation}
+Invece, se un resistore $R$ è attraversato da corrente alternata 
+\begin{equation*}
+	I(t)=I_0\cos(\omega t)
+\end{equation*}
+la \ddp ai capi è
+\begin{equation}
+	V_R(t)=RI(t)=RI_0\cos(\omega t)=V_{R,0}\cos(\omega t)
+\end{equation}
+La \ddp e la corrente sono \textit{in fase} ($\oldphi_R=0$), con relazione tra i valori massimi dati da
+\begin{equation}
+	V_{R,0}=RI_0
+\end{equation}
+\begin{observe}
+	Il comportamento di un resistore in regime alternato \textit{non} dipende dal valore della pulsazione $\omega$.
+\end{observe}
+\paragraph{Metodo simbolico}
+\begin{proposition}[Impedenza del resistore]
+	L'impedenza di un resistore $R$ percorso da corrente alternata $I(t)=I_0\cos\omega t$ è
+	\begin{equation}
+		Z_R=R
+	\end{equation}
+\end{proposition}
+\begin{demonstration} %TODO: segnare che è opzionale
+	Definiamo il fasore della corrente elettrica
+	\begin{equation*}
+		\hat{I}(t)=I_0e^{i\omega t}=I_0\cos(\omega t)+iI_0\sin(\omega t)
+	\end{equation*}
+	e quello della \ddp ai capi del resistore $R$
+	\begin{equation*}
+		\hat{V}_R(t)=V_{R,0}e^{i(\omega t+\phi_R)}=V_{R,0}\cos(\omega t+\phi_R)+iV_{R,0}\sin(\omega t+\phi_R)
+	\end{equation*}
+	Dalla \textit{legge di Ohm} ricaviamo $\phi_R$ e $V_{R,0}$:
+	\begin{equation*}
+		V_R(t)=V_{R,0}\cos(\omega t+\phi_R)=RI_0\cos(\omega t)\implies \begin{cases}
+			\phi_R=0\\
+			V_{R,0}=R
+		\end{cases} 
+	\end{equation*}
+	Di conseguenza, dalla definizione di impedenza segue
+	\begin{equation*}
+		Z_R=\frac{V_{R,0}}{I_0}e^{i\oldphi_R}=\frac{V_{R,0}}{I_0}=R\qedhere
+	\end{equation*}
+\end{demonstration}
+\subsection{Induttore L}
+	\begin{center}		
+	\begin{tikzpicture}%[voltage dir=RP]
+		\draw (0,0) to [sinusoidal current source, sV>=$\mathcal{E}(t)$] (0,2.5)
+		-- (2.5,2.5)
+		to [inductor, L=$L$, v=$V_L$] (2.5,0)
+		-- (0,0)
+		-- (0,0.1);
+	\end{tikzpicture}
+\end{center}
+Applicando ai capi dell'induttore $R$ una \fem
+\begin{equation*}
+	\mathcal{E}(t)=\mathcal{E}_0\cos(\omega t)
+\end{equation*}
+la corrente che attraversa l'induttore è la soluzione all'equazione differenziale ordinaria
+\begin{align*}
+	&\mathcal{E}(t)-L\dv{I}{t}=0\\
+	&\dv{I}{t}=\frac{\mathcal{E}(t)}{L}=\frac{\mathcal{E}_0}{L}\cos(\omega t)\\
+\end{align*}
+da cui otteniamo la legge
+\begin{equation}
+	I(t)=\frac{\mathcal{E}_0}{\omega L}\sin(\omega t)=\frac{\mathcal{E}_0}{\omega L}\cos(\omega t-\frac{\pi}{2})
+\end{equation}
+La \fem e la corrente \textit{non} sono in fase, bensì sono sfasate di un fattore $\psi_L=-\nicefrac{\pi}{2}$.\\
+Invece, se un resistore $R$ è attraversato da corrente alternata 
+\begin{equation*}
+	I(t)=I_0\cos(\omega t)
+\end{equation*}
+la \ddp ai capi è
+\begin{equation}
+	V_L(t)=L\dv{I(t)}{t}=-\omega L I_0\sin(\omega t)=V_{L,0}\cos(\omega t+\frac{\pi}{2})
+\end{equation}
+La \ddp e la corrente \textit{non} sono in fase, bensì sono sfasate di un fattore $\oldphi_L=\nicefrac{\pi}{2}$.
+%\begin{observe}
+%	È normale che la fase $\oldphi_L$ della \ddp data la corrente è opposta alla fase della corrente che si è trovata partendo dalla \ddp.
+%\end{observe}
+\paragraph{Metodo simbolico}
+\begin{proposition}[Impedenza dell'induttore]
+	L'impedenza di un induttore $L$ percorso da corrente alternata $I(t)=I_0\cos\omega t$ è
+	\begin{equation}
+		Z_R=i\omega L
+	\end{equation}
+\end{proposition}
+\begin{demonstration} %TODO: segnare che è opzionale
+	Definiamo il fasore della corrente elettrica
+	\begin{equation*}
+		\hat{I}(t)=I_0e^{i\omega t}=I_0\cos(\omega t)+iI_0\sin(\omega t)
+	\end{equation*}
+	e quello della \ddp ai capi dell'induttore $L$
+	\begin{equation*}
+		\hat{V}_L(t)=V_{L,0}e^{i(\omega t+\phi_L)}=V_{L,0}\cos(\omega t+\phi_L)+iV_{L,0}\sin(\omega t+\phi_L)
+	\end{equation*}
+	Dalla relazione
+	\begin{equation*}
+		V_L(t)=L\dv{I}(t)
+	\end{equation*}
+	ricaviamo $\phi_L$ e $V_{L,0}$:
+	\begin{equation*}
+		V_L(t)=V_{L,0}\cos(\omega t+\phi_L)=-\omega L I_0\sin(\omega t)=\omega L I_0\cos(\omega t+\frac{\pi}{2})\implies \begin{cases}
+			\phi_L=\frac{\pi}{2}\\
+			V_{L,0}=\omega L I_0
+		\end{cases} 
+	\end{equation*}
+	Di conseguenza, dalla definizione di impedenza segue
+	\begin{equation*}
+		Z_L=\frac{V_{L,0}}{I_0}e^{i\oldphi_L}=\omega Le^{i\frac{\pi}{2}}=i\omega L\qedhere
+	\end{equation*}
+\end{demonstration}
+\subsection{Condensatore C}
+	\begin{center}		
+	\begin{tikzpicture}%[voltage dir=RP]
+		\draw (0,0) to [sinusoidal current source, v<=$\mathcal{E}(t)$] (0,2.5)
+		-- (2.5,2.5)
+		to [capacitor, C=$C$, v=$V_C$] (2.5,0)
+		-- (0,0)
+		-- (0,0.1);
+	\end{tikzpicture}
+\end{center}
+Applicando ai capi del condensatore $C$ una \fem
+\begin{equation*}
+	\mathcal{E}(t)=\mathcal{E}_0\cos(\omega t)
+\end{equation*}
+la carica che si deposita sulle armature del condensatore è data da
+\begin{equation*}
+	\mathcal{E}(t)=V_C(t)=\frac{q(t)}{C}
+\end{equation*}
+\begin{equation}
+	q(t)=C\mathcal{E}(t)=C\mathcal{E}_0\cos(\omega t)
+\end{equation}
+La corrente che attraversa l'induttore si ottiene derivando la precedente relazione
+\begin{equation*}
+	I(t)=\dv{q(t)}{T}=C\dv{\mathcal{E}(t)}{t}\\
+\end{equation*}
+da cui otteniamo la legge
+\begin{equation}
+	I(t)=\mathcal{E}_0\omega C\sin(\omega t)=\mathcal{E}_0\omega C\cos(\omega t+\frac{\pi}{2})
+\end{equation}
+La \fem e la corrente \textit{non} sono in fase, bensì sono sfasate di un fattore $\psi_C=\nicefrac{\pi}{2}$.\\
+Invece, se un resistore $R$ è attraversato da corrente alternata
+\begin{equation*}
+	I(t)=I_0\cos(\omega t)
+\end{equation*}
+la \ddp ai capi è data dalla legge
+\begin{equation*}
+	V_C(t)=\frac{q(t)}{C}
+\end{equation*}
+o, equivalentemente, integrando la seguente:
+\begin{equation*}
+	\dv{V_C(t)}{t}=\frac{1}{C}dv{q(t)}{t}=\frac{I(t)}{C}=\frac{I_0}{C}\cos(\omega t)
+\end{equation*}
+\begin{equation}
+	V_C(t)=\frac{I_0}{\omega C}\sin(\omega t)=\frac{I_0}{\omega C}\cos(\omega t-\frac{\pi}{2})=V_{C,0}\cos(\omega t-\frac{\pi}{2})
+\end{equation}
+La \ddp e la corrente \textit{non} sono in fase, bensì sono sfasate di un fattore $\oldphi_C=-\nicefrac{\pi}{2}$.
+\paragraph{Metodo simbolico}
+\begin{proposition}[Impedenza del condensatore]
+	L'impedenza di un condensatore $L$ percorso da corrente alternata $I(t)=I_0\cos\omega t$ è
+	\begin{equation}
+		Z_C=\frac{1}{i \omega C}
+	\end{equation}
+\end{proposition}
+\begin{demonstration} %TODO: segnare che è opzionale
+	Definiamo il fasore della corrente elettrica
+	\begin{equation*}
+		\hat{I}(t)=I_0e^{i\omega t}=I_0\cos(\omega t)+iI_0\sin(\omega t)
+	\end{equation*}
+	e quello della \ddp ai capi del condensatore $C$
+	\begin{equation*}
+		\hat{V}_C(t)=V_{C,0}e^{i(\omega t+\phi_C)}=V_{C,0}\cos(\omega t+\phi_C)+iV_{C,0}\sin(\omega t+\phi_C)
+	\end{equation*}
+	Integrando
+	\begin{equation*}
+		\dv{V_C(t)}{t}=\frac{1}{C}dv{q(t)}{t}=\frac{I(t)}{C}=\frac{I_0}{C}\cos(\omega t)
+	\end{equation*}
+	ricaviamo $\phi_C$ e $V_{C,0}$:
+	\begin{equation*}
+		V_C(t)=V_{C,0}\cos(\omega t+\phi_C)=\frac{I_0}{\omega C}\sin(\omega t)=\frac{I_0}{\omega C}\cos(\omega t-\frac{\pi}{2})\implies \begin{cases}
+			\phi_C=-\frac{\pi}{2}\\
+			V_{C,0}=\frac{I_0}{\omega C}
+		\end{cases} 
+	\end{equation*}
+	Di conseguenza, dalla definizione di impedenza segue
+	\begin{equation*}
+		Z_C=\frac{V_{C,0}}{I_0}e^{i\oldphi_C}=\frac{1}{\omega C}e^{-i\frac{\pi}{2}}=\frac{1}{i \omega C}\qedhere
+	\end{equation*}
+\end{demonstration}
+\subsection{Circuito RL in serie}
+	\begin{center}		
+	\begin{tikzpicture}%[voltage dir=RP]
+		\draw (0,0) to [sinusoidal current source, v<=$\mathcal{E}(t)$] (0,2.5)
+		to [resistor, R=$R$, v=$V_R$] (2.5,2.5)
+		to [inductor, L=$L$, v=$V_L$] (2.5,0)
+		-- (0,0)
+		-- (0,0.1);
+	\end{tikzpicture}
+\end{center}
+Se nel circuito circola una corrente alternata di intensità
+\begin{equation*}
+	I(t)=I_0\cos(\omega t)
+\end{equation*}
+le differenze ai capi del resistore e dell'induttore sono
+\begin{align*}
+	V_R(t)&=V_{R,0}\cos(\omega t +\oldphi_R)=\abs{Z_R}I_0\cos(\omega t +\oldphi_R)=RI_0\cos(\omega t)
+	\\
+	V_L(t)=V_{L,0}\cos(\omega t +\oldphi_L)=\abs{Z_L}I_0\cos(\omega t +\oldphi_L)=\omega LI_0\cos(\omega t +\frac{\pi}{2})
+\end{align*}
+L'impedenza complessiva è la somma delle impedenze dei singoli componenti:
+\begin{align}
+	Z_{RL}&=Z_R+Z_L=R+i\omega L\\
+	\abs{Z_{RL}}&=\sqrt{R^2+\omega^2L^2}
+\end{align}
+La \ddp complessiva è data dalla somma di $V_R(t)$ e $V_L(t)$, che possiamo ottenere sia come somma di fasori, sia tramite la rappresentazione vettoriale.
+%TODO: disegno rappresentazione vettoriale
+\begin{equation*}
+	V(t)=V_R(t)+V_L(t)=V_{RL,0}\cos(\omega t+\oldphi_{RL})
+\end{equation*}
+dove
+\begin{align*}
+	V_{RL,0}&=\sqrt{V_{R,0}^2+V_{L,0}^2+V_{R,0}V_{L,0}\cos(\oldphi_R-\oldphi_L)}=\\
+	&=\sqrt{(RI_0)^2+(\omega LI_0)^2+\Ccancel[red]{2(RI_0)(\omega LI_0)\cos(0-\frac{\pi}{2})}}=\\
+	&=\sqrt{R^2+\omega^2L^2}I_0=\sqrt{Z_R^2+Z_L^2}I_0=\abs{Z_{RL}}I_0
+\end{align*}
+\begin{equation*}
+	\tan\oldphi_{RL}=\frac{V_{R,0}\sin\oldphi_R+V_{L,0}\sin\oldphi_L}{V_{R,0}\cos\oldphi_R+V_{L,0}\cos\oldphi_L}=\frac{RI_0\sin0+\omega LI_0\sin\frac{\pi}{2}}{RI_0\cos0+\omega LI_0\cos\frac{\pi}{2}}=\frac{\omega L\Ccancel[red]{I_0}}{R\Ccancel[red]{I_0}}=\frac{\abs{Z_L}}{\abs{Z_R}}
+\end{equation*}
+%TODO: trattazione fasoriale?
+\subsection{Circuito RC in serie}
+	\begin{center}		
+	\begin{tikzpicture}%[voltage dir=RP]
+		\draw (0,0) to [sinusoidal current source, v<=$\mathcal{E}(t)$] (0,2.5)
+		to [resistor, R=$R$, v=$V_R$] (2.5,2.5)
+		to [capacitor, C=$C$, v=$V_C$] (2.5,0)
+		-- (0,0)
+		-- (0,0.1);
+	\end{tikzpicture}
+\end{center}
+Se nel circuito circola una corrente alternata di intensità
+\begin{equation*}
+	I(t)=I_0\cos(\omega t)
+\end{equation*}
+le differenze ai capi del resistore e del condensatore sono
+\begin{align*}
+	V_R(t)&=V_{R,0}\cos(\omega t +\oldphi_R)=\abs{Z_R}I_0\cos(\omega t +\oldphi_R)=RI_0\cos(\omega t)
+	\\
+	V_C(t)&=V_{C,0}\cos(\omega t +\oldphi_C)=\abs{Z_C}I_0\cos(\omega t +\oldphi_C)=\frac{I_0}{\omega C}\cos(\omega t -\frac{\pi}{2})
+\end{align*}
+L'impedenza complessiva è la somma delle impedenze dei singoli componenti:
+\begin{align}
+	Z_{RL}&=Z_R+Z_C=R+\frac{1}{i\omega C}=R-i\frac{1}{\omega C}\\ \abs{Z_{RC}}&=\sqrt{R^2+\frac{1}{\omega^2 C^2}}
+\end{align}
+La \ddp complessiva è data dalla somma di $V_R(t)$ e $V_C(t)$, che possiamo ottenere sia come somma di fasori, sia tramite la rappresentazione vettoriale.
+%TODO: disegno rappresentazione vettoriale
+\begin{equation*}
+	V(t)=V_R(t)+V_C(t)=V_{RC,0}\cos(\omega t+\oldphi_{RC})
+\end{equation*}
+dove
+\begin{align*}
+	V_{RC,0}&=\sqrt{V_{R,0}^2+V_{C,0}^2+V_{R,0}V_{C,0}\cos(\oldphi_R-\oldphi_C)}=\\
+	&=\sqrt{(RI_0)^2+(\frac{I_0}{i\omega C})^2+\Ccancel[red]{2(RI_0)(\frac{I_0}{i\omega C})\cos(0+\frac{\pi}{2})}}=\\
+	&=\sqrt{R^2+\frac{1}{\omega^2 C^2}}I_0=\sqrt{Z_R^2+Z_C^2}I_0=\abs{Z_{RC}}I_0
+\end{align*}
+\begin{equation*}
+	\tan\oldphi_{RC}=\frac{V_{R,0}\sin\oldphi_R+V_{C,0}\sin\oldphi_C}{V_{R,0}\cos\oldphi_R+V_{C,0}\cos\oldphi_C}=\frac{RI_0\sin0+\frac{I_0}{\omega C}\sin\left(-\frac{\pi}{2}\right)}{RI_0\cos0+\frac{I_0}{\omega C}\cos\left(-\frac{\pi}{2}\right)}=\frac{\frac{\Ccancel[red]{I_0}}{\omega C}}{R\Ccancel[red]{I_0}}=\frac{1}{\omega RC}=-\frac{\abs{Z_C}}{\abs{Z_R}}
+\end{equation*}
+%TODO: trattazione fasoriale?
+\subsection{Circuito LC in serie}
+	\begin{center}		
+	\begin{tikzpicture}%[voltage dir=RP]
+		\draw (0,0) to [sinusoidal current source, V_=$\mathcal{E}(t)$] (0,2.5)
+		to [inductor, L=$L$, v=$V_L$] (2.5,2.5)
+		to [capacitor, C=$C$, v=$V_C$] (2.5,0)
+		-- (0,0)
+		-- (0,0.1);
+	\end{tikzpicture}
+\end{center}
+Se nel circuito circola una corrente alternata di intensità
+\begin{equation*}
+	I(t)=I_0\cos(\omega t)
+\end{equation*}
+le differenze ai capi dell'induttore e del condensatore sono
+\begin{align*}
+	V_L(t)&=V_{L,0}\cos(\omega t +\oldphi_L)=\abs{Z_L}I_0\cos(\omega t +\oldphi_L)=\omega L I_0\cos(\omega t+\frac{\pi}{2})
+	\\
+	V_C(t)&=V_{C,0}\cos(\omega t +\oldphi_C)=\abs{Z_C}I_0\cos(\omega t +\oldphi_C)=\frac{I_0}{\omega C}\cos(\omega t -\frac{\pi}{2})
+\end{align*}
+L'impedenza complessiva è la somma delle impedenze dei singoli componenti:
+\begin{align}
+	Z_{LC}&=Z_L+Z_C=i\omega L+\frac{1}{i\omega C}=i\left(\omega L-\frac{1}{\omega C}\right)\\
+	\abs{Z_{LC}}&=\abs{\omega L-\frac{1}{\omega C}}
+\end{align}
+La \ddp complessiva è data dalla somma di $V_L(t)$ e $V_C(t)$, che possiamo ottenere sia come somma di fasori, sia tramite la rappresentazione vettoriale.
+%TODO: disegno rappresentazione vettoriale
+\begin{equation*}
+	V(t)=V_L(t)+V_C(t)=V_{LC,0}\cos(\omega t+\oldphi_{LC})
+\end{equation*}
+dove
+\begin{align*}
+	V_{LC,0}&=\sqrt{V_{L,0}^2+V_{C,0}^2+V_{L,0}V_{C,0}\cos(\oldphi_L-\oldphi_C)}=\\
+	&=\sqrt{(\omega L I_0)^2+(\frac{I_0}{\omega C})^2+2(\omega L I_0)(\frac{I_0}{\omega C})\cos(\frac{\pi}{2}+\frac{\pi}{2})}=\\
+	&=\sqrt{(\omega L I_0)^2+(\frac{I_0}{\omega C})^2-2(\omega L I_0)(\frac{I_0}{\omega C})}I_0=\abs{\omega L I_0-\frac{I_0}{\omega C}}I_0=\\
+	&=\abs{Z_L-Z_C}I_0=\abs{Z_{LC}}I_0
+\end{align*}
+\begin{align*}
+	\oldphi_{LC}&=\mathrm{sgn}\left(V_{L,0}\cos\oldphi_L+V_{C,0}\cos\oldphi_C\right)\frac{\pi}{2}=\mathrm{sgn}\left(\omega L I_0\sin\frac{\pi}{2}+\frac{I_0}{\omega C}\sin\left(-\frac{\pi}{2}\right)\right)\frac{\pi}{2}=\\
+	&=\mathrm{sgn}\left(\omega L I_0-\frac{I_0}{\omega C}\right)\frac{\pi}{2}=\mathrm{sgn}\left(\omega L -\frac{1}{\omega C}\right)\frac{\pi}{2}=\mathrm{sgn}\left(Z_L - Z_C\right)\frac{\pi}{2}=\\
+	&=\begin{cases}
+		\frac{\pi}{2}&Z_L>Z_C\\
+		-\frac{\pi}{2}&Z_L<Z_C\\
+	\end{cases}
+\end{align*}
+\subsection{Circuito RLC in serie}
+\begin{center}
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (0,0) to [sinusoidal current source, V_=$\mathcal{E}(t)$] (0,2.5)
+		to [resistor, R=$R$, v=$V_R$] (2.5,2.5)
+		to [inductor, L=$L$, v=$V_L$] (2.5,0)
+		to [capacitor, C=$C$, v=$V_C$] (0,0)
+		-- (0,0.1);
+	\end{tikzpicture}
+\end{center}
+Se nel circuito circola una corrente alternata di intensità
+\begin{equation*}
+	I(t)=I_0\cos(\omega t)
+\end{equation*}
+le differenze ai capi dei componenti elettrici sono
+\begin{align*}
+	V_R(t)&&=V_{R,0}\cos(\omega t +\oldphi_R)=\abs{Z_R}I_0\cos(\omega t +\oldphi_R)=RI_0\cos(\omega t)\\
+	V_L(t)&&=V_{L,0}\cos(\omega t +\oldphi_L)=\abs{Z_L}I_0\cos(\omega t +\oldphi_L)=\omega L I_0\cos(\omega t+\frac{\pi}{2})
+	\\
+	V_C(t)&&=V_{C,0}\cos(\omega t +\oldphi_C)=\abs{Z_C}I_0\cos(\omega t +\oldphi_C)=\frac{I_0}{\omega C}\cos(\omega t -\frac{\pi}{2})
+\end{align*}
+L'impedenza complessiva è la somma delle impedenze dei singoli componenti:
+\begin{align}
+	Z_{RLC}&=Z_R+Z_L+Z_C=R+i\omega L+\frac{1}{i\omega C}=R+i\left(\omega L-\frac{1}{\omega C}\right)\\
+	\abs{Z_{RLC}}&=\sqrt{R^2+\left(\omega L-\frac{1}{\omega C}\right)^2}
+\end{align}
+In forma esponenziale, essa è
+\begin{equation*}
+	Z_{RLC}=\abs{Z_{RLC}}e^{i\theta}
+\end{equation*}
+dove
+\begin{equation*}
+	\tan\theta=\frac{\Im Z_{RLC}}{\Re Z_{RLC}}=\frac{\omega L -\frac{1}{\omega C}}{R}
+\end{equation*}
+Presa la corrente complessa
+\begin{equation*}
+	\hat{I}(t)=I_0e^{i\omega t}
+\end{equation*}
+la \ddp complessa totale risulta
+\begin{equation*}
+	\hat{V}(t)=Z_{RLC}\hat{I}(t)=\abs{Z_{RLC}}I_0e^{i\omega t}e^{i\theta}=\sqrt{R^2+\left(\omega L-\frac{1}{\omega C}\right)^2}I_0e^{i\omega t}e^{i\theta}
+\end{equation*}
+In termini non complessi il voltaggio è pari a
+\begin{equation*}
+	V(t)=\sqrt{R^2+\left(\omega L-\frac{1}{\omega C}\right)^2}I_0\cos(\omega t +\theta)
+\end{equation*}
+\subsubsection{Selezionatore di frequenze}
+La relazione tra la corrente massima $I_0$ e la \ddp massima $V_0$ c'è la relazione
+\begin{equation}\label{relazioneACmaxmin}
+	I_0=\frac{V_0}{Z_0}=\frac{V_0}{\sqrt{R^2+\left(\omega L -\frac{1}{\omega C}\right)^2}}
+\end{equation}
+Fissata la differenza di potenziale $V_0$ ai capi delle componenti e i loro valori $L$, $C$ ed $R$, la corrente $I_0$ risulta dipendere esclusivamente dalla pulsazione $\omega$ - a cui corrisponde una particolare frequenza $\nu$ tale per cui
+\begin{equation}
+	\omega=2\pi \nu
+\end{equation}
+Fra tutte le frequenze ammissibili, ce n'è una di particolare rilevanza
+\begin{define}[Frequenza di risonanza]
+	La \textbf{frequenza di risonanza}\index{frequenza!di risonanza} di un circuito AC in serie è la frequenza tale per cui l'impedenza del circuito è minima e la fase è nulla.
+\end{define}
+Dalla \eqref{relazioneACmaxmin} è evidente che se l'impedenza è minima, la corrente che scorre nel circuito è massima.
+%TODO:grafico
+Nel caso del circuito $RLC$ in serie, osserviamo come dal punto di vista fasoriale/vettoriale le impedenze $Z_L$ e $Z_C$ hanno la stessa direzione, ma versi opposti e moduli che dipendono dalla frequenza, mentre l'impedenza del resistore $Z_R$ \textit{non} dipende dalla frequenza ed è ortogonale alle altre. Di conseguenza, è immediato realizzare che la \textit{condizione di risonanza} si ha quando la \textit{reattanza} è nulla.
+\begin{equation*}
+	0=X_{RLC}=\Im Z_{RLC}=\omega_0 L-\frac{1}{\omega_0 C}
+\end{equation*}
+da cui segue facilmente che
+\begin{equation*}
+	\omega_0=\frac{1}{\sqrt{LC}}
+\end{equation*}
+I circuiti risonanti sono utilizzati per rispondere \textit{selettivamente} a segnali di una certa frequenza, trascurando segnali di frequenze diverse: scelta la frequenza di risonanza $\omega_0$, l'intensità di corrente che scorre nel circuito presenta un picco in sua corrispondenza.
+
+Se consideriamo la larghezza $\Delta \omega$ della curva di risonanza a metà del massimo, possiamo introdurre un \textbf{fattore di qualità}\index{fattore di qualità}
+\begin{equation}
+	Q=\frac{\omega_0}{\Delta \omega}
+\end{equation}
+Maggiore è $Q$, più evidente sarà il massimo assunto dalla corrente e minore la corrente che scorre nel circuito a frequenze differenti. Si può osservare che
+\begin{equation}
+	\Delta \omega\sim \frac{R}{L}
+\end{equation}
+Facendo tendere $\frac{R}{L}$ a zero segue che anche $\Delta \omega$ tende a zero e quindi il fattore $Q$ diventa molto elevato: la curva di risonanza risulta essere praticamente nulla per tutte le frequenze eccetto quella di risonanza. Di conseguenza, di fatto \textit{non scorre corrente nel circuito} a meno di essere in presenza della frequenza di risonanza.
+
+Quello che abbiamo descritto è sostanzialmente il funzionamento dei radioricevitori per le \textit{radio AM}: la selettività della sintonizzazione deve essere tale da escludere le stazioni radio sopra e sotto la \textit{frequenza portante} - quella che vogliamo ascoltare -  ma non così elevata da escludere le \textit{bande laterali}, causate dalla modulazione d'ampiezza del segnale.
+%TODO:grafico
+\subsection{⋆ Circuito RL in parallelo}%TODO: scriverli?
+\begin{center}		
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (5,0) -- (0,0)
+					to [sinusoidal current source, V_=$\mathcal{E}(t)$] (0,2.5)
+					-- (5,2.5);
+		\draw (2.5,2.5) to [resistor, R=$R$, v=$V_R$] 	(2.5,0);
+		\draw (5,2.5) 	to [inductor, L=$L$, v=$V_L$] 	(5,0);
+		%\draw (5,2.5) 	to [capacitor, C=$C$, v=$V_C$] 	(5,0);
+	\end{tikzpicture}
+\end{center}
+Se ai capi dei rami i paralleli c'è una \ddp alternata
+\begin{equation*}
+	V(t)=V_0\cos(\omega t)
+\end{equation*}
+le correnti che attraversano il resistore e l'induttore sono
+\begin{align*}
+	I_R(t)&=I_{R,0}\cos(\omega t +\oldphi_R)=\frac{V_0}{\abs{Z_R}}\cos(\omega t +\oldphi_R)=\frac{V_0}{R}\cos(\omega t)\\
+	I_L(t)&=I_{L,0}\cos(\omega t +\oldphi_L)=\frac{V_0}{\abs{Z_L}}\cos(\omega t +\oldphi_L)=\frac{V_0}{\omega L}\cos(\omega t -\frac{\pi}{2})
+\end{align*}
+L'ammettenza complessiva è la somma delle ammettenze dei singoli componenti:
+\begin{align*}
+	\frac{1}{Z_{RL}}&=\frac{1}{Z_R}+\frac{1}{Z_L}=\frac{1}{R}+\frac{1}{i\omega L}=\frac{1}{R}-i\frac{1}{\omega L}\\
+	Z_{RL}&=\frac{1}{\frac{1}{R}-i\frac{1}{\omega L}}=\frac{\omega L R}{\omega L-iR}=\frac{\omega^2 L^2 R}{R^2+\omega^2 L^2}+i\frac{\omega L R^2}{R^2+\omega^2 L^2}\\
+	\abs{Z_{RL}}&=\sqrt{\frac{\omega^4 L^4 R^2+\omega^2 L^2 R^4}{\left(R^2+\omega^2 L^2\right)^2}}=\sqrt{\frac{\left(\omega^2 L^2 R^2\right)\Ccancel[red]{\left(R^2+\omega^2 L^2\right)}}{\left(R^2+\omega^2 L^2\right)^{\Ccancel[red]{2}}}}=\frac{\omega L R}{\sqrt{R^2+\omega^2L^2}}
+\end{align*}
+\begin{align}
+	Z_{RL}&=\frac{\omega^2 L^2 R}{R^2+\omega^2 L^2}+i\frac{\omega L R^2}{R^2+\omega^2 L^2}\\
+	\abs{Z_{RL}}&=\frac{\omega L R}{\sqrt{R^2+\omega^2L^2}}
+\end{align}
+In forma esponenziale, essa è
+\begin{equation*}
+	Z_{RL}=\abs{Z_{RL}}e^{i\theta}
+\end{equation*}
+dove
+\begin{equation*}
+	\tan\theta=\frac{\Im Z_{RL}}{\Re Z_{RL}}=\frac{R}{\omega L}
+\end{equation*}
+Presa la \ddp complessa
+\begin{equation*}
+	\hat{V}(t)=V_0e^{i\omega t}
+\end{equation*}
+la corrente complessa totale risulta
+\begin{equation*}
+	\hat{I}(t)=\frac{1}{Z_{RL}}\hat{V}(t)=\frac{1}{\abs{Z_{RL}}}V_0e^{i\omega t}e^{-i\theta}=\frac{\sqrt{R^2+\omega^2L^2}}{\omega L R}V_0e^{i\omega t}e^{-i\theta}
+\end{equation*}
+In termini non complessi il voltaggio è pari a
+\begin{equation*}
+	V(t)=\frac{\sqrt{R^2+\omega^2L^2}}{\omega L R}V_0\cos(\omega t -\theta)
+\end{equation*}
+\subsection{⋆ Circuito RC in parallelo}
+\begin{center}		
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (5,0) -- (0,0)
+		to [sinusoidal current source, V_=$\mathcal{E}(t)$] (0,2.5)
+		-- (5,2.5);
+		\draw (2.5,2.5) to [resistor, R=$R$, v=$V_R$] 	(2.5,0);
+		%\draw (5,2.5) 	to [inductor, L=$L$, v=$V_L$] 	(5,0);
+		\draw (5,2.5) 	to [capacitor, C=$C$, v=$V_C$] 	(5,0);
+	\end{tikzpicture}
+\end{center}
+Se ai capi dei rami i paralleli c'è una \ddp alternata
+\begin{equation*}
+	V(t)=V_0\cos(\omega t)
+\end{equation*}
+le correnti che attraversano il resistore e l'induttore sono
+\begin{align*}
+	I_R(t)&=I_{R,0}\cos(\omega t +\oldphi_R)=\frac{V_0}{\abs{Z_R}}\cos(\omega t +\oldphi_R)=\frac{V_0}{R}\cos(\omega t)\\
+	I_C(t)&=I_{C,0}\cos(\omega t +\oldphi_C)=\frac{V_0}{\abs{Z_C}}\cos(\omega t +\oldphi_C)=\omega C V_0\cos(\omega t +\frac{\pi}{2})
+\end{align*}
+L'ammettenza complessiva è la somma delle ammettenze dei singoli componenti:
+\begin{align*}
+	\frac{1}{Z_{RC}}&=\frac{1}{Z_R}+\frac{1}{Z_C}=\frac{1}{R}+i\omega C\\
+	Z_{RC}&=\frac{1}{\frac{1}{R}+i\omega C}=\frac{R}{1+i\omega C R}=\frac{R}{1+\omega^2 C^2 R^2}-i\frac{\omega C R^2}{1+\omega^2 C^2 R^2}\\
+	\abs{Z_{RL}}&=\sqrt{\frac{R^2+\omega^2 C^2 R^4}{\left(1+\omega^2 C^2 R^2\right)^2}}=\sqrt{\frac{R^2\Ccancel[red]{\left(1+\omega^2 C^2 R^2\right)}}{\left(1+\omega^2 C^2 R^2\right)^{\Ccancel[red]{2}}}}=\frac{R}{\sqrt{1+\omega^2 C^2 R^2}}
+\end{align*}
+\begin{align}
+	Z_{RC}&=\frac{R}{1+\omega^2 C^2 R^2}-i\frac{\omega C R^2}{1+\omega^2 C^2 R^2} \\
+	\abs{Z_{RC}}&=\frac{R}{\sqrt{1+\omega^2 C^2 R^2}}
+\end{align}
+In forma esponenziale, essa è
+\begin{equation*}
+	Z_{RC}=\abs{Z_{RC}}e^{i\theta}
+\end{equation*}
+dove
+\begin{equation*}
+	\tan\theta=\frac{\Im Z_{RC}}{\Re Z_{RC}}=-\omega C R
+\end{equation*}
+Presa la \ddp complessa
+\begin{equation*}
+	\hat{V}(t)=V_0e^{i\omega t}
+\end{equation*}
+la corrente complessa totale risulta
+\begin{equation*}
+	\hat{I}(t)=\frac{1}{Z_{RC}}\hat{V}(t)=\frac{1}{\abs{Z_{RC}}}V_0e^{i\omega t}e^{-i\theta}=\frac{\sqrt{1+\omega^2 C^2 R^2}}{R}V_0e^{i\omega t}e^{-i\theta}
+\end{equation*}
+In termini non complessi il voltaggio è pari a
+\begin{equation*}
+	V(t)=\frac{\sqrt{1+\omega^2 C^2 R^2}}{R}V_0\cos(\omega t -\theta)
+\end{equation*}
+\subsection{⋆ Circuito LC in parallelo}
+\begin{center}		
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (5,0) -- (0,0)
+		to [sinusoidal current source, V_=$\mathcal{E}(t)$] (0,2.5)
+		-- (5,2.5);
+		%\draw (2.5,2.5) to [resistor, R=$R$, v=$V_R$] 	(2.5,0);
+		\draw (2.5,2.5) 	to [inductor, L=$L$, v=$V_L$] 	(2.5,0);
+		\draw (5,2.5) 	to [capacitor, C=$C$, v=$V_C$] 	(5,0);
+	\end{tikzpicture}
+\end{center}
+Se ai capi dei rami i paralleli c'è una \ddp alternata
+\begin{equation*}
+	V(t)=V_0\cos(\omega t)
+\end{equation*}
+le correnti che attraversano il resistore e l'induttore sono
+\begin{align*}
+	I_L(t)&=I_{L,0}\cos(\omega t +\oldphi_L)=\frac{V_0}{\abs{Z_L}}\cos(\omega t +\oldphi_L)=\frac{V_0}{\omega L}\cos(\omega t -\frac{\pi}{2})\\
+	I_C(t)&=I_{C,0}\cos(\omega t +\oldphi_C)=\frac{V_0}{\abs{Z_C}}\cos(\omega t +\oldphi_C)=\omega C V_0\cos(\omega t +\frac{\pi}{2})
+\end{align*}
+L'ammettenza complessiva è la somma delle ammettenze dei singoli componenti:
+\begin{align*}
+	\frac{1}{Z_{LC}}&=\frac{1}{Z_L}+\frac{1}{Z_C}=\frac{1}{i\omega L}+i\omega C=i\left(\omega C-\frac{1}{\omega L}\right)\\
+	Z_{RC}&=\frac{1}{i\left(\omega C-\frac{1}{\omega L}\right)}=-i\frac{\omega L}{\omega^2 L C - 1}\\
+	\abs{Z_{LC}}&=\abs{\frac{\omega L}{\omega^2 L C - 1}}=\frac{\omega L}{\abs{\omega^2 L C - 1}}
+\end{align*}
+\begin{align}
+	Z_{LC}&=-i\frac{\omega L}{\omega^2 L C - 1} \\
+	\abs{Z_{LC}}&=\frac{\omega L}{\abs{\omega^2 L C - 1}}
+\end{align}
+In forma esponenziale, essa è
+\begin{equation*}
+	Z_{LC}=\abs{Z_{LC}}e^{i\theta}
+\end{equation*}
+dove
+\begin{align*}
+	\theta&=\mathrm{sgn}\left(1-\omega^2 L C\right)\frac{\pi}{2}=\mathrm{sgn}\left(\frac{1}{\omega L} - \omega C\right)\frac{\pi}{2}=\mathrm{sgn}\left(\frac{1}{\abs{Z_L}} - \frac{1}{\abs{Z_C}}\right)\frac{\pi}{2}=\\
+	&=\begin{cases}
+		\frac{\pi}{2}&Z_C>Z_L\\
+		-\frac{\pi}{2}&Z_C<Z_L	
+	\end{cases}
+\end{align*}
+\begin{observe}
+	Per $Z_C=Z_L$, ossia se $\omega$ coincide con la frequenza di risonanza, l'impedenza è nulla e la corrente si annulla, essendo $I_L=-I_C$.
+\end{observe}
+Presa la \ddp complessa
+\begin{equation*}
+	\hat{V}(t)=V_0e^{i\omega t}
+\end{equation*}
+la corrente complessa totale risulta
+\begin{equation*}
+	\hat{I}(t)=\frac{1}{Z_{LC}}\hat{V}(t)=\frac{1}{\abs{Z_{LC}}}V_0e^{i\omega t}e^{-i\theta}=\frac{\abs{\omega^2 L C - 1}}{\omega L}V_0e^{i\omega t}e^{-i\theta}
+\end{equation*}
+In termini non complessi il voltaggio è pari a
+\begin{equation*}
+	V(t)=\frac{\abs{\omega^2 L C - 1}}{\omega L}V_0\cos(\omega t -\theta)
+\end{equation*}
+\subsection{⋆ Circuito RLC in parallelo}
+\begin{center}		
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (7.5,0) -- (0,0)
+		to [sinusoidal current source, V_=$\mathcal{E}(t)$] (0,2.5)
+		-- (7.5,2.5);
+		\draw (2.5,2.5) to [resistor, R=$R$, v=$V_R$] 	(2.5,0);
+		\draw (5,2.5) 	to [inductor, L=$L$, v=$V_L$] 	(5,0);
+		\draw (7.5,2.5) 	to [capacitor, C=$C$, v=$V_C$] 	(7.5,0);
+	\end{tikzpicture}
+\end{center}
+Se ai capi dei rami i paralleli c'è una \ddp alternata
+\begin{equation*}
+	V(t)=V_0\cos(\omega t)
+\end{equation*}
+le correnti che attraversano il resistore e l'induttore sono
+\begin{align*}
+	I_R(t)&=I_{R,0}\cos(\omega t +\oldphi_R)=\frac{V_0}{\abs{Z_R}}\cos(\omega t +\oldphi_R)=\frac{V_0}{R}\cos(\omega t)\\
+	I_L(t)&=I_{L,0}\cos(\omega t +\oldphi_L)=\frac{V_0}{\abs{Z_L}}\cos(\omega t +\oldphi_L)=\frac{V_0}{\omega L}\cos(\omega t -\frac{\pi}{2})\\
+	I_C(t)&=I_{C,0}\cos(\omega t +\oldphi_C)=\frac{V_0}{\abs{Z_C}}\cos(\omega t +\oldphi_C)=\omega C V_0\cos(\omega t +\frac{\pi}{2})
+\end{align*}
+L'ammettenza complessiva è la somma delle ammettenze dei singoli componenti; di conseguenza, il modulo della impedenza complessiva è l'inverso del modulo dell'ammettenza:
+\begin{align*}
+	\frac{1}{Z_{RLC}}&=\frac{1}{Z_R}+\frac{1}{Z_L}+\frac{1}{Z_C}=\frac{1}{R}+\frac{1}{i\omega L}+i\omega C=\frac{1}{R}+i\left(\omega C-\frac{1}{\omega L}\right)\\
+	\abs{Z_{RLC}}&=\frac{1}{\abs{\frac{1}{Z_{RLC}}}}=\frac{1}{\sqrt{\frac{1}{R^2}+\left(\omega C-\frac{1}{\omega L}\right)^2}}
+\end{align*}
+\begin{align}
+	\abs{Z_{RLC}}&=\frac{1}{\sqrt{\frac{1}{R^2}+\left(\omega C-\frac{1}{\omega L}\right)^2}}
+\end{align}
+In forma esponenziale, l'impedenza è
+\begin{equation*}
+	Z_{RLC}=\abs{Z_{RLC}}e^{i\theta}
+\end{equation*}
+dove\footnote{L'ammettanza in forma esponenziale si scrive come
+\begin{equation*}
+	\frac{1}{Z_{RLC}}=\frac{1}{\abs{Z_{RLC}}}e^{i\phi}
+\end{equation*}
+dove
+\begin{equation*}
+	\tan\phi=\frac{\Im \left(\frac{1}{Z_{RLC}}\right)}{\Re \left(\frac{1}{Z_{RLC}}\right)}
+\end{equation*}
+Se prendiamo il reciproco di $Z_{RLC}=\abs{Z_{RLC}}e^{i\theta}$ in forma esponenziale abbiamo
+\begin{equation*}
+	\frac{1}{Z_{RLC}}=\frac{1}{\abs{Z_{RLC}}}e^{i(-\theta)}
+\end{equation*}
+da cui segue che
+\begin{equation*}
+	\theta = -\phi+2k\pi,\ k\in\mathbb{Z}\implies\tan \theta=\tan(-\phi)
+\end{equation*}}
+\begin{equation*}
+	\tan\theta=\tan\left(-\frac{\Im \left(\frac{1}{Z_{RLC}}\right)}{\Re \left(\frac{1}{Z_{RLC}}\right)}\right)=\tan\left(\frac{R}{\omega L}-R\omega C\right)
+\end{equation*}
+Presa la \ddp complessa
+\begin{equation*}
+	\hat{V}(t)=V_0e^{i\omega t}
+\end{equation*}
+la corrente complessa totale risulta
+\begin{equation*}
+	\hat{I}(t)=\frac{1}{Z_{RLC}}\hat{V}(t)=\frac{1}{\abs{Z_{RLC}}}V_0e^{i\omega t}e^{-i\theta}=\sqrt{\frac{1}{R^2}+\left(\omega C-\frac{1}{\omega L}\right)^2}V_0e^{i\omega t}e^{-i\theta}
+\end{equation*}
+In termini non complessi il voltaggio è pari a
+\begin{equation*}
+	V(t)=\sqrt{\frac{1}{R^2}+\left(\omega C-\frac{1}{\omega L}\right)^2}V_0\cos(\omega t -\theta)
+\end{equation*}

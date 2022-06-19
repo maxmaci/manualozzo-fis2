@@ -5,7 +5,7 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Raccolta Differenziata: richiami di geometria e calcolo differenziale}
+\chapter{Raccolta Differenziata: richiami di Geometria e Calcolo Differenziale}
 \labelAppendix{differentialcalculus}
 %TODO: nome sezione
 \addtocontents{define}{\noindent\textls{\textsc{\textcolor{reddo}{Appendice A:}
@@ -316,17 +316,18 @@ Fissate delle componenti $\left(q^\lambda\right)$, una $k$-forma ha una scrittur
 	\alpha=\frac{1}{k!}\alpha_{i_1\ldots i_k}\fb{\epsilon}^{i_1}\wedge\ldots\wedge\fb{\epsilon}^{i_k}
 \end{equation}
 dove $\alpha_{i_1\ldots i_k}$ sono funzioni $\mathcal{C}^{\infty}$ sulla varietà. Allora, il duale di Hodge è definito come
-\begin{equation*}
-\ast\alpha=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha_{j_1\ldots j_k}g^{j_1i_1}\ldots g^{j_ki_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha^{i_1\ldots i_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}
-\end{equation*}
+\begin{multline*}
+\ast\alpha=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha_{j_1\ldots j_k}g^{j_1i_1}\ldots g^{j_ki_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}=\\
+=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha^{i_1\ldots i_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}
+\end{multline*}
 dove $g$ è la metrica su $M$ e
 \begin{equation*}
 \alpha^{i_1\ldots i_k}=\alpha_{j_1\ldots j_k}g^{j_1i_1}\ldots g^{j_ki_k}
 \end{equation*}
-\begin{properties}
+\begin{properties}[Proprietà dell'operatore star di Hodge]
 	Data una varietà Riemanniana $(M,g)$ di dimensione $n$ e sia $\alpha\in\Omega^k(M)$. Allora valgono le seguenti:
 	\begin{itemize}
-		\item Il duale di Hodge della funzione/$0$-forma identicamente unitaria $1$ è
+		\item Il duale di Hodge della funzione ($0$-forma) identicamente unitaria $1$ è
 		\begin{equation}
 			\ast 1=dV
 		\end{equation}
@@ -377,7 +378,15 @@ Un campo scalare è quindi una mappa che a punti di $\realset^3$ associa valori 
 \begin{observe}
 	Dato un campo scalare, esistono delle \textbf{superfici equipotenziali} tali per cui $\phi=\text{costante}$ sulla superficie. Il gradiente di $\phi$ è, punto per punto, ortogonale alla superficie equipotenziale.
 \end{observe}
-\subparagraph{Spostamento infinitesimo e gradiente}
+\subparagraph{⋆ Teorema del gradiente}
+\begin{theoremaqed}[Teorema del gradiente]\label{thmgradiente}
+	Per ogni campo scalare $\funz[\phi]{\realset^3}{\realset}$ e per ogni curva differenziabile $\gamma$ da $P$ a $Q$ si ha
+	\begin{equation}
+		\int_{\gamma}\grad{\phi}\vdot d\vba{s}=\phi(Q)-\phi(P)
+	\end{equation}
+	In altre parole, gli integrali curvilinei di campi definiti da gradienti sono \textit{indipendenti} dal percorso scelto e dipendono solo dal punto iniziale e dal punto finale.
+\end{theoremaqed}
+\subparagraph{⋆ Spostamento infinitesimo e gradiente}
 Diamo una definizione alternativa del gradiente che ci tornerà più utile avanti. Si noti che il modulo, direzione e verso del gradiente è indipendente dal sistema di coordinate, in virtù della sua natura vettoriale. Fissati due punti infinitamente vicini, possiamo considerare il gradiente del campo scalare $\phi$ come il vettore tale che il prodotto scalare per il vettore spostamente infinitesimo $d\vba{s}$ dà la variazione di $\phi$ per tale spostamento.
 \begin{equation}
 	d\phi=\grad{\phi}\vdot d\vba{s}\label{gradienteintrinseco}
@@ -437,19 +446,19 @@ Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettori
 	Dimostriamo ii) e iv).
 	\begin{itemize}
 		\item[ii)]
-		\begin{align*}
+		\begin{multline*}
 			\begin{vmatrix}
 				\partial_x & \partial_y & \partial_z\\
 				G_x & G_y & G_z\\
 				\vbh{u}_x & \vbh{u}_y & \vbh{u}_z
-			\end{vmatrix}&=\\
-		&=\left(\partial_y\partial_z\phi-\partial_z\partial_y\phi\right)\vbh{u}_x+\left(\partial_z\partial_x\phi-\partial_x\partial_z\phi\right)\vbh{u}_y+\left(\partial_x\partial_y\phi-\partial_y\partial_x\phi\right)\vbh{u}_z=0
-		\end{align*}
+			\end{vmatrix}=\\
+		=\left(\partial_y\partial_z\phi-\partial_z\partial_y\phi\right)\vbh{u}_x+\left(\partial_z\partial_x\phi-\partial_x\partial_z\phi\right)\vbh{u}_y+\left(\partial_x\partial_y\phi-\partial_y\partial_x\phi\right)\vbh{u}_z=0
+		\end{multline*}
 		\item[iv)]
-		\begin{align*}
-			\left(\partial_x,\partial_y,\partial_z\right)\vdot(\partial_yG_x-\partial_xG_y,\partial_zG_x-\partial_xG_z,\partial_xG_y-\partial_yG_x)=&\\
-			=\partial_x\partial_yG_z-\partial_x\partial_zG_y+\partial_y\partial_zG_x-\partial_y\partial_xG_z+\partial_z\partial_xG_y-\partial_z\partial_yG_x=&0\qedhere
-		\end{align*}
+		\begin{multline*}
+			\left(\partial_x,\partial_y,\partial_z\right)\vdot(\partial_yG_x-\partial_xG_y,\partial_zG_x-\partial_xG_z,\partial_xG_y-\partial_yG_x)=\\
+			=\partial_x\partial_yG_z-\partial_x\partial_zG_y+\partial_y\partial_zG_x-\partial_y\partial_xG_z+\partial_z\partial_xG_y-\partial_z\partial_yG_x=0\qedhere
+		\end{multline*}
 	\end{itemize}
 \end{demonstration}
 Definite le nostre derivate seconde, otteniamo una conseguenza quasi immediata.
