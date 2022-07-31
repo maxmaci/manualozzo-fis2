@@ -7,11 +7,12 @@
 {$LastChangedBy$}
 
 \chapter{La circuitazione del campo elettrico, il potenziale elettrico e le leggi di Maxwell per l'elettrostatica} %TODO: Il lavoro elettrico?
+%TODO: tcbox
 \labelChapter{PotenzialeElettrico}
 \begin{introduction}
 	‘‘Una volta che ti pompano 200 volt nel corpo, hai la tendenza a passare il resto della vita in un posacenere.''
 	\begin{flushright}
-		\textsc{Woody Allen}, elettricista con la carriera andata in fumo.
+		\textscsl{Woody Allen}, elettricista con la carriera andata in fumo.
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{P}{er}  %TODO: intro
@@ -26,7 +27,7 @@
 	\end{minipage}\hspace{5pt}
 	\begin{minipage}{0.34\textwidth}
 		\begin{center}
-			\includegraphics[width=1\textwidth]{images/chp3circuitazione.pdf}
+			\includegraphics[width=1\textwidth]{images/chp3/chp3circuitazione.pdf}
 		\end{center}
 	\end{minipage}
 \end{define}
@@ -128,7 +129,7 @@ per ogni curva chiusa $\gamma$.
 	\end{equation*}
 \end{observe}
 \section{Il potenziale elettrico}
-Nei diversi esempi di campi elettrostatici visti nel \refChapter{leggediCoulomb} abbiamo sempre trovato un potenziale che ci permetteva di semplificare notevolmente la trattazione del problema. Come preannunciato, questo non è un caso: infatti, il \textit{campo elettrostatico} è sempre conservativo.
+Nei diversi esempi di campi elettrostatici visti nel \autoref{chap:leggediCoulomb} abbiamo sempre trovato un potenziale che ci permetteva di semplificare notevolmente la trattazione del problema. Come preannunciato, questo non è un caso: infatti, il \textit{campo elettrostatico} è sempre conservativo.
 \begin{theorema}[Il campo elettrostatico è conservativo]
 	Il campo elettrostatico $\vba{E}$ è conservativo, ossia è il gradiente (cambiato di segno) di un opportuno campo scalare $V$.
 	\begin{equation}
@@ -251,7 +252,7 @@ Dalla relazione \eqref{EnergiaPotenziale} si definisce l'unità di misura del po
 \begin{examplewt}[Armature elettriche]
 	Consideriamo due \textit{piastre elettrostatiche} di segno opposto, come in figura.
 	\begin{center}
-		\includegraphics[width=0.6\textwidth]{images/chp3armature.pdf}
+		\includegraphics[width=0.6\textwidth]{images/chp3/chp3armature.pdf}
 	\end{center}
 	Il funzionamento di tale sistema non è dissimile, a livello puramente qualitativo, da un dipolo elettrico: tra le due piastre il campo è sostanzialmente analogo a quello sull'asse verticale congiungente i dipoli e quindi è diretto dalla piastra positiva a quella negativa.\\
 	Poiché $\vba{F}=q\vba{E}$, le cariche positive saranno attratte verso la parte negativa, quelle negative verso la piastra positiva.\\
@@ -279,13 +280,13 @@ Ricordando inoltre che l'energia potenziale è $U=qV$, si può notare che le car
 		\end{equation*}
 		le superfici equipotenziali sono circonferenze concentriche di raggio $r$, al variare di $r$:
 		\begin{center}
-			\includegraphics[width=0.35\textwidth]{images/chp3potcampocoulomb1.pdf}\hspace{20pt}
-			\includegraphics[width=0.35\textwidth]{images/chp3potcampocoulomb2.pdf}
+			\includegraphics[width=0.35\textwidth]{images/chp3/chp3potcampocoulomb1.pdf}\hspace{20pt}
+			\includegraphics[width=0.35\textwidth]{images/chp3/chp3potcampocoulomb2.pdf}
 		\end{center}
 		\item Per il dipolo elettrico $+/-$ e quello $+/+$
 		\begin{center}
-			\includegraphics[width=0.45\textwidth]{images/chp3potcampodipolo1.pdf}\hspace{20pt}
-			\includegraphics[width=0.45\textwidth]{images/chp3potcampodipolo2.pdf}
+			\includegraphics[width=0.45\textwidth]{images/chp3/chp3potcampodipolo1.pdf}\hspace{20pt}
+			\includegraphics[width=0.45\textwidth]{images/chp3/chp3potcampodipolo2.pdf}
 		\end{center}
 	\end{itemize}
 \end{examples}
@@ -325,7 +326,7 @@ Il campo elettrico, pertanto, è \textit{discontinuo} e vale
 	\end{cases}
 \end{equation}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp3sferacavagraf1.pdf}
+	\includegraphics[width=0.75\textwidth]{images/chp3/chp3sferacavagraf1.pdf}
 \end{center}
 Si osserva una discontinuità pari a $\frac{\sigma}{\epsilon_0}$ tra il campo elettrico interno ed esterno alla superficie.
 Data la dipendenza di $\vba{E}$ dalla sola coordinata radiale, per ottenere il potenziale è sufficiente integrare il campo elettrico rispetto ad $r$ e imporre le ben note condizioni di contorno ($V(+\infty)=0$ e continuità in $R$):
@@ -337,7 +338,7 @@ Data la dipendenza di $\vba{E}$ dalla sola coordinata radiale, per ottenere il p
 	\end{cases}
 \end{equation}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp3sferacavagraf2.pdf}
+	\includegraphics[width=0.75\textwidth]{images/chp3/chp3sferacavagraf2.pdf}
 \end{center}
 \paragraph{Superficie cilindrica uniformemente carica}
 Si consideri una superficie cilindrica infinita e di raggio $R_0$ con densità superficiale costante $\sigma$, dove le cariche sono disposte sulla faccia laterale. Per semplicità, poniamo il sistema di riferimento in modo che l'asse $z$ passi per l'asse del cilindro.
@@ -381,7 +382,7 @@ Il campo elettrico, pertanto, è discontinuo e vale
 	\end{cases}
 \end{equation}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp3cilindrograf1.pdf}
+	\includegraphics[width=0.75\textwidth]{images/chp3/chp3cilindrograf1.pdf}
 \end{center}
 Si osserva una discontinuità pari a $\frac{\sigma}{\epsilon_0}$ tra il campo elettrico interno ed esterno alla superficie.\\
 Per calcolare il potenziale, notiamo che il campo dipende esclusivamente dalla coordinata radiale delle coordinate cilindriche e quindi la relazione $\vba{E}=-\grad{V}$ si trasforma in
@@ -409,7 +410,7 @@ con $A$ e $B$ costanti. Tuttavia, incappiamo in un apparente \textit{problema}: 
 	\end{cases}
 \end{equation}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp3cilindrograf2.pdf}
+	\includegraphics[width=0.75\textwidth]{images/chp3/chp3cilindrograf2.pdf}
 \end{center}
 Chiaramente rimarrà la divergenza del potenziale a grandi distanze, ma la \textit{scelta} effettuata garantisce almeno un punto in cui il potenziale si \textit{annulla}.
 \paragraph{Il caso generale}
@@ -425,7 +426,7 @@ Sebbene l'andamento del campo elettrico nei due esempi precedenti è leggermente
 	carico.\\
 	Posta una carica positiva su una faccia del foglio, ci aspettiamo che si allontani da esso ‘‘dallo stesso lato del foglio'' a causa di un campo elettrico $\vba{E}_1$; viceversa, mettendo una particella positiva dall'altra faccia è prevedibile che la particella sarà respinta dalla superficie da quello stesso lato dalla forza generata dal campo elettrico $\vba{E}_2$, ossia dal verso opposto di $\vba{E}_1$: ci dovrà essere necessariamente una discontinuità di campo elettrico per avere questo cambio drastico di verso.
 	\begin{center}
-		\includegraphics[width=0.4\textwidth]{images/chp3discontinuita1.pdf}
+		\includegraphics[width=0.4\textwidth]{images/chp3/chp3discontinuita1.pdf}
 	\end{center}
 	Disegniamo un circuito rettangolare $\gamma=[ABCD]$ che interseca il campo e che sia sufficientemente piccolo in modo da considerare $\vba{E}$ costante sul circuito. Dato che la circuitazione circuitazione lungo $\gamma$ è influenzata solo dalle componenti tangenziali $E_{i,t}$ e non dalle componenti perpendicolari $E_{i,n}$ al circuito, si ha
 	\begin{equation*}
@@ -437,7 +438,7 @@ Da cui segue che
 \end{equation*}
 ossia che le componenti tangenziali devono essere uguali.
 \begin{center}
-	\includegraphics[width=0.4\textwidth]{images/chp3discontinuita2.pdf}
+	\includegraphics[width=0.4\textwidth]{images/chp3/chp3discontinuita2.pdf}
 \end{center}
 Consideriamo lo stesso foglio, questa volta intersecandolo con una superficie cilindrica con altezza sufficientemente piccola in modo che  il campo elettrico è considerabile costante lungo la superficie di base. Calcolando il flusso e confrontandolo con quello ottenuto dalle \textit{legge di Gauss}, ricordiamo che lungo la superficie laterale esso è nullo:
 \begin{equation*}
@@ -453,8 +454,7 @@ Allora, facendo la differenza punto per punto, si ha
 \end{equation*}
 \end{demonstration}
 \section{Le equazioni di Maxwell per l'elettrostatica nel vuoto}
-A questo punto siamo arrivati ad avere tutti gli strumenti e i risultati necessari per enunciare le \textbf{equazioni di Maxwell relative all'elettrostatica}.\\
-Tuttavia, prima di far ciò è importante riprendere in mano alcuni risultati matematici e fisici che ci serviranno a tal scopo.%TODO: check margine
+A questo punto siamo arrivati ad avere tutti gli strumenti e i risultati necessari per enunciare le \textbf{equazioni di Maxwell relative all'elettrostatica}.c Tuttavia, prima di far ciò è importante riprendere in mano alcuni risultati matematici e fisici che ci serviranno a tal scopo.%TODO: check margine
 \begin{remember}~\\
 		\begin{tabular}{p{0.47\textwidth}p{0.47\textwidth}}
 			\begin{itemize}
@@ -582,7 +582,7 @@ Poiché questa relazione è vera per una qualunque superficie $\Sigma$ arbitrari
 	\end{equation*}
 	allora si ha, per un punto \textit{esterno} alla sfera (in cui \textit{non} c'è alcuna densità di corrente) vale
 	\begin{equation}
-		\div{\vba{E}}=\div{\frac{q}{4\pi\epsilon_0 R^2}\vbh{u}_r}=\frac{1}{r^2}\pdv{r}\left(r^2\frac{q}{4\pi\epsilon_0 R^2}\right)=0
+		\divergence{\vba{E}}=\div{\frac{q}{4\pi\epsilon_0 R^2}\vbh{u}_r}=\frac{1}{r^2}\pdv{r}\left(r^2\frac{q}{4\pi\epsilon_0 R^2}\right)=0
 	\end{equation}
 	mentre per un punto \textit{interno} alla sfera (in cui si ha una densità di corrente $\rho$) vale
 	\begin{equation*}
@@ -596,7 +596,7 @@ L'irrotazionalità del campo elettrostatico garantita dalla \textit{legge di ind
 \end{equation*}
 Sostituendo nella \textit{legge di Gauss}, otteniamo
 \begin{equation*}
-	\grad{E}=\frac{\rho}{\epsilon}\implies\div{(\grad{V})}=-\frac{\rho}{\epsilon_0}
+	\div{\vba{E}}=\frac{\rho}{\epsilon}\implies\div{(\grad{V})}=-\frac{\rho}{\epsilon_0}
 \end{equation*}
 che è un'equazione alle derivate parziali detta \textbf{equazione di Poisson}\index{equazione!di Poisson}.
 \begin{equation}

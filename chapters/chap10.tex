@@ -12,7 +12,7 @@
 \begin{introduction}
 	‘‘Sono un esperto di Elettricità. Mio padre ha occupato la cattedra di Elettricità Applicata nella	prigione di stato.''
 	\begin{flushright}
-		\textsc{W.C. Fields,} perito (R.I.P.) elettrotecnico e famoso esperto nel campo.
+		\textscsl{W.C. Fields,} perito (R.I.P.) elettrotecnico e famoso esperto nel campo.
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{N}{el} capitolo precedente abbiamo finalmente raggiunto un primo, grande risultato: abbiamo enunciato le quattro \textit{equazioni di Maxwell}, le leggi fondamentali che descrivono i fenomeni elettrici e magnetici statici - ossia \textit{costanti nel tempo}:
@@ -27,19 +27,48 @@ Inizieremo a raccogliere prove di questa nostra intuizione studiando i fenomeni 
 \section{Legge di Faraday-Neumann-Lenz}
 Le osservazioni sperimentali sul fenomeno dell'induzione elettromagnetica di \textbf{Michael Faraday} (1791-1867) in Inghilterra e, separatamente, di \textbf{Joseph Henry} (1887 - 1915) in America misero in evidenza che un campo magnetico \textit{variabile nel tempo} genera un campo elettrico \textit{non conservativo}. Rivediamo assieme alcuni di questi esperimenti.
 \begin{itemize}
-	\item \textbf{Esperimento \#1.} Consideriamo una spira collegata ad un circuito - che \textit{non} presenta alcun generatore - dotato di un \textit{amperometro}, cioè di un \textit{misuratore di corrente}. \textit{Avvicinando} un magnete all'interno della spira si \textit{produce} una corrente elettrica.\\
-	%TODO: immagine 16.10
+	\item \textbf{Esperimento \#1.} Consideriamo una spira collegata ad un circuito - che \textit{non} presenta alcun generatore - dotato di un \textit{amperometro}, cioè di un \textit{misuratore di corrente}. \textit{Avvicinando} un magnete all'interno della spira si \textit{produce} una corrente elettrica.
+\begin{center}
+	\includegraphics[width=0.35\textwidth]{images/chp10/chp10esperimento1a.pdf}
+\end{center}
 	Se \textit{allontaniamo} lo stesso magnete alla stessa velocità con cui l'abbiamo avvinato, notiamo ch la corrente che circola ha \textit{cambiato verso di percorrenza}.
-	%TODO: immagine 16.11
-	\item \textbf{Esperimento \#2.} Consideriamo una spira a cui colleghiamo un generatore di \fem; in quanto percorsa da corrente la spira produce un campo magnetico. Se avviciniamo tale apparato ad un altra spira scarica e collegata ad un amperometro, lo strumento della seconda spira inizia a misurare una corrente. Se la allontaniamo, la corrente nella seconda spira girerà in senso opposto.
-	%TODO: immagine 16.12
-	\item \textbf{Esperimento \#3 (esperimento di Faraday)}. Consideriamo un solenoide con al suo interno un'anima di ferro - un cilindretto metallico; il solenoide è collegato ad un circuito dotato di interruttore e generatore di \fem. Quando l'interruttore è aperto non circola corrente e dunque non si ha alcun campo.\\
-	Poniamo ora la solita spira scarica collegata ad un amperometro. Alla chiusura dell'interruttore il solenoide, essendo percorso da corrente, genera un campo magnetico crescente fino a stabilizzarsi. Al contempo, nella spira inizialmente scarica lo strumento segna per qualche istante un passaggio di corrente in una certa direzione, per poi sparire. Appena riapriamo il campo magnetico l'interruttore osserviamo una corrente. Quando il campo magnetico si stabilizza e non varia più nel tempo allora non osserviamo più corrente.\\
-	Riaprendo l'interruttore il campo magnetico gradualmente sparisce; nella spira, invece, per un istante osserviamo una corrente diretta nella direzione opposta a quella precedente.
+\begin{center}
+	\includegraphics[width=0.35\textwidth]{images/chp10/chp10esperimento1b.pdf}
+\end{center}
+	\item \textbf{Esperimento \#2.} Consideriamo una spira a cui colleghiamo un generatore di \fem In quanto percorsa da corrente, la spira produce un campo magnetico. Se avviciniamo tale apparato ad un altra spira scarica e collegata ad un amperometro, lo strumento della seconda spira inizia a misurare una corrente. Se la allontaniamo, la corrente nella seconda spira girerà in senso opposto.\\
+	\begin{minipage}{0.49\textwidth}
+		\begin{center}
+			\includegraphics[width=0.6\textwidth]{images/chp10/chp10esperimento2a.pdf}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\begin{center}
+			\includegraphics[width=0.6\textwidth]{images/chp10/chp10esperimento2b.pdf}
+		\end{center}
+	\end{minipage}\\
+	\item \textbf{Esperimento \#3 (esperimento di Faraday)}. Consideriamo un solenoide con al suo interno un'anima di ferro - un cilindretto metallico; il solenoide è collegato ad un circuito dotato di interruttore e generatore di \fem Quando l'interruttore è aperto non circola corrente e dunque non si ha alcun campo.
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{images/chp10/chp10esperimento3a.pdf}
+	\end{center}
+	Poniamo ora la solita spira scarica collegata ad un amperometro. Alla chiusura dell'interruttore il solenoide, essendo percorso da corrente, genera un campo magnetico crescente fino a stabilizzarsi. Al contempo, nella spira inizialmente scarica lo strumento segna per qualche istante un passaggio di corrente in una certa direzione, per poi sparire.\\
+		\begin{minipage}{0.49\textwidth}
+			\begin{center}
+				\includegraphics[width=0.6\textwidth]{images/chp10/chp10esperimento3b.pdf}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.49\textwidth}
+			\begin{center}
+				\includegraphics[width=0.6\textwidth]{images/chp10/chp10esperimento3c.pdf}
+			\end{center}
+		\end{minipage}
+	Appena riapriamo l'interruttore la corrente nel solenoide diminuisce e con esso il campo magnetico; allo stesso tempo, osserviamo una corrente nella seconda spira diretta nella direzione opposta a quella precedente. Quando il campo magnetico si spegne del tutto, non osserviamo più la corrente indotta.
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{images/chp10/chp10esperimento3d.pdf}
+	\end{center}
 \end{itemize}
 Da questi esperimenti\footnote{E tante altre varianti di essi che non vedremo perché questo è un Manualozzo\texttrademark\ di Fisica, non un testo monografico su Faraday e i suoi passatempi perversi.} possiamo ricavare diverse informazioni importanti:
 \begin{enumerate}[label=\alph*)]\label{osservazioniFaraday} %t
-	\item \textit{Spostare una sorgente} di un campo magnetico nei pressi di una spira genera una \fem.
+	\item \textit{Spostare una sorgente} di un campo magnetico nei pressi di una spira genera una \fem
 	\item Il moto della sorgente rispetto alla spira influenza il \textit{verso di percorrenza} della corrente lungo di essa.
 	\item \textit{Spostare una spira} nei pressi di un campo magnetico stazionario genera una \fem in quel circuito.
 	\item \textit{Deformare una spira} nei pressi di un campo magnetico stazionario genera una \fem in quel circuito.
@@ -49,7 +78,6 @@ Da questi esperimenti\footnote{E tante altre varianti di essi che non vedremo pe
 	\item Se il campo magnetico non varia più nel tempo - perché si è stabilizzato oppure perché non c'è più la sorgente del campo - non circola più corrente nella spira.
 \end{enumerate}
 La forza elettromotrice dipende dunque da diversi fattori: la \textit{posizione} e l'\textit{intensità} del campo magnetico, la \textit{posizione} e la \textit{forma della spira}, ma soprattutto la \textit{variazione nel tempo} di tutti questi elementi qui citati.
-%TODO: immagine 16.13
 % Maxwell lavorando a livello teorico sulla consistenza delle equazioni ha scoperto che un campo elettrico e variabile nel tempo produce un campo magnetico.\\
 Il concetto matematico che permette di descrivere contemporaneamente un campo vettoriale e come si relaziona con una superficie è quello del \textit{flusso}; per tenere conto degli effetti temporali si deduce che la forza elettromotrice deve dipendere dalla \textit{derivata temporale} dal flusso del $\vba{B}$. Abbiamo descritto quella che è nota come \textbf{legge di Faraday}.
 \begin{theorema}[Legge dell'induzione di Faraday o legge di Faraday-Neumann legge di Faraday-Neumann-Lenz]\index{legge!dell'induzione di Faraday}\index{legge!di Faraday-Neumann}\index{legge!di Faraday-Neumann-Lenz}
@@ -79,8 +107,10 @@ Nella legge di induzione troviamo, curiosamente, un meno. Non è un refuso tipog
 	La forza elettromotrice indotta - e di conseguenza la corrente indotta - è tale da \textit{opporsi} alla causa che l'ha generata e da esercitare una forza meccanica che si oppone al moto. 
 \end{corollaryqed}
 \begin{observe}
-	Torniamo all'esperimento \# 2 visto precedemente. La spira percorsa da corrente $I_1$ viene avvicinata alla spira scarica, crea una variazione nel flusso del campo magnetico $\vba{B}_1$ generato da $I_1$. Nella spira scarica inizia a circolare una corrente $I_2$, ma nella direzione opposta a $I_1$, in modo da generare a sua volta un campo magnetico opposto $\vba{B}_2$ per opporsi a $\vba{B}_1$.  
-	%TODO: inserire immagine 16.14
+	Torniamo all'esperimento \# 2 visto precedentemente. La spira percorsa da corrente $I$ viene avvicinata alla spira scarica, crea una variazione nel flusso del campo magnetico $\vba{B}$ generato da $I$. Nella spira scarica inizia a circolare una corrente $I_{ind}$, ma nella direzione opposta a $I$, in modo da generare a sua volta un campo magnetico opposto $\vba{B}_{ind}$ per opporsi a $\vba{B}$.
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{images/chp10/chp10esperimento2aoss.pdf}
+	\end{center}
 \end{observe}
 Per citare il fisico-divulgatore americano \textbf{D.J. Griffiths} (1942), la legge di Lenz si può sintetizzare come ‘‘\textit{la Natura aberra un cambio di flusso}''.
 \paragraph{Com'è bello variar un flusso da Faraday in giù}

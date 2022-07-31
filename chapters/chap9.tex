@@ -12,7 +12,7 @@
 \begin{introduction}
 ‘‘La matematica confronta i più disparati fenomeni e scopre le analogie segrete che li uniscono.''
 \begin{flushright}
-	\textsc{Joseph Fourier,} cercando disperatamente di motivare ai suoi genitori la scelta di studiare matematica. %TODO: quote
+	\textscsl{Joseph Fourier,} cercando disperatamente di motivare ai suoi genitori la scelta di studiare matematica. %TODO: quote
 \end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{S}{i} %TODO: intro
@@ -21,7 +21,9 @@
 Per concludere la trattazione della magnetostatica ci rimane da descrivere la \textit{circuitazione} del campo magnetico.
 \subsection{Il caso con un filo infinito}
 Per capire meglio come si calcola, partiamo da un caso particolare: consideriamo un filo infinito percorso da corrente $I$ e una curva $\gamma$ che gira attorno al filo.
-%TODO: immagine
+\begin{center}
+	\includegraphics[width=0.45\textwidth]{images/chp9/chp9leggeampere1.pdf}
+\end{center}
 Tale curva è parametrizzabile in coordinate cilindriche da
 \begin{equation*}
 	\vba{r}'(\phi)=\left(R(\phi)\cos\phi,R(\phi)\sin\phi,z(\phi)\right)
@@ -52,7 +54,9 @@ La circuitazione del campo magnetico, in questo caso, è
 \end{equation}
 \subsection{Il caso con due fili infiniti}
 Supponiamo ora di avere, all'interno della stessa curva di prima, due fili rettilinei infiniti invece che uno. Per descrivere la circuitazione in questo caso introduciamo un segmento immaginario orientato $\eta$ tra i due fili che colleghi due punti del circuito, in modo da dividere la curva $\gamma$ in due sotto-curve $\xi_1$ e $\xi_2$.
-%TODO: immagine
+\begin{center}
+	\includegraphics[width=0.45\textwidth]{images/chp9/chp9leggeampere2.pdf}
+\end{center}
 Allora, possiamo definire due curve chiuse
 \begin{align*}
 	\gamma_1=\xi_1 \cup \left(-\eta\right)&&\gamma_2=\xi_2\cup \eta 
@@ -95,11 +99,10 @@ dove $I_j$ sono presi con segno: se si fissa un segno di percorrenza, il verso d
 	\end{equation*}
 \end{demonstration}
 Questa non è altro che l'ultima \textit{equazione di Maxwell} (su quattro) che ci mancava per i fenomeni elettromagnetici non dipendenti dal tempo, sebbene nella meno elegante forma integrale.
-%\subparagraph{Cavilli alla legge di Ampère}
+\subparagraph{Un cavillo della legge di Ampère}
 %Un primo cavillo di questo teorema sta nell'ambiguità di segno. Ci sono tre termini che dipendono dal segno: l'integrale lungo $\gamma$, dato che è una curva orientata, il versore $\vba{u}_n$ normale alla superficie e la corrente $I_{int}$ che attraversa $\Sigma$. In tal caso, ci affida ad un'altra versione della mano destra: posto il palmo della mano destra rispetto all'area di integrazione e puntato l'indice nel verso dello spostamento infinitesimo, il pollice
 % https://en.wikipedia.org/wiki/Amp%C3%A8re%27s_circuital_law, ma che cazzo di verso viene il versore normale?
-Si osservi che la legge appena trovata è valida soltanto se la corrente è \textit{stazionaria}, ossia se è \textit{costante} nel tempo.\\
-Per capire perché, ricordiamo che la \textit{divergenza di un rotore} è sempre nulla:\label{laleggediAmpereèfalsaepretenziosa}
+Si osservi che la legge appena trovata è valida soltanto se la corrente è \textit{stazionaria}, ossia se è \textit{costante} nel tempo. Per capire perché, ricordiamo che la \textit{divergenza di un rotore} è sempre nulla:\label{laleggediAmpereèfalsaepretenziosa}
 \begin{equation*}
 	\div{\left(\curl{\vba{B}}\right)}=0
 \end{equation*}
@@ -118,7 +121,8 @@ Di conseguenza, si avrebbe
 ma ciò è vero soltanto per una corrente stazionaria!\\
 Da ciò capiamo la legge di Ampère per la circuitazione \textit{non} è sempre corretta nella forma di cui sopra; sarà necessario integrarla con un altro termine che tiene conto della \textit{variazione temporale} della corrente - ma questa è una storia per un altro capitolo.
 \paragraph{⋆ Tra astratto e concreto: teoria dei nodi nella legge di Ampère}
-Ci sono aspetti della Matematica che per un fisico risultano spesso astrusi, \textit{astratti} e lontani dalla realtà; eppure, in alcuni casi il passo tra il mondo concreto e la Matematica teorica è più \textit{breve} di quel che sembra. Possiamo vedere un esempio di ciò nella \textit{dimostrazione della legge di Ampère} nella sua forma generale.\\
+Ci sono aspetti della Matematica che per un fisico risultano spesso astrusi, \textit{astratti} e lontani dalla realtà; eppure, in alcuni casi il passo tra il mondo concreto e la Matematica teorica è più \textit{breve} di quel che sembra. Possiamo vedere un esempio di ciò nella \textit{dimostrazione della legge di Ampère} nella sua forma generale.
+\begin{demonstrationwtnoqed}[Parte prima]
 Vogliamo calcolare la circuitazione del campo magnetico $\vba{B}$ generato da un circuito chiuso qualunque $\gamma_2$ 
 \begin{equation*}
 	\Gamma_{\gamma_1}(\vba{B})=\oint_{\gamma_1}\vba{B}\vdot d\vba{s}
@@ -148,7 +152,7 @@ dove abbiamo applicato la proprietà del prodotto misto
 	\vba{c}\vdot\left(\vba{a}\cross\vba{b}\right)
 \end{equation*}
 La cosa peculiare è il doppio integrale curvilineo che abbiamo trovato, diviso per $4\pi$, è pari al \textbf{linking number di Gauss} (in italiano \textit{numero di concatenamento}), un \textit{invariante numerico} rilevante con teoria dei nodi.
-
+\end{demonstrationwtnoqed}
 Matematicamente parlando, una curva chiusa nello spazio tridimensionale è quello che definiamo come \textbf{nodo}.
 \begin{define}[Nodo]
 	Un \textbf{nodo}\index{nodo} è un'inclusione topologica $\funz[f]{S^1}{\realset^3}$ della circonferenza $S^1$ in $\realset^3$, cioè se $\funz[f]{S^1}{f(S^1)}$ è un omeomorfismo.
@@ -172,17 +176,26 @@ I nodi possono essere proiettati su un piano $\realset^2$; tale proiezione è qu
 \end{define}
 \begin{example}~
 	\begin{itemize}
-		\item $\textrm{lk}(\gamma_1,\gamma_2)=\pm 1$ %TODO: immagine
-		\item $\textrm{lk}(\gamma_1,\gamma_2)=\pm 2$ %TODO: immagine
+		\item $\textrm{lk}(\gamma_1,\gamma_2)=\pm 1$
+		\begin{center}
+			\includegraphics[width=0.25\textwidth]{images/chp9/chp9linknumb1.pdf}
+		\end{center}
+		\item $\textrm{lk}(\gamma_1,\gamma_2)=\pm 2$
+		\begin{center}
+			\includegraphics[width=0.25\textwidth]{images/chp9/chp9linknumb2.pdf}
+		\end{center}
 	\end{itemize}
 \end{example}
+Possiamo adesso concludere la dimostrazione iniziata precedentemente.
+\begin{demonstrationwt}[Parte seconda]
 La circuitazione del campo magnetico lungo una curva si può quindi scrivere in funzione del linking number della curva lungo cui si calcola e del circuito che genera il campo:
 \begin{equation*}
 	\Gamma_{\gamma_1}(\vba{B})=\mu_0 I\ \textrm{lk}(\gamma_1,\gamma_2)
 \end{equation*}
-A seconda di quante volte il circuito e la curva si avvolgono, la corrente interna alla curva $I_{int}$ non è necessariamente $I$: essa può essere pari a multipli interi (con segno) della corrente $I$. Tale valore, per l'appunto, lo otteniamo con il linking number, ottenendo così la legge di Ampére nel caso generale.
+A seconda di quante volte il circuito e la curva si avvolgono, la corrente interna alla curva $I_{int}$ non è necessariamente $I$: essa può essere pari a multipli interi (con segno) della corrente $I$. Tale valore, per l'appunto, lo otteniamo con il linking number, ottenendo così la legge di Ampère nel caso generale.
+\end{demonstrationwt}
 \paragraph{Applicazioni della legge di Ampère}
-Adesso useremo la legge di Ampére per ricavare il \textit{campo magnetico}, in modo analogo a come si può ricavare in casi di particolari simmetrie il \textit{campo elettrico} con la \textit{legge di Gauss}.
+Adesso useremo la legge di Ampère per ricavare il \textit{campo magnetico}, in modo analogo a come si può ricavare in casi di particolari simmetrie il \textit{campo elettrico} con la \textit{legge di Gauss}.
 \begin{examplewt}[Legge di Biot-Savart per un filo rettilineo infinito]
 	Consideriamo un filo rettilineo infinito. Per simmetria il campo magnetico è dipendente solo dalla distanza assiale dal filo d è diretto lungo $\vbh{u}_\theta$, tangenziale a delle circonferenze centrate lungo il filo. Poste le coordinate cilindriche
 	\begin{equation*}
@@ -211,7 +224,6 @@ Adesso useremo la legge di Ampére per ricavare il \textit{campo magnetico}, in 
 
 \begin{examplewt}[Solenoide infinito]
 	%Per simmetria, il solenoide infinito produce un campo magnetico all'interno del solenoide e nessun campo magnetico all'esterno del solenoide stesso. Proviamo a ricavarlo di nuovo usando una particolare curva.\\
-	%TODO: inserire immagine 16.6
 	Consideriamo un solenoide di lunghezza infinita, posto lungo l'asse verticale $z$. Per calcolare il campo magnetico all'interno (all'esterno è nullo), prendiamo una curva $\gamma=\overrightarrow{ABCD}$ rettangolare e calcolo la circuitazione lungo essa. Tale curva è costituita da quattro tratti:
 	\begin{itemize}
 		\item $\overrightarrow{AB}$ è un segmento verticale \textit{interno} al solenoide, diretto verso l'alto.
@@ -219,6 +231,9 @@ Adesso useremo la legge di Ampére per ricavare il \textit{campo magnetico}, in 
 		\item $\overrightarrow{CD}$ è un segmento verticale \textit{esterno} al solenoide, diretto verso il basso.
 		\item $\overrightarrow{DA}$ è un segmento orizzontale, intersecante il solenoide e diretto verso l'interno.
 	\end{itemize}
+	\begin{center}
+		\includegraphics[width=0.45\textwidth]{images/chp9/chp9solenoidecircuitazione.pdf}
+	\end{center}
 	La circuitazione lungo la curva $\gamma$ sarà
 	\begin{align*}
 		\Gamma_{\gamma}(\vba{B})=&=\oint\vba{B}\vdot d\vba{s}=\left( \int_A^B + \int_B^C + \int_C^D + \int_D^A  \right) \vba{B}\vdot d\vba s= \int^B_A \vba{B}\vdot s=\\
@@ -229,7 +244,7 @@ Adesso useremo la legge di Ampére per ricavare il \textit{campo magnetico}, in 
 		\item I contributi della circuitazione lungo  $\overrightarrow{BC}$ e $\overrightarrow{DA}$ sono nulli perché perpendicolari al campo.
 		\item Il contributo della circuitazione lungo $\overrightarrow{CD}$ è nullo perché all'esterno del solenoide non c'è campo.
 	\end{itemize}
-	Per la legge di Ampére
+	Per la legge di Ampère
 	\begin{equation*}
 		\Gamma_{\gamma}(\vba{B})=\mu_0I_\gamma
 	\end{equation*}
@@ -250,7 +265,8 @@ Adesso useremo la legge di Ampére per ricavare il \textit{campo magnetico}, in 
 	\end{equation}
 	Come già osservato il campo del solenoide non dipende dalla distanza assiale, ma è uniforme in \textit{tutto} il solenoide. 
 \end{examplewt}
-\section{Equazioni di Maxwell per l'elettrostatica e la magnetostatica} %TODO: FORSE SPOSTARE CAPITOLO NUOVO
+\section{Equazioni di Maxwell per l'elettrostatica e la magnetostatica}
+%TODO: FORSE SPOSTARE CAPITOLO NUOVO
 \begin{center}
 	\begin{tabular}{p{0.2\textwidth}|c|c}
 		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
@@ -350,7 +366,7 @@ In sostanza, abbiamo descritto un caso di \textbf{invarianza di gauge}\index{gau
 	Consideriamo una configurazione elettromagnetica $\left(\vba{E},\vba{B}\right)$ e supponiamo che essa sia descritta dai campi potenziali $\left(V,\vba {A}\right)$. Allora esiste una trasformazione arbitraria $\Lambda=$, detta \textbf{trasformazione (locale) di gauge}\index{gauge! trasformazione di}, tale da ottenere una \textit{nuova} coppia di campi potenziali $\left(V',\vba {A}'\right)$...
 	\begin{align*}
 		V\overset{\Lambda}{\longleftrightarrow} V'=V+c\\
-		\vba{A}\overset{\Lambda}{\longleftrightarrow} \vba{A}'=\vba{A}+\grad{\phi}\\
+		\vba{A}\overset{\Lambda}{\longleftrightarrow} \vba{A}'=\vba{A}+\grad{\phi}
 	\end{align*}
 	... che descrive la \textit{stessa} configurazione $\left(\vba{E}',\vba{B}'\right)=\left(\vba{E},\vba{B}\right)$. i campi elettrici e magnetici sono \textit{invarianti di Gauge}\index{gauge!invarianti di}.
 \end{define}
@@ -393,7 +409,7 @@ La soluzione più generale di queste equazioni differenziali, date le \textit{co
 dove $dV'=dx'dy'dz'$.
 Noti dunque $\rho$ e $\vba{j}$ siamo in grado descrivere completamente una configurazione (statica) di natura elettromagnetica - modulo saper calcolare l'integrale, che non è per nulla scontato.
 \begin{examplewt}[Sfera carica uniformemente]
-	Ricalcoliamo\footnote{Avevamo calcolato il potenziale elettrostatico in presenza di simmetria radiale direttamente a partire dalle equazioni di Poisson e Laplace nella sezione \ref{EquazioniPoissonSimmetriaSferica}, pag. \pageref{EquazioniPoissonSimmetriaSferica}, \autoref{chap:PotenzialeElettrico}; per ottenere nello specifico il caso della \textit{sfera carica}  avevamo imposto le condizioni al contorno solo successivamente. Il procedimento qui scelto risulta utilizza invece la soluzione scritta poc'anzi - ma di fatto l'origine è anch'essa dalle equazioni di Laplace e Poisson} il campo elettrico interno ed esterno ad una sfera di raggio $r_0$ carica uniformemente con densità di carica
+	Ricalcoliamo\footnote{Avevamo calcolato il potenziale elettrostatico in presenza di simmetria radiale direttamente a partire dalle equazioni di Poisson e Laplace nel \autoref{chap:PotenzialeElettrico}, sezione \ref{EquazioniPoissonSimmetriaSferica}, pag. \pageref{EquazioniPoissonSimmetriaSferica}; per ottenere nello specifico il caso della \textit{sfera carica}  avevamo imposto le condizioni al contorno solo successivamente. Il procedimento qui scelto risulta utilizza invece la soluzione scritta poc'anzi - ma di fatto l'origine è anch'essa dalle equazioni di Laplace e Poisson} il campo elettrico interno ed esterno ad una sfera di raggio $r_0$ carica uniformemente con densità di carica
 	\begin{equation*}
 		\rho(\vba r)=
 		\begin{cases}

@@ -11,7 +11,7 @@
 \begin{introduction}
 	‘‘Sono un esperto di elettricità. Mio padre ha occupato la cattedra di elettricità applicata nella	prigione di stato.''
 	\begin{flushright}
-		\textsc{W.C. Fields}, dopo aver finito le citazioni. %TODO: quote 
+		\textscsl{W.C. Fields}, dopo aver finito le citazioni. %TODO: quote 
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{N}{el} %TODO: intro
@@ -33,7 +33,7 @@ Con ciò non intendiamo che il corpo \textit{non} è carico - sennò che stiamo 
 	\end{equation*}
 	Per di più, questa distribuzione di carica \textit{non} è generalmente uniforme, bensì si concentrano maggiormente dove il \textbf{raggio di curvatura} è \textit{minore}.
 	\begin{center}
-		\includegraphics[width=0.35\textwidth]{images/chp4pipo.pdf}
+		\includegraphics[width=0.35\textwidth]{images/chp4/chp4pipo.pdf}
 	\end{center}
 \paragraph{I conduttori come superfici equipotenziali}
 Un'altra conseguenza fondamentale è che il potenziale deve essere \textit{costante} in ogni punto del conduttore; in particolare ciò è vero sui punti della superficie: la superficie di un conduttore è sempre una \textit{superficie equipotenziale}.\\
@@ -41,7 +41,7 @@ In quanto tale, in un punto esterno vicino al conduttore il gradiente del potenz
 	\begin{theoremaqed}[Teorema di Coulomb]
 		Il campo elettrico all'esterno di un conduttore con densità superficiale di carica $\sigma$ è
 		\begin{equation}
-			\tcboxmath{\vba{E}=\frac{\sigma}{\epsilon_0}\vbh{u}_n}\qedhere
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{E}=\frac{\sigma}{\epsilon_0}\vbh{u}_n}\qedhere
 		\end{equation}
 	\end{theoremaqed}
 	Il verso è \textit{uscente} il conduttore se la densità di carica è positiva, \textit{entrante} se è negativa.
@@ -75,7 +75,7 @@ Per quanto osservato, si può notare come in un conduttore in equilibrio elettro
 Ad esempio, consideriamo due \textit{piastre} cariche di segno opposto in modo che tra di esse si forma un campo elettrico \textit{uniforme} $\vba{E}$, diretto dall'armatura positiva a quella negativa.
 Ponendo un conduttore carico in mezzo alle due piastre, le cariche sono soggette ad una forza di Coulomb dovuta alle due piastre e si spostano nel conduttore: le cariche negative si spostano verso la piastra positiva, mentre le positive verso la piastra negativa, come in figura.
 \begin{center}
-	\includegraphics[width=0.6\textwidth]{images/chp4campoindotto.pdf}
+	\includegraphics[width=0.6\textwidth]{images/chp4/chp4campoindotto.pdf}
 \end{center}
 La differenza tra le cariche interne al conduttore crea un \textbf{campo elettrico indotto} $\vba{E}_i$; se lo consideriamo all'equilibrio, esso ha stessa direzione e intensità di $\vba{E}$, ma ha verso opposto in modo da avere all'interno del conduttore la condizione di equilibrio elettrico.
 \begin{equation}
@@ -100,7 +100,7 @@ Ora, osserviamo che se aumentassimo la carica sul conduttore da $q$ a $mq$, si a
 \begin{define}[Capacità di un conduttore]
 	La \textbf{capacità}\index{capacità} di un conduttore è la misura di quanta carica elettrica bisogna fornire ad un conduttore isolato per aumentare il suo potenziale di un'unità.
 	\begin{equation}
-		\tcboxmath{C=\frac{q}{V}}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{C=\frac{q}{V}}
 	\end{equation}
 \end{define}
 Il potenziale in questa definizione è misurato rispetto ad un sistema di riferimento dove lo zero è posto sulla \textit{terra}, considerato un conduttore di dimensioni \textit{infinite} rispetto all'altro e tale per cui se collegassimo il conduttore carico alla terra la carica si disperdesse e il potenziale complessivo è nullo.
@@ -158,7 +158,7 @@ Sorprendentemente, ciò succede anche nel caso del conduttore cavo: non ci sono 
 	Ricordiamo che, quando consideriamo l'equilibrio elettrostatico, il campo interno al conduttore deve essere nullo.\\
 \begin{minipage}{0.35\textwidth}
 	\begin{center}
-		\includegraphics[width=1\textwidth]{images/chp4condcavodim1.pdf}
+		\includegraphics[width=1\textwidth]{images/chp4/chp4condcavodim1.pdf}
 	\end{center}
 \end{minipage}\hspace{5pt}
 \begin{minipage}{0.64\textwidth}
@@ -175,7 +175,7 @@ Sorprendentemente, ciò succede anche nel caso del conduttore cavo: non ci sono 
 Ciò nonostante, questo non preclude ancora la possibilità che ci sia una quantità uguale di cariche positive e negative nella superficie interna del conduttore in modo che	$q_{tot,\Sigma\ interna}$ sia nulla.\\
 \begin{minipage}{0.35\textwidth}
 	\begin{center}
-		\includegraphics[width=1\textwidth]{images/chp4condcavodim2.pdf}
+		\includegraphics[width=1\textwidth]{images/chp4/chp4condcavodim2.pdf}
 	\end{center}
 \end{minipage}\hspace{5pt}
 \begin{minipage}{0.64\textwidth}
@@ -196,14 +196,14 @@ Questo è vero anche in presenza di un \textit{campo elettrico esterno} $\vba{E}
 \end{minipage}
 \begin{minipage}{0.43\textwidth}
 \begin{center}
-	\includegraphics[width=0.8\textwidth]{images/chp4condcavocampoind.pdf}
+	\includegraphics[width=0.8\textwidth]{images/chp4/chp4condcavocampoind.pdf}
 \end{center}
 \end{minipage}
 \subsection{Il conduttore cavo con carica}
 \paragraph{Conduttore cavo con carica interna}~\\
 \begin{minipage}{0.43\textwidth}
 \begin{center}
-	\includegraphics[width=1\textwidth]{images/chp4sferacavaconsfera.pdf}
+	\includegraphics[width=1\textwidth]{images/chp4/chp4sferacavaconsfera.pdf}
 \end{center}
 \end{minipage}\hspace{10pt}
 \begin{minipage}{0.56\textwidth}
@@ -252,7 +252,7 @@ Ricapitolando:
 	\end{cases}
 \end{equation*}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp4sferacava2graf1.pdf}
+	\includegraphics[width=0.75\textwidth]{images/chp4/chp4sferacava2graf1.pdf}
 \end{center}
 \begin{equation*}
 	V(r)=\begin{cases}
@@ -263,13 +263,13 @@ Ricapitolando:
 	\end{cases}
 \end{equation*}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp4sferacava2graf2.pdf}
+	\includegraphics[width=0.75\textwidth]{images/chp4/chp4sferacava2graf2.pdf}
 \end{center}
 In presenza di un campo elettrico \textit{esterno} si può trovare che, sebbene all'esterno della sfera conduttrice il campo esterno è modificato da quello generato dalla sfera interna, all'interno della cavità è presente \textit{al più} quello dato dalla carica interna.
 \paragraph{Conduttore cavo collegato alla carica interna}~\\
 \begin{minipage}{0.43\textwidth}
 	\begin{center}
-		\includegraphics[width=0.75\textwidth]{images/chp4sferacavaconsferacollegata.pdf}
+		\includegraphics[width=1\textwidth]{images/chp4/chp4sferacavaconsferacollegata.pdf}
 	\end{center}
 \end{minipage}\hspace{10pt}
 \begin{minipage}{0.56\textwidth}
@@ -283,7 +283,7 @@ In presenza di un campo elettrico \textit{esterno} si può trovare che, sebbene 
 	\end{equation*}
 \end{minipage}\\
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp4sferacava3graf1.pdf}
+	\includegraphics[width=0.65\textwidth]{images/chp4/chp4sferacava3graf1.pdf}
 \end{center}
 \begin{equation*}
 	V(r)=\begin{cases}
@@ -292,17 +292,16 @@ In presenza di un campo elettrico \textit{esterno} si può trovare che, sebbene 
 	\end{cases}
 \end{equation*}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp4sferacava3graf2.pdf}
+	\includegraphics[width=0.65\textwidth]{images/chp4/chp4sferacava3graf2.pdf}
 \end{center}
-%TODO: grafico qui
 \paragraph{Conduttore cavo collegato alla terra}~\\
 \begin{minipage}{0.43\textwidth}
 	\begin{center}
-		\includegraphics[width=0.8\textwidth]{images/chp4sferacavaconsferaterra.pdf}
+		\includegraphics[width=0.9\textwidth]{images/chp4/chp4sferacavaconsferaterra.pdf}
 	\end{center}
 \end{minipage}\hspace{5pt}
 \begin{minipage}{0.56\textwidth}
-Supponiamo di riprendere il sistema originale e di collegare il conduttore esterno alla \textit{terra}: in questo modo, le cariche esterne si disperdono nella Terra, dato che la sfera esterna collegata alla terra è come se fosse un unico conduttore di dimensioni \textit{infinite}. Il campo elettrico anche \textit{all'esterno} è \textit{nullo} e, necessariamente, anche il potenziale è \textit{nullo}, dato che il conduttore è allo stesso potenziale della terra, che per convenzione si fissa a 0.
+Supponiamo di riprendere il sistema originale e di collegare il conduttore esterno alla \textit{terra}: in questo modo, le cariche esterne si disperdono nella Terra, dato che la sfera esterna collegata alla terra è come se fosse un unico conduttore di dimensioni \textit{infinite}. Il campo elettrico anche \textit{all'esterno} è \textit{nullo} e, necessariamente, anche il potenziale è \textit{nullo}, dato che il conduttore è allo stesso potenziale della terra, che per convenzione si fissa a $0$.
 \end{minipage}\\
 Le \textit{uniche} cariche presenti sulla superficie esterna sono le \textit{cariche negative} che si dispongono sulla superficie interna per contrastare il campo elettrico generato dalla carica nella cavità.\\
 Ricapitolando:
@@ -314,7 +313,7 @@ Ricapitolando:
 	\end{cases}
 \end{equation*}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp4sferacava4graf1.pdf}
+	\includegraphics[width=0.75\textwidth]{images/chp4/chp4sferacava4graf1.pdf}
 \end{center}
 \begin{equation*}
 	V(r)=\begin{cases}
@@ -324,7 +323,7 @@ Ricapitolando:
 	\end{cases}
 \end{equation*}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp4sferacava4graf2.pdf}
+	\includegraphics[width=0.75\textwidth]{images/chp4/chp4sferacava4graf2.pdf}
 \end{center}
 \paragraph{Lo schermo elettrostatico}
 Tutti questi esempi ricadono nel fenomeno dello \textbf{schermo elettrostatico}, detto anche \textbf{schermo di Faraday}.
@@ -350,7 +349,7 @@ Lo scopo principale dei condensatori non è solo quello di \textit{deposito} di 
 \begin{define}[Capacità di un condensatore]
 	La \textbf{capacità}\index{capacità} di un condensatore è la misura di quanta carica elettrica bisogna fornire ad un'armatura del condensatore per aumentare di un'unità la \ddp tra le armature.
 	\begin{equation}
-		\tcboxmath{C=\frac{q}{\Delta V}}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{C=\frac{q}{\Delta V}}
 	\end{equation}
 \end{define}
 Come era per i conduttori, anche la capacità dei condensatori è dipendente esclusivamente dalla \textit{geometria} del conduttore, ma non del materiale con cui è fatto, dalla carica che c'è sopra o dal potenziale in esso (o meglio, differenza di potenziale).
@@ -373,7 +372,7 @@ La differenza di potenziale tra le armature è quindi
 \end{equation*}
 e quindi la capacità del condensatore piano è
 \begin{equation}
-	\tcboxmath{C=\frac{\epsilon_0\Sigma}{d}}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{C=\frac{\epsilon_0\Sigma}{d}}
 \end{equation}
 \paragraph{Condensatore cilindrico}
 Un \textbf{condensatore cilindrico}\index{condensatore!cilindrico} è costituito da due armature cilindriche: l'armatura interna ha raggio $R_1$, l'esterna ha raggi $R_2$ e $R_3$.
@@ -404,7 +403,7 @@ da cui
 \end{equation*}
 e quindi la capacità del condensatore cilindrico è
 \begin{equation}
-	\tcboxmath{C=\frac{2\pi\epsilon_0RL}{d}=\frac{\epsilon_0\Sigma}{d}}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{C=\frac{2\pi\epsilon_0RL}{d}=\frac{\epsilon_0\Sigma}{d}}
 \end{equation}
 dove $\Sigma=2\pi RL$ è la superficie dell'armatura cilindrica.
 \paragraph{Condensatore sferico}
@@ -428,79 +427,9 @@ Fissato ciò, si ha
 \end{equation*}
 e quindi la capacità del condensatore sferico è
 \begin{equation}
-	\tcboxmath{C\simeq 4\pi\epsilon_0\left(\frac{R^2}{d}\right)=\frac{\epsilon_0\Sigma}{d}}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{C\simeq 4\pi\epsilon_0\left(\frac{R^2}{d}\right)=\frac{\epsilon_0\Sigma}{d}}
 \end{equation}
 dove $\Sigma=4\pi R^2$ è la superficie dell'armatura sferica.
-\subsection{Condensatori in serie e in parallelo}\label{condensatoreSerieParallelo}
-Per caricare dei condensatori e immagazzinarci dell'energia possiamo fornire cariche ad una delle armature tramite un collegamento conduttivo esterni, come dei \textit{fili metallici}, e poi scaricare le cariche dall'altra armatura con un altro filo. La quantità di carica che si va a depositare sulle armature è \textit{proporzionale} alla \ddp tra le armature - che possiamo controllare collegando ai capi delle armature una batteria o un generatore con dei fili. Quello che abbiamo descritto è un semplice tipo di \textbf{circuito elettrico}.
-
-In questo capitolo non daremo una definizione più precisa di circuito o andremo nel dettaglio del loro funzionamento, ma lo faremo quando parleremo di \textit{corrente elettrica} nel \refChapterOnly{correnteElettrica}; nel frattempo anticipiamo ora due concetti importanti nel loro studio.
-\begin{defines}[Collegamento in serie e in parallelo]~
-	\begin{itemize}
-		\item Due o più componenti sono collegate \textbf{in serie}\index{collegamento!in serie} se tutte sono collegate lungo un unico ‘‘percorso elettrico'', in cui ogni componente è collegata direttamente ad una sola altra componente.
-		\item Due o più componenti sono collegate \textbf{in parallelo}\index{collegamento!in parallelo} se le componenti sono connesse su \textit{rami} separati del ‘‘percorso elettrico''.
-	\end{itemize}
-\end{defines}
-Si possono già fare alcune osservazioni:
-\begin{itemize}
-	\item In un collegamento \textit{in serie}, la \textit{carica totale} $q$ rimane costante lungo il percorso e ogni oggetto riceve la \textit{stessa}\footnote{Non necessariamente sono le stesse identiche cariche: ad esempio, nel caso dei condensatori le cariche che partono dall'altra piastra collegata \textit{non} sono le stesse che sono arrivate sull'altra, bensì sono cariche respinte da quelle presenti nell'altra armatura. In ogni caso, ciò che non cambia è la \textit{quantità} di carica totale.}; di conseguenza, vedremo che anche la \textit{corrente} risulta essere sempre la \textit{stessa} in ogni componente.
-	\item In un collegamento \textit{in parallelo}, la carica si \textit{distribuisce} nei vari rami in modo proporzionale alle caratteristiche delle componenti, e lo stesso fa la corrente elettrica. La carica e la corrente complessiva in un collegamento in parallelo è quindi la somma di quella nei vari fili.
-	\item In un collegamento \textit{in serie}, la differenza di potenziale diminuisce per ogni componente che è presente nel filo. Pertanto, la \ddp in un collegamento in serie è la somma di quella tra tutte i capi delle componenti.
-	\item In un collegamento \textit{in parallelo}, la differenza di potenziale è la stessa ai capi di ogni componente, perché metà delle estremità sono attaccate allo stesso filo e l'altra metà ad un altro filo.
-\end{itemize}
-L'idea cardine dello studio dei circuiti elettrici è di \textit{semplificarli} il più possibile, quanto meno ipoteticamente: se abbiamo diversi oggetti elettrici collegati nel circuito caratterizzati da delle quantità particolari $Z_i$, ci immaginiamo di sostituire diversi elementi dello stesso tipo (collegati in serie e in parallelo) con un'unica componente \textbf{equivalente} caratterizzata da una quantità $Z_{eq}$ che deriva da quelle delle componenti singole.
-\paragraph{Condensatori in serie}
-Consideriamo due condensatori $C_1$ e $C_2$: la piastra inferiore del primo è collegata alla superiore della seconda, in serie.
-%TODO: inserire grafico
-Per quanto osservato, la carica complessiva è la stessa in ogni componente:
-\begin{equation*}
-	q_1=q_2=q_{tot}
-\end{equation*}
-Al contrario, il potenziale diminuisce ad ogni nuovo condensatore che si incontra lungo il filo e in particolare la \ddp ai capi dell'intero sistema è la somma delle \ddp ai capi delle singole componenti.
-\begin{equation*}
-	\Delta V=\Delta V_1+\Delta V_2
-\end{equation*}
-Allora, se
-\begin{align*}
-	C_1&=\frac{q_1}{\Delta V_1}=\frac{q_{tot}}{\Delta V_1} & C_2=\frac{q_2}{\Delta V_2}=\frac{q_{tot}}{\Delta V_2}
-\end{align*}
-si ha che, complessivamente, il sistema corrisponde ad un condensatore di capacità
-\begin{equation*}
-	C_{eq}=\frac{q_{tot}}{\Delta V}=\frac{q_{tot}}{\Delta V_1+\Delta V_2}\implies \frac{1}{C_{eq}}=\frac{\Delta V_1}{q_{tot}}+\frac{\Delta V_2}{q_{tot}}=\frac{1}{C_1}+\frac{1}{C_2}
-\end{equation*}
-\begin{equation}
-	\tcboxmath{\frac{1}{C_{eq}}=\frac{1}{C_1}+\frac{1}{C_2}}
-\end{equation}
-Nel caso generale di $n$ condensatori in serie:
-\begin{equation}
-	\tcboxmath{\frac{1}{C_{eq}}=\sum_{i=1}^{n}\frac{1}{C_i}}
-\end{equation}
-\paragraph{Condensatori in parallelo}
-Consideriamo due condensatori $C_1$ e $C_2$, le cui piastre superiori sono collegate ad uno stesso filo, e si ha una cosa simile con le piastre inferiori.
-%TODO: inserire grafico
-Per quanto osservato, la carica complessiva si distribuirà nei due fili:
-\begin{equation*}
-	q_{tot}=q_1+q_2
-\end{equation*}
-Poiché le piastre superiori sono collegate dallo stesso filo, essendo questo un unico conduttore equipotenziale, si ha in entrambe le armature in alto lo stesso potenziale $V_1$. Lo stesso vale per le armature inferiori, che sono collegate da uno stesso filo e quindi hanno potenziale $V_2$. Segue che la \ddp $\Delta V_1$ tra le piastre del primo condensatore di capacità $C_1$ e la \ddp $\Delta V_2$ tra le piastre del secondo condensatore di capacità $C_2$ è la stessa:
-\begin{equation*}
-	\Delta V_1=\Delta V_2=\Delta V
-\end{equation*}
-Allora, se
-\begin{align*}
-	C_1&=\frac{q_1}{\Delta V_1}=\frac{q_1}{\Delta V} & C_2=\frac{q_2}{\Delta V_2}=\frac{q_2}{\Delta V}
-\end{align*}
-si ha che, complessivamente, il sistema corrisponde ad un condensatore di capacità
-\begin{equation*}
-	C_{eq}=\frac{q_{tot}}{\Delta V}=\frac{q_1+q_2}{\Delta V}=\frac{q_1}{\Delta V}+\frac{q_2}{\Delta V}=C_1+C_2
-\end{equation*}
-\begin{equation}
-	\tcboxmath{C_{eq}=C_1+C_2}
-\end{equation}
-Nel caso generale di $n$ condensatori in parallelo:
-\begin{equation}
-	\tcboxmath{C_{eq}=\sum_{i=1}^{n}C_i}
-\end{equation}
 \section{Il lavoro di carica di un condensatore e l'energia immagazzinata nel condensatore} %TODO: riguardare con il Mazzoldi
 Per creare una separazione di carica $q$ nel condensatore, ossia portare la carica $Q$ dalla piastra negativa alla piastra positiva (dal potenziale minore a quello maggiore), una fonte di energia esterna deve compiere un certo \textbf{lavoro} per oppore tale spostamento alla forza del campo elettrico, che la riporterebbe alla piastra originale. L'\textit{energia} $U$ che viene fornita sotto forma di lavoro $W$ incrementa il potenziale da $0$ fino ad avere una differenza di potenziale $\Delta V$, cioè corrisponde all'energia necessaria per creare partendo da armature scariche il \textit{campo elettrico}.
 
@@ -509,7 +438,7 @@ Posto $\Delta V=V(q)-V(0)=V$ e dunque $V=\frac{q}{C}$, si ha
 	W=U=\int_{0}^{q}dU=\int_{0}^{q}dV=\int_0^{q}V(Q)dQ=\int_{0}^{q}\frac{Q}{C}dQ=\eval{\frac{1}{2}\frac{Q^2}{C}}_{0}^{q}\frac{q^2}{2C}
 \end{equation*}
 \begin{equation}
-	\tcboxmath{W=U=\frac{q^2}{2C}=\frac{1}{2}CV^2=\frac{1}{2}qV}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{W=U=\frac{q^2}{2C}=\frac{1}{2}CV^2=\frac{1}{2}qV}
 \end{equation}
 Questa energia è immagazzinata fondamentalmente nel campo elettrico.
 \begin{examplewt}[Condensatore ad armature piane]
@@ -528,14 +457,18 @@ Questa energia è immagazzinata fondamentalmente nel campo elettrico.
 \end{examplewt} 
 Osserviamo come $\Sigma d$ corrisponde al volume $V$ occupato dal campo elettrico tra le facce del condensatore. Se definiamo la \textbf{densità di energia elettrostatica per unità di volume}\index{densità!di energia elettrostatica}
 \begin{equation}\label{DensitàEnergiaElettrostatica}
-	\tcboxmath{\mu_{E}=\frac{1}{2}\epsilon_0E^2}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\mu_{E}=\frac{1}{2}\epsilon_0E^2}
 \end{equation}
 l'energia immagazzinata nel condensatore è questa densità moltiplicata per il volume $V$ \textit{occupato} dal campo elettrico, confermando che l'energia del condensatore non è conservata nelle piastre, ma nel \textit{campo elettrico}!\\
-% \footnote{Grazie Maccio di esistere - Fra} - lo metterò nelle dediche, do not eliminare
+
+\begin{observe}
+	Per caricare dei condensatori e immagazzinare nel loro campo elettrico dell'energia possiamo fornire cariche ad una delle armature tramite un collegamento conduttivo esterno, come dei \textit{fili metallici}, e poi scaricare le cariche dall'altra armatura con un altro filo. La quantità di carica che si va a depositare sulle armature è \textit{proporzionale} alla \ddp tra le armature - che possiamo controllare collegando ai capi delle armature una batteria o un generatore con dei fili. Quello che abbiamo descritto non è altro che un semplice \textbf{circuito elettrico}, di cui parleremo meglio nel \autoref{chap:correnteElettrica}
+\end{observe}
+%TODO: \footnote{Grazie Maccio di esistere - Fra} - lo metterò nelle dediche, do not eliminare
 \section{Energia del campo elettrostatico}
 In generale, il campo elettrico immagazzina \textit{sempre} dell'energia nel campo stesso, dato che è l'energia necessaria a separare le cariche richieste per generare il campo elettrico. Tale energia, in un certo volume $V$, è pari a
 \begin{equation}
-	\tcboxmath{U=\int_V\mu_EdV=\frac{1}{2}\epsilon_0\int_V\abs{\vba{E}(r)}^2dV}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{U=\int_V\mu_EdV=\frac{1}{2}\epsilon_0\int_V\abs{\vba{E}(r)}^2dV}
 \end{equation}
 dove $\mu_E$ è la densità di energia elettrostatica, definita come nell'equazione \eqref{DensitàEnergiaElettrostatica}.
 \section{Pressione elettrostatica}
@@ -553,6 +486,6 @@ In modulo, tale forza è
 \end{equation}
 La \textbf{pressione elettrostatica}\index{pressione!elettrostatica} percepita dalle piastre è
 \begin{equation}
-	\tcboxmath{P=\frac{F}{\Sigma}=\frac{q^2}{2\epsilon_0\Sigma^2}=\frac{\sigma^2}{2\epsilon_0}}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{P=\frac{F}{\Sigma}=\frac{q^2}{2\epsilon_0\Sigma^2}=\frac{\sigma^2}{2\epsilon_0}}
 \end{equation}
-%TODO: espandere?
+%TODO: espandere? immagine?

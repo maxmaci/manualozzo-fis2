@@ -19,16 +19,16 @@
 
 %%% Encoding and language %%%
 % Choose the default encoding
-\RequirePackage[T1]{fontenc}
+%\RequirePackage[T1]{fontenc}
 
 % Choose the default input (here, UFT8 is chosen for Unicode compatibility)
-\RequirePackage[utf8]{inputenc}
+%\RequirePackage[utf8]{inputenc}
 
 % Choose the language for syllabation (here, it's set as Italian)
 \RequirePackage[italian]{babel}
 
 % Provides support for bibliography
-\RequirePackage[sorting=none, style=alphabetic, citestyle=authortitle, backend=bibtex]{biblatex}
+\RequirePackage[sorting=none, style=alphabetic, citestyle=authortitle]{biblatex} %, backend=bibtex
 
 %%% American Mathematical Society %%%
 %\let\openbox\undefined
@@ -41,12 +41,37 @@
 % Provides a better version of \newtheorem for creating theorem-like environments.
 \RequirePackage{amsthm}
 
+\RequirePackage{mathtools}
+
 %%% Font and typesetting %%%
+\usepackage{fontspec}
+\ExplSyntaxOn
+\cs_set:Nn \__fontspec_load_external_fontoptions:Nn
+{}
+\ExplSyntaxOff
+\setmainfont{Vollkorn}
+\usepackage{unicode-math}
+%\setmathfont{Erewhon-Math.otf}
+\setmathfont{Libertinus Math}  
+\everydisplay{\Umathoperatorsize\displaystyle=5ex}
+\setmathfont{TeX Gyre Schola Math}[range={up/{latin,Latin,num}, it/{latin,Latin,num}, bfup/{latin,Latin,num}, bfit/{latin,Latin,num}, bb}]
+\setmathfont[range=\mathit/greek,Scale=MatchLowercase]{XITS Math}
+\setmathfont[range=\int]{TeX Gyre Pagella Math}
+\usepackage{lualatex-math}
+
+\newfontfamily{\texgyreschola}{TeX Gyre Schola}
+\DeclareTextFontCommand{\texgyrescholafont}{\texgyreschola}
+\usepackage{newunicodechar}
+
+\AtBeginDocument{
+\mathitalicsmode=1
+}
+
 % Set "newpxmath" (Palatino-style font) for math fonts...
-\usepackage{newpxmath}
+%\usepackage{newpxmath}
 
 % ... but set "newpxtext" as main font.
-\usepackage[osf]{newpxtext}
+%\usepackage[osf]{newpxtext}
 
 % Brings to LaTeX micro-typographic extensions that were introduced by pdfTEX, e.g. character protrusion and font expansion.
 \RequirePackage{microtype}
@@ -95,12 +120,14 @@
 \RequirePackage{nicefrac}
 \RequirePackage{listings}
 \RequirePackage{tabularx}
-\RequirePackage{mathtools}
 \RequirePackage[rgb,hyperref,dvipsnames]{xcolor}
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{tikz}
 \usetikzlibrary{calc,angles,positioning,intersections,quotes,arrows,decorations.pathreplacing,graphs,decorations.pathmorphing,decorations.markings,fit,matrix,bending}
 \RequirePackage{xparse}
+%\RequirePackage{parskip}
+
+%\setlength{\parskip}{0.75ex}
 
 %%% Physics stuff %%%
 \RequirePackage{letltxmacro}
@@ -116,7 +143,7 @@
 \usepackage[americanvoltages]{circuitikz}
 
 
-
+\RequirePackage{empheq}
 
 
 % Provides a "cancel" command to create an handwritten diagonal strikethrough text.
@@ -189,41 +216,6 @@
 \newsubfloat{figure} % Creates commands for subfigures
 \newsubfloat{table} % Creates commands for subtables
 
-% Listings
-% Register listings
-\begingroup%
-\makeatletter%
-\let\newcounter\@gobble\let\setcounter\@gobbletwo%
-\globaldefs\@ne \let\c@loldepth\@ne%
-\newlistof{listings}{lol}{\lstlistlistingname}%
-\newlistentry{lstlisting}{lol}{0}%
-\endgroup%
-\makeatletter%
-\g@addto@macro\insertchapterspace%
-{\addtocontents{lol}{\protect\addvspace{10pt}}}%
-\makeatother%
-\makeatletter%
-\AtBeginDocument{\addtocontents{lol}{\protect\addvspace{10\p@}}}%
-\makeatother
-
-% Tell xspace to add space before hyphen
-\xspaceremoveexception{-}
-\makeatletter
-\renewcommand*\@xspace@hook{%
-	\ifx\@let@token-%
-	\expandafter\@xspace@dash@i
-	\fi
-}
-\def\@xspace@dash@i-{\futurelet\@let@token\@xspace@dash@ii}
-\def\@xspace@dash@ii{%
-	\ifx\@let@token-%
-	\else
-	\unskip
-	\fi
-	-%
-}
-\makeatother
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    NEW COMMANDS AND ENVIRONMENTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -243,205 +235,44 @@
 \newtheorem{definition}{Definition}[chapter]
 
 % Commands for producing superscripts and subscripts in text
-\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
-\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+%\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+%\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
 
 % Style-changing commands in text (may also do more stuff)
-\newcommand{\keyword}[1]{%
-	\emph{#1}%
-}
+%\newcommand{\keyword}[1]{%
+%	\emph{#1}%
+%}
 
 % Environment for including notes within the text
-\newenvironment{notes}
-{%
-	\vspace{0.25\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}%
-	
-	\footnotesize\itshape%
-}
-{%
-	\vspace{0.25\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}%
-}
+%\newenvironment{notes}
+%{%
+%	\vspace{0.25\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}%
+%	
+%	\footnotesize\itshape%
+%}
+%{%
+%	\vspace{0.25\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip}%
+%}
 
-% Text strings not set in small caps
-\newcommand{\etal}{et~al.\xspace}
-\newcommand{\eg}{e.g.\xspace}
-\newcommand{\ie}{i.e.\xspace}
-\newcommand{\etc}{etc.\xspace}
-\newcommand{\st}{\superscript{st}\xspace}
-\newcommand{\nd}{\superscript{nd}\xspace}
-\newcommand{\rd}{\superscript{rd}\xspace}
-\newcommand{\msc}{M.Sc.\xspace}
-\renewcommand{\th}{\superscript{th}\xspace}
-\newcommand{\phd}{PhD\xspace}
-\newcommand{\geforce}{GeForce\xspace}
-\newcommand{\directCompute}{DirectCompute\xspace}
-\newcommand{\obsidian}{Obsidian\xspace}
-\newcommand{\cudaGlobal}{\dataElement{\_\_global\_\_}\xspace}
-\newcommand{\cudaDevice}{\dataElement{\_\_device\_\_}\xspace}
-\newcommand{\cudaHost}{\dataElement{\_\_host\_\_}\xspace}
-\newcommand{\cudaShared}{\dataElement{\_\_shared\_\_}\xspace}
-\newcommand{\cudaThreadfence}{\dataElement{\_\_threadfence()}\xspace}
-\newcommand{\forsyde}{ForSyDe\xspace}
-
-% Text strings set in small caps (these should not be used in headings or
-% captions which will be used in the ToC)
-\newcommand{\nvidia}{\setInSC{NVIDIA}\xspace}
-\newcommand{\Nvidia}{\setInSCCF{NVIDIA}\xspace}
-\newcommand{\cuda}{\setInSC{CUDA}\xspace}
-\newcommand{\Cuda}{\setInSCCF{CUDA}\xspace}
-\newcommand{\cpu}{\setInSC{CPU}\xspace}
-\newcommand{\cpus}{\setInSC{CPU}s\xspace}
-\newcommand{\gpu}{\setInSC{GPU}\xspace}
-\newcommand{\Gpu}{\setInSCCF{GPU}\xspace}
-\newcommand{\gpus}{\setInSC{GPU}s\xspace}
-\newcommand{\Gpus}{\setInSCCF{GPU}s\xspace}
-\newcommand{\gpgpu}{\setInSC{GPGPU}\xspace}
-\newcommand{\gpgpus}{\setInSC{GPGPU}s\xspace}
-\newcommand{\ieee}{\setInSC{IEEE}\xspace}
-\newcommand{\Ieee}{\setInSCCF{IEEE}\xspace}
-\newcommand{\sigplan}{\setInSC{SIGPLAN}\xspace}
-\newcommand{\Sigplan}{\setInSCCF{SIGPLAN}\xspace}
-\newcommand{\acm}{\setInSC{ACM}\xspace}
-\newcommand{\Acm}{\setInSCCF{ACM}\xspace}
-\newcommand{\vhdl}{\setInSC{VHDL}\xspace}
-\newcommand{\Vhdl}{\setInSCCF{VHDL}\xspace}
-\newcommand{\simd}{\setInSC{SIMD}\xspace}
-\newcommand{\simt}{\setInSC{SIMT}\xspace}
-\newcommand{\dram}{\setInSC{DRAM}\xspace}
-\newcommand{\sm}{\setInSC{SM}\xspace}
-\newcommand{\sms}{\setInSC{SM}s\xspace}
-\newcommand{\spSC}{\setInSC{SP}\xspace} % \sp was already defined
-\newcommand{\sps}{\setInSC{SP}s\xspace}
-\newcommand{\sfu}{\setInSC{SFU}\xspace}
-\newcommand{\sfus}{\setInSC{SFU}s\xspace}
-\newcommand{\pj}{pJ\xspace}
-\newcommand{\kb}{\setInSC{KB}\xspace}
-\newcommand{\mb}{\setInSC{MB}\xspace}
-\newcommand{\gb}{\setInSC{GB}\xspace}
-\newcommand{\mhz}{\setInSC{MHz}\xspace}
-\newcommand{\ghz}{\setInSC{GHz}\xspace}
-\newcommand{\spfp}{\setInSC{SPFP}\xspace}
-\newcommand{\dpfp}{\setInSC{DPFP}\xspace}
-\newcommand{\ilp}{\setInSC{ILP}\xspace}
-\newcommand{\xml}{\setInSC{XML}\xspace}
-\newcommand{\kth}{\setInSC{KTH}\xspace}
-\newcommand{\ict}{\setInSC{ICT}\xspace}
-\newcommand{\es}{\setInSC{ES}\xspace}
-\newcommand{\cSC}{C\xspace} % \c was already defined
-\newcommand{\cpp}{C++\xspace}
-\newcommand{\systemc}{SystemC\xspace}
-\newcommand{\opencl}{Open\setInSC{CL}\xspace}
-\newcommand{\directx}{DirectX\xspace}
-\newcommand{\openmp}{Open\setInSC{MP}\xspace}
-\newcommand{\skepu}{Ske\setInSC{PU}\xspace}
-\newcommand{\starpu}{Star\setInSC{PU}\xspace}
-\newcommand{\graphml}{Graph\setInSC{ML}\xspace}
-\newcommand{\xaarjet}{XaarJet~\setInSC{AB}\xspace}
-\newcommand{\dph}{\setInSC{DPH}\xspace}
-\newcommand{\bfs}{\setInSC{BFS}\xspace}
-\newcommand{\dfs}{\setInSC{DFS}\xspace}
-\newcommand{\fifo}{\setInSC{FIFO}\xspace}
-\newcommand{\ticpp}{Tiny\setInSC{XML}++\xspace}
-\newcommand{\id}{\setInSC{ID}\xspace}
-\newcommand{\ids}{\setInSC{ID}s\xspace}
-\newcommand{\astSC}{\setInSC{AST}\xspace} % \ast was already defined
-\newcommand{\fpu}{\setInSC{FPU}\xspace}
-\newcommand{\fpus}{\setInSC{FPU}s\xspace}
-\newcommand{\ram}{\setInSC{RAM}\xspace}
-\newcommand{\api}{\setInSC{API}\xspace}
-\newcommand{\sdk}{\setInSC{SDK}\xspace}
-\newcommand{\dsl}{\setInSC{DSL}\xspace}
-% Sets a string in small caps, but it is only set in small caps if the
-% current font is roman or italics (where fake small caps are used) - otherwise
-% the string is set in upper case
-\makeatletter
-\DeclareRobustCommand{\setInSC}[1]{%
-	\ifx\f@shape\code@Roman
-	\expandafter\textsc{\MakeTextLowercase{#1}}%
-	\else
-	\ifdim\fontdimen\@ne\font>\z@
-	\begingroup
-	\check@mathfonts
-	\fontsize\sf@size\z@\selectfont
-	\let\MakeTextLowercase\@firstofone
-	\expandafter\MakeUppercase{#1}%
-	\endgroup
-	\else
-	\expandafter\MakeTextUppercase{#1}%
-	\fi
-	\fi
-}
-\newcommand*{\code@Roman}{n}
-\newcommand*{\code@Italics}{it}
-\makeatother
-% The next command performs the same as \setInSC, but will always capitalize the
-% first letter ("Small Caps, Capitalize First"), and set the remainder in small 
-% caps
-\DeclareRobustCommand{\setInSCCF}[1]{%
-	\StrLeft{#1}{1}[\first]%
-	\StrGobbleLeft{#1}{1}[\remainder]%
-	\MakeTextUppercase{\first}\setInSC{\remainder}%
-}
-
-% Command for converting a month number into corresponding month name
-\newcommand{\monthName}[1]{%
-	\ifcase #1%
-	\or January%
-	\or February%
-	\or March%
-	\or April%
-	\or May%
-	\or June%
-	\or July%
-	\or August%
-	\or September%
-	\or October%
-	\or November%
-	\or December%
-	\fi%
-}
-
-% Other text strings
-\newcommand{\thesisNumber}{TRITA-ICT-EX-2012:13}
-\newcommand{\appModel}{%
-	\ifnum\currentgrouptype = 6 %
-	\ifnum\lastnodetype = 0 %
-	\else
-	\ifnum\lastnodetype = 7 %
-	\else
-	\relax
-	\fi
-	\fi
-	\fi
-	\ifmmode
-	\mathcal{LSM}%
-	\else
-	$\mathcal{LSM}$\xspace%
-	\fi
-}
-% Schedule Finding Methods
-\newcommand{\sfmEp}{\textsc{sfm-ep}\xspace}
-\newcommand{\sfmFps}{\textsc{sfm-fps}\xspace}
-\newcommand{\sfmBps}{\textsc{sfm-bps}\xspace}
 % When citing sources in figures and tables
-\newcommand{\source}[2][]{%
-	% #1 = prefix text (optional)
-	% #2 = citation(s)
-	\ifthenelse{\equal{#1}{}}{%
-		Source: #2%
-	}{%
-		Source: #1 #2%
-	}%
-}
-\newcommand{\sources}[2][]{%
-	% #1 = prefix text (optional)
-	% #2 = citation(s)
-	\ifthenelse{\equal{#1}{}}{%
-		Sources: #2%
-	}{%
-		Sources: #1 #2%
-	}%  
-}
+%\newcommand{\source}[2][]{%
+%	% #1 = prefix text (optional)
+%	% #2 = citation(s)
+%	\ifthenelse{\equal{#1}{}}{%
+%		Source: #2%
+%	}{%
+%		Source: #1 #2%
+%	}%
+%}
+%\newcommand{\sources}[2][]{%
+%	% #1 = prefix text (optional)
+%	% #2 = citation(s)
+%	\ifthenelse{\equal{#1}{}}{%
+%		Sources: #2%
+%	}{%
+%		Sources: #1 #2%
+%	}%  
+%}
 
 
 % Lists
@@ -497,126 +328,15 @@
 	ref=\listEnumerateRefII,
 	leftmargin=\listEnumerateLeftMarginII,
 }
-\newenvironment{inlineEnumerate}
-{%
-	\begin{enumerate*}[%
-		label=\listInlineEnumerateLabel,
-		]%
-	}
-	{%
-	\end{enumerate*}
-}
-
-% Timeline
-\newlength{\timelineTopSkip}
-\newlength{\timelineBottomSkip}
-\newlength{\timelineItemWidth}
-\newlength{\timelineDescWidth}
-\setlength{\timelineTopSkip}{0.25\baselineskip}
-\setlength{\timelineBottomSkip}{\timelineTopSkip}
-\setlength{\timelineItemWidth}{6em}
-\setlength{\timelineDescWidth}{\textwidth}
-\addtolength{\timelineDescWidth}{-\timelineItemWidth}
-\addtolength{\timelineDescWidth}{-1em}
-\addtolength{\timelineDescWidth}{-3.5em}
-\newenvironment{timeline}
-{%
-	\par\addvspace{\timelineTopSkip}%
-	\hfill%
-	\begin{tabular}{p{\timelineItemWidth}@{\quad}p{\timelineDescWidth}}%
-	}
-	{%
-	\end{tabular}%
-	\par\addvspace{\timelineBottomSkip}%
-}
-\newcommand{\milestone}[3]{%
-	% #1 = Start week
-	% #2 = End week (leave empty if this only spans one week)
-	% #3 = Mile stone
-	\ifthenelse{\equal{#2}{}}{%
-		\raggedleft Week #1: & #3 \\
-	}{%
-		\raggedleft Weeks #1--#2: & #3 \\
-	}
-}
-
-% Objectives
-\newenvironment{objectives}
-{%
-	\begin{enumerate}%
-	}
-	{%
-	\end{enumerate}%
-}
-\newenvironment{subobjectives}
-{%
-	\begin{itemize}[label=\listEnumerateLabelII]%
-	}
-	{%
-	\end{itemize}%
-}
-
-% Challenges
-\newenvironment{challenges}
-{%
-	\begin{itemize}[itemsep=\listItemSep]
-	}
-	{%
-	\end{itemize}
-}
-\newenvironment{challenge_category}[1]
-% #1 = category
-{%
-	\item #1
-	\begin{itemize}[itemsep=\listItemSep]
-	}
-	{%
-	\end{itemize}
-}
-\newcommand{\priorityLevel}[1]{\textsc{#1}}
-\newcommand{\challenge}[3]{%
-	% #1 = problem
-	% #2 = description
-	% #3 = priority (Critical, High, Medium, Low)
-	\item \textit{#1} (\priorityLevel{#3}) \\ #2
-}
-
-% Command options
-\newenvironment{componentOptions}
-{%
-	\begin{trivlist}
-	}
-	{%
-	\end{trivlist}
-}
-\newcommand{\option}[2]{%
-	\item[] \hspace{\parindent}{\ttfamily #1}
-	\begin{itemize}
-		\item[] #2
-	\end{itemize}
-}
-
-% List of Abbreviations
-\newlength{\abbrItemWidth}
-\newlength{\abbrDescWidth}
-\setlength{\abbrItemWidth}{6em}
-\setlength{\abbrDescWidth}{\textwidth}
-\addtolength{\abbrDescWidth}{-\abbrItemWidth}
-\addtolength{\abbrDescWidth}{-3em}
-\newenvironment{abbreviations}
-{%
-	\begin{tabular}{p{\abbrItemWidth}p{\abbrDescWidth}}
-	}
-	{%
-	\end{tabular}
-}
-\newcommand{\abbrItem}[2]{%
-	% #1 = Abbreviation
-	% #2 = Description
-	#1 & #2 \\
-}
-
-
+%\newenvironment{inlineEnumerate}
+%{%
+%	\begin{enumerate*}[%
+%		label=\listInlineEnumerateLabel,
+%		]%
+%	}
+%	{%
+%	\end{enumerate*}
+%}
 
 % Texts
 \newenvironment{introduction}
@@ -628,181 +348,146 @@
 	\end{minipage}%
 	\par\addvspace{2\baselineskip plus 0.2\baselineskip minus 0.2\baselineskip}%
 }
-\newenvironment{warning}
-{%
-	{\warningColor\scshape Warning!}
-	\par\addvspace{0.5\baselineskip}
-	\begin{minipage}{\textwidth}%
-		\itshape%
-	}
-	{%
-	\end{minipage}%
-	\par\addvspace{2\baselineskip}%
-}
 
-% TODO command (for drafting only)
-\newcommand{\todo}[1]{{\todoColor\textsc{todo}: \textit{#1}}}
-
-
-
-% Referencing
-% Path "varioref" to remove "... on the facing page", "... on the
-% next page", etc., and only use "... on page XX" when necessary.
-\makeatletter
-\AtBeginDocument{%
-	\patchcmd{\NR@@vpageref}{\reftextfacebefore}{\unskip}%
-	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-	\patchcmd{\NR@@vpageref}{\reftextfaceafter}{\unskip}%
-	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-	\patchcmd{\NR@@vpageref}{\reftextbefore}{\unskip}%
-	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-	\patchcmd{\NR@@vpageref}{\reftextbefore}{\unskip}%
-	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-	\patchcmd{\NR@@vpageref}{\reftextafter}{\unskip}%
-	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-	\patchcmd{\NR@@vpageref}{\reftextafter}{\unskip}%
-	{\typeout{*** SUCCESS ***}}{\typeout{*** FAIL ***}}%
-}
-\makeatother
 % Figures
-\newcommand{\labelFigure}[1]{%
-	% #1 = label
-	\label{fig:#1}%
-}
-\newcommand{\refFigure}[1]{%
-	% #1 = reference
-	\figurename~\vref{fig:#1}\xspace%
-}
-\newcommand{\refFigureOnly}[1]{%
-	% #1 = reference
-	\figurename~\ref{fig:#1}\xspace%
-}
-\newcommand{\refSubfigureOnly}[1]{%
-	% #1 = reference
-	\subcaptionref{fig:#1}\xspace%
-}
-% Tables
-\newcommand{\labelTable}[1]{%
-	% #1 = label
-	\label{tab:#1}%
-}
-\newcommand{\refTable}[1]{%
-	% #1 = reference
-	\tablename~\vref{tab:#1}\xspace%
-}
-\newcommand{\refTableOnly}[1]{%
-	% #1 = reference
-	\tablename~\ref{tab:#1}\xspace%
-}
-\newcommand{\refSubtableOnly}[1]{%
-	% #1 = reference
-	\subcaptionref{tab:#1}\xspace%
-}
-% Code
-\newcommand{\refListing}[1]{%
-	% #1 = reference
-	\lstlistingname~\vref{lst:#1}\xspace%
-}
-\newcommand{\refListingOnly}[1]{%
-	% #1 = reference
-	\lstlistingname~\ref{lst:#1}\xspace%
-}
-% Lists
-\newcommand{\labelList}[1]{%
-	% #1 = label
-	\label{list:#1}%
-}
-\newcommand{\refList}[1]{%
-	% #1 = reference
-	List~\vref{list:#1}\xspace%
-}
-\newcommand{\refListOnly}[1]{%
-	% #1 = reference
-	List~\ref{list:#1}\xspace%
-}
-% List items
-\newcommand{\labelListItem}[1]{%
-	% #1 = label
-	\label{list:item:#1}%
-}
-\newcommand{\refListItem}[1]{%
-	% #1 = reference
-	\vref{list:item:#1}\xspace%
-}
-\newcommand{\refListItemOnly}[1]{%
-	% #1 = reference
-	\ref{list:item:#1}\xspace%
-}
-% Parts
+%\newcommand{\labelFigure}[1]{%
+%	% #1 = label
+%	\label{fig:#1}%
+%}
+%\newcommand{\refFigure}[1]{%
+%	% #1 = reference
+%	\figurename~\vref{fig:#1}\xspace%
+%}
+%\newcommand{\refFigureOnly}[1]{%
+%	% #1 = reference
+%	\figurename~\ref{fig:#1}\xspace%
+%}
+%\newcommand{\refSubfigureOnly}[1]{%
+%	% #1 = reference
+%	\subcaptionref{fig:#1}\xspace%
+%}
+%% Tables
+%\newcommand{\labelTable}[1]{%
+%	% #1 = label
+%	\label{tab:#1}%
+%}
+%\newcommand{\refTable}[1]{%
+%	% #1 = reference
+%	\tablename~\vref{tab:#1}\xspace%
+%}
+%\newcommand{\refTableOnly}[1]{%
+%	% #1 = reference
+%	\tablename~\ref{tab:#1}\xspace%
+%}
+%\newcommand{\refSubtableOnly}[1]{%
+%	% #1 = reference
+%	\subcaptionref{tab:#1}\xspace%
+%}
+%% Code
+%\newcommand{\refListing}[1]{%
+%	% #1 = reference
+%	\lstlistingname~\vref{lst:#1}\xspace%
+%}
+%\newcommand{\refListingOnly}[1]{%
+%	% #1 = reference
+%	\lstlistingname~\ref{lst:#1}\xspace%
+%}
+%% Lists
+%\newcommand{\labelList}[1]{%
+%	% #1 = label
+%	\label{list:#1}%
+%}
+%\newcommand{\refList}[1]{%
+%	% #1 = reference
+%	List~\vref{list:#1}\xspace%
+%}
+%\newcommand{\refListOnly}[1]{%
+%	% #1 = reference
+%	List~\ref{list:#1}\xspace%
+%}
+%% List items
+%\newcommand{\labelListItem}[1]{%
+%	% #1 = label
+%	\label{list:item:#1}%
+%}
+%\newcommand{\refListItem}[1]{%
+%	% #1 = reference
+%	\vref{list:item:#1}\xspace%
+%}
+%\newcommand{\refListItemOnly}[1]{%
+%	% #1 = reference
+%	\ref{list:item:#1}\xspace%
+%}
+%% Parts
 \newcommand{\labelPart}[1]{%
 	% #1 = label
 	\label{chap:#1}%
 }
-\newcommand{\refPart}[1]{%
-	% #1 = reference
-	Part~\vref{chap:#1}\xspace%
-}
-\newcommand{\refPartOnly}[1]{% Doesn't include the page referencing
-	% #1 = reference
-	Part~\ref{chap:#1}\xspace%
-}
-% Chapters
+%\newcommand{\refPart}[1]{%
+%	% #1 = reference
+%	Part~\vref{chap:#1}\xspace%
+%}
+%\newcommand{\refPartOnly}[1]{% Doesn't include the page referencing
+%	% #1 = reference
+%	Part~\ref{chap:#1}\xspace%
+%}
+%% Chapters
 \newcommand{\labelChapter}[1]{%
 	% #1 = label
 	\label{chap:#1}%
 	\toggletrue{noDefine}
 	\toggletrue{noTheorema}
 }
-\newcommand{\refChapter}[1]{%
-	% #1 = reference
-	Capitolo~\vref{chap:#1}\xspace%
-}
-\newcommand{\refChapterOnly}[1]{% Doesn't include the page referencing
-	% #1 = reference
-	Capitolo~\ref{chap:#1}\xspace%
-}
-% Sections
+%\newcommand{\refChapter}[1]{%
+%	% #1 = reference
+%	Capitolo~\vref{chap:#1}\xspace%
+%}
+%\newcommand{\refChapterOnly}[1]{% Doesn't include the page referencing
+%	% #1 = reference
+%	Capitolo~\ref{chap:#1}\xspace%
+%}
+%% Sections
 \newcommand{\labelSection}[1]{%
 	% #1 = label
 	\label{sec:#1}%
 }
-\newcommand{\refSection}[1]{%
-	% #1 = reference
-	Section~\vref{sec:#1}\xspace%
-}
-\newcommand{\refSectionOnly}[1]{% Doesn't include the page referencing
-	% #1 = reference
-	Section~\ref{sec:#1}\xspace%
-}
-% Appendices
+%\newcommand{\refSection}[1]{%
+%	% #1 = reference
+%	Section~\vref{sec:#1}\xspace%
+%}
+%\newcommand{\refSectionOnly}[1]{% Doesn't include the page referencing
+%	% #1 = reference
+%	Section~\ref{sec:#1}\xspace%
+%}
+%% Appendices
 \newcommand{\labelAppendix}[1]{%
 	% #1 = label
 	\label{appen:#1}%
 	\toggletrue{AppendixChapters}
 }
-\newcommand{\refAppendix}[1]{%
-	% #1 = reference
-	Appendix~\vref{appen:#1}\xspace%
-}
-\newcommand{\refAppendixOnly}[1]{% Doesn't include the page referencing
-	% #1 = reference
-	Appendix~\ref{appen:#1}\xspace%
-}
+%\newcommand{\refAppendix}[1]{%
+%	% #1 = reference
+%	Appendix~\vref{appen:#1}\xspace%
+%}
+%\newcommand{\refAppendixOnly}[1]{% Doesn't include the page referencing
+%	% #1 = reference
+%	Appendix~\ref{appen:#1}\xspace%
+%}
 
 % Command for reverting to normal number style
-\newcommand\normalNumberStyle{%
-	\renewcommand{\rmdefault}{jkp}%
-	\renewcommand{\sfdefault}{jkpss}%
-	\normalfont
-}
+%\newcommand\normalNumberStyle{%
+%	\renewcommand{\rmdefault}{jkp}%
+%	\renewcommand{\sfdefault}{jkpss}%
+%	\normalfont
+%}
 
 % Command for getting current time stamp
-\newcommand{\getTimestamp}{%
-	\dashdate\today~\currenttime%
-}
+%\newcommand{\getTimestamp}{%
+%	\dashdate\today~\currenttime%
+%}
 
 % Command for writing out email addresses
-\newcommand{\email}[1]{\url{#1}}
+%\newcommand{\email}[1]{\url{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    DOCUMENT CUSTOMIZATIONS
@@ -898,7 +583,7 @@
 \renewcommand{\cftsubsectionfont}{}
 \renewcommand{\cftfigurefont}{}
 \renewcommand{\cfttablefont}{}
-\renewcommand{\cftlstlistingfont}{}
+%\renewcommand{\cftlstlistingfont}{}
 % Increase number width
 \newlength{\cftNumWidthIncrease}
 \setlength{\cftNumWidthIncrease}{0.25em}
@@ -915,7 +600,7 @@
 \renewcommand*{\cftsubsectiondotsep}{\cftnodots}
 \renewcommand*{\cftfiguredotsep}{\cftnodots}
 \renewcommand*{\cfttabledotsep}{\cftnodots}
-\renewcommand*{\cftlstlistingdotsep}{\cftnodots}
+%\renewcommand*{\cftlstlistingdotsep}{\cftnodots}
 % Set page numbers immediately after entry text
 \newcommand{\tocEntryPageSep}{\hspace{1em}}
 \renewcommand{\cftpartleader}{\tocEntryPageSep}
@@ -930,8 +615,8 @@
 \renewcommand{\cftfigureafterpnum}{\cftparfillskip}
 \renewcommand{\cfttableleader}{\tocEntryPageSep}
 \renewcommand{\cfttableafterpnum}{\cftparfillskip}
-\renewcommand{\cftlstlistingleader}{\tocEntryPageSep}
-\renewcommand{\cftlstlistingafterpnum}{\cftparfillskip}
+%\renewcommand{\cftlstlistingleader}{\tocEntryPageSep}
+%\renewcommand{\cftlstlistingafterpnum}{\cftparfillskip}
 % Customize page numbers
 \newcommand{\tocPageStyle}{\tocPageColor}
 \renewcommand{\cftpartpagefont}{\tocPageStyle}
@@ -940,7 +625,7 @@
 \renewcommand{\cftsubsectionpagefont}{\tocPageStyle}
 \renewcommand{\cftfigurepagefont}{\tocPageStyle}
 \renewcommand{\cfttablepagefont}{\tocPageStyle}
-\renewcommand{\cftlstlistingpagefont}{\tocPageStyle}
+%\renewcommand{\cftlstlistingpagefont}{\tocPageStyle}
 
 % Fix "List of Listings" appearance (make it coherent with other listings)
 \renewcommand{\lstlistlistingname}{List of Listings}
@@ -964,12 +649,7 @@
 {\hfTextSize\headTextStyle\rightmark}%
 {}%
 {\hfTextSize\thepage}
-% Add SVN date and revision to footer (remove in final version)
-%\newcommand{\svnInfo}{\$ Revision: \svnrev ~ Date: \svndate~\$}
-%\makeevenfoot{headings}{}{\tiny \svnInfo}{}
-%\makeoddfoot{headings}{}{\tiny \svnInfo}{}
-%\makeevenhead{plain}{}{\tiny \svnInfo}{}
-%\makeoddhead{plain}{}{\tiny \svnInfo}{}
+
 % Set 'headings' as page style
 \pagestyle{headings}
 % Clear style for title page (no header nor footer)
@@ -1025,11 +705,6 @@
 \definecolor{shade3}{rgb}{0.65, 0.65, 0.65}
 \definecolor{shade4}{rgb}{0.45, 0.45, 0.45}
 \definecolor{shade5}{rgb}{0.0 , 0.0 , 0.0 }
-%\definecolor{nodeColor}{named}{shade1}
-%\definecolor{nodeInnerColor}{named}{shade5}
-%\definecolor{portColor}{named}{shade5}
-%\definecolor{processColor}{named}{shade1}
-%\definecolor{networkColor}{named}{shade0}
 \newcommand{\codeBackgroundColor}{\color[rgb]{0.95, 0.95, 0.95}}
 \newcommand{\codeKeywordsColor}{\color[rgb]{0.498, 0.557, 0.167}}
 \newcommand{\codeCommentsColor}{\color[rgb]{0.251, 0.275, 0.086}}
@@ -1540,6 +1215,20 @@ headfont=\bfseries\scshape\color{platinum!55!black},
 notebraces={ }{ },
 notefont=\scshape,
 headpunct=\color{platinum!55!black},
+postheadspace=0.50em,
+headformat={\color{platinum!55!black}{\NAME - PARTE PRIMA}},
+qed=\qedsymbol
+]{demonstrationpartonesty}
+
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{platinum!55!black},
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{platinum!55!black},
 postheadspace=\newline,
 headformat={\color{platinum!55!black}{\NAME.}},
 qed=\qedsymbol
@@ -1568,6 +1257,20 @@ headfont=\bfseries\scshape\color{platinum!55!black},
 notebraces={ }{ },
 notefont=\scshape,
 headpunct=\color{platinum!55!black},
+postheadspace=\newline,
+headformat={\color{platinum!55!black}{\NAME\, (\!\!\!\NOTE\!).}},
+qed=\dots
+]{demonstrationwtnoqedsty}
+
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+headfont=\bfseries\scshape\color{platinum!55!black},
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{platinum!55!black},
 headformat={\color{platinum!55!black}{\NAME\, (\!\!\!\NOTE\!).}},
 qed=\qedsymbol
 ]{demonstrationcaputwtsty}
@@ -1575,6 +1278,7 @@ qed=\qedsymbol
 \declaretheorem[style=demonstrationsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationT}
 \declaretheorem[style=demonstrationcaputsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationcaputT}
 \declaretheorem[style=demonstrationwtsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationwtT}
+\declaretheorem[style=demonstrationwtnoqedsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationwtnoqedT}
 \declaretheorem[style=demonstrationcaputwtsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationcaputwtT}
 
 \newenvironment{demonstration}
@@ -1588,6 +1292,10 @@ qed=\qedsymbol
 \newenvironment{demonstrationwt}
 {\begin{platinumBox}\begin{demonstrationwtT}}
 		{\end{demonstrationwtT}\end{platinumBox}}
+	
+\newenvironment{demonstrationwtnoqed}
+	{\begin{platinumBox}\begin{demonstrationwtnoqedT}}
+			{\end{demonstrationwtnoqedT}\end{platinumBox}}
 
 \newenvironment{demonstrationcaputwt}
 {\begin{platinumBox}\begin{demonstrationcaputwtT}}
@@ -2417,15 +2125,26 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 	\ensuremath{#1\left(#2,\ #3\right)}%
 }
 
+
+
+\AtBeginDocument{
 % epsilon
 
 \let\oldepsilon\epsilon
-\let\epsilon\varepsilon
+\let\epsilon\mitvarepsilon
 
 % phi
 
 \let\oldphi\phi
 \let\phi\varphi
+
+\let\div\divsign
+\let\div\divergence
+
+}
+
+
+
 
 % triple negative space
 
@@ -2625,18 +2344,6 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 		\end{tikzpicture}%
 	}%
 }%
-
-% parentesi graffa per sottolineare testo sotto
-
-\newcommand{\textunderbrace}[2]{%
-	\ensuremath{\underbrace{\text{#1}}_{\text{#2}}}%
-}
-
-% parentesi graffa per sottolineare testo sopra
-
-\newcommand{\textoverbrace}[2]{%
-	\ensuremath{\overbrace{\text{#1}}^{\text{#2}}}%
-}
 
 % testo cerchiato
 
@@ -2980,9 +2687,9 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 % bold vector with arrow
 \newcommand\vbd[1]{\dot{\vec{\mathbf{#1}}}}
 
-\newcommand\vba[1]{\vb*{\va{#1}}}
+\newcommand\vba[1]{\vec{\symbf{#1}}}
 
-\newcommand\vbh[1]{\hat{\mathbf{#1}}}
+\newcommand\vbh[1]{\hat{\symbf{#1}}}
 
 \newcommand\fb[1]{\vb*{\underline{#1}}}
 
@@ -2991,10 +2698,29 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 \newcommand\ddp{\ensuremath{\mathrm{d.d.p.}\ }}
 
-\DeclareUnicodeCharacter{22C6}{$\bigstar$}
+%\DeclareUnicodeCharacter{22C6}{$\bigstar$}
+
+
+\newunicodechar{⋆}{\texgyrescholafont{⋆}}
 
 \setlength{\fboxsep}{0pt}
 \setlength{\fboxrule}{.1pt}
 
 
 \definecolor{yellowpastellow}{HTML}{ECDF09}
+\definecolor{rosapastellow}{HTML}{f5a382}%FCE8E0}
+\definecolor{bluepastellow}{HTML}{96FEFF}
+
+\newtcbox{\tcmathboxgeneral}[1][]{colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced}
+
+\makeatletter
+\newcommand{\textscsl}[1]{%
+	\tikz[baseline=(N.base)]%
+	% The transform says:
+	% x' = 1x + 0.22y + 0pt
+	% y' = 0x + 1y    + 0pt
+	% This gives a slant - adjust the value for each font!
+	\pgfsys@transformcm{1}{0}{0.22}{1}{0pt}{0pt}%
+	\node[inner sep=0pt] (N) {\textsc{#1}};%
+}
+\makeatother

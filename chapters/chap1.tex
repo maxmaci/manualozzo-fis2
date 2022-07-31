@@ -5,7 +5,7 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Il campo elettrostatico}
+\chapter{Il campo elettrostatico}%TODO: mettere i tcbox
 \labelChapter{leggediCoulomb}
 
 \begin{introduction}
@@ -14,7 +14,7 @@
 	\emph{Piper:} Non prendere la scossa.\\
 	\emph{Joel Luschek:} Bene, ora hai il concetto base.''
 \begin{flushright}
-	\textsc{Orange Is the New Black}.
+	\textscsl{Orange Is the New Black}.
 \end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{L}{a meccanica} ci descrive come funziona un sistema soggetto ad una certa \textit{forza}. Ad oggi, siamo riusciti a ricondurre tutte le forze ad alcune \textbf{interazioni fondamentali}; in ordine di magnitudine decrescente:
@@ -24,7 +24,7 @@
  	\item (Nucleare) Debole
  	\item Gravitazionale
  \end{itemize}
-\parshape=0 Wow, sono \textit{davvero} poche! Dov'è la frizione, la forza elastica, le reazioni vincolari, le forze chimiche che legano le particelle, gli urti tra palle del biliardo? Che ci crediate o no, \textit{tutte} queste forze sono elettromagnetiche. E le altre interazioni fondamentali che fine fanno?
+\parshape=0 Wow, sono \textit{davvero} poche! Dove sono la frizione, la forza elastica, le reazioni vincolari, le forze chimiche che legano le particelle, gli urti tra le palle del biliardo? Che ci crediate o no, \textit{tutte} queste forze sono elettromagnetiche. E le altre interazioni fondamentali che fine fanno?
 
 Le \textbf{interazioni (nucleari) forti} tengono uniti i \textit{quark} che costituiscono neutroni e protoni, nonché legano assieme protoni e neutroni nel \textit{nucleo atomico}, ma agiscono su una scala così piccola che risultano essere completamente impercettibili - pur essendo centinaia di volte più forti delle forze elettromagnetiche!\\
 Le \textbf{interazioni (nucleari) deboli}, che riguardano certi procedimenti di decadimenti nucleari, hanno un nome autoesplicativo: sono forze a microscopico raggio d'azione \textit{e} sono più deboli delle forze elettromagnetiche.\\
@@ -76,9 +76,9 @@ Gilbert scrisse per bene tutte queste osservazioni nel suo trattato \textit{De M
 	\item $m_n = \SI[exponent-product=\ensuremath{\cdot}]{1.6748d-27}{\kilogram}$
 	\item $m_e = \dfrac{1}{1840}m_p=\SI[exponent-product=\ensuremath{\cdot}]{9,1091d-31}{\kilogram}$
 \end{itemize}
-Riprendendo la convenzione precedente, si vede che il protone ha carica \textit{positiva}, mentre l'elettrone ha carica \textit{negativa} e il neutrone non ha carica elettrica; ad oggi non è osservata alcuna carica elettrica più piccola di quella del protone o dell'elettrone - in altre parole, la carica elettrica è una grandezza \textbf{quantizzata}\footnote{La quantizzazione della carica è evidente a livello atomico e subatomico, ma diventa inapprezzabile se la non riescono a misurare variazioni dell'ordine della carica elementare - sperimentalmente si è visto intorno per carica sopra i $200 e$. Negli esperimenti normali di elettrostatica la carica è di fatto una quantità continua.}. Indicheremo con $-e$ la carica dell'elettrone e, in virtù della quantizzazione della carica elettrica, la chiameremo \textbf{carica elementare}\index{carica!elementare}, mentre con $+e$ indicheremo la carica del protone.
+Riprendendo la convenzione precedente, si vede che il protone ha carica \textit{positiva}, mentre l'elettrone ha carica \textit{negativa} e il neutrone non ha carica elettrica; ad oggi non è osservata alcuna carica elettrica più piccola di quella del protone o dell'elettrone - in altre parole, la carica elettrica è una grandezza \textbf{quantizzata}\footnote{La quantizzazione della carica è evidente a livello atomico e subatomico, ma diventa inapprezzabile se la non riescono a misurare variazioni dell'ordine della carica elementare - sperimentalmente si è visto intorno a cariche sopra i $200 e$. Negli esperimenti normali di elettrostatica la carica è di fatto una quantità \textit{continua}.}. Indicheremo con $-e$ la carica dell'elettrone e, in virtù della quantizzazione della carica elettrica, la chiameremo \textbf{carica elementare}\index{carica!elementare}, mentre con $+e$ indicheremo la carica del protone.
 
-Il \textbf{nucleo}\index{nucleo}, costituito da protoni e neutroni, sta saldamente assieme grazie all'interazione nucleare forte che sovrasta le azioni repulsive delle cariche positive, che tra l'altro rendono il nucleo \textit{carico positivo}. Attorno al nucleo orbitano, attratte da forze elettriche, gli \textit{elettroni}: queste particelle sono in numero pari al numero di protoni nel nucleo e, a differenza di essi, sono molto più liberi di muoversi nello spazio circostante il nucleo. Si osserva che l'atomo è, nel suo complesso, \textit{elettricamente neutro}, dato che la carica del protone e dell'elettrone è uguale in modulo e la carica complessiva. Questo è estremamente importante per la struttura della materia; se non ci fosse questa \textit{cancellazione}\footnote{Per cancellazione non intendiamo che le carica si annichiliscono fisicamente, ma che i loro effetti si compensano, non producendo alcuna interazione ‘‘esterna''.} della carica, saremmo soggetti a forze estreme: una patata esploderebbe violentemente se ci fosse anche solo una cancellazione imperfetta dell'ordine di una parte su $10^10$.
+Il \textbf{nucleo}\index{nucleo}, costituito da protoni e neutroni, sta saldamente assieme grazie all'interazione nucleare forte che sovrasta le azioni repulsive delle cariche positive, che tra l'altro rendono il nucleo \textit{carico positivo}. Attorno al nucleo orbitano, attratte da forze elettriche, gli \textit{elettroni}: queste particelle sono in numero pari al numero di protoni nel nucleo e, a differenza di essi, sono molto più liberi di muoversi nello spazio circostante il nucleo. Si osserva che l'atomo è, nel suo complesso, \textit{elettricamente neutro}, dato che la carica del protone e dell'elettrone è uguale in modulo e la carica complessiva. Questo è estremamente importante per la struttura della materia; se non ci fosse questa \textit{cancellazione}\footnote{Per \textit{cancellazione} non intendiamo che le carica si annichiliscono fisicamente, ma che i loro effetti si \textit{compensano}, non producendo alcuna interazione ‘‘esterna''.} della carica, saremmo soggetti a forze estreme: una patata esploderebbe violentemente se ci fosse anche solo una cancellazione imperfetta dell'ordine di una parte su $10^10$.
 
 Sostanze diverse hanno legami più o meno deboli tra il nucleo e gli elettroni, in particolari quelli periferici. Cosa succede, a livello microscopico, con l'elettrizzazione per strofinio? Il \textbf{contatto} tra i due corpi trasferisce \textit{per mezzo meccanico} elettroni dello strato superficiale da un corpo all'altro, dal corpo in cui sono meno fortemente legati verso quello in cui lo sono di più.
 \begin{itemize}
@@ -111,18 +111,17 @@ Nel 1785, il fisico francese \textbf{Charles Augustin de Coulomb} pubblicò la s
 \begin{define}[Legge di Coulomb]\index{legge!di Coulomb}\index{forza!di Coulomb}
 	Date due cariche puntiformi $q_1$ e $q_2$, poste a distanza $r$ \textit{nel vuoto}, interagiscono con una forza $F$ diretta secondo la loro congiungente data da
 	\begin{equation}
-		\tcboxmath{\vba{F}=k\frac{q_1q_2}{r^2}\vbh{u}_r}\label{leggeCoulomb}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{F}=k\frac{q_1q_2}{r^2}\vbh{u}_r}\label{leggeCoulomb}
 	\end{equation}
 	\begin{center}
-		\begin{minipage}{0.45\textwidth}
+		\begin{minipage}{0.49\textwidth}
 			\begin{center}
-				\includegraphics[width=0.8\textwidth]{images/chp1forzacoulomb1.pdf}
+				\includegraphics[width=1\textwidth]{images/chp1/chp1forzacoulomb1.pdf}
 			\end{center}
 		\end{minipage}
-		\hspace{5pt}
-		\begin{minipage}{0.45\textwidth}
+		\begin{minipage}{0.49\textwidth}
 			\begin{center}
-				\includegraphics[width=0.8\textwidth]{images/chp1forzacoulomb2.pdf}
+				\includegraphics[width=1\textwidth]{images/chp1/chp1forzacoulomb2.pdf}
 			\end{center}
 		\end{minipage}
 	\end{center}
@@ -223,7 +222,7 @@ Potremmo rappresentare un campo vettoriale disegnando in ogni punto\footnote{ �
 \end{minipage}\hspace{10pt}
 \begin{minipage}{0.34\textwidth}
 \begin{center}
-	\includegraphics[width=1\textwidth]{images/chp1lineedicampo.pdf}
+	\includegraphics[width=1\textwidth]{images/chp1/chp1lineedicampo.pdf}
 \end{center}
 \end{minipage}~\\
 tale per cui in ogni suo punto il vettore tangente alla curva è il vettore dato da $\vba{G}$:
@@ -244,19 +243,19 @@ In questo formalismo, la forza di Coulomb si può vedere come il vettore in un c
 \begin{define}[Campo elettrostatico]
 	Il \textbf{campo elettrostatico}\index{campo elettrostatico} generato da un sistema di cariche $q_i$ ferme associa ad ogni punto dello spazio una forza pari alla forza elettrica che agisce su una \textbf{carica di prova}\index{carica!di prova} $q_0$ positiva posta in quel punto, divisa per la carica stessa:
 	\begin{equation}\label{campoelettrostatico}
-		\tcboxmath{\vba{E}(x,y,z)=\frac{\vba{F}}{q_0}=\frac{1}{4\pi\epsilon_0}\sum_i \frac{q_i}{\abs{\vba{r}-\vba{r_i}}^2}\vbh{u}_{r_i}=\frac{1}{4\pi\epsilon_0}\sum_i q_i\frac{\vba{r}-\vba{r_i}}{\abs{\vba{r}-\vba{r_i}}^3}}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{E}(x,y,z)=\frac{\vba{F}}{q_0}=\frac{1}{4\pi\epsilon_0}\sum_i \frac{q_i}{\abs{\vba{r}-\vba{r}_i}^2}\vbh{u}_{\vba{r}_i}=\frac{1}{4\pi\epsilon_0}\sum_i q_i\frac{\vba{r}-\vba{r}_i}{\abs{\vba{r}-\vba{r}_i}^3}}
 	\end{equation}
-	dove $\vba{r}_i=(x_i,y_i,z_i),\ \vba{r}=(x,y,z)$ e $\vbh{u}_i=\dfrac{\vba{r}-\vba{r_i}}{\abs{\vba{r}-\vba{r_i}}}$.
+	dove $\vba{r}_i=(x_i,y_i,z_i),\ \vba{r}=(x,y,z)$ e $\vbh{u}_i=\dfrac{\vba{r}-\vba{r}_i}{\abs{\vba{r}-\vba{r}_i}}$.
 	\begin{center}
 		\begin{minipage}{0.45\textwidth}
 			\begin{center}
-				\includegraphics[width=0.6\textwidth]{images/chp1campocoulomb1.pdf}
+				\includegraphics[width=0.6\textwidth]{images/chp1/chp1campocoulomb1.pdf}
 			\end{center}
 		\end{minipage}
 			\hspace{5pt}
 		\begin{minipage}{0.45\textwidth}
 			\begin{center}
-				\includegraphics[width=0.6\textwidth]{images/chp1campocoulomb2.pdf}
+				\includegraphics[width=0.6\textwidth]{images/chp1/chp1campocoulomb2.pdf}
 			\end{center}
 		\end{minipage}
 	\end{center}
@@ -272,7 +271,7 @@ Si noti che dalla definizione segue ovviamente che la forza che $q_0$ subisce si
 \begin{equation}
 	\vba{F}=q_0\vba{E}
 \end{equation}
-Nella \ref{campoelettrostatico} abbiamo fatto uso di un \textbf{principio di sovrapposizione}\index{principio di sovrapposizione} per campi vettorialig.
+Nella \ref{campoelettrostatico} abbiamo fatto uso di un \textbf{principio di sovrapposizione}\index{principio di sovrapposizione} per campi vettoriali.
 \begin{principle}[Principio di sovrapposizione per campi elettrostatici]
 	Il campo elettrico generato da un sistema di cariche è data dalla \textit{somma vettoriale} dei campi elettrici generati da ciascuna carica del sistema.
 \end{principle}
@@ -281,14 +280,14 @@ Preso il caso di una singola carica $Q$ posta nell'origine, il campo elettrico g
 	\vba{E}=\frac{1}{4\pi\epsilon_0}\frac{Q}{r^2}\vbh{u}_{r}=\frac{1}{4\pi\epsilon_0}Q\frac{\vba{r}}{r^3}=\frac{1}{4\pi\epsilon_0}\frac{Q}{(x^2+y^2+z^2)^{3/2}}(x,y,z)
 \end{equation*}
 \begin{examplewt}[Linee di campo della forza di Coulomb]
-	Data una carica $Q$ post nell'origine del nostro sistema di rifermento, il campo elettrico di Coulomb nel piano è
+	Data una carica $Q$ posta nell'origine del nostro sistema di rifermento, il campo elettrico di Coulomb nel piano è
 	\begin{equation*}
 		\vba{E}=\frac{1}{4\pi\epsilon_0}\frac{Q}{(x^2+y^2)^{3/2}}(x,y)
 	\end{equation*}
 Posto
 \begin{gather*}
-	dx=\dot{x}(t)=\frac{1}{4\pi\epsilon_0}Q\frac{x}{(x^2+y^2)^{3/2}}\\
-	dy=\dot{y}(t)=\frac{1}{4\pi\epsilon_0}Q\frac{y}{(x^2+y^2)^{3/2}}
+	dx=\dot{x}(t)=\frac{Q}{4\pi\epsilon_0}\frac{x}{(x^2+y^2)^{3/2}}\\
+	dy=\dot{y}(t)=\frac{Q}{4\pi\epsilon_0}\frac{y}{(x^2+y^2)^{3/2}}
 \end{gather*}
 otteniamo la seguente equazione differenziale:
 \begin{equation*}
@@ -363,14 +362,14 @@ Vogliamo descrivere il campo elettrostatico generato tramite vettori e tramite l
 \end{itemize}
 Analizzando ulteriori casi si denotano, per il dipolo elettrico, le linee di campo come in figura.
 \begin{center}
-	\includegraphics[width=0.5\textwidth]{images/chp1campodipolo1.pdf}
+	\includegraphics[width=0.5\textwidth]{images/chp1/chp1campodipolo1.pdf}
 \end{center}
 \begin{observe}
 	Dove il campo elettrico è \textit{intenso}, la rappresentazione delle linee di campo è più densa, mentre si fa più rada dove il campo è \textit{meno intenso}.
 \end{observe}
 Se considerassimo $q_1=q_2=+q$, le linee di campo sarebbero come quelle nella seguente figura.
 \begin{center}
-	\includegraphics[width=0.5\textwidth]{images/chp1campodipolo2.pdf}
+	\includegraphics[width=0.5\textwidth]{images/chp1/chp1campodipolo2.pdf}
 \end{center}
 \begin{observe}
 	Dalle formule di dipolo, si vede che $\vba{E}$ è l'opposto del gradiente di un opportuno \textit{potenziale}\footnote{Nelle ‘‘XXX'', a pagina \pageref{gradiente} è possibile trovare la definizione di gradiente e altri operatori differenziali.} $V$:
@@ -394,7 +393,7 @@ Seppur il problema del dipolo sia normalmente a simmetria cilindrica, è evident
 % http://hyperphysics.phy-astr.gsu.edu/hbase/electric/dipole.html#c2
 % file:///C:/Users/maxma/Downloads/Example_21.15%20(1).pdf
 % https://www.cpp.edu/~ajm/materials/delsph.pdf
-Si ricordi dalla definizione delle coordinate sferiche che, denotato $\theta$ come l'angolo polare tra l'asse $z$ (positivo) e $\vba{r}$, si ha $z=r\cos\theta$. Allora
+Si ricordi dalla definizione delle coordinate sferiche che, denotato $\theta$ come l'angolo polare tra l'asse $z$ (positivo) e $\vba{r}$, si ha $z=r\cos\theta$. Allora %TODO: aggiustare
 \begin{gather*}
 	\abs{\vba{r}-\vba{r}_1}=\biggl(x^2+y^2+(z-z_0)^2\biggr)^{1/2}=\biggl(\underbrace{x^2+y^2+z^2}_{=r^2}+z_0^2-2z_0z\biggr)^{1/2}=\biggl(r^2+z_0^2-2z_0r\cos\theta\biggr)^{1/2}\\
 	\abs{\vba{r}-\vba{r}_2}=\biggl(x^2+y^2+(z+z_0)^2\biggr)^{1/2}=\biggl(\underbrace{x^2+y^2+z^2}_{=r^2}+z_0^2+2z_0z\biggr)^{1/2}=\biggl(r^2+z_0^2+2z_0r\cos\theta\biggr)^{1/2}
@@ -450,7 +449,7 @@ Considerato un oggetto di volume $V$ carico tale che nell'elemento di volume $dV
 \end{minipage}\hspace{10pt}
 \begin{minipage}{0.34\textwidth}
 	\begin{center}
-		\includegraphics[width=1\textwidth]{images/chp1density.pdf}
+		\includegraphics[width=1\textwidth]{images/chp1/chp1density.pdf}
 	\end{center}
 \end{minipage}
 \end{define}

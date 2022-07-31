@@ -11,12 +11,13 @@
 \begin{introduction}
 	‘‘L’uomo qualunque non capisce come l’elettricità viaggia all’interno dei cavi, ma crede nella sua esistenza soltanto perché la compagnia elettrica continua a inviargli le bollette.''
 	\begin{flushright}
-		\textsc{Dave Barry}, poco prima di essere bocciato all'esame di Fisica II.
+		\textscsl{Dave Barry}, poco prima di essere bocciato all'esame di Fisica II.
 	\end{flushright}
 \end{introduction} %TODO: intro
 \lettrine[findent=1pt, nindent=0pt]{N}{ei} capitoli precedenti abbiamo esplorato i fenomeni elettrostatici. 
+%TODO: intro buona
 \section{Corrente elettrica}
-% Ci sono diversi tipi di conduttori. %TODO: intro buona
+% Ci sono diversi tipi di conduttori
 I conduttori \textit{metallici} sono costituiti, a livello microscopico, da un \textit{reticolo spaziale} i cui vertici sono \textit{ioni positivi}, cioè atomi che hanno perso uno o più elettroni, e al cui interno si muovono gli \textit{elettroni liberi}, gli unici portatori di carica nei metalli.
 Ciascuno di questi elettroni è libero di muoversi in una sua direzione e con una propria velocità, dovute alla situazione termica dell'oggetto. Non è evidentemente fattibile studiare il moto di \textit{ogni} singolo elettrone, dato che il numero di elettroni liberi in un conduttore è estremamente elevato.
 \begin{examplewt}[Elettroni liberi in diversi materiali]
@@ -27,11 +28,11 @@ Ciascuno di questi elettroni è libero di muoversi in una sua direzione e con un
 	In questo caso, dato che per ogni atomo di metallo c'è generalmente un elettrone libero, questo numero corrisponde al numero di \textit{elettroni liberi} in una mole di un certo elemento chimico.\\
 	Definiamo $\rho$ la densità del materiale e $A$ il numero di massa, cioè quanti grammi pesa una mole del materiale; possiamo calcolare la \textbf{densità di carica} in diversi materiali.
 	\begin{itemize}
-		\item \textbf{Rame (Cu)}%TODO: do we need mchem package?
+		\item \textbf{Rame (Cu)}
 		\begin{equation*}
 			n_{\textrm{Cu}}=\frac{N_A\cdot\rho_{\mathrm{Cu}}}{A_{\mathrm{Cu}}}=\frac{\SI[exponent-product=\ensuremath{\cdot}]{6,022e23}{\per\mole}\cdot\SI[exponent-product=\ensuremath{\cdot}]{8,96e3}{\kilogram\per\cubic\meter}}{\SI[exponent-product=\ensuremath{\cdot}]{63,55e-3}{\kilogram\per\mole}}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{8,49e28}{\mathrm{el}\per\cubic\metre}
 		\end{equation*} 
-		\item \textbf{Argento (Ag)}%TODO: do we need mchem package?
+		\item \textbf{Argento (Ag)}
 		\begin{equation*}
 			n_{\textrm{Ag}}=\frac{N_A\cdot\rho_{\mathrm{Ag}}}{A_{\mathrm{Ag}}}=\frac{\SI[exponent-product=\ensuremath{\cdot}]{6,022e23}{\per\mole}\cdot\SI[exponent-product=\ensuremath{\cdot}]{10,5e3}{\kilogram\per\cubic\meter}}{\SI[exponent-product=\ensuremath{\cdot}]{107,87e-3}{\kilogram\per\mole}}=\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{5,86e28}{\mathrm{el}\per\cubic\metre}
 		\end{equation*}
@@ -40,13 +41,13 @@ Ciascuno di questi elettroni è libero di muoversi in una sua direzione e con un
 \end{examplewt}
 Ci conviene studiare il moto medio degli $N$ elettroni nel materiale. Tuttavia, in \textit{assenza} di un campo elettrico non percepiamo alcun movimento preferenziale degli elettroni: ogni elettrone si muove in modo del tutto \textit{casuale} e dunque la somma dei loro moti, e di conseguenza la velocità media, sarà \textit{nulla}:
 \begin{equation}
-	\left<\vba{v}\right>=\frac{1}{N}\sum_{i=1}^{N}\vba{v}_i=0
+	\left<\vba{v}\right>=\frac{1}{N}\sum_{i=1}^{N}\vba{v}_i
 \end{equation}
-Consideriamo invece la seguente situazione: prendiamo un conduttore con potenziale $V_1$ e lo colleghiamo ad un altro conduttore con potenziale $V_2>V_1$ tramite un filo trascurabile. Sappiamo che il campo elettrico tra i conduttori è diretto dal potenziale maggiore al minore; gli elettroni - portatori di carica negativi - andranno dal primo conduttore verso il secondo tramite il filo che li collega in un tempo il cui limite inferiore è dell'ordine di
+Consideriamo invece la seguente situazione: prendiamo un conduttore con potenziale $V_1$ e lo colleghiamo ad un altro conduttore con potenziale $V_2<V_1$ tramite un filo trascurabile. Sappiamo che il campo elettrico tra i conduttori è opposto al gradiente del potenziale e quindi è diretto dal potenziale maggiore al minore; gli elettroni - portatori di carica \textit{negativi} - andranno dal secondo conduttore verso il primo tramite il filo che li collega. Il tempo di percorrenza ha un limite inferiore dell'ordine di
 \begin{equation*}
 	t\sim\frac{d}{c},
 \end{equation*}
-dove $d$ è la lunghezza del filo e $c$ la \textit{velocità della luce}, fino a raggiunge l'equilibrio.
+dove $d$ è la lunghezza del filo e $c$ la \textit{velocità della luce}. Questo moto \textit{ordinata} di elettroni continua fino a quando non si raggiunge l'equilibrio dei potenziale in tutto il conduttore; in tal momento finisce anche il campo elettrico dovuto alla \ddp.
 \begin{equation*}
 	V_1'=V_2'=V
 \end{equation*}
@@ -54,12 +55,14 @@ Siamo in presenza del fenomeno di \textbf{conduzione elettrica}\index{conduzione
 \begin{define}[Corrente elettrica]
 	Un moto \textit{ordinato} di elettroni liberi di un conduttore in una certa direzione è detto una \textbf{corrente elettrica}\index{corrente elettrica}.
 \end{define}
-Dato che la velocità della luce è estremamente elevata, l'equilibrio è raggiunto quasi istantaneamente e la corrente elettrica è di breve vita. Per poter indurre un moto consistente e \textit{duraturo} di cariche dobbiamo \textit{mantenere} una differenza di potenziale.
+Dato che la velocità della luce è estremamente elevata ($\SI[per-mode = fraction,exponent-product=\ensuremath{\cdot}]{3d8}{\meter\per\second}$), l'equilibrio è raggiunto \textit{quasi istantaneamente} e la corrente elettrica è di breve vita. Per poter indurre un moto consistente e \textit{duraturo} di cariche dobbiamo \textit{mantenere} una differenza di potenziale.
 
 Per far ciò, ci serve un \textbf{generatore di forza elettromotrice}\index{generatore!di forza elettromotrice} (\fem), un marchingegno che trasforma energia \textit{non} elettrica in energia elettrica tale da mantenere, ai capi del generatore, una differenza di potenziale $f=\Delta V$, \textit{indipendentemente} da cosa ci si collega.\label{fem}
 \begin{digressionwt}[Pila di Volta]
 	Il primo generatore di questo tipo fu la \textbf{pila di Volta}\index{pila di Volta}. Tale generatore consisteva, nella sua forma più semplice costituita da una singola \textit{cella}, in un disco di \textit{zinco} (lo chiameremo \textbf{anodo}) e uno di \textit{rame} (il \textbf{catodo}), separate da una stoffa imbevuta di una soluzione elettrolitica come acqua e acido solforico.
-	%TODO: insert image
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{images/chp5/chp5piladivolta.pdf}
+	\end{center}
 	Lo zinco sulla superficie dell'anodo è ossidato dalla soluzione elettrolitica e si dissolve nell'elettrolita come ioni carichi positiva, lasciando due elettroni liberi nel metallo.
 	\begin{equation*}
 		\text{anodo (ossidazione)}\colon \mathrm{Zn}\to\mathrm{Zn}^{2+}+2\mathrm{e}^{-}
@@ -70,39 +73,48 @@ Per far ciò, ci serve un \textbf{generatore di forza elettromotrice}\index{gene
 	\end{equation*}
 	Gli elettroni usati nel rame per formare le molecole di ossigine provengono da un filo esterno che lo collega al disco di zinco; l'idrogeno prodotto nella riduzione si disperde in forma gassosa.
 
-	Misurando la \ddp tra i dischi si osserva un valore fisso di circa $\SI{0,76}{\volt}$; se impilassimo più celle la differenza di potenziale aumenterebbe. Il valore della  \ddp misurata dipende dalla coppia di metalli scelti.
+	Misurando la \ddp tra i dischi si osserva un valore fisso di circa $\SI{0,76}{\volt}$; se impilassimo più celle la differenza di potenziale aumenterebbe. Il valore della \ddp misurata dipende dalla coppia di metalli scelti.
 \end{digressionwt}
 % L'energia elettrica è una forma di energia più "nobile", che si trasforma bene in altre forme di energia come il calore, ma che si ottiene difficilmente da altre forme, come dal calore o da reazioni chimiche, senza notevole dispersione di energia.
 \subsection{Intensità di corrente}
 \begin{define}[Intensità di corrente]
 	L'\textbf{intensità di corrente elettrica}\index{intensità di corrente elettrica} è definita come la rapidità con cui fluiscono delle cariche attraverso una certa superficie $\Sigma$:
 	\begin{equation}
-		I=\lim_{\Delta t}\frac{\Delta q}{\Delta t}=\dv{q}{t}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I=\lim_{\Delta t}\frac{\Delta q}{\Delta t}=\dv{q}{t}}
 	\end{equation}
 \end{define}
 \begin{attention}
-	La corrente viene studiata per ragioni storiche supponendo che a muoversi siano \textit{cariche positive}, anche se nella maggior parte dei materiali che conducono corrente elettrica (ad esempio, i metalli) la corrente è portata da \textit{cariche negative}. 
+	La corrente viene studiata per ragioni storiche supponendo che a muoversi siano \textit{cariche positive}, anche se nella maggior parte dei materiali che conducono corrente elettrica (ad esempio, i metalli) la corrente è portata da \textit{cariche negative}.
 \end{attention}
 \begin{define}[Velocità di deriva]
-	La \textbf{velocità di deriva}\index{velocità!di deriva} è la velocità media che hanno $N$ particelle cariche in un materiale a causa di un campo elettrico $\vba{E}$:
+	La \textbf{velocità di deriva}\index{velocità!di deriva} è la \textit{velocità media} che hanno $N$ particelle cariche in un materiale a causa di un campo elettrico $\vba{E}$:
 	\begin{equation}
-		\vba{v}_d=\frac{1}{N}\sum_{i=1}^{N}\vba{v}_i
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{v}_d=\frac{1}{N}\sum_{i=1}^{N}\vba{v}_i}
 	\end{equation}
 	La velocità di deriva ha la stessa direzione del campo elettrico.
 \end{define}
-I concetti di velocità di deriva e intensità di corrente, come possiamo facilmente immaginare, sono strettamente correlati. Consideriamo un filo conduttore percorso da da portatori di carica con carica $e$: essendo in presenza di una forza elettromotrice - e quindi di un campo elettrico - le cariche si muovono mediamente con velocità di deriva $\vba{v}_d$ e percorreranno, in un intervallo infinitesimo di tempo $\Delta t$, un tratto di filo
-\begin{equation*}
-	d=\abs{\vba{v}_d}\Delta t
-\end{equation*}
+I concetti di \textit{velocità di deriva} e \textit{intensità di corrente}, come possiamo facilmente immaginare, sono strettamente correlati.\\
+\begin{minipage}{0.65\textwidth}
+	 Consideriamo un filo conduttore percorso da portatori di carica positiva $+e$: essendo in presenza di una forza elettromotrice - e quindi di un campo elettrico - le cariche si muovono mediamente con velocità di deriva $\vba{v}_d$ e percorreranno, in un intervallo infinitesimo di tempo $\Delta t$, un tratto di filo
+	\begin{equation*}
+		d=\abs{\vba{v}_d}\Delta t
+	\end{equation*}
+\end{minipage}\hspace{5pt}
+\begin{minipage}{0.34\textwidth}
+	\begin{center}
+		\includegraphics[width=1\textwidth]{images/chp5/chp5correntecavo1.pdf}
+	\end{center}
+\end{minipage}\\
 La carica complessiva che passa attraverso una superficie infinitesima $d\Sigma$ in un tempo $\Delta t$ è quella contenuta in $\Delta V$, che corrisponde al volume di un cilindro infinitesimo di basi $d\Sigma\vba{u_n}\vdot\vbh{u}_d$ e altezza $d$, dove $\vba{u}_n$ è il versore normale alle superficie e $\vbh{u}_d$ è il versore nella direzione e verso della velocità di deriva:
 \begin{align*}
-	dV&=d\Sigma\vba{u_n}\vdot\vbh{u}_d d=d\Sigma\vba{u_n}\vdot\vbh{u}_d \abs{\vba{v}_d}\Delta t\\
+	dV&=d\Sigma\vba{u_n}\vdot\vbh{u}_d d=\\
+	&=d\Sigma\vba{u_n}\vdot\vbh{u}_d \abs{\vba{v}_d}\Delta t\\
 	&=d\Sigma\vba{u_n}\vdot\vba{v}_d \Delta t =\\
 	&=d\Sigma\cos\theta\abs{\vba{v}_d}\Delta t
 \end{align*}
 \begin{align*}
 	\Delta q&=n_{+}edV=n_{+}e d\Sigma\vba{u_n}\vdot\vba{v}_d \Delta t=\\
-	&n_{+}e  d\Sigma\cos\theta\abs{\vba{v}_d}\Delta t
+	&)n_{+}e  d\Sigma\cos\theta\abs{\vba{v}_d}\Delta t
 \end{align*}
 Qui $\theta$ è l'angolo tra i due versori, $n_{+}$ la densità di cariche positive liberi per unità di volume ed $e$ la carica delle particelle libere. La carica di corrente infinitesima è dunque
 \begin{align*}
@@ -113,7 +125,7 @@ Semplifichiamo questa notazione introducendo il concetto di \textbf{densità di 
 \begin{define}[Densità di corrente]
 	La \textbf{densità di corrente}\index{densità!di corrente} è il campo vettoriale che ad ogni punto in un conduttore associa un vettore, la cui direzione è la velocità di deriva delle cariche \textit{positive} in tal punto e il cui modulo è pari alla quantità di carica che attraversa in un unità di tempo un unità di area della sezione perpendicolare del conduttore in tal punto. In altre parole,
 	\begin{equation}
-		\vba{j}=n_{+}e\vba{v}_d
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{j}=n_{+}e\vba{v}_d}
 	\end{equation}
 \end{define}
 Riscrivendo,
@@ -122,16 +134,30 @@ Riscrivendo,
 \end{equation*}
 da cui si ottiene che l'intensità di corrente attraverso una superficie finita $\Sigma$ è
 \begin{equation}
-	I=\int_{\Sigma}\vba{j}\vdot \vba{u_n}d\Sigma=\Phi_{\Sigma}\left(\vba{j}\right)
-\end{equation}
-Se, come nei conduttori metallici, i portatori di carica (con carica $-e$) sono negativi, la velocità di deriva $\vba{v}_{d,-}$ ha stessa direzione e verso opposto del campo elettrico; la densità di corrente è invece nella stessa direzione del campo elettrico perché la carica è negativa:
-\begin{equation}
-	\vba{j}=-n_{-}e\vba{v}_{d,-}
-\end{equation}
-Se consideriamo invece fluidi ionizzati, soluzioni elettrolitiche o semiconduttori, i portatori di carica sono di segno misto e possono avere velocità di deriva differenti $\vba{v}_{d,+}$ e $\vba{v}_{d,-}$. La densità è ottenuta come una somma vettoriale di due quantità concordi che hanno lo stesso verso del campo elettrico:
-\begin{equation}
-	\vba{j}=n_{+}e\vba{v}_{d,+}-n_{-}e\vba{v}_{d,-}
-\end{equation}
+	I=\int_{\Sigma}\vba{j}\vdot \vba{u_n}d\Sigma=\Phi_{\Sigma}(\vba{j})
+\end{equation}\\
+\begin{minipage}{0.65\textwidth}
+	Se, come nei conduttori metallici, i portatori di carica (con carica $-e$) sono negativi, la velocità di deriva $\vba{v}_{d,-}$ ha stessa direzione del campo elettrico ma verso \textit{opposto}; la densità di corrente è invece nella stessa direzione del campo elettrico perché la carica è \textit{negativa}:
+	\begin{equation}
+		\vba{j}=-n_{-}e\vba{v}_{d,-}
+	\end{equation}
+\end{minipage}\hspace{5pt}
+\begin{minipage}{0.34\textwidth}
+	\begin{center}
+		\includegraphics[width=1\textwidth]{images/chp5/chp5correntecavo2.pdf}
+	\end{center}
+\end{minipage}\\
+\begin{minipage}{0.34\textwidth}
+	\begin{center}
+		\includegraphics[width=1\textwidth]{images/chp5/chp5correntecavo3.pdf}
+	\end{center}
+\end{minipage}\hspace{5pt}
+\begin{minipage}{0.65\textwidth}
+	Se consideriamo invece \textit{fluidi ionizzati}, \textit{soluzioni elettrolitiche} o \textit{semiconduttori}, i portatori di carica sono di \textit{segno misto} e possono avere velocità di deriva differenti $\vba{v}_{d,+}$ e $\vba{v}_{d,-}$. La densità è ottenuta come una somma vettoriale di due quantità concordi che hanno lo stesso verso del campo elettrico:
+	\begin{equation}
+		\vba{j}=n_{+}e\vba{v}_{d,+}-n_{-}e\vba{v}_{d,-}
+	\end{equation}
+\end{minipage}
 \paragraph{Unità di misura}
 \begin{units}~\\
 	\textbf{\textsc{Corrente elettrica:}} ampere ($\unit{\ampere}$).\\
@@ -154,73 +180,83 @@ Data una densità $\vba{j}$, abbiamo trovato che la carica totale che passa nell
 \begin{equation*}
 	I=\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma
 \end{equation*}
-Sulla superficie, l'integrando $\vba{j}\vdot\vbh{u}_n$ non ha necessariamente segno costante; dato che $\vba{j}$ ha direzione dipendente dalla carica di deriva, segno diversi corrispondono a due situazioni differenti.
+Sulla superficie, l'integrando $\vba{j}\vdot\vbh{u}_n$ \textit{non} ha necessariamente segno costante: dato che la direzione di $\vba{j}$ dipende dalla carica di deriva, segni diversi corrispondono a due situazioni differenti.
 \begin{itemize}
-	\item quando le cariche \textit{negative entrano} la superficie o le cariche \textit{positive escono}, $\vba{j}\vdot\vbh{u}_n<0$.
-	\item  quando le cariche \textit{negative escono} la superficie o le cariche \textit{positive entrano}, $\vba{j}\vdot\vbh{u}_n>0$.
+	\item $\vba{j}\vdot\vbh{u}_n<0$: le cariche \textit{negative entrano} la superficie o le cariche \textit{positive escono}.
+	\item $\vba{j}\vdot\vbh{u}_n>0$: le cariche \textit{negative escono} dalla superficie o le cariche \textit{positive entrano}.
 \end{itemize}
-Dal \textit{principio di conservazione della carica} nessuna carica nel conduttore (isolato) si può annichilire e sparire, e quindi la carica complessiva deve rimanere \textit{costante}. Se la carica interna $q_{int}$ alla superficie diminuisce, tale carica deve essere uscita dalla superficie e quindi ha cambiato l'intensità di corrente $I$ che l'attraversa; in particolare, essa dovrà corrispondere alla \textit{variazione temporale} della \textit{carica interna}
+Dal \textit{principio di conservazione della carica} nessuna carica nel conduttore (isolato) si può annichilire e sparire, e quindi la carica complessiva deve rimanere \textit{costante}. Se la carica interna $q_{int}$ alla superficie diminuisce, tale carica deve essere uscita dalla superficie e quindi è cambiata l'intensità di corrente $I$ che l'attraversa; in particolare, essa dovrà corrispondere alla \textit{variazione temporale} della \textit{carica interna}
 \begin{equation}
 	I=\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=-\pdv{q_{int}}{t}
 \end{equation}
-Il meno nell'espressione è dato dal fatto che se l'integrale è complessivamente positivo, ciò corrisponde ad una \textit{diminuzione} della carica interna - che ricordiamo si considera rispetto a quella positiva - e pertanto ha derivata negativa.
-
+Il \textit{meno} nell'espressione è dato dal fatto che se l'integrale è complessivamente positivo, ciò corrisponde ad una \textit{diminuzione} della carica interna - che ricordiamo si considera rispetto a quella positiva - e pertanto ha derivata negativa.\\
 Se $V$ è il volume racchiuso da una superficie chiusa $\Sigma$, la carica interna è ovviamente
 \begin{equation*}
 	q_{int}=\int_V\rho dV
 \end{equation*}
-Possiamo derivare temporalmente entrambi i termini e scambiare\footnote{Non motiveremo \textit{rigorosamente} perché si può fare questo scambio. Gli analisti si mettano il cuore in pace.} integrale e derivata in quanto il volume è invariante temporalmente.
+Possiamo derivare temporalmente entrambi i termini e scambiare integrale e derivata\footnote{Non motiveremo \textit{rigorosamente} perché si può fare questo scambio. Gli analisti che stanno leggendo questo testo si mettano il cuore in pace.} in quanto il volume è \textit{temporalmente invariante}.
 \begin{equation*}
-	\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=-\pdv{q_int}{t}=-\int_V\pdv{\rho}{t} dV %TODO: completare
+	\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=-\pdv{q_{int}}{t}=-\pdv{t}\int_V\rho dt=-\int_V\pdv{\rho}{t} dV
 \end{equation*}
-Usando il \textit{teorema della divergenza} si ha, per qualsiasi volume $V$, che
+Usando il \textit{teorema della divergenza} si ha dunque che
 \begin{equation*}
 	\int_V\div{\vba{j}}dV=-\int_V\pdv{\rho}{t} dV
 \end{equation*}
-ottenendo quindi l\textbf{equazione di continuità}\index{equazione!di continuità}:
+Poiché tale relazione è vera per ogni volume $V$ si ha l'uguaglianze delle integrande, ottenendo così l'\textbf{equazione di continuità}\index{equazione!di continuità}:
 \begin{equation}
-	\div{\vba{j}}+\pdv{\rho}{t}=0
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\div{\vba{j}}+\pdv{\rho}{t}=0}
 \end{equation}
 \begin{digression}
-	Questa relazione vale in generale per descrivere il trasporto di una certa quantità \textit{conservata}, energia e quantità di moto.
-	Nello specifico, $\rho$ è l'ammontare della quantità per unità di volume (una densità), mentre $\vba{j}$ è il flusso della quantità.\\
+	Questa relazione vale in generale per descrivere il \textit{trasporto di una certa quantità conservata}, come l'energia e quantità di moto.
+	Nello specifico, $\rho$ è l'ammontare della quantità per unità di volume (una \textit{densità}), mentre $\vba{j}$ è il flusso della quantità.\\
 	Se la quantità \textit{non} si conserva, la legge si generalizza come
 	\begin{equation}
 		\div{\vba{j}}+\pdv{\rho}{t}=\sigma
 	\end{equation}
-dove $\sigma$ rappresenta quanta quantità viene generata (se positiva) o rimossa (se negativa) per unità di volume e per unità di tempo.
+dove $\sigma$ rappresenta quanta quantità viene \textit{generata} (se positiva) o \textit{rimossa} (se negativa) per unità di volume e di tempo.
 \end{digression}
 \paragraph{Il caso stazionario}
 	Consideriamo il \textit{caso stazionario} dell'equazione di continuità, ossia quando la densità di carica $\rho$ risulta essere costante nel tempo. Dall'equazione di continuità segue  che
 	\begin{equation*}
 		\div{\vba{j}}=0
 	\end{equation*}
-	ossia la densità di corrente è un \textbf{campo solenoidale}\footnote{Vedi capitolo XXX yadda yadda}. Consideriamo una porzione tubulare di conduttore come in figura.
-	%TODO: add figura
+	ossia la densità di corrente è un \textbf{campo solenoidale}\footnote{Nelle ‘‘XXX'', a pagina \ref{CampoSolenoidale} è possibile trovare la definizione di campo solenoidale e altre proprietà.}. Consideriamo una porzione tubulare di conduttore come in figura.
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{images/chp5/chp5casostazionario.pdf}
+	\end{center}
 	Sappiamo che il flusso sulla superficie che delimita questa porzione è nullo, ma esso è determinato completamente dai flusso sulle sezioni perpendicolari del conduttore\footnote{La densità di corrente sulla superficie laterale del tubo è tangente e quindi il suo flusso è nullo.}
 	\begin{equation*}
 		0=\oint_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma_1}\vba{j}_1\vdot\vbh{u}_nd\Sigma_1+\int_{\Sigma_2}\vba{j}_2\vdot\vbh{u}_nd\Sigma_2
 	\end{equation*}
-	Ma se consideriamo le intensità di correnti lungo le sezioni...
+	Definiamo $\vba{u}_i$ come il versore che indica la direzione del moto delle cariche tramite la superficie $\Sigma_i$. Se consideriamo le intensità di correnti lungo le sezioni...
 	\begin{align*}
 		I_1&\coloneqq\int_{\Sigma_1}\vba{j}_1\vdot\vbh{u}_1d\Sigma_1=-\int_{\Sigma_1}\vba{j}_1\vdot\vbh{u}_nd\Sigma_1\\
 		I_2&\coloneqq\int_{\Sigma_2}\vba{j}_2\vdot\vbh{u}_2d\Sigma_2=\int_{\Sigma_2}\vba{j}_2\vdot\vbh{u}_nd\Sigma_1
 	\end{align*}
 	...allora segue che $0=I_1-I_2$, ossia
 	\begin{equation}
-		I_1=I_2
+			\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I_1=I_2}
 	\end{equation}
 Nel caso stazionario, l'intensità di corrente è \textbf{sempre costante}.
 \begin{intuit}
 	Riprendendo l'analogia con fluidodinamica tra intensità di corrente e portata, la portata è costante nei fluidi incomprimibili, cioè quelli la cui densità di massa è $\rho=\mathrm{const}$.
 \end{intuit}
 \section{Legge di Ohm}
-Ad inizio del capitolo, abbiamo descritto brevemente come sono costituiti i conduttori metallici. Tale descrizione, in realtà, corrisponde al \textbf{modello di Drude-Lorentz} della \textit{conduzione elettrica} proposto dal fisico tedesco Paul \textbf{Drude} nel 1900 ed espanso nel 1905 dall'olandese Hendrick Antoon \textbf{Lorentz}. Il modello permette di spiegare, nell'ambito della teoria classica dell'elettromagnetismo, le proprietà di trasporto degli elettroni nei materiali - in particolare i metalli - tramite la teoria cinetica: gli elettroni si comportano, secondo questa interpretazione, in modo molto simile ad un \textit{flipper}\footnote{Per gli amici d'oltreoceano o per coloro che si divertivano ai giochi pre-installati su \textit{Windows XP}\texttrademark\ , un \textit{pinball}.}, in cui elettroni rimbalzanti \textit{urtano} continuamente con un reticolo cristallini di ioni fissi.
-\begin{digression}
-	Tale modello fu integrato nel 1933 da Arnold Sommerfeld and Hans Bethe con i risultati della teoria quantistica nel \textbf{modello di Drude-Sommerfeld}. Una differenza, ad esempio, è che il modello non parla esplicitamente di ioni o di reticoli cristallini, la cui assenza viene giustificata in termini quantistici.
-\end{digression}
-Approfondiamo meglio questo modello. Gli elettroni liberi si muovono attraverso il reticolo cristallino in modo completamente disordinato; nel loro moto, gli elettroni si vanno a scontrare continuamente con gli ioni in interazioni che chiamiamo \textit{urti}. Tra un urto e il successivo il moto è libero e in traiettoria rettilinea, cosicché il moto degli elettroni si possa rappresentare come un spezzata di segmenti con direzione e verso variabili. Senza campo elettrico \textit{non} c'è una direzione privilegiata e quindi una corrente.
+Ad inizio del capitolo, abbiamo descritto brevemente come sono costituiti i conduttori metallici. Tale descrizione, in realtà, corrisponde al \textbf{modello di Drude-Lorentz} della \textit{conduzione elettrica} proposto dal fisico tedesco \textbf{Paul Drude} (1863 – 1906) nel 1900 ed espanso nel 1905 dall'olandese \textbf{Hendrick Antoon Lorentz} (1853 – 1928).
 
+Il modello permette di spiegare, nell'ambito della teoria classica dell'elettromagnetismo, le proprietà di trasporto degli elettroni nei materiali - in particolare i metalli - tramite la teoria cinetica: gli elettroni si comportano, secondo questa interpretazione, in modo molto simile ad un \textit{flipper}\footnote{Per gli amici d'oltreoceano o per coloro che si divertivano ai giochi di \textit{Windows XP}\texttrademark\ , un \textit{pinball}.}, in cui elettroni rimbalzanti \textit{urtano} continuamente contro un reticolo cristallini di ioni fissi.
+\begin{digression}
+	Tale modello fu integrato nel 1933 da \textbf{Arnold Sommerfeld} (1868 – 1951) e \textbf{Hans Bethe} (1906 – 2005) con i risultati della teoria quantistica nel \textbf{modello di Drude-Sommerfeld}.\\
+	Una differenza, ad esempio, è che il modello \textit{non parla} esplicitamente di ioni o di reticoli cristallini: tale assenza viene giustificata in termini quantistici.
+\end{digression}
+\begin{minipage}{0.38\textwidth}
+	\begin{center}
+		\includegraphics[width=1\textwidth]{images/chp5/chp5reticolocristallino.pdf}
+	\end{center}
+\end{minipage}\hspace{5pt}
+\begin{minipage}{0.61\textwidth}
+	Approfondiamo meglio questo modello. Gli elettroni liberi si muovono attraverso il reticolo cristallino in modo \textit{completamente disordinato}; nel loro moto, gli elettroni si vanno a scontrare continuamente con gli ioni in interazioni che chiamiamo \textit{urti}. Tra un urto e il successivo il moto è libero e in \textit{traiettoria rettilinea}, cosicché il moto degli elettroni si possa rappresentare come un \textit{spezzata} di segmenti con direzione e verso variabili. Senza campo elettrico \textit{non} c'è una direzione privilegiata e quindi una corrente.
+\end{minipage}\\
 Si può definire
 \begin{itemize}
 	\item un \textbf{tempo medio di percorrenza} $\tau$.
@@ -230,21 +266,30 @@ che sono legati tra di loro dalla velocità media $v$ degli elettroni nel metall
 \begin{equation}
 	\mathcal{l}=v\tau
 \end{equation}
-Da queste supposizioni microscopiche possiamo derivare una legge microscopica. All'applicazione di un campo elettrico $\vba{E}$ non si muoverà più di moto rettilineo uniforme, ma subisce un accelerazione
-\begin{equation*}
-	\vba{a}=\frac{\vba{F}}{m_{e}}=-\frac{e}{m_{e}}\vba{E}
-\end{equation*}
-dove $m_e$ è la massa dell'elettrone. Alla distribuzione casuale delle velocità si sovrappone quindi una velocità data da questa accelerazione; poiché è più piccola rispetto a quella che l'elettrone possiede di per sé, il tempo medio $\tau$ non cambia in modo significativo. Se $\vba{v}_i$ è la velocità dopo un urto, la velocità subito prima l'urto successivo sarà
+Da queste supposizioni microscopiche possiamo derivare una \textit{legge macroscopica}.\\
+\begin{minipage}{0.38\textwidth}
+	\begin{center}
+		\includegraphics[width=1\textwidth]{images/chp5/chp5reticolocristallinoacc.pdf}
+	\end{center}
+\end{minipage}\hspace{5pt}
+\begin{minipage}{0.61\textwidth}
+	 All'applicazione di un campo elettrico $\vba{E}$ non si muoverà più di moto rettilineo uniforme, ma subisce un \textit{accelerazione}
+	\begin{equation*}
+		\vba{a}=\frac{\vba{F}}{m_{e}}=-\frac{e}{m_{e}}\vba{E}
+	\end{equation*}
+	dove $m_e$ è la massa dell'elettrone. Alla distribuzione casuale delle velocità si sovrappone quindi una velocità data da questa accelerazione; poiché è più piccola rispetto a quella che l'elettrone possiede di per sé, il tempo medio $\tau$ non cambia in modo significativo.
+\end{minipage}\\
+ Se $\vba{v}_i$ è la velocità dopo un urto, la velocità subito prima l'urto successivo sarà
 \begin{equation*}
 	\vba{v}_{i+1}=\vba{v}_i-\frac{e}{m_{e}}\vba{E}\tau
 \end{equation*}
 Calcoliamo la velocità media su $N$ elettroni, con $N$ molto grande, in modo da definire la \textit{velocità di deriva} indotta dal campo elettrico:
 \begin{equation*}
-	\vba{v}_d=\frac{1}{N}\sum_{i=1}^{N}\vba{v}_{i+1}=\underbrace{\frac{1}{N}\sum_{i=1}^{N}\vba{v}_i}_{=0}-\frac{e}{m_{e}\tau}\vba{E}=-\frac{e}{m_{e}\tau}\vba{E}
+	\vba{v}_d=\frac{1}{N}\sum_{i=1}^{N}\vba{v}_{i+1}=\frac{1}{N}\sum_{i=1}^{N}\vba{v}_i-\frac{e}{m_{e}\tau}\vba{E}=\left<\vba{v}\right>-\frac{e}{m_{e}\tau}\vba{E}
 \end{equation*}
 La media delle velocità dopo l'urto è casuale e perciò è nulla; la velocità di deriva è quindi
 \begin{equation}
-	\vba{v}_d=-\frac{e}{m_{e}}\vba{E}\tau
+	\vba{v}_d=-\frac{e\tau}{m_{e}}\vba{E}
 \end{equation}
 Se $n_{-}$ la densità di elettroni liberi per unità di volume, la densità di corrente che consegue a questo modo ordinato è
 \begin{equation}
@@ -257,11 +302,11 @@ dove
 è una grandezza caratteristica del materiale nota come \textbf{conduttività}.
 L'equazione
 \begin{equation}
-	\vba{j}=\sigma\vba{E}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{j}=\sigma\vba{E}}
 \end{equation}
 è nota come \textbf{legge di Ohm della conduzione elettrica}\index{legge!di Ohm}, dal fisico tedesco Georg \textbf{Ohm} che nel 1827 introdusse un caso specifico di tale equazione per spiegare dei risultati sperimentali da lui studiati. La legge si può scrivere anche nella forma
 \begin{equation}
-	\vba{E}=\rho\vba{j}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{E}=\rho\vba{j}}
 \end{equation}
 dove
 \begin{equation*}
@@ -271,28 +316,28 @@ dove
 \begin{define}[Conduttività e resistività]
 	La \textbf{conduttività}\index{conduttività} è una grandezza associata ai conduttori definita come
 	\begin{equation}
-		\sigma=\frac{n_{-}e^2\tau}{m_{e}}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\sigma=\frac{n_{-}e^2\tau}{m_{e}}}
 	\end{equation}
 	che rappresenta la difficoltà della corrente a muoversi nel conduttore ed è caratteristica del \textit{materiale} con cui è fatto.\\
 	Il valore
 	\begin{equation}
-		\rho=\frac{1}{\sigma}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\rho=\frac{1}{\sigma}}
 	\end{equation}
 	viene detto \textbf{resistività}\index{resistività} e rappresenta la difficoltà della corrente a muoversi nel conduttore.
 \end{define}
-Non tutti i conduttori rispettano questa legge, ma quelli che lo fanno sono detti \textbf{conduttori ohmici}\index{conduttore!ohmico}.
-\begin{examplewt}[Esempi di conduttori ohmici e non ohmici]~
+\textit{Non tutti} i conduttori rispettano questa legge, ma soltanto quelli che sono detti \textbf{conduttori ohmici}\index{conduttore!ohmico}.
+\begin{exampleswt}[Esempi di conduttori ohmici e non ohmici]~
 	\begin{itemize}
 		\item \textbf{Ohmici:} fili conduttori di metalli come rame, o argento, resistenze ideali.
 		\item \textbf{Non ohmici:} filamento di tungsteno delle lampade a incandescenza, diodi, semiconduttori.
 	\end{itemize}
-\end{examplewt}
+\end{exampleswt}
 \subsection{Legge di Ohm nei conduttori metallici}
-Consideriamo un conduttore metallici cilindrico di lunghezza $d=\overline{AB}$ e sezione $\Sigma$. Ai capi del conduttore è applicata, con un generatore di \fem, una \ddp pari a
+Consideriamo un conduttore metallico cilindrico di lunghezza $d=\overline{AB}$ e sezione $\Sigma$. Ai capi del conduttore è applicata, con un generatore di \fem, una \ddp pari a
 \begin{equation*}
 	V=V_A-V_B=\int_{A}^{B}\vba{E}\vdot d\vba{s}=Ed>0
 \end{equation*}
-Il campo elettrico è costante (con modulo $\abs{\vba{E}}=E$) e diretto, parallelo all'asse del cilindro, da $A$ verso $B$; in regime stazionario, anche la densità di corrente $\vba{j}$ è costante (con modulo $\abs{\vba{j}}=j$) e scorre nella stessa direzione\footnote{Ciò è dovuto alla scelta storica di orientare la densità di corrente con le cariche positive. Gli elettroni, invece, percorrono il conduttore da $B$ verso $A$.}. Allora, dalla \textit{legge di Ohm}, segue che
+Il campo elettrico è costante (con modulo $|\vba{E}|=E$) e diretto, parallelo all'asse del cilindro, da $A$ verso $B$; in regime stazionario, anche la densità di corrente $\vba{j}$ è costante (con modulo $\abs{\vba{j}}=j$) e scorre nella stessa direzione\footnote{Ciò è dovuto alla scelta storica di orientare la densità di corrente con le cariche positive. Gli elettroni, invece, percorrono il conduttore da $B$ verso $A$.}. Allora, dalla \textit{legge di Ohm}, segue che
 \begin{equation*}
 	I=\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=j\Sigma=\sigma E\Sigma=\frac{V}{d}\sigma\Sigma=V\frac{\Sigma}{\rho d}
 \end{equation*}
@@ -302,11 +347,11 @@ Definita la \textbf{resistenza} come
 \end{equation*}
 si ottiene la \textbf{legge di Ohm}\index{legge!di Ohm} nella forma amata dagli elettrotecnici:
 \begin{equation}
-	V=IR
+	\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{V=IR}
 \end{equation}
 La legge si può scrivere anche nella forma
 \begin{equation}
-	I=GV
+	\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I=GV}
 \end{equation}
 dove
 \begin{equation*}
@@ -316,12 +361,12 @@ dove
 \begin{define}[Resistenza e conduttanza]
 	La \textbf{resistenza}\index{resistenza} è una grandezza associata ai conduttori metallici di lunghezza $d$ e sezione $\Sigma$, definita come
 	\begin{equation*}
-		R=\frac{\rho d}{\Sigma}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{R=\frac{\rho d}{\Sigma}}
 	\end{equation*}
-	che rappresenta la difficoltà della corrente a muoversi nel conduttore. Il termine $\rho$ è la \textit{resistività} del conduttore e dipende dal materiale.\\
+	che rappresenta la \textit{difficoltà} della corrente a muoversi nel conduttore. Il termine $\rho$ è la \textit{resistività} del conduttore e dipende dal materiale.\\
 	Il valore
 	\begin{equation}
-		G=\frac{1}{R}
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{G=\frac{1}{R}}
 	\end{equation}
 	viene detto \textbf{conduttanza}\index{conduttanza} e rappresenta la facilità della corrente a muoversi nel conduttore.
 \end{define}
@@ -335,7 +380,7 @@ dove
 	\textbf{\textsc{Conduttanza elettrica:}} siemens ($\unit{\siemens}$), mho  ($\mho$) o ampere su volt $\left(\unit[per-mode = fraction]{\ampere\per\volt}\right)$.\\
 	\textit{\textbf{Dimensioni:}} $[G]=\dfrac{[I]}{[V]}=\mathsf{I}^{2}\mathsf{T}^{3}\mathsf{M}^{-1} \mathsf{L}^{-2}$
 \end{units}
-\begin{digressionwt}[\textit{E mho il siemens?} Una tragicommedia sulla conduttanza]
+\begin{digressionwt}[\textit{E mho il siemens?} Tragicommedia in tre atti sulla conduttanza]
 	Nei libri di testo contemporanei l'unità di misura associata alla conduttanza è il \textit{siemens}; tuttavia, in alcuni un po' datati è possibile trovare l'alquanto buffo \textit{mho}. Inoltre, se scartabellassimo libri ancora più vecchi troveremmo sì il \textit{siemens}, ma per indicare la resistenza! Che pasticcio hanno combinato i fisici con questa grandezza?\newline~\\
 	Facciamo un po' d'ordine e torniamo indietro al 1860. L'ingegnere Werner Siemens era tra i proprietari di un'azienda che costruiva telegrafi in Germania, Russia e Regno Unito; per migliorare il loro funzionamento aveva bisogno di studiare a livello pratico la resistenza dei conduttori al passaggio della corrente, ma una buona unità di misura di tale grandezza, che sia riproducibile, non esisteva. Siemens propose lui stesso negli \textit{Annalen der Physik und Chemie} quella che diventerà nota come \textit{l'unità di mercurio del Dr. Siemens}: essa corrispondeva alla resistenza elettrica presente in una colonna di mercurio con lunghezza di un metro e sezione uniforme di $\SI{1}{\milli\metre\squared}$ mantenuta alla temperatura di zero gradi Celsius.\\
 	Tale unità --- il cui nome completo ha quel non so che di cinema espressionista tedesco e potrebbe figurare bene come pellicola accanto a \textit{Il gabinetto del dottor Caligari} --- verrà semplicemente chiamata \textit{siemens}, nome che non causerà assolutamente alcuna confusione in futuro.\\
@@ -343,7 +388,7 @@ dove
 	La ricerca di un'unità di misura migliore proseguì. L'anno successivo, il 1861, Latimer Clark e Sir Charles Bright presentarono un articolo all'\textit{Associazione Britannica per l'Avanzamento della Scienza}, suggerendo di creare uno standard per la resistenza e di chiamarla in onore del fisico tedesco Georg Ohm... chiamandola \textit{ohma}. Si stabilì subito una commissione, a cui parteciparono fisici dal calibro di James Clark Maxwell e Lord Kelvin, per inventare un unità che fosse coerente con il sistema metrico francese e pratica da utilizzare - a differenza di quella di Siemens.
 	Nel terzo verbale della commissione, nel 1864, si riproposte di chiamarla in onore di Ohm e dunque si riferirono all'unità di misura come... \textit{ohmad}. A volte mi chiedo se i fisici ci sono o ci fanno. Solo nel 1867 il termine \textit{ohm} si userà in modo diffuso.
 	
-	A dir la verità, l'\textit{ohm} definito dall'Associazione Britannica non era neanche così differente da quello di Siemens, dato che cambiava soltanto la lunghezza della colonna di mercurio da $\SI{100}{\centi\meter}$ a $\SI{104.7}{\centi\meter}$. Ciò nonostante, dato che avere due unità di misura differenti per una stessa grandezza era ridicolo, nel 1881 al \textit{Congresso Internazionale degli Elettricisti} si decise di compiere una scelta definitiva tra le due: l'unità di misura della resistenza non doveva essere il \textit{siemens}, ma l'\textit{ohm}... anche se nel frattempo la colonna di mercurio si allungò a $\SI{104.9}{\centi\meter}$.\newline %TODO: aggiustare citazione
+	A dir la verità, l'\textit{ohm} definito dall'Associazione Britannica non era neanche così differente da quello di Siemens, dato che cambiava soltanto la lunghezza della colonna di mercurio da $\SI{100}{\centi\meter}$ a $\SI{104.7}{\centi\meter}$. Ciò nonostante, dato che avere due unità di misura differenti per una stessa grandezza era ridicolo, nel 1881 al \textit{Congresso Internazionale degli Elettricisti} si decise di compiere una scelta definitiva tra le due: l'unità di misura della resistenza non doveva essere il \textit{siemens}, ma l'\textit{ohm}... anche se nel frattempo la colonna di mercurio si allungò a $\SI{104.9}{\centi\meter}$.\newline
 	
 	\noindent Come ricordò Maxwell al convegno, ‘‘le dimensioni contano\textsuperscript{[Senza fonte]}%\textsuperscript{{$\left[\parbox{15em}{\tiny\textit{Fonte: Maxwell ‘‘Manualotso'', un mercoledì pranzo, in un anonimo 100Montaditos}}\right]$}}
 	 '' e negli anni l'unità di misura rimase la stessa, ma la colonnina di mercurio cambiò lunghezza più e più volte per adattarsi a studi sempre più analitici - stranamente non cambio lo spessore, ma evidentemente quello non contava più di tanto. La colonna di mercurio puro rimase lo standard fino alla \textit{Conferenza Generale sui Pesi e le Misure} del 1948, dove l'\textit{ohm} fu ridefinito in termini assoluti. Attualmente, il \textit{siemens} di Siemens vale circa $\SI{0.9537}{\ohm}$ moderni.
@@ -351,21 +396,17 @@ dove
 	Il povero Siemens, nonostante l'unità della resistenza non prese il suo nome, non si perse d'animo e continuò a sperimentare con l'elettromagnetismo: nel 1867 brevettò una delle prime dinamo industriali --- casualmente lo stesso giorno in cui Sir Charles Wheatstone brevettò una sua personale versione della dinamo. Successivamente, nel 1888 divenne nobile, trasformando il suo cognome in \textit{von Siemens}, e negli anni a seguire la sua azienda si espanse fino a diventare l'odierna multinazionale \textit{Siemens AG}.\newline~\\
 	La resistenza elettrica aveva finalmente ottenuto un'unità di misura, ma ne mancava ancora una per la \textit{conduttanza}. O meglio, siccome tale grandezza era il reciproco della resistenza, mancava soltanto il nome dell'unità di misura: dopotutto, se i reciproci dei \textit{secondi} si chiamano \textit{hertz}, anche il reciproco della resistenza merita un nome, che diamine!
 	
-	Il primo ad accorgersi di cotale mancanza fu Lord Kelvin. Basandosi su alcune idee fornitegli dai suoi studenti,  nel 1883 Lord Kelvin propose al grande pubblico di utilizzare il termine \textit{mho}.\\
-	Se non ve ne foste accorti, \textit{mho} è letteralmente \textit{ohm} letto al contrario - perché un \textit{mho} è il reciproco di un \textit{ohm}.\\
+	Il primo ad accorgersi di cotale mancanza fu Lord Kelvin. Basandosi su alcune idee fornitegli dai suoi studenti,  nel 1883 Lord Kelvin propose al grande pubblico di utilizzare il termine \textit{mho}.	Se non ve ne foste accorti, \textit{mho} è letteralmente \textit{ohm} letto al contrario - perché un \textit{mho} è il reciproco di un \textit{ohm}.\\
 	Non fu l'unica proposta avanza in quell'incontro: Kelvin propose entusiasta - sempre su un idea di origine studentesca - che la corretta pronuncia di \textit{mho} si dovesse ottenere prendendo una registrazione di \textit{ohm} con il fonografo di Edison e ascoltandola al contrario.\\
 	Non si sa se Kelvin non si accorse di essere stato preso in giro dagli studenti o Kelvin stava cercando di prendersi gioco del suo pubblico, ma sta di fatto che \textit{mho} prese inesplicabilmente piede come nome per la conduttanza; anche il simbolo del \textit{mho} fu ottenuto ribaltando la Omega maiuscola dell'\textit{ohm}.
 
-	La cosa peculiare è che la malsana (in \textit{mho}, come direbbero gli Americani) idea venne riproposta in elettrotecnica in altri due contesti.
+	La cosa peculiare è che la malsana idea venne riproposta in elettrotecnica in altri due contesti.
 	\begin{itemize}
 		\item l'ingegnere Arthur E. Kennelly scelse il \textit{daraf} per descrivere l'\textit{elastanza elettrica}, in quanto essa è il reciproco della conduttanza e la conduttanza usa i \textit{farad}. In questo caso mi turba di più il nome dell'inverso della conduttanza che non il \textit{daraf}.
 		\item l'ingegnere Vladimir Karapetoff propose nel 1911 di usare gli \textit{yrneh} come reciproco dell'unità di misura dell'induttanza, l'\textit{henry}; la pronuncia, tra l'altro, doveva essere ‘‘earney''. Non dormo la notte cercando di capire come mai quella sia la pronuncia di \textit{yrneh}.
-	\end{itemize} alcuni ingegneri proposero di utilizzare i \textit{daraf} per il reciproco dei 
-	
+	\end{itemize}
 	Saltiamo molti anni e nella \textit{Conferenza Generale sui Pesi e le Misure} 1971 si decise che questo scherzo era durato abbastanza: l'unità di misura della conduttanza verrà chiamato \textit{siemens}... aspettate, \textit{di nuovo siemens}?\\
 	Eh sì, gli scienziati lì riuniti volevano dedicare un unità di misura a Siemens --- non hanno neanche specificato se a Werner von Siemens o al fratello Sir William Siemens --- senza tener conto che in passato è stata usata un'unità di misura dallo stesso nome per tutt'altri scopi. Non si curarono di questo e il \textit{siemens} fu approvato: da allora, usare il \textit{mho} per la conduttanza è considerato un nome non accettabile (e non consono) per un'unità di misura del SI e pertanto deve essere rigorosamente evitato.
-	
-	%TODO: conclusione
 \end{digressionwt} % yrneh % daraf
 % Dopo questa breve ma importante digressione passiamo alle unità 
 \section{Potenza dissipata da una resistenza}
@@ -388,7 +429,7 @@ Consideriamo il caso particolare di un conduttore ohmico cilindrico di lunghezza
 \end{equation}
 quindi la potenza totale è data da
 \begin{equation*}
-	P=\int_{V}P_VdV=P_V\mathcal{Vol}=jE\Sigma d=\underbrace{\Sigma j}_{=I}\underbrace{Ed}_{=V}=IV
+	P=\int_{V}P_VdV=P_V\mathcal{Vol}=jE\Sigma d=\underbrace{\Sigma j}_{=I}\cdot\underbrace{Ed}_{=V}=IV
 \end{equation*}
 dove $V$ è il calo di potenziale ai capi del conduttore. In sostanza, in presenza di un calo di potenziale si ha una dispersione di energia sotto forma di calore: maggiore è la corrente nel conduttore, maggiore sarà l'energia dispersa.
 
@@ -396,11 +437,11 @@ Cosa succede, a livello microscopico? La \ddp ai capi del conduttore generano un
 
 Questo è quello che viene chiamato \textbf{effetto Joule}\index{effetto Joule}; nella sua forma più basica questo si esprime dalla legge
 \begin{equation}
-	P=IV
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{P=IV}
 \end{equation}
 Se assumiamo che il conduttore trasforma completamente l'energia in calore, allora
 \begin{equation}
-	P=IV=I^2R=\frac{V^2}{R}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{P=IV=I^2R=\frac{V^2}{R}}
 \end{equation}
 \begin{example}
 	Qualunque elettrodomestico o oggetto che produce calore, in una forma o nell'altra, a partire da corrente elettrica si basa sull'effetto Joule, come lampadine, fon, forni...
@@ -439,7 +480,7 @@ Possiamo ora associare al generatore la \textbf{forza elettromotrice}.
 \begin{define}[Forza elettromotrice]
 	La forza elettromotrice (\fem) del generatore è la quantità
 	\begin{equation}
-		f=\int_{\gamma}\vba{E}_f\vdot d\vba{s}=\int_{B}^{A}\vba{E}_f\vdot d\vba{s}\label{femRistretta}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{f=\int_{\gamma}\vba{E}_f\vdot d\vba{s}=\int_{B}^{A}\vba{E}_f\vdot d\vba{s}}\label{femRistretta}
 	\end{equation}
 	dove $\gamma$ è un cammino \textit{interno} al generatore dal capo negativo $B$ al capo positivo $A$.
 \end{define}
@@ -461,15 +502,15 @@ dove abbiamo utilizzato il fatto che $\vba{E}_s$ è conservativo.
 
 La precedente definizione di forza elettromotrice può essere generalizzata all'intero circuito se non è possibile circoscrivere in una delimitata zona il \textbf{campo elettromotore}:
 \begin{equation}
-	f=\oint \vba{E}_f\vdot d\vba{s}\label{femGeneralizzata}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{f=\oint \vba{E}_f\vdot d\vba{s}}\label{femGeneralizzata}
 \end{equation}
 La \eqref{femGeneralizzata} si riduce alla \eqref{femRistretta} se $\vba{E}_f$ è localizzato solo lungo un certo tratto $\gamma$ del circuito. Ancor più in generale vale per il campo elettrico \textit{totale} $\vba{E}$ la legge
 \begin{equation}
-	f=\oint \vba{E}\vdot d\vba{s}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{f=\oint \vba{E}\vdot d\vba{s}}
 \end{equation}
 dato che il contributo di $\vba{E}_s$ al lavoro di $\vba{E}$ è nullo essendo conservativo.
 \section{Circuiti elettrici}
-Nel \refChapter{conduttori} abbiamo introdotto brevemente i \textit{circuiti elettrici}, limitandoci a studiare come si comportano dei condensatori collegati in serie e in parallelo. Ora riprendiamo e approfondiamo ciò che abbiamo detto, alla luce delle nostre nuove conoscenze sulla corrente elettrica.
+Nel \autoref{chap:conduttori} abbiamo introdotto brevemente i \textit{circuiti elettrici}, limitandoci a studiare come si comportano dei condensatori collegati in serie e in parallelo. Ora riprendiamo e approfondiamo ciò che abbiamo detto, alla luce delle nostre nuove conoscenze sulla corrente elettrica.
 \begin{define}[Circuito elettrico]
 	Un \textbf{circuito elettrico}\index{circuito elettrico} è un insieme interconnesso di componenti elettrici, sono connessi da fili conduttori in un percorso chiuso in modo che la corrente elettrica possa fluire con continuità.
 \end{define}
@@ -510,7 +551,7 @@ Lo scopo dell'\textbf{analisi dei circuiti elettrici} è quella di \textit{risol
 \end{define}
 Si possono già fare alcune osservazioni:
 \begin{itemize}
-	\item In un collegamento \textit{in serie}, la \textit{carica totale} $q$ rimane costante lungo il percorso e ogni oggetto riceve la \textit{stessa}\footnote{Non necessariamente sono le stesse identiche cariche: ad esempio, nel caso dei condensatori le cariche che partono dall'altra piastra collegata \textit{non} sono le stesse che sono arrivate sull'altra, bensì sono cariche respinte da quelle presenti nell'altra armatura. In ogni caso, ciò che non cambia è la \textit{quantità} di carica totale.}; di conseguenza, anche la \textit{corrente} risulta essere sempre la \textit{stessa} in ogni componente.
+	\item In un collegamento \textit{in serie}, la \textit{carica totale} $q$ rimane costante lungo il percorso e ogni oggetto riceve la \textit{stessa}\footnote{Non necessariamente sono le stesse cariche nell'intero circuito: ad esempio, nel caso dei condensatori le cariche che partono dall'altra piastra collegata \textit{non} sono le stesse che sono arrivate sull'altra, bensì sono cariche respinte da quelle presenti nell'altra armatura. In ogni caso, ciò che non cambia è la \textit{quantità} di carica totale.}; di conseguenza, anche la \textit{corrente} risulta essere sempre la \textit{stessa} in ogni componente.
 	\item In un collegamento \textit{in parallelo}, la carica si \textit{distribuisce} nei vari rami in modo proporzionale alle caratteristiche delle componenti, e lo stesso fa la corrente elettrica. La carica e la corrente complessiva in un collegamento in parallelo è quindi la \textit{somma} di quella nei vari fili.
 	\item In un collegamento \textit{in serie}, la differenza di potenziale diminuisce per ogni componente che è presente nel filo. Pertanto, la \ddp in un collegamento in serie è la somma di quella tra tutte i capi delle componenti.
 	\item In un collegamento \textit{in parallelo}, la differenza di potenziale è la stessa ai capi di ogni componente, perché metà delle estremità sono attaccate allo stesso filo e l'altra metà ad un altro filo.
@@ -579,9 +620,9 @@ Di seguito sono elencate i pittogrammi di alcune componenti elettriche che abbia
 		\end{tikzpicture}
 	\end{center}
 \end{itemize}
-\subsection{Condensatori in serie e in parallelo}
-Qui riprendiamo solamente i risultati, per come ricavarli rimandiamo a pag. \pageref{condensatoreSerieParallelo}, \refChapterOnly{conduttori}.
+\subsection{Condensatori in serie e in parallelo}\label{condensatoreSerieParallelo}
 \paragraph{Condensatori in serie}
+Consideriamo due condensatori $C_1$ e $C_2$ collegati in serie; se fossero piani, potremmo supporre che la piastra inferiore del primo è collegata alla superiore della seconda.
 \begin{center}		
 	\begin{tikzpicture}[voltage dir=RP]
 		\draw (0,0) to node[below, pos=0.5]{$+q$} (0.5, 0)
@@ -592,14 +633,31 @@ Qui riprendiamo solamente i risultati, per come ricavarli rimandiamo a pag. \pag
 		to node[below, pos=0.5]{$-q$} (3.5, 0);
 	\end{tikzpicture}
 \end{center}
+Per quanto osservato, la carica complessiva è la stessa in ogni componente:
+\begin{equation*}
+	q_1=q_2=q_{tot}
+\end{equation*}
+Al contrario, il potenziale diminuisce ad ogni nuovo condensatore che si incontra lungo il filo e in particolare la \ddp ai capi dell'intero sistema è la somma delle \ddp ai capi delle singole componenti.
+\begin{equation*}
+	\Delta V=\Delta V_1+\Delta V_2
+\end{equation*}
+Allora, se
+\begin{align*}
+	C_1&=\frac{q_1}{\Delta V_1}=\frac{q_{tot}}{\Delta V_1} & C_2=\frac{q_2}{\Delta V_2}=\frac{q_{tot}}{\Delta V_2}
+\end{align*}
+si ha che, complessivamente, il sistema corrisponde ad un condensatore di capacità
+\begin{equation*}
+	C_{eq}=\frac{q_{tot}}{\Delta V}=\frac{q_{tot}}{\Delta V_1+\Delta V_2}\implies \frac{1}{C_{eq}}=\frac{\Delta V_1}{q_{tot}}+\frac{\Delta V_2}{q_{tot}}=\frac{1}{C_1}+\frac{1}{C_2}
+\end{equation*}
 \begin{equation}
-	\frac{1}{C_{eq}}=\frac{1}{C_1}+\frac{1}{C_2}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\frac{1}{C_{eq}}=\frac{1}{C_1}+\frac{1}{C_2}}
 \end{equation}
 Nel caso generale di $n$ condensatori in serie:
 \begin{equation}
-	\frac{1}{C_{eq}}=\sum_{i=1}^{n}\frac{1}{C_i}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\frac{1}{C_{eq}}=\sum_{i=1}^{n}\frac{1}{C_i}}
 \end{equation}
 \paragraph{Condensatori in parallelo}
+Consideriamo due condensatori $C_1$ e $C_2$ collegati in parallelo;  se fossero piani, potremmo che le pistre superiori siano collegate ad uno stesso filo e, in modo analogo, le piastre inferiori siano collegate entrambe ad un altro filo.
 \begin{center}		
 	\begin{tikzpicture}[voltage dir=RP]
 		\draw (-1,0) to [short, -*] (0,0);
@@ -614,13 +672,30 @@ Nel caso generale di $n$ condensatori in serie:
 		\draw (1.5, -1) -- (1.5, 1);
 	\end{tikzpicture}
 \end{center}
+Per quanto osservato, la carica complessiva si distribuirà nei due fili:
+\begin{equation*}
+	q_{tot}=q_1+q_2
+\end{equation*}
+Poiché le piastre superiori sono collegate dallo stesso filo, essendo questo un unico conduttore equipotenziale, si ha in entrambe le armature in alto lo stesso potenziale $V_1$. Lo stesso vale per le armature inferiori, che sono collegate da uno stesso filo e quindi hanno potenziale $V_2$. Segue che la \ddp $\Delta V_1$ tra le piastre del primo condensatore di capacità $C_1$ e la \ddp $\Delta V_2$ tra le piastre del secondo condensatore di capacità $C_2$ è la stessa:
+\begin{equation*}
+	\Delta V_1=\Delta V_2=\Delta V
+\end{equation*}
+Allora, se
+\begin{align*}
+	C_1&=\frac{q_1}{\Delta V_1}=\frac{q_1}{\Delta V} & C_2=\frac{q_2}{\Delta V_2}=\frac{q_2}{\Delta V}
+\end{align*}
+si ha che, complessivamente, il sistema corrisponde ad un condensatore di capacità
+\begin{equation*}
+	C_{eq}=\frac{q_{tot}}{\Delta V}=\frac{q_1+q_2}{\Delta V}=\frac{q_1}{\Delta V}+\frac{q_2}{\Delta V}=C_1+C_2
+\end{equation*}
 \begin{equation}
-	C_{eq}=C_1+C_2
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{C_{eq}=C_1+C_2}
 \end{equation}
 Nel caso generale di $n$ condensatori in parallelo:
 \begin{equation}
-	C_{eq}=\sum_{i=1}^{n}C_i
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{C_{eq}=\sum_{i=1}^{n}C_i}
 \end{equation}
+Qui riprendiamo solamente i risultati, per come ricavarli rimandiamo a pag. \pageref{condensatoreSerieParallelo}, \autoref{chap:conduttori}.
 \subsection{Resistori in serie e in parallelo}
 \paragraph{Resistori in serie}
 Consideriamo due resistori $R_1$ e $R_2$, collegati in serie. 
@@ -647,11 +722,11 @@ si ha che, complessivamente, il sistema corrisponde ad un resistore di capacità
 	R_{eq}=\frac{V}{I}=\frac{V_1+V_2}{I}=\frac{V_1}{I}+\frac{V_2}{I}=R_1+R_2
 \end{equation*}
 \begin{equation}
-	R_{eq}=R_1+R_2
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{R_{eq}=R_1+R_2}
 \end{equation}
 Nel caso generale di $n$ resistori in serie:
 \begin{equation}
-	R_{eq}=\sum_{i=1}^{n}R_i
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{R_{eq}=\sum_{i=1}^{n}R_i}
 \end{equation}
 \paragraph{Resistori in parallelo}
 Consideriamo due resistori $R_1$ e $R_2$, collegati in parallelo.
@@ -682,11 +757,11 @@ si ha che, complessivamente, il sistema corrisponde ad un resistore di capacità
 	\frac{1}{R_{eq}}=\frac{I}{V}=\frac{I_1+I_2}{V}=\frac{I_1}{V}+\frac{I_2}{V}=\frac{1}{R_1}+\frac{1}{R_2}
 \end{equation*}
 \begin{equation}
-	\frac{1}{R_{eq}}=\frac{1}{R_1}+\frac{1}{R_2}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\frac{1}{R_{eq}}=\frac{1}{R_1}+\frac{1}{R_2}}
 \end{equation}
 Nel caso generale di $n$ resistori in parallelo:
 \begin{equation}
-	\frac{1}{R_{eq}}=\sum_{i=1}^{n}\frac{1}{R_i}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\frac{1}{R_{eq}}=\sum_{i=1}^{n}\frac{1}{R_i}}
 \end{equation}
 \subsubsection{Eserciziamoci! Resistori in serie e in parallelo}
 \begin{exercise}
@@ -730,7 +805,7 @@ Nel caso generale di $n$ resistori in parallelo:
 	\begin{itemize}
 		\item \textbf{Passo 1:} semplifichiamo il ramo $\overrightarrow{CDEF}$, sostituendo i tre resistori in serie con uno equivalente.
 		\begin{center}		
-			\begin{tikzpicture}[voltage dir=RP]
+			\begin{tikzpicture}[voltage dir=RP,scale=0.8]
 				\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
 				to [resistor, R=$R_1$, -*, i=$I$] (2.5,2.5)
 				to [resistor, R=$R_1$, -*, i_=$I_2$] (2.5,0)
@@ -750,7 +825,7 @@ Nel caso generale di $n$ resistori in parallelo:
 		\end{equation*}
 		\item \textbf{Passo 2:} semplifichiamo i rami paralleli collegati ai nodi $C$ e $F$.
 		\begin{center}		
-			\begin{tikzpicture}[voltage dir=RP]
+			\begin{tikzpicture}[voltage dir=RP,scale=0.8]
 				\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
 				to [resistor, R=$R_1$, i=$I$] (2.5,2.5)
 				to [resistor, R=$R''$, i_=$I$] (2.5,0)
@@ -768,7 +843,7 @@ Nel caso generale di $n$ resistori in parallelo:
 		Si osservi che a questo passo la corrente che scorre in ogni tratto del circuito è $I$.
 		\item \textbf{Passo 3:} semplifichiamo i tre resistori in serie rimasti con un resistore equivalente.
 		\begin{center}		
-			\begin{tikzpicture}[voltage dir=RP]
+			\begin{tikzpicture}[voltage dir=RP,scale=0.8]
 				%\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
 				%to [resistor, R=$R_1$, i=$I$] (2.5,2.5)
 				%to [resistor, R=$R''$, i_=$I$] (2.5,0)
@@ -834,13 +909,13 @@ In nostro aiuto vengono due ‘‘regole'' dell'analisi dei circuiti, dette \tex
 \begin{theoremaqed}[Prima legge di Kirchhoff o legge dei nodi]\index{legge!di Kirchhoff!dei nodi}
 	La somma algebrica di tutte le correnti che entrano un nodo è pari alla somma algebra di tutte le correnti che escono dal nodo o, equivalentemente, la somma algebrica di tutte le correnti che attraversano un nodo del circuito deve essere pari a zero:
 	\begin{equation}
-		\sum_k^nI_k=0
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\sum_{k=1}^nI_k=0}
 	\end{equation}
 	$I_k$ è una corrente \textit{con segno} che attraversa il nodo dal ramo $k$-esimo, mentre $n$ è il numero di rami connessi al nodo.
 \end{theoremaqed}
 Il segno della corrente è fissato arbitrariamente per indicare se la corrente è entrante oppure uscente\footnote{In generale, si pone $+$ per la corrente entrante in un nodo e $-$ per la corrente uscente.}.
-%TODO: disegno di esempio
-In casi complessi non è però possibile determinare quale sia il verso di percorrenza della corrente, soprattutto in presenza di più generatori di \fem. In tal caso, si può \textit{ipotizzare} un verso di percorrenza della corrente nei rami in cui esso sia \textit{ignoto} e applicare poi le leggi di Kirchhoff. Supponendo di poter risolvere il circuito, il vero verso della corrente si deduce in base al segno della corrente:
+
+In casi più complessi non è però possibile determinare quale sia il verso di percorrenza della corrente, soprattutto in presenza di più generatori di \fem. In tal caso, si può \textit{ipotizzare} un verso di percorrenza della corrente nei rami in cui esso sia \textit{ignoto} e applicare poi le leggi di Kirchhoff. Supponendo di poter risolvere il circuito, il vero verso della corrente si deduce in base al segno della corrente:
 \begin{itemize}
 	\item Il valore della corrente ottenuta ha segno \textit{positivo}; in tal caso, il verso ipotizzato è quello \textit{reale}.
 	\item Il valore della corrente ottenuta ha segno \textit{negativo}; in tal caso, il verso ipotizzato è \textit{errato} e va \textit{invertito}.
@@ -849,7 +924,7 @@ In casi complessi non è però possibile determinare quale sia il verso di perco
 \begin{theoremaqed}[Seconda legge di Kirchhoff o legge delle maglie]\index{legge!di Kirchhoff!dei nodi}
 	La somma algebrica di tutte le differenze di potenziale attorno una maglia è zero:
 	\begin{equation}
-		\sum_k^nV_k=0
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\sum_{k=1}^nV_k=0}
 	\end{equation}
 	$V_k$ è un voltaggio con segno, mentre $n$ è il numero di componenti e generatori che causano un voltaggio.
 \end{theoremaqed}
@@ -887,7 +962,7 @@ In casi complessi non è però possibile determinare quale sia il verso di perco
 			\node at (2,0)  {$+V_k$};
 		\end{tikzpicture}
 	\end{center}
-\end{itemize}%TODO: add rules diagram
+\end{itemize}
 \subsubsection{Eserciziamoci! Leggi di Kirchhoff}
 \begin{exercise}
 		Si consideri il seguente circuito.
@@ -1028,27 +1103,29 @@ Consideriamo il caso semplice di un circuito RC con un resistore e un condensato
 \end{observe}
 Formalizziamo questo discorso empirico usando la \textit{legge di Kirchhoff} delle maglie. Fissato come verso di percorrenza della maglia quello della corrente $I$, la somma delle \ddp è
 \begin{align*}
-	&\mathcal{E}-V_R-V_C=0\\
-	&\mathcal{E}-IR-\frac{q}{C}=0\\
-	&\mathcal{E}-\dv{q}{t}R-\frac{q}{C}=0
+	\mathcal{E}-V_R-V_C&=0\\
+	\mathcal{E}-IR-\frac{q}{C}&=0\\
+	\mathcal{E}-\dv{q}{t}R-\frac{q}{C}&=0
 \end{align*}
 Risolviamo questa \textit{equazione differenziale del prim'ordine} per descrivere la carica $q=q(t)$ del condensatore:
-\begin{align*}%TODO: fix
-	&\dv{q}{t}=\frac{\mathcal{E}C-q}{RC}\\ &\int_{0}^{q(t)}\frac{dq}{q-\mathcal{E}C}=-\frac{1}{RC}\int_{0}^{t}dt\\
-	&\eval{\log{q-\mathcal{E}C}}_{0}^{q(t)}=-\frac{1}{RC}\eval{t}_{0}^{t}\\
-	&\log{\frac{q(t)-\mathcal{E}C}{-\mathcal{E}C}}=-\frac{t}{RC}\\
-	&\frac{q(t)-\mathcal{E}C}{-\mathcal{E}C}=e^{-\frac{t}{RC}}
+\begin{align*}
+	\dv{q}{t}&=\frac{\mathcal{E}C-q}{RC}\\ \int_{0}^{q(t)}\frac{dq}{q-\mathcal{E}C}&=-\frac{1}{RC}\int_{0}^{t}dt\\
+	\eval{\log{q-\mathcal{E}C}}_{0}^{q(t)}&=-\frac{1}{RC}\eval{t}_{0}^{t}\\
+	\log{\frac{q(t)-\mathcal{E}C}{-\mathcal{E}C}}&=-\frac{t}{RC}\\
+	\frac{q(t)-\mathcal{E}C}{-\mathcal{E}C}&=e^{-\frac{t}{RC}}
 \end{align*}
 \begin{equation}
-	q(t)=\mathcal{E}C\left(1-e^{-\frac{t}{RC}}\right)=\left(1-e^{-\frac{t}{\tau}}\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{q(t)=\mathcal{E}C\left(1-e^{-\frac{t}{RC}}\right)=\mathcal{E}C\left(1-e^{-\frac{t}{\tau}}\right)}
 \end{equation}
-%TODO: inserire grafico
+\begin{center}
+	\includegraphics[width=0.85\textwidth]{images/chp5/chp5caricacondgraf1.pdf}
+\end{center}
 \paragraph{Tempo caratteristico del circuito RC}
 L'andamento temporale della carica è dettato dal \textbf{tempo caratteristico del circuito RC}\index{tempo caratteristico!del circuito RC}:
 \begin{equation}
-	\tau=RC
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\tau=RC}
 \end{equation}
-Essa è una costante dimensionalmente pari ad una quantità temporale e quindi nel SI si misura in secondi:
+Essa è una costante dimensionalmente pari ad una quantità temporale e quindi nel SI si misura in \textit{secondi}:
 \begin{equation*}
 	\left[\tau\right]=\left[R\right]\cdot\left[C\right]=\mathsf{M} \mathsf{L}^2  \mathsf{T}^{-3}\mathsf{I}^{-2}\cdot\mathsf{M}^{-1}\mathsf{L}^{-2}\mathsf{T}^4\mathsf{I}^2=\mathsf{T}
 \end{equation*}
@@ -1056,34 +1133,36 @@ Come previsto, la carica dopo un tempo di carica \textit{infinito} è
 \begin{equation}
 	q_{\infty}=\mathcal{E}C
 \end{equation}
-Per un \textit{matematico}, ciò significherebbe che il condensatore non può mai caricarsi completamente; invece, per un \textit{fisico} questo si realizza - approssimando, chiaramente! - per un tempo tra $3\tau=3RC$ e $3\tau=3RC$. Infatti, si ha
+Per un \textit{matematico}, ciò significherebbe che il condensatore non può mai caricarsi completamente; invece, per un \textit{fisico} questo si realizza - approssimando, chiaramente! - per un tempo tra $3\tau=3RC$ e $5\tau=5RC$. Infatti, si ha
 \begin{align*}
 q(3\tau)&=\mathcal{E}C\left(1-e^{-\nicefrac{3\Ccancel[red]{\tau}}{\Ccancel[red]{\tau}}}\right)=\num{0.950}\cdot\mathcal{E}C\\
-q(5\tau)&=\mathcal{E}C\left(1-e^{-\nicefrac{3\Ccancel[red]{\tau}}{\Ccancel[red]{\tau}}}\right)=\num{0.993}\cdot\mathcal{E}
+q(5\tau)&=\mathcal{E}C\left(1-e^{-\nicefrac{5\Ccancel[red]{\tau}}{\Ccancel[red]{\tau}}}\right)=\num{0.993}\cdot\mathcal{E}C
 \end{align*}
 i quali sono valori \textit{molto} vicini al valore asintotico $q_{\infty}$ e che nella pratica possiamo assimilare ad esso.
 \paragraph{Corrente nel circuito RC}
 Per ottenere la corrente che attraversa il circuito ci basta considerare il flusso di corrente attraverso il condensatore - in poche parole, basta derivare $q(t)$ rispetto al tempo:
 \begin{equation}
-	I(t)=\dv{q(t)}{t}=\frac{\mathcal{E}}{R}e^{-\frac{t}{RC}}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I(t)=\dv{q(t)}{t}=\frac{\mathcal{E}}{R}e^{-\frac{t}{RC}}}
 \end{equation}
-%TODO: inserire grafico
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{images/chp5/chp5caricacondgraf2.pdf}
+\end{center}
 Come previsto, la corrente che percorre inizialmente il circuito è $\dfrac{\mathcal{E}}{R}$, mentre asintoticamente tende a zero.
 \paragraph{Differenze di potenziali nel circuito RC}
 Noto carica e corrente, i valori delle \ddp ai capi del resistore e del condensatore sono facili da ricavare:
-\begin{align}
+\begin{empheq}[box=\tcmathboxgeneral]{align}
 	V_C(t)&=\frac{q(t)}{C}=\mathcal{E}\left(1-e^{-\frac{t}{RC}}\right)\\
 	V_R(t)&=RI(t)=\mathcal{E}e^{-\frac{t}{RC}}
-\end{align}
+\end{empheq}
 Riprendendo quanto già detto, il voltaggio del condensatore aumenta al crescere del tempo di carica, mentre quello del resistore diminuisce.
 \paragraph{Potenze ed energia nel circuito RC}
 La \textit{potenza} erogata dal generatore è ovviamente dipendente dal tempo e vale
 \begin{equation}
-	P_{gen}(t)=\mathcal{E}I(t)=\frac{\mathcal{E}^2}{R}e^{-\frac{t}{RC}}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{P_{gen}(t)=\mathcal{E}I(t)=\frac{\mathcal{E}^2}{R}e^{-\frac{t}{RC}}}
 \end{equation}
 mentre quella dissipata del resistore è, in base all'effetto Joule,
 \begin{equation}
-	P_{R}(t)=I^2(t)R=\frac{\mathcal{E}^2}{R}e^{-\frac{2t}{RC}}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{P_{R}(t)=I^2(t)R=\frac{\mathcal{E}^2}{R}e^{-\frac{2t}{RC}}}
 \end{equation}
 Il lavoro per caricare il condensatore è $W=\dfrac{1}{2}V_Cq$; la potenza elementare relativa è la sua derivata temporale\footnote{Si vede, infatti che
 \begin{equation*}
@@ -1102,16 +1181,19 @@ Sul lungo termine, l'energia prodotta dal generatore complessivamente è
 	W_{gen}=\int_{0}^{+\infty}P_{gen}(t)dt=\frac{\mathcal{E}^2}{R}\int_{0}^{+\infty}e^{-\frac{t}{RC}}=-\frac{\mathcal{E}^2}{\Ccancel[red]{R}}\Ccancel[red]{R}C\eval{e^{-\frac{t}{RC}}}_{0}^{+\infty}=\mathcal{E}^2C
 \end{equation*}
 \begin{equation}
-	W_{R}=\frac{1}{2}\mathcal{E}^2C
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{W_{gen}=\mathcal{E}^2C}
 \end{equation}
 mentre quella dissipata dal resistore è
 \begin{equation*}
 	W_{R}=\int_{0}^{+\infty}P_{R}(t)dt=\frac{\mathcal{E}^2}{R}\int_{0}^{+\infty}e^{-\frac{2t}{RC}}=-\frac{1}{2}\frac{\mathcal{E}^2}{\Ccancel[red]{R}}\Ccancel[red]{R}C\eval{e^{-\frac{2t}{RC}}}_{0}^{+\infty}=\frac{1}{2}\mathcal{E}^2C
 \end{equation*}
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{W_{R}=\frac{1}{2}\mathcal{E}^2C}
+\end{equation}
 \begin{observe}
-	L'energia dissipata complessivamente dal resistore è indipendente dal valore della resistenza, ma è sempre la metà di quanto produce il generatore di \fem.
+	L'energia dissipata complessivamente dal resistore è indipendente dal valore della resistenza, ma è sempre la \textit{metà} di quanto produce il generatore di \fem.
 \end{observe}
-Il lavoro di carica del condensatore è, per \textit{principio di conservazione dell'energia}, pari a 
+Per il \textit{principio di conservazione dell'energia}, il lavoro di carica del condensatore è pari a 
 \begin{equation}
 	W_{gen}=\frac{1}{2}\mathcal{E}^2C
 \end{equation}

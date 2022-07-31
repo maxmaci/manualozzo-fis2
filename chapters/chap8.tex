@@ -11,7 +11,7 @@
 \begin{introduction}
 	‘‘L’elettricità e il magnetismo sono quelle forze della natura grazie alle quali le persone che non sanno nulla di elettricità e magnetismo possono spiegare tutto.''
 	\begin{flushright}
-		\textsc{Egon Friedell}, cercando di spiegare nulla.
+		\textscsl{Egon Friedell}, cercando di spiegare nulla.
 	\end{flushright}
 \end{introduction}
 \lettrine[findent=1pt, nindent=0pt]{P}{er}  %TODO: intro
@@ -134,7 +134,9 @@ Di fatto, il circuito elettrico è l'equivalente per il lavoro magnetostatico a 
 Per un campo magnetico uniforme sappiamo che la forza di Laplace su un circuito chiuso è \textit{nulla}, quindi anche il lavoro compiuto è \textit{nullo}.
 \subsection{Un esempio: la spira circolare vicino al magnete cilindrico}
 Consideriamo un \textit{magnete cilindrico} con asse lungo l'asse $z$; poniamo nello spazio una spira circolare $\gamma$, percorsa da corrente, in modo da essere parallela alla faccia orizzontale del magnete e tale per cui il centro della spira stia sull'asse $z$.
-%TODO: immagine
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/chp8/chp8magnetecilindrico1.pdf}
+\end{center}
 Per ovvi motivi, poniamoci nelle coordinate cilindriche:
 \begin{equation*}
 	\begin{cases}
@@ -163,9 +165,11 @@ dove $\phi$ è l'angolo tra l'asse $z$ e il campo. Calcoliamoci la forza: per la
 \begin{equation*}
 	\vba{F}=I\int d\vba{s}\cross\vba{B}
 \end{equation*}
-Per la regola della mano destra avremo come direzione e verso della forza quello in figura, ortogonale sia a $d\vba{s}$ che a $\vba{B}$.
-%TODO: inserire figura
-Ci si aspetta che sul piano orizzontale della spira le forze si compensino, mentre che le altre forze siano dirette verso il basso e a causa di esse la spira venga quindi ‘‘risucchiata'' verso il basso. Facendo i dovuti calcoli,
+Per la regola della mano destra la forza sarà ortogonale sia a $d\vba{s}$ che a $\vba{B}$ e diretta verso il basso: in particolare, ci si aspetta che le componenti radiali di tali forze si compensino, in modo che la spira venga quindi ``risucchiata'' verso il basso senza deformarsi.
+\begin{center}
+	\includegraphics[width=0.35\textwidth]{images/chp8/chp8magnetecilindrico2.pdf}
+\end{center}
+Facendo i dovuti calcoli,
 \begin{equation*}
 	\vba{F}=I\int d\vba{s}\cross\vba{B}=IR\int\vbh{u}_{\theta}\cross\left(B\cos\phi\vbh{u}_z+B\sin\phi\vbh{u}_r\right)d\theta\squarequal
 \end{equation*}
@@ -191,7 +195,7 @@ Segue quindi che la forza subita dalla spira è diretta verso il basso, come pre
 \begin{equation}
 	\vba{F}=-2\pi R I B\sin\phi\vbh{u}_z
 \end{equation}
-Vorremmo ora calcolare questa $\vba{F}$ come
+Vorremmo ora esprimere questa forza come
 \begin{equation*}
 	\vba{F}=I\grad{\Phi_{\Sigma}(\vba{B})}
 \end{equation*}
@@ -202,6 +206,9 @@ Per farlo, usiamo un trucco: consideriamo, in aggiunta alla spira circolare, un'
 	\item $\sigma$ la superficie laterale del cilindro.
 \end{itemize}
 Scegliamo un'orientazione di $\vbh{u}_n$ in modo che sia uscente dal cilindro.
+\begin{center}
+	\includegraphics[width=0.35\textwidth]{images/chp8/chp8magnetecilindrico3.pdf}
+\end{center}
 % nelle note: il flusso della superficie attraversi il circuito nella stessa direzione sia sopra, sia sotto.
 In questo caso, poniamo il versore normale di $\Sigma'$ nella direzione positiva dell'asse $z$ e quello di $\Sigma$ uguale e contrario. Allora
 \begin{equation*}
@@ -221,8 +228,8 @@ Calcoliamo la derivata di tale funzione:
 \end{equation*}
 Si osservi che
 \begin{align*}
-	\Phi_{\sigma}(\vba{B})&=\int_{\sigma}\vba{B}\vdot\vbh{u}_nd\sigma)=&&\\
-	&=\int_{\sigma}B\vdot\vbh{u}_Rd\sigma&&\text{(versore della sup. laterale)}\\
+	\Phi_{\sigma}(\vba{B})&=\int_{\sigma}\vba{B}\vdot\vbh{u}_nd\sigma=&&\\
+	&=\int_{\sigma}B\vdot\vbh{u}_Rd\sigma=&&\text{(versore della sup. laterale)}\\
 	&=\int_{\sigma}\left(B\cos\phi\vbh{z}+B\sin\phi\vbh{u}_R\right)\vdot\vbh{u}_Rd\sigma=&&\\
 	&=\int_{\sigma}B\sin\phi d\sigma=&&\\
 	&=B\sin\phi\int_{\sigma}d\sigma=&&\text{(}B\sin\phi\ \text{costante su}\ \sigma\ \text{per}\ \Delta z\to 0\text{)}\\
@@ -237,8 +244,8 @@ ossia
 	\vba{F}=-2\pi IRB\sin\phi\vbh{u}_z=I\pdv{\Phi_{\Sigma}}{z}\vbh{u}_z
 \end{equation}
 \begin{observe}
-	Abbiamo calcolato la forza tramite il flusso \textit{traverso}, cioè quello della superficie laterale, senza calcolare in realtà il flusso del cilindro.
-\end{observe} %TODO: che osservazione del piffero.
+	La forza dipende della variazione del flusso tramite l'area della spira; tuttavia, abbiamo appena mostrato che tale variazione si esprime in termini di flusso \textit{traverso}, cioè quello della \textit{superficie laterale}.
+\end{observe}
 \subsection{Unità di misura del flusso del campo magnetico}
 L'unità di misura del flusso del campo magnetico si può derivare in diversi modi. Dalla definizione di flusso stesso, si ha
 \begin{equation*}
@@ -264,24 +271,37 @@ Procediamo con calma. Innanzitutto, sebbene sia difficilmente osservabile, anche
 \begin{itemize}
 	\item Se la carica non è in movimento, non si ha alcun campo; dobbiamo supporre che $\vba{B}$ debba dipendere dalla velocità.
 	\item Se il campo agisce su un'altra carica in movimento, la cui velocità ha direzione parallela a $\vba{v}$, la forza di Lorentz che ne consegue deve essere tale da risultare attrattiva se i versi delle velocità sono concordi e repulsiva se sono discordi. 
-\end{itemize}   Inolt \\
+\end{itemize}
 Fu \textbf{Oliver Heaviside} nel 1888 a derivare, dalle leggi di Maxwell, la legge matematica che descrive il campo magnetico generato da una singola carica in movimento:
 \begin{equation}
 	\vba{B}=\frac{\mu_0}{4\pi}\frac{q\vba{v}\cross\vbh{u}_r}{r^2}
 \end{equation}
-La prima cosa che notiamo è che a tutti gli effetti tale legge soddisfa quanto supposto ed osservato: il campo magnetico \textit{dipende} dalla velocità, mentre il prodotto vettoriale garantisce la seconda osservazione.
+La prima cosa che notiamo è che, a tutti gli effetti, tale legge soddisfa quanto supposto ed osservato: il campo magnetico \textit{dipende} dalla velocità, mentre il prodotto vettoriale garantisce la seconda osservazione.
 
 \begin{example}
-	Per capire meglio la presenza del prodotto vettoriale consideriamo la seguente situazione: due particelle $1$ e $2$ in moto, entrambe con velocità $\vba{v}$ concorde e parallele, sono attratte l'un l'altra da forze di Lorentz  uguali e contrarie. La forza che subisce la particella 2 è dovuta all'azione del campo magnetico $\vba{B}_1$ generato dalla prima:
-	\begin{equation*}
-		\vba{F}_{2,1}=q_2\vba{v}_2\cross\vba{B}_1
-	\end{equation*}
-	%TODO: disegno
-	Supponendo che le cariche siano negative, per avere che $\vba{F}_{2,1}$ sia attrattiva (cioè diretta verso la particella 1), per la regola della mano destra $\vba{B}_1$ deve essere entrante il piano dove viaggiano le particelle. Allora, il prodotto vettoriale di $\vba{v}$ per il versore $\vbh{u}_r$ diretto da 1 a 2 permette a $vba{B}_1$ di avere verso entrante.
+	Per capire meglio la presenza del prodotto vettoriale consideriamo la seguente situazione: due particelle $1$ e $2$ in moto, entrambe con velocità $\vba{v}$ concorde e parallele, sono attratte l'un l'altra da forze di Lorentz  uguali e contrarie. La forza che subisce la particella $2$ è dovuta all'azione del campo magnetico $\vba{B}_1$ generato dalla prima.~\\
+	\begin{minipage}{0.6\textwidth}
+		\begin{equation*}
+			\vba{F}_{2,1}=q_2\vba{v}_2\cross\vba{B}_1
+		\end{equation*}
+	Supponendo che le cariche siano negative, per avere che $\vba{F}_{2,1}$ sia attrattiva (cioè diretta verso la particella $1$), per la regola della mano destra $\vba{B}_1$ deve essere entrante il piano dove viaggiano le particelle. Allora, il prodotto vettoriale di $\vba{v}$ per il versore $\vbh{u}_r$ diretto dalla prima alla seconda carica permette a $vba{B}_1$ di avere verso entrante.
+	\end{minipage}\hspace{5pt}
+	\begin{minipage}{0.39\textwidth}
+		\begin{center}
+			\includegraphics[width=0.9\textwidth]{images/chp8/chp8biotsavartcariche.pdf}
+		\end{center}
+	\end{minipage}
 \end{example}
 %TODO: check this, not so sure
-\begin{observe}
-	Una carica in movimento genera sia un campo elettrico, sia un campo magnetico. In particolare, il campo elettrico si distribuisce \textit{radialmente} con centro la carica, mentre quello magnetico è \textit{tangenziale} a circonferenze \textit{perpendicolari} alla velocità e con centro sulla retta su cui essa giace.
+\begin{observe}~\\
+	\begin{minipage}{0.75\textwidth}
+		Una carica in movimento genera sia un campo elettrico, sia un campo magnetico. In particolare, il campo elettrico si distribuisce \textit{radialmente} con centro la carica, mentre quello magnetico è \textit{tangenziale} a circonferenze \textit{perpendicolari} alla velocità e con centro sulla retta su cui essa giace.
+	\end{minipage}\hspace{5pt}
+	\begin{minipage}{0.24\textwidth}
+			\begin{center}
+			\includegraphics[width=0.75\textwidth]{images/chp8/chp8campomagneticoelettrico.pdf}
+		\end{center}
+	\end{minipage}
 \end{observe}
 Si noti che l'espressione del campo magnetico
 \begin{equation*}
@@ -345,11 +365,11 @@ Il campo magnetico sarà
 Osserviamo che in questo caso $d\vba{s}=ds\vbh{u}_x$. Generalizziamo quanto trovato.
 
 \begin{define}[Seconda legge di Laplace]
-	La \textbf{legge di Biot-Savart}\index{legge!di Biot-Savart}, detta anche \textbf{prima legge di Laplace}\index{legge!di Laplace!prima}, afferma che il campo magnetico indotto da una corrente stazionaria $I$ che percorre un filo descritto dalla curva $\gamma$ è
+	La \textbf{legge di Biot-Savart}\index{legge!di Biot-Savart}, detta anche \textbf{prima legge di Laplace}\index{legge!di Laplace!prima}, afferma che il campo magnetico indotto da una corrente stazionaria $I$ che percorre un filo descritto dalla curva $\gamma$ è pari a
 	\begin{equation}
 		\vba{B}=\frac{\mu_0}{4\pi}\int_{\gamma}\frac{d\vba{s}\cross\vbh{u}_r}{r^2}
 	\end{equation}
-	dove $d\vba{s}$ è lo spostamento infinitesimo lungo la curva $\gamma$.
+	dove $d\vba{s}$ è lo spostamento infinitesimo lungo la curva $\gamma$ e $\vbh{u}_r$ il versore dal tratto di filo al punto in cui viene valutato il campo magnetico. 
 \end{define}
 \begin{observe}
 	Per sapere il verso di $\vba{B}$ si può applicare la regola della vite destra: indicando con il pollice destro il verso della corrente, le dita della mano curvano seguendo le linee di campo del campo magnetico $\vba{B}$.
@@ -428,7 +448,9 @@ Per simmetria, lo stesso risultato si ottiene considerando la forza che agisce s
 \end{equation}
 \subsection{Campo magnetico generato da una spira circolare}
 Consideriamo un circuito circolare in cui circola corrente. Per la legge di Biot-Savart, è presente un campo magnetico tangenziale a circonferenze perpendicolari alla corrente e centrate lungo il circuito, il cui verso è dato dalla legge della mano destra. Di conseguenza, ci aspettiamo un campo a simmetria cilindrica come in figura.
-%TODO: inserire figura
+\begin{center}
+	\includegraphics[width=0.4\textwidth]{images/chp8/chp8spiracampomagnetico.pdf}
+\end{center}
 Geometricamente parlando, la spira di raggio $R_0$ e posta nel piano $xy$ è una curva parametrizzabile da un angolo $\phi$:
 \begin{equation*}
 	\vba{r}'\left(\phi\right)=\left(R_0\cos\phi,R_0\sin\phi,0\right)
@@ -605,8 +627,8 @@ Data l'evidente difficoltà della situazione in cui siamo incappati, vediamo sol
 		\begin{observe}
 			Ci potrebbe capitare di dover studiare un campo elettrico senza sapere di preciso \textit{cosa} lo ha generato - se fosse una carica singola, oppure un dipolo, o un tripolo... Per capire meglio, si può sviluppare in serie di Taylor rispetto a $\frac{1}{r}$ il campo elettrico, in modo da ottenere una scrittura del genere
 			\begin{equation*}
-				\vba{E}=\frac{q}{4\pi \epsilon_0 r^2}+\frac{3\left(\vba{p}\vdot \right)}{4\pi\epsilon_0r^3}+\ldots+o\left(\frac{1}{r^n}\right)
-			\end{equation*}
+				\vba{E}=\frac{q}{4\pi \epsilon_0 r^2}\vbh{u}_r+\frac{3\left(\vba{p}\vdot \vbh{u}_r\right)\vbh{u}_r-\vba{p}}{4\pi\epsilon_0r^3}+\ldots+o\left(\frac{1}{r^n}\right)
+			\end{equation*}%TODO: controllare
 			A grandi distanze ($r\to+\infty$), prevale sempre il \textit{campo di monopolo} - che altro non è che quello \textit{di Coulomb}. Tuttavia, se \textit{non} abbiamo una carica - ad esempio nel caso del dipolo in cui le cariche si compensano tra di loro - allora prevale il secondo termine, il \textit{campo di dipolo}; se non abbiamo neanche un momento di dipolo prevarrà \textit{quello di tripolo} e cosi via.\\
 			Si può fare una cosa analoga nel caso del campo magnetico. La differenza sostanziale, tuttavia, è che per quanto abbiamo visto \textit{non} c'è il termine di monopolo perché non esiste la carica magnetica.
 		\end{observe}
@@ -614,9 +636,17 @@ Data l'evidente difficoltà della situazione in cui siamo incappati, vediamo sol
 		\begin{define}[Solenoide]
 			Un \textbf{solenoide}\index{solenoide} è una bobina elicoidale di filo, la cui lunghezza è nettamente maggiore del suo diametro.
 		\end{define}
-		Di solito, i solenoidi che andremo a studiare si possono considerare come una \textit{serie di spire circolari} molto, molto vicine tra di loro ma realizzate tutte con un unico filo di materiale conduttore.\\
-		In sezione, la corrente percorre il solenoide come in figura:
-		%TODO: figura
+		Di solito, i solenoidi che andremo a studiare si possono considerare come una \textit{serie di spire circolari} molto, molto vicine tra di loro ma realizzate tutte con un unico filo di materiale conduttore. In sezione, la corrente percorre il solenoide come nella figura a destra.\\
+		\begin{minipage}{0.49\textwidth}
+			\begin{center}
+				\includegraphics[width=0.5\textwidth]{images/chp8/chp8solenoide.pdf}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.49\textwidth}
+			\begin{center}
+				\includegraphics[width=1\textwidth]{images/chp8/chp8solenoidecrosssection.pdf}
+			\end{center}
+		\end{minipage}\\
 		Nel caso qui raffigurato la corrente gira in senso antiorario. Per la regola della mano destra il campo prodotto da ciascuna spira del solenoide lungo l'asse è ortogonale e diretto verso l'alto; ci aspettiamo una sovrapposizione di tutti i campi vettoriali, intensificando il campo magnetico \textit{interno} complessivo.\\
 		Il campo magnetico generato da una spira a quota $z_i$ in un punto lungo l'asse verticale a quota $z$ è, in modulo,
 		\begin{equation*}
