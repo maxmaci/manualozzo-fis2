@@ -9,16 +9,20 @@
 \labelChapter{conduttori}
 
 \begin{introduction}
-	‘‘Sono un esperto di elettricità. Mio padre ha occupato la cattedra di elettricità applicata nella	prigione di stato.''
+	``Mi sento alquanto esausto: mi chiedo che cosa
+	deve provare una batteria costretta a riversare elettricità in un non conduttore.''
 	\begin{flushright}
-		\textscsl{W.C. Fields}, dopo aver finito le citazioni. %TODO: quote 
+		\textscsl{Sherlock Holmes} al dottor John Watson, \emph{L'avventura del detective morente}.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{N}{el} %TODO: intro
+\lettrine[findent=1pt, nindent=0pt]{A}{bbiamo} già incontrato, nel \autoref{chap:leggediCoulomb}, una definizione gilbertiana di \textit{conduttore}: ``un materiale che non si elettrizza per strofinio''. È evidente che una definizione così empirica non è particolarmente soddisfacente, anche perché sembra controintuitiva: i metalli sappiamo benissimo che vengono utilizzati negli impianti elettrici, eppure non si elettrizzano?
 
+Questo apparente \textit{paradosso} sta nel concetto stesso di elettrizzazione per strofinio: nei materiali \textit{isolanti}, che si elettrizzano in tale modo, le cariche elettriche rimangono statiche, mentre nei conduttori \textit{sono libere di muoversi}; i fili, piani e sfere cariche che abbiamo studiato in precedenza dovevano necessariamente essere di materiale \textit{isolante}.
+
+In questo Capitolo ci concentreremo invece sui \textbf{conduttori} in condizione di \textit{staticità} - ossia senza movimenti di carica e senza variazioni temporali; vedremo in particolare il \textbf{conduttore cavo} e il suo campo elettrico in diverse situazioni, in quanto ci servirà per studiare i \textbf{condensatori}, dispositivi fisici il cui scopo principale è quello di immagazzinare energia.
 \section{Conduttori}
 \begin{define}[Conduttore]
-	Un \textbf{conduttore}\index{conduttore} è un materiale in cui alcune delle cariche elettriche che li costituiscono sono libere di muoversi.
+	Un \textbf{conduttore}\index{conduttore} è un materiale in cui sono presenti cariche elettriche libere di muoversi.
 \end{define}
 Per caricare un conduttore possiamo utilizzare diversi metodi, ad esempio con dell'induzione elettrostatica, ma per mantenerlo carico abbiamo bisogno di tenerlo \textit{isolato} da qualunque altro conduttore.
 
@@ -83,7 +87,8 @@ La differenza tra le cariche interne al conduttore crea un \textbf{campo elettri
 \end{equation}
 Questo accade in generale anche se il conduttore è immerso in un generico campo elettrico, non necessariamente uniforme o generato da delle armature cariche: per avere l'equilibrio nel conduttore le cariche si devono disporre in modo che la differenza di carica all'interno di esso generi un campo elettrico indotto uguale e opposto a quello del campo elettrico in cui il conduttore è immerso.
 \section{Capacità di un conduttore}
-Come abbiamo ribadito più volte, parte delle cariche in un conduttore sono libere di muoversi. Se carichiamo un conduttore e poi lo \textit{isoliamo}, possiamo \textit{conservare} della carica elettrica al suo interno - e quindi dell'energia elettrica - che potrà eventualmente essere utilizzata successivamente per altri scopi. %TODO: sono sicuro dell'energia elettrica?
+Come abbiamo ribadito più volte, parte delle cariche in un conduttore sono libere di muoversi. Se carichiamo un conduttore e poi lo \textit{isoliamo}, possiamo \textit{conservare} della carica elettrica al suo interno - e quindi dell'energia elettrica - che potrà eventualmente essere utilizzata successivamente per altri scopi.
+
 Ci interessa dunque \textit{caratterizzare} i conduttori in base alla loro capacità di caricarsi.
 \begin{observe}
 	Per studiare un conduttore carico all'equilibrio, dalle osservazioni precedenti ci basta considerarlo come fosse una superficie carica $\Sigma$ con densità di carica $\sigma$. La carica nel conduttore è
@@ -95,7 +100,7 @@ Ci interessa dunque \textit{caratterizzare} i conduttori in base alla loro capac
 		V=\frac{1}{4\pi\epsilon_0}\int_{\Sigma}\frac{\sigma(x',y',z')}{\abs{\vba{r}'}}d\Sigma
 	\end{equation*}
 	dove supponiamo, sempre per le osservazioni precedenti, di considerare l'\textit{origine} del sistema di riferimento scelto all'interno del conduttore e di misurare il potenziale in tale punto - dopotutto, il potenziale è \textit{costante} in tutto il conduttore.
-\end{observe}%TODO: controllare denominatore: io ho segnato solo r, ma che fine fa il termine di integrazione? dove lo misura, in zero? credo di sì, e ho messo questa spiegazione.
+\end{observe}
 Ora, osserviamo che se aumentassimo la carica sul conduttore da $q$ a $mq$, si avrebbe un aumento sia della densità di carica di un fattore $m$, sia del potenziale sempre di un fattore $m$. Il loro rapporto, pertanto, rimane costante ed è indipendente da come aumenta la carica e il potenziale: pertanto, esso rappresenta quanto aumenta il potenziale del conduttore all'aumentare della carica. 
 \begin{define}[Capacità di un conduttore]
 	La \textbf{capacità}\index{capacità} di un conduttore è la misura di quanta carica elettrica bisogna fornire ad un conduttore isolato per aumentare il suo potenziale di un'unità.
@@ -188,7 +193,7 @@ Ciò nonostante, questo non preclude ancora la possibilità che ci sia una quant
 \end{minipage}\\
 Pertanto \textit{non} ci possono essere cariche sulla superficie interna e pertanto anche \textit{dentro} la cavità il campo elettrico deve essere nullo.
 \end{demonstration}~\\
-\begin{minipage}{0.56\textwidth}%https://physics.stackexchange.com/questions/579941/conductor-with-hollow-cavity-under-external-electric-field
+\begin{minipage}{0.56\textwidth}
 Questo è vero anche in presenza di un \textit{campo elettrico esterno} $\vba{E}$. In tal caso, come succede nel conduttore, all'interno della cavità si viene a formare un campo indotto $\vba{E}_i$ dalla separazione delle cariche  che controbilancia quello esterno in modo che il campo complessivo all'interno sia nullo.
 \begin{equation*}
 	\vba{E}_{tot}=\vba{E}+\vba{E}_i=0
@@ -199,7 +204,7 @@ Questo è vero anche in presenza di un \textit{campo elettrico esterno} $\vba{E}
 	\includegraphics[width=0.8\textwidth]{images/chp4/chp4condcavocampoind.pdf}
 \end{center}
 \end{minipage}
-\subsection{Il conduttore cavo con carica}
+\subsection{Il conduttore cavo con carica}\label{conduttorecavosfericoconcarica}
 \paragraph{Conduttore cavo con carica interna}~\\
 \begin{minipage}{0.43\textwidth}
 \begin{center}
@@ -212,7 +217,7 @@ Sappiamo che nella sfera interna il campo elettrico è nullo; la stessa cosa suc
 \end{minipage}\\
 In particolare, le cariche \textit{negative} si posizionano lungo la superficie \textit{interna}, mentre quelle \textit{positive} sono respinte sulla superficie esterna in modo chele cariche sulla superficie interna $q_{int}$ controbilancino quelle sulla superficie esterna $q_{ext}$. Diremo che questo tipo di campo elettrico è un caso di \textbf{induzione totale}.
 \begin{define}[Induzione completa]
-	Diciamo che si ha \textbf{induzione completa}\index{induzione!completa} se le linee di campo elettrico generato da un conduttore terminano completamente in un altro conduttore e, pertanto, il conduttore induce totalmente la sua carica al secondo. 
+	Diciamo che si ha \textbf{induzione completa}\index{induzione completa} se le linee di campo elettrico generato da un conduttore terminano completamente in un altro conduttore e, pertanto, il conduttore induce totalmente la sua carica al secondo. 
 \end{define}
 Ora, consideriamo una superficie ipotetica $\Sigma$ che è contenuta nella sfera esterna e che contiene la cavità. Perché siamo all'equilibrio si ha $\vba{E}=0$, il flusso è
 \begin{equation*}
@@ -362,7 +367,7 @@ Un \textbf{condensatore piano}\index{condensatore!piano} è costituito da due ar
 	d^2\ll \Sigma
 \end{equation}
 dove $\Sigma$ è l'area della superficie.\\
-Il campo elettrico tra due armature piane, lontano dai bordi, è%TODO: add riferimento
+Il campo elettrico tra due armature piane, lontano dai bordi, si ottiene per il principio di sovrapposizione di due campi $\vba{E}_{+}$ e $\vba{E}_{-}$, generati rispettivamente dalla piastra positiva e dalla piastra negativa. Poiché all'interno delle due piastre tali campi sono concordi e di pari intensità, nota da quanto visto nel  \autoref{chap:FlussoCampoElettrico}, sezione \ref{pianocarico}, pag. \pageref{pianocarico}, si ha dunque
 \begin{equation*}
 	E(x)=\frac{\sigma}{\epsilon_0}=\frac{q}{\Sigma \epsilon_0}
 \end{equation*}
@@ -376,10 +381,9 @@ e quindi la capacità del condensatore piano è
 \end{equation}
 \paragraph{Condensatore cilindrico}
 Un \textbf{condensatore cilindrico}\index{condensatore!cilindrico} è costituito da due armature cilindriche: l'armatura interna ha raggio $R_1$, l'esterna ha raggi $R_2$ e $R_3$.
-In modo analogo a come abbiamo trovato che il campo elettrico di un cilindro uniformemente carico, %TODO: inserire chapt3 rrefer-
-il campo elettrico nella cavità è
+In modo analogo a come abbiamo trovato il campo elettrico di un cilindro uniformemente carico nel \autoref{chap:PotenzialeElettrico}, sezione \ref{supcilindrounifcarica}, pag. \pageref{supcilindrounifcarica}, il campo elettrico nella cavità è
 \begin{equation*}
-	E(R)=\frac{\sigma R_0}{\epsilon_0r}=\frac{q}{2\pi\epsilon_0Lr},\quad\text{se}\ R_1<R<R_2
+	E(R)=\frac{\sigma R_0}{\epsilon_0 R}=\frac{q}{2\pi\epsilon_0L R},\quad\text{se}\quad R_1<R<R_2
 \end{equation*}
 e la $\textrm{d.d.p.}$ è
 \begin{equation*}
@@ -408,10 +412,10 @@ e quindi la capacità del condensatore cilindrico è
 dove $\Sigma=2\pi RL$ è la superficie dell'armatura cilindrica.
 \paragraph{Condensatore sferico}
 Un \textbf{condensatore sferico}\index{condensatore!sferico} è costituito da due armature sferico: l'armatura interna ha raggio $R_1$, l'esterna ha raggi $R_2$ e $R_3$.
-abbiamo trovato che il campo elettrico e il potenziale nella cavità sono%TODO: inserire chapt4 rrefer-
+Abbiamo già trovato nella sezione \ref{conduttorecavosfericoconcarica}, \pageref{conduttorecavosfericoconcarica} che il campo elettrico e il potenziale nella cavità sono
 \begin{align*}
 	E_{r}(r)=\frac{q}{4\pi\epsilon_0r^2}\qquad
-	V(r)=\frac{q}{4\pi\epsilon_0r}+\frac{q}{4\pi\epsilon_0}\left(\frac{1}{R_3}-\frac{1}{R_2}\right), \quad\text{se}\ R_1<r<R_2
+	V(r)=\frac{q}{4\pi\epsilon_0r}+\frac{q}{4\pi\epsilon_0}\left(\frac{1}{R_3}-\frac{1}{R_2}\right), \quad\text{se}\quad R_1<r<R_2
 \end{align*}
 e quindi la \ddp tra le armature è
 \begin{equation*}
@@ -430,10 +434,8 @@ e quindi la capacità del condensatore sferico è
 	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{C\simeq 4\pi\epsilon_0\left(\frac{R^2}{d}\right)=\frac{\epsilon_0\Sigma}{d}}
 \end{equation}
 dove $\Sigma=4\pi R^2$ è la superficie dell'armatura sferica.
-\section{Il lavoro di carica di un condensatore e l'energia immagazzinata nel condensatore} %TODO: riguardare con il Mazzoldi
-Per creare una separazione di carica $q$ nel condensatore, ossia portare la carica $Q$ dalla piastra negativa alla piastra positiva (dal potenziale minore a quello maggiore), una fonte di energia esterna deve compiere un certo \textbf{lavoro} per oppore tale spostamento alla forza del campo elettrico, che la riporterebbe alla piastra originale. L'\textit{energia} $U$ che viene fornita sotto forma di lavoro $W$ incrementa il potenziale da $0$ fino ad avere una differenza di potenziale $\Delta V$, cioè corrisponde all'energia necessaria per creare partendo da armature scariche il \textit{campo elettrico}.
-
-Posto $\Delta V=V(q)-V(0)=V$ e dunque $V=\frac{q}{C}$, si ha
+\section{Il lavoro di carica di un condensatore e l'energia immagazzinata nel condensatore}
+Per creare una separazione di carica $q$ nel condensatore, ossia portare la carica $Q$ dalla piastra negativa alla piastra positiva (dal potenziale minore a quello maggiore), una fonte di energia esterna deve compiere un certo \textbf{lavoro} per opporre tale spostamento alla forza del campo elettrico, che la riporterebbe alla piastra originale. L'\textbf{energia elettrica}\index{energia!elettrica} $U$ che viene fornita sotto forma di lavoro $W$ incrementa il potenziale da $0$ fino ad avere una differenza di potenziale $\Delta V$, cioè corrisponde all'energia necessaria per creare partendo da armature scariche il \textit{campo elettrico}. Posto $\Delta V=V(q)-V(0)=V$ e dunque $V=\frac{q}{C}$, si ha
 \begin{equation*}
 	W=U=\int_{0}^{q}dU=\int_{0}^{q}dV=\int_0^{q}V(Q)dQ=\int_{0}^{q}\frac{Q}{C}dQ=\eval{\frac{1}{2}\frac{Q^2}{C}}_{0}^{q}\frac{q^2}{2C}
 \end{equation*}
@@ -455,16 +457,16 @@ Questa energia è immagazzinata fondamentalmente nel campo elettrico.
 		U=\frac{q^2}{2C}=\frac{E^2\Sigma^{\Ccancel[red]{2}}\epsilon_0^{\Ccancel[red]{2}} d}{2\Ccancel[red]{\epsilon_0}\Ccancel[red]{\Sigma}}=\frac{1}{2}\epsilon_0E^2\Sigma d
 	\end{equation*}
 \end{examplewt} 
-Osserviamo come $\Sigma d$ corrisponde al volume $V$ occupato dal campo elettrico tra le facce del condensatore. Se definiamo la \textbf{densità di energia elettrostatica per unità di volume}\index{densità!di energia elettrostatica}
+Osserviamo come $\Sigma d$ corrisponde al volume $V$ occupato dal campo elettrico tra le facce del condensatore. Se definiamo la \textbf{densità di energia elettrostatica per unità di volume}\index{densità!di energia!elettraic}
 \begin{equation}\label{DensitàEnergiaElettrostatica}
 	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\mu_{E}=\frac{1}{2}\epsilon_0E^2}
 \end{equation}
-l'energia immagazzinata nel condensatore è questa densità moltiplicata per il volume $V$ \textit{occupato} dal campo elettrico, confermando che l'energia del condensatore non è conservata nelle piastre, ma nel \textit{campo elettrico}!\\
+l'energia immagazzinata nel condensatore è questa densità moltiplicata per il volume $V$ \textit{occupato} dal campo elettrico, confermando che l'energia del condensatore non è conservata nelle piastre, ma nel \textit{campo elettrico}!
 
 \begin{observe}
 	Per caricare dei condensatori e immagazzinare nel loro campo elettrico dell'energia possiamo fornire cariche ad una delle armature tramite un collegamento conduttivo esterno, come dei \textit{fili metallici}, e poi scaricare le cariche dall'altra armatura con un altro filo. La quantità di carica che si va a depositare sulle armature è \textit{proporzionale} alla \ddp tra le armature - che possiamo controllare collegando ai capi delle armature una batteria o un generatore con dei fili. Quello che abbiamo descritto non è altro che un semplice \textbf{circuito elettrico}, di cui parleremo meglio nel \autoref{chap:correnteElettrica}
 \end{observe}
-%TODO: \footnote{Grazie Maccio di esistere - Fra} - lo metterò nelle dediche, do not eliminare
+%Grazie Maccio di esistere - Fra
 \section{Energia del campo elettrostatico}
 In generale, il campo elettrico immagazzina \textit{sempre} dell'energia nel campo stesso, dato che è l'energia necessaria a separare le cariche richieste per generare il campo elettrico. Tale energia, in un certo volume $V$, è pari a
 \begin{equation}
@@ -484,8 +486,7 @@ In modulo, tale forza è
 \begin{equation}
 	F=\abs{\pdv{U}{d}}=\frac{q^2}{2\epsilon_0\Sigma}
 \end{equation}
-La \textbf{pressione elettrostatica}\index{pressione!elettrostatica} percepita dalle piastre è
+Si può definire una \textbf{pressione elettrostatica}\index{pressione!elettrostatica} percepita dalle piastre, di intensità
 \begin{equation}
 	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{P=\frac{F}{\Sigma}=\frac{q^2}{2\epsilon_0\Sigma^2}=\frac{\sigma^2}{2\epsilon_0}}
 \end{equation}
-%TODO: espandere? immagine?

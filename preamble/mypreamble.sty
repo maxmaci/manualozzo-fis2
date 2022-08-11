@@ -1116,7 +1116,8 @@ headfont=\bfseries\scshape\color{pistachio!55!black},
 notebraces={ }{ },
 notefont=\scshape,
 headpunct=\color{pistachio!55!black},
-headformat={\NAME\, \NUMBER\small\bfseries\scshape\color{pistachio!55!black}{.\, - \NOTE\!.} \addcontentsline{theorema}{section}{\small{\textbf{PT\NUMBER}.\ \textsc{\NOTE}}}}
+headformat={\NAME\, \NUMBER\small\bfseries\scshape\color{pistachio!55!black}{.\, - \NOTE\!.} \addcontentsline{theorema}{section}{\small{\textbf{PT\NUMBER}.\ \textsc{\NOTE}}}},
+postheadspace=\newline
 ]{propertiessty}
 
 \declaretheoremstyle[
@@ -1143,7 +1144,8 @@ notebraces={ }{ },
 notefont=\scshape,
 headpunct=\color{pistachio!55!black},
 headformat={\NAME\, \NUMBER\small\bfseries\scshape\color{pistachio!55!black}{.\, - \NOTE\!.} \addcontentsline{theorema}{section}{\small{\textbf{PT\NUMBER}.\ \textsc{\NOTE}}}},
-qed=\qedsymbol
+qed=\qedsymbol,
+postheadspace=\newline
 ]{propertiesqedsty}
 
 \newcounter{property}
@@ -1205,6 +1207,19 @@ postheadspace=0.50em,
 headformat={\color{platinum!55!black}{\NAME.}},
 qed=\qedsymbol
 ]{demonstrationsty}
+
+\declaretheoremstyle[
+spaceabove=0pt,
+spacebelow=0pt,
+bodyfont=\normalfont,
+headindent=0pt,
+notebraces={ }{ },
+notefont=\scshape,
+headpunct=\color{platinum!55!black},
+postheadspace=0.50em,
+headformat={\color{platinum!55!black}{\texgyrescholafont{⋆}\ \NAME}},
+qed=\qedsymbol
+]{demonstrationoptsty}
 
 \declaretheoremstyle[
 spaceabove=0pt,
@@ -1280,6 +1295,7 @@ qed=\qedsymbol
 \declaretheorem[style=demonstrationwtsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationwtT}
 \declaretheorem[style=demonstrationwtnoqedsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationwtnoqedT}
 \declaretheorem[style=demonstrationcaputwtsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationcaputwtT}
+\declaretheorem[style=demonstrationoptsty,numberwithin=section,name=\textsc{Dimostrazione}]{demonstrationoptT}
 
 \newenvironment{demonstration}
 {\begin{platinumBox}\begin{demonstrationT}}
@@ -1292,6 +1308,10 @@ qed=\qedsymbol
 \newenvironment{demonstrationwt}
 {\begin{platinumBox}\begin{demonstrationwtT}}
 		{\end{demonstrationwtT}\end{platinumBox}}
+	
+\newenvironment{demonstrationopt}
+{\begin{platinumBox}\begin{demonstrationoptT}}
+		{\end{demonstrationoptT}\end{platinumBox}}	
 	
 \newenvironment{demonstrationwtnoqed}
 	{\begin{platinumBox}\begin{demonstrationwtnoqedT}}
@@ -2141,6 +2161,12 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 \let\div\divsign
 \let\div\divergence
 
+\let\oldRe\Re
+\def\Re{\mathrm{R}\!\mathfrak{e}}
+
+\let\oldIm\Im
+\def\Im{\mathrm{I}\!\mathfrak{m}}
+
 }
 
 
@@ -2514,7 +2540,7 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 \makeatletter
 % toc of definitions
 %\newcommand\definename{Definizione}
-\newcommand\listdefinename{Elenco delle definizioni e degli assiomi}
+\newcommand\listdefinename{Elenco delle definizioni e dei principi}
 \newcommand\listofdefines{
 	\section*{\listdefinename}\@starttoc{define}}
 
@@ -2663,14 +2689,6 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 %%%%%%
 
-\let\oldRe\Re
-\def\Re{\mathrm{R}\!\mathfrak{e}}
-\makeatother
-
-\let\oldIm\Im
-\def\Im{\mathrm{I}\!\mathfrak{m}}
-\makeatother
-
 
 %%%%%
 
@@ -2700,7 +2718,6 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 
 %\DeclareUnicodeCharacter{22C6}{$\bigstar$}
 
-
 \newunicodechar{⋆}{\texgyrescholafont{⋆}}
 
 \setlength{\fboxsep}{0pt}
@@ -2712,7 +2729,8 @@ headformat={\color{cadetblue!55!black}{\NAME}}
 \definecolor{bluepastellow}{HTML}{96FEFF}
 
 \newtcbox{\tcmathboxgeneral}[1][]{colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced}
-
+\newtcbox{\tcmathboxdefine}[1][]{colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced}
+\newtcbox{\tcmathboxthm}[1][]{colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced}
 \makeatletter
 \newcommand{\textscsl}[1]{%
 	\tikz[baseline=(N.base)]%

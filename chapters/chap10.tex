@@ -4,24 +4,23 @@
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
-% BRUTTISSIMO PUN E CHE NON È POLITICAMENTE CORRETTA; un volt m'ampere d'aver vist un'ohm che s'incoulomb un'altr'ohm. Ah Joule!
-% Metalmeccanico e parrucchiere in un turbine di sesso e politica
-\chapter{Campi elettrici e magnetici variabili nel tempo e le equazioni di Maxwell}
+
+\chapter{Campi elettromagnetici variabili nel tempo e le equazioni di Maxwell}
 \labelChapter{elettromagnetismoTempo}
 
 \begin{introduction}
-	‘‘Sono un esperto di Elettricità. Mio padre ha occupato la cattedra di Elettricità Applicata nella	prigione di stato.''
+	``Sono un esperto di Elettricità. Mio padre ha occupato la cattedra di Elettricità Applicata nella	prigione di stato.''
 	\begin{flushright}
-		\textscsl{W.C. Fields,} perito (R.I.P.) elettrotecnico e famoso esperto nel campo.
+		\textscsl{W.C. Fields,} perito (R.I.P.) elettrotecnico e famoso esperto nel Campo.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{N}{el} capitolo precedente abbiamo finalmente raggiunto un primo, grande risultato: abbiamo enunciato le quattro \textit{equazioni di Maxwell}, le leggi fondamentali che descrivono i fenomeni elettrici e magnetici statici - ossia \textit{costanti nel tempo}:
+\lettrine[findent=1pt, nindent=0pt]{N}{el} capitolo precedente abbiamo finalmente raggiunto un primo, grande risultato: abbiamo enunciato il caso statico  - ossia \textit{costante nel tempo} - delle quattro \textit{equazioni di Maxwell}, le leggi fondamentali che descrivono i fenomeni elettrici e magnetici:
 \begin{align*}
 	\div{\vba{E}}=\frac{\rho}{\epsilon_0}&&\curl{\vba{E}}=0\\
 	\div{\vba{B}}=0&&\curl{\vba{B}}=\mu_0\vba{j}
 \end{align*}
 Possiamo suddividere le equazioni in due coppie: due di queste leggi riguardando il campo elettrico $\vba{E}$, mentre le altre due il campo magnetico di induzione $\vba{B}$. All'apparenza queste due coppie sono completamente separate e potrebbero essere risolte senza che una soluzione influenzi l'altra.\\
-Tuttavia, già in questa situazione statica non sono completamente indipendenti: le cariche elettriche (nelle equazioni di Maxwell rappresentante dalla densità di carica $\rho$) sono le sorgenti di $\vba{E}$, ma quando sono in movimento danno luogo ad una densità di corrente e quindi diventano \textit{anche} sorgente di $\vba{B}$... ma essere o meno in moto è un fatto \textit{relativo} che dipende dal sistema di riferimento! Un campo elettrico per un sistema di riferimento può apparire come campo magnetico in un altro sistema (o viceversa). È intuibile che $\vba{E}$ e $\vba{B}$ devono essere la manifestazione di un unico ente fisico, il \textit{campo elettromagnetico}. Oltre modo, non possiamo escludere che tale ente dipenda anche dal tempo.\\
+Tuttavia, già in questa situazione statica non sono completamente indipendenti: le cariche elettriche (nelle equazioni di Maxwell rappresentante dalla densità di carica $\rho$) sono le sorgenti di $\vba{E}$, ma quando sono in movimento danno luogo ad una densità di corrente e quindi diventano \textit{anche} sorgente di $\vba{B}$... ma essere o meno in moto è un fatto \textit{relativo} che dipende dal sistema di riferimento! Un campo elettrico per un sistema di riferimento può apparire come campo magnetico in un altro sistema (o viceversa). È intuibile che $\vba{E}$ e $\vba{B}$ devono essere la manifestazione di un unico ente fisico, il \textit{campo elettromagnetico}. Oltremodo, non possiamo escludere che tale ente dipenda anche dal tempo.\\
 Inizieremo a raccogliere prove di questa nostra intuizione studiando i fenomeni elettrici e magnetici \textit{non stazionari}. In questo capitolo partiremo da osservazioni sperimentali per formulare la \textbf{legge di induzione di Faraday} e le sue applicazioni - autoflusso, \textbf{induttanza}, induttori e \textbf{circuiti RL}. Successivamente, parleremo delle correzioni da apporre alla \textbf{legge della circuitazione di Ampère} e la loro interpretazione fisica come \textbf{corrente di spostamento}, concludendo finalmente il principale obiettivo intrapreso all'inizio di questo testo: formulare le \textbf{equazioni di Maxwell nel vuoto}.
 
 \section{Legge di Faraday-Neumann-Lenz}
@@ -67,7 +66,7 @@ Le osservazioni sperimentali sul fenomeno dell'induzione elettromagnetica di \te
 	\end{center}
 \end{itemize}
 Da questi esperimenti\footnote{E tante altre varianti di essi che non vedremo perché questo è un Manualozzo\texttrademark\ di Fisica, non un testo monografico su Faraday e i suoi passatempi perversi.} possiamo ricavare diverse informazioni importanti:
-\begin{enumerate}[label=\alph*)]\label{osservazioniFaraday} %t
+\begin{enumerate}[label=\alph*)]\label{osservazioniFaraday}
 	\item \textit{Spostare una sorgente} di un campo magnetico nei pressi di una spira genera una \fem
 	\item Il moto della sorgente rispetto alla spira influenza il \textit{verso di percorrenza} della corrente lungo di essa.
 	\item \textit{Spostare una spira} nei pressi di un campo magnetico stazionario genera una \fem in quel circuito.
@@ -78,20 +77,20 @@ Da questi esperimenti\footnote{E tante altre varianti di essi che non vedremo pe
 	\item Se il campo magnetico non varia più nel tempo - perché si è stabilizzato oppure perché non c'è più la sorgente del campo - non circola più corrente nella spira.
 \end{enumerate}
 La forza elettromotrice dipende dunque da diversi fattori: la \textit{posizione} e l'\textit{intensità} del campo magnetico, la \textit{posizione} e la \textit{forma della spira}, ma soprattutto la \textit{variazione nel tempo} di tutti questi elementi qui citati.
-% Maxwell lavorando a livello teorico sulla consistenza delle equazioni ha scoperto che un campo elettrico e variabile nel tempo produce un campo magnetico.\\
+
 Il concetto matematico che permette di descrivere contemporaneamente un campo vettoriale e come si relaziona con una superficie è quello del \textit{flusso}; per tenere conto degli effetti temporali si deduce che la forza elettromotrice deve dipendere dalla \textit{derivata temporale} dal flusso del $\vba{B}$. Abbiamo descritto quella che è nota come \textbf{legge di Faraday}.
 \begin{theorema}[Legge dell'induzione di Faraday o legge di Faraday-Neumann legge di Faraday-Neumann-Lenz]\index{legge!dell'induzione di Faraday}\index{legge!di Faraday-Neumann}\index{legge!di Faraday-Neumann-Lenz}
 	Dato un campo magnetico $\vba{B}$ e un circuito chiuso $\gamma$, dove $\gamma$ è il bordo di una superficie $\Sigma$ arbitraria, la \textbf{forza elettromotrice indotta} da $\vba{B}$ in $\gamma$ è pari a
 	\begin{equation}
-		\mathcal{E}_i=-\dv{\Phi_\Sigma (\vba B)}{t}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\mathcal{E}_i=-\dv{\Phi_\Sigma (\vba B)}{t}}
 	\end{equation}
 \end{theorema}
 Grazie alla \textit{legge di Ohm} è immediato ricavare la corrente elettrica prodotta dalla \fem indotta per un circuito con resistenza $R$:
 \begin{equation}
-	I=-\frac{1}{R}\dv{\Phi_\Sigma(\vba B)}{t}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I=-\frac{1}{R}\dv{\Phi_\Sigma(\vba B)}{t}}
 \end{equation}
 
-\begin{observe} %https://en.wikipedia.org/wiki/Electromotive_force
+\begin{observe}
 	Nel \autoref{chap:correnteElettrica}, sezione \ref{femxesteso}, abbiamo descritto come la forza elettromotrice è prodotta da un campo elettrico \textit{non} conservativo. Nel caso particolare dell'\textit{induzione magnetica}, il campo magnetico \textit{causa} lungo circuito un campo elettromotore indotto $\vba{E}_i$, non necessariamente localizzato in alcun tratto specifico; l'espressione della forza elettromotrice sarà dunque
 	\begin{equation*}
 		\mathcal{E}_i=\oint\vba{E}_i\vdot d\vba{s}
@@ -102,7 +101,7 @@ Grazie alla \textit{legge di Ohm} è immediato ricavare la corrente elettrica pr
 	\end{equation}
 \end{observe}
 \paragraph{Legge di Lenz}
-Nella legge di induzione troviamo, curiosamente, un meno. Non è un refuso tipografico, ma è una considerazione di natura qualitativa che va sotto il nome di \textbf{legge di Lenz}.
+Nella legge di induzione troviamo, curiosamente, un meno. Non è un refuso tipografico, né un errore del signor Faraday, ma è una considerazione di natura qualitativa che va sotto il nome di \textbf{legge di Lenz}.
 \begin{corollaryqed}[Legge di Lenz]\index{legge!di Lenz}
 	La forza elettromotrice indotta - e di conseguenza la corrente indotta - è tale da \textit{opporsi} alla causa che l'ha generata e da esercitare una forza meccanica che si oppone al moto. 
 \end{corollaryqed}
@@ -112,9 +111,9 @@ Nella legge di induzione troviamo, curiosamente, un meno. Non è un refuso tipog
 		\includegraphics[width=0.35\textwidth]{images/chp10/chp10esperimento2aoss.pdf}
 	\end{center}
 \end{observe}
-Per citare il fisico-divulgatore americano \textbf{D.J. Griffiths} (1942), la legge di Lenz si può sintetizzare come ‘‘\textit{la Natura aberra un cambio di flusso}''.
+Per citare il fisico-divulgatore americano \textbf{D.J. Griffiths} (1942), la legge di Lenz si può sintetizzare come ``\textit{la Natura aberra un cambio di flusso}''.
 \paragraph{Com'è bello variar un flusso da Faraday in giù}
-%TODO: you've just got Carràrolled
+%you've just got Carràrolled
 Abbiamo capito che la $\fem$ indotta $\mathcal{E}$ è data da una variazione \textit{temporale} di flusso. Ma come possiamo farlo? Noto che il flusso è dato da
 \begin{equation*}
 	\Phi_\Sigma(\vba B)=\int_\Sigma \vba B\vdot \vbh{u}_n d\Sigma	
@@ -125,15 +124,18 @@ e ricordando le osservazioni di pag. \pageref{osservazioniFaraday}, possiamo cam
 	Invece, se il campo magnetico \textit{non} è uniforme o se il moto è \textit{rotatorio}, allora il flusso varia: nel primo caso varia al variare della posizione del circuito nello spazio, mentre nel secondo caso cambia perché cambia l'orientazione del circuito rispetto al campo magnetico.
 	\item \textit{Deformando la forma} del circuito nel tempo. Per il \textit{teorema di Stokes}, il flusso del campo magnetico (uniforme o no) dipende solo dal bordo e non da quale superficie $\Sigma$ si sceglie per calcolarlo, dunque cambiare la forma del circuito cambia la necessariamente le potenziali superfici $\Sigma$ e dunque anche il flusso. Se consideriamo un circuito piano di area interna $\Sigma$, questo metodo corrisponde a far variare il valore di $\Sigma$ nel tempo.
 	\item \textit{Spostando la sorgente del campo magnetico}, mantenedo allo stesso tempo il circuito fisso.
-	\item \textit{Muovendo un mezzo ferromagnetico magnetizzato} nel campo magnetico (uniforme o no), mantenendo allo stesso tempo il circuito fisso e le sorgenti fisse. Senza andare nei dettagli ora\footnote{Nelle ‘‘XXX'', a pagina \pageref{ferromagnetico} è possibile trovare maggiori informazioni sui materiali ferromagnetici e le loro proprietà.}, il movimento di tale mezzo ridistribuisce le linee del campo $\vba{B}$..
+	\item \textit{Muovendo un mezzo ferromagnetico magnetizzato} nel campo magnetico (uniforme o no), mantenendo allo stesso tempo il circuito fisso e le sorgenti fisse. Senza andare nei dettagli ora\footnote{Nel \autoref{chap:magnetismoMateria}, a pag. \pageref{ferromagnetici} è possibile trovare maggiori informazioni sui materiali ferromagnetici e le loro proprietà.}, il movimento di tale mezzo ridistribuisce le linee del campo $\vba{B}$..
 	\item In assenza di \textit{qualsiasi moto relativo tra circuito e campo}, il varia se varia $\vba B$ (uniforme o no) \textit{nel tempo}. 
 \end{itemize}
 In realtà la forza elettromotrice prodotta per mezzo di tutti i modi eccetto l'ultima è causata dalla \textit{sola} forza di Lorentz - e quindi già prevista in realtà dalle leggi della magnetostatica. Quello che \textit{non} era previsto è la produzione di corrente da parte di una variazione del campo magnetico $\vba B$ nel tempo.\label{faradayavevaascopertoiltempo}
 \paragraph{Dimostrazione della legge di Faraday-Neumann-Lenz: i casi stazionari}
 Dimostriamo di seguito la legge di induzione di Faraday nel caso particolare di uno spostamento rigido in un campo magnetico \textit{non necessariamente} uniforme, ma costante nel tempo: vogliamo provare che la \fem indotta è soltanto una conseguenza alla forza di Lorentz.
 \begin{demonstration}
-%TODO: inserire immagine 17.1
-	Immaginiamo di spostare un circuito in un campo magnetico $\vba{B}$ \textit{non uniforme}, ma costante nel tempo. Lo spostamento infinitesimo della spira è
+	Immaginiamo di spostare un circuito in un campo magnetico $\vba{B}$ \textit{non uniforme}, ma costante nel tempo.
+	\begin{center}
+		\includegraphics[width=0.35\textwidth]{images/chp10/chp10leggefaradaydim1.pdf}
+	\end{center}
+	Lo spostamento infinitesimo della spira è
 	\begin{equation*}
 		d\vba{r}=\dv{\vba{r}}{t}dt=\vba{v}dt
 	\end{equation*}
@@ -150,14 +152,16 @@ Dimostriamo di seguito la legge di induzione di Faraday nel caso particolare di 
 		\mathcal{E}_i&=\Gamma_{\gamma}(\vba{E}_i)=\oint_{\gamma} \vba{E}_i\vdot d\vba{s}=\oint_{\gamma} \left(\vba{v}\vdot \vba{B}\right)\vdot d\vba{s}=\oint_{\gamma} \left(d\vba{s}\cross\vba{v}\right)\vdot \vba{B} = \oint_{\gamma} \left(d\vba{s}\cross\dv{\vba{r}}{t}\right)\vdot \vba{B}=\\
 		&=\dv{t} \oint_{\gamma}\left(d\vba{s}\cross d\vba{r}\right)\vdot \vba{B}\squarequal
 	\end{align*}
-	Lo spostamento infinitesimo del circuito individua un cilindro \textit{sbilenco}: il lato è individuato da $d\vba{r}$, mentre i bordi delle basi sono il circuito $\gamma$ e $\gamma$ stesso, preso dopo lo spostamento infinitesimo. Osserviamo che il prodotto vettoriale $d\vba{s}\cross d\vba{r}$ è ortogonale alla superficie laterale ed è in modulo l'elemento di area:
+	Lo spostamento infinitesimo del circuito individua un cilindro \textit{sbilenco}: il lato è individuato da $d\vba{r}$, mentre i bordi delle basi sono il circuito $\gamma$ e $\gamma$ stesso, preso dopo lo spostamento infinitesimo. Osserviamo che il prodotto vettoriale $d\vba{s}\cross d\vba{r}$ è ortogonale alla superficie laterale $\Sigma_{\mathcal{l}}$ ed è in modulo l'elemento di area:
 	\begin{equation*}
 		d\vba s\cross d\vba r=d\Sigma_{\mathcal{l}}\vbh u_n
 	\end{equation*}
-	%Di conseguenza,
-	%\begin{equation*}
-	%	\oint_{\gamma} d\vba s\cross d\vba r = \Sigma_{\mathcal{l}}
-	%\end{equation*}=$
+\begin{comment}
+	Di conseguenza,
+	\begin{equation*}
+		\oint_{\gamma} d\vba s\cross d\vba r = \Sigma_{\mathcal{l}}
+	\end{equation*}
+\end{comment}
 	Allora
 	\begin{equation*}
 		\squarequal \dv{t} \oint_{\gamma}\left(d\Sigma_{\mathcal{l}}\vbh{u}_n\right)\vdot \vba{B}=\dv{t} \oint_{\gamma}\vba{B} \vdot \vbh{u}_nd\Sigma_{\mathcal{l}}=\dv{t}\Phi_{\Sigma_{\mathcal{l}}}(\vba{B})
@@ -197,11 +201,11 @@ Se il nome vi è \textit{familiare}, è proprio perché è la \textit{stessa} le
 	\begin{itemize}
 		\item \textbf{Forma integrale:}
 		\begin{equation}
-			\Gamma_{\gamma}(\vba{E})=\oint_{\partial \Sigma} \vba{E}\vdot d\vba{s}=-\dv{t}\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=-\int_{\Sigma}\pdv{\vba{B}}{t}\vdot\vbh{u}_nd\Sigma\label{LeggeFaradayIntegrale}
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Gamma_{\gamma}(\vba{E})=\oint_{\partial \Sigma} \vba{E}\vdot d\vba{s}=-\dv{t}\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=-\int_{\Sigma}\pdv{\vba{B}}{t}\vdot\vbh{u}_nd\Sigma}\label{LeggeFaradayIntegrale}
 		\end{equation}
 		\item \textbf{Forma differenziale:}
 		\begin{equation}
-			\curl{\vba{E}}=-\pdv{\vba{B}}{t}\label{LeggeFaradayDifferenziale}
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\curl{\vba{E}}=-\pdv{\vba{B}}{t}}\label{LeggeFaradayDifferenziale}
 		\end{equation}
 	\end{itemize}
 	In altri termini, un campo magnetico variabile nel tempo è accompagnato da un campo elettrico \textit{non} conservativo variante nello spazio e potenzialmente anche nel tempo, e viceversa.
@@ -236,7 +240,7 @@ Osserviamo che quest'ultima quantità, essendo irrotazionale e quindi conservati
 \end{equation*}
 Il campo elettrico è esprimibile quindi come
 \begin{equation}
-	\vba{E}=-\pdv{\vba{A}}{t}-\grad{V}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{E}=-\pdv{\vba{A}}{t}-\grad{V}}
 \end{equation}
 Come si può notare, se siamo nel \textit{caso stazionario} e il campo magnetico $\vba{B}$ \textit{non} varia nel tempo, allora anche $\vba{A}$ è costante temporalmente e quindi si ritorna al caso del campo elettrico \textit{conservativo} - il fu campo \textit{elettrostatico}.
 \section{Autoflusso, autoinduzione e induttanza}
@@ -244,53 +248,48 @@ Sappiamo che una spira $\gamma$ percorsa da una corrente di intensità $I$ gener
 \begin{equation*}
 	\vba{B}=\frac{\mu_0 I}{4\pi}\oint_{\gamma}\frac{d\vba{s}\cross\vbh{u}_{r}}{r^2}
 \end{equation*}
-Tale campo produce un flusso \textit{non} nullo attraverso la superficie stessa, detto \textbf{autoflusso}:
+Tale campo produce un flusso \textit{non} nullo attraverso la superficie stessa, detto \textbf{autoflusso}\index{autoflusso}:
 \begin{equation}
-	\Phi_{\Sigma}(\vba{B})=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\frac{\mu_0 I}{4\pi}\int_{\Sigma}\vba\oint_{\gamma}\frac{\left(d\vba{s}\cross\vbh{u}_{r}\right)\vdot \vbh{u}_n}{r^2}d\Sigma
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Phi_{\Sigma}(\vba{B})=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\frac{\mu_0 I}{4\pi}\int_{\Sigma}\vba\oint_{\gamma}\frac{\left(d\vba{s}\cross\vbh{u}_{r}\right)\vdot \vbh{u}_n}{r^2}d\Sigma}
 \end{equation}
 Dalla legge di Faraday-Neumann-Lenz sappiamo inoltre che nella spira si genererà una \fem $\mathcal{E}_i$ e dunque un'altra corrente $I'$, il cui verso per la legge di Lenz è tale da opporsi al cambio di corrente; in particolare, la corrente $I'$ percorre la corrente nel verso opposto a $I$. Questo fenomeno prende il nome di \textbf{autoinduttanza}\index{autoinduttanza}:
-\begin{equation*}
-	\mathcal{E}_i=-\dv{t}\Phi_{\Sigma}(\vba{B})=-\dv{t}\frac{\mu_0 I}{4\pi}\int_{\Sigma}\vba\oint_{\gamma}\frac{\left(d\vba{s}\cross\vbh{u}_{r}\right)\vdot \vbh{u}_n}{r^2}d\Sigma
-\end{equation*} %TODO: se la spira si deforma è costante?
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\mathcal{E}_i=-\dv{t}\Phi_{\Sigma}(\vba{B})=-\dv{t}\frac{\mu_0 I}{4\pi}\int_{\Sigma}\vba\oint_{\gamma}\frac{\left(d\vba{s}\cross\vbh{u}_{r}\right)\vdot \vbh{u}_n}{r^2}d\Sigma}
+\end{equation} %TODO: se la spira si deforma è costante?
 Osserviamo che il doppio integrale superficiale-curvilineo dipende esclusivamente dalla \textit{geometria} della spira e rimane costante nel tempo. Come abbiamo fatto per il condensatore, possiamo definire una quantità \textit{caratteristica} dei circuiti chiusi che quantifica sia l'informazione geometrica della spira sia, dal punto di vista della legge di Faraday, quella relativa all'opposizione al cambiamento di corrente. 
 \begin{define}[Induttanza]
 	L'\textbf{induttanza}\index{induttanza} di una spira $\gamma$ è la tendenza della spira ad opporsi ad un cambiamento nella corrente che scorre in esso. Matematicamente, dipende solo dalla natura geometrica del circuito ed è definita da
 	\begin{equation}
-		L=\frac{\mu_0}{4\pi}\int_{\Sigma}\vba\oint_{\gamma}\frac{\left(d\vba{s}\cross\vbh{u}_{r}\right)\vdot \vbh{u}_n}{r^2}d\Sigma
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{L=\frac{\mu_0}{4\pi}\int_{\Sigma}\vba\oint_{\gamma}\frac{\left(d\vba{s}\cross\vbh{u}_{r}\right)\vdot \vbh{u}_n}{r^2}d\Sigma}
 	\end{equation}
 \end{define}
 \begin{define}[Autoflusso]
-	L'\textbf{autoflusso}\index{autoflusso} di una spira $\gamma$ percorsa da corrente $I$ è il flusso del campo magnetico generato dalla corrente tramite la superficie delimitata dalla spira stessa:
+	L'\textbf{autoflusso}\index{autoflusso} di una spira $\gamma$ percorsa da corrente $I$ e di induttanza $L$ è il flusso del campo magnetico generato dalla corrente tramite la superficie delimitata dalla spira stessa:
 	\begin{equation}
-		\Phi_{\Sigma}(\vba{B})=LI
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Phi_{\Sigma}(\vba{B})=LI}
 	\end{equation}
-	dove $L$ è l'\textit{induttanza} della spira.
 \end{define}
 La \fem autoindotta si può dunque esprimere come
 \begin{equation*}
 	\mathcal{E}_i=-\dv{t}\Phi_{\Sigma}(\vba{B})=-\dv{t}\left(LI\right)=-L\dv{I}{t}
 \end{equation*}
 \begin{equation}
-	\mathcal{E}_i=-L\dv{I}{t}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\mathcal{E}_i=-L\dv{I}{t}}
 \end{equation}
-\begin{example}[Solenoide infinito]
-	Supponiamo di avere un \textit{solenoide infinito}, che nella pratica è un solenoide di lunghezza $d$ molto maggiore del suo raggio $R$ in modo da escludere qualunque effetto di bordo. Il campo magnetico è, in modulo,
+\begin{examplewt}[Solenoide infinito]
+	Supponiamo di avere un \textit{solenoide infinito}, che nella pratica è un solenoide di lunghezza $d$ molto maggiore del suo raggio $R$ in modo da escludere qualunque effetto di bordo. Il campo magnetico è in modulo $B=\mu_0 I n$ con $n$ la densità lineare di spire. Se nel solenoide ci sono $N$ spire, l'autoflusso è dato dalla somma degli autoflussi delle singole spire:
 	\begin{equation*}
-		B=\mu_0 I n
-	\end{equation*}
-	con $n$ la densità lineare di spire. Se nel solenoide ci sono $N$ spire, ò'autoflusso è dato dalla somma degli autoflussi delle singole spire:
-	\begin{equation}
 		\Phi_{\Sigma}(\vba{B})=\Sigma B N=\pi R^2 \cdot \mu_0 I n \cdot nd=\mu_0 I n^2\Sigma d
-	\end{equation}
+	\end{equation*}
 	L'induttanza è quindi
 	\begin{equation}
-		L=\mu_0 n^2\Sigma d
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=zomp!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{L=\mu_0 n^2\Sigma d}
 	\end{equation}
 	dove $\Sigma$ è l'area di una spira del solenoide.
-\end{example}
+\end{examplewt}
 \paragraph{Unità di misura}
 \begin{units}~\\
-	\textbf{\textsc{Induttanza:}} henry ($\unit{\henry}$) o weber su ampere  ($\unit[per-mode = fraction]{\weber\per\ampere}$) o volt per secondo su ampere ($\unit[per-mode = fraction]{\volt\second\per\ampere}$) o ohm per secondo ($\unit[per-mode = fraction]{\ohm\second}$).\\
+	\textbf{\textsc{Induttanza:}} henry ($\unit{\henry}$) o weber su ampere  $\left(\unit[per-mode = fraction]{\weber\per\ampere}\right)$ o volt per secondo su ampere $\left(\unit[per-mode = fraction]{\volt\second\per\ampere}\right)$ o ohm per secondo ($\unit[per-mode = fraction]{\ohm\second}$).\\
 	\textit{Dimensioni:} $[L]=\frac{\left[\Phi_{\Sigma}(\vba{B})\right]}{\left[I\right]}=\mathsf{M} \mathsf{L}^2 \mathsf{T}^{-2} \mathsf{I}^{-2}$.
 \end{units}
 \section{Circuiti RL}
@@ -321,8 +320,7 @@ Torniamo in ambito elettrotecnico. Per poter aggiungere dell'induttanza ad un ci
 			\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
 			to [resistor, R=$R$, v=$V_R$] (2.5,2.5)
 			to [inductor, L=$L$, v=$\mathcal{E}_i$] (2.5,0)
-			-- (0,0) %to [switch, label=$t>0$, mirror] (0,0)
-			%-- (0,0) node [midway, below] (TextNode) {$t>0$}
+			-- (0,0)
 			-- (0,0.1);
 			\draw (1,0) to[short, *-] (1,0);
 			\node at (1.25,-0.5) {$t>0$};
@@ -344,19 +342,21 @@ Dalla seconda legge di Kirchhoff, fissato come verso di percorrenza quello della
 	\mathcal{E}-L\dv{I}{t}-RI=0
 \end{align*}
 Risolviamo questa equazione differenziale per descrivere la corrente $I=I(t)$ che attraversa l'induttore.
-\begin{align*}%TODO: fix
-	&\dv{I}{t}=\frac{\mathcal{E}-RI}{L}\\ &\int_{0}^{I(t)}\frac{dI}{\mathcal{E}-RI}=\frac{1}{L}\int_{0}^{t}dt\\
-	&-\frac{1}{R}\eval{\log{\mathcal{E}-RI}}_{0}^{I(t)}=-\frac{1}{L}\eval{t}_{0}^{t}\\
-	&-\frac{1}{R}\log{\frac{\mathcal{E}-RI(t)}{\mathcal{E}}}=\frac{t}{L}\\
-	&\mathcal{E}-RI(t)=\mathcal{E}e^{-\frac{Rt}{L}}
+\begin{align*}
+	\dv{I}{t}&=\frac{\mathcal{E}-RI}{L}\\ \int_{0}^{I(t)}\frac{dI}{\mathcal{E}-RI}&=\frac{1}{L}\int_{0}^{t}dt\\
+	-\frac{1}{R}\eval{\log{\mathcal{E}-RI}}_{0}^{I(t)}&=-\frac{1}{L}\eval{t}_{0}^{t}\\
+	-\frac{1}{R}\log{\frac{\mathcal{E}-RI(t)}{\mathcal{E}}}&=\frac{t}{L}\\
+	\mathcal{E}-RI(t)&=\mathcal{E}e^{-\frac{Rt}{L}}
 \end{align*}
 \begin{equation}
-	I(t)=\frac{\mathcal{E}}{R}\left(1-e^{-\frac{Rt}{L}}\right)=\frac{\mathcal{E}}{R}\left(1-e^{-\frac{t}{\tau}}\right)
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I(t)=\frac{\mathcal{E}}{R}\left(1-e^{-\frac{Rt}{L}}\right)=\frac{\mathcal{E}}{R}\left(1-e^{-\frac{t}{\tau}}\right)}
 \end{equation}
-%TODO: inserire grafico
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/chp10/chp10induttoregraf1.pdf}
+\end{center}
 L'andamento temporale della corrente è dettato dal \textbf{tempo caratteristico del circuito RL}\index{tempo caratteristico!del circuito RL}:
 \begin{equation}
-	\tau=\frac{L}{R}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\tau=\frac{L}{R}}
 \end{equation}
 Essa è una costante dimensionalmente pari ad una quantità temporale e quindi nel SI si misura in secondi:
 \begin{equation*}
@@ -364,7 +364,7 @@ Essa è una costante dimensionalmente pari ad una quantità temporale e quindi n
 \end{equation*}
 La corrente dopo un tempo di carica \textit{infinito} è 
 \begin{equation}
-	I_{\infty}=\frac{\mathcal{E}}{R}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I_{\infty}=\frac{\mathcal{E}}{R}}
 \end{equation}
 ossia a regime l'induttanza smette di fatto di opporsi al generatore e il circuito è equivalente ad un circuito resistore classico.\\
 Per un \textit{matematico} questa situazione non si potrebbe mai realizzare; invece, per un \textit{fisico} questo si realizza - approssimando, neh! - per un tempo tra $3\tau=3RC$ e $3\tau=3RC$. Infatti, si ha
@@ -375,24 +375,24 @@ Per un \textit{matematico} questa situazione non si potrebbe mai realizzare; inv
 i quali sono valori \textit{molto} vicini al valore asintotico $I_{\infty}$ e che nella pratica possiamo assimilare ad esso.\\
 Per ottenere la \fem autoindotta ci basta derivare $I(t)$ rispetto al tempo:
 \begin{equation}
-	\mathcal{E}_i=-L\dv{I(t)}{t}=-\mathcal{E}e^{-\frac{Rt}{L}}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\mathcal{E}_i=-L\dv{I(t)}{t}=-\mathcal{E}e^{-\frac{Rt}{L}}}
 \end{equation}
-%TODO: inserire grafico
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{images/chp10/chp10induttoregraf2.pdf}
+\end{center}
 All'inizio $\mathcal{E}_i$ si oppone \textit{fortemente} al cambio di corrente e quindi al passaggio della stessa dato che è pari alla \fem del generatore $\mathcal{E}$; in seguito diminuisce fino a tendere asintoticamente a zero.
 \paragraph{Potenze ed energia nel circuito RL}
 Come il \textit{condensatore} immagazzinava energia nel \textit{campo elettrico}, l'\textit{induttore} lo immagazzina nel \textit{campo magnetico} generato da esso.\\
 Prima di determinare tale energia, parliamo delle potenze in gioco nel circuito. La potenza erogata dal generatore è
 \begin{equation}
-	P_{\mathcal{E}}(t)=\mathcal{E}I(t)=\frac{\mathcal{E}^2}{R}\left(1-e^{-\frac{Rt}{L}}\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{P_{\mathcal{E}}(t)=\mathcal{E}I(t)=\frac{\mathcal{E}^2}{R}\left(1-e^{-\frac{Rt}{L}}\right)}
 \end{equation}
 mentre quella dissipata dalla resistenza e quella associata all'induttore sono
-\begin{equation}
-	P_{R}(t)=RI^2(t)=\frac{\mathcal{E}^2}{R}\left(1-e^{-\frac{Rt}{L}}\right)^2
-\end{equation}
-\begin{equation}
-	P_{L}(t)=\mathcal{E}_iI(t)=-LI(t)\dv{I(t)}{t}=-\frac{\mathcal{E}^2}{R}e^{-\frac{Rt}{L}}\left(1-e^{-\frac{Rt}{L}}\right)
-\end{equation}
-Si noti che se la \ddp ai capi del generatore è
+\begin{empheq}[box=\tcmathboxgeneral]{align}
+	P_{R}(t)&=RI^2(t)=\frac{\mathcal{E}^2}{R}\left(1-e^{-\frac{Rt}{L}}\right)^2
+	P_{L}(t)&=\mathcal{E}_iI(t)=-LI(t)\dv{I(t)}{t}=-\frac{\mathcal{E}^2}{R}e^{-\frac{Rt}{L}}\left(1-e^{-\frac{Rt}{L}}\right)
+\end{empheq}
+Si noti che essendo la \ddp ai capi del generatore è
 \begin{equation}
 	\mathcal{E}=RI+L\dv{I}{t}
 \end{equation}
@@ -406,7 +406,7 @@ Sul lungo termine, l'energia prodotta dall'induttore complessivamente è
 	LIdI=\frac{1}{2}L\eval{I}_{I(0)}^{I(+\infty)}=\frac{1}{2}LI_{\infty}^2
 \end{equation*}
 \begin{equation}
-	U_L=\frac{1}{2}L I_{\infty}^2=\frac{1}{2}L\frac{\mathcal{E}^2}{R^2}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{U_L=\frac{1}{2}L I_{\infty}^2=\frac{1}{2}L\frac{\mathcal{E}^2}{R^2}}
 \end{equation}
 \begin{examplewt}[Solenoide]
 	Se l'induttore è un solenoide, l'induttanza è
@@ -418,15 +418,15 @@ Sul lungo termine, l'energia prodotta dall'induttore complessivamente è
 		U_L=\frac{1}{2}\mu_0\Sigma n^2 d  I^2=\frac{1}{2}\frac{B^2}{\mu_0}\Sigma d
 	\end{equation}
 \end{examplewt}
-Osserviamo come $\Sigma d$ corrisponde al volume $V$ occupato dal campo magnetico all'interno del solenoide. Se definiamo la \textbf{densità di energia magnetica per unità di volume}\index{densità!di energia magnetica}
+Osserviamo come $\Sigma d$ corrisponde al volume $V$ occupato dal campo magnetico all'interno del solenoide. Se definiamo la \textbf{densità di energia magnetica per unità di volume}\index{densità!di energia!magnetica}
 \begin{equation}\label{DensitàEnergiaMagnetica}
-	\mu_{B}=\frac{1}{2}\frac{B^2}{\mu_0}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\mu_{B}=\frac{1}{2}\frac{B^2}{\mu_0}}
 \end{equation}
-l'energia immagazzinata nell'induttore è questa densità moltiplicata per il volume $V$ \textit{occupato} dal campo magnetico. Dal punto
+l'energia immagazzinata nell'induttore è questa densità moltiplicata per il volume $V$ \textit{occupato} dal campo magnetico.
 \section{Energia del campo magnetico}
 In generale, il campo magnetico immagazzina \textit{sempre} dell'energia nel campo stesso. Tale energia, in un certo volume $V$, è pari a
 \begin{equation}
-	U=\int_V\mu_BdV=\frac{1}{2\mu_0}\int_V\abs{\vba{B}(r)}^2dV
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{U=\int_V\mu_BdV=\frac{1}{2\mu_0}\int_V\abs{\vba{B}(r)}^2dV}
 \end{equation}
 dove $\mu_E$ è la densità di energia magnetica, definita come nell'equazione \eqref{DensitàEnergiaMagnetica}.
 \paragraph{Confronto tra energia elettrica e magnetica}
@@ -448,27 +448,27 @@ dove $\mu_E$ è la densità di energia magnetica, definita come nell'equazione \
 \end{center}
 Nel caso in cui in un certo volume siano presenti sia il campo elettrico, sia il campo magnetico, le densità di energia si sommano punto per punto:
 \begin{equation}
-	\mu=\frac{1}{2}\left(\epsilon_0E^2+\frac{B^2}{\mu_0}\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\mu=\frac{1}{2}\left(\epsilon_0E^2+\frac{B^2}{\mu_0}\right)}
 \end{equation}
 L'energia complessiva sarà quindi
 \begin{equation}
-	U=\frac{1}{2}\int_V \epsilon_0E^2+\frac{B^2}{\mu_0}dV=U_E+U_B
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{U=\frac{1}{2}\int_V \epsilon_0E^2+\frac{B^2}{\mu_0}dV=U_E+U_B}
 \end{equation}
 \section{Legge della circuitazione di Maxwell-Ampère}
-Nel \autoref{chap:leggediampere}, sezione \ref{laleggediAmpereèfalsaepretenziosa} a pag. \pageref{laleggediAmpereèfalsaepretenziosa}, abbiamo osservato la \textit{non validità} della legge di Ampère
+Nel \autoref{chap:leggediampere}, sezione \ref{laleggediAmpereèfalsaepretenziosa} a pag. \pageref{laleggediAmpereèfalsaepretenziosa}, abbiamo osservato la \textit{non validità} della \textit{legge di Ampère} in \textit{condizioni non stazionarie}:
 \begin{align*}
 	&\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=\mu_0 I_{int}	&& \left(\text{forma integrale}\right)\\
-	&\curl{\vba{B}}=\mu_0\vba{j}	&& \left(\text{forma differenziale}\right)\\
+	&\curl{\vba{B}}=\mu_0\vba{j}	&& \left(\text{forma differenziale}\right)
 \end{align*}
-in \textit{condizioni non stazionarie}. Infatti, applicando la divergenza ad entrambi i membri della forma differenziale della legge ottenevamo che essa era consistente soltanto se la \textit{densità di corrente risultasse solenoidale},
-\begin{equation}
-	\div{\vba{j}}=0,
-\end{equation}
-fatto che se la densità di carica varia nel tempo non è più vero sulla base dell'equazione di continuità
+Infatti, applicando la divergenza ad entrambi i membri della forma differenziale di tale legge ottenevamo che essa era consistente soltanto se la \textit{densità di corrente fosse stata solenoidale}:
+\begin{equation*}
+	\div{\vba{j}}=0
+\end{equation*}
+Tuttavia, se la densità di carica varia nel tempo tale condizione non è più vera sulla base dell'\textit{equazione di continuità}
 \begin{equation*}
 	\div{\vba{j}}+\pdv{\rho}{t}=0
 \end{equation*}
-La correzione di questa legge deve garantire la validità dell'equazione di continuità.
+La correzione della \textit{legge di Ampère} deve garantire la validità dell'\textit{equazione di continuità}.
 Dalla \textit{legge di Gauss per l'elettricità} sappiamo che
 \begin{equation*}
 	\div{\vba{E}}=\frac{\rho}{\epsilon_0}\implies \rho=\epsilon_0\div{\vba{E}}
@@ -478,41 +478,41 @@ Derivando entrambi i membri temporalmente otteniamo
 	\pdv{\rho}{t}=\epsilon_0\div{\pdv{\vba{E}}{t}}\label{Passo1LeggeAmpere}
 \end{equation}
 Ora, sostituendo \eqref{Passo1LeggeAmpere} nell'equazione di continuità, vediamo che
-\begin{equation}
+\begin{equation*}
 	\div{\vba{j}}+\epsilon_0\div{\pdv{\vba{E}}{t}}=\div{\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)}=0
-\end{equation}
-Nel caso non stazione, quello che è sempre un vettore \textit{solenoidale} è il vettore
+\end{equation*}
+Nel caso non stazionario, quello che è sempre un vettore \textit{solenoidale} è
 \begin{equation*}
 	\vba{j}_{tot}=\vba{j}+\epsilon_0\pdv{\vba{E}}{t}
 \end{equation*}
 Introduciamo le seguenti definizioni.
 \begin{define}[Corrente di spostamento e densità di corrente di spostamento]
-	La \textbf{densità di corrente di spostamento}\index{densità!di corrente di spostamento} è la quantità vettoriale
+	La \textbf{densità di corrente di spostamento}\index{densità!di corrente!di spostamento} è la quantità vettoriale
 	\begin{equation}
-		\vba{j}_s=\epsilon_0\pdv{\vba{E}}{t}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{j}_s=\epsilon_0\pdv{\vba{E}}{t}}
 	\end{equation}
 	L'intensità di \textbf{corrente di spostamento} è il suo flusso attraverso una superficie $\Sigma$:
 	\begin{equation}
-		I_S=\int_{\Sigma}\vba{j}_s\vdot \vbh{u}_nd\Sigma=\epsilon_0\int_{\Sigma}\epsilon_0\pdv{\vba{E}}{t}\vdot \vbh{u}_nd\Sigma=\epsilon_0\pdv{\Phi_{\Sigma}(\vba{E})}{t}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I_S=\int_{\Sigma}\vba{j}_s\vdot \vbh{u}_nd\Sigma=\epsilon_0\int_{\Sigma}\epsilon_0\pdv{\vba{E}}{t}\vdot \vbh{u}_nd\Sigma=\epsilon_0\pdv{\Phi_{\Sigma}(\vba{E})}{t}}
 	\end{equation}
 \end{define}
 Dimensionalmente parlando, queste due quantità hanno rispettivamente le stesse dimensioni di una densità di corrente elettrica e un'intensità di corrente elettrica, come i nomi giustamente suggeriscono. Non approfondiamo adesso la spiegazione fisica di \textit{cosa} effettivamente rappresentano   - ma lo faremo tra poco; per ora torniamo alla legge di Ampère.\\
-Posta questa nomenclatura, l'idea è di modificare la legge di Ampère sostituendo alla densità di corrente $\vba{j}$ la \textbf{densità totale}
-\begin{equation*}
-	\vba{j}_{tot}=\vba{j}+\vba{j}_s=\vba{j}+\epsilon_0\pdv{\vba{E}}{t}
-\end{equation*}
+Posta questa nomenclatura, l'idea è di modificare la legge di Ampère sostituendo alla densità di corrente $\vba{j}$ la \textbf{densità di corrente totale}\index{densità!di corrente!totale}
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{j}_{tot}=\vba{j}+\vba{j}_s=\vba{j}+\epsilon_0\pdv{\vba{E}}{t}}
+\end{equation}
 Otteniamo quindi la
 \begin{theorema}[Legge della circuitazione di Maxwell-Ampère]\index{legge!della circuitazione di Maxwell-Ampère}
 	Dato il campo elettrico $\vba{E}$ e quello magnetico $\vba{B}$, presa una superficie $\Sigma$ con bordo $\gamma=\partial \Sigma$ si hanno le seguenti relazioni:
 	\begin{itemize}
 		\item \textbf{Forma integrale:}
-		\begin{multline}
-			\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\left(\int_{\Sigma}\vba{j}\vdot\vbh{u}_n d\Sigma+\epsilon_0\dv{t}\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma\right)=\\
-			=\mu_0 I_{int}+\frac{1}{c^2}\pdv{\Phi_{\Sigma}(\vba{E})}{t}=\mu_0\left(I+I_s\right)\label{LeggeAmpereIntegrale}
-		\end{multline}
+		\begin{empheq}[box=\tcmathboxthm]{align}
+			\Gamma_{\gamma}(\vba{B})&=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\left(\int_{\Sigma}\vba{j}\vdot\vbh{u}_n d\Sigma+\epsilon_0\dv{t}\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma\right)=\\
+			&=\mu_0 I_{int}+\frac{1}{c^2}\pdv{\Phi_{\Sigma}(\vba{E})}{t}=\mu_0\left(I+I_s\right)s\label{LeggeAmpereIntegrale}
+		\end{empheq}
 		\item \textbf{Forma differenziale:}
 		\begin{equation}
-			\curl{\vba{B}}=\mu_0\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)=\mu_0\left(\vba{j}+\vba{j}_s\right)=\mu_0\vba{j}_{tot}\label{LeggeAmpereDifferenziale}\qedhere
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\curl{\vba{B}}=\mu_0\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)=\mu_0\left(\vba{j}+\vba{j}_s\right)=\mu_0\vba{j}_{tot}}\label{LeggeAmpereDifferenziale}\qedhere
 		\end{equation}
 	\end{itemize}
 \end{theorema}
@@ -528,21 +528,31 @@ Otteniamo quindi la
 	\end{equation*}
 \end{demonstration}
 \subsection{Interpretazione fisica della corrente di spostamento}
-Oltre ai motivi di \textit{natura matematica} che abbiamo affrontato, la non validità della legge di Ampère e la necessità di introdurre una ‘‘corrente di spostamento'' si può constatare anche dal punto di vista \textit{fisico} in diversi esperimenti, in cui notiamo una \textit{discrepanza} tra i risultati teorici previsti e quelli osservati.
+Oltre ai motivi di \textit{natura matematica} che abbiamo affrontato, la non validità della legge di Ampère e la necessità di introdurre una ``corrente di spostamento'' si può constatare anche dal punto di vista \textit{fisico} in diversi esperimenti, in cui notiamo una \textit{discrepanza} tra i risultati teorici previsti e quelli osservati.
 
 Uno dei più esemplificativi è quello del \textit{processo di carica di un condensatore} per mezzo di un circuito RC, di cui abbiamo parlato nel \autoref{chap:correnteElettrica}, sezione \ref{CircuitiRC}, pag. \pageref{CircuitiRC}.\\
 Ricordiamo che, come detto nell'osservazione di pag. \pageref{correntevariabile}, all'\textit{interno} del condensatore \textit{non} ci sono cariche e dunque neanche una \textit{corrente di conduzione}, ma ai capi del condensatore si ha virtualmente la stessa corrente per repulsione delle cariche. Consideriamo ora un cilindro immaginario $\Sigma$ coassiale al filo e calcoliamo l'intensità di corrente tramite esso in due situazioni differenti: 
 \begin{itemize}
-	\item Se il cilindro $\Sigma$ racchiude al suo interno \textit{entrambe} le armature del condensatore, il flusso netto è nullo. Infatti, a patto di non avere variazioni troppo brusche della carica sulle piastre la densità di carica $\vba{j}$ è la stessa ad entrambi i capi e quindi ‘‘tutto ciò che entra esce''
+	\item Se il cilindro $\Sigma$ racchiude al suo interno \textit{entrambe} le armature del condensatore, il flusso netto è nullo.
+	\begin{center}
+		\includegraphics[width=0.25\textwidth]{images/chp10/chp10correntedispostamento1.pdf}
+	\end{center}
+	Infatti, a patto di non avere variazioni troppo brusche della carica sulle piastre la densità di carica $\vba{j}$ è la stessa ad entrambi i capi e quindi ``tutto ciò che entra esce''.
 	\begin{equation*}
-		i=\dv{q}{t}=\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=0
-	\end{equation*} 
+		I=\dv{q}{t}=\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=0
+	\end{equation*}
 	\item Se il cilindro $\Sigma$ contiene \textit{soltanto una} delle due armature - non è fondamentale quale - il flusso di $\vba{j}$ \textit{non} è nullo perché c'è una carica entrante o uscente la superficie, ma essa non è controbilanciata da altre cariche uscenti o entranti dal resto della superficie, in quanto nello spazio tra le armature \textit{non} passano particelle libere!
+	\begin{center}
+		\includegraphics[width=0.25\textwidth]{images/chp10/chp10correntedispostamento2.pdf}
+	\end{center}
 \end{itemize}
 Nel secondo caso, suddividiamo la superficie $\Sigma$ in due sottosuperfici $\Sigma_i$ di bordo comune $\partial \Sigma$:
 \begin{itemize}
 	\item $\Sigma_1$ è la base del cilindro, che interseca il filo ma \textit{non} lo spazio in mezzo alle armature.
 	\item $\Sigma_2$ è il resto del cilindro, che interseca lo spazio in mezzo alle armature ma \textit{non} il filo.
+	\begin{center}
+		\includegraphics[width=0.25\textwidth]{images/chp10/chp10correntedispostamento3.pdf}
+	\end{center}
 \end{itemize}
 Per la prima superficie $\vba{j}$ lì esiste e quindi l'integrale non è nullo...
 \begin{equation*}
@@ -558,14 +568,14 @@ Sappiamo inoltre che il filo percorso da corrente genera un campo magnetico $\vb
 \end{equation*} 
 il che è decisamente assurdo. Inoltre, nel caso considerato $\vba{j}$ non sarebbe solenoidale come previsto invece dalla legge di Ampère.
 
-Sembrerebbe dunque che oltre al campo magnetico dato dal filo percorso da corrente ci sia un \textit{altro} campo magnetico generato da qualcosa interno alle piastre; per la \textit{legge di Biot-Savart}, quel \textit{qualcosa} dovrebbe essere una \textit{corrente}... ma che sappiamo non esistere!\\
+Sembrerebbe dunque che oltre al campo magnetico dato dal filo percorso da corrente ci sia un \textit{altro} campo magnetico generato da qualcosa interno alle piastre; per la \textit{legge di Biot-Savart}, quel \textit{qualcosa} dovrebbe essere una \textit{corrente}... ma che sappiamo non esistere!\\-+*
 Maxwell propone come ipotesi per risolvere questo \textit{impasse} proprio quella di supporre l'esistenza di una corrente \textit{fittizia}
 \begin{equation*}
 	\vba{j}_s=\epsilon_0\pdv{\vba{E}}{t}
 \end{equation*}
 e di intensità
 \begin{equation*}
-	I_S=\epsilon_0\int_{\Sigma}\epsilon_0\pdv{\vba{E}}{t}\vdot \vbh{u}_nd\Sigma
+	I_S=\epsilon_0\int_{\Sigma}\pdv{\vba{E}}{t}\vdot \vbh{u}_nd\Sigma
 \end{equation*}
 che \textit{scorre tra le piastre} nella stessa direzione della corrente di conduzione $\vba{j}$ - come se \textit{spostasse virtualmente} le cariche da una piastra all'altra.
 Lungo l'intero circuito (spazio tra le armature comprese) possiamo quindi considerare una \textit{densità di carica totale}
@@ -586,11 +596,11 @@ Dato che $\vba{j}_{tot}$ è solenoidale, i due flussi ottenuti devono essere ugu
 	I=\int_{\Sigma_1}\vba{j}\vdot\vbh{u}_n=\int_{\Sigma_1}\vba{j}_{tot}\vdot\vbh{u}_n=\oint_{\partial \Sigma}\vba{B}\vdot\vbh{u}_nd=\int_{\Sigma_2}\vba{j}_{tot}\vdot\vbh{u}_n=\int_{\Sigma_2}\vba{j}_{s}\vdot\vbh{u}_n=I_s
 \end{equation*}
 \begin{equation}
-	I=I_s
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I=I_s}
 \end{equation}
 La \textit{corrente totale} ha lo stesso valore lungo l'intero circuito: coincide con $I$ nei cavi di collegamento e $I_s$ all'interno del condensatore.
 \begin{attention}
-	Nonostante il nome suggestivo, con la corrente di spostamento \textit{non avviene alcun moto} fisico di cariche!
+	Nonostante il nome suggestivo, con la corrente di spostamento \textit{non avviene alcun moto fisico di cariche!}
 \end{attention}
 \begin{digression}
 	Fra le equazioni di Maxwell, questa è l'\textit{ultima} ad essere stata scoperta. Il contributo al campo magnetico fornito dalla variazione del campo elettrico è molto piccolo a causa del fattore $\nicefrac{1}{c^2}$; per questo motivo, fu ipotizzata \textit{prima} dal punto di vista \textit{teorico} e solo \textit{successivamente}  comprovata \textit{empiricamente}, quando lo sviluppo di strumenti sufficientemente precisi permisero di misurare con certezza tale contributo.
@@ -598,7 +608,6 @@ La \textit{corrente totale} ha lo stesso valore lungo l'intero circuito: coincid
 \section{Equazioni di Maxwell dell'elettromagnetismo classico}
 \begin{center}
 	\begin{tabular}{p{0.18\textwidth}|c|c}
-		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
 		\centering{\textbf{Nome}} &
 		\textbf{Forma integrale} &
 		\begin{tabular}{@{}c@{}} \textbf{Forma} \\ \textbf{differenziale}\end{tabular} \\ \hline
@@ -655,10 +664,9 @@ La \textit{corrente totale} ha lo stesso valore lungo l'intero circuito: coincid
 		\end{tabular}
 	\end{tabular}
 \end{center}
-In assenza di sorgenti\footnote{In diversi testi tale condizione viene detta ‘‘nel vuoto'' e le relative equazioni di Maxwell ‘‘equazioni di Maxwell nel vuoto''. Tale nomenclatura non deve trarre in inganno: sebbene tali equazioni siano valide nel vuoto inteso come \textit{assenza di materia}, \textit{non} sono corrette se sono presenti sorgenti. Per evitare ulteriori confusioni, in questo testo \textit{non} utilizzeremo tale nomenclatura fuorviante.} di campi elettrici, rappresentate dalla densità di carica $\rho$, e di campi magnetici, rappresentate dalla densità di corrente $\vba{j}$, allora
-\begin{center}%TODO:check
+In assenza di sorgenti\footnote{In diversi testi tale condizione viene detta ``nel vuoto'' e le relative equazioni di Maxwell ``equazioni di Maxwell nel vuoto''. Tale nomenclatura non deve trarre in inganno: sebbene tali equazioni siano valide nel vuoto inteso come \textit{assenza di materia}, \textit{non} sono corrette se sono presenti sorgenti. Per evitare ulteriori confusioni, in questo testo \textit{non} utilizzeremo tale nomenclatura fuorviante.} di campi elettrici, rappresentate dalla densità di carica $\rho$, e di campi magnetici, rappresentate dalla densità di corrente $\vba{j}$, allora
+\begin{center}
 	\begin{tabular}{p{0.18\textwidth}|c|c}
-		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
 		\centering{\textbf{Nome}} &
 		\textbf{Forma integrale} &
 		\begin{tabular}{@{}c@{}} \textbf{Forma} \\ \textbf{differenziale}\end{tabular} \\ \hline
@@ -704,18 +712,15 @@ In assenza di sorgenti\footnote{In diversi testi tale condizione viene detta ‘
 		\end{tabular} &
 		\begin{tabular}[l]{@{}l@{}}
 			\\[-3mm]
-			$\displaystyle\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=$\\
-			$\displaystyle\quad=\frac{1}{c^2}\dv{t} \int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=$\\
+			$\displaystyle\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\frac{1}{c^2}\dv{t} \int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=$\\
 			$\displaystyle\quad=\frac{1}{c^2}\pdv{\Phi_{\Sigma}(\vba{E})}{t}=\mu_0I_s$
 		\end{tabular} &
 		\begin{tabular}[l]{@{}l@{}}
 			\\[-2mm]
-			$\displaystyle\curl{\vba{B}}=\frac{1}{c^2}\pdv{\vba{E}}{t}$\\
-			$\displaystyle\quad=\mu_0\vba{j}_s$
+			$\displaystyle\curl{\vba{B}}=\frac{1}{c^2}\pdv{\vba{E}}{t}=\mu_0\vba{j}_s$
 		\end{tabular}
 	\end{tabular}
 \end{center}
-%TODO: intro equazioni di Maxwell
 \paragraph{Maxwell... è tutto quello che c'è}
 Abbiamo finalmente ottenuto le equazioni di Maxwell. In realtà, non dobbiamo pensare che le equazioni di Maxwell siano una conseguenza di tutti i risultati e gli esperimenti visti fin'ora, ma semmai il \textit{contrario}: sono le equazioni di Maxwell ad essere quelle \textit{fondamentali}!\\
 Da esse possiamo quindi ricavare tutte le leggi viste in precedenza, come ad esempio:
@@ -734,7 +739,6 @@ Da esse possiamo quindi ricavare tutte le leggi viste in precedenza, come ad ese
 	\end{equation}
 \end{itemize}
 Volendo, si poteva trattare l'elettromagnetismo enunciando le equazioni di Maxwell e solo successivamente \textit{declinare} i risultati particolari da quelle; in questo testo si è deciso di fare l'esatto opposto per seguire grossomodo l'\textit{approccio storico} alla faccenda.
-%TODO: completare in modo più interessante.
 \subsection{Invarianza di gauge nell'elettromagnetismo}
 Sappiamo, dalla \textit{legge di Gauss del magnetismo} che $\vba{B}$ è solenoidale, dunque esiste un campo potenziale vettoriale $\vba{A}$ tale che
 \begin{equation*}
@@ -772,18 +776,18 @@ Possiamo operare una operare una scelta di gauge: imponiamo che la trasformazion
 \end{align*}
 sia tale che
 \begin{equation}
-	\div{\vba{A}'}+\frac{1}{c^2}\pdv{V'}{t}=0\label{CondizioneDivEcc}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\div{\vba{A}'}+\frac{1}{c^2}\pdv{V'}{t}=0}\label{CondizioneDivEcc}
 \end{equation}
 La \textit{condizione} per la scelta di $\phi$ si ottiene sostituendo le trasformazioni dei campi potenziali all'interno della \eqref{CondizioneDivEcc}:
 \begin{equation*}
 	\grad{\vba{A}'}-\laplacian{\oldphi}+\frac{1}{c^2}\pdv{V'}{t}+\frac{1}{c^2}\pdv[2]{\oldphi}{t}=D
 \end{equation*}
 \begin{equation}
-	\frac{1}{c^2}\pdv[2]{\phi}{t}-\laplacian{\oldphi}=D
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\frac{1}{c^2}\pdv[2]{\phi}{t}-\laplacian{\oldphi}=D}
 \end{equation}
-Se utilizziamo l'operatore di D'alambert\footnote{Nelle ‘‘XXX'', a pagina \pageref{dalembertiano} è possibile trovare maggiori informazioni su tale operatore.}, l'equazione che descrive $\oldphi$ in modo da garantire la scelta di gauge precedente è
+Se utilizziamo l'operatore di D'alambert\footnote{Nelle ``XXX'', a pag. \pageref{dalembertiano} è possibile trovare maggiori informazioni su tale operatore.}, l'equazione che descrive $\oldphi$ in modo da garantire la scelta di gauge precedente è
 \begin{equation}
-	\Box{\oldphi}=D
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Box{\oldphi}=D}
 \end{equation}
 \paragraph{Equazioni del moto della dinamica classica}
 Fatta la scelta di gauge, vogliamo ora trovare delle relazioni tra i campi potenziali e le sorgenti dei campi elettromagnetici. Ricordiamo che
@@ -796,18 +800,18 @@ Per proprietà delle derivate seconde degli operatori differenziali, vale la rel
 \end{equation}
 Sostituendo la \eqref{PotenzialeBox1} nella \textit{legge di circuitazione di Ampère}:
 \begin{align*}
-	&\curl{\vba{B}}=\mu_0\vba{j}+\frac{1}{c^2}\pdv{\vba{E}}{t}\\
-	&\grad{\left(\div{\vba{A}}\right)}-\laplacian{\vba{A}}-\frac{1}{c^2}\pdv{t}\left(-\pdv{\vba{A}}{t}-\grad{V}\right)=\mu_0\vba{j}\\
-	&\grad{\left(\div{\vba{A}}\right)}-\laplacian{\vba{A}}+\frac{1}{c^2}\pdv[2]{\vba{A}}{t}-\frac{1}{c^2}\grad{\pdv{V}{t}}=\mu_0\vba{j}\\
-	&\underbrace{\grad{\left(\div{\vba{A}}+\frac{1}{c^2}\pdv{V}{t}\right)}}_{=0\ \text{per la scelta di gauge}}+\underbrace{\left(\frac{1}{c^2}\pdv[2]{t}-\laplacian\right)}_{=\Box}\vba{A}=\mu_0\vba{j}
+	\curl{\vba{B}}-\frac{1}{c^2}\pdv{\vba{E}}{t}&=\mu_0\vba{j}\\
+	\grad{\left(\div{\vba{A}}\right)}-\laplacian{\vba{A}}-\frac{1}{c^2}\pdv{t}\left(-\pdv{\vba{A}}{t}-\grad{V}\right)&=\mu_0\vba{j}\\
+	\grad{\left(\div{\vba{A}}\right)}-\laplacian{\vba{A}}+\frac{1}{c^2}\pdv[2]{\vba{A}}{t}-\frac{1}{c^2}\grad{\pdv{V}{t}}&=\mu_0\vba{j}\\
+	\underbrace{\grad{\left(\div{\vba{A}}+\frac{1}{c^2}\pdv{V}{t}\right)}}_{=0\ \text{per la scelta di gauge}}+\underbrace{\left(\frac{1}{c^2}\pdv[2]{t}-\laplacian\right)}_{=\Box}\vba{A}&=\mu_0\vba{j}
 \end{align*}
 \begin{equation}
-	\Box{\vba{A}}=\mu_0\vba{j}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Box{\vba{A}}=\mu_0\vba{j}}
 \end{equation}
 Per trovare la relazione del campo potenziale $V$, partiamo calcolando la divergenza del campo elettrico con la \textit{legge di Gauss}:
-\begin{equation}
+\begin{equation*}
 	\frac{\rho}{\epsilon_0}=\div{\vba{E}}=\div{\left(-\pdv{\vba{A}}{t}-\grad{V}\right)}=-\pdv{t}\left(\div{\vba{A}}\right)-\laplacian{V}
-\end{equation}
+\end{equation*}
 Derivando temporalmente la scelta di gauge
 \begin{equation*}
 	\div{\vba{A}}-\frac{1}{c^2}\pdv{V}{t}=0
@@ -821,6 +825,5 @@ Ricavando da \eqref{PotenzialeBox2} il termine $\pdv{t}\left(\div{\vba{A}}\right
 	\frac{1}{c^2}\pdv[2]{V}{t}-\laplacian{V}=\frac{\rho}{\epsilon_0}
 \end{equation*}
 \begin{equation}
-	\Box{V}=\frac{\rho}{\epsilon_0}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Box{V}=\frac{\rho}{\epsilon_0}}
 \end{equation}
-%TODO: sezione corrente alternata

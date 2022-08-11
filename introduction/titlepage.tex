@@ -6,113 +6,115 @@
 {$LastChangedBy$}
 
 % Remove header and footer
-\thispagestyle{empty}
+%\thispagestyle{empty}
 \addtocounter{page}{-1}
-
-\begin{textblock}{1}(0,0)
-	\noindent\textcolor{orangeill}{\rule{\paperwidth}{.55\paperheight}}
-\end{textblock}
-
-
-\begin{textblock}{1}(0,.55)
-	\noindent\textcolor{black}{\rule{\paperwidth}{.45\paperheight}}
-\end{textblock}
-
-
-\begin{textblock}{1}(.00,.11)
-	%\begin{center}
-	%\noindent{\fontsize{39.88}{2}\selectfont
-	%	\bfseries\textcolor{white}{\textsc{FATTO DI SANGUE\\[4.5mm]TRA DUE ANALISTI\\[4.5mm]PER CAUSA DI UN\\[4.5mm]INTEGRALE}}}
-	%\end{center}
-\end{textblock}
-
-\begin{textblock}{1}(.00,.31)
-	%\begin{center}
-	%\noindent {\fontsize{24.88}{2}\selectfont
-	%	\bfseries\textcolor{white}{\textsc{Si sospettano moventi misurabili}}}
-	%\end{center}
-\end{textblock}
-
-% \begin{textblock}{1}(.1,.21)
-%     \noindent{\fontsize{30}{2}\selectfont
-%         \bfseries\textcolor{white}{for \LaTeX}}
-% \end{textblock}
-
-\begin{textblock}{1}(.00,.06)
-	\begin{center}
-	\includegraphics[width=0.8\paperwidth]{images/titolo}
-	%		\noindent {\fontsize{20.74}{2}\selectfont
-	%		\bfseries\textcolor{white}{Elisa Antuca\ \ \ Massimo Bertolotti}}
-	\end{center}
-\end{textblock}
-
-
-
-\begin{textblock}{.9}(.05,.56)
-	\begin{flushright}
-		\noindent {\fontsize{20.74}{2}\selectfont
-			\bfseries\textcolor{white}{Manualozzo\texttrademark\  di Fisica 2}}
-	\end{flushright}
-\end{textblock}
-
-
-\begin{textblock}{.45}(.55,.705)
-	\begin{center}
-		\includegraphics[width=.35	\paperwidth]{images/copertina2}
-	\end{center}
-\end{textblock}
-
-\begin{textblock}{.1}(-.005,.59)
-	\begin{center}
-		\includegraphics[width=.38\paperwidth]{images/copertina3}
-	\end{center}
-\end{textblock}
-
-\begin{textblock}{.45}(.86,.69)
-	\noindent {\fontsize{24.74}{18}%
-		\textcolor{white}{$\displaystyle E=mc^2$}}
-	%\begin{center}
+\includepdf{images/titlepage}
+\begin{comment}
+	\begin{textblock}{1}(0,0)
+		\noindent\textcolor{orangeill}{\rule{\paperwidth}{.55\paperheight}}
+	\end{textblock}
+	
+	
+	\begin{textblock}{1}(0,.55)
+		\noindent\textcolor{black}{\rule{\paperwidth}{.45\paperheight}}
+	\end{textblock}
+	
+	
+	\begin{textblock}{1}(.00,.11)
+		%\begin{center}
+		%\noindent{\fontsize{39.88}{2}\selectfont
+			%	\bfseries\textcolor{white}{\textsc{FATTO DI SANGUE\\[4.5mm]TRA DUE ANALISTI\\[4.5mm]PER CAUSA DI UN\\[4.5mm]INTEGRALE}}}
+		%\end{center}
+	\end{textblock}
+	
+	\begin{textblock}{1}(.00,.31)
+		%\begin{center}
+		%\noindent {\fontsize{24.88}{2}\selectfont
+			%	\bfseries\textcolor{white}{\textsc{Si sospettano moventi misurabili}}}
+		%\end{center}
+	\end{textblock}
+	
+	% \begin{textblock}{1}(.1,.21)
+		%     \noindent{\fontsize{30}{2}\selectfont
+			%         \bfseries\textcolor{white}{for \LaTeX}}
+		% \end{textblock}
+	
+	\begin{textblock}{1}(.00,.06)
+		\begin{center}
+			\includegraphics[width=0.8\paperwidth]{images/titolo}
+			%		\noindent {\fontsize{20.74}{2}\selectfont
+				%		\bfseries\textcolor{white}{Elisa Antuca\ \ \ Massimo Bertolotti}}
+		\end{center}
+	\end{textblock}
+	
+	
+	
+	\begin{textblock}{.9}(.05,.56)
+		\begin{flushright}
+			\noindent {\fontsize{20.74}{2}\selectfont
+				\bfseries\textcolor{white}{Manualozzo\texttrademark\  di Fisica 2}}
+		\end{flushright}
+	\end{textblock}
+	
+	
+	\begin{textblock}{.45}(.55,.705)
+		\begin{center}
+			\includegraphics[width=.35	\paperwidth]{images/copertina2}
+		\end{center}
+	\end{textblock}
+	
+	\begin{textblock}{.1}(-.005,.59)
+		\begin{center}
+			\includegraphics[width=.38\paperwidth]{images/copertina3}
+		\end{center}
+	\end{textblock}
+	
+	\begin{textblock}{.45}(.86,.69)
+		\noindent {\fontsize{24.74}{18}%
+			\textcolor{white}{$\displaystyle E=mc^2$}}
+		%\begin{center}
 		%\includegraphics[width=.15\paperwidth]{images/copertina4}
-	%\end{center}
-\end{textblock}
-
-\begin{textblock}{.4}(.3,.35)
-	\begin{center}
-		\includegraphics[width=.2\paperwidth]{images/unitologo}
-	\end{center}
-\end{textblock}
-
-\begin{textblock}{.6}(.1,.58)
-	\noindent {\fontsize{14.74}{18}%
-		\textcolor{white}{$\displaystyle\vba{F}=q\left(\vba{E}+\vba{v}\cross\vba{B}\right)$}}
-\end{textblock}
-
-
-\begin{textblock}{.3}(.245,.86)
-	\noindent {\fontsize{15.28}{18}%
-		\textcolor{white!80}{$\displaystyle\lim_{n\to+\infty}\int_Xf_nd\mu=\int_X\lim_{n\to+\infty}f_nd\mu$}}
-\end{textblock}
-
-\begin{textblock}{.4}(.05,.91)
-	\noindent {\fontsize{14.4}{18}%
-		\textcolor{white!50}{$\displaystyle \mu\left(\bigcup_{n\geq 1}A_n\right)=\lim_{n\to+\infty}\mu\left(A_n\right)$}}
-\end{textblock}
-
-\begin{textblock}{.6}(.36,.605)
-	\begin{center}
-		\includegraphics[width=.575\paperwidth]{images/copertina1}
-	\end{center}
-\end{textblock}
-
-
-\begin{textblock}{.3}(.34,.75)
-	\noindent {\fontsize{16.28}{18}%
-		\textcolor{white!10}{$\displaystyle \curl{\vba{B}}=\mu_0\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)$}}
-\end{textblock}
-
-
-
-\null\newpage
+		%\end{center}
+	\end{textblock}
+	
+	\begin{textblock}{.4}(.3,.35)
+		\begin{center}
+			\includegraphics[width=.2\paperwidth]{images/unitologo}
+		\end{center}
+	\end{textblock}
+	
+	\begin{textblock}{.6}(.1,.58)
+		\noindent {\fontsize{14.74}{18}%
+			\textcolor{white}{$\displaystyle\vba{F}=q\left(\vba{E}+\vba{v}\cross\vba{B}\right)$}}
+	\end{textblock}
+	
+	
+	\begin{textblock}{.3}(.245,.86)
+		\noindent {\fontsize{15.28}{18}%
+			\textcolor{white!80}{$\displaystyle\lim_{n\to+\infty}\int_Xf_nd\mu=\int_X\lim_{n\to+\infty}f_nd\mu$}}
+	\end{textblock}
+	
+	\begin{textblock}{.4}(.05,.91)
+		\noindent {\fontsize{14.4}{18}%
+			\textcolor{white!50}{$\displaystyle \mu\left(\bigcup_{n\geq 1}A_n\right)=\lim_{n\to+\infty}\mu\left(A_n\right)$}}
+	\end{textblock}
+	
+	\begin{textblock}{.6}(.36,.605)
+		\begin{center}
+			\includegraphics[width=.575\paperwidth]{images/copertina1}
+		\end{center}
+	\end{textblock}
+	
+	
+	\begin{textblock}{.3}(.34,.75)
+		\noindent {\fontsize{16.28}{18}%
+			\textcolor{white!10}{$\displaystyle \curl{\vba{B}}=\mu_0\left(\vba{j}+\epsilon_0\pdv{\vba{E}}{t}\right)$}}
+	\end{textblock}
+	
+	
+	
+	\null\newpage
+\end{comment}
 \begin{comment}
 	\begin{center}
 	\newlength{\parSepLength}

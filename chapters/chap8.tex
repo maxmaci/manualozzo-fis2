@@ -8,13 +8,16 @@
 \chapter{Il flusso del campo magnetico e la legge di Biot-Savart}
 \labelChapter{leggeBiotSavart}
 
-\begin{introduction}
-	‘‘L’elettricità e il magnetismo sono quelle forze della natura grazie alle quali le persone che non sanno nulla di elettricità e magnetismo possono spiegare tutto.''
+\begin{introduction}``
+	``L’elettricità e il magnetismo sono quelle forze della natura grazie alle quali le persone che non sanno nulla di elettricità e magnetismo possono spiegare tutto.''
 	\begin{flushright}
 		\textscsl{Egon Friedell}, cercando di spiegare nulla.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{P}{er}  %TODO: intro
+\lettrine[findent=1pt, nindent=0pt]{C}{ariche stazionarie} producono campi elettrici costanti nel tempo, da cui il termine \textit{elettrostatica}. Da quanto visto (e intuito) nel Capitolo precedente, \textit{correnti stazionarie} producono campi magnetici costanti nel tempo.
+
+In questo Capitolo ci occuperemo proprio di ciò, studiando la \textbf{prima legge di Laplace} o \textbf{legge di Biot-Savart}, la formula matematica che descrive il campo magnetico di un filo percorso da corrente stazionaria.\\
+Prima di vederla con alcune applicazioni (dal filo rettilineo al solenoide, passando ovviamente per la spira circolare), parleremo però del \textbf{flusso} del campo magnetico \textbf{attraverso una superficie aperta}.
 
 \section{Il flusso del campo magnetico per superfici aperte}
 Come già detto, il campo magnetico è \textit{solenoidale}, ossia che la divergenza di esso è nulla:
@@ -29,9 +32,13 @@ Questo ci viene in aiuto se vogliamo calcolare il flusso di $\vba{B}$ attraverso
 \begin{align*}
 	\Phi_{\Sigma}(\vba{B})&=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\\
 	&=\int_{\Sigma}\left(\curl{\vba{A}}\right)\vdot\vbh{u}_nd\Sigma=&&\text{(}\vba{B}\ \text{solenoidale)}\\
-	&=\int_{\partial \Sigma}\vba{A}\vdot d\vba{s}=\Gamma_{\Sigma}(\vba{A})&&\text{(teorema di Stokes)}
+	&=\int_{\partial \Sigma}\vba{A}\vdot d\vba{s}=&&\text{(teorema di Stokes)}\\
+	&=\Gamma_{\Sigma}(\vba{A})&&
 \end{align*}
-Quanto trovato è valido in generale per un qualunque campo solenoidale: il flusso tramite una superficie aperta dipende esclusivamente dal \textit{bordo} e \textit{non} dalla superficie in sé. Se prendessi due superfici aperte differenti, ma con lo stesso bordo, avremmo lo stesso flusso.
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Phi_{\Sigma}(\vba{B})=\Gamma_{\Sigma}(\vba{A})}
+\end{equation}
+Quanto trovato è valido in generale per un \textit{qualunque} campo solenoidale: il flusso tramite una superficie aperta dipende esclusivamente dal \textit{bordo} e \textit{non} dalla superficie in sé. Se prendessi due superfici aperte differenti, ma con lo stesso bordo, avremmo lo stesso flusso.
 
 Noto ciò, vorremmo ora \textit{generalizzare} ancora di più quanto visto nelle sezioni precedenti: dato un circuito qualunque percorso da corrente e immerso in un campo magnetico, vorremo esprimere la forza che agisce, l'energia potenziale, il lavoro del campo magnetico e quant'altro in termini di \textit{flusso}, in modo da utilizzare poi la dipendenza del flusso nei confronti del bordo.
 
@@ -82,7 +89,7 @@ Ci interessano solo le derivate applicate al vettore potenziale $\vba{A}$:
 \end{equation*}
 Calcoliamo la circuitazione di $\vba{A}$ facendo l'integrale curvilineo lungo il circuito $\partial \Sigma$:
 +\begin{equation}
-	\oint\grad{\left(\vba{A}\vdot d\vba{s}\right)}=\oint \left(d\vba{s}\vdot\grad\right)\vba{A}+\oint d\vba{s}\cross\left(\grad\cross\vba{A}\right)
+	\oint_{\gamma}\grad{\left(\vba{A}\vdot d\vba{s}\right)}=\oint_{\gamma} \left(d\vba{s}\vdot\grad\right)\vba{A}+\oint_{\gamma} d\vba{s}\cross\left(\grad\cross\vba{A}\right)
 \end{equation}
 Osserviamo che, data una funzione scalare arbitraria $\oldphi$, vale
 \begin{equation*}
@@ -94,42 +101,47 @@ e dunque
 \end{equation}
 Di conseguenza, $d\vba{s}\vdot\grad$ agisce su ciascuna componente di $\vba{A}$ come \textit{derivata totale} e di conseguenza, integrando su una curva chiusa, l'integrale risulta nullo; segue che il primo termine è nullo. Ricaviamo quindi
 \begin{equation*}
-	\grad{\Phi_{\Sigma}(\vba{B})}=\grad{\Gamma_{\partial \Sigma}(\vba{A})}=\oint d\vba{s}\cross\left(\grad\cross\vba{A}\right)=\oint d\vba{s}\cross\vba{B}
+	\grad{\Phi_{\Sigma}(\vba{B})}=\grad{\Gamma_{\partial \Sigma}(\vba{A})}=\oint_{\gamma} d\vba{s}\cross\left(\grad\cross\vba{A}\right)=\oint_{\gamma} d\vba{s}\cross\vba{B}
 \end{equation*}
 Ma quella che abbiamo ottenuta è la forza di Laplace divisa per l'intensità di corrente $I$ stazionaria. Nella condizione in cui $I$ sia stazionaria, allora
 \begin{equation}
-	\vba{B}=I\int_{\gamma}d\vba{s}\cross\vba{B}=I\grad{\Phi_{\Sigma}(\vba{B})}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{F}=I\oint_{\gamma}d\vba{s}\cross\vba{B}=I\grad{\Phi_{\Sigma}(\vba{B})}}
 \end{equation}
 \paragraph{Energia potenziale}
-Poiché la forza è espressa come \textit{gradiente} di una quantità scalare, l'energia potenziale è l'opposta di tale quantità:
+Poiché la forza è espressa come \textit{gradiente} di una quantità scalare, l'energia potenziale è l'opposto di tale quantità:
 \begin{equation}
-	U_P=-I\Phi_{\Sigma}(\vba{B})
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{U_P=-I\Phi_{\Sigma}(\vba{B})}
 \end{equation}
 In sintesi:
-\begin{align}
+\begin{empheq}[box=\tcmathboxgeneral]{align}
 	\vba{F}=&-\grad{U_P}\\
 	U_P=&-I\Phi_{\Sigma}(\vba{B})
-\end{align}
+\end{empheq}
 In particolare, se il campo magnetico $\vba{B}$ è uniforme, allora
 \begin{align*}
-	\Phi_{\Sigma}(\vba{B})&=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\vba{B}\vdot\vbh{u}_n \Sigma\\
-	&\implies U_P=I\Sigma \vbh{u}_n \vdot \vba{B}=-\vba{m}\vdot\vba{B}. 
+	&\Phi_{\Sigma}(\vba{B})=\int_{\Sigma}\vba{B}\vdot\vbh{u}_nd\Sigma=\vba{B}\vdot\vbh{u}_n \Sigma\\
+	\implies& U_P=I\Sigma \vbh{u}_n \vdot \vba{B}=-\vba{m}\vdot\vba{B}. 
 \end{align*}
-che, effettivamente, coincide con quanto abbiamo visto a pagina \pageref{EnergiaPotenzialeCasoGeneralemanontroppo}.
+che, effettivamente, coincide con quanto abbiamo visto a pag. \pageref{EnergiaPotenzialeCasoGeneralemanontroppo}.
 \paragraph{Lavoro per spostare il circuito}
 Il circuito percorso da corrente, essendo soggetto alla forze di Laplace, si muove e si deforma. Ci si aspetterebbe di incontrare degli attriti, ma così non è, come mai?\\
 Supponiamo che il campo magnetico $\vba{B}$ sposti un circuito lungo un percorso $\eta$ dallo stato $A$ allo stato $B$, deformandolo al contempo. Allo stato $A$ il circuito corrisponde alla curva $\gamma_A$, mentre allo stato $B$ alla curva $\gamma_B$. Il lavoro compiuto dal campo magnetico per spostare il circuito è
 \begin{align*}
-	W&=\int_{\eta}\vba{F}\vdot d\vba{s}=-\int_{\eta}\grad{U_P}\vdot d\vba{s}=&&\\
-	&=-\Delta{U_P})=U_P(A)-U_P(B)&&\text{(teorema del gradiente)}
+	W&=\int_{\eta}\vba{F}\vdot d\vba{s}=&&\\
+	&=-\int_{\eta}\grad{U_P}\vdot d\vba{s}=&&\text{(teorema del gradiente)}\\
+	&=-\Delta{U_P}=&&\\
+	&=U_P(A)-U_P(B)&&
 \end{align*}
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{W=-\Delta{U_P}=U_P(A)-U_P(B)}
+\end{equation}
 dove $U_P(A)$ è il potenziale allo stato iniziale $A$ e $U_P(B)$ quello allo stato finale $B$. Oltre a non avere alcun attrito, dato che il lavoro è una differenza di energia potenziale senza dispersione, si ha anche che
 \begin{equation}
-	W=I(\Phi_{\Sigma_B}(\vba{B})-\Phi_{\Sigma_A}(\vba{B}))=I\left(\Gamma_{\gamma_B}(\vba{A})-\Gamma_{\gamma_A}(\vba{A})\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{W=I(\Phi_{\Sigma_B}(\vba{B})-\Phi_{\Sigma_A}(\vba{B}))=I\left(\Gamma_{\gamma_B}(\vba{A})-\Gamma_{\gamma_A}(\vba{A})\right)}
 \end{equation}
 dove $\Sigma_A,\ \Sigma_B$ sono superficie arbitrarie con bordo i circuiti $\gamma_A,\ \gamma_B$, rispettivamente.
 
-Di fatto, il circuito elettrico è l'equivalente per il lavoro magnetostatico a quello che la particella elettrica fa nel lavoro elettromagnetico: alla carica corrisponde l'intensità di corrente, mentre alla differenza di potenziale corrisponde la differenza di circuitazione del potenziale vettore.
+Di fatto, il \textit{circuito elettrico} è l'equivalente per il lavoro magnetostatico al ruolo della \textit{particella elettrica} nel lavoro elettrostatico: alla carica corrisponde l'intensità di corrente, mentre alla differenza di potenziale corrisponde la differenza di circuitazione del potenziale vettore.
 
 Per un campo magnetico uniforme sappiamo che la forza di Laplace su un circuito chiuso è \textit{nulla}, quindi anche il lavoro compiuto è \textit{nullo}.
 \subsection{Un esempio: la spira circolare vicino al magnete cilindrico}
@@ -149,23 +161,23 @@ Possiamo parametrizzare la spira di raggio $R=R_0$ e quota $z=z_0$ (inizialmente
 \begin{equation*}
 	\vba{r}(\phi)=\left(x(\phi),y(\phi),z(\phi)\right)=\left(R_0\cos\phi,\ R_0\sin\phi, z_0\right)=
 \end{equation*}
-Uno spostamento infinitesimo in coordinate cilindriche sarebbe\footnote{	Nelle ‘‘XXX'', a pagina \pageref{spinfinitesimocilindriche} è possibile trovare come si calcola.}
-\begin{equation}
+Uno spostamento infinitesimo in coordinate cilindriche sarebbe\footnote{Nella ``Raccolta Differenziata'', a pag. \pageref{spinfinitesimocilindriche} è possibile trovare come si calcola.}
+\begin{equation*}
 	d\vba{s}=dR\vbh{u}_R+Rd\theta\vbh{u}_\theta+dz\vbh{u}_z
-\end{equation}
+\end{equation*}
 Nel nostro caso, poiché $R=R_0$ e $z=z_0$ sono inizialmente fissi, si ha solo la variazione infinitesima $d\theta$ e quindi
-\begin{equation}
+\begin{equation*}
 	d\vba{s}=Rd\theta\vbh{u}_\theta
-\end{equation}
+\end{equation*}
 Il campo magnetico $\vba{B}$ ha simmetria assiale rispetto all'asse $z$ e si può scomporre come
-\begin{equation}
+\begin{equation*}
 	\vba{B}=B\cos\phi\vbh{u}_z+B\sin\phi\vbh{u}_r
-\end{equation}
-dove $\phi$ è l'angolo tra l'asse $z$ e il campo. Calcoliamoci la forza: per la seconda legge di Laplace
+\end{equation*}
+dove $\phi$ è l'angolo tra l'asse $z$ e il campo. Calcoliamoci la forza: per la seconda legge di Laplace essa è
 \begin{equation*}
 	\vba{F}=I\int d\vba{s}\cross\vba{B}
 \end{equation*}
-Per la regola della mano destra la forza sarà ortogonale sia a $d\vba{s}$ che a $\vba{B}$ e diretta verso il basso: in particolare, ci si aspetta che le componenti radiali di tali forze si compensino, in modo che la spira venga quindi ``risucchiata'' verso il basso senza deformarsi.
+e, per la regola della mano destra, sarà ortogonale sia a $d\vba{s}$ che a $\vba{B}$ e diretta verso il basso. In particolare, ci si aspetta che le componenti radiali di tali forze si compensino, in modo che la spira venga quindi ``risucchiata'' verso il basso senza deformarsi.
 \begin{center}
 	\includegraphics[width=0.35\textwidth]{images/chp8/chp8magnetecilindrico2.pdf}
 \end{center}
@@ -193,8 +205,9 @@ Si osservi che
 \end{itemize}
 Segue quindi che la forza subita dalla spira è diretta verso il basso, come previsto:
 \begin{equation}
-	\vba{F}=-2\pi R I B\sin\phi\vbh{u}_z
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{F}=-2\pi R I B\sin\phi\vbh{u}_z}
 \end{equation}
+\paragraph{La forza della spira come variazione di flusso}
 Vorremmo ora esprimere questa forza come
 \begin{equation*}
 	\vba{F}=I\grad{\Phi_{\Sigma}(\vba{B})}
@@ -241,7 +254,7 @@ Si ottiene infine
 \end{equation*}
 ossia
 \begin{equation}
-	\vba{F}=-2\pi IRB\sin\phi\vbh{u}_z=I\pdv{\Phi_{\Sigma}}{z}\vbh{u}_z
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{F}=-2\pi IRB\sin\phi\vbh{u}_z=I\pdv{\Phi_{\Sigma}}{z}\vbh{u}_z}
 \end{equation}
 \begin{observe}
 	La forza dipende della variazione del flusso tramite l'area della spira; tuttavia, abbiamo appena mostrato che tale variazione si esprime in termini di flusso \textit{traverso}, cioè quello della \textit{superficie laterale}.
@@ -274,7 +287,7 @@ Procediamo con calma. Innanzitutto, sebbene sia difficilmente osservabile, anche
 \end{itemize}
 Fu \textbf{Oliver Heaviside} nel 1888 a derivare, dalle leggi di Maxwell, la legge matematica che descrive il campo magnetico generato da una singola carica in movimento:
 \begin{equation}
-	\vba{B}=\frac{\mu_0}{4\pi}\frac{q\vba{v}\cross\vbh{u}_r}{r^2}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{\mu_0}{4\pi}\frac{q\vba{v}\cross\vbh{u}_r}{r^2}}
 \end{equation}
 La prima cosa che notiamo è che, a tutti gli effetti, tale legge soddisfa quanto supposto ed osservato: il campo magnetico \textit{dipende} dalla velocità, mentre il prodotto vettoriale garantisce la seconda osservazione.
 
@@ -313,7 +326,7 @@ e quella del campo elettrico
 \end{equation*}
 generati della particella sono così simili da essere collegati tra di loro dalla relazione
 \begin{equation}
-	\vba{B}=\mu_0\epsilon_0\vba{v}\cross\vba{E}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\mu_0\epsilon_0\vba{v}\cross\vba{E}}
 \end{equation}
 Poiché, dimensionalmente parlando, si ha
 \begin{equation*}
@@ -328,19 +341,19 @@ il loro prodotto ha dimensioni
 	\left[\epsilon_0\mu_0\right]=\unit[per-mode = fraction]{\second\squared\per\meter\squared},
 \end{equation*}
 pari a quelle di un inverso di un quadrato di una velocità. Ma non stiamo parlando di una velocità qualunque, bensì della \textit{velocità della luce}! Infatti,
-\begin{equation*}
-	c=\SI[per-mode = fraction]{3d8}{\meter\per\second}=\frac{1}{\sqrt{\epsilon_0\mu_0}}
-\end{equation*}
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{c=\SI[per-mode = fraction]{3d8}{\meter\per\second}=\frac{1}{\sqrt{\epsilon_0\mu_0}}}
+\end{equation}
 La relazione di cui sopra tra campo elettrico $\vba{E}$ e campo magnetico $\vba{B}$ di una particella carica in moto a velocità $\vba{v}$ si riscrive quindi come
 \begin{equation}
-	\vba{B}=\frac{1}{c^2}\vba{v}\cross\vba{E}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{1}{c^2}\vba{v}\cross\vba{E}}
 \end{equation}
 Perché però compare la velocità della luce? Facendo un piccolissimo spoiler, i fenomeni elettromagnetici sono legati a fenomeni di natura ondulatoria con velocità di propagazione pari a quelli della luce.
 \subsection{Campo magnetico generato da un filo: legge di Biot-Savart}
 Sebbene abbiamo visto cosa succede per una particella, una singola carica in movimento non fa una corrente stazionaria - ma tante sì. Supponiamo di avere un elemento di filo infinitesimo percorso da corrente stazionaria di intensità $I$; le cariche si spostano con velocità di deriva $\vba{v}_d$. Per ciascuna singola carica il campo magnetico generato è
-\begin{equation}
+\begin{equation*}
 	\vba{B}_i=\frac{\mu_0}{4\pi}\frac{e\vba{v}_d\cross\vbh{u}_r}{r^2}
-\end{equation}
+\end{equation*}
 Se nel volumetto ci sono $N$ cariche, si ha una densità di cariche pari a
 \begin{equation*}
 	n=\frac{dN}{dV}
@@ -353,7 +366,6 @@ Ricordando che $\vba{j}=ne\vba{v}_d$, allora
 \begin{equation*}
 	\vba{B}=\frac{\mu_0}{4\pi}\int_V\frac{\vba{j}\cross\vbh{u}_r}{r^2}dV
 \end{equation*}
-% bla bla bla confronto con il campo elettrico
 Consideriamo il caso di un filo rettilineo  $\mathcal{l}$: un suo volumetto infinitesimo ha spessore costante $d\Sigma$ e lunghezza $ds$. Se poniamo il filo lungo l'asse $x$ senza perdita di generalità, la densità di corrente è anch'essa parallela all'asse $x$, ossia
 \begin{equation*}
 	\vba{j}=j\vbh{u}_x
@@ -367,13 +379,14 @@ Osserviamo che in questo caso $d\vba{s}=ds\vbh{u}_x$. Generalizziamo quanto trov
 \begin{define}[Seconda legge di Laplace]
 	La \textbf{legge di Biot-Savart}\index{legge!di Biot-Savart}, detta anche \textbf{prima legge di Laplace}\index{legge!di Laplace!prima}, afferma che il campo magnetico indotto da una corrente stazionaria $I$ che percorre un filo descritto dalla curva $\gamma$ è pari a
 	\begin{equation}
-		\vba{B}=\frac{\mu_0}{4\pi}\int_{\gamma}\frac{d\vba{s}\cross\vbh{u}_r}{r^2}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{\mu_0}{4\pi}\int_{\gamma}\frac{d\vba{s}\cross\vbh{u}_r}{r^2}}
 	\end{equation}
 	dove $d\vba{s}$ è lo spostamento infinitesimo lungo la curva $\gamma$ e $\vbh{u}_r$ il versore dal tratto di filo al punto in cui viene valutato il campo magnetico. 
 \end{define}
 \begin{observe}
 	Per sapere il verso di $\vba{B}$ si può applicare la regola della vite destra: indicando con il pollice destro il verso della corrente, le dita della mano curvano seguendo le linee di campo del campo magnetico $\vba{B}$.
 \end{observe}
+In magnetostatica, la \textit{legge di Biot-Savart} svolge un ruolo analogo alla legge di Coulomb in elettrostatica: oltre a descrivere un campo vettoriale, anche questa formula presenta la dipendenza da $\nicefrac{1}{r}^2$. Vediamo alcuni casi in cui calcolare il campo magnetico usando tale legge.
 \subsection{Campo magnetico generato da un filo rettilineo (in)finito}
 Consideriamo un filo rettilineo di lunghezza $2a$, posto lungo l'asse $z$ in modo che il suo punto medio coincida con l'origine. La parametrizzazione di tale filo è data da
 \begin{equation*}
@@ -398,9 +411,9 @@ Calcoliamo
 	=\frac{x\vbh{u}_y-y\vbh{u}_x}{\abs{\vba{r}-\vba{r}'}}dz'
 \end{equation*}
 Il campo magnetico, per la legge di Biot-Savart, sarà
-\begin{equation}
+\begin{equation*}
 	\vba{B}=\frac{\mu_0 I}{4\pi}\int_{-a}^{a} \frac{x\vbh{u}_y-y\vbh{u}_x}{\left(x^2+y^2+\left(z-z'\right)^2\right)^{\nicefrac{3}{2}}}dz'
-\end{equation}
+\end{equation*}
 Osserviamo però che il problema presentava un'evidente simmetria cilindrica. Passando alle coordinate cilindriche
 \begin{equation*}
 	\begin{cases}
@@ -426,15 +439,19 @@ Imponendo la sostituzione $b=\dfrac{z'}{R}$, il differenziale risulta $db=\dfrac
 	&\squarequal\frac{\mu_0 I}{4\pi}\Ccancel[red]{R}\vbh{u}_{\theta}\int_{-\nicefrac{a}{R}}^{\nicefrac{a}{R}}\frac{\Ccancel[red]{R}db}{R^{\Ccancel[red]{3}}\left(1+b^2\right)^{\nicefrac{3}{2}}}=\\
 	&=\frac{\mu_0 I}{4\pi R}\vbh{u}_{\theta}\eval{\frac{b}{\sqrt{1+b^2}}}_{-\nicefrac{a}{R}}^{\nicefrac{a}{R}}=\frac{\mu_0 I}{2\pi R}\frac{\nicefrac{a}{R}}{\sqrt{1+\frac{a^2}{R^2}}}\vbh{u}_{\theta}=\frac{\mu_0 I}{2\pi R}\frac{a}{\sqrt{a^2+R^2}}\vbh{u}_{\theta}
 \end{align*}
-Se facessimo tendere il valore di $a$ a $+\infty$, e cioè nel caso in cui filo fosse di \textit{lunghezza infinita}, il campo magnetico sarebbe descritta da quella che è la \textit{legge di Biot-Savart per un filo infinito}\index{legge!di Biot-Savart!per un filo infinito}:
-\begin{equation}
-	\vba{B}=\frac{\mu_0 I}{2\pi R}\vbh{u}_{\theta}
-\end{equation}
-Grazie a ciò siamo in grado di derivare per via teorica (e non più soltanto empirica) la legge di Ampère. Prendiamo i nostri due fili paralleli di lunghezza infinita. Il campo generato dal filo 1 in un punto sul secondo filo, posto a distanza $d$, è
+Se facessimo tendere il valore di $a$ a $+\infty$, e cioè nel caso in cui filo fosse di \textit{lunghezza infinita}, il campo magnetico sarebbe descritta da quella che è la \textit{legge di Biot-Savart per un filo infinito}.
+\begin{corollary}[Legge di Biot-Savart per un filo infinito]
+	La \textbf{legge di Biot-Savart per un filo infinito}\index{legge!di Biot-Savart!per un filo infinito} afferma che il campo magnetico indotto da una corrente stazionaria $I$ che percorre un filo rettilineo infinito è pari a
+	\begin{equation}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=byc!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{\mu_0 I}{2\pi R}\vbh{u}_{\theta}}
+	\end{equation}
+	dove $\vbh{u}_{\theta}$ è il versore relativo all'angolo azimutale delle coordinate cilindriche.
+\end{corollary}
+Grazie a ciò siamo in grado di derivare per via teorica (e non più soltanto empirica) la legge di Ampère. Prendiamo i nostri due fili paralleli di lunghezza infinita. Il campo generato dal filo $1$ in un punto sul secondo filo, posto a distanza $d$, è
 \begin{equation*}
 	\vba{B}_1=\frac{\mu_0 I_1}{2\pi d}\vbh{u}_\theta
 \end{equation*}
-La forza che agisce sul filo 2 su un tratto $\gamma_2$ di lunghezza $L$ è, per la seconda legge di Laplace, data da
+La forza che agisce sul filo $2$ su un tratto $\gamma_2$ di lunghezza $L$ è, per la seconda legge di Laplace, data da
 \begin{equation*}
 	\vba{F}_2=I_2\int_{\gamma_2}d\vba{s}\cross\vba{B}_1=I_2\left(\int_{\gamma_2}d\vba{s}\right)\cross\vba{B}_1=I_2\left(\int_{0}^Ldz\right)\vbh{u}_z\cross\vba{B}_1=I_2L\vbh{u}_z\cross\vba{B}_1
 \end{equation*}
@@ -442,9 +459,9 @@ Da ciò concludiamo che
 \begin{equation*}
 	\frac{\vba{F}_2}{L}=I_2\vbh{u}_z\cross\vba{B}_1=\frac{\mu_0 I_1 I_2}{2\pi d}\vbh{u}_z\cross\vbh{u}_{\theta}=\frac{\mu_0}{2\pi}\frac{I_1I_2}{d}\vbh{u}_d
 \end{equation*}
-Per simmetria, lo stesso risultato si ottiene considerando la forza che agisce sul filo 1 con il campo magnetico generato da 2, quindi
+Per simmetria, lo stesso risultato si ottiene considerando la forza che agisce sul filo 1 con il campo magnetico generato da $2$, quindi
 \begin{equation}
-	\frac{\vba{F}}{L}=\frac{\mu_0}{2\pi}\frac{I_1I_2}{d}\vbh{u}_d
+	\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\frac{\vba{F}}{L}=\frac{\mu_0}{2\pi}\frac{I_1I_2}{d}\vbh{u}_d}
 \end{equation}
 \subsection{Campo magnetico generato da una spira circolare}
 Consideriamo un circuito circolare in cui circola corrente. Per la legge di Biot-Savart, è presente un campo magnetico tangenziale a circonferenze perpendicolari alla corrente e centrate lungo il circuito, il cui verso è dato dalla legge della mano destra. Di conseguenza, ci aspettiamo un campo a simmetria cilindrica come in figura.
@@ -523,11 +540,11 @@ Data l'evidente difficoltà della situazione in cui siamo incappati, vediamo sol
 		&=\frac{\mu_0 I R_0^2}{2 \left(z^2+R_0^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z
 	\end{align*}
 	\begin{equation}
-		\vba{B}=\frac{\mu_0 I R_0^2}{2 \left(z^2+R_0^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z
+		\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{\mu_0 I R_0^2}{2 \left(z^2+R_0^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z}
 	\end{equation}
 	Il campo magnetico è verticale. In particolare, ha il suo massimo nel centro della spira ($z=0$), dove è pari a
 	\begin{equation}
-		\vba{B}=\frac{\mu_0 I}{2R_0}\vbh{u}_z
+		\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{\mu_0 I}{2R_0}\vbh{u}_z}
 	\end{equation}
 \end{itemize}
 \begin{observe}
@@ -571,16 +588,17 @@ Data l'evidente difficoltà della situazione in cui siamo incappati, vediamo sol
 	\end{equation*}
 	Allora il campo magnetico, a debita distanza, è approssimabile da
 	\begin{equation}
-		\vba{B}=\frac{\mu_0 m}{4 \pi r^3}\left(2\cos\theta\vbh{u}_r+ \sin\theta\vbh{u}_\theta\right)
+		\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{\mu_0 m}{4 \pi r^3}\left(2\cos\theta\vbh{u}_r+ \sin\theta\vbh{u}_\theta\right)}
 	\end{equation}
 	\begin{example}
 		Sul piano della spira, il campo magnetico lontano dalla spira punta verso il basso.
 	\end{example}
 	Si può anche scrivere come
 	\begin{equation}
-		\vba{B}=\frac{\mu_0}{4 \pi r^3}\left(3\left(\vba{m}\vdot\vbh{u}_r\right)\vbh{u}_z-\vba{m}\right)
+		\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{\mu_0}{4 \pi r^3}\left(3\left(\vba{m}\vdot\vbh{u}_r\right)\vbh{u}_z-\vba{m}\right)}
 	\end{equation}
 \end{itemize}
+\pagebreak
 \paragraph{Confronto con il dipolo elettrico}
 \begin{center}
 	\begin{tabular}{p{0.49\textwidth}p{0.49\textwidth}}
@@ -615,7 +633,7 @@ Data l'evidente difficoltà della situazione in cui siamo incappati, vediamo sol
 				\multicolumn{1}{c}{
 					$\displaystyle U=-\vba{m}\vdot\vba{B}$
 				}\\ \hline
-				\multicolumn{2}{c}{\textbf{Posso separare le ‘‘cariche''?}}\\\hline
+				\multicolumn{2}{c}{\textbf{Posso separare le ``cariche''?}}\\\hline
 				\multicolumn{1}{c|}{
 					Sì.
 				} &
@@ -658,35 +676,35 @@ Data l'evidente difficoltà della situazione in cui siamo incappati, vediamo sol
 		\end{equation*}
 		In molti casi, però, il numero di spire è talmente elevato che è molto più maneggevole passare al \textit{continuo}. Introducendo una densità \textit{lineare} $n$ di spire, ossia il numero di spire per unità di lunghezza, su un solenoide di lunghezza $2a$ si hanno
 		\begin{equation*}
-			N=\int_{-a}^{a}ndz
+			N=\int_{-a}^{+a}ndz
 		\end{equation*}
 		spire. Il campo magnetico infinitesimo ad altezza $z'$ si ottiene tenendo conto di quante spire ci sono nell'elemento di lunghezza $dz'$, ossia moltiplicando per la densità $n$ il campo magnetico infinitesimo che si avrebbe con una sola spira:
 		\begin{equation*}
-			d\vba{B}=\frac{\mu_0 I R_0^2 n}{2\left(R_0^2+\left(z-z'\right)^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z\ dz'
+			d\vba{B}=\frac{\mu_0 I R_0^2 n}{2\left(R_0^2+\left(z-z'\right)^2\right)^{\nicefrac{3}{2}}}\ dz'\vbh{u}_z
 		\end{equation*}
 		Il campo magnetico complessivo si ottiene integrando lungo la lunghezza del solenoide. Supponendo che la densità di spire sia costante,
 		\begin{equation*}
-			B=\int_{-a}^{a}\frac{\mu_0 I R_0^2 n}{2\left(R_0^2+\left(z-z'\right)^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z\ dz'=
-			\frac{\mu_0 I n}{2R_0}\int_{-a}^{a}\frac{dz'}{\left(1+\frac{\left(z-z'\right)^2}{R_0^2}\right)^{\nicefrac{3}{2}}}\squarequal
+			\vba{B}=\int_{-a}^{a}\frac{\mu_0 I R_0^2 n}{2\left(R_0^2+\left(z-z'\right)^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z\ dz'\vbh{u}_z=
+			\frac{\mu_0 I n}{2R_0}\int_{-a}^{a}\frac{dz'}{\left(1+\frac{\left(z-z'\right)^2}{R_0^2}\right)^{\nicefrac{3}{2}}}\vbh{u}_z\squarequal
 		\end{equation*}
-		Operando il campo di variabile $\eta=\dfrac{z'-z}{R_0}$, il differenziale diventa $d\eta=\dfrac{dz'}{R_0}$ mentre gli estremi di integrazione $\frac{\pm a-z}{R_0}$. Allora
+		Operando il campo di variabile $\eta=\frac{z'-z}{R_0}$, il differenziale diventa $d\eta=\frac{dz'}{R_0}$ mentre gli estremi di integrazione $\frac{\pm a-z}{R_0}$. Allora
 		\begin{align*}
-			\squarequal&\frac{\mu_0 I n}{2R_0}\int_{\frac{-a-z}{R_0}}^{\frac{a-z}{R_0}}\frac{\eta}{\left(1è\eta^2\right)^{\nicefrac{3}{2}}}=\frac{\mu_0 I n}{2}\eval{\frac{\eta}{\sqrt{1+\eta^2}}}_{\frac{-a-z}{R_0}}^{\frac{a-z}{R_0}}=\\
-			=&\frac{\mu_0 I n}{2}\left(\frac{\frac{a-z}{R_0}}{\sqrt{1+\left(\frac{a-z}{R_0}\right)^2}}-\frac{\frac{a+z}{R_0}}{\sqrt{1+\left(\frac{a+z}{R_0}\right)^2}}\right)=
-			\frac{\mu_0 I n}{2}\left(\frac{a-z}{\sqrt{R_0^2+\left(a-z\right)^2}}+\frac{a+z}{\sqrt{R_0^2+\left(a+z\right)^2}}\right)
+			\squarequal&\displaystyle\frac{\mu_0 I n}{2R_0}\int_{\frac{-a-z}{R_0}}^{\frac{a-z}{R_0}}\frac{\eta}{\left(1+\eta^2\right)^{\nicefrac{3}{2}}}\vbh{u}_z=\frac{\mu_0 I n}{2}\eval{\frac{\eta}{\sqrt{1+\eta^2}}}_{\frac{-a-z}{R_0}}^{\frac{a-z}{R_0}}\vbh{u}_z=\\
+			=&\displaystyle\frac{\mu_0 I n}{2}\left(\frac{\frac{a-z}{R_0}}{\sqrt{1+\left(\frac{a-z}{R_0}\right)^2}}-\frac{\frac{a+z}{R_0}}{\sqrt{1+\left(\frac{a+z}{R_0}\right)^2}}\right)\vbh{u}_z=
+			\frac{\mu_0 I n}{2}\left(\frac{a-z}{\sqrt{R_0^2+\left(a-z\right)^2}}+\frac{a+z}{\sqrt{R_0^2+\left(a+z\right)^2}}\right)\vbh{u}_z
 		\end{align*}
 		\begin{itemize}
 			\item \textbf{In mezzo al solenoide} ($z=0$):
 			\begin{equation}
-				\vba{B}=\frac{\mu_0 I n a}{\sqrt{R_0^2+a^2}}\vbh{u}_z
+				\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{\mu_0 I n a}{\sqrt{R_0^2+a^2}}\vbh{u}_z}
 			\end{equation}
 			\item \textbf{Ad un estremo del solenoide} ($z=\pm a$):
 			\begin{equation}
-				\vba{B}=\frac{\mu_0 I n a}{\sqrt{R_0^2+4a^2}}\vbh{u}_z
+				\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\frac{\mu_0 I n a}{\sqrt{R_0^2+4a^2}}\vbh{u}_z}
 			\end{equation}
 			\item \textbf{Solenoide infinito} ($a\to+\infty$): il campo magnetico è omogeneo all'interno, pari a
 			\begin{equation}
-				\vba{B}=\mu_0 I n\vbh{u}_z
+				\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{B}=\mu_0 I n\vbh{u}_z}
 			\end{equation}
 			e nullo all'esterno.
 		\end{itemize}

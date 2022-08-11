@@ -6,23 +6,27 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{La circuitazione del campo elettrico, il potenziale elettrico e le leggi di Maxwell per l'elettrostatica} %TODO: Il lavoro elettrico?
+\chapter{Il potenziale elettrico e le leggi di Maxwell per l'elettrostatica} %TODO: Il lavoro elettrico?
 %TODO: tcbox
 \labelChapter{PotenzialeElettrico}
 \begin{introduction}
-	‘‘Una volta che ti pompano 200 volt nel corpo, hai la tendenza a passare il resto della vita in un posacenere.''
+	``Una volta che ti pompano 200 volt nel corpo, hai la tendenza a passare il resto della vita in un posacenere.''
 	\begin{flushright}
 		\textscsl{Woody Allen}, elettricista con la carriera andata in fumo.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{P}{er}  %TODO: intro
+\lettrine[findent=1pt, nindent=0pt]{C}{ome} abbiamo visto negli esempi del \autoref{chap:FlussoCampoElettrico}, il campo elettrostatico $\vba{E}$ non è una funzione vettoriale come tutte le altre, ma è un campo \textit{conservativo} - non nel senso politico del termine, dato che i campi vettoriali non hanno diritto di voto. Ciò che intendiamo con ciò è che esso ammette una funzione scalare $V$ per cui $\vba{E}$ è il gradiente di $V$. Oltre ad avere importanti conseguenze fisiche, il potenziale ci permette una \textit{terza via} per calcolare i campi elettrostatici, dopo quella diretta con gli integrali e quella tramite la legge di Gauss: determinare il campo scalare potenziale e, prendendo il suo gradiente, ricavare quello elettrostatico.
+
+In questo capitolo mostreremo cosa cambia nel passaggio dalle forze conservative ai \textbf{campi conservativi} (spoiler: ben poco, tutto sommato), introducendo il concetto di \textbf{circuitazione di un campo vettoriale}. Fatto ciò passeremo a parlare del \textbf{potenziale elettrico} e mostreremo attraverso alcuni esempi come si comporta in presenza di \textbf{discontinuità di campo elettrostatico}.\\
+Concludiamo questa sezione reinterpretando i risultati di questi primi tre capitoli sotto forma delle \textbf{equazioni di Maxwell per l'elettrostatica}; inoltre, ci soffermeremo su particolari equazioni differenziali, dette \textbf{di Poisson} e \textbf{di Laplace}, con la quale possiamo semplificare ulteriormente lo studio del potenziale - e di conseguenza del campo elettrostatico.
+\vfill
+\pagebreak
 \section{La circuitazione di un campo vettoriale}
-%TODO: concezione intuitiva di circuitazione
 \begin{define}[Circuitazione di un campo vettoriale]
+La \textbf{circuitazione di un campo vettoriale lungo una curva chiusa}\index{circuitazione di un campo vettoriale} $\gamma$, parametrizzata da una funzione $\ \funz[\vba{r}]{\left[a,b\right]}{\realset^3}$, è\\
 	\begin{minipage}{0.65\textwidth}
-		La \textbf{circuitazione di un campo vettoriale lungo una curva chiusa}\index{circuitazione di un campo vettoriale} $\gamma$, parametrizzata da una funzione $\funz[\vba{r}]{\left[a,b\right]}{\realset^3}$, è
 		\begin{equation}
-			\Gamma_{\gamma}(\vba{E})=\oint_{\gamma}\vba{E}\vdot d\vba{s}=\int_{a}^b\vba{E}\vdot\frac{d\vba{r}}{dt}dt
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Gamma_{\gamma}(\vba{E})=\oint_{\gamma}\vba{E}\vdot d\vba{s}=\int_{a}^b\vba{E}\vdot\frac{d\vba{r}}{dt}dt}
 		\end{equation}
 	\end{minipage}\hspace{5pt}
 	\begin{minipage}{0.34\textwidth}
@@ -31,25 +35,24 @@
 		\end{center}
 	\end{minipage}
 \end{define}
-\section{Forze conservative e campi vettoriali conservativi}
 \paragraph{Dalle forze conservative...}
-La circuitazione ha particolare rilevanza in ambito fisico; la sua prima applicazione che vedremo è in una caratterizzazione dei\textit{campi vettoriali conservativi}. Prima però, riguardiamo rapidamente il concetto di lavoro e del suo ruolo per quelle forze dette forze conservatrici, trattato nel corso di \textsc{Fisica I}.
+La circuitazione ha particolare rilevanza in ambito fisico: la sua prima applicazione che vedremo è in una caratterizzazione dei\textit{campi vettoriali conservativi}. Prima però, riguardiamo rapidamente il concetto di lavoro e del suo ruolo per quelle forze dette \textit{forze conservatrici}, trattate nel corso di \textsc{Fisica I}.
 \begin{define}[Lavoro]
 	Dati due punti $\vba{r}_A$ e $\vba{r}_B$, il \textbf{lavoro}\index{lavoro} di una forza $\vba{F}$ lungo una curva $\gamma$ tra i due punti è definito come
 	\begin{equation}
-		W_{\gamma_1}=\int_{\gamma_1}\vba{F}\vdot d\vba{s}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{W_{\gamma_1}=\int_{\gamma_1}\vba{F}\vdot d\vba{s}}
 	\end{equation}
 \end{define}
 In generale, il lavoro dipende dal \textit{percorso effettuato}: il lavoro compiuto da una stessa forza lungo due curve $\gamma_1$ e $\gamma_2$  è differente. Per un caso particolare di forze, tuttavia, il lavoro dipende esclusivamente dagli estremi e non dal percorso effettuato.
 \begin{define}[Forza conservativa]
 	Una forza $\vba{F}$ è detta \textbf{conservativa}\index{forza!conservativa} se per qualunque curva $\gamma_1,\ \gamma_2$ tra due punti $\vba{r}_A$ e $\vba{r}_B$ il lavoro è
 	\begin{equation}
-		W_{\gamma_1}=W_{\gamma_2}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{W_{\gamma_1}=W_{\gamma_2}}
 	\end{equation}
 	In altre parole, $\vba{F}$ è conservativa se il lavoro dipende \textit{solo} dai punti iniziali e finali e non quale sia la curva lungo la quale si calcola.
 \end{define}
 \begin{proposition}[Caratterizzazione delle forze conservative]\label{forzaconservativaproposizione}
-	Se una forza $\vba{F}$ è conservativa, allora esiste una funzione $\funz[U]{\realset^3}{\realset}$ detta \textbf{energia potenziale}\index{energia!potenziale} tale che\footnote{Il meno è presente per motivi storici.}
+	Se una forza $\vba{F}$ è conservativa, allora esiste una funzione scalare $\ \funz[U]{\realset^3}{\realset}$ detta \textbf{energia potenziale}\index{energia!potenziale} tale per cui\footnote{Il meno è presente per motivi storici.}
 	\begin{equation}
 		\vba{F}=-\grad{U}
 	\end{equation}
@@ -64,7 +67,7 @@ In generale, il lavoro dipende dal \textit{percorso effettuato}: il lavoro compi
 	\end{gather}
 \end{proposition}
 \begin{observe}
-	Questo non è altro che la ‘‘versione fisica''  del \textbf{teorema del gradiente}. Nelle ‘‘XXX'', a pag. \pageref{thmgradiente} è possibile trovare l'enunciato \textit{matematico} del teorema, dato che la dimostrazione è \textit{mutatis mutandis} quella che segue.
+	Questo non è altro che la ``versione fisica''  del \textbf{teorema del gradiente}. Nella ``Raccolta Differenziata'', a pag. \pageref{thmgradiente} è possibile trovare l'enunciato \textit{matematico} del teorema, dato che la dimostrazione è \textit{mutatis mutandis} quella che segue.
 \end{observe}
 \begin{demonstration}
 	Consideriamo una curva $\gamma$ parametrizzata da
@@ -99,18 +102,18 @@ In modo analogo a come abbiamo fatto per le forze conservative, possiamo facilme
 \begin{define}[Campo vettoriale conservativo]
 	Una campo vettoriale $\vba{G}$ è detto \textbf{conservativo}\index{campo!conservativo} se per qualunque curva $\gamma_1,\ \gamma_2$ tra due punti $\vba{r}_A$ e $\vba{r}_B$ si ha
 	\begin{equation}
-		\int_{\gamma_1}\vba{G}\vdot d\vba{s}=\int_{\gamma_1}\vba{G}\vdot d\vba{s}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int_{\gamma_1}\vba{G}\vdot d\vba{s}=\int_{\gamma_1}\vba{G}\vdot d\vba{s}}
 	\end{equation}
 \end{define}
 \begin{proposition}[Caratterizzazione dei campi vettoriali conservativi]\label{campivettorialiconservativiproposizione}
-	Se un campo vettoriale$\vba{G}$ è conservativo, allora esiste un campo scalare $\funz[\oldphi]{\realset^3}{\realset}$ detto \textbf{potenziale} tale per cui\footnote{Il meno è presente per motivi storici.}
+	Se un campo vettoriale$\vba{G}$ è conservativo, allora esiste un campo scalare $\ \funz[\oldphi]{\realset^3}{\realset}$ detto \textbf{potenziale} tale per cui, 
+	per ogni curva chiusa $\gamma$, si ha\footnote{Il meno è presente per motivi storici.}
 	\begin{equation}
-		\begin{cases}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=yelloworange!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\begin{cases}
 			\vba{G}=-\grad{\oldphi}\\
 			\Gamma_{\gamma}(\vba{G})=0
-		\end{cases}
+		\end{cases}}
 	\end{equation}
-per ogni curva chiusa $\gamma$.
 \end{proposition}
 \begin{demonstration}
 	La dimostrazione è analoga a quella della proposizione \ref{forzaconservativaproposizione}. Per ottenere il risultato come enunciato nella tesi - ossia come circuitazione - si noti che, avendo
@@ -133,7 +136,7 @@ Nei diversi esempi di campi elettrostatici visti nel \autoref{chap:leggediCoulom
 \begin{theorema}[Il campo elettrostatico è conservativo]
 	Il campo elettrostatico $\vba{E}$ è conservativo, ossia è il gradiente (cambiato di segno) di un opportuno campo scalare $V$.
 	\begin{equation}
-		\vba{E}=-\grad{V}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{E}=-\grad{V}}
 	\end{equation}
 \end{theorema}
 \begin{demonstration}
@@ -170,29 +173,29 @@ Il caso di una distribuzione continua di carica segue da queste relazioni, passa
 \end{demonstration}\label{CondizionialContornoPot}
 La costante $A$ nella equazione \eqref{PotenzialeConst} dipende dalle \textit{condizioni al contorno} della situazione che stiamo studiando. Tuttavia, il fatto che la forza tra due cariche \textit{decresca} con la distanza ci suggerisce che tra \textit{cariche molto lontane} tra loro la forza sia \textit{trascurabile}. Una condizione al contorno molto comune è quella quindi di supporre che
 \begin{equation}
-	E(+\infty)=0\qquad F(+\infty)\qquad V(+\infty)
+	E(+\infty)=0\qquad F(+\infty)=0\qquad V(+\infty)=0
 \end{equation}
 il che ci porta a dire che $A=0$. Nel caso in cui ci sia tale condizione al contorno possiamo avere i seguenti potenziali:
 \begin{itemize}
 	\item Per una singola carica $q$, centrata nell'origine, il potenziale in $\vba{r}$ è:
 	\begin{equation}
-		V(x,y,z)=\frac{q}{4\pi\epsilon_0r}
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{V(x,y,z)=\frac{q}{4\pi\epsilon_0r}}
 	\end{equation}
 	\item Per un sistema di cariche $q_i$, ciascuna posta in $\vba{r}_i$, il potenziale in $\vba{r}$ è
 	\begin{equation}
-		V(x,y,z)=\sum_i\frac{q_i}{4\pi\epsilon_0\abs{\vba{r}-\vba{r}_i}}
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{V(x,y,z)=\sum_i\frac{q_i}{4\pi\epsilon_0\abs{\vba{r}-\vba{r}_i}}}
 	\end{equation}
 	\item Per una distribuzione continua di cariche in un volume $V$ è
 	\begin{equation}
-		V(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_{V}\frac{\rho(x',y',z')}{\abs{\vba{r}-\vba{r}'}}dx'dy'dz'
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{V(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_{V}\frac{\rho(x',y',z')}{\abs{\vba{r}-\vba{r}'}}dx'dy'dz'}
 	\end{equation}
 	\item Per una distribuzione continua di cariche su una superficie $\Sigma$ è
 	\begin{equation}
-		V(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_{\Sigma}\frac{\sigma(x',y',z')}{\abs{\vba{r}-\vba{r}'}}d\Sigma
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{V(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_{\Sigma}\frac{\sigma(x',y',z')}{\abs{\vba{r}-\vba{r}'}}d\Sigma}
 	\end{equation}
 	\item Per una distribuzione continua di cariche su una curva $\gamma$ è
 	\begin{equation}
-		V(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_\gamma\frac{\lambda(x',y',z')}{\abs{\vba{r}-\vba{r}'}}ds
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{V(x,y,z)=\frac{1}{4\pi\epsilon_0}\int_\gamma\frac{\lambda(x',y',z')}{\abs{\vba{r}-\vba{r}'}}ds}
 	\end{equation}
 \end{itemize}
 \begin{observe}\label{PotenzialeContinuo}
@@ -272,7 +275,7 @@ Ricordando inoltre che l'energia potenziale è $U=qV$, si può notare che le car
 	\end{equation}
 	Le superfici equipotenziali sono sempre ortogonali, punto per punto, a $\grad{V}$ e quindi anche al campo vettoriale elettrostatico $\vba{E}$.
 \end{define}
-\begin{examples}~{}%TODO: rifare gli schemi in modo che siano ortogonali
+\begin{examples}~{}
 	\begin{itemize}
 		\item Per il potenziale della carica puntiforme,
 		\begin{equation*}
@@ -340,7 +343,7 @@ Data la dipendenza di $\vba{E}$ dalla sola coordinata radiale, per ottenere il p
 \begin{center}
 	\includegraphics[width=0.75\textwidth]{images/chp3/chp3sferacavagraf2.pdf}
 \end{center}
-\paragraph{Superficie cilindrica uniformemente carica}
+\paragraph{Superficie cilindrica uniformemente carica}\label{supcilindrounifcarica}
 Si consideri una superficie cilindrica infinita e di raggio $R_0$ con densità superficiale costante $\sigma$, dove le cariche sono disposte sulla faccia laterale. Per semplicità, poniamo il sistema di riferimento in modo che l'asse $z$ passi per l'asse del cilindro.
 La carica totale sulla superficie è infinita, in quanto
 \begin{equation}
@@ -371,18 +374,18 @@ Distinguiamo due casi: il campo elettrico interno ($R<R_0$) e quello esterno ($R
 	\end{equation*}
 	segue
 	\begin{equation}
-		\vba{E}(r)=\frac{\lambda}{2\pi \epsilon_0 R}=\frac{\sigma R_0}{\epsilon_0 R}\vbh{u}_R
+		\vba{E}(R)=\frac{\lambda}{2\pi \epsilon_0 R}=\frac{\sigma R_0}{\epsilon_0 R}\vbh{u}_R
 	\end{equation}
 \end{itemize}
 Il campo elettrico, pertanto, è discontinuo e vale
 \begin{equation}
-	\vba{E}(r)=\begin{cases}
+	\vba{E}(R)=\begin{cases}
 		0&\text{se}\ R< R_0\\
-		\frac{\sigma R_0}{\epsilon_0r}\vbh{u}_R=\frac{\lambda}{2\pi\epsilon_0 R}\vbh{u}_R &\text{se}\ R> R_0
+		\frac{\sigma R_0}{\epsilon_0 R}\vbh{u}_R=\frac{\lambda}{2\pi\epsilon_0 R}\vbh{u}_R &\text{se}\ R> R_0
 	\end{cases}
 \end{equation}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp3/chp3cilindrograf1.pdf}
+	\includegraphics[width=0.7\textwidth]{images/chp3/chp3cilindrograf1.pdf}
 \end{center}
 Si osserva una discontinuità pari a $\frac{\sigma}{\epsilon_0}$ tra il campo elettrico interno ed esterno alla superficie.\\
 Per calcolare il potenziale, notiamo che il campo dipende esclusivamente dalla coordinata radiale delle coordinate cilindriche e quindi la relazione $\vba{E}=-\grad{V}$ si trasforma in
@@ -401,7 +404,9 @@ con $A$ costante determinate dalle condizioni al contorno. Integrando, otteniamo
 		-\frac{\sigma R_0}{\epsilon_0}\log R + B=-\frac{\lambda}{2\pi\epsilon_0}\log R + B&\text{se}\ R> R_0
 	\end{cases}
 \end{equation*}
-con $A$ e $B$ costanti. Tuttavia, incappiamo in un apparente \textit{problema}: se prendiamo come punto per il potenziale nullo l'infinito, il potenziale \textit{diverge}! Non c'è da meravigliarsi di ciò, dato che questa è una situazione fisica irrealizzabile nella realtà: avendo preso un cilindro di lunghezza infinita, la distribuzione di carica si estende anche all'infinito. Ricordiamo che il potenziale è determinato soltanto a meno di costanti: una scelta migliore, in questi casi, è di imporre il punto di potenziale nullo in un posto a nostra scelta. Ad esempio, prendiamo una distanza radiale \textit{arbitraria} $R_{B}$ e fissiamo $V(R_B)=0$: imponendo questa condizione novella e la solita continuità in $R=R_0$, otteniamo il potenziale continuo
+con $A$ e $B$ costanti.\\
+Tuttavia, incappiamo in un apparente \textit{problema}: se prendiamo come punto per il potenziale nullo l'infinito, il potenziale \textit{diverge}! Non c'è da meravigliarsi di ciò, dato che questa è una situazione fisica irrealizzabile nella realtà: avendo preso un cilindro di lunghezza infinita, la distribuzione di carica si estende anche all'infinito.\\
+Ricordiamo che il potenziale è determinato soltanto a meno di costanti: una scelta migliore, in questi casi, è di imporre il punto di potenziale nullo in un posto a nostra scelta. Ad esempio, prendiamo una distanza radiale \textit{arbitraria} $R_{B}$ e fissiamo $V(R_B)=0$: imponendo questa condizione novella e la solita continuità in $R=R_0$, otteniamo il potenziale continuo
 \begin{equation}
 	V(R)=
 	\begin{cases}
@@ -410,7 +415,7 @@ con $A$ e $B$ costanti. Tuttavia, incappiamo in un apparente \textit{problema}: 
 	\end{cases}
 \end{equation}
 \begin{center}
-	\includegraphics[width=0.75\textwidth]{images/chp3/chp3cilindrograf2.pdf}
+	\includegraphics[width=0.7\textwidth]{images/chp3/chp3cilindrograf2.pdf}
 \end{center}
 Chiaramente rimarrà la divergenza del potenziale a grandi distanze, ma la \textit{scelta} effettuata garantisce almeno un punto in cui il potenziale si \textit{annulla}.
 \paragraph{Il caso generale}
@@ -418,17 +423,18 @@ Sebbene l'andamento del campo elettrico nei due esempi precedenti è leggermente
 \begin{proposition}[Discontinuità di campo elettrico tra superfici]
 	La differenza di campo elettrico tra due lati di una superficie carica è, punto per punto, pari a 
 	\begin{equation*}
-		\Delta \vba{E}(\vba{r})=\frac{\sigma}{\epsilon_0}\vbh{u}_n
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=yelloworange!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Delta \vba{E}(\vba{r})=\frac{\sigma}{\epsilon_0}\vbh{u}_n}
 	\end{equation*}
 \end{proposition}
 \begin{demonstration}
 	Dimostriamo tale proprietà per un foglio carico (supponiamo positivamente), dato che la superficie si può considerare almeno localmente come un foglio 
 	carico.\\
-	Posta una carica positiva su una faccia del foglio, ci aspettiamo che si allontani da esso ‘‘dallo stesso lato del foglio'' a causa di un campo elettrico $\vba{E}_1$; viceversa, mettendo una particella positiva dall'altra faccia è prevedibile che la particella sarà respinta dalla superficie da quello stesso lato dalla forza generata dal campo elettrico $\vba{E}_2$, ossia dal verso opposto di $\vba{E}_1$: ci dovrà essere necessariamente una discontinuità di campo elettrico per avere questo cambio drastico di verso.
+	Posta una carica positiva su una faccia del foglio, ci aspettiamo che si allontani da esso ``dallo stesso lato del foglio'' a causa di un campo elettrico $\vba{E}_1$; viceversa, mettendo una particella positiva dall'altra faccia è prevedibile che la particella sarà respinta dalla superficie da quello stesso lato dalla forza generata dal campo elettrico $\vba{E}_2$, ossia dal verso opposto di $\vba{E}_1$: ci dovrà essere necessariamente una discontinuità di campo elettrico per avere questo cambio drastico di verso.
 	\begin{center}
-		\includegraphics[width=0.4\textwidth]{images/chp3/chp3discontinuita1.pdf}
+		\includegraphics[width=0.35\textwidth]{images/chp3/chp3discontinuita1.pdf}
 	\end{center}
-	Disegniamo un circuito rettangolare $\gamma=[ABCD]$ che interseca il campo e che sia sufficientemente piccolo in modo da considerare $\vba{E}$ costante sul circuito. Dato che la circuitazione circuitazione lungo $\gamma$ è influenzata solo dalle componenti tangenziali $E_{i,t}$ e non dalle componenti perpendicolari $E_{i,n}$ al circuito, si ha
+	Disegniamo un circuito rettangolare $\gamma=[ABCD]$ che interseca il campo e che sia sufficientemente piccolo in modo da considerare $\vba{E}$ costante sul circuito.\\
+	Dato che la circuitazione circuitazione lungo $\gamma$ è influenzata solo dalle componenti tangenziali $E_{i,t}$ e non dalle componenti perpendicolari $E_{i,n}$ al circuito, si ha
 	\begin{equation*}
 		0=\Gamma_{\gamma}(\vba{E})=E_{1,t}d_{AB}-E_{2,t}d_{CD}=\left(E_{2,t}-E_{1,t}\right)d_{AB}
 	\end{equation*}
@@ -438,9 +444,10 @@ Da cui segue che
 \end{equation*}
 ossia che le componenti tangenziali devono essere uguali.
 \begin{center}
-	\includegraphics[width=0.4\textwidth]{images/chp3/chp3discontinuita2.pdf}
+	\includegraphics[width=0.45\textwidth]{images/chp3/chp3discontinuita2.pdf}
 \end{center}
-Consideriamo lo stesso foglio, questa volta intersecandolo con una superficie cilindrica con altezza sufficientemente piccola in modo che  il campo elettrico è considerabile costante lungo la superficie di base. Calcolando il flusso e confrontandolo con quello ottenuto dalle \textit{legge di Gauss}, ricordiamo che lungo la superficie laterale esso è nullo:
+Consideriamo lo stesso foglio, questa volta intersecandolo con una superficie cilindrica con altezza sufficientemente piccola in modo che  il campo elettrico è considerabile costante lungo la superficie di base.\\
+Calcolando il flusso e confrontandolo con quello ottenuto dalle \textit{legge di Gauss}, ricordiamo che lungo la superficie laterale esso è nullo:
 \begin{equation*}
 	\frac{q_{A_{base}}}{\epsilon_0}=\Phi_{\Sigma}(\vba{E})=E_{1,n}A_{base}-E_{2,n}A_{base}
 \end{equation*}
@@ -454,7 +461,7 @@ Allora, facendo la differenza punto per punto, si ha
 \end{equation*}
 \end{demonstration}
 \section{Le equazioni di Maxwell per l'elettrostatica nel vuoto}
-A questo punto siamo arrivati ad avere tutti gli strumenti e i risultati necessari per enunciare le \textbf{equazioni di Maxwell relative all'elettrostatica}.c Tuttavia, prima di far ciò è importante riprendere in mano alcuni risultati matematici e fisici che ci serviranno a tal scopo.%TODO: check margine
+A questo punto siamo arrivati ad avere tutti gli strumenti e i risultati necessari per enunciare le \textbf{equazioni di Maxwell relative all'elettrostatica}.c Tuttavia, prima di far ciò è importante riprendere in mano alcuni risultati matematici e fisici che ci serviranno a tal scopo.
 \begin{remember}~\\
 		\begin{tabular}{p{0.47\textwidth}p{0.47\textwidth}}
 			\begin{itemize}
@@ -468,7 +475,7 @@ A questo punto siamo arrivati ad avere tutti gli strumenti e i risultati necessa
 				\end{equation*}
 			\end{itemize} &
 			\begin{itemize}
-			\item[1b] \textbf{Teorema del rotore:} si consideri una curva $\funz[\gamma]{\left[a,b\right]}{\realset^3}$ semplice - ossia senza intersezioni con sé stessa, chiusa e liscia a tratti; si consideri inoltre una superficie $\Sigma$ liscia tale che $\partial \Sigma=\gamma$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
+			\item[1b] \textbf{Teorema del rotore:} si consideri una curva $\ \funz[\gamma]{\left[a,b\right]}{\realset^3}$ semplice - ossia senza intersezioni con sé stessa, chiusa e liscia a tratti; si consideri inoltre una superficie $\Sigma$ liscia tale che $\partial \Sigma=\gamma$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
 			\begin{equation*}
 				\int_\Sigma\curl{\vba{G}}\vdot\vbh{u}_nd\Sigma=\oint_{\gamma}\vba{G}\vdot d\vba{s}
 			\end{equation*}
@@ -576,7 +583,7 @@ Poiché questa relazione è vera per una qualunque superficie $\Sigma$ arbitrari
 			\frac{q}{4\pi\epsilon_0 R^2}\vbh{u}_r &\text{se}\ r> R
 		\end{cases}
 	\end{equation*}
-	Data la divergenza di un campo in coordinate sferiche\footnote{Nelle ‘‘XXX'', a pag. \pageref{DivergenzaSferiche} è possibile trovare a grandi linee il procedimento per ricavare la divergenza in coordinate sferiche.}, che ricordiamo essere
+	Data la divergenza di un campo in coordinate sferiche\footnote{Nella ``Raccolta Differenziata'', a pag. \pageref{DivergenzaSferiche} è possibile trovare a grandi linee il procedimento per ricavare la divergenza in coordinate sferiche.}, che ricordiamo essere
 	\begin{equation*}
 		\div{\vba{G}}=\frac{1}{r^2}\pdv{r}\left(r^2G_r\right)+\frac{1}{r\sin\theta}\pdv{\theta}\left(G_\theta\sin\theta\right)+\frac{1}{r\sin\theta}\pdv{G_\phi}{\phi}
 	\end{equation*}

@@ -16,7 +16,7 @@
 \begin{introduction}
 ‘‘... and they don't stop coming.''
 \begin{flushright}
-	\textscsl{Smash Mouth,} sorpresi che ci siano delle note aggiuntive dopo duecento e passa pagine di appunti.
+	\textscsl{Smash Mouth,} sorpresi che ci siano anche delle note aggiuntive dopo quasi trecento pagine di appunti.
 \end{flushright}
 \end{introduction}
 
@@ -27,7 +27,7 @@ Quanto indicato con il simbolo ⋆ sono degli \textit{approfondimenti non necess
 \begin{lemming}[Area di una superficie delimitata da una curva piana chiusa]
 	Data una curva $\gamma$ piana, chiusa, liscia a tratti, semplice e orientata positivamente, con parametrizzazione $\vba{r}$, si ha che il vettore area per la superficie piana racchiusa da $\gamma$ è
 	\begin{equation}
-		\Sigma\vbh{u}_n=\frac{1}{2}\int_{\gamma}\vba{r}\cross d\vba{s}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=yelloworange!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Sigma\vbh{u}_n=\frac{1}{2}\int_{\gamma}\vba{r}\cross d\vba{s}}
 	\end{equation}
 \end{lemming}
 \begin{demonstration}
@@ -85,7 +85,7 @@ Quanto indicato con il simbolo ⋆ sono degli \textit{approfondimenti non necess
 	\end{equation*}
 	dove l'\textit{ampiezza} $A$, la pulsazione $\omega$ e la fase $\oldphi$ sono costanti temporali, la sua \textbf{rappresentazione analitica}\index{rappresentazione analitica} o \textbf{fasore}\index{fasore} è
 	\begin{equation}
-		\hat{\xi}(t)=A\cos(\omega t+\oldphi)+iA\sin(\omega t+\oldphi)=Ae^{i(\omega t+\oldphi)}=Ae^{i\oldphi}e^{i\omega t}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\hat{\xi}(t)=A\cos(\omega t+\oldphi)+iA\sin(\omega t+\oldphi)=Ae^{i(\omega t+\oldphi)}=Ae^{i\oldphi}e^{i\omega t}}
 	\end{equation}
 \end{define}
 Il fasore può essere rappresentato nel \textit{piano complesso di Argand-Gauss} come un vettore di lunghezza $A$ e angolo $\oldphi$, che ruota con velocità angolare $\omega$.
@@ -96,9 +96,9 @@ In realtà, in molti contesti il termine di rotazione $e^{i\omega t}$ risulta es
 \end{attention}
 Si osservi che, poiché la grandezza originale non è altro che la \textit{parte reale} del fasore...
 \begin{equation}
-	\xi(t)=\Re{\hat{\xi}(t)}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\xi(t)=\Re{\hat{\xi}(t)}}
 \end{equation}
-... nella rappresentazione vettoriale dei fasori la grandezza originale è la proiezione sulla (retta dei reali).
+... nella rappresentazione vettoriale dei fasori la grandezza originale è la proiezione sulla retta dei reali.
 \begin{notate}
 	Tralasciando il termine di rotazione, un fasore di ampiezza $A$ e angolo $\oldphi$ si indica come
 	\begin{equation}
@@ -115,14 +115,14 @@ per una costante scalare complessa
 	\hat{k}=Be^{i\theta}
 \end{equation*}
 è ancora un fasore, che modifica l'\textit{ampiezza} e la \textit{fase} del fasore originale.
-\begin{gather}
+\begin{empheq}[box=\tcmathboxgeneral]{gather}
 	\hat{k}\hat{\xi}(t)=Be^{i\theta}\cdot Ae^{i\oldphi}e^{i\omega t}=ABe^{i(\oldphi+\theta)}e^{i\omega t}\\
 	k\xi(t)=AB\cos(\omega t+(\oldphi+\theta))
-\end{gather}
+\end{empheq}
 %TODO: grafico
 In notazione fasoriale:
 \begin{equation}
-	\hat{k}\cdot A\angle\oldphi=AB\angle\left(\oldphi+\theta\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\hat{k}\cdot A\angle\oldphi=AB\angle\left(\oldphi+\theta\right)}
 \end{equation}
 \paragraph{Somma di fasori}
 La \textbf{somma} di due fasori
@@ -130,23 +130,25 @@ La \textbf{somma} di due fasori
 	\hat{\xi_1}(t)=A_1e^{i\oldphi_1}e^{i\omega t}&&\hat{\xi_2}(t)=A_2e^{i\oldphi_2}e^{i\omega t}
 \end{align*}
 è ancora un fasore.
-\begin{gather}
+\begin{empheq}[box=\tcmathboxgeneral]{gather}
 	\hat{\xi_1}(t)+\hat{\xi_2}(t)=A_1e^{i\oldphi_1}e^{i\omega t}+A_2e^{i\oldphi_2}e^{i\omega t}=\left(A_1e^{i\oldphi_1}+A_2e^{i\oldphi_2}\right)e^{i\omega t}=A_3e^{i\oldphi_3}e^{i\omega t}\\
 	\xi_1(t)+\xi_2(t)=A_3\cos(\omega t+\oldphi_3)
-\end{gather}
+\end{empheq}
 dove
-\begin{gather*}
-	A_3^2=\left(A_1^2\cos\oldphi_1+A_2^2\cos\oldphi_1\right)^2+\left(A_1^2\sin\oldphi_1+A_2^2\sin\oldphi_1\right)^2=A_1^2+A_2^2+2A_1A_2\cos(\oldphi_1-\oldphi_2)\\
+\begin{align*}	A_3^2&=\left(A_1^2\cos\oldphi_1+A_2^2\cos\oldphi_1\right)^2+\left(A_1^2\sin\oldphi_1+A_2^2\sin\oldphi_1\right)^2\\
+	&=A_1^2+A_2^2+2A_1A_2\cos(\oldphi_1-\oldphi_2)
+\end{align*}
+\begin{equation*}
 	\oldphi_3=\begin{cases}
 		\textrm{sgn}(A_1 \sin(\oldphi_1)  + A_2 \sin(\oldphi_2)) \frac{\pi}{2}&\text{se}\ A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2 = 0\\
 		\arctan\left(\frac{A_1 \sin\oldphi_1 + A_2 \sin\oldphi_2}{A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2}\right)&\text{se}\ A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2 >0\\
 		\pi + \arctan\left(\frac{A_1 \sin\oldphi_1 + A_2 \sin\oldphi_2}{A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2}\right) &\text{se}\ A_1 \cos\oldphi_1 + A_2 \cos\oldphi_2 <0
 	\end{cases}
-\end{gather*}
+\end{equation*}
 %TODO: grafico
 In notazione fasoriale:
 \begin{equation}
-	A_1\angle\oldphi_1+A_2\angle\oldphi_2=A_3\angle\oldphi_3
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{A_1\angle\oldphi_1+A_2\angle\oldphi_2=A_3\angle\oldphi_3}
 \end{equation}
 Alternativamente, si può fare la \textit{somma vettoriale} dei vettori di coordinate
 \begin{align*}
@@ -159,25 +161,25 @@ per produrre il vettore risultante
 \end{equation*}
 \paragraph{Derivata e integrale}
 La \textbf{derivata temporale} o l'\textbf{integrale} rispetto a $t$ di un fasore produce un altro fasore.
-\begin{gather}
+\begin{empheq}[box=\tcmathboxgeneral]{gather}
 	\dv{t} \hat{\xi}(t)=\dv{t}\left(Ae^{i\oldphi}e^{i\omega t}\right)=Ae^{i\oldphi}i\omega e^{i\omega t}=\omega Ae^{i\oldphi}e^{i\frac{\pi}{2}} e^{i\omega t}=\omega Ae^{i(\oldphi+\frac{\pi}{2})}e^{i\omega t}\\
 	\dv{t} \xi(t)=\omega A\cos\left(\omega t+\theta+\frac{\pi}{2}\right)
-\end{gather}
+\end{empheq}
 In altre parole, \textit{derivare} un fasore temporalmente è equivalente a moltiplicare per la costante scalare $i\omega$.
 \begin{equation}
-	\dv{t} \hat{\xi}(t)=i\omega\hat{\xi}(t)=e^{i\frac{\pi}{2}}\omega\hat{\xi}(t)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\dv{t} \hat{\xi}(t)=i\omega\hat{\xi}(t)=e^{i\frac{\pi}{2}}\omega\hat{\xi}(t)}
 \end{equation}
 In notazione fasoriale:
 \begin{equation}
-	\dv{t} A\angle\oldphi=i\omega \cdot A\angle\oldphi=\omega A\angle\left(\oldphi+\frac{\pi}{2}\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\dv{t} A\angle\oldphi=i\omega \cdot A\angle\oldphi=\omega A\angle\left(\oldphi+\frac{\pi}{2}\right)}
 \end{equation}
 In modo analogo, integrare un fasore temporalmente è equivalente a dividere per la costante scalare $i\omega$.
 \begin{equation}
-	\int \hat{\xi}(t) dt=\frac{1}{i\omega}\hat{\xi}(t)=\frac{e^{-\frac{\pi}{2}}}{\omega}\hat{\xi}(t)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int \hat{\xi}(t) dt=\frac{1}{i\omega}\hat{\xi}(t)=\frac{e^{-\frac{\pi}{2}}}{\omega}\hat{\xi}(t)}
 \end{equation}
 In notazione fasoriale:
 \begin{equation}
-	\int A\angle\oldphi dt=\frac{i\omega} \cdot A\angle\oldphi=\frac{A}{\omega}\angle\left(\oldphi-\frac{\pi}{2}\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int A\angle\oldphi dt=\frac{1}{i\omega} \cdot A\angle\oldphi=\frac{A}{\omega}\angle\left(\oldphi-\frac{\pi}{2}\right)}
 \end{equation}
 \paragraph{Rapporto tra fasori}
 Il \textbf{rapporto} tra due fasori
@@ -186,6 +188,6 @@ Il \textbf{rapporto} tra due fasori
 \end{align*}
 prende il nome di \textbf{impendenza}\index{impendenza}:
 \begin{equation}
-	 Z=\frac{\hat{\xi_1}(t)}{\hat{\xi_2}(t)}=\frac{A_1e^{i\oldphi_1}\Ccancel[red]{e^{i\omega t}}}{A_2e^{i\oldphi_2}\Ccancel[red]{e^{i\omega t}}}=\frac{A_1}{A_2}e^{i(\oldphi_1-\oldphi_2)}
+	 \tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{Z=\frac{\hat{\xi_1}(t)}{\hat{\xi_2}(t)}=\frac{A_1e^{i\oldphi_1}\Ccancel[red]{e^{i\omega t}}}{A_2e^{i\oldphi_2}\Ccancel[red]{e^{i\omega t}}}=\frac{A_1}{A_2}e^{i(\oldphi_1-\oldphi_2)}}
 \end{equation}
 Tuttavia, \textit{non} è un fasore, perché non corrisponde ad una grandezza sinusoidale variabile nel tempo.

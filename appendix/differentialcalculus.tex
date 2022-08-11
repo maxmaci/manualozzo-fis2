@@ -7,7 +7,7 @@
 
 \chapter{Raccolta Differenziata: richiami di Geometria e Calcolo Differenziale}
 \labelAppendix{differentialcalculus}
-%TODO: nome sezione
+
 \addtocontents{define}{\noindent\textls{\textsc{\textcolor{reddo}{Appendice A:}
 			\nowtitle}}
 }{}
@@ -15,14 +15,14 @@
 			\nowtitle}}
 }{}
 \begin{introduction}
-	‘‘BEEP BOOP''
+	``Dicono che il novanta per cento della TV è spazzatura. Ma il novanta per cento di tutto è spazzatura.''
 	\begin{flushright}
-		\textscsl{Lollo BiancoBOT}, dopo aver finito le citazioni.%TODO: quote 
+		\textscsl{Gene Roddenberry}, riferendosi a questo Manualozzo\texttrademark\ . 
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{P}{er} comprendere a fondo gli argomenti trattati in questo Manualozzo\texttrademark\ è estremamente importante avere una buona padronanza dei concetti di \textit{Geometria Differenziale} e \textit{Calcolo Differenziale}. In questo capitolo troverete dei cenni, brevi ma-non-troppo, per colmare ogni potenziale lacuna a riguardo.\\
-Quanto indicato con il simbolo ⋆ sono degli \textit{approfondimenti non necessari} - ma possono essere comunque utili ed interessanti per un lettore curioso.
-%TODO: intro
+
+\lettrine[findent=1pt, nindent=0pt]{P}{er} comprendere a fondo gli argomenti trattati in questo Manualozzo\texttrademark\ è estremamente importante avere una buona padronanza dei concetti di \textit{Geometria Differenziale} e \textit{Calcolo Differenziale}. In questo capitolo troverete dei cenni, brevi ma-non-troppo, per colmare ogni potenziale lacuna a riguardo.
+
 \section{⋆ Varietà differenziabile}
 \begin{define}[Carta, coordinate lagrangiane, parametrizzazione locale]
 	Dato un insieme di punti $M$ non vuoto, una \textbf{carta}\index{carta} è una coppia $\left(U,\phi\right)$ dove
@@ -32,7 +32,7 @@ Quanto indicato con il simbolo ⋆ sono degli \textit{approfondimenti non necess
 	\end{itemize}
 	La funzione $\phi$ associa ad ogni punto $p\in U\subseteq M$ un $m$-upla $\left(q^{\lambda}\right)$ (con $\lambda=1,\ \ldots,\ m$) dette \textbf{coordinate} di $p$ rispetto alla carta $\left(U,\phi\right)$.
 	\begin{equation}
-		\phi\left(p\right)=\left(q^1\left(p\right),\ldots,q^n\left(p\right)\right)
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\phi\left(p\right)=\left(q^1\left(p\right),\ldots,q^n\left(p\right)\right)}
 	\end{equation}
 	La funzione $\phi$ è suriettiva è quindi invertibile: l'inversa $\phi^{-1}$, detta  \textbf{parametrizzazione locale}, associa alle coordinate $q^{\lambda}$ il punto $p\in U\subseteq M$ con quelle coordinate.
 \end{define}
@@ -53,7 +53,7 @@ Se l'\textbf{atlante} è $\mathcal{C}^\infty$, la funzione di transizione è un 
 	Dato un \textit{atlante} $\mathcal{A}$, l'\textbf{atlante massimale} è l'atlante contenente tutte le carte compatibili con l'atlante originale $\mathcal{A}$.
 \end{define}
 \begin{define}[Topologia indotta dall'atlante]
-	Un atlante definisce sempre una topologia sull'insieme $M$, detta
+	Un atlante definisce sempre una topologia sull'insieme $M$, detta \textbf{topologia indotta dall'atlante}:
 	\begin{center}
 		$A\subseteq M$ aperto se $\forall \left(U_\alpha, \phi_\alpha\right)\ \phi\left(A\cap U_\alpha\right)$ è aperto in $\realset^n$ con la topologia Euclidea.
 	\end{center}
@@ -67,7 +67,7 @@ Secondo questa topologia:
 	Una \textbf{varietà differenziabile} (altresì detta \textbf{varietà differenziale}) di classe $\mathcal{C}^{k}$ e \textbf{dimensione} $n$ è un insieme di punti $M$ non vuoto che può essere coperto da un \textbf{atlante} $\mathcal{C}^{k}$ $\left\{\left(U_\alpha,\phi_\alpha\right)\right\}_{\alpha\in I}$, che di solito supponiamo massimale, dove $\phi_\alpha\left(U_\alpha\right)\subseteq \realset^n,\ \forall \alpha\in I$. Inoltre, lo spazio topologico\footnote{Con la topologia su $M$ con cui si sono definite le carte o con la topologia indotta dall'atlante.} $M$ si suppone spesso essere Hausdorff e a base numerabile.
 \end{define}
 In sintesi, una \textbf{varietà differenziabile} è una varietà topologica con una struttura differenziabile globale: l'esistenza dell'atlante soddisfa le condizioni di varietà topologica, mentre la struttura differenziabile è indotta dalle condizioni di compatibilità delle carte dell'atlante.\\
-Per semplicità considereremo, se non specificato, le varietà differenziabili di classe $\mathcal{C}^{\infty}$ e quindi tralasciamo il termine ‘‘di classe $\mathcal{C}^k$''.
+Per semplicità considereremo, se non specificato, le varietà differenziabili di classe $\mathcal{C}^{\infty}$ e quindi tralasciamo il termine ``di classe $\mathcal{C}^k$''.
 \begin{examples}~
 	\begin{itemize}
 		\item Gli spazi affini $\realset^n$ di dimensione $n$ con coordinate cartesiane, polari, sferiche, cilindriche...
@@ -82,22 +82,22 @@ Per semplicità considereremo, se non specificato, le varietà differenziabili d
 \begin{define}[Metrica]
 	Una \textbf{metrica} (o anche detto \textbf{tensore metrico}) su una varietà differenziabile $M$ è una mappa bilineare simmetrica - ossia un campo tensoriale simmetrico doppiamente contravariante - non degenere
 	\begin{equation}
-		\funztot[g]{\mathcal{X}(M)\times \mathcal{X}(M)}{\mathcal{F}(M)}{\left(X,Y\right)}{X\cdot Y=\left<X,Y\right>=g(X,Y)}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\funztot[g]{\mathcal{X}(M)\times \mathcal{X}(M)}{\mathcal{F}(M)}{\left(X,Y\right)}{X\cdot Y=\left<X,Y\right>=g(X,Y)}}
 	\end{equation}
 	che ad una coppia di campi vettoriali sopra $M$ associa un campo scalare su $M$. Essa soddisfa le proprietà di un \textbf{prodotto interno}:
 	\begin{itemize}
 		\item \textbf{Bilinearità}, ossia lineare separatamente in entrambi gli argomenti:
-		\begin{gather}
+		\begin{empheq}[box=\tcmathboxdefine]{gather}
 			g(f\vba{X}+h\vba{Y},\vba{Z})=fg(\vba{X},\vba{Z})+hg(\vba{Y},\vba{Z}),\ \forall f,h\in \mathcal{F}(M),\ \forall \vba{X},\vba{Y},\vba{Z}\in\mathcal{X}(M)\\
 			g(\vba{X},f\vba{Y}+h\vba{Z})=fg(\vba{X},\vba{Y})+hg(\vba{X},\vba{Z}),\ \forall f,h\in \mathcal{F}(M),\ \forall \vba{X},\vba{Y},\vba{Z}\in\mathcal{X}(M)
-		\end{gather}
+		\end{empheq}
 		\item \textbf{Simmetria:}
 		\begin{equation}
-			g(\vba{X},\vba{Y})=g(\vba{Y},\vba{X}),\ \forall \vba{X},\vba{Y}\in\mathcal{X}(M)
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{g(\vba{X},\vba{Y})=g(\vba{Y},\vba{X}),\ \forall \vba{X},\vba{Y}\in\mathcal{X}(M)}
 		\end{equation}
 		\item  \textbf{Non degenere:} per ogni campo vettoriale $\vba{X}\neq 0$
 		\begin{equation}
-			\exists \vba{Y}\colon g(\vba{X},\vba{Y})\neq 0
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\exists \vba{Y}\colon g(\vba{X},\vba{Y})\neq 0}
 		\end{equation}
 	\end{itemize}
 \end{define}
@@ -108,11 +108,14 @@ Scelte delle coordinate $(q^\lambda)$ su $M$ e dati i campi $\vba{X}=X^{\lambda}
 \end{equation*}
 dove
 \begin{equation}
-	g_{\lambda \mu}=g\left(\vba{e}_\lambda,\vba{e}_\mu\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{g_{\lambda \mu}=g\left(\vba{e}_\lambda,\vba{e}_\mu\right)}
 \end{equation}
 sono le componenti di $g$ nelle coordinate scelte.
 \begin{define}[Coordinate ortogonali]
-	Data $M$ varietà differenziabile e $\left(q^\lambda\right)$ coordinate su $M$, le coordinate sono \textbf{ortogonali} rispetto ad una metrica $g$ se $g_{\mu\nu}=0,\ \forall \mu\neq\nu$.
+	Data $M$ varietà differenziabile e $\left(q^\lambda\right)$ coordinate su $M$, le coordinate sono \textbf{ortogonali} rispetto ad una metrica $g$ se
+	\begin{equation}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{g_{\mu\nu}=0,\ \forall \mu\neq\nu}
+	\end{equation}
 \end{define}
 \begin{define}[Varietà Riemanniane]
 	Una varietà \textbf{Riemanniana} $\left(M,g\right)$ è una varietà differenziabile $M$ a cui è associata una metrica $g$.
@@ -132,14 +135,14 @@ Scelte delle coordinate $(q^\lambda)$ su $M$ e dati le 1-forme $\fb{\alpha}=\alp
 \end{equation*}
 dove
 \begin{equation}
-	g^{\lambda \mu}=g\left(\fb{\epsilon}^\lambda,\fb{\epsilon}^\mu\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{g^{\lambda \mu}=g\left(\fb{\epsilon}^\lambda,\fb{\epsilon}^\mu\right)}
 \end{equation}
 \paragraph{Isomorfismi musicali}
 Scelte delle coordinate $\left(q^\lambda\right)$ su una varietà Riemanniana $(M,g)$, possiamo considerare due isomorfismi mutualmente inversi tra fibrati vettoriali:
 \begin{itemize}
 	\item \textbf{Bemolle}: dato un campo vettoriale $X=X^\lambda\vba{e}_\lambda$ su $M$, il \textbf{bemolle}\index{bemolle} $X^\flat$ è una 1-forma su $M$ ottenuta \textbf{abbassando un indice}:
 	\begin{equation}
-		\funztot[\flat]{TM}{T^\ast M}{X}{X^{\flat}=g_{\mu\lambda}X^{\mu}\fb{\epsilon}^\lambda=X_{\lambda}\fb{\epsilon}^\lambda}
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\funztot[\flat]{TM}{T^\ast M}{X}{X^{\flat}=g_{\mu\lambda}X^{\mu}\fb{\epsilon}^\lambda=X_{\lambda}\fb{\epsilon}^\lambda}}
 	\end{equation}
 	Utilizzando il prodotto interno definito da $g$, si ha per qualunque campo vettoriale $Y\in\mathcal{X}(M)$
 	\begin{equation*}
@@ -147,7 +150,7 @@ Scelte delle coordinate $\left(q^\lambda\right)$ su una varietà Riemanniana $(M
 	\end{equation*}
 \item \textbf{Diesis}: dato una 1-forma $\phi=\phi_\lambda\fb{\epsilon}^\lambda$ su $M$, il \textbf{diesis}\index{diesis} $\phi^\sharp$ è un campo vettoriale su $M$ ottenuto \textbf{alzando un indice}:
 \begin{equation}
-	\funztot[\flat]{T^\ast M}{TM}{\phi}{\phi^{\sharp}=g^{\mu\lambda}\phi_{\mu}\vba{e}_\lambda=\phi^{\lambda}\vba{e}_\lambda}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\funztot[\sharp]{T^\ast M}{TM}{\phi}{\phi^{\sharp}=g^{\mu\lambda}\phi_{\mu}\vba{e}_\lambda=\phi^{\lambda}\vba{e}_\lambda}}
 \end{equation}
 dove $g^{\mu\lambda}$ sono componenti della matrice inversa associata alla metrica $g$.\\
 Utilizzando il prodotto interno definito da $g$, si ha per qualunque campo vettoriale $Y\in\mathcal{X}(M)$
@@ -159,18 +162,18 @@ Utilizzando il prodotto interno definito da $g$, si ha per qualunque campo vetto
 \begin{define}[Spostamento infinitesimo]
 	Il vettore \textbf{spostamento infinitesimo}\index{spostamento infinitesimo} è la variazione infinitesima del vettore posizione $\vba{r}$. Scelte delle coordinate $(q^\lambda)$ su $M$,%TODO: controllare se va bene per le varietà differenziabili o solo le affini qui
 	\begin{equation}
-		d\vba{s}=\pdv{\vba{r}}{q^\lambda}dq^\lambda=\abs{\pdv{\vba{r}}{q^\lambda}}\frac{\pdv{\vba{r}}{q^\lambda}}{\abs{\pdv{\vba{r}}{q^\lambda}}}dq^\lambda=\abs{\pdv{\vba{r}}{q^\lambda}}dq^\lambda\vbh{u}_\lambda
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{d\vba{s}=\pdv{\vba{r}}{q^\lambda}dq^\lambda=\abs{\pdv{\vba{r}}{q^\lambda}}\frac{\pdv{\vba{r}}{q^\lambda}}{\abs{\pdv{\vba{r}}{q^\lambda}}}dq^\lambda=\abs{\pdv{\vba{r}}{q^\lambda}}dq^\lambda\vbh{u}_\lambda}
 	\end{equation}
 \end{define}
 Lo spostamento infinitesimo si calcola ricavando, per ogni direzione $\vbh{u}_\lambda$, la variazione della corrispondente coordinata \textit{tenendo costanti} le altre.
 \begin{define}[Elemento di linea]
 	L'\textbf{elemento di linea}\index{elemento di linea} è il quadrato della lunghezza di uno spostamento infinitesimo. Se $g$ è il tensore metrico della varietà $n$-dimensionale, allora
 	\begin{equation}
-		ds^2=g(d\vba{s},d\vba{s})
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{ds^2=g(d\vba{s},d\vba{s})}
 	\end{equation}
 \end{define}
 \begin{notate}
-	Talvolta si indica lo spostamento infinitesimo e l'elemento di linea, in maniera alternativa a $d\vba{s}$ e $ds$, come $d\vba{\mathcal{l}}$ e $d\mathcal{l}$
+	Talvolta si indica lo spostamento infinitesimo e l'elemento di linea, in maniera alternativa a $d\vba{s}$ e $ds$, come $d\vba{\mathcal{l}}$ e $d\mathcal{l}$.
 \end{notate}
 \begin{attention}
 	In diversi contesti lo spostamento infinitesimo è chiamato elemento di linea, pur essendo concettualmente differente da quello che qui indichiamo come elemento di linea.
@@ -193,7 +196,7 @@ Preso un vettore $\vba{r}$ parametrizzante una curva, il vettore spostamento $d\
 \begin{define}[Arcolunghezza]
 	L'\textbf{arcolunghezza}\index{arcolunghezza} è la distanza tra due punti lungo una sezione di una curva $\vba{r}(\tau)$
 	\begin{equation}
-		s=\int_{\tau_1}^{\tau_2}d\tau\sqrt{\abs{ds^2}}=\int_{\tau_1}^{\tau_2}d\tau\sqrt{g_{\mu\nu}\frac{dr^{\mu}}{dt}\frac{dr^{\nu}}{dt}}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{s=\int_{\tau_1}^{\tau_2}d\tau\sqrt{\abs{ds^2}}=\int_{\tau_1}^{\tau_2}d\tau\sqrt{g_{\mu\nu}\frac{dr^{\mu}}{dt}\frac{dr^{\nu}}{dt}}}
 	\end{equation}
 \end{define}
 \begin{define}[Integrale curvilineo di prima specie]
@@ -201,27 +204,28 @@ Un \textbf{integrale curvilineo di prima specie}\index{integrale!curvilineo!di p
 \begin{equation*}
 	\funz[f]{U\subseteq\realset^n}{\realset}
 \end{equation*}
-viene valutato lungo una curva $\gamma$ di parametrizzazione $\funz[\vba{r}]{\left[a,b\right]}{U}$:
+viene valutato lungo una curva $\gamma$ di parametrizzazione $\ \funz[\vba{r}]{\left[a,b\right]}{U}$:
 \begin{equation}
-	\int_\gamma f\left(\vba{r}\right)ds=\int_a^b f(\vba{r}(\tau))\abs{\vba{r}'(\tau)}d\tau
+	\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int_\gamma f\left(\vba{r}\right)ds=\int_a^b f(\vba{r}(\tau))\abs{\vba{r}'(\tau)}d\tau}
 \end{equation}
 \end{define}
 In particolare, la lunghezza della curva $\gamma$ è
 \begin{equation}
-	\int_\gamma ds=\int_a^b \abs{\vba{r}'(\tau)}d\tau
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int_\gamma ds=\int_a^b \abs{\vba{r}'(\tau)}d\tau}
 \end{equation}
 \begin{define}[Integrale curvilineo di seconda specie]
-	Un \textbf{integrale curvilineo di seconda specie}\index{integrale!curvilineo!di seconda specie} è un integrale dove un campo vettoriale $\funz[\vba{F}]{U\subseteq\realset^n}{\realset^n}$ viene valutato lungo una curva $\gamma$ di parametrizzazione $\funz[\vba{r}]{\left[a,b\right]}{U}$:
+	Un \textbf{integrale curvilineo di seconda specie}\index{integrale!curvilineo!di seconda specie} è un particolare tipo di integrale dove un campo vettoriale $\ \funz[\vba{F}]{U\subseteq\realset^n}{\realset^n}$ viene valutato lungo una curva $\gamma$ di parametrizzazione $\ \funz[\vba{r}]{\left[a,b\right]}{U}$ nella seguente maniera:
 	\begin{equation}
-		\int_\gamma \vba{F}\vdot d\vba{s}=\int_a^b \vba{F}(\vba{r}(\tau))\vdot\abs{\vba{r}'(\tau)}d\tau
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int_\gamma \vba{F}\vdot d\vba{s}=\int_a^b \vba{F}(\vba{r}(\tau))\vdot\abs{\vba{r}'(\tau)}d\tau}
 	\end{equation}
 \end{define}
-Gli integrali curvilineo di seconda specie sono indipendenti dalla parametrizzazione, ma dipendono invece dall'\textit{orientazione}: nella fattispecie, invertire l'orientazione della parametrizzazione cambia il segno dell'integrale curvilineo.%TODO: controllare se vale lo stesso per quello di prima specie
+Gli integrali curvilineo di seconda specie sono indipendenti dalla parametrizzazione, ma dipendono invece dall'\textit{orientazione}: nella fattispecie, invertire l'orientazione della parametrizzazione cambia il segno dell'integrale curvilineo.
+\pagebreak
 \section{⋆ Elemento di area}
 \begin{define}
 Data una superficie	$\Sigma$ a due dimensioni immersa in $\realset^3$, l'\textbf{elemento di superficie}\index{elemento di superficie} è una sua porzione infinitesima. In termini matematici, scelte una parametrizzazione $\vba{r}(u,v)$ di $\Sigma$ e dunque una scelta di coordinate $(u,v)$, allora l'elemento di superficie è una 2-forma data da
 \begin{equation}
-	d\Sigma=\sqrt{\det g}dudv=\norm{\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}}dudv
+	\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{d\Sigma=\sqrt{\det g}dudv=\norm{\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}}dudv}
 \end{equation}
 dove $g$ è la metrica associata alla superficie con la parametrizzazione scelta.
 \end{define}
@@ -237,17 +241,17 @@ Cambiando le coordinate da $(u,v)$ a $(s,t)$, la forma di superficie cambia con 
 	d\Sigma=\abs{\pdv{\left(x,y,z\right)}{\left(u,v,s\right)}}dudvds
 \end{equation*}
 \end{comment}
-\paragraph{Applicazioni}
+\paragraph{Applicazioni}\label{elementodiareaapplicazioni}
 Come si può facilmente immaginare, l'elemento di superficie permette il calcolo degli integrali superficiali.
 \begin{define}[Integrale superficiale per campi scalari]
-	Un \textbf{integrale superficiali per campi scalari}\index{integrale!superficiali!per campi scalari} è un integrale dove un campo scalare $\funz[f]{U\subseteq\realset^2}{\realset}$ viene valutato su una superficie di parametrizzazione $\funz[\vba{r}]{T}{U}$:
+	Un \textbf{integrale superficiali per campi scalari}\index{integrale!superficiali!per campi scalari} è un particolare tipo di integrale dove un campo scalare $\ \funz[f]{U\subseteq\realset^2}{\realset}$ viene valutato su una superficie di parametrizzazione  $\ \funz[\vba{r}]{T}{U}$ nella seguente maniera:
 	\begin{equation}
-		\int_\Sigma fd\Sigma=\int_T f(\vba{r}\left(u,v\right))\sqrt{\det g}dudv=\int_T f(\vba{r}\left(u,v\right))\norm{\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}}dudv
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int_\Sigma fd\Sigma=\int_T f(\vba{r}\left(u,v\right))\sqrt{\det g}dudv=\int_T f(\vba{r}\left(u,v\right))\norm{\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}}dudv}
 	\end{equation}
 \end{define}
 In particolare, l'area di $\Sigma$ è
 \begin{equation}
-	A=\int_{\Sigma}1d\Sigma=\int_T\norm{\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}}dudv
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{A=\int_{\Sigma}1d\Sigma=\int_T\norm{\pdv{\vba{r}}{u}\cross\pdv{\vba{r}}{v}}dudv}
 \end{equation}
 Un integrale superficiale per campi vettoriali può essere definito in due modi differenti:
 \begin{itemize}
@@ -258,7 +262,7 @@ Un integrale superficiale per campi vettoriali può essere definito in due modi 
 \begin{define}[Elemento di volume]
 Fissate delle coordinate $\left(x^i\right)$, un \textbf{elemento di volume}\index{elemento!di volume} su una varietà Riemanniana \textit{orientabile} di dimensione $n$ è una $n$-forma data da
 \begin{equation}
-	dV=\sqrt{\abs{\det g}}dx^1\wedge \ldots\wedge dx^n
+	\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{dV=\sqrt{\abs{\det g}}dx^1\wedge \ldots\wedge dx^n}
 \end{equation}
 dove $g$ è la metrica associata alla varietà.
 \end{define}
@@ -284,11 +288,10 @@ la forma di volume cambia con il determinante della Jacobiana del cambiamento:
 	dV=\abs{\pdv{\left(x,y,z\right)}{\left(u,v,s\right)}}dudvds
 \end{equation*}
 \paragraph{Applicazioni}
-L'elemento di volume permette di definire l'integrale (di Lebesgue) di una funzione su una varietà differenziabile. Nel caso specifico di $\realset^3$, la forma di volume permette il calcolo degli \textbf{integrali tripli}.\\
-In particolare, il volume di un dominio $V$ è dato da
-\begin{equation*}
-	V=\int_{V}1dV=\int_VdV
-\end{equation*}
+L'elemento di volume permette di definire l'integrale (di Lebesgue) di una funzione su una varietà differenziabile. Nel caso specifico di $\realset^3$, la forma di volume permette il calcolo degli \textbf{integrali tripli}. In particolare, il volume di un dominio $V$ è dato da
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{V=\int_{V}1dV=\int_VdV}
+\end{equation}
 \section{⋆ Operatore star di Hodge}
 \begin{define}[Simbolo di Levi-Civita]
 	Il \textbf{simbolo di Levi-Civita}\index{simbolo di Levi-Civita} è definito come
@@ -306,8 +309,8 @@ In particolare, il volume di un dominio $V$ è dato da
 		\funz[\ast]{\Omega^k(M)}{\Omega^{n-k}(M)}
 	\end{equation*}
 	che associa alla $k$-forma $\beta$ un unica $(n-k)$-forma $\ast\beta$, detta \textbf{duale di Hodge}\index{duale di Hodge} definita dall'identità
-	\begin{equation}% TO DO: mettere index to star di Hodge invece che duale separato?
-		\alpha\wedge\ast\beta=\left<\alpha,\beta\right>dV
+	\begin{equation}%
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\alpha\wedge\ast\beta=\left<\alpha,\beta\right>dV}
 	\end{equation}
 	dove $dV\in\omega^n(X)$ è la forma di volume indotta da $g$.
 \end{define}
@@ -316,15 +319,15 @@ Fissate delle componenti $\left(q^\lambda\right)$, una $k$-forma ha una scrittur
 	\alpha=\frac{1}{k!}\alpha_{i_1\ldots i_k}\fb{\epsilon}^{i_1}\wedge\ldots\wedge\fb{\epsilon}^{i_k}
 \end{equation}
 dove $\alpha_{i_1\ldots i_k}$ sono funzioni $\mathcal{C}^{\infty}$ sulla varietà. Allora, il duale di Hodge è definito come
-\begin{multline*}
-\ast\alpha=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha_{j_1\ldots j_k}g^{j_1i_1}\ldots g^{j_ki_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}=\\
-=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha^{i_1\ldots i_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}
-\end{multline*}
+\begin{align*}
+\ast\alpha&=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha_{j_1\ldots j_k}g^{j_1i_1}\ldots g^{j_ki_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}=\\
+&=\frac{1}{k!\left(n-k\right)!}\sqrt{\abs{g}}\alpha^{i_1\ldots i_k}\epsilon_{i_1\ldots i_ki_{k+1}\ldots i_n}\fb{\epsilon}^{i_{k+1}}\wedge\ldots\wedge\fb{\epsilon}^{i_n}
+\end{align*}
 dove $g$ è la metrica su $M$ e
 \begin{equation*}
 \alpha^{i_1\ldots i_k}=\alpha_{j_1\ldots j_k}g^{j_1i_1}\ldots g^{j_ki_k}
 \end{equation*}
-\begin{properties}[Proprietà dell'operatore star di Hodge]
+\begin{propertiesqed}[Proprietà dell'operatore star di Hodge]
 	Data una varietà Riemanniana $(M,g)$ di dimensione $n$ e sia $\alpha\in\Omega^k(M)$. Allora valgono le seguenti:
 	\begin{itemize}
 		\item Il duale di Hodge della funzione ($0$-forma) identicamente unitaria $1$ è
@@ -333,16 +336,16 @@ dove $g$ è la metrica su $M$ e
 		\end{equation}
 		\item Il duale del duale di Hodge di una $k$-forma è
 		\begin{equation}
-			\ast\left(\ast\alpha\right)=\left(-1\right)^{k\left(n+1\right)}\alpha=\left(-1\right)^{k\left(n-k\right)}\alpha
+			\ast\left(\ast\alpha\right)=\left(-1\right)^{k\left(n+1\right)}\alpha=\left(-1\right)^{k\left(n-k\right)}\alpha\qedhere
 		\end{equation}
 		\end{itemize}
-\end{properties}
+\end{propertiesqed}
 \section{Operatori differenziali}
 In questa sezione ci limitiamo a considerare lo spazio affine $\realset^3$ - dotato delle proprietà di varietà differenziale - ove non specificato diversamente.
 \begin{define}[Operatore nabla]
 	L'operatore \textbf{nabla}\index{nabla}	è una notazione matematica che semplifica la scrittura di diverse equazioni. In coordinate cartesiane su $\realset^3$, si può immaginare un vettore puramente formale che contiene gli operatori delle derivate parziali nelle tre direzioni spaziali (cartesiane):
 	\begin{equation}
-		\grad = \left(\partial_x,\partial_y,\partial_z\right)=\pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z\label{nablacartesiano}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\grad = \left(\partial_x,\partial_y,\partial_z\right)=\pdv{x}\vbh{u}_x+\pdv{y}\vbh{u}_y+\pdv{z}\vbh{u}_z}\label{nablacartesiano}
 	\end{equation}
 \end{define}
 \begin{attention}
@@ -352,7 +355,7 @@ L'operatore nabla ha tre possibili applicazioni, a seconda se viene moltiplicato
 \paragraph{Cambio di coordinate} %https://math.stackexchange.com/questions/618031/del-operator-nabla-in-spherical-co-ordinate-system 
 Anche se lo scriviamo come vettore formale, $\grad$ si può anche vedere come \textit{covettore} - un nome carino per dire le \textit{forme lineari}. In particolare, le componenti di $\grad$ cambiano come i covettori, cioé dobbiamo operare in modo covariante e utilizzare la \textit{matrice} del cambiamento di base:
 \begin{equation}
-	\pdv{q_\lambda}=\pdv{x^i}{q^\lambda}\pdv{x^i}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\pdv{q_\lambda}=\pdv{x^i}{q^\lambda}\pdv{x^i}}
 \end{equation}
 \paragraph{Gradiente}
 \begin{define}[Campo scalare]
@@ -364,9 +367,9 @@ Anche se lo scriviamo come vettore formale, $\grad$ si può anche vedere come \t
 \end{define}
 Un campo scalare è quindi una mappa che a punti di $\realset^3$ associa valori scalari.
 \begin{define}[Gradiente]\label{gradiente}
-	Dato un campo scalare $\funz[\phi]{\realset^3}{\realset}$, il \textbf{gradiente}\index{gradiente} è il campo vettoriale dato dall'applicazione della nabla tramite moltiplicazione per uno scalare a $\phi$:
+	Dato un campo scalare $\ \funz[\phi]{\realset^3}{\realset}$, il \textbf{gradiente}\index{gradiente} è il campo vettoriale dato dall'applicazione della nabla tramite moltiplicazione per uno scalare a $\phi$:
 	\begin{equation}
-		\grad{\phi}=\left(\partial_x\phi,\partial_y\phi,\partial_z\phi\right)=\pdv{\phi}{x}\vbh{u}_x+\pdv{\phi}{y}\vbh{u}_y+\pdv{\phi}{z}\vbh{u}_z
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\grad{\phi}=\left(\partial_x\phi,\partial_y\phi,\partial_z\phi\right)=\pdv{\phi}{x}\vbh{u}_x+\pdv{\phi}{y}\vbh{u}_y+\pdv{\phi}{z}\vbh{u}_z}
 	\end{equation}
 \end{define}
 \begin{examples}~
@@ -380,9 +383,9 @@ Un campo scalare è quindi una mappa che a punti di $\realset^3$ associa valori 
 \end{observe}
 \subparagraph{⋆ Teorema del gradiente}
 \begin{theoremaqed}[Teorema del gradiente]\label{thmgradiente}
-	Per ogni campo scalare $\funz[\phi]{\realset^3}{\realset}$ e per ogni curva differenziabile $\gamma$ da $P$ a $Q$ si ha
+	Per ogni campo scalare $\ \funz[\phi]{\realset^3}{\realset}$ e per ogni curva differenziabile $\gamma$ da $P$ a $Q$ si ha
 	\begin{equation}
-		\int_{\gamma}\grad{\phi}\vdot d\vba{s}=\phi(Q)-\phi(P)
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int_{\gamma}\grad{\phi}\vdot d\vba{s}=\phi(Q)-\phi(P)}
 	\end{equation}
 	In altre parole, gli integrali curvilinei di campi definiti da gradienti sono \textit{indipendenti} dal percorso scelto e dipendono solo dal punto iniziale e dal punto finale.
 \end{theoremaqed}
@@ -399,27 +402,27 @@ Questa definizione è \textit{intrinseca} e \textit{non} richiede alcun sistema 
 Per questioni operative conviene comunque servirsi di un sistema di coordinate e calcolare le componenti del gradiente in tale sistema.
 \paragraph{Divergenza}
 \begin{define}[Divergenza]
-	Dato un campo vettoriale $\funz[\vba{G}]{\realset^3}{\realset^3}$, la \textbf{divergenza}\index{divergenza} è il campo scalare dato dall'applicazione della nabla tramite prodotto scalare ad $\vba{G}$:
+	Dato un campo vettoriale $\ \funz[\vba{G}]{\realset^3}{\realset^3}$, la \textbf{divergenza}\index{divergenza} è il campo scalare dato dall'applicazione della nabla tramite prodotto scalare ad $\vba{G}$:
 	\begin{equation}
-		\div{\vba{G}}=\partial_xG_x+\partial_yG_y+\partial_zG_z
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\div{\vba{G}}=\partial_xG_x+\partial_yG_y+\partial_zG_z}
 	\end{equation}
 \end{define}
 \begin{example}
-	Se $\vba{G}$ rappresenta la velocità dell'aria in una certa regione di spazio, $\div{ \vba{G}}$ rappresenta quanta più aria sta ‘‘uscendo'' da quella regione rispetto a quanta ne sta ‘‘entrando''. Se scaldiamo l'aria, essa si espande, i vettori puntano verso l'esterno della regione e la divergenza è positiva; se raffreddiamo l'aria, l'aria si contrae e la divergenza ha un valore negativo.
+	Se $\vba{G}$ rappresenta la velocità dell'aria in una certa regione di spazio, $\div{ \vba{G}}$ rappresenta quanta più aria sta ``uscendo'' da quella regione rispetto a quanta ne sta ``entrando''. Se scaldiamo l'aria, essa si espande, i vettori puntano verso l'esterno della regione e la divergenza è positiva; se raffreddiamo l'aria, l'aria si contrae e la divergenza ha un valore negativo.
 \end{example}
 \paragraph{Rotore}
 \begin{define}[Rotore]
-	Dato un campo vettoriale $\funz[\vba{G}]{\realset^3}{\realset^3}$, il \textbf{rotore}\index{rotore} è il campo vettoriale dato dall'applicazione della nabla tramite prodotto vettoriale ad $\vba{G}$:
+	Dato un campo vettoriale $\ \funz[\vba{G}]{\realset^3}{\realset^3}$, il \textbf{rotore}\index{rotore} è il campo vettoriale dato dall'applicazione della nabla tramite prodotto vettoriale ad $\vba{G}$:
 	\begin{equation}
-		\curl{\vba{G}}=(\partial_yG_z-\partial_xG_y,\partial_zG_x-\partial_xG_z,\partial_xG_y-\partial_yG_x)
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\curl{\vba{G}}=(\partial_yG_z-\partial_xG_y,\partial_zG_x-\partial_xG_z,\partial_xG_y-\partial_yG_x)}
 	\end{equation}
 	Si definisce anche come il determinante formale
 	\begin{equation}
-		\curl{\vba{G}}=\begin{vmatrix}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\curl{\vba{G}}=\begin{vmatrix}
 			\partial_x & \partial_y & \partial_z\\
 			G_x & G_y & G_z\\
 			\vbh{u}_x & \vbh{u}_y & \vbh{u}_z
-		\end{vmatrix}
+		\end{vmatrix}}
 	\end{equation}
 \end{define}
 \begin{example}
@@ -431,14 +434,14 @@ Dato che dopo aver applicato l'operatore nabla otteniamo campi scalari o vettori
 \begin{enumerate}[label=\roman*)]
 	\item  $\div{\left(\grad\phi\right)}=\laplacian{\phi}$, dove $\laplacian$ è il \textbf{laplaciano}\index{laplaciano}:
 	\begin{equation}
-		\laplacian{\phi}=\partial^2_x\phi+\partial^2_y\phi+\partial^2_z\phi\label{laplacianocartesiano}
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\laplacian{\phi}=\partial^2_x\phi+\partial^2_y\phi+\partial^2_z\phi}\label{laplacianocartesiano}
 	\end{equation}
 	\item $\curl{\grad{\phi}}=0$
 	\item $\grad{\left(\div{\vba{G}}\right)}$
 	\item $\div{\left(\curl{\vba{G}}\right)}=0$
 	\item $\curl{\left(\curl{\vba{G}}\right)}=\grad{\left(\div{\vba{G}}\right)}+\laplacian{\vba{G}}$, dove $\laplacian{\vba{G}}$ è il \textbf{laplaciano vettoriale}\index{laplaciano!vettoriale}:
 	\begin{equation}
-		\laplacian{\vba{G}}=\left(\laplacian{G_x},\laplacian{G_y},\laplacian{G_z}\right)
+		\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\laplacian{\vba{G}}=\left(\laplacian{G_x},\laplacian{G_y},\laplacian{G_z}\right)}
 	\end{equation}
 \end{enumerate}
 
@@ -490,7 +493,7 @@ Matematicamente, possiamo estendere parte delle definizioni precedenti dallo spa
 \begin{define}[Operatore nabla in {$\realset^n$}]
 	L'operatore \textbf{nabla}\index{nabla}	è una notazione matematica che semplifica la scrittura di diverse equazioni. Nelle coordinate $(x_1,\ldots,x_n)$ della base standard $\left(\vba{e}_1,\ldots,\vba{e}_n\right)$ su $\realset^n$, è il vettore puramente formale che contiene gli operatori delle derivate parziali nelle direzioni della base :
 	\begin{equation}
-		\grad = \pdv{x^1}\vba{e}_1+\ldots+\pdv{x^n}\vba{e}_n=\sum_{i=1}^n\pdv{x^i}\vba{e}_i\label{nablacartesianondim}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\grad = \pdv{x^1}\vba{e}_1+\ldots+\pdv{x^n}\vba{e}_n=\sum_{i=1}^n\pdv{x^i}\vba{e}_i}\label{nablacartesianondim}
 	\end{equation}
 \end{define}
 Preso il campo scalare
@@ -531,18 +534,18 @@ Se consideriamo lo \textit{spaziotempo di Minkowski} $M=\realset^4$, con coordin
 	\end{pmatrix}
 \end{equation*}
 si può definire un'estensione in tale spazio del \textit{laplaciano} $\laplacian$, l'\textbf{operatore d'Alembertiano}\index{d'Alembertiano}:
-\begin{multline}
-	\Box=\partial^{\mu}\partial_{\mu}=\eta^{\mu\nu}\partial_{\mu}\partial_{\nu}=\pdv[2]{(x^0)}-\pdv[2]{(x^1)}-\pdv[2]{(x^2)}-\pdv[2]{(x^3)}=\\
-	\frac{1}{c^2}\pdv[2]{t}-\pdv[2]{x}-\pdv[2]{y}-\pdv[2]{z}=\frac{1}{c^2}\pdv[2]{t}-\laplacian
-\end{multline}
+\begin{empheq}[box=\tcmathboxgeneral]{align}
+	\Box&=\partial^{\mu}\partial_{\mu}=\eta^{\mu\nu}\partial_{\mu}\partial_{\nu}=\pdv[2]{(x^0)}-\pdv[2]{(x^1)}-\pdv[2]{(x^2)}-\pdv[2]{(x^3)}=\\
+	&=\frac{1}{c^2}\pdv[2]{t}-\pdv[2]{x}-\pdv[2]{y}-\pdv[2]{z}=\frac{1}{c^2}\pdv[2]{t}-\laplacian
+\end{empheq}
 dove $c$ è la velocità della luce.\\
 In questo modo possiamo definire il laplaciano di un campo scalare...
 \begin{equation}
-	\Box\phi=\frac{1}{c^2}\pdv[2]{\phi}{t}-\laplacian{\phi}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Box\phi=\frac{1}{c^2}\pdv[2]{\phi}{t}-\laplacian{\phi}}
 \end{equation}
 ...e, dato un campo vettoriale $\vba{G}(x^0, x^1, x^2, x^3)$, l'estensione del laplaciano vettoriale
 \begin{equation}
-	\Box{\vba{G}}=\left(\Box{G_0},\Box{G_1},\Box{G_2},\Box{G_3}\right)
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Box{\vba{G}}=\left(\Box{G_0},\Box{G_1},\Box{G_2},\Box{G_3}\right)}
 \end{equation}  
 In alcuni ambiti, ma specialmente nell'ambito dello studio delle onde \textit{non} elettromagnetiche, si può adattare tale operatore sostituendo a $c$ un'opportuna velocità $v$. %TODO: check this
 \section{Teorema della divergenza e del rotore}
@@ -550,7 +553,7 @@ In alcuni ambiti, ma specialmente nell'ambito dello studio delle onde \textit{no
 \begin{theoremaqed}[Teorema della divergenza]
 	Si consideri un volume $V\subseteq\realset^3$ compatto con bordo liscio $\partial V$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
 	\begin{equation}
-		\int_V\div{\vba{G}}=\int_{\partial V}\vba{G}\vdot \vbh{u}_nd\Sigma\label{TeoremaDivergenza}\qedhere
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int_V\div{\vba{G}}=\int_{\partial V}\vba{G}\vdot \vbh{u}_nd\Sigma}\label{TeoremaDivergenza}\qedhere
 	\end{equation}
 \end{theoremaqed}
 Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
@@ -559,9 +562,9 @@ Utilizzando la notazione fisica, la \ref{TeoremaDivergenza} si scrive come
 \end{equation}
 \paragraph{Teorema del rotore}
 \begin{theoremaqed}[Teorema del rotore]
-	Si consideri una curva $\funz[\gamma]{\left[a,b\right]}{\realset^3}$ semplice - ossia senza intersezioni con sé stessa, chiusa e liscia a tratti; si consideri inoltre una superficie $\Sigma$ liscia tale che $\partial \Sigma=\gamma$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
+	Si consideri una curva $\ \funz[\gamma]{\left[a,b\right]}{\realset^3}$ semplice - ossia senza intersezioni con sé stessa, chiusa e liscia a tratti; si consideri inoltre una superficie $\Sigma$ liscia tale che $\partial \Sigma=\gamma$. Dato un campo vettoriale differenziabile $\vba{G}$ in un intorno di $V$, allora
 	\begin{equation}
-		\int_\Sigma\grad{\vba{G}}\vdot\vbh{u}_nd\Sigma=\oint_{\gamma}\vba{G}\vdot d\vba{s}\label{TeoremaRotore}\qedhere
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int_\Sigma\grad{\vba{G}}\vdot\vbh{u}_nd\Sigma=\oint_{\gamma}\vba{G}\vdot d\vba{s}}\label{TeoremaRotore}\qedhere
 	\end{equation}
 \end{theoremaqed}
 Utilizzando la notazione fisica, la \ref{TeoremaRotore} si scrive come
@@ -574,11 +577,17 @@ Utilizzando la notazione fisica, la \ref{TeoremaRotore} si scrive come
 \section{Campi conservativi, irrotazionali e solenoidali}
 \paragraph{Campi conservativi}
 \begin{define}[Campo conservativo e potenziale]
-	Dato un campo vettoriale $\vba{G}$, se esiste un campo scalare $\phi$ tale che $\vba{G}=\grad{\phi}$, allora $\vba{G}$ viene detto \textbf{conservativo}\index{campo!conservativo} e il campo scalare $\phi$ è detto \textbf{potenziale}\index{potenziale}.
+	Dato un campo vettoriale $\vba{G}$, se esiste un campo scalare $\phi$ tale che \begin{equation}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{G}=\grad{\phi}}
+	\end{equation}
+	allora $\vba{G}$ viene detto \textbf{conservativo}\index{campo!conservativo} e il campo scalare $\phi$ è detto \textbf{potenziale}\index{potenziale}.
 \end{define}
 \paragraph{Campi irrotazionali}
 \begin{define}[Campo irrotazionale]
-	Un campo vettoriale $\vba{G}$ viene detto \textbf{irrotazionale}\index{campo!irrotazionale} se $\curl{\vba{G}}=0$.
+	Un campo vettoriale $\vba{G}$ viene detto \textbf{irrotazionale}\index{campo!irrotazionale} se
+	\begin{equation}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\curl{\vba{G}}=0}
+	\end{equation}
 \end{define}
 \begin{propositionqed}[⋆ Campo irrotazionale e campo conservativo]
 	Un campo conservativo è sempre irrotazionale; il viceversa è vero se il dominio è semplicemente connesso.
@@ -586,7 +595,10 @@ Utilizzando la notazione fisica, la \ref{TeoremaRotore} si scrive come
 \begin{theoremaqed}[Caratterizzazioni equivalenti dei campi conservativi in $\realset^3$]
 	Sia $\vba{G}$ un campo vettoriale in $\realset^3$. Le seguenti sono equivalenti:
 	\begin{enumerate}[label=\roman*)]
-		\item $\vba{G}$ è conservativo, cioè esiste $\phi$ campo scalare tale che $\vba{G}=\grad{\phi}$.
+		\item $\vba{G}$ è conservativo, cioè esiste $\phi$ campo scalare tale che
+		\begin{equation}
+			\vba{G}=\grad{\phi}
+		\end{equation}
 		\item $\vba{G}$ è irrotazionale, cioè $\curl{\vba{G}}=0$.
 		\item $\Gamma_{\gamma}(\vba{G})=0,\ \forall \gamma$ curva chiusa.
 		\item $\int_{\gamma_1}\vba{G}\vdot d\vba{s}=\int_{\gamma_2}\vba{G}d\vba{s},\ \forall \gamma_1,\ \gamma_2$ curve tra due estremi $A$ e $B$ fissi.
@@ -594,14 +606,20 @@ Utilizzando la notazione fisica, la \ref{TeoremaRotore} si scrive come
 \end{theoremaqed}
 \paragraph{Campi solenoidali}\label{CampoSolenoidale}
 \begin{define}[Campo solenoidale e vettore potenziale]
-	Un campo vettoriale $\vba{G}$ viene detto \textbf{solenoidale}\index{campo!solenoidale} se $\div{\vba{G}}=0$.\\
-	In particolare, un campo è solenoidale se e solo se esiste un campo vettoriale $\vba{A}$ tale che $\vba{G}=\curl{\vba{A}}$. Il campo vettoriale $\vba{A}$ è detto \textbf{vettore potenziale}\index{vettore potenziale}.
+	Un campo vettoriale $\vba{G}$ viene detto \textbf{solenoidale}\index{campo!solenoidale} se
+	\begin{equation}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\div{\vba{G}}=0}
+	\end{equation}
+	In particolare, un campo è solenoidale se e solo se esiste un campo vettoriale $\vba{A}$ tale che $\vba{G}=\curl{\vba{A}}$. Il campo vettoriale $\vba{A}$ è detto \textbf{vettore potenziale}\index{vettore!potenziale}.
 \end{define}
 \begin{theorema}[Caratterizzazioni equivalenti dei campi solenoidali in $\realset^3$]
 	Sia $\vba{G}$ un campo vettoriale in $\realset^3$. Le seguenti sono equivalenti:
 	\begin{enumerate}[label=\roman*)]
 		\item $\vba{G}$ è solenoidale, cioè $\div{\vba{G}}=0$.
-		\item $\vba{G}$ ammette un vettore potenziale $\vba{A}$ tale per cui $\vba{G}=\curl{\vba{A}}$.
+		\item $\vba{G}$ ammette un vettore potenziale $\vba{A}$ tale per cui
+		\begin{equation*}
+			\vba{G}=\curl{\vba{A}}
+		\end{equation*}
 		\item $\Phi_{\Sigma}(\vba{G})=0,\ \forall \Sigma$ superficie chiusa.
 		\item $\Phi_{\Sigma_1}(\vba{G})=\Phi_{\Sigma_2}(\vba{G})$ se $\partial\Sigma_1=\partial\Sigma_2$.
 		\item Tutte le linee di forze sono chiuse.
@@ -635,22 +653,22 @@ Consideriamo $\realset^n$ in coordinate cartesiane: questa è una varietà Riema
 \paragraph{Gradiente}
 Dato un campo scalare $\phi\in\mathcal{F}(\realset^n)$, il \textbf{gradiente} di $\phi$ è definito come il campo vettoriale $\grad{\phi}$ associato tramite l'isomorfismo musicale del diesis alla 1-forma $d\phi$,
 \begin{equation}
-	\grad{\phi}=\left(d\phi\right)^{\sharp}\in\Omega^1(M),
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\grad{\phi}=\left(d\phi\right)^{\sharp}\in\Omega^1(M)}
 \end{equation}
 dove $d\phi$ è il differenziale (o derivata esterna) della funzione $\phi$.
 \paragraph{Rotore}
 Il \textbf{rotore} di un campo vettoriale $\vba{G}$ su $\realset^n$ è definito come la $(n-2)$-forma $\mathrm{rot}\vba{G}$ seguente:
-\begin{equation*}
-	\mathrm{rot}\vba{G}=\ast\left(d\vba[E]^\flat\right)=\ast\left(d\fb{E}\right)
-\end{equation*}
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\mathrm{rot}\ \vba{G}=\ast\left(d\vba[E]^\flat\right)=\ast\left(d\fb{E}\right)}
+\end{equation}
 Questa è una generalizzazione del concetto del rotore ad $n$ dimensioni. Nel caso specifico di $\realset^3$, il rotore è una 1-forma; pertanto il rotore vettoriale a noi noto è semplicemente il campo vettoriale che otteniamo applicando l'isomorfismo musicale del diesis a $\mathrm{rot}\vba{G}$.
 \begin{equation}
-	\curl{\vba{G}}=\left(\mathrm{rot}\vba{G}\right)^\sharp
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\curl{\vba{G}}=\left(\mathrm{rot}\vba{G}\right)^\sharp}
 \end{equation}
 \paragraph{Divergenza}
 La \textbf{divergenza} di $\vba{G}$ è definito come il campo scalare
 \begin{equation}
-	\div{\vba{G}}=\tr{d\vba{G}}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\div{\vba{G}}=\trc \left(d\vba{G}\right)}
 \end{equation}
 dove $d\vba{G}$ è il differenziale della funzione.\\
 Possiamo definire la divergenza in termini di operatore \textit{star di Hodge}. Dato un campo vettoriale $\vba{G}=E^i(\vba{r})\vbh{u}_i$ su $\realset^3$, l'isomorfismo musicale del bemolle definisce la sua 1-forma associata
@@ -674,9 +692,9 @@ Il suo duale di Hodge è un campo scalare e coincide con la divergenza di $\vba{
 \begin{theoremaqed}[Teorema di Stokes per forme differenziali]
 	Se $\omega$ è una $n$-forma liscia con supporto compatto sulla varietà differenziabile e orientabile $M$ di dimensione $n+1$, dotata - sulla base dell'orientazione indotta da $M$ - di un bordo pari ad una varietà differenziabile $\partial M$ di dimensione $n$, allora
 	\begin{equation*}
-		\int_{M}d\omega=\int_{\partial M}\omega
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\int_{M}d\omega=\int_{\partial M}\omega}
 	\end{equation*}
-dove nel secondo integrale si intende, con un abuso di notazione, la restrizione sul bordo $\partial M$ di $\omega$ (o equivalentemente, è pari al pullback $i^{\ast}\omega$ dove $\incl{u}{\partial M}{M}$ è l'inclusione del bordo nella varietà).
+dove nel secondo integrale si intende, con un abuso di notazione, la restrizione sul bordo $\partial M$ di $\omega$ (o equivalentemente, è pari al pullback $i^{\ast}\omega$ dove $\ \incl[u]{\partial M}{M}$ è l'inclusione del bordo nella varietà).
 \end{theoremaqed}
 Da questo importante teorema si possono ricavare diversi risultati già noti, applicati tuttavia al mondo delle forme differenziali.
 \paragraph{Teorema del rotore per forme differenziali}
@@ -805,11 +823,11 @@ Pertanto, il cambiamento delle componenti di un campo vettoriale $\vba{G}$ dalle
 \paragraph{Elemento di linea}
 Lo spostamento infinitesimo da $\vba{r}=(r,\ \theta, \phi)$ a $\vba{r}+d\vba{r}=(r + dr, \theta + d\theta, \phi + d\phi)$ è
 \begin{equation}
-	d\vba{s}=\abs{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs{\pdv{\vba{r}}{r}}dr\vbh{u}_r+\abs{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs{\pdv{\vba{r}}{\phi}}d\phi\vbh{u}_\phi=dr\vbh{u}_r+rd\theta\vbh{u}_r\theta+r\sin\theta d\phi\vbh{u}_\phi\label{spinfinitesimosferiche}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{d\vba{s}=\abs{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs{\pdv{\vba{r}}{r}}dr\vbh{u}_r+\abs{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs{\pdv{\vba{r}}{\phi}}d\phi\vbh{u}_\phi=dr\vbh{u}_r+rd\theta\vbh{u}_r\theta+r\sin\theta d\phi\vbh{u}_\phi}\label{spinfinitesimosferiche}
 \end{equation}
 Essendo la metrica associata alle coordinate sferiche ortogonale, l'elemento di linea diventa
 \begin{equation}
-	ds^2=dr^2+r^2d\theta^2+r^2\sin^2\theta d\phi^2
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{ds^2=dr^2+r^2d\theta^2+r^2\sin^2\theta d\phi^2}
 \end{equation}
 % TO DO: add elemento d'area
 % TO DO: add elemento di volume
@@ -831,7 +849,7 @@ Le componenti dell'operatore dalle sferiche alle cartesiane sono:
 \end{equation}
 Sostituendo in \ref{nablacartesiano} i versori e le componenti dell'operatore nabla in coordinate sferiche, si ricava, dopo raccoglimenti e calcoli noiosi,
 \begin{equation}
-	\grad=\pdv{r}\vbh{u}_r+\frac{1}{r}\pdv{\theta}\vbh{u}_\theta+\frac{1}{r\sin\theta}\pdv{\phi}\vbh{u}_\phi\label{nablasferiche}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\grad=\pdv{r}\vbh{u}_r+\frac{1}{r}\pdv{\theta}\vbh{u}_\theta+\frac{1}{r\sin\theta}\pdv{\phi}\vbh{u}_\phi}\label{nablasferiche}
 \end{equation}
 In modo alternativo, possiamo ricavare l'espressione \ref{nablasferiche} dalla definizione intrinseca di gradiente. Presa una funzione $V$ arbitraria, inserendo lo spostamento infinitesimo \ref{spinfinitesimosferiche} nella \ref{gradienteintrinseco} si ricava
 \begin{equation*}
@@ -864,12 +882,12 @@ Sviluppando i prodotti con la \textit{regola di Leibniz} otteniamo, in ogni pare
 \end{equation*}
 ...e sostituendo nell'espressione della divergenza otteniamo
 \begin{equation}
-	\div{\vba{G}}=\frac{1}{r^2}\pdv{r}\left(r^2G_r\right)+\frac{1}{r\sin\theta}\pdv{\theta}\left(G_\theta\sin\theta\right)+\frac{1}{r\sin\theta}\pdv{G_\phi}{\phi}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\div{\vba{G}}=\frac{1}{r^2}\pdv{r}\left(r^2G_r\right)+\frac{1}{r\sin\theta}\pdv{\theta}\left(G_\theta\sin\theta\right)+\frac{1}{r\sin\theta}\pdv{G_\phi}{\phi}}
 \end{equation}
 \paragraph{Laplaciano}
 Essendo il laplaciano la divergenza del gradiente, per ottenerlo applichiamo con un prodotto scalare l'operatore nabla in coordinate sferiche alle componenti del gradiente:
 \begin{equation}
-	\laplacian=\frac{1}{r^2}\pdv{r}\left(r^2\pdv{r}\right)+\frac{1}{r^2\sin\theta}\pdv{\theta}\left(\sin\theta\pdv{\theta}\right)+\frac{1}{r^2\sin^2\theta}\pdv[2]{\phi}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\laplacian=\frac{1}{r^2}\pdv{r}\left(r^2\pdv{r}\right)+\frac{1}{r^2\sin\theta}\pdv{\theta}\left(\sin\theta\pdv{\theta}\right)+\frac{1}{r^2\sin^2\theta}\pdv[2]{\phi}}
 \end{equation}
 \subsection{Coordinate cilindriche}
 \begin{define}[Coordinate cilindriche]
@@ -915,7 +933,7 @@ Poiché
 \begin{equation}
 	\abs{\vbh{e}_R}=\abs{\pdv{\vba{r}}{R}}=1\qquad\abs{\vbh{e}_\theta}=\abs{\pdv{\vba{r}}{\theta}}=R\qquad\abs{\vbh{e}_z}=\abs{\pdv{\vba{r}}{z}}=1,
 \end{equation}
-il cambiamento dalla base cartesiana $\left(\vbh{u}_x,\vbh{u}_y,\vbh{u}_z\right)$ alla base \textit{ortonormale} cilindrica $\left(\vbh{u}_R,\vbh{u}_\theta,\vbh{u}_z\right)$ è
+il cambiamento dalla base cartesiana $\left(\vbh{u}_x,\vbh{u}_y,\vbh{u}_z\right)$ alla \textit{ortonormale} cilindrica $\left(\vbh{u}_R,\vbh{u}_\theta,\vbh{u}_z\right)$ è
 \begin{equation}
 	\begin{cases}
 		\vbh{u}_R=\frac{\vbh{e}_R}{\abs{\vbh{e}_R}}=\cos\theta\vbh{u}_x+\sin\theta\vbh{u}_y\\
@@ -961,11 +979,11 @@ Pertanto, il cambiamento delle componenti di un campo vettoriale $\vba{G}$ dalle
 \paragraph{Elemento di linea}
 Lo spostamento infinitesimo da $\vba{r}=(r,\ \theta, z)$ a $\vba{r}+d\vba{r}=(r + dr, \theta + d\theta, z + dz)$ è
 \begin{equation}
-	d\vba{s}=\abs{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs{\pdv{\vba{r}}{\partial R}}dR\vbh{u}_R+\abs{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs{\pdv{\vba{r}}{z}}dz\vbh{u}_z=dR\vbh{u}_R+Rd\theta\vbh{u}_\theta+dz\vbh{u}_z\label{spinfinitesimocilindriche}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{d\vba{s}=\abs{\pdv{\vba{r}}{q^i}}dq^i\vbh{u}_i=\abs{\pdv{\vba{r}}{\partial R}}dR\vbh{u}_R+\abs{\pdv{\vba{r}}{\theta}}d\theta\vbh{u}_\theta+\abs{\pdv{\vba{r}}{z}}dz\vbh{u}_z=dR\vbh{u}_R+Rd\theta\vbh{u}_\theta+dz\vbh{u}_z}\label{spinfinitesimocilindriche}
 \end{equation}
 Essendo la metrica associata alle coordinate cilindriche ortogonale, l'elemento di linea diventa
 \begin{equation}
-	ds^2=dR^2+R^2d\theta^2+dz^2
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{ds^2=dR^2+R^2d\theta^2+dz^2}
 \end{equation}
 % TO DO: add elemento d'area
 % TO DO: add elemento di volume
@@ -976,11 +994,11 @@ Ricaviamo, per semplicità, l'espressione dell'operatore nabla dalla definizione
 \end{equation*}
 da cui
 \begin{equation}
-	\grad{V}=\pdv{V}{R}\vbh{u}_R+\frac{1}{R}\pdv{V}{\theta}\vbh{u}_\theta+\pdv{V}{z}\vbh{u}_z
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\grad{V}=\pdv{V}{R}\vbh{u}_R+\frac{1}{R}\pdv{V}{\theta}\vbh{u}_\theta+\pdv{V}{z}\vbh{u}_z}
 \end{equation}
 e quindi l'espressione dell'operatore nabla è
 \begin{equation}
-	\grad =\pdv{R}\vbh{u}_R+\frac{1}{R}\pdv{\theta}\vbh{u}_\theta+\pdv{z}\vbh{u}_z
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\grad =\pdv{R}\vbh{u}_R+\frac{1}{R}\pdv{\theta}\vbh{u}_\theta+\pdv{z}\vbh{u}_z}
 \end{equation}
 \paragraph{Divergenza}
 Calcoliamo il divergenza in coordinate cilindriche applicando l'operatore nabla in coordinate sferiche al campo vettoriale come fosse un prodotto scalare, tenendo conto che i versori stessi sono funzioni delle coordinate e che le derivate devono essere applicate \textit{prima} del prodotto:
@@ -1006,10 +1024,10 @@ Sviluppando i prodotti con la \textit{regola di Leibniz} otteniamo, in ogni pare
 \end{equation*}
 ...e sostituendo nell'espressione della divergenza otteniamo
 \begin{equation}
-	\div{\vba{G}}=\frac{1}{R}\pdv{R}\left(G_R R\right)+\frac{1}{R}\pdv{G_\theta}{\theta}+\pdv{G_z}{z}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\div{\vba{G}}=\frac{1}{R}\pdv{R}\left(G_R R\right)+\frac{1}{R}\pdv{G_\theta}{\theta}+\pdv{G_z}{z}}
 \end{equation}
 \paragraph{Laplaciano}
 Essendo il laplaciano la divergenza del gradiente, per ottenerlo applichiamo con un prodotto scalare l'operatore nabla in coordinate cilindriche alle componenti del gradiente:
 \begin{equation}
-	\laplacian=\frac{1}{R}\pdv{R}\left(R\pdv{R}\right)+\frac{1}{R^2}\pdv[2]{\theta}+\pdv[2]{z}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\laplacian=\frac{1}{R}\pdv{R}\left(R\pdv{R}\right)+\frac{1}{R^2}\pdv[2]{\theta}+\pdv[2]{z}}
 \end{equation}

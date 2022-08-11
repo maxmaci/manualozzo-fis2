@@ -9,12 +9,14 @@
 \labelChapter{dielettrici}
 
 \begin{introduction}
-	‘‘BEEP BOOP''
+	``Ho inghiottito anche della lana di vetro isolante, ma non era zucchero filato come quello mi aveva detto... mi pizzica lo stomaco.''
 	\begin{flushright}
-		\textscsl{Lollo BiancoBOT}, dopo aver finito le citazioni. %TODO:quote 
+		\textscsl{Brick Tamland}, \emph{Anchorman - La leggenda di Ron Burgundy}. 
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{D}{opo}
+\lettrine[findent=1pt, nindent=0pt]{L}{a materia}, come ben sappiamo, si presenta in diverse forme e consistenze, se così possiamo dire: solidi, liquidi, gas, legni, vetri... Ma il campo elettrostatico si comporta in maniera differente a seconda di quale sostanza è presente. Ciò nonostante, la maggior parte dei materiali si possono classificare in due grandi classi: i \textit{conduttori} e gli \textit{isolanti/dielettrici}. Abbiamo già parlato approfonditamente dei conduttori nei due capitoli precedenti, sia in situazioni statiche (\autoref{chap:conduttori}), sia nel contesto della corrente elettrica (\autoref{chap:correnteElettrica}). 
+
+In questo Capitolo, invece, ci occuperemo dei \textbf{materiali isolanti e dielettrici} in condizione di \textit{staticità}, data la complessità dell'argomento. Dopo una breve introduzione in cui vedremo \textit{come} varia il campo elettrostatico in presenza di dielettrici, ci occuperemo di capire \textit{perché} succede ciò, entrando nel mondo microscopico per studiare la \textbf{polarizzazione elettronica} e \textbf{per orientamento}. Infine, concluderemo questo capitolo - e questa prima parte del Manualozzo\texttrademark\ - riprendendo le \textbf{leggi di Maxwell per l'elettrostatica} adattandole al caso dei materiali isolanti.
 \section{Materiale dielettrici e condensatori}
 Consideriamo un \textit{condensatore} alle cui armature è collegato un \textit{elettroscopio}: anche lo abbiamo introdotto come strumento per misurare la carica, può essere usato (e qui lo useremo in questo secondo modo) anche per misurare la differenza di potenziale e/o il campo elettrico. Ricordiamo che il campo elettrico interno ad un condensatore piano con armature distanti $d$ e densità di carica uniforme $\sigma$ è, in modulo, pari a
 \begin{equation*}
@@ -51,7 +53,7 @@ Al contrario, la capacità \textit{aumenta}. Se chiamiamo la nuova capacità $C_
 	C_C=\frac{\Sigma \epsilon_0}{d-s}>C_0
 \end{equation}
 \paragraph{Potenziale di un condensatore con isolante all'interno}
-Ripetiamo l'esperimento con una lastra di \textit{materiale isolante}\footnote{In realtà quello che affrontiamo in questo paragrafo è vero solo alcuni tipi di isolanti, i cosiddetti \textbf{dielettrici (lineari)}; nella sezione XXX approfondiremo la differenza tra i due.}.
+Ripetiamo l'esperimento con una lastra di \textit{materiale isolante}\footnote{In realtà quello che affrontiamo in questo paragrafo è vero solo alcuni tipi di isolanti, i cosiddetti \textbf{dielettrici (lineari)}; nella sezione \ref{defdielettrico} a pag. \pageref{defdielettrico} approfondiremo la differenza tra i due.}.
 \begin{center}
 	\includegraphics[width=0.75\textwidth]{images/chp6/chp6elettroscopio3.pdf}
 \end{center}
@@ -77,8 +79,7 @@ Sperimentalmente, si trova che il rapporto tra la \ddp $V_0$ misurata con il con
 	\end{equation}
 	viene detta \textbf{suscettibilità elettrica del dielettrico}\index{suscettibilità!elettrica del dielettrico}.
 \end{define}
-Maggiore è $\kappa$, maggiori sono le capacità conduttive del materiale: formalmente, un materiale è un \textit{conduttore perfetto} se $\kappa=+\infty$, ossia se $V_{\kappa}=V_C=0$.
-
+Maggiore è $\kappa$, maggiori sono le capacità conduttive del materiale: formalmente, un materiale è un \textit{conduttore perfetto} se $\kappa=+\infty$, ossia se $V_{\kappa}=V_C=0$.\\
 La seguente tabella presenta alcuni materiali e le loro costanti dielettriche relative.
 \begin{center}
 	\begin{tabular}{lc}
@@ -130,7 +131,7 @@ Nel \autoref{chap:leggediCoulomb} abbiamo definito la \textit{costante dielettri
 		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\epsilon=\kappa\epsilon_0}
 	\end{equation}
 \end{define}
-Le formule che descrivono fenomeni elettrici nei materiali\footnote{Come già detto, questo vale solo per i dielettrici (lineari), che approfondiremo nella sezione XXX.} possono essere ottenute facilmente dal caso nel vuoto sostituendo a $\epsilon_0$ la costante assoluta $\epsilon$.
+Le formule che descrivono fenomeni elettrici nei materiali\footnote{Come già detto, questo vale solo per i dielettrici (lineari), che approfondiremo nella sezione \ref{defdielettrico} a pag. \pageref{defdielettrico}.} possono essere ottenute facilmente dal caso nel vuoto sostituendo a $\epsilon_0$ la costante assoluta $\epsilon$.
 \begin{example}
 	Per un condensatore piano nel vuoto si ha
 	\begin{equation*}
@@ -151,7 +152,7 @@ Le formule che descrivono fenomeni elettrici nei materiali\footnote{Come già de
 È noto che gli isolanti sono caratterizzati da una scarsa presenza di cariche libere, a differenza dei conduttori. Ciò farebbe presupporre che le cariche sulle facce che abbiamo immaginato nella sezione precedente come potenziale spiegazione del campo $E_p$ siano, per l'appunto, un frutto della \textit{fervida immaginazione} di un fisico.\\
 In realtà tali cariche non sono per nulla fittizie, ma allo stesso tempo non sono come cariche \textit{libere} presenti nei conduttori: esse sono il risultato macroscopico di \textit{processi microscopici}, alla cui base stanno i fenomeni di \textit{polarizzazione}.
 
-Negli isolanti, come appena detto, le cariche non sono particolarmente libere: quasi tutti gli elettroni sono legati agli atomi e non possono allontanarsi spontaneamente. Si può comunque, con l'azione di \textit{agenti esterni}, separare \textit{localmente} cariche positive e negative all'interno degli atomi - senza romperne quindi i legami - in modo da indurre una separazione di carica.
+Negli isolanti, come appena detto, le cariche non sono particolarmente libere: quasi tutti gli elettroni sono legati agli atomi o molecole e non possono allontanarsi spontaneamente. Si può comunque, con l'azione di \textit{agenti esterni}, separare \textit{localmente} cariche positive e negative \textit{all'interno degli atomi} - senza romperne quindi i legami - in modo da indurre una separazione di carica.
 
 Il fenomeno della \textbf{polarizzazione}\index{polarizzazione} consiste proprio in questo: molto brevemente, esso consiste nel far acquisire alle particelle della materiale un momento di dipolo proporzionale all'effetto di un campo elettrico esterno, in modo da causare il comportamento osservato in precedenza nei dielettrici. Non esiste un \textit{unico} modo di polarizzare atomi o molecole; noi ci occuperemo della \textit{polarizzazione elettronica} e della \textit{polarizzazione per orientamento}.
 \paragraph{Polarizzazione elettronica}
@@ -207,7 +208,7 @@ La \textbf{polarizzazione per orientamento}\index{polarizzazione!per orientament
 \paragraph{Dielettrici e isolanti}\label{defdielettrico}
 Prima di spiegare come queste due polarizzazioni agiscono a livello macroscopico nei materiale dielettrici, dobbiamo effettivamente spiegare cosa sia un \textit{materiale dielettrico}.
 
-Fino ad ora abbiamo utilizzato abbastanza interscambiabilmente il termine ‘‘isolante'' e ‘‘dielettrico'', ma \textit{non} sono sinonimi.
+Fino ad ora abbiamo utilizzato abbastanza interscambiabilmente il termine ``isolante'' e ``dielettrico'', ma \textit{non} sono sinonimi.
 \begin{itemize}
 	\item Gli \textbf{isolanti}\index{materiale!isolante} non hanno (molti) elettroni liberi che si muovono spontaneamente. Di conseguenza, sono materiali che hanno un'alta \textit{resistività} e non scorre praticamente alcuna corrente se soggetto ad un campo esterno. Inoltre, òa costante dielettrica è minore per gli isolanti.
 	\item I \textbf{dielettrici}\index{materiale!dielettrico} sono materiali isolanti le cui particelle (atomi, molecole) sono facilmente soggette a fenomeni di polarizzazione. Pertanto, immagazzinano facilmente energia nei dipoli formati.
@@ -229,7 +230,7 @@ dove
 \begin{equation*}
 	n=\lim_{\Delta V\to 0}\frac{N}{\Delta V}
 \end{equation*}
-è la densità di particelle nell'intorno di $Q$. Il vettore $\vba{P}$ è anche detto \textbf{vettore polarizzazione del dielettrico}\index{vettore polarizzazione!del dielettrico} e caratterizza l'effetto di formazione dei momenti di dipolo indotti dal campo esterno.
+è la densità di particelle nell'intorno di $Q$. Il vettore $\vba{P}$ è anche detto \textbf{vettore polarizzazione del dielettrico}\index{vettore!polarizzazione!del dielettrico} e caratterizza l'effetto di formazione dei momenti di dipolo indotti dal campo esterno.
 
 La maggior parte dei \textit{dielettrici} soddisfano una legge di proporzionalità lineare tra la densità di dipolo e il campo elettrico:
 \begin{equation}
@@ -240,7 +241,7 @@ I dielettrici che seguono tale legge sono detti \textbf{lineari}\index{lineari}:
 	I \textit{cristalli} sono un classico esempio di dielettrici \textit{non lineari}, dato che sono \textbf{anisotropi}: $\vba{P}$ e $\vba{E}$ non sono necessariamente paralleli, ma seguono delle direzioni particolari dette \textit{assi cristallografici}. La suscettibilità elettrica, di conseguenza, non potrà essere rappresentata da un semplice numero, ma sarà rappresentata da un \textit{tensore}.
 \end{digressionwt}
 \begin{observe}
-	Ecco spiegato il perché del termine ‘‘suscettibilità elettrica'': un materiale come l'acqua e l'alcol etilico hanno alta suscettibilità elettrica e sono proni a polarizzarsi fortemente, mentre altri come la carta o il polistirolo che hanno bassa suscettibilità tendono a polarizzarsi di meno. %TODO:check se è vero con quei materiali
+	Ecco spiegato il perché del termine ``suscettibilità elettrica'': un materiale come l'acqua e l'alcol etilico hanno alta suscettibilità elettrica e sono proni a polarizzarsi fortemente, mentre altri come la carta o il polistirolo che hanno bassa suscettibilità tendono a polarizzarsi di meno.
 \end{observe}
 \begin{example}
 	Ricordiamo che nel caso del condensatore si aveva
@@ -251,7 +252,7 @@ I dielettrici che seguono tale legge sono detti \textbf{lineari}\index{lineari}:
 	\begin{equation}
 		P=\epsilon_0\frac{\kappa-1}{\kappa}E_0=\sigma_0\frac{\kappa-1}{\kappa}=\sigma_p
 	\end{equation}
-Il vettore polarizzazione corrisponde alla densità (vettoriale) di cariche ‘‘fittizia'' definita precedentemente.
+Il vettore polarizzazione corrisponde alla densità (vettoriale) di cariche ``fittizia'' definita precedentemente.
 \end{example}
 \subsection{Campo elettrico generato dalla polarizzazione}
 Dopo aver visto come il vettore di polarizzazione sia legato ad un campo elettrico esterno, ci interessa capire come funziona il campo \textit{generato dal dielettrico polarizzato} e quale sia il legame con il vettore di polarizzazione.
@@ -268,7 +269,7 @@ poste \textit{nel vuoto}, distanti $dh$ e distribuite sulle basi del prisma con 
 \begin{equation*}
 	\pm\sigma_p=\frac{\pm dq_p}{d\Sigma}=\pm\frac{\abs{\vba{P}}\Ccancel[red]{d\Sigma}}{\Ccancel[red]{d\Sigma}}=\pm\abs{\vba{P}}
 \end{equation*}
-dove $q_p$ è la carica ‘‘fittizia'' sulle due basi.
+dove $q_p$ è la carica ``fittizia'' sulle due basi.
 \begin{center}
 	\includegraphics[width=0.6\textwidth]{images/chp6/chp6caricapolari1.pdf}
 \end{center}
@@ -282,10 +283,10 @@ Quello che stiamo facendo è supporre che le cariche nel dielettrico, spostate \
 \end{equation}
 dove $\vbh{u}_n$ è il versore normale alla superficie $\Sigma$ del materiale.
 \begin{attention}
-	Sebbene a tratti ciò possa ricordare il comportamento dei conduttori, il funzionamento è \textit{fondamentalmente} differente. Le \textbf{cariche di polarizzazione}\index{carica!di polarizzazione} \textit{non} sono libere come nei conduttori e quelle che notiamo sulla superficie non sono elettroni che si sono raccolti lì da altre parti del materiale, ma sono gli elettroni \textit{già presenti superficialmente}: li notiamo solo in virtù degli \textit{spostamenti locali} negli atomi e nelle molecole.\\
+	Sebbene a tratti ciò possa ricordare il comportamento dei conduttori, il funzionamento è \textit{fondamentalmente} differente. Le \textbf{cariche di polarizzazione}\index{carica elettrica!di polarizzazione} \textit{non} sono libere come nei conduttori e quelle che notiamo sulla superficie non sono elettroni che si sono raccolti lì da altre parti del materiale, ma sono gli elettroni \textit{già presenti superficialmente}: li notiamo solo in virtù degli \textit{spostamenti locali} negli atomi e nelle molecole.\\
 	Questo è il motivo per cui non possiamo \textit{asportare un pezzo} di dielettrico e misurare le cariche superficiali, come potremmo fare ad esempio con un conduttore - il funzionamento è più vicino a quello che studieremo dei \textit{magnete}, da questo punto di vista.
 \end{attention}
-\noindent La carica - che avevamo erroneamente definito ‘‘fittizia'' - in una particolare porzione di superficie $\Sigma_0$ è
+\noindent La carica - che avevamo erroneamente definito ``fittizia'' - in una particolare porzione di superficie $\Sigma_0$ è
 \begin{equation}
 	q=\int_{\Sigma_0}\sigma_pd\Sigma=\int_{\Sigma_0}\vba{P}\vdot \vbh{u}_nd\Sigma
 	\end{equation}
@@ -370,7 +371,7 @@ otteniamo la legge
 \begin{equation}
 	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\div{\vba{D}}=\rho}\label{SecondaMaxwellDIelettriciUno}
 \end{equation}
-Ci sembrerebbe di aver fatto ‘‘sparire'' le cariche di polarizzazioni riscrivendo la \textit{legge di Gauss} in questa maniera, ma in realtà le abbiamo soltanto nascoste sotto il tappeto!\footnote{Con grande gioia di chi dovrà lavarlo.} I campi $\vba{E}$ e $\vba{D}$ sono legati ancora dalla densità di polarizzazione $\vba{P}$ - che incorpora in essa le informazioni della carica di polarizzazione. Per poter risolvere \textit{definitivamente} $\vba{E}$ e $\vba{D}$ ci un'\textbf{equazione di stato del mezzo dielettrico}\index{equazione!di stato!del mezzo dielettrico} che leghi esplicitamente $\vba{E}$ e $\vba{P}$ o, equivalentemente, $\vba{D}$ e $\vba{P}$.\\
+Ci sembrerebbe di aver fatto ``sparire'' le cariche di polarizzazioni riscrivendo la \textit{legge di Gauss} in questa maniera, ma in realtà le abbiamo soltanto nascoste sotto il tappeto!\footnote{Con grande gioia di chi dovrà lavarlo.} I campi $\vba{E}$ e $\vba{D}$ sono legati ancora dalla densità di polarizzazione $\vba{P}$ - che incorpora in essa le informazioni della carica di polarizzazione. Per poter risolvere \textit{definitivamente} $\vba{E}$ e $\vba{D}$ ci un'\textbf{equazione di stato del mezzo dielettrico}\index{equazione!di stato!del mezzo dielettrico} che leghi esplicitamente $\vba{E}$ e $\vba{P}$ o, equivalentemente, $\vba{D}$ e $\vba{P}$.\\
 Nel caso dei \textit{dielettrici lineari}, tale legge l'abbiamo già incontrata:
 \begin{equation*}
 	\vba{P}=\epsilon_0\left(\kappa-1\right)\vba{E}=\epsilon_0\chi\vba{E}

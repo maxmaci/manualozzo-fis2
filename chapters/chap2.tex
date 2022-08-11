@@ -5,46 +5,53 @@
 {$LastChangedRevision$}
 {$LastChangedBy$}
 
-\chapter{Il flusso del campo elettrico e la legge di Gauss}
+\chapter{La legge di Gauss}%TODO: tcboxes
 \labelChapter{FlussoCampoElettrico}
 
 \begin{introduction}
-	‘‘Ecco una data importante nella storia della scienza: 5 novembre 1955. Fu il giorno in cui inventai il viaggio nel tempo. Me lo ricordo benissimo: stavo in piedi sul water attaccando un orologio, la porcellana era bagnata, sono scivolato e ho battuto la testa sul lavandino. Quando ho ripreso i sensi, ho avuto una rivelazione... una visione... un'immagine scolpita nella mente... un'immagine
+	``Ecco una data importante nella storia della scienza: 5 novembre 1955. Fu il giorno in cui inventai il viaggio nel tempo. Me lo ricordo benissimo: stavo in piedi sul water attaccando un orologio, la porcellana era bagnata, sono scivolato e ho battuto la testa sul lavandino. Quando ho ripreso i sensi, ho avuto una rivelazione... una visione... un'immagine scolpita nella mente... un'immagine
 	di questo. Questo rende possibile viaggiare nel tempo: il flusso canalizzatore!''
 	\begin{flushright}
-		\textscsl{‘‘Doc'' Emmett L. Brown} a Marty McFly, \textit{Ritorno al futuro}.
+		\textscsl{``Doc'' Emmett L. Brown} a Marty McFly, \emph{Ritorno al futuro}.
 	\end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{P}{er}  %TODO: intro
+\lettrine[findent=1pt, nindent=0pt]{T}{eoricamente}, con il precedente Capitolo abbiamo in mano tutti gli strumenti per studiare l'elettrostatica: l'equazione \eqref{campoelettrostaticovol} e le sue varianti ci descrivono il campo elettrostatico $\vba{E}$ generato una data \textit{distribuzione di cariche}, mentre la \textit{legge di Coulomb} fornisce informazioni sulla forza agente su una carica immersa in tale campo. Sfortunatamente, avrete notato che calcolare gli integrali necessari per descrivere $\vba{E}$ è, per dirla all'inglese, \textit{a pain in the arse}, e questo anche per distribuzioni ragionevolmente semplici. Menomale però che il resto dell'elettrostatica consiste nell'introdurre nuovi strumenti con l'esplicito scopo di \textit{non} farci calcolare quegli orribili integrali.
+
+In questo capitolo introdurremo il concetto matematico di \textbf{flusso di un campo vettoriale} e la \textbf{legge di Gauss}, una formula valida solamente se il campo dipende dalla distanza e di modulo inversamente proporzionale a $\nicefrac{1}{r^2}$ - due condizioni che il campo elettrostatico soddisfa pienamente.\\
+Dopo averla dimostrata in due maniere differenti, una più formale dell'altra, l'applicheremo in alcune situazioni fisiche già viste nel \autoref{chap:leggediCoulomb}, constatando come ottenere il campo elettrostatico in presenza di simmetrie notevoli sia notevolmente più semplice con la legge di Gauss che non direttamente.\\
+Concluderemo il tutto con un breve excursus più ``fisico-matematico'' in cui parleremo dell'\textbf{equilibrio} meccanico di particelle cariche immerse in un campo elettrostatico.
+\pagebreak
 \section{Il flusso di un campo vettoriale}
 \begin{define}[Flusso di un campo vettoriale]
-Il \textbf{flusso di un campo vettoriale attraverso una superficie orientata}\index{flusso di un campo vettoriale} $\Sigma$, parametrizzata da una funzione $\vba{r}(u,v)$, è\\
 \begin{minipage}{0.7\textwidth}
+Il \textbf{flusso di un campo vettoriale attraverso una superficie orientata}\index{flusso di un campo vettoriale} $\Sigma$, parametrizzata da una funzione $\vba{r}(u,v)$, è
 \begin{equation}
 	\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Phi_{\Sigma}(\vba{E})=\int_{\Sigma}\vba{E}\vdot\vbh{u}_nd\Sigma=\int_{\Sigma}\vba{E}\vdot\frac{\partial \vba{r}}{\partial u}\cross\frac{\partial \vba{r}}{\partial v}dudv}
 \end{equation}
-Matematicamente parlando, il flusso non è altro che un tipo di integrale superficiale di un campo vettoriale.%TODO: link ai richiami.\\
+Matematicamente parlando, il flusso non è altro che un tipo di integrale superficiale di un campo vettoriale.\footnote{Nella ``Raccolta Differenziata'', a pag. \pageref{elementodiareaapplicazioni} è possibile trovare altri tipi di integrali superficiali per campi scalari e per campi vettoriali.}
 \end{minipage}\hspace{10pt}
 \begin{minipage}{0.29\textwidth}
 	\begin{center}
-			\includegraphics[width=0.6\textwidth]{images/chp2/chp2flusso.pdf}
+			\includegraphics[width=0.75\textwidth]{images/chp2/chp2flusso.pdf}
 	\end{center}
 \end{minipage}
 \end{define}
 \begin{intuit}
 	Se descriviamo la corrente di un fluido come l'acqua con un campo vettoriale $\vba{F}$, il flusso di $\vba{F}$ rappresenta \textit{quanto fluido} passa \textit{attraverso} una certa superficie per unità di tempo (anche se quest'ultima viene spesso sottintesa).\\
-	Con questa interpretazione euristica si può capire anche perché l'integrale presenta nella definizione un \textit{prodotto scalare}: se l'acqua scorre perpendicolarmente alla superficie, molta acqua passerà e il flusso sarà dunque grande; al contrario, se il fluido scorre parallelamente alla superficie l'acqua non l'attraverserà mai e quindi il flusso è nullo. In altre parole, ciò che influisce sul flusso è la componente del flusso perpendicolare alla superficie!
+	Con questa interpretazione euristica si può capire anche perché l'integrale presenta nella definizione un \textit{prodotto scalare}: se l'acqua scorre perpendicolarmente alla superficie, molta acqua passerà e il flusso sarà dunque grande; al contrario, se il fluido scorre parallelamente alla superficie l'acqua non l'attraverserà mai e quindi il flusso è nullo.\\
+	In altre parole, ciò che influisce sul flusso è la componente di acqua che scorre \textit{perpendicolare alla superficie}!
 \end{intuit}
-\noindent Come abbiamo detto, la superficie deve essere \textbf{orientabile}: detto in una maniera suggestiva, intuitiva ma non formale come farebbero i fisici, una superficie con due \textit{facce distinte} e due \textit{orientazioni} possibili che corrispondono alla scelta di un \textit{campo normale} che punta sempre dalla parte di una delle facce.\\
-In particolare, la superficie deve essere \textit{effettivamente orientata}, ossia si deve scegliere uno dei campi normali in modo da definire quando il flusso è positivo e quando è negativo. Generalmente, per convenzione si impone che il vettore normale alla superficie è orientato verso l'\textit{esterno}: quando la componente perpendicolare del campo vettoriale $\vba{E}$ e il vettore normale saranno \textit{concordi}, cioè quando $\vba{E}$ è \textit{uscente} dalla superficie, si ha un flusso \textit{positivo}; se il campo $\vba{E}$ è \textit{entrante} la superficie, allora si ha un flusso \textit{negativo}.
+\noindent Come abbiamo detto, la superficie deve essere \textbf{orientabile}: detto in una maniera suggestiva, intuitiva ma non formale come piace ai fisici, deve avere due \textit{facce distinte} e due \textit{orientazioni} possibili che corrispondono alla scelta di un \textit{campo normale} che punta sempre dalla parte di una delle facce.\\
+In particolare, la superficie deve essere \textit{effettivamente orientata}, ossia si deve scegliere uno dei campi normali in modo da definire quando il flusso è positivo e quando è negativo.\\
+Generalmente, per convenzione si impone che il vettore normale alla superficie è orientato verso l'\textit{esterno}: quando la componente perpendicolare del campo vettoriale $\vba{E}$ e il vettore normale saranno \textit{concordi}, cioè quando $\vba{E}$ è \textit{uscente} dalla superficie, si ha un flusso \textit{positivo}; se il campo $\vba{E}$ è \textit{entrante} la superficie, allora si ha un flusso \textit{negativo}.
 \begin{observe}
 	~\\
-	\begin{minipage}{0.39\textwidth}
+	\begin{minipage}{0.34\textwidth}
 		\begin{center}
-			\includegraphics[width=1\textwidth]{images/chp2/chp2oss.pdf}
+			\includegraphics[width=0.95\textwidth]{images/chp2/chp2oss.pdf}
 		\end{center}
 	\end{minipage}	
-	\begin{minipage}{0.6\textwidth}	
+	\begin{minipage}{0.65\textwidth}	
 	Data una superficie chiusa $\Sigma$, tracciamo una curva chiusa $\gamma$ su di essa; possiamo scindere $\Sigma$ in due sottosuperfici $\Sigma_1$ e $\Sigma_2$ che hanno in comune una superficie $\Sigma_{1,2}$ delimitata da $\gamma$.
 	Il flusso per linearità di scinde in
 	\begin{equation*}
@@ -52,16 +59,11 @@ In particolare, la superficie deve essere \textit{effettivamente orientata}, oss
 	\end{equation*}
 	In realtà, il flusso \textit{non} è influenzato da quale sia la superficie  $\Sigma_{1,2}$: infatti, per uno dei sottoflussi il contribuito dato da $ \Sigma_{1,2}$ sarà negativo perché il campo è entrante, ma per l'altro sottoflusso sarà positivo perché il campo è uscente.
 \end{minipage}
-
 \begin{equation*}
 	\Phi_{\Sigma}=\Phi_{\Sigma_1}+\Phi_{\Sigma_2}=\Phi_{\Sigma_1-\Sigma_{1,2}}+\Phi_{\Sigma_{1,2}}+\Phi_{\Sigma_2-\Sigma_{1,2}}-\Phi_{\Sigma_{1,2}}=\Phi_{\Sigma_1-\Sigma_{1,2}}+\Phi_{\Sigma_2-\Sigma_{1,2}}
 \end{equation*}
 \end{observe}
 \section{Legge di Gauss}
-% https://mathinsight.org/surface_integral_vector_field_introduction4
-% http://sites.science.oregonstate.edu/math/home/programs/undergrad/CalculusQuestStudyGuides/vcalc/flux/flux.html
-% https://mathinsight.org/vector_field_fluid_flow
-% https://tutorial.math.lamar.edu/classes/calciii/SurfIntVectorField.aspx
 \begin{theorema}[Legge di Gauss]\index{legge!di Gauss}
 	Il flusso del campo elettrostatico $\vba{E}$ attraverso un superficie \textbf{chiusa} è uguale alla somma algebrica (\textrm{o nel caso di una distribuzione continua}, dell'integrale) delle cariche contenute all'\textbf{interno} della superficie, comunque siano distribuite, divisa per $\epsilon_0$.
 	\begin{itemize}
@@ -75,19 +77,19 @@ In particolare, la superficie deve essere \textit{effettivamente orientata}, oss
 		\end{equation}
 	\end{itemize}
 \end{theorema}
-Lo dimostreremo per una \textit{singola} carica contenuta nella superficie - dato che il caso per molteplici cariche e per una distribuzione continua seguono praticamente immediatamente - ma prima di farlo in modo formale, vediamo una derivazione più ‘‘fisica''.
+Lo dimostreremo per una \textit{singola} carica contenuta nella superficie - dato che il caso per molteplici cariche e per una distribuzione continua seguono immediatamente - ma prima di farlo in modo formale, vediamo una derivazione più ``fisica''.
 \paragraph{Angolo solido}
 Per far ciò, ci servirà la nozione di \textit{angolo solido}.
 \begin{define}[Angolo solido]
 	L'\textbf{angolo solido}\index{angolo solido} è una generalizzazione a tre dimensioni dell'angolo piano e misura la parte di spazio compresa entro un fascio di semirette uscenti intorno ad un punto $P$.\\
-	\begin{minipage}{0.65\textwidth}
+	\begin{minipage}{0.67\textwidth}
 		In termini matematici, esso è definito come l'area sulla \textit{sfera unitaria} intorno a $P$ individuata dalla superficie (finita) $\Sigma$:
 		\begin{equation}
 		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Omega=\int d\Omega =\int \frac{d\Sigma_0}{r^2}=\int\frac{\cos\theta d\Sigma}{r^2}}
 		\end{equation}
 		dove
 	\end{minipage}\hspace{5pt}
-	\begin{minipage}{0.34\textwidth}
+	\begin{minipage}{0.32\textwidth}
 		\begin{center}
 			\includegraphics[width=0.9\textwidth]{images/chp2/chp2angolosolido.pdf}
 		\end{center}
@@ -97,8 +99,6 @@ Per far ciò, ci servirà la nozione di \textit{angolo solido}.
 	\item $d\Sigma_0$ è la \textit{proiezione ortogonale} al raggio $r$ dell'elemento infinitesimo di superficie $d\Sigma$.
 	\item $\theta$ è l'\textit{angolo polare} delle coordinate sferiche.
 \end{itemize}
-% https://tutorial.math.lamar.edu/classes/calciii/SurfIntVectorField.aspx
-% https://betterexplained.com/articles/flux/
 \end{define}
 Poiché $d\Sigma_0$ è un elemento infinitesimo della calotta sferica, data una parametrizzazione in coordinate sferiche vale
 \begin{equation*}
@@ -186,7 +186,7 @@ Per una superficie (finita) e chiusa che racchiude la carica $q$ si ha
 	\begin{cases}
 		\vbh{u}_r\vdot\vbh{u}_r\cross\vba{a}=0\\
 		\vbh{u}_r\vdot\vba{a}\cross\vbh{u}_r=0
-	\end{cases},\quad\forall \vba{a}\text{ vettore}
+	\end{cases}\forall \vba{a}\text{ vettore}
 \end{equation*}
 tali componenti non cambieranno in alcun modo il flusso; ciò che invece lo cambia sono le derivate dei versori radiali. Sviluppando, l'espressione del flusso si ha
 \begin{align*}
@@ -286,7 +286,7 @@ La legge di Gauss, in linea di principio, ci descrive solo il flusso tramite una
 	\begin{minipage}{0.29\textwidth}
 		\begin{center}
 			\includegraphics[width=1\textwidth]{images/chp2/chp2filoinfinito.pdf}
-		\end{center}		% https://betterexplained.com/articles/flux/
+		\end{center}
 	\end{minipage}\hspace{10pt}
 	\begin{minipage}{0.7\textwidth}
 		Data l'evidente simmetria cilindrica del sistema usiamo, per motivi che dovrebbero essere oramai chiari, le coordinate cilindriche:
@@ -318,14 +318,14 @@ dove $\lambda$ è la densità lineare di carica; per ottenere il flusso per il f
 \end{equation*}
 e quindi
 \begin{equation}
-	\vba{E}(R)=\frac{\lambda}{2\pi\epsilon_0 R}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{E}(R)=\frac{\lambda}{2\pi\epsilon_0 R}}
 \end{equation}
-\paragraph{Superficie piana carica infinita}
+\paragraph{Superficie piana carica infinita}\label{pianocarico}
 Si consideri una superficie piana $\Sigma$ con densità superficiale costante $\sigma$. Per semplicità, poniamo il sistema di riferimento in modo che la superficie coincida con il piano $x=0$. Come per il caso del filo carico rettilineo, consideriamo un cilindro, questa volta che interseca la superficie ortogonalmente e posto in maniera che le basi siano alla stessa distanza dal piano.\\
 \begin{minipage}{0.43\textwidth}
 	\begin{center}
 		\includegraphics[width=1\textwidth]{images/chp2/chp2superficieinfinita.pdf}
-	\end{center}		% https://betterexplained.com/articles/flux/
+	\end{center}
 \end{minipage}\hspace{10pt}
 \begin{minipage}{0.56\textwidth}
 	Ci è già noto che il campo elettrostatico dipende esclusivamente dalla coordinata perpendicolare al piano, cioè $x$, e ha direzione $\vbh{u}_x$. In particolare, si osservi che da facce opposte del piano il versore normale $u_n=u_x$ cambia verso e quindi cambia verso anche il campo elettrostatico:
@@ -339,9 +339,9 @@ Si consideri una superficie piana $\Sigma$ con densità superficiale costante $\
 	Il flusso tramite il cilindro $\Sigma$ si può scindere in tre componenti: i due flussi $\Phi_{A_1}$ e $\Phi_{A_2}$ attraverso le basi e il flusso $\Phi_{SL}$ attraverso la superficie laterale.
 \end{minipage}\\
 Tuttavia, poiché la superficie laterale è sempre ortogonale al campo, quest'ultima componente è nulla; inoltre, si ha che il campi esce sempre dalle basi, pertanto i flussi saranno positivi e, per questioni di simmetria, coincidono:
-\begin{equation}
+\begin{equation*}
 	\Phi_{A_1}=\Phi_{A_2}
-\end{equation}
+\end{equation*}
 Pertanto,
 \begin{equation*}
 	\Phi_{\Sigma}(\vba{E})=2\int_A E(\abs{x})d\Sigma=2 E(\abs{x})\int_{A_1}d\Sigma=2E(\abs{x})A_1
@@ -360,66 +360,70 @@ Eguagliando i due flussi ottenuti si ricava che
 \end{equation*}
 e quindi
 \begin{equation}
-	\vba{E}(\abs{x})=\frac{\sigma}{2\epsilon_0}\vbh{u}_x
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{E}(\abs{x})=\frac{\sigma}{2\epsilon_0}\vbh{u}_x}
 \end{equation}
 \paragraph{Sfera uniformemente carica}
 Si consideri una palla sferica di raggio $R$ con densità volumica costante $\rho$. Per semplicità, poniamo il sistema di riferimento in modo che l'origine coincida con il centro della sfera. Come superficie $\Sigma$ per calcolare il flusso scelgo una sfera di raggio $r$ centrata anch'essa nell'origine.
 Ci è già noto che il campo elettrostatico dipende esclusivamente dalla coordinata radiale e ha direzione radiale, ossia $\vba{E}=E(r)\vbh{u}_r$. Il versore normale alla superficie $\Sigma$ è $\vbh{u}_n=\vbh{u}_r$.
 A questo punto distinguiamo il calcolo quando la superficie sferica ha raggio maggiore della palla ($r>R$) o quando ha raggio minore ($r<R$).
-\subparagraph{Il caso esterno: $r>R$}~\\
-\begin{minipage}{0.45\textwidth}
-	\begin{center}
-		\includegraphics[width=1\textwidth]{images/chp2/chp2sferacarica1.pdf}
-	\end{center}
-\end{minipage}\hspace{5pt}
-\begin{minipage}{0.54\textwidth}
-	In questo caso la superficie sferica \textit{contiene} la sfera uniformemente carica. Il flusso dunque è
-	\begin{equation*}
-		\Phi_{\Sigma}(\vba{E})=\int E(r)d\Sigma=E(r)4\pi r^2
-	\end{equation*}
-	dato che $E(r)$ è costante sulla sfera di raggio $r$.
-	La superficie sferica contiene \textit{tutta} la carica della palla al suo interno, quindi per la legge di Gauss
-	\begin{equation*}
-		\Phi_{\Sigma}(\vba{E})=\frac{q}{\epsilon_0}=\frac{4 \pi R^3\rho}{3\epsilon_0}
-	\end{equation*}
-	e quindi
-	\begin{equation}
-		\vba{E}(r)=\frac{\rho R^3}{3\epsilon_0r^2}\vbh{u}_r=\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r
-	\end{equation}
-\end{minipage}\\
+\begin{itemize}
+	\item \textbf{Il caso esterno:} $r>R$.\\
+	\begin{minipage}{0.4\textwidth}
+		\begin{center}
+			\includegraphics[width=1\textwidth]{images/chp2/chp2sferacarica1.pdf}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		In questo caso la superficie sferica \textit{contiene} la sfera uniformemente carica. Il flusso dunque è
+		\begin{equation*}
+			\Phi_{\Sigma}(\vba{E})=\int E(r)d\Sigma=E(r)4\pi r^2
+		\end{equation*}
+		dato che $E(r)$ è costante sulla sfera di raggio $r$.
+		La superficie sferica contiene \textit{tutta} la carica della palla al suo interno, quindi per la legge di Gauss
+		\begin{equation*}
+			\Phi_{\Sigma}(\vba{E})=\frac{q}{\epsilon_0}=\frac{4 \pi R^3\rho}{3\epsilon_0}
+		\end{equation*}
+		e quindi
+		\begin{equation}
+			\vba{E}(r)=\frac{\rho R^3}{3\epsilon_0r^2}\vbh{u}_r=\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r
+		\end{equation}
+	\end{minipage}\\
+\end{itemize}
 \begin{observe}
 	Una qualunque distribuzione di carica a simmetria \textit{sferica} dipendente dalla distanza radiale, ossia $\rho(x,y,z)=\rho(r)$, genera al suo esterno un campo uguale a quello di una carica puntiforme.
 \end{observe}
-\subparagraph{Il caso interno: $r<R$}~\\
-\begin{minipage}{0.45\textwidth}
-	\begin{center}
-		\includegraphics[width=1\textwidth]{images/chp2/chp2sferacarica2.pdf}
-	\end{center}
-\end{minipage}\hspace{5pt}
-\begin{minipage}{0.54\textwidth}
-	In questo caso la superficie sferica contiene al suo interno solo \textit{una parte} della carica complessiva:
-	\begin{equation*}
-		q_{int}=\frac{4}{3}\pi r^3\rho
-	\end{equation*}
-	Se il flusso, calcolato secondo la definizione, non cambia espressione (ma valore sì!)...
-	\begin{equation*}
-		\Phi_{\Sigma}(\vba{E})=E(r)4\pi r^2
-	\end{equation*}
-	... quello per la legge di Gauss diventa
-	\begin{equation*}
-		\Phi_{\Sigma}(\vba{E})=\frac{q_{int}}{\epsilon_0}=\frac{4 \pi r^3\rho}{3\epsilon_0}
-	\end{equation*}
-	e quindi
-	\begin{equation}
-		\vba{E}(r)=\frac{q_{int}}{4\pi\epsilon_0 r^2}\vbh{u}_r=\frac{\rho r}{3\epsilon_0}\vbh{u}_r
-	\end{equation}
-\end{minipage}\\
+\begin{itemize}
+	\item \textbf{Il caso interno:} $r<R$\\
+	\begin{minipage}{0.4\textwidth}
+		\begin{center}
+			\includegraphics[width=1\textwidth]{images/chp2/chp2sferacarica2.pdf}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		In questo caso la superficie sferica contiene al suo interno solo \textit{una parte} della carica complessiva:
+		\begin{equation*}
+			q_{int}=\frac{4}{3}\pi r^3\rho
+		\end{equation*}
+		Se il flusso, calcolato secondo la definizione, non cambia espressione (ma valore sì!)...
+		\begin{equation*}
+			\Phi_{\Sigma}(\vba{E})=E(r)4\pi r^2
+		\end{equation*}
+		... quello per la legge di Gauss diventa
+		\begin{equation*}
+			\Phi_{\Sigma}(\vba{E})=\frac{q_{int}}{\epsilon_0}=\frac{4 \pi r^3\rho}{3\epsilon_0}
+		\end{equation*}
+		e quindi
+		\begin{equation}
+			\vba{E}(r)=\frac{q_{int}}{4\pi\epsilon_0 r^2}\vbh{u}_r=\frac{\rho r}{3\epsilon_0}\vbh{u}_r
+		\end{equation}
+	\end{minipage}
+\end{itemize}
 Riassumendo, il campo elettrico generato da una sfera uniformemente carica di raggio $R$ a distanza $r$ dall'origine è
 \begin{equation}
-	\vba{E}(r)=\begin{cases}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\vba{E}(r)=\begin{cases}
 		\displaystyle\frac{\rho r}{3\epsilon_0}\vbh{u}_r&\text{se}\ r< R\\
 		\displaystyle\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r=\frac{\rho R^3}{3\epsilon_0r^2}\vbh{u}_r &\text{se}\ r> R
-	\end{cases}
+	\end{cases}}
 \end{equation}
 \begin{center}
 	\includegraphics[width=0.75\textwidth]{images/chp2/chp2sferagraf1.pdf}
@@ -439,7 +443,7 @@ dove $A$ è una costante che dipende dalle \textit{condizioni al contorno} di na
 		\displaystyle\frac{q}{4\pi\epsilon_0 r} + B=\frac{\rho R^3}{3\epsilon_0r} + B&\text{se}\ r> R
 	\end{cases}
 \end{equation*}
-con $A$ e $B$ opportune costanti. Imponiamo nella seconda equazione il potenziale all'infinito ($r\to+\infty$) nullo - dato che è quella riguardante il sistema a grandi distanze; è immediato trovare che $B=0$. Dalla condizione di continuità invece, il potenziale sul bordo della sfera deve essere uguale ‘‘visto'' dall'\textit{interno} e dall'\textit{esterno}, ossia
+con $A$ e $B$ opportune costanti. Imponiamo nella seconda equazione il potenziale all'infinito ($r\to+\infty$) nullo - dato che è quella riguardante il sistema a grandi distanze; è immediato trovare che $B=0$. Dalla condizione di continuità invece, il potenziale sul bordo della sfera deve essere uguale ``visto'' dall'\textit{interno} e dall'\textit{esterno}, ossia
 \begin{equation*}
 	\frac{\rho R^3}{3\epsilon_0R}=-\frac{\rho R^2}{6\epsilon_0} + A
 \end{equation*}
@@ -449,10 +453,10 @@ Con pochi passi algebrici troviamo
 \end{equation*}
 Riassumendo, il potenziale del campo elettrico generato da una sfera uniformemente carica di raggio $R$ a distanza $r$ dall'origine è
 \begin{equation}
-	V(r)=\begin{cases}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{V(r)=\begin{cases}
 		\displaystyle-\frac{\rho r^2}{6\epsilon_0} + \frac{\rho R^2}{2\epsilon_0}&\text{se}\ r< R\\
 		\displaystyle\frac{q}{4\pi\epsilon_0 r} + B=\frac{\rho R^3}{3\epsilon_0r} + B&\text{se}\ r> R
-	\end{cases}
+	\end{cases}}
 \end{equation}
 \begin{center}
 	\includegraphics[width=0.75\textwidth]{images/chp2/chp2sferagraf2.pdf}
@@ -461,8 +465,6 @@ Riassumendo, il potenziale del campo elettrico generato da una sfera uniformemen
 	Poiché il sistema ha una dimensione radiale \textit{finita}, si ha come conseguenza la \textit{diminuzione continua} del campo fino all'\textit{annullamento nel campo} nel centro della distribuzione: in questo modo si evita la divergenza all'infinito che si ha con il campo della \textit{carica puntiforme}, oggetto che \textit{fisicamente} è \textit{irrealizzabile} nella teoria classica dell'elettromagnetismo.
 \end{observe}
 \section{Equilibrio in un campo elettrostatico}
-% https://physics.stackexchange.com/questions/190066/why-cant-charge-be-in-a-stable-equilibrium-in-electrostatic-field#:~:text=There%20are%20no%20points%20of,the%20field%20must%20be%20zero.
-% https://diego.assencio.com/?index=bc04395b103021d338b4e30a061bfc74
 \begin{define}[Equilibrio stabile]
 	Un punto $P$ è di \textbf{equilibrio stabile}\index{equilibrio!stabile} per un corpo puntiforme se per un qualsiasi spostamento, piccolo a piacere, da tale posizione esistono forze che riportano l'oggetto nella posizione originale.
 \end{define}
@@ -519,4 +521,3 @@ per la legge di Gauss; questa volta non si ha alcun assurdo, dato che il campo e
 	
 	Una conseguenza di ciò è che il modello dell'atomo di Rutherford \textit{non} è stabile, essendo basato su una distribuzione fissata di cariche: nel \textit{nucleo atomico} non ci potrebbe essere più di un protone senza compromettere la stabilità del nucleo! È grazie all'interazione \textit{nucleare forte} che, essendo particolarmente forte a distanze microscopiche, i protoni superano la repulsione elettrostatica tra di loro e permettono la stabilità dell'atomo.
 \end{digression}
-%TODO: aggiungere

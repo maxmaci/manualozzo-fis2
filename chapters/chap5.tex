@@ -9,15 +9,16 @@
 \labelChapter{correnteElettrica}
 
 \begin{introduction}
-	‘‘L’uomo qualunque non capisce come l’elettricità viaggia all’interno dei cavi, ma crede nella sua esistenza soltanto perché la compagnia elettrica continua a inviargli le bollette.''
+	``L’uomo qualunque non capisce come l’elettricità viaggia all’interno dei cavi, ma crede nella sua esistenza soltanto perché la compagnia elettrica continua a inviargli le bollette.''
 	\begin{flushright}
 		\textscsl{Dave Barry}, poco prima di essere bocciato all'esame di Fisica II.
 	\end{flushright}
-\end{introduction} %TODO: intro
-\lettrine[findent=1pt, nindent=0pt]{N}{ei} capitoli precedenti abbiamo esplorato i fenomeni elettrostatici. 
-%TODO: intro buona
+\end{introduction}
+\lettrine[findent=1pt, nindent=0pt]{N}{ei capitoli} precedenti abbiamo esplorato e approfondito i fenomeni elettrostatici; in questo abbandoneremo il pacato mondo delle cariche immobili per spostarci al movimentato studio delle cariche in moto nei conduttori.
+
+Questo Capitolo si può sostanzialmente dividere in due parti. La prima, più fisica, si occupa di approfondire diversi aspetti che riguardano la \textbf{corrente elettrica} e la \textbf{legge di Ohm}, senza dimenticarci della \textbf{forza elettromotrice}... che ``forza'' proprio non è.\\
+Nella seconda parte lasceremo la Fisica Teorica e ci addentreremo nell'Elettrotecnica, parlando di \textbf{circuiti elettrici}. Studieremo quali sono i \textbf{componenti elettrici} che possiamo studiare con quanto visto finora e come risolvere i circuiti usando sia le regole dei circuiti \textbf{in serie} e \textbf{in parallelo}, sia usando le \textbf{leggi di Kirchhoff}.
 \section{Corrente elettrica}
-% Ci sono diversi tipi di conduttori
 I conduttori \textit{metallici} sono costituiti, a livello microscopico, da un \textit{reticolo spaziale} i cui vertici sono \textit{ioni positivi}, cioè atomi che hanno perso uno o più elettroni, e al cui interno si muovono gli \textit{elettroni liberi}, gli unici portatori di carica nei metalli.
 Ciascuno di questi elettroni è libero di muoversi in una sua direzione e con una propria velocità, dovute alla situazione termica dell'oggetto. Non è evidentemente fattibile studiare il moto di \textit{ogni} singolo elettrone, dato che il numero di elettroni liberi in un conduttore è estremamente elevato.
 \begin{examplewt}[Elettroni liberi in diversi materiali]
@@ -153,7 +154,7 @@ da cui si ottiene che l'intensità di corrente attraverso una superficie finita 
 	\end{center}
 \end{minipage}\hspace{5pt}
 \begin{minipage}{0.65\textwidth}
-	Se consideriamo invece \textit{fluidi ionizzati}, \textit{soluzioni elettrolitiche} o \textit{semiconduttori}, i portatori di carica sono di \textit{segno misto} e possono avere velocità di deriva differenti $\vba{v}_{d,+}$ e $\vba{v}_{d,-}$. La densità è ottenuta come una somma vettoriale di due quantità concordi che hanno lo stesso verso del campo elettrico:
+	Se consideriamo invece \textit{fluidi ionizzati}, \textit{soluzioni elettrolitiche} o \textit{semiconduttori}, i portatori di carica sono di \textit{segno misto} e possono avere velocità di deriva differenti $\vba{v}_{d,+}$ e $\vba{v}_{d,-}$. In questi inusuali casi, la densità è ottenuta come una somma vettoriale di due quantità concorde che hanno lo stesso verso del campo elettrico:
 	\begin{equation}
 		\vba{j}=n_{+}e\vba{v}_{d,+}-n_{-}e\vba{v}_{d,-}
 	\end{equation}
@@ -220,7 +221,7 @@ dove $\sigma$ rappresenta quanta quantità viene \textit{generata} (se positiva)
 	\begin{equation*}
 		\div{\vba{j}}=0
 	\end{equation*}
-	ossia la densità di corrente è un \textbf{campo solenoidale}\footnote{Nelle ‘‘XXX'', a pagina \ref{CampoSolenoidale} è possibile trovare la definizione di campo solenoidale e altre proprietà.}. Consideriamo una porzione tubulare di conduttore come in figura.
+	ossia la densità di corrente è un \textbf{campo solenoidale}\footnote{Nella ``Raccolta Differenziata'', a pag. \ref{CampoSolenoidale} è possibile trovare la definizione di campo solenoidale e altre proprietà.}. Consideriamo una porzione tubulare di conduttore come in figura.
 	\begin{center}
 		\includegraphics[width=0.35\textwidth]{images/chp5/chp5casostazionario.pdf}
 	\end{center}
@@ -237,10 +238,13 @@ dove $\sigma$ rappresenta quanta quantità viene \textit{generata} (se positiva)
 	\begin{equation}
 			\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{I_1=I_2}
 	\end{equation}
-Nel caso stazionario, l'intensità di corrente è \textbf{sempre costante}.
+Nel caso stazionario, l'intensità di corrente è \textit{sempre costante} - in tal caso si parla di \textbf{corrente stazionaria}\index{corrente elettrica!stazionaria}.
 \begin{intuit}
 	Riprendendo l'analogia con fluidodinamica tra intensità di corrente e portata, la portata è costante nei fluidi incomprimibili, cioè quelli la cui densità di massa è $\rho=\mathrm{const}$.
 \end{intuit}
+\begin{attention}
+	Sebbene il termine \textit{stazionario} possa far pensare ad una situazione di immobilità, ciò non è più lontano dalla realtà! Anche nel caso stazionario le cariche sono in movimento - ed eccome se si muovono! - ma intendiamo che il flusso di cariche stia scorrendo praticamente da sempre, senza cambiamenti e senza accumulo di cariche in alcun luogo.
+\end{attention}
 \section{Legge di Ohm}
 Ad inizio del capitolo, abbiamo descritto brevemente come sono costituiti i conduttori metallici. Tale descrizione, in realtà, corrisponde al \textbf{modello di Drude-Lorentz} della \textit{conduzione elettrica} proposto dal fisico tedesco \textbf{Paul Drude} (1863 – 1906) nel 1900 ed espanso nel 1905 dall'olandese \textbf{Hendrick Antoon Lorentz} (1853 – 1928).
 
@@ -370,7 +374,6 @@ dove
 	\end{equation}
 	viene detto \textbf{conduttanza}\index{conduttanza} e rappresenta la facilità della corrente a muoversi nel conduttore.
 \end{define}
-% Un conduttore 
 \paragraph{Unità di misura}
 \begin{units}\index{ohm}~\\
 	\textbf{\textsc{Resistenza elettrica:}} ohm ($\unit{\ohm}$) o volt su ampere $\left(\unit[per-mode = fraction]{\volt\per\ampere}\right)$.\\
@@ -390,7 +393,8 @@ dove
 	
 	A dir la verità, l'\textit{ohm} definito dall'Associazione Britannica non era neanche così differente da quello di Siemens, dato che cambiava soltanto la lunghezza della colonna di mercurio da $\SI{100}{\centi\meter}$ a $\SI{104.7}{\centi\meter}$. Ciò nonostante, dato che avere due unità di misura differenti per una stessa grandezza era ridicolo, nel 1881 al \textit{Congresso Internazionale degli Elettricisti} si decise di compiere una scelta definitiva tra le due: l'unità di misura della resistenza non doveva essere il \textit{siemens}, ma l'\textit{ohm}... anche se nel frattempo la colonna di mercurio si allungò a $\SI{104.9}{\centi\meter}$.\newline
 	
-	\noindent Come ricordò Maxwell al convegno, ‘‘le dimensioni contano\textsuperscript{[Senza fonte]}%\textsuperscript{{$\left[\parbox{15em}{\tiny\textit{Fonte: Maxwell ‘‘Manualotso'', un mercoledì pranzo, in un anonimo 100Montaditos}}\right]$}}
+	\noindent Come ricordò Maxwell al convegno, ``le dimensioni contano\textsuperscript{[Senza fonte]}
+	%\textsuperscript{{$\left[\parbox{15em}{\tiny\textit{Fonte: Maxwell ``Manualotso'', un mercoledì pranzo, in un anonimo 100Montaditos}}\right]$}}
 	 '' e negli anni l'unità di misura rimase la stessa, ma la colonnina di mercurio cambiò lunghezza più e più volte per adattarsi a studi sempre più analitici - stranamente non cambio lo spessore, ma evidentemente quello non contava più di tanto. La colonna di mercurio puro rimase lo standard fino alla \textit{Conferenza Generale sui Pesi e le Misure} del 1948, dove l'\textit{ohm} fu ridefinito in termini assoluti. Attualmente, il \textit{siemens} di Siemens vale circa $\SI{0.9537}{\ohm}$ moderni.
 	
 	Il povero Siemens, nonostante l'unità della resistenza non prese il suo nome, non si perse d'animo e continuò a sperimentare con l'elettromagnetismo: nel 1867 brevettò una delle prime dinamo industriali --- casualmente lo stesso giorno in cui Sir Charles Wheatstone brevettò una sua personale versione della dinamo. Successivamente, nel 1888 divenne nobile, trasformando il suo cognome in \textit{von Siemens}, e negli anni a seguire la sua azienda si espanse fino a diventare l'odierna multinazionale \textit{Siemens AG}.\newline~\\
@@ -403,12 +407,11 @@ dove
 	La cosa peculiare è che la malsana idea venne riproposta in elettrotecnica in altri due contesti.
 	\begin{itemize}
 		\item l'ingegnere Arthur E. Kennelly scelse il \textit{daraf} per descrivere l'\textit{elastanza elettrica}, in quanto essa è il reciproco della conduttanza e la conduttanza usa i \textit{farad}. In questo caso mi turba di più il nome dell'inverso della conduttanza che non il \textit{daraf}.
-		\item l'ingegnere Vladimir Karapetoff propose nel 1911 di usare gli \textit{yrneh} come reciproco dell'unità di misura dell'induttanza, l'\textit{henry}; la pronuncia, tra l'altro, doveva essere ‘‘earney''. Non dormo la notte cercando di capire come mai quella sia la pronuncia di \textit{yrneh}.
+		\item l'ingegnere Vladimir Karapetoff propose nel 1911 di usare gli \textit{yrneh} come reciproco dell'unità di misura dell'induttanza, l'\textit{henry}; la pronuncia, tra l'altro, doveva essere ``earney''. Non dormo la notte cercando di capire come mai quella sia la pronuncia di \textit{yrneh}.
 	\end{itemize}
 	Saltiamo molti anni e nella \textit{Conferenza Generale sui Pesi e le Misure} 1971 si decise che questo scherzo era durato abbastanza: l'unità di misura della conduttanza verrà chiamato \textit{siemens}... aspettate, \textit{di nuovo siemens}?\\
 	Eh sì, gli scienziati lì riuniti volevano dedicare un unità di misura a Siemens --- non hanno neanche specificato se a Werner von Siemens o al fratello Sir William Siemens --- senza tener conto che in passato è stata usata un'unità di misura dallo stesso nome per tutt'altri scopi. Non si curarono di questo e il \textit{siemens} fu approvato: da allora, usare il \textit{mho} per la conduttanza è considerato un nome non accettabile (e non consono) per un'unità di misura del SI e pertanto deve essere rigorosamente evitato.
-\end{digressionwt} % yrneh % daraf
-% Dopo questa breve ma importante digressione passiamo alle unità 
+\end{digressionwt} 
 \section{Potenza dissipata da una resistenza}
 In un conduttore elettrico in cui scorre una corrente elettrica, la \textbf{potenza} necessaria per spostare una carica è data da
 \begin{equation}
@@ -462,7 +465,7 @@ Se la corrente è stazionaria, si ha
 	U=W=\frac{I^2V}{2}=\frac{I^3R}{2}=\frac{V^3}{2R^2}
 \end{equation}
 \section{Forza elettromotrice}\label{femxesteso}
-A pagina \pageref{fem} abbiamo accennato ai \textbf{generatori di forza elettromotrice}\index{generatore!di forza elettromotrice} (\fem), dispositivi che trasforma energia \textit{non} elettrica in energia elettrica tale da mantenere, ai capi del generatore, una differenza di potenziale $\Delta V$, \textit{indipendentemente} da cosa ci si collega.
+A pag. \pageref{fem} abbiamo accennato ai \textbf{generatori di forza elettromotrice}\index{generatore!di forza elettromotrice} (\fem), dispositivi che trasforma energia \textit{non} elettrica in energia elettrica tale da mantenere, ai capi del generatore, una differenza di potenziale $\Delta V$, \textit{indipendentemente} da cosa ci si collega.
 
 Come abbiamo visto, il passaggio di corrente implica un trasferimento di energia dalla corrente circolante ad altre forme - ad esempio, calore per \textit{effetto Joule}, oppure sotto forma di energia meccanica, ecc... Di conseguenza, il generatore è l'elemento che deve rifornire con continuità tale energia, a mano a mano che essa viene dissipata o trasformata.
 
@@ -510,18 +513,17 @@ La \eqref{femGeneralizzata} si riduce alla \eqref{femRistretta} se $\vba{E}_f$ �
 \end{equation}
 dato che il contributo di $\vba{E}_s$ al lavoro di $\vba{E}$ è nullo essendo conservativo.
 \section{Circuiti elettrici}
-Nel \autoref{chap:conduttori} abbiamo introdotto brevemente i \textit{circuiti elettrici}, limitandoci a studiare come si comportano dei condensatori collegati in serie e in parallelo. Ora riprendiamo e approfondiamo ciò che abbiamo detto, alla luce delle nostre nuove conoscenze sulla corrente elettrica.
 \begin{define}[Circuito elettrico]
-	Un \textbf{circuito elettrico}\index{circuito elettrico} è un insieme interconnesso di componenti elettrici, sono connessi da fili conduttori in un percorso chiuso in modo che la corrente elettrica possa fluire con continuità.
+	Un \textbf{circuito elettrico}\index{circuito} è un insieme interconnesso di componenti elettrici, connessi da fili conduttori in un percorso chiuso in modo che la corrente elettrica possa fluire con continuità.
 \end{define}
 \begin{define}[Componente, nodo, ramo, maglia, interruttore]
 	In un circuito elettrico,
 	\begin{itemize}
 		\item un \textbf{componente elettrico}\index{componente elettrico} è un congegno con due o più terminali da cui la corrente può entrare o uscire allo scopo di modificare il comportamento degli elettroni o dei campi elettromagnetici. Esse si distinguono in
-		\begin{itemize}
-			\item componenti \textbf{attive}: dette anche \textbf{sorgenti}\index{sorgenti} o \textit{generatori}, producono energia elettrica in quanto indicono una corrente o una \ddp per mezzi non elettrici; ad esempio, sono componenti attive i generatori di tensore e di corrente.
-			\item componenti \textbf{passive}: non producono energia, bensì la ricevono per utilizzarla in altri scopi; ad esempio, sono componenti passive  i condensatori, i resistori e gli induttori. 
-		\end{itemize}
+		\begin{enumerate}
+			\item[$\bullet$] componenti \textbf{attive}: dette anche \textbf{sorgenti}\index{sorgenti} o \textit{generatori}, producono energia elettrica in quanto indicono una corrente o una \ddp per mezzi non elettrici; ad esempio, sono componenti attive i generatori di tensore e di corrente.
+			\item[$\bullet$] componenti \textbf{passive}: non producono energia, bensì la ricevono per utilizzarla in altri scopi; ad esempio, sono componenti passive  i condensatori, i resistori e gli induttori. 
+		\end{enumerate}
 		\item un \textbf{nodo}\index{nodo} è il punto di incontro di tre o più fili.
 		\item un \textbf{ramo}\index{ramo} è un filo con e/o componenti che collegano due nodi 
 		\item una \textbf{maglia}\index{maglia} è un insieme di rami all'interno di un circuito che forma un circuito chiuso senza auto-intersezioni.
@@ -536,19 +538,13 @@ Lo scopo dell'\textbf{analisi dei circuiti elettrici} è quella di \textit{risol
 	\item Il circuito può essere rappresentato secondo una \textit{rappresentazione schematica piana}.
 	\item Le relazioni che caratterizzano le componenti \textit{passive} sono lineari.
 \end{itemize}
-%Di seguito potete vedere un esempio di circuito.
-%\begin{center}
-%	\begin{frame}{Circuito elettrico}
-%		\animategraphics[loop,autoplay,width=\linewidth]{20}{images/scimmia-}{0}{4}
-%	\end{frame}
-%\end{center}
 \paragraph{Collegamenti in serie e in parallelo}
-\begin{define}[Collegamento in serie e in parallelo]~
+\begin{defines}[Collegamento in serie e in parallelo]~
 	\begin{itemize}
-		\item Due o più componenti sono collegate \textbf{in serie}\index{collegamento!in serie} se tutte sono collegate lungo un unico ‘‘percorso elettrico'', in cui ogni componente è collegata direttamente ad una sola altra componente.
-		\item Due o più componenti sono collegate \textbf{in parallelo}\index{collegamento!in parallelo} se le componenti sono connesse su \textit{rami} separati del ‘‘percorso elettrico''.
+		\item Due o più componenti sono collegate \textbf{in serie}\index{collegamento!in serie} se tutte sono collegate lungo un unico ``percorso elettrico'', in cui ogni componente è collegata direttamente ad una sola altra componente.
+		\item Due o più componenti sono collegate \textbf{in parallelo}\index{collegamento!in parallelo} se le componenti sono connesse su \textit{rami} separati del ``percorso elettrico''.
 	\end{itemize}
-\end{define}
+\end{defines}
 Si possono già fare alcune osservazioni:
 \begin{itemize}
 	\item In un collegamento \textit{in serie}, la \textit{carica totale} $q$ rimane costante lungo il percorso e ogni oggetto riceve la \textit{stessa}\footnote{Non necessariamente sono le stesse cariche nell'intero circuito: ad esempio, nel caso dei condensatori le cariche che partono dall'altra piastra collegata \textit{non} sono le stesse che sono arrivate sull'altra, bensì sono cariche respinte da quelle presenti nell'altra armatura. In ogni caso, ciò che non cambia è la \textit{quantità} di carica totale.}; di conseguenza, anche la \textit{corrente} risulta essere sempre la \textit{stessa} in ogni componente.
@@ -558,10 +554,11 @@ Si possono già fare alcune osservazioni:
 \end{itemize}
 L'idea cardine dello studio dei circuiti elettrici è di \textit{semplificarli} il più possibile, riducendo il numero di componenti: se abbiamo diversi oggetti elettrici collegati nel circuito caratterizzati da delle quantità particolari $Z_i$, ci immaginiamo di sostituire diversi elementi dello stesso tipo (collegati in serie e in parallelo) con un'unica componente \textbf{equivalente} caratterizzata da una quantità $Z_{eq}$ che deriva da quelle delle componenti singole.
 \paragraph{Resistori}
-Prima di descrivere altro, definiamo un componente elettrico molto utile, il \textbf{resistore}.
+Definiamo un componente elettrico molto utile, il \textbf{resistore}.
 \begin{define}[Resistore]
 	Un \textbf{resistore}\index{resistore} è un componente elettrico che implementa gli effetti di una resistenza elettrica all'interno di un circuito. 
 \end{define}
+\pagebreak
 Nei circuiti elettronici, i resistori sono utilizzati per ridurre l'intensità di corrente e voltaggi, oltre ad altri usi.
 \paragraph{Alcuni simboli elettronici}
 I modelli di circuiti elettrici che andiamo a studiare sono rappresentabili in diagrammi in cui fili e componenti sono stilizzati sotto forma di pittogrammi che permetto di vedere a colpo d'occhio il funzionamento di un circuito.\\
@@ -844,11 +841,6 @@ Nel caso generale di $n$ resistori in parallelo:
 		\item \textbf{Passo 3:} semplifichiamo i tre resistori in serie rimasti con un resistore equivalente.
 		\begin{center}		
 			\begin{tikzpicture}[voltage dir=RP,scale=0.8]
-				%\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
-				%to [resistor, R=$R_1$, i=$I$] (2.5,2.5)
-				%to [resistor, R=$R''$, i_=$I$] (2.5,0)
-				%to [resistor, R=$R_1$, i=$I$] (0,0)
-				%-- (0,0.1);
 				\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
 				to [rounded corners=8pt] (1.5,2.5)
 				to [rounded corners=8pt, resistor, R=$R_{eq}$, i=$I$] (1.5,0)
@@ -888,7 +880,7 @@ Nel caso generale di $n$ resistori in parallelo:
  	\end{equation*}
  	Il circuito disperde come calore $\SI{34,8}{\joule}$ al secondo.
 \end{solution}
-\subsection{Leggi di Kirchhoff} % TO DO
+\subsection{Leggi di Kirchhoff}
 Abbiamo visto che ci conviene studiare i circuiti elettrici semplificandoli, se possibile, ad un solo generatore di \fem e con una componente singola equivalente alle altre dello stesso tipo presenti (un resistore equivalente e/o condensatore equivalente e/o ...). Il \textit{problema} è che \textit{non} sempre è possibile analizzare i circuiti usando le tecniche di semplificazione per componenti in serie e/o paralleli, in particolare se sono presenti nodi e multiple sorgenti. Ad esempio, nel seguente circuito potremmo ridurre $R_1$ con $R_2$ in serie e analogamente $R_4$ e $R_5$, ma dopo come facciamo con i due generatori?
 \begin{center}
 	\begin{tikzpicture}[voltage dir=RP]
@@ -904,7 +896,7 @@ Abbiamo visto che ci conviene studiare i circuiti elettrici semplificandoli, se 
 		\draw (1.5,0) to [resistor, R=$R_3$] (1.5,3);
 	\end{tikzpicture}
 \end{center}
-In nostro aiuto vengono due ‘‘regole'' dell'analisi dei circuiti, dette \textbf{leggi di Kirchhoff}\index{legge!di Kirchhoff}, chiamate così in onore del loro inventore Gustav \textbf{Kirchhoff}.
+In nostro aiuto vengono due ``regole'' dell'analisi dei circuiti, dette \textbf{leggi di Kirchhoff}\index{legge!di Kirchhoff}, chiamate così in onore del loro inventore Gustav \textbf{Kirchhoff}.
 \paragraph{Prima legge di Kirchhoff}
 \begin{theoremaqed}[Prima legge di Kirchhoff o legge dei nodi]\index{legge!di Kirchhoff!dei nodi}
 	La somma algebrica di tutte le correnti che entrano un nodo è pari alla somma algebra di tutte le correnti che escono dal nodo o, equivalentemente, la somma algebrica di tutte le correnti che attraversano un nodo del circuito deve essere pari a zero:
@@ -1052,7 +1044,7 @@ In casi più complessi non è però possibile determinare quale sia il verso di 
 		\end{tikzpicture}
 	\end{center}
 \end{solution} %TODO: controllare calcoli
-\subsection{Circuiti RC e processo di carica di un condensatore}\label{CircuitiRC}%TODO: processo di scarica
+\subsection{Circuiti RC e processo di carica di un condensatore}\label{CircuitiRC}
 \begin{define}[Circuito RC]
 	Un \textbf{circuito RC}\index{circuito!RC} è un circuito che presenta solo \textit{resistori} e \textit{condensatori}.
 	\begin{center}		
@@ -1068,8 +1060,7 @@ In casi più complessi non è però possibile determinare quale sia il verso di 
 			\draw (0,0) to [battery1, v>=$\mathcal{E}$, i=$I$] (0,2.5)
 			to [resistor, R=$R_1$, v=$V_R$] (2.5,2.5)
 			to [capacitor, C=$C$, v=$V_C$] (2.5,0)
-			-- (0,0) %to [switch, label=$t>0$, mirror] (0,0)
-			%-- (0,0) node [midway, below] (TextNode) {$t>0$}
+			-- (0,0)
 			-- (0,0.1);
 			\draw (1,0) to[short, *-] (1,0);
 			\node at (1.25,-0.5) {$t>0$};
@@ -1077,7 +1068,8 @@ In casi più complessi non è però possibile determinare quale sia il verso di 
 		\end{tikzpicture}
 	\end{center}
 \end{define}
-Consideriamo il caso semplice di un circuito RC con un resistore e un condensatore dotato di un interruttore, inizialmente aperto. Al tempo $t=0$ viene chiuso l'interruttore: poiché si verifica la separazione di cariche da parte del generatore di \fem, la corrente può circolare nel circuito per caricare il condensatore, inizialmente \textit{scarico}.
+\paragraph{Processo di carica}
+Consideriamo il caso semplice di un circuito, dotato di un interruttore inizialmente aperto, con un generatore di \fem $\mathcal{E}$, un resistore $R$ e un condensatore $C$. Al tempo $t=0$ viene chiuso l'interruttore: poiché si verifica la separazione di cariche da parte del generatore di \fem, la corrente può circolare nel circuito per caricare il condensatore, inizialmente \textit{scarico}.
 \begin{itemize}
 	\item Al tempo $t<0$ la \ddp $V_C$ ai capi del condensatore è \textit{nulla}, dato che non si hanno cariche sul condensatore, e anche la differenza $V_R$ ai capi della resistenza lo è perché non scorre corrente.
 	\begin{alignat*}{4}
@@ -1154,6 +1146,16 @@ Noto carica e corrente, i valori delle \ddp ai capi del resistore e del condensa
 	V_C(t)&=\frac{q(t)}{C}=\mathcal{E}\left(1-e^{-\frac{t}{RC}}\right)\\
 	V_R(t)&=RI(t)=\mathcal{E}e^{-\frac{t}{RC}}
 \end{empheq}
+\begin{minipage}{0.49\textwidth}
+	\begin{center}
+		\includegraphics[width=1\textwidth]{images/chp5/chp5caricacondgraf3.pdf}
+	\end{center}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+	\begin{center}
+		\includegraphics[width=1\textwidth]{images/chp5/chp5caricacondgraf4.pdf}
+	\end{center}
+\end{minipage}
 Riprendendo quanto già detto, il voltaggio del condensatore aumenta al crescere del tempo di carica, mentre quello del resistore diminuisce.
 \paragraph{Potenze ed energia nel circuito RC}
 La \textit{potenza} erogata dal generatore è ovviamente dipendente dal tempo e vale
@@ -1164,7 +1166,7 @@ mentre quella dissipata del resistore è, in base all'effetto Joule,
 \begin{equation}
 	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{P_{R}(t)=I^2(t)R=\frac{\mathcal{E}^2}{R}e^{-\frac{2t}{RC}}}
 \end{equation}
-Il lavoro per caricare il condensatore è $W=\dfrac{1}{2}V_Cq$; la potenza elementare relativa è la sua derivata temporale\footnote{Si vede, infatti che
+Noto che il lavoro per caricare il condensatore è $W=\dfrac{1}{2}V_Cq$, la potenza elementare relativa è la sua derivata temporale\footnote{Si vede, infatti che
 \begin{equation*}
 	P_{C}=\dv{W}{t}=\dv{t}\left(\frac{1}{2}V_Cq\right)=\frac{1}{2}\left(q\dv{V_C}{t}+V_C\dv{q}{t}\right)=\frac{1}{2}\left(q\dv{V_C}{t}+V_CI\right)
 \end{equation*}
@@ -1197,4 +1199,77 @@ Per il \textit{principio di conservazione dell'energia}, il lavoro di carica del
 \begin{equation}
 	W_{gen}=\frac{1}{2}\mathcal{E}^2C
 \end{equation}
-% add scopo pratico dei circuiti RC
+\paragraph{⋆ Processo di scarica}
+Consideriamo ora un circuito, dotato di un interruttore inizialmente aperto, con un resistore $R$ e un condensatore $C$ di carica iniziale $q$, dotato di un interruttore inizialmente aperto.
+
+\begin{center}		
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (0,0) -- (0,2.5)
+		to [resistor, R=$R_1$, v=$V_R$] (2.5,2.5)
+		to [capacitor, C=$C$, v=$V_C$] (2.5,0)
+		to [switch, label=$t<0$, mirror] (0,0)
+		-- (0,0.1);
+		\draw (1,0) to[short, *-] (1,0);
+	\end{tikzpicture}
+	\begin{tikzpicture}[voltage dir=RP]
+		\draw (0,0) -- (0,2.5)
+		to [resistor, R=$R_1$, v=$V_R$] (2.5,2.5)
+		to [capacitor, C=$C$, v=$V_C$] (2.5,0)
+		-- (0,0) 
+		-- (0,0.1);
+		\draw (1,0) to[short, *-] (1,0);
+		\node at (1.25,-0.5) {$t>0$};
+		\node at (1.25,-0.6) {$ $};
+	\end{tikzpicture}
+\end{center}
+La \ddp ai capi del condensatore è
+\begin{equation*}
+	V_0=V_C(0)=\frac{q}{C}
+\end{equation*}
+e l'energia elettrica immagazzinata è
+\begin{equation*}
+	U=\frac{q^2}{2C}
+\end{equation*}
+Al tempo $t=0$ viene chiuso l'interruttore: le cariche si muovono dall'armatura a potenziale maggiore a quella a potenziale minore, dando luogo ad un moto di cariche e, di conseguenza, ad una corrente elettrica
+\begin{equation*}
+	I=-\dv{q}{t}
+\end{equation*}
+dove il meno è dovuto al fatto che la carica \textit{diminuisce} nel tempo. In un generico istante $t>0$ la \ddp ai capi del condensatore è la stessa ai capi del resistore, e quindi si ha
+\begin{align*}
+	V_C&=\frac{q}{C}=V_R=RI=-R\dv{q}{t}\\
+	\dv{q}{t}&=-\frac{q}{RC}
+\end{align*}
+Risolviamo questa \textit{equazione differenziale del prim'ordine} per descrivere la carica $q=q(t)$ del condensatore:
+\begin{align*}
+	\dv{q}{t}&=-\frac{q}{RC}\\
+	\int_{q_0}^{q(t)}\frac{dq}{q}&=-\frac{1}{RC}\int_{0}^{t}dt\\
+	\eval{\log{q}}_{q_0}^{q(t)}&=-\frac{1}{RC}\eval{t}_{0}^{t}\\
+	\log{\frac{q(t)}{q_0}}&=-\frac{t}{RC}\\
+	\frac{q(t)}{q_0}&=e^{-\frac{t}{RC}}
+\end{align*}
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{q(t)=q_0e^{-\frac{t}{RC}}=q_0e^{-\frac{t}{\tau}}}
+\end{equation}
+\begin{center}
+	\includegraphics[width=0.85\textwidth]{images/chp5/chp5scaricacondgraf1.pdf}
+\end{center}
+Oltre alla carica, anche la \ddp di potenziale ai capi del condensatore e la corrente nel circuito diminuiscono esponenzialmente.
+\begin{empheq}[box=\tcmathboxgeneral]{align}
+	I(t)&=-\dv{q(t)}{t}=\frac{q_0}{RC}e^{-\frac{t}{RC}}=\frac{V_0}{R}e^{-\frac{t}{RC}}\\
+	V_C(t)&=\frac{q(t)}{C}=\frac{q_0}{C}e^{-\frac{t}{RC}}
+\end{empheq}
+La \textit{potenza} dissipata del resistore è, in base all'effetto Joule,
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{P_{R}(t)=I^2(t)R=\frac{V_0^2}{R}e^{-\frac{2t}{RC}}}
+\end{equation}
+mentre l'energia dissipata dal resistore è
+\begin{equation*}
+	W_{R}=\int_{0}^{+\infty}P_{R}(t)dt=\frac{V_0^2}{R}int_{0}^{+\infty}e^{-\frac{2t}{RC}}=-\frac{1}{2}\frac{V_0^2}{\Ccancel[red]{R}}\Ccancel[red]{R}C\eval{e^{-\frac{2t}{RC}}}_{0}^{+\infty}=\frac{1}{2}V_0^2C=\frac{q_0^2}{2C}
+\end{equation*}
+\begin{equation}
+	\tcboxmath[colback=yellowpastellow!30!white,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{W_{R}=\frac{1}{2}V_0^2C=\frac{q_0^2}{2C}}
+\end{equation}
+ossia è pari all0energia elettrostatica iniziale del condensatore.
+\begin{observe}
+	Si noti come il circuito RC, durante il processo di scarica, presenta comunque una corrente elettrica pur non avendo alcun generatore di \fem collegato.
+\end{observe}

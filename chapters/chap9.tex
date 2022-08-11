@@ -4,21 +4,21 @@
 {$LastChangedDate$}
 {$LastChangedRevision$}
 {$LastChangedBy$}
-% BRUTTISSIMO PUN E CHE NON È POLITICAMENTE CORRETTA; un volt m'ampere d'aver vist un'ohm che s'incoulomb un'altr'ohm. Ah Joule!
-% Metalmeccanico e parrucchiere in un turbine di sesso e politica
-\chapter{La circuitazione del campo magnetico, la legge di Ampère e le equazioni di Maxwell nel caso statico} 
+\chapter{La legge di Ampère e le equazioni di Maxwell nel caso statico} 
 \labelChapter{leggediampere}
 
 \begin{introduction}
-‘‘La matematica confronta i più disparati fenomeni e scopre le analogie segrete che li uniscono.''
+``Sul letto di morte, Maxwell tirò fuori una strana specie di confessione, dichiarando che 'qualcosa dentro di lui' aveva scoperto le sue famose equazioni, non lui. Ammise di non avere idea di come gli venissero le idee: semplicemente gli venivano.''
 \begin{flushright}
-	\textscsl{Joseph Fourier,} cercando disperatamente di motivare ai suoi genitori la scelta di studiare matematica. %TODO: quote
+	\textscsl{David Eagleman,} cercando di motivare al professore come aveva ottenuto il risultato corretto con il procedimento errato.
 \end{flushright}
 \end{introduction}
-\lettrine[findent=1pt, nindent=0pt]{S}{i} %TODO: intro
+\lettrine[findent=1pt, nindent=0pt]{A}{bbiamo visto} nel \autoref{chap:campoMagnetico} e nel \autoref{chap:leggeBiotSavart} il flusso del campo magnetico, rispettivamente per superfici chiuse e aperte. Per concludere la trattazione della magnetostatica ci rimane da descrivere la \textbf{circuitazione} del campo magnetico.
+
+Senza troppi indugi, in questo Capitolo faremo proprio ciò: studieremo la \textbf{legge di Ampère}, che descrive la circuitazione del campo magnetico, dimostrandola prima in diversi casi più o meno generali per poi applicarla in alcune situazioni fisiche già viste nel \autoref{chap:leggeBiotSavart}; vedremo inoltre che limiti ha tale legge.\\
+Concludiamo questa sezione ricapitolando le \textbf{equazioni di Maxwell per l'elettromagnetostatica}, soffermandoci in particolare sul ruolo dei campi potenziali e di come compiere una \textbf{scelta di gauge} di tali potenziali per facilitarci i calcoli con le equazioni di Maxwell.
 
 \section{La circuitazione del campo magnetico e legge di Ampère}
-Per concludere la trattazione della magnetostatica ci rimane da descrivere la \textit{circuitazione} del campo magnetico.
 \subsection{Il caso con un filo infinito}
 Per capire meglio come si calcola, partiamo da un caso particolare: consideriamo un filo infinito percorso da corrente $I$ e una curva $\gamma$ che gira attorno al filo.
 \begin{center}
@@ -50,7 +50,7 @@ La circuitazione del campo magnetico, in questo caso, è
 	\Gamma_{\gamma}(\vba{B})=\int_{\gamma}\vba{B}\vdot d\vba{s}=\int_{\gamma}\frac{\mu_0 I}{2\pi}d\phi=\mu I
 \end{equation*}
 \begin{equation}
-	\Gamma_{\gamma}(\vba{B})=\oint \vba{B}\vdot d\vba{s}=\mu_0 I
+	\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Gamma_{\gamma}(\vba{B})=\oint \vba{B}\vdot d\vba{s}=\mu_0 I}
 \end{equation}
 \subsection{Il caso con due fili infiniti}
 Supponiamo ora di avere, all'interno della stessa curva di prima, due fili rettilinei infiniti invece che uno. Per descrivere la circuitazione in questo caso introduciamo un segmento immaginario orientato $\eta$ tra i due fili che colleghi due punti del circuito, in modo da dividere la curva $\gamma$ in due sotto-curve $\xi_1$ e $\xi_2$.
@@ -67,7 +67,7 @@ dove $-\eta$ è il segmento $\eta$ percorso nel verso opposto. Si osservi che
 \end{equation*}
 dato che i segmenti orientati si elidono a vicenda. Allora, dato nell'interno dell'area delimitata dalle curve $\gamma_i$ passa un solo filo, vale il caso precedente e quindi 
 \begin{equation}
-	\Gamma_{\gamma}(\vba{B})=\Gamma_{\gamma_1}(\vba{B})+\Gamma_{\gamma_2}(\vba{B})=\mu_0 I_1+\mu_0I_2
+	\tcboxmath[colback=yellowpastellow!30!white, drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Gamma_{\gamma}(\vba{B})=\Gamma_{\gamma_1}(\vba{B})+\Gamma_{\gamma_2}(\vba{B})=\mu_0 I_1+\mu_0I_2}
 \end{equation}
 dove $I_j$ sono presi con segno: se si fissa un segno di percorrenza, il verso di percorrenza ha segno opposto - ad esempio, se la corrente è antioraria il segno è positivo, negativo se oraria.
 \subsection{Il caso generale: legge (della circuitazione) di Ampère}
@@ -76,11 +76,11 @@ dove $I_j$ sono presi con segno: se si fissa un segno di percorrenza, il verso d
 	\begin{itemize}
 		\item \textbf{Forma integrale:}
 		\begin{equation}
-			\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=\mu_0 I_{int}\label{LeggeAmpereMagnetostaticaIntegrale}
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\Gamma_{\gamma}(\vba{B})=\oint_{\partial \Sigma} \vba{B}\vdot d\vba{s}=\mu_0\int_{\Sigma}\vba{j}\vdot\vbh{u}_nd\Sigma=\mu_0 I_{int}}\label{LeggeAmpereMagnetostaticaIntegrale}
 		\end{equation}
 		\item \textbf{Forma differenziale:}
 		\begin{equation}
-			\curl{\vba{B}}=\mu_0\vba{j}\label{LeggeAmpereMagnetostaticaDifferenziale}\qedhere
+			\tcboxmath[colback=yellowpastellow!30!white,colframe=redsalsa!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\curl{\vba{B}}=\mu_0\vba{j}}\label{LeggeAmpereMagnetostaticaDifferenziale}\qedhere
 		\end{equation}
 	\end{itemize}
 \end{theorema}
@@ -99,9 +99,11 @@ dove $I_j$ sono presi con segno: se si fissa un segno di percorrenza, il verso d
 	\end{equation*}
 \end{demonstration}
 Questa non è altro che l'ultima \textit{equazione di Maxwell} (su quattro) che ci mancava per i fenomeni elettromagnetici non dipendenti dal tempo, sebbene nella meno elegante forma integrale.
-\subparagraph{Un cavillo della legge di Ampère}
-%Un primo cavillo di questo teorema sta nell'ambiguità di segno. Ci sono tre termini che dipendono dal segno: l'integrale lungo $\gamma$, dato che è una curva orientata, il versore $\vba{u}_n$ normale alla superficie e la corrente $I_{int}$ che attraversa $\Sigma$. In tal caso, ci affida ad un'altra versione della mano destra: posto il palmo della mano destra rispetto all'area di integrazione e puntato l'indice nel verso dello spostamento infinitesimo, il pollice
-% https://en.wikipedia.org/wiki/Amp%C3%A8re%27s_circuital_law, ma che cazzo di verso viene il versore normale?
+\paragraph{Un cavillo della legge di Ampère}
+\begin{comment}
+	Un primo cavillo di questo teorema sta nell'ambiguità di segno. Ci sono tre termini che dipendono dal segno: l'integrale lungo $\gamma$, dato che è una curva orientata, il versore $\vba{u}_n$ normale alla superficie e la corrente $I_{int}$ che attraversa $\Sigma$. In tal caso, ci affida ad un'altra versione della mano destra: posto il palmo della mano destra rispetto all'area di integrazione e puntato l'indice nel verso dello spostamento infinitesimo, il pollice
+	https://en.wikipedia.org/wiki/Amp%C3%A8re%27s_circuital_law, ma che cazzo di verso viene il versore normale?
+\end{comment}
 Si osservi che la legge appena trovata è valida soltanto se la corrente è \textit{stazionaria}, ossia se è \textit{costante} nel tempo. Per capire perché, ricordiamo che la \textit{divergenza di un rotore} è sempre nulla:\label{laleggediAmpereèfalsaepretenziosa}
 \begin{equation*}
 	\div{\left(\curl{\vba{B}}\right)}=0
@@ -155,23 +157,23 @@ La cosa peculiare è il doppio integrale curvilineo che abbiamo trovato, diviso 
 \end{demonstrationwtnoqed}
 Matematicamente parlando, una curva chiusa nello spazio tridimensionale è quello che definiamo come \textbf{nodo}.
 \begin{define}[Nodo]
-	Un \textbf{nodo}\index{nodo} è un'inclusione topologica $\funz[f]{S^1}{\realset^3}$ della circonferenza $S^1$ in $\realset^3$, cioè se $\funz[f]{S^1}{f(S^1)}$ è un omeomorfismo.
+	Un \textbf{nodo}\index{nodo} è un'inclusione topologica $\ \funz[f]{S^1}{\realset^3}$ della circonferenza $S^1$ in $\realset^3$, cioè se $\ \funz[f]{S^1}{f(S^1)}$ è un omeomorfismo.
 \end{define}
 I nodi possono essere proiettati su un piano $\realset^2$; tale proiezione è quasi sempre \textbf{regolare}, ossia che è iniettiva sempre tolto al più un numero finito di incroci, proiezione di soli due punti del nodo.
 \begin{define}[Mappa di Gauss]
-	Dati due nodi differenziabili $\funz[f]{S^1}{\realset^3}$, la \textbf{mappa di Gauss}\index{mappa!di Gauss} è la funzione
+	Dati due nodi differenziabili $\ \funz[f]{S^1}{\realset^3}$, la \textbf{mappa di Gauss}\index{mappa!di Gauss} è la funzione
 	\begin{equation}
-		\funztot[G(\phi_1,\phi_2)]{S^1\times S^1}{S^2}{\left(\phi_1,\phi_2\right)}{\frac{\vba{r}_1(\phi_1) - \vba{r}_2 (\phi_2)}{\abs{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}}}
+		\tcboxmath[colback=yellowpastellow!30!white,colframe=ceruleancrayola!85!black,drop fuzzy shadow, nobeforeafter, math upper, tcbox raise base, enhanced]{\funztot[G(\phi_1,\phi_2)]{S^1\times S^1}{S^2}{\left(\phi_1,\phi_2\right)}{\frac{\vba{r}_1(\phi_1) - \vba{r}_2 (\phi_2)}{\Norm{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}}}}
 	\end{equation}
 	Dato che la mappa non è biunivoca, la mappa può ricoprire la sfera più volte.
 \end{define}
 \begin{define}[Linking number di Gauss]
 	Il \textbf{linking number di Gauss} è un numero intero che conta quante volte due nodi si avvolgono tra di loro - senza intersecarsi direttamente. Il segno di tale numero dipende dall'orientazione scelta delle due curve.\\
-	Formalmente, esso corrisponde a quante volte con segno l'immagine di $G$ ricopre la sfera $S^2$:
-	\begin{align}
+	Formalmente, corrisponde a quante volte con segno l'immagine di $G$ ricopre la sfera $S^2$:
+	\begin{empheq}[box=\tcmathboxdefine]{align}
 		\textrm{lk}(\gamma_1,\gamma_2)=&\frac{1}{4\pi}\frac{1}{4\pi}\oint_{\gamma_1} \oint_{\gamma_2} \frac{\vba{r}_1(\phi_1) - \vba{r}_2 (\phi_2)}{\abs{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}^3} \vdot \left(d\vba{s}_1\cross d\vba{s}_2\right)\\
-		=&\frac{1}{4\pi}\int_{S^1\times S^1}\frac{\det\left(\vbd{r}_1(\phi_1),\vbd{r}_2(\phi_2),\vba{r}_1(\phi_1)-\vba{r}_2(\phi_2)\right)}{\abs{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}}d\phi_1d\phi_2
-	\end{align}
+		=\displaystyle&\frac{1}{4\pi}\int_{S^1\times S^1}\frac{\det\left(\vbd{r}_1(\phi_1),\vbd{r}_2(\phi_2),\vba{r}_1(\phi_1)-\vba{r}_2(\phi_2)\right)}{\abs{\vba{r}_1(\phi_1) - \vba{r}_2(\phi_2)}}d\phi_1d\phi_2
+	\end{empheq}
 	Il doppio integrale curvilineo qui scritto è l'area totale con segno dell'immagine di $G$, che va diviso per l'area della sfera unitaria.
 \end{define}
 \begin{example}~
@@ -195,7 +197,7 @@ La circuitazione del campo magnetico lungo una curva si può quindi scrivere in 
 A seconda di quante volte il circuito e la curva si avvolgono, la corrente interna alla curva $I_{int}$ non è necessariamente $I$: essa può essere pari a multipli interi (con segno) della corrente $I$. Tale valore, per l'appunto, lo otteniamo con il linking number, ottenendo così la legge di Ampère nel caso generale.
 \end{demonstrationwt}
 \paragraph{Applicazioni della legge di Ampère}
-Adesso useremo la legge di Ampère per ricavare il \textit{campo magnetico}, in modo analogo a come si può ricavare in casi di particolari simmetrie il \textit{campo elettrico} con la \textit{legge di Gauss}.
+Come la \textit{legge di Biot-Savart} è analoga alla \textit{legge di Coulomb} in elettrostatica, la \textit{legge di Ampère} può essere usata in maniera elegante e indolore - si fa per dire, eh - per ricavare il \textit{campo magnetico} in casi di particolari simmetrie, in modo analogo a come si può ricavare il \textit{campo elettrico} con la \textit{legge di Gauss} in situazioni analoghe.
 \begin{examplewt}[Legge di Biot-Savart per un filo rettilineo infinito]
 	Consideriamo un filo rettilineo infinito. Per simmetria il campo magnetico è dipendente solo dalla distanza assiale dal filo d è diretto lungo $\vbh{u}_\theta$, tangenziale a delle circonferenze centrate lungo il filo. Poste le coordinate cilindriche
 	\begin{equation*}
@@ -216,10 +218,10 @@ Adesso useremo la legge di Ampère per ricavare il \textit{campo magnetico}, in 
 	\begin{equation*}
 		\mu_0I=\Gamma_{\gamma}(\vba{B})=\oint\vba{B}\vdot d\vba{s}=\oint B(R)R\vbh{u}_\theta\vdot\vbh{u}_{\theta}d\theta=B(R)R\int_{0}^{2\pi}d\theta=2\pi R B(R)
 	\end{equation*}
-	da cui
-	\begin{equation}
+	da cui otteniamo, come avevamo già visto direttamente,
+	\begin{equation*}
 		B(R)=\frac{\mu_0 I}{2\pi R}
-	\end{equation}
+	\end{equation*}
 \end{examplewt}
 
 \begin{examplewt}[Solenoide infinito]
@@ -232,7 +234,7 @@ Adesso useremo la legge di Ampère per ricavare il \textit{campo magnetico}, in 
 		\item $\overrightarrow{DA}$ è un segmento orizzontale, intersecante il solenoide e diretto verso l'interno.
 	\end{itemize}
 	\begin{center}
-		\includegraphics[width=0.45\textwidth]{images/chp9/chp9solenoidecircuitazione.pdf}
+		\includegraphics[width=0.35\textwidth]{images/chp9/chp9solenoidecircuitazione.pdf}
 	\end{center}
 	La circuitazione lungo la curva $\gamma$ sarà
 	\begin{align*}
@@ -260,16 +262,14 @@ Adesso useremo la legge di Ampère per ricavare il \textit{campo magnetico}, in 
 	\begin{equation*}
 		B(R)\Ccancel[red]{(z_2-z_1)}=\Gamma_{\gamma}(\vba{B})=\mu_0I_\gamma=n\Ccancel[red]{(z_2-z_1)} I
 	\end{equation*}
-	\begin{equation}
+	\begin{equation*}
 		B(R)=\mu_0 n I
-	\end{equation}
-	Come già osservato il campo del solenoide non dipende dalla distanza assiale, ma è uniforme in \textit{tutto} il solenoide. 
+	\end{equation*}
+	Come già osservato, il campo del solenoide \textit{non} dipende dalla distanza assiale, ma è uniforme in \textit{tutto} il solenoide. 
 \end{examplewt}
 \section{Equazioni di Maxwell per l'elettrostatica e la magnetostatica}
-%TODO: FORSE SPOSTARE CAPITOLO NUOVO
 \begin{center}
 	\begin{tabular}{p{0.2\textwidth}|c|c}
-		%\multicolumn{2}{c}{\textbf{---}} \\\hline  >{\centering}
 		\centering{\textbf{Nome}} &
 		\textbf{Forma integrale} &
 		\begin{tabular}{@{}c@{}} \textbf{Forma} \\ \textbf{differenziale}\end{tabular} \\ \hline
@@ -327,7 +327,7 @@ Adesso useremo la legge di Ampère per ricavare il \textit{campo magnetico}, in 
 	Una conseguenza di ciò che esploreremo meglio successivamente è che il campo elettrico dipendente dal tempo \textit{non} è più conservativo; il campo magnetico, invece, resta sempre solenoidale.
 \end{observe}
 \subsection{Invarianza di gauge nell'elettromagnetostatica}\label{invarianzagauge}
-Nel \autoref{chap:PotenzialeElettrico}, sezione \ref{EqPoissonSezione}, abbiamo parlato delle equazioni di Poisson e di Laplace:
+Nel \autoref{chap:PotenzialeElettrico}, sezione \ref{EqPoissonSezione}, pag. \pageref{EqPoissonSezione}, abbiamo parlato delle equazioni di Poisson e di Laplace:
 \begin{itemize}
 	\item \textbf{Equazione di Poisson} (caso non omogeneo, $\rho\neq 0$):
 	\begin{equation}
@@ -350,11 +350,11 @@ che, sviluppando, risulta
 \end{equation*}
 Ci è oramai ben noto che il potenziale scalare $V$ è sempre definito a \textit{meno di costante}. Infatti, quello che conta - anche dal punto di vista fisico - è la \textit{differenza di potenziale}. In termini più rigorosi, quando parliamo del potenziale quello che stiamo facendo è prendere un opportuno \textit{rappresentante} dalla classe di equivalenza $\left[V\right]$, ottenuta dalla relazione
 \begin{align*}
-	V\sim V+a \qquad \text{dove}\ a\in\realset
+	V\sim V+a \qquad \text{dove}\quad a\in\realset
 \end{align*}
 Nel caso del vettore potenziale si verifica una situazione analoga. Data una \textit{funzione scalare} $\oldphi$, $\vba{A}$ è definito \textit{a meno di gradiente}. In termini di classi di equivalenza, $\vba{A}$ è il rappresentante della classe $[\vba{A}]$ data dalla relazione
 \begin{align*}
-	\vba{A}\sim \vba{A}+\grad{\phi} \qquad \text{dove}\ \funz[\phi]{\realset^3}{\realset}
+	\vba{A}\sim \vba{A}+\grad{\phi} \qquad \text{dove}\quad \funz[\phi]{\realset^3}{\realset}
 \end{align*}
 Infatti, si vede che il campo magnetico resta invariato:
 \begin{equation*}
@@ -364,16 +364,16 @@ In particolare ciò succede perché il rotore del gradiente è nullo.\\
 In sostanza, abbiamo descritto un caso di \textbf{invarianza di gauge}\index{gauge!invarianza di}.
 \begin{define}[Invarianza di gauge]
 	Consideriamo una configurazione elettromagnetica $\left(\vba{E},\vba{B}\right)$ e supponiamo che essa sia descritta dai campi potenziali $\left(V,\vba {A}\right)$. Allora esiste una trasformazione arbitraria $\Lambda=$, detta \textbf{trasformazione (locale) di gauge}\index{gauge! trasformazione di}, tale da ottenere una \textit{nuova} coppia di campi potenziali $\left(V',\vba {A}'\right)$...
-	\begin{align*}
-		V\overset{\Lambda}{\longleftrightarrow} V'=V+c\\
-		\vba{A}\overset{\Lambda}{\longleftrightarrow} \vba{A}'=\vba{A}+\grad{\phi}
-	\end{align*}
+	\begin{empheq}[box=\tcmathboxdefine]{align}
+		V\overset{\Lambda}{\longleftrightarrow} V'&=V+c\\
+		\vba{A}\overset{\Lambda}{\longleftrightarrow} \vba{A}'&=\vba{A}+\grad{\phi}
+	\end{empheq}
 	... che descrive la \textit{stessa} configurazione $\left(\vba{E}',\vba{B}'\right)=\left(\vba{E},\vba{B}\right)$. i campi elettrici e magnetici sono \textit{invarianti di Gauge}\index{gauge!invarianti di}.
 \end{define}
 Questo distingue profondamente ciò che è effettivamente osservabile da ciò che non lo è, almeno direttamente. I campi elettrici e magnetici sono \textit{osservabili} direttamente e hanno un particolare valore. I campi \textit{potenziali} elettrici e magnetici sono meglio descrivibili come \textit{classi di equivalenza}; dato che non possiamo parlare di un rappresentante preferito, a priori \textit{non} è possibile osservarli direttamente senza fare una scelta particolare del rappresentante. Tale scelta è detta \textbf{scelta di gauge}\index{gauge!scelta di}
 \begin{intuit}
 	Guardando un asta perfettamente cilindrica è possibile dire se è attorcigliata o no? A priori no: ciascuna sezione ortogonale del cilindro è uguale - o per meglio dire \textit{invariante} - rispetto ad ogni potenziale simmetria circolare del cilindro. Tuttavia, se lungo l'asta disegnassimo una linea dritta, allora potremmo determinare se il cilindro è contorto o no, dato che basta guardare com'è la linea.\\
-	In modo analogo, l'asta corrisponde al campo elettromagnetico e lo status di ‘‘essere attorcigliata'' ai campo potenziali: la linea dritta corrisponde ad una scelta di gauge, dato che le sezioni ortogonali non sono invarianti per le simmetrie circolari.
+	In modo analogo, l'asta corrisponde al campo elettromagnetico e lo status di ``essere attorcigliata'' ai campo potenziali: la linea dritta corrisponde ad una scelta di gauge, dato che le sezioni ortogonali non sono invarianti per le simmetrie circolari.
 \end{intuit}
 \noindent Fare una scelta certamente rovina l'invarianza di gauge, ma ci permette spesso di ricondurci ad una situazione molto più facile da studiare.\\
 Ad esempio, supponiamo di avere un campo potenziale magnetico $\vba{A}$ tale per cui $\div{\vba{A}}\neq 0$. Possiamo effettuare una \textit{scelta di gauge} imponendo che la trasformazione descritta dal campo scalare $\oldphi$, ossia
@@ -390,26 +390,26 @@ Preso allora $\vba{A}$ con la scelta di gauge qui sopra, dato che $\div{A}=0$ si
 \begin{equation*}
 	\grad \left( \div{\vba{A}}\right) - \laplacian{\vba{A}}=\mu_0 \vba j\implies \laplacian{\vba{A}}=-\mu_0 \vba j
 \end{equation*}
-Previa una scelta di gauge opportuna, l'intera elettromagnetostatica può essere descritta da quattro equazioni di Laplace - una con il potenziale scalare per l'elettrostatica, e tre con il potenziale vettoriale per la magnetostatica.
-\begin{align}
+Previa una scelta di gauge opportuna, l'intera elettromagnetostatica può essere descritta da \textit{quattro equazioni di Laplace} - una con il potenziale scalare per l'elettrostatica, e tre con il potenziale vettoriale per la magnetostatica:
+\begin{empheq}[box=\tcmathboxgeneral]{align}
 	\laplacian A_x&=\mu_0 j_x\\
 	\laplacian A_y&=\mu_0 j_y\\
 	\laplacian A_z&=\mu_0 j_z\\
 	\laplacian V&=-\frac{\rho}{\epsilon_0}
-\end{align}
+\end{empheq}
 La soluzione più generale di queste equazioni differenziali, date le \textit{condizioni al contorno} di natura fisica
 \begin{equation*}
 	V,\ \vba{A}\underset{\vba{r}\to\infty}{\to}0
 \end{equation*}
 è data da
-\begin{align}
+\begin{empheq}[box=\tcmathboxgeneral]{align}
 	\vba{A}(\vba r)&=\frac{\mu_0}{4\pi}\int\frac{\vba j(\vba r')}{\abs{\vba r-\vba r'}} dV'\\
 	V(\vba r)&=\frac{1}{4\pi\epsilon_0}\int \frac{\rho(\vba r')}{\abs{\vba r-\vba r'}}dV'
-\end{align}
-dove $dV'=dx'dy'dz'$.
+\end{empheq}
+dove $dV'=dx'dy'dz'$ è l'elemento di volume infinitesimo.
 Noti dunque $\rho$ e $\vba{j}$ siamo in grado descrivere completamente una configurazione (statica) di natura elettromagnetica - modulo saper calcolare l'integrale, che non è per nulla scontato.
 \begin{examplewt}[Sfera carica uniformemente]
-	Ricalcoliamo\footnote{Avevamo calcolato il potenziale elettrostatico in presenza di simmetria radiale direttamente a partire dalle equazioni di Poisson e Laplace nel \autoref{chap:PotenzialeElettrico}, sezione \ref{EquazioniPoissonSimmetriaSferica}, pag. \pageref{EquazioniPoissonSimmetriaSferica}; per ottenere nello specifico il caso della \textit{sfera carica}  avevamo imposto le condizioni al contorno solo successivamente. Il procedimento qui scelto risulta utilizza invece la soluzione scritta poc'anzi - ma di fatto l'origine è anch'essa dalle equazioni di Laplace e Poisson} il campo elettrico interno ed esterno ad una sfera di raggio $r_0$ carica uniformemente con densità di carica
+	Ricalcoliamo\footnote{Avevamo calcolato il potenziale elettrostatico in presenza di simmetria radiale direttamente a partire dalle equazioni di Poisson e Laplace nel \autoref{chap:PotenzialeElettrico}, sezione \ref{EquazioniPoissonSimmetriaSferica}, pag. \pageref{EquazioniPoissonSimmetriaSferica}; per ottenere nello specifico il caso della \textit{sfera carica}  avevamo imposto le condizioni al contorno solo successivamente. Il procedimento qui scelto, pur essendo differente, ha origine nelle equazioni di Laplace e Poisson.} il campo elettrico interno ed esterno ad una sfera di raggio $r_0$ carica uniformemente con densità di carica
 	\begin{equation*}
 		\rho(\vba r)=
 		\begin{cases}
@@ -437,8 +437,6 @@ Noti dunque $\rho$ e $\vba{j}$ siamo in grado descrivere completamente una confi
 	\begin{equation*}
 		V(r)=\frac{\rho}{4\pi\epsilon_0}\int^{r_0}_0dr' \int^\pi_0 d\theta' \int^{2\pi}_0 d\phi' \frac{(r')^2 \sin\theta '}{\sqrt{r^2+(r')^2 -2rr'\cos\theta '}}\squarequal	
 	\end{equation*}
-	%NOTA: l'itemize è una mia idea per riassumere tutte le varie considerazioni, in un testo unico sarebbe stato un po' dispersivo e sembrava un essay in cui si cercano 100 sinonimi di since
-	% nice idea, per la prima parte
 	Operiamo il cambio di variabile $u=\cos\theta'$: il differenziale diventa $du=-\sin\theta'd\theta'$ e gli estremi di integrazione rispetto a $u$ sono $\pm 1$.
 	\begin{align*}
 		\squarequal&\frac{\rho}{2\epsilon_0}\int^{r_0}_0 \negthickspace dr'\int^1_{-1}\negthickspace du \frac{-(r')^2}{\sqrt{r^2+(r')^2-2rr'u}}=\\
@@ -462,25 +460,25 @@ Noti dunque $\rho$ e $\vba{j}$ siamo in grado descrivere completamente una confi
 		\begin{equation*}
 			\squarequal\frac{q\Ccancel[red]{r_0^3}}{\frac{4}{\Ccancel[red]{3}}\Ccancel[red]{3}\pi \Ccancel[red]{r_0^3} r}=\frac{q}{4\pi \epsilon_0 r}
 		\end{equation*}
-		\begin{equation}
+		\begin{equation*}
 			V(r)=\frac{\rho r_0^3}{3\epsilon_0 r}=\frac{q}{4\pi \epsilon_0 r}
-		\end{equation}
+		\end{equation*}
 		Il campo elettrico associato è
-		\begin{equation}
+		\begin{equation*}
 			\vba{E}(\vba{r})=-\grad V=\pdv{V}{r}\vbh{u}_r =\frac{q}{4\pi\epsilon_0 r^2}\vbh{u}_r
-		\end{equation}
+		\end{equation*}
 		\item \textbf{Dentro la sfera} ($r<r_0$). Dobbiamo spezzare l'integrale in due a seconda del segno del modulo: in $\left[0,r\right]$ e in $\left[r, r_0\right]$.
 		\begin{align*}
 			V(r)&=\frac{\rho}{2\epsilon_0}\left( \int^r_0 dr'(2r')^2 + \int^{r_0}_r dr' 2rr' \right)= \frac{\rho}{2\epsilon_0 \Ccancel[red]{r}} \left( \frac{2}{3} r^{\Ccancel[red]{red}} + \Ccancel[red]{r} (r_0^2 -r^2) \right)\\
 			=&\frac{\rho}{2\epsilon_0}\left( r_0^2 -\frac{r^2}{3} \right)
 		\end{align*}
-		\begin{equation}
+		\begin{equation*}
 			V(r)=\frac{\rho}{2\epsilon_0}\left( r_0^2 -\frac{r^2}{3} \right)
-		\end{equation}
+		\end{equation*}
 		Il campo elettrico associato è
-		\begin{equation}
+		\begin{equation*}
 			\vba{E}=-\grad V= -\pdv{V}{r}\vbh{u}_r =\frac{\rho r}{3\epsilon_0}\vbh{u}_r
-		\end{equation}
+		\end{equation*}
 	\end{itemize}
 	%GRAFICI 16.8 e 16.9
 	Notiamo che il potenziale è continuo per $r=r_0$ ed è continua anche la sua derivata prima; graficamente non ci sono cuspidi.
@@ -497,5 +495,4 @@ Noti dunque $\rho$ e $\vba{j}$ siamo in grado descrivere completamente una confi
 			\frac{q}{4\pi\epsilon_0 r^2} & r>r_0
 		\end{cases}
 	\end{equation*}
-	%Siamo riusciti a fare l'integrale perché la configurazione è simmetrica. Abbiamo così ricavato un risultato già noto partendo dall'equazione di Poisson.
 \end{examplewt}
